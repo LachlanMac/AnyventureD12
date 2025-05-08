@@ -1,4 +1,4 @@
-import React, { useState,useEffect  } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
@@ -11,87 +11,17 @@ import TalentsTab from '../components/character/creator/TalentsTab';
 import TraitsCreatorTab from '../components/character/creator/TraitsCreatorTab';
 import BackgroundCreatorTab from '../components/character/creator/BackgroundCreatorTab';
 
-// Type definitions
-interface Trait {
-  _id: string;
-  name: string;
-  type: 'positive' | 'negative';
-  description: string;
-}
-
-
-// Weapon skills
-const SPECIALIZED_SKILLS = [
-  { id: 'unarmed', name: 'Unarmed', defaultTalent: 0 },
-  { id: 'throwing', name: 'Throwing', defaultTalent: 0 },
-  { id: 'rangedWeapons', name: 'Ranged Weapons', defaultTalent: 1 },
-  { id: 'simpleMeleeWeapons', name: 'Simple Melee Weapons', defaultTalent: 1 },
-  { id: 'complexMeleeWeapons', name: 'Complex Melee Weapons', defaultTalent: 0 },
-];
-
-// Magic skills
-const MAGIC_SKILLS = [
-  { id: 'black', name: 'Black' },         // necromancy, witchcraft (fiend)
-  { id: 'primal', name: 'Primal' },       // evocation, druidic (cosmic)
-  { id: 'alteration', name: 'Alteration' }, // illusion, transmutation (fey)
-  { id: 'divine', name: 'Divine' },       // abjuration, divine (draconic)
-  { id: 'mystic', name: 'Mystic' },       // auguration, shamanic (astral)
-];
-
-// Crafting skills
-const CRAFTING_SKILLS = [
-  { id: 'engineering', name: 'Engineering' },
-  { id: 'fabrication', name: 'Fabrication' },
-  { id: 'alchemy', name: 'Alchemy' },
-  { id: 'cooking', name: 'Cooking' },
-  { id: 'glyphcraft', name: 'Glyphcraft' },
-];
-
-// Skill mappings by attribute category
-const ATTRIBUTE_SKILLS = {
-  physique: [
-    { id: 'fitness', name: 'Fitness' },
-    { id: 'deflection', name: 'Deflection' },
-    { id: 'might', name: 'Might' },
-    { id: 'endurance', name: 'Endurance' },
-  ],
-  finesse: [
-    { id: 'evasion', name: 'Evasion' },
-    { id: 'stealth', name: 'Stealth' },
-    { id: 'coordination', name: 'Coordination' },
-    { id: 'thievery', name: 'Thievery' },
-  ],
-  mind: [
-    { id: 'resilience', name: 'Resilience' },
-    { id: 'concentration', name: 'Concentration' },
-    { id: 'senses', name: 'Senses' },
-    { id: 'logic', name: 'Logic' },
-  ],
-  knowledge: [
-    { id: 'wildcraft', name: 'Wildcraft' },
-    { id: 'academics', name: 'Academics' },
-    { id: 'magic', name: 'Magic' },
-    { id: 'medicine', name: 'Medicine' },
-  ],
-  social: [
-    { id: 'expression', name: 'Expression' },
-    { id: 'presence', name: 'Presence' },
-    { id: 'insight', name: 'Insight' },
-    { id: 'persuasion', name: 'Persuasion' },
-  ],
-};
-
-interface RacialModule {
-  _id: string;
-  name: string;
-  mtype: string;
-  options: {
-    name: string;
-    description: string;
-    location: string;
-    data: string;
-  }[];
-}
+// Import utility functions and types from the shared files
+import { 
+  createDefaultCharacter, 
+  updateSkillTalentsFromAttributes
+} from '../utils/characterUtils';
+import { 
+  Character, 
+  Trait, 
+  RacialModule, 
+  Attributes 
+} from '../types/character';
 
 const CharacterCreate: React.FC = () => {
   const navigate = useNavigate();
@@ -100,6 +30,7 @@ const CharacterCreate: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedTraits, setSelectedTraits] = useState<Trait[]>([]);
   const [portraitFile, setPortraitFile] = useState<File | null>(null);
+  
   // Tracking for attribute and talent points
   const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(5);
   const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(5);
@@ -109,84 +40,8 @@ const CharacterCreate: React.FC = () => {
   // Define steps
   const steps = ['Basic Info', 'Attributes', 'Talents', 'Traits', 'Background'];
 
-  // Initialize skills for each attribute
-  const initializeSkills = () => {
-    const skills: Record<string, { value: number; talent: number }> = {};
-
-    Object.values(ATTRIBUTE_SKILLS).forEach((skillGroup) => {
-      skillGroup.forEach((skill) => {
-        skills[skill.id] = { value: 0, talent: 0 }; 
-      });
-    });
-
-    return skills;
-  };
-
-  // Initialize weapon skills
-  const initializeWeaponSkills = () => {
-    const weaponSkills: Record<string, { value: number; talent: number }> = {};
-    SPECIALIZED_SKILLS.forEach((skill) => {
-      weaponSkills[skill.id] = { value: 0, talent: skill.defaultTalent }; // Start with 1d4 and default talent
-    });
-
-    return weaponSkills;
-  };
-
-  const initializeMagicSkills = () => {
-    const magicSkills: Record<string, { value: number; talent: number }> = {};
-      MAGIC_SKILLS.forEach((skill) => {
-        magicSkills[skill.id] = { value: 0, talent: 0 }; // Start with 1d4 and default talent
-    });
-
-    return magicSkills;
-  };
-  // Initialize crafting skills
-  const initializeCraftingSkills = () => {
-    const craftingSkills: Record<string, { value: number; talent: number }> = {};
-
-    CRAFTING_SKILLS.forEach((skill) => {
-      craftingSkills[skill.id] = { value: 0, talent: 0 }; // Start with 1d4 and 0 talent
-    });
-
-    return craftingSkills;
-  };
-
-  // Character state
-  const [character, setCharacter] = useState({
-    name: '',
-    race: '',
-    modulePoints: {
-      total: 10,
-      spent: 0,
-    },
-    attributes: {
-      physique: 1,
-      finesse: 1,
-      mind: 1,
-      knowledge: 1,
-      social: 1,
-    },
-    skills: initializeSkills(),
-    weaponSkills: initializeWeaponSkills(),
-    magicSkills: initializeMagicSkills(),
-    craftingSkills: initializeCraftingSkills(),
-    level: 1,
-    physicalTraits: {
-      size: '',
-      weight: '',
-      height: '',
-      gender: '',
-    },
-    biography: '',
-    appearance: '',
-    characterCreation: {
-      attributePointsRemaining: 5,
-      talentStarsRemaining: 5,
-    },
-    // For testing, hardcode a userId - in a real app this would come from auth
-    userId: 'test-user-id',
-  });
-
+  // Initialize character state using the utility function
+  const [character, setCharacter] = useState<Character>(createDefaultCharacter('test-user-id'));
 
   useEffect(() => {
     const fetchRacialModules = async () => {
@@ -206,7 +61,6 @@ const CharacterCreate: React.FC = () => {
     fetchRacialModules();
   }, []);
 
-
   const handleRaceChange = (raceName: string, racialModule: RacialModule) => {
     console.log("handleRaceChange called with:", raceName);
     console.log("Received racial module:", racialModule);
@@ -219,16 +73,16 @@ const CharacterCreate: React.FC = () => {
   };
 
   // Update basic character field
-  const updateCharacter = (field: string, value: any) => {
+  const updateCharacter = (field: keyof Character, value: any) => {
     setCharacter((prev) => ({
       ...prev,
       [field]: value,
     }));
   };
 
-  const updateNestedField = (objectName: string, field: string, value: any) => {
+  const updateNestedField = (objectName: keyof Character, field: string, value: any) => {
     setCharacter((prev) => {
-      const nested = prev[objectName as keyof typeof prev];
+      const nested = prev[objectName];
       return {
         ...prev,
         [objectName]: {
@@ -240,8 +94,8 @@ const CharacterCreate: React.FC = () => {
   };
 
   // Update an attribute
-  const updateAttribute = (attribute: string, newValue: number) => {
-    const oldValue = character.attributes[attribute as keyof typeof character.attributes];
+  const updateAttribute = (attribute: keyof Attributes, newValue: number) => {
+    const oldValue = character.attributes[attribute];
     const pointDifference = oldValue - newValue;
 
     // Check if there are enough points and if the value is within bounds
@@ -256,30 +110,18 @@ const CharacterCreate: React.FC = () => {
     }
 
     // Update the attribute
-    const newAttributes = {
-      ...character.attributes,
-      [attribute]: newValue,
+    const updatedCharacter = {
+      ...character,
+      attributes: {
+        ...character.attributes,
+        [attribute]: newValue,
+      },
     };
 
-    // Update skills talent based on new attribute value
-    const newSkills = { ...character.skills };
-
-    // Update the talent for all skills in this attribute group
-    if (ATTRIBUTE_SKILLS[attribute as keyof typeof ATTRIBUTE_SKILLS]) {
-      ATTRIBUTE_SKILLS[attribute as keyof typeof ATTRIBUTE_SKILLS].forEach((skill) => {
-        newSkills[skill.id] = {
-          ...newSkills[skill.id],
-          talent: newValue, // Attribute value determines talent for related skills
-        };
-      });
-    }
-
-    setCharacter((prev) => ({
-      ...prev,
-      attributes: newAttributes,
-      skills: newSkills,
-    }));
-
+    // Update skills' talent values based on the new attribute value
+    const characterWithUpdatedSkills = updateSkillTalentsFromAttributes(updatedCharacter);
+    
+    setCharacter(characterWithUpdatedSkills);
     setAttributePointsRemaining((prev) => prev + pointDifference);
   };
 
@@ -289,7 +131,7 @@ const CharacterCreate: React.FC = () => {
       return; // Invalid value
     }
 
-    const oldTalent = character.weaponSkills[skillId as keyof typeof character.weaponSkills].talent;
+    const oldTalent = character.weaponSkills[skillId]?.talent || 0;
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {
@@ -302,7 +144,35 @@ const CharacterCreate: React.FC = () => {
       weaponSkills: {
         ...prev.weaponSkills,
         [skillId]: {
-          ...prev.weaponSkills[skillId as keyof typeof prev.weaponSkills],
+          ...prev.weaponSkills[skillId] || { value: 0 },
+          talent: newTalent,
+        },
+      },
+    }));
+
+    setTalentStarsRemaining((prev) => prev + starDifference);
+  };
+
+  // Update magic skill talent
+  const updateMagicSkillTalent = (skillId: string, newTalent: number) => {
+    if (newTalent < 0 || newTalent > 3) {
+      return; // Invalid value
+    }
+
+    const oldTalent = character.magicSkills[skillId]?.talent || 0;
+    const starDifference = oldTalent - newTalent;
+
+    if (talentStarsRemaining + starDifference < 0) {
+      // Not enough talent stars
+      return;
+    }
+
+    setCharacter((prev) => ({
+      ...prev,
+      magicSkills: {
+        ...prev.magicSkills,
+        [skillId]: {
+          ...prev.magicSkills[skillId] || { value: 0 },
           talent: newTalent,
         },
       },
@@ -317,8 +187,7 @@ const CharacterCreate: React.FC = () => {
       return; // Invalid value
     }
 
-    const oldTalent =
-      character.craftingSkills[skillId as keyof typeof character.craftingSkills].talent;
+    const oldTalent = character.craftingSkills[skillId]?.talent || 0;
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {
@@ -331,7 +200,7 @@ const CharacterCreate: React.FC = () => {
       craftingSkills: {
         ...prev.craftingSkills,
         [skillId]: {
-          ...prev.craftingSkills[skillId as keyof typeof prev.craftingSkills],
+          ...prev.craftingSkills[skillId] || { value: 0 },
           talent: newTalent,
         },
       },
@@ -384,7 +253,6 @@ const CharacterCreate: React.FC = () => {
         return true;
     }
   };
-
 
   const handlePortraitUpdate = (file: File) => {
     setPortraitFile(file);
@@ -455,6 +323,7 @@ const CharacterCreate: React.FC = () => {
         attributes: character.attributes,
         skills: character.skills,
         weaponSkills: character.weaponSkills,
+        magicSkills: character.magicSkills,
         craftingSkills: character.craftingSkills,
         modulePoints: character.modulePoints,
         level: character.level,
@@ -589,8 +458,10 @@ const CharacterCreate: React.FC = () => {
             {step === 3 && (
               <TalentsTab 
                 weaponSkills={character.weaponSkills}
+                magicSkills={character.magicSkills}
                 craftingSkills={character.craftingSkills}
                 talentStarsRemaining={talentStarsRemaining}
+                onUpdateMagicSkillTalent={updateMagicSkillTalent}
                 onUpdateSpecializedSkillTalent={updateSpecializedSkillTalent}
                 onUpdateCraftingSkillTalent={updateCraftingSkillTalent}
               />

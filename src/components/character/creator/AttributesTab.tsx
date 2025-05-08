@@ -1,70 +1,11 @@
 import React from 'react';
-
-// Define the ATTRIBUTES and ATTRIBUTE_SKILLS constants based on your CharacterCreate.tsx
-const ATTRIBUTES = [
-  {
-    id: 'physique',
-    name: 'Physique',
-    description: 'Physical strength, endurance, and overall body power.',
-  },
-  { id: 'finesse', name: 'Finesse', description: 'Speed, reflexes, balance, and coordination.' },
-  { id: 'mind', name: 'Mind', description: 'Mental fortitude, focus, and perception.' },
-  {
-    id: 'knowledge',
-    name: 'Knowledge',
-    description: 'Education, technical expertise, and wisdom.',
-  },
-  {
-    id: 'social',
-    name: 'Social',
-    description: 'Charisma, empathy, and ability to influence others.',
-  },
-];
-
-// Skill mappings by attribute category
-const ATTRIBUTE_SKILLS = {
-  physique: [
-    { id: 'deflection', name: 'Deflection' },
-    { id: 'endurance', name: 'Fitness' },
-    { id: 'fitness', name: 'Fitness' },
-    { id: 'might', name: 'Might' },
-  ],
-  finesse: [
-    { id: 'coordination', name: 'Coordination' },
-    { id: 'evasion', name: 'Evasion' },
-    { id: 'stealth', name: 'Stealth' },
-    { id: 'thievery', name: 'Thievery' },
-  ],
-  mind: [
-    { id: 'concentration', name: 'Concentration' },
-    { id: 'logic', name: 'Logic' },
-    { id: 'resilience', name: 'Resilience' },
-    { id: 'senses', name: 'Senses' },
-  ],
-  knowledge: [
-    { id: 'academics', name: 'Academics' },
-    { id: 'magic', name: 'Magic' },
-    { id: 'medicine', name: 'Medicine' },
-    { id: 'wildcraft', name: 'Wildcraft' },
-  ],
-  social: [
-    { id: 'expression', name: 'Expression' },
-    { id: 'insight', name: 'Insight' },
-    { id: 'persuasion', name: 'Persuasion' },
-    { id: 'presence', name: 'Presence' },
-  ],
-};
+import { Attributes } from '../../../types/character';
+import { ATTRIBUTE_SKILLS } from '../../../constants/skillConstants';
 
 interface AttributesTabProps {
-  attributes: {
-    physique: number;
-    finesse: number;
-    mind: number;
-    knowledge: number;
-    social: number;
-  };
+  attributes: Attributes;
   attributePointsRemaining: number;
-  onUpdateAttribute: (attribute: string, newValue: number) => void;
+  onUpdateAttribute: (attribute: keyof import('../../../types/character').Attributes, newValue: number) => void
 }
 
 const AttributesTab: React.FC<AttributesTabProps> = ({
@@ -119,8 +60,8 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-        {ATTRIBUTES.map((attribute) => (
-          <div key={attribute.id}>
+        {Object.entries(ATTRIBUTE_SKILLS).map(([attributeId, skills]) => (
+          <div key={attributeId}>
             <div
               style={{
                 display: 'flex',
@@ -129,7 +70,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
               }}
             >
               <label style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold' }}>
-                {attribute.name}
+                {attributeId.charAt(0).toUpperCase() + attributeId.slice(1)}
               </label>
               <div>
                 <span
@@ -138,7 +79,8 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                     fontSize: '0.875rem',
                   }}
                 >
-                  {attribute.description}
+                  {/* This would need to be updated to use attribute descriptions if available */}
+                  Related to {skills.map(skill => skill.name).join(', ')}
                 </span>
               </div>
             </div>
@@ -153,14 +95,14 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
               <button
                 type="button"
                 disabled={
-                  attributes[attribute.id as keyof typeof attributes] <= 1
+                  attributes[attributeId as keyof Attributes] <= 1
                 }
                 onClick={() =>
                   onUpdateAttribute(
-                    attribute.id,
+                    attributeId as keyof Attributes,
                     Math.max(
                       1,
-                      attributes[attribute.id as keyof typeof attributes] - 1
+                      attributes[attributeId as keyof Attributes] - 1
                     )
                   )
                 }
@@ -172,11 +114,11 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                   color: 'var(--color-white)',
                   border: 'none',
                   cursor:
-                    attributes[attribute.id as keyof typeof attributes] <= 1
+                    attributes[attributeId as keyof Attributes] <= 1
                       ? 'not-allowed'
                       : 'pointer',
                   opacity:
-                    attributes[attribute.id as keyof typeof attributes] <= 1
+                    attributes[attributeId as keyof Attributes] <= 1
                       ? 0.5
                       : 1,
                 }}
@@ -197,20 +139,20 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                   fontWeight: 'bold',
                 }}
               >
-                {attributes[attribute.id as keyof typeof attributes]}
+                {attributes[attributeId as keyof Attributes]}
               </div>
 
               <button
                 type="button"
                 disabled={
-                  attributes[attribute.id as keyof typeof attributes] >= 3 || attributePointsRemaining <= 0
+                  attributes[attributeId as keyof Attributes] >= 3 || attributePointsRemaining <= 0
                 }
                 onClick={() =>
                   onUpdateAttribute(
-                    attribute.id,
+                    attributeId as keyof Attributes,
                     Math.min(
                       3,
-                      attributes[attribute.id as keyof typeof attributes] + 1
+                      attributes[attributeId as keyof Attributes] + 1
                     )
                   )
                 }
@@ -222,11 +164,11 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                   color: 'var(--color-white)',
                   border: 'none',
                   cursor:
-                    attributes[attribute.id as keyof typeof attributes] >= 3 || attributePointsRemaining <= 0
+                    attributes[attributeId as keyof Attributes] >= 3 || attributePointsRemaining <= 0
                       ? 'not-allowed'
                       : 'pointer',
                   opacity:
-                    attributes[attribute.id as keyof typeof attributes] >= 3 || attributePointsRemaining <= 0
+                    attributes[attributeId as keyof Attributes] >= 3 || attributePointsRemaining <= 0
                       ? 0.5
                       : 1,
                 }}
@@ -250,7 +192,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                     top: 0,
                     left: 0,
                     height: '100%',
-                    width: `${(attributes[attribute.id as keyof typeof attributes] / 3) * 100}%`,
+                    width: `${(attributes[attributeId as keyof Attributes] / 3) * 100}%`,
                     backgroundColor: 'var(--color-sat-purple)',
                     borderRadius: '0.375rem',
                     transition: 'width 0.3s',
@@ -277,28 +219,26 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                 Related skills:
               </div>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {ATTRIBUTE_SKILLS[attribute.id as keyof typeof ATTRIBUTE_SKILLS].map(
-                  (skill) => (
-                    <div
-                      key={skill.id}
-                      style={{
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        padding: '0.25rem 0.75rem',
-                        borderRadius: '9999px',
-                        fontSize: '0.75rem',
-                        color: 'var(--color-white)',
-                      }}
-                    >
-                      {skill.name} (
-                      {
-                        attributes[
-                          attribute.id as keyof typeof attributes
-                        ]
-                      }{' '}
-                      dice)
-                    </div>
-                  )
-                )}
+                {skills.map((skill) => (
+                  <div
+                    key={skill.id}
+                    style={{
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '9999px',
+                      fontSize: '0.75rem',
+                      color: 'var(--color-white)',
+                    }}
+                  >
+                    {skill.name} (
+                    {
+                      attributes[
+                        attributeId as keyof Attributes
+                      ]
+                    }{' '}
+                    dice)
+                  </div>
+                ))}
               </div>
             </div>
           </div>

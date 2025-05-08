@@ -15,9 +15,7 @@ interface BackgroundCreatorTabProps {
   modulePoints: {
     total: number;
   };
-  attributes: {
-    [key: string]: number;
-  };
+  attributes: import('../../../types/character').Attributes
   portraitFile: File | null;
   onUpdatePhysicalTrait: (trait: string, value: string) => void;
   onUpdateAppearance: (value: string) => void;

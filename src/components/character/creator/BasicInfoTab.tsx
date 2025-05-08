@@ -1,12 +1,13 @@
 import React from 'react';
-import RaceSelection, { RacialModule } from '../RaceSelection'; // Import the updated interface
+import { RacialModule } from '../../../types/character';
+import RaceSelection from '../RaceSelection';
 
 interface BasicInfoTabProps {
   name: string;
   race: string;
   modulePoints: number;
   onNameChange: (name: string) => void;
-  onRaceChange: (race: string, racialModule: RacialModule) => void; // Updated to include module
+  onRaceChange: (race: string, racialModule: RacialModule) => void;
   onModulePointsChange: (points: number) => void;
 }
 
@@ -57,12 +58,11 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
         />
       </div>
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <RaceSelection
-          selectedRace={race}
-          onSelectRace={onRaceChange}
-        />
-      </div>
+      {/* Race Selection Component */}
+      <RaceSelection 
+        selectedRace={race} 
+        onSelectRace={onRaceChange}
+      />
       
       <div style={{ marginBottom: '1.5rem' }}>
         <label

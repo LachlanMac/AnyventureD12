@@ -1,26 +1,9 @@
-// Updated Race Selection component
 import React, { useState, useEffect } from 'react';
-
-// Define RacialModule type to match the structure in the JSON files
-interface RacialModuleOption {
-  name: string;
-  description: string;
-  location: string;
-  data: string;
-}
-
-export interface RacialModule {
-  _id: string; // Make sure we have the _id field
-  name: string;
-  mtype: string;
-  ruleset: number;
-  options: RacialModuleOption[];
-  description?: string;
-}
+import { RacialModule } from '../../types/character';
 
 interface RaceSelectionProps {
   selectedRace: string;
-  onSelectRace: (race: string, racialModule: RacialModule) => void; // Updated to pass the actual module
+  onSelectRace: (race: string, racialModule: RacialModule) => void;
 }
 
 const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRace }) => {
