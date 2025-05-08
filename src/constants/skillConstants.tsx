@@ -37,20 +37,21 @@ export const ATTRIBUTE_SKILLS = {
   
   // Weapon skills
   export const SPECIALIZED_SKILLS = [
-    { id: 'unarmed', name: 'Unarmed', defaultTalent: 0 },
+    { id: 'unarmed', name: 'Unarmed', defaultTalent: 1 },
     { id: 'throwing', name: 'Throwing', defaultTalent: 0 },
-    { id: 'rangedWeapons', name: 'Ranged Weapons', defaultTalent: 1 },
+    { id: 'simpleRangedWeapons', name: 'Simple Ranged Weapons', defaultTalent: 1 },
     { id: 'simpleMeleeWeapons', name: 'Simple Melee Weapons', defaultTalent: 1 },
+    { id: 'complexRangedWeapons', name: 'Complex Ranged Weapons', defaultTalent: 0 },
     { id: 'complexMeleeWeapons', name: 'Complex Melee Weapons', defaultTalent: 0 },
   ];
   
 
   export const MAGIC_SKILLS = [
-    { id: 'black', name: 'Black', defaultTalent: 0 },         
-    { id: 'primal', name: 'Primal', defaultTalent: 0 },       
-    { id: 'alteration', name: 'Alteration', defaultTalent: 0 }, 
-    { id: 'divine', name: 'Divine', defaultTalent: 0 },       
-    { id: 'mystic', name: 'Mystic', defaultTalent: 0 },       
+    { id: 'black', name: 'Black Magic', defaultTalent: 0 },         
+    { id: 'primal', name: 'Primal Magic', defaultTalent: 0 },       
+    { id: 'alteration', name: 'Alteration Magic', defaultTalent: 0 }, 
+    { id: 'divine', name: 'Divine Magic', defaultTalent: 0 },       
+    { id: 'mystic', name: 'Mysticism Magic', defaultTalent: 0 },       
   ];
   
   // Crafting skills
@@ -60,6 +61,7 @@ export const ATTRIBUTE_SKILLS = {
     { id: 'alchemy', name: 'Alchemy', defaultTalent: 0 },
     { id: 'cooking', name: 'Cooking', defaultTalent: 0 },
     { id: 'glyphcraft', name: 'Glyphcraft', defaultTalent: 0 },
+    { id: 'bioshaping', name: 'Bioshaping', defaultTalent: 0 },
   ];
   
   // Dice type mapping

@@ -125,26 +125,21 @@ const CharacterSchema = new Schema({
     deflection: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
     might: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
     endurance: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
-
-
     // Agility Skills
     evasion: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
     stealth: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
     coordination: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
     thievery: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
-
     // Mind Skills
     resilience: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
     concentration: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
     senses: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
     logic: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
-    
     // Knowledge Skills
     wildcraft: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
     academics: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
     magic: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
     medicine: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
-    
     // Social Skills
     expression: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
     presence: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
@@ -156,7 +151,8 @@ const CharacterSchema = new Schema({
   weaponSkills: {
     unarmed :{},
     throwing:{},
-    rangedWeapons:{},
+    simpleRangedWeapons:{},
+    complexRangedWeapons:{},
     simpleMeleeWeapons:{}, 
     complexMeleeWeapons:{}
   },
@@ -176,6 +172,7 @@ const CharacterSchema = new Schema({
     alchemy: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
     cooking: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
     glyphcraft: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
+    bioshaping: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
   },
   
   // Track remaining talent stars for character creation
