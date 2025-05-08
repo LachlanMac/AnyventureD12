@@ -1,0 +1,71 @@
+{
+  "id": 214,
+  "name": "Elemental Ammocraft",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1302,
+      "name": "Elemental Ammocrafter",
+      "description": "Gain Access to Elemental Ammocrafting. You can use Beginner and Novice Level Catalysts in your Elemental Ammocrafter Recipes.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1303,
+      "name": "Double Infused Ammunition",
+      "description": "When you Infuse Ammunition with both an Elemental Infusion and the cooresponding Area Infusion (Shocking,Shockwave,Burning,Frosted) of the same Subschool, the Primary Damage is negated, but everyone within the Area takes the Elemental Damage as Splash Damage.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1304,
+      "name": "Action : Purify Elements",
+      "description": "You fire a piece of Ammunition with the Elemental Infusion on it, converting all of the Primary Damage to the Damage Type of your Infusion.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1305,
+      "name": "Improved Elemental Ammocrafting",
+      "description": "Gain +1 Elemental Mitigation and +1 Ammocraft",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ADA=1:AC6=1"
+    },
+    {
+      "id": 1306,
+      "name": "Action : Lineshot",
+      "description": "You fire a piece of Ammunition Infused with one of the Area Infusions (Shocking,Shockwave,Burning,Frosted), converting them into a Line with a Radius of 1 Unit and Length equal to your Ammocraft Modifier at the time of Crafting. Additionally, the Area persists until the end of your next turn, causing any Creature who moves through the affected Area to have to make the Check against the effects again.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1307,
+      "name": "Critical Elemental Infusion",
+      "description": "On True Hits, the Dice for the Secondary Damage on your Elemental Infusions are doubled, including usages of Double Infused Ammuntion.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1308,
+      "name": "Improved Elemental Ammocraft",
+      "description": "Gain +1 Ammocraft. Additionally, you can use Journeyman Catalysts in your Elemental Ammocraft Recipes at Level 7 and Expert at Level 9.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TG:AC6=1"
+    }
+  ]
+}

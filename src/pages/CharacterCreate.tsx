@@ -20,49 +20,64 @@ interface Trait {
 }
 
 
-// Specialized skills that don't depend on attributes
+// Weapon skills
 const SPECIALIZED_SKILLS = [
+  { id: 'unarmed', name: 'Unarmed', defaultTalent: 0 },
+  { id: 'throwing', name: 'Throwing', defaultTalent: 0 },
   { id: 'rangedWeapons', name: 'Ranged Weapons', defaultTalent: 1 },
-  { id: 'meleeWeapons', name: 'Melee Weapons', defaultTalent: 1 },
-  { id: 'weaponSystems', name: 'Weapon Systems', defaultTalent: 0 },
-  { id: 'heavyRangedWeapons', name: 'Heavy Ranged Weapons', defaultTalent: 0 },
+  { id: 'simpleMeleeWeapons', name: 'Simple Melee Weapons', defaultTalent: 1 },
+  { id: 'complexMeleeWeapons', name: 'Complex Melee Weapons', defaultTalent: 0 },
+];
+
+// Magic skills
+const MAGIC_SKILLS = [
+  { id: 'black', name: 'Black' },         // necromancy, witchcraft (fiend)
+  { id: 'primal', name: 'Primal' },       // evocation, druidic (cosmic)
+  { id: 'alteration', name: 'Alteration' }, // illusion, transmutation (fey)
+  { id: 'divine', name: 'Divine' },       // abjuration, divine (draconic)
+  { id: 'mystic', name: 'Mystic' },       // auguration, shamanic (astral)
 ];
 
 // Crafting skills
 const CRAFTING_SKILLS = [
   { id: 'engineering', name: 'Engineering' },
   { id: 'fabrication', name: 'Fabrication' },
-  { id: 'biosculpting', name: 'Biosculpting' },
-  { id: 'synthesis', name: 'Synthesis' },
+  { id: 'alchemy', name: 'Alchemy' },
+  { id: 'cooking', name: 'Cooking' },
+  { id: 'glyphcraft', name: 'Glyphcraft' },
 ];
 
 // Skill mappings by attribute category
 const ATTRIBUTE_SKILLS = {
   physique: [
     { id: 'fitness', name: 'Fitness' },
-    { id: 'deflect', name: 'Deflect' },
+    { id: 'deflection', name: 'Deflection' },
     { id: 'might', name: 'Might' },
+    { id: 'endurance', name: 'Endurance' },
   ],
-  agility: [
-    { id: 'evade', name: 'Evade' },
+  finesse: [
+    { id: 'evasion', name: 'Evasion' },
     { id: 'stealth', name: 'Stealth' },
     { id: 'coordination', name: 'Coordination' },
+    { id: 'thievery', name: 'Thievery' },
   ],
   mind: [
     { id: 'resilience', name: 'Resilience' },
     { id: 'concentration', name: 'Concentration' },
     { id: 'senses', name: 'Senses' },
+    { id: 'logic', name: 'Logic' },
   ],
   knowledge: [
-    { id: 'science', name: 'Science' },
-    { id: 'technology', name: 'Technology' },
+    { id: 'wildcraft', name: 'Wildcraft' },
+    { id: 'academics', name: 'Academics' },
+    { id: 'magic', name: 'Magic' },
     { id: 'medicine', name: 'Medicine' },
-    { id: 'xenology', name: 'Xenology' },
   ],
   social: [
-    { id: 'negotiation', name: 'Negotiation' },
-    { id: 'behavior', name: 'Behavior' },
+    { id: 'expression', name: 'Expression' },
     { id: 'presence', name: 'Presence' },
+    { id: 'insight', name: 'Insight' },
+    { id: 'persuasion', name: 'Persuasion' },
   ],
 };
 
@@ -110,7 +125,6 @@ const CharacterCreate: React.FC = () => {
   // Initialize weapon skills
   const initializeWeaponSkills = () => {
     const weaponSkills: Record<string, { value: number; talent: number }> = {};
-
     SPECIALIZED_SKILLS.forEach((skill) => {
       weaponSkills[skill.id] = { value: 0, talent: skill.defaultTalent }; // Start with 1d4 and default talent
     });
@@ -118,6 +132,14 @@ const CharacterCreate: React.FC = () => {
     return weaponSkills;
   };
 
+  const initializeMagicSkills = () => {
+    const magicSkills: Record<string, { value: number; talent: number }> = {};
+      MAGIC_SKILLS.forEach((skill) => {
+        magicSkills[skill.id] = { value: 0, talent: 0 }; // Start with 1d4 and default talent
+    });
+
+    return magicSkills;
+  };
   // Initialize crafting skills
   const initializeCraftingSkills = () => {
     const craftingSkills: Record<string, { value: number; talent: number }> = {};
@@ -139,13 +161,14 @@ const CharacterCreate: React.FC = () => {
     },
     attributes: {
       physique: 1,
-      agility: 1,
+      finesse: 1,
       mind: 1,
       knowledge: 1,
       social: 1,
     },
     skills: initializeSkills(),
     weaponSkills: initializeWeaponSkills(),
+    magicSkills: initializeMagicSkills(),
     craftingSkills: initializeCraftingSkills(),
     level: 1,
     physicalTraits: {

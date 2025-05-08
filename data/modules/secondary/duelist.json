@@ -1,0 +1,71 @@
+{
+  "id": 202,
+  "name": "Duelist",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1218,
+      "name": "Duelist Stance",
+      "description": "Gain the Dueling Fighting Stance",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "H=8"
+    },
+    {
+      "id": 1219,
+      "name": "Flourish",
+      "description": "Gain +1 Performance and +1 Damage to Weapon Attacks",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASE=1:AZ3=1"
+    },
+    {
+      "id": 1220,
+      "name": "Lean Fighter",
+      "description": "Gain +1 Athletics and +3 Health",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS1=1:AH=3"
+    },
+    {
+      "id": 1221,
+      "name": "Reaction : Parry",
+      "description": "After a Creature makes a Melee Attack roll on you or against a Creature that is Adjacent to you, roll a 1d4 subtract that amount from the Attack Check.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1222,
+      "name": "Action : Make Space",
+      "description": "If there are two or more enemies adjacent to you, make a sweeping Attack, making a single roll against all adjacent targets. You can immediately move 2 units without provoking Reactions.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1223,
+      "name": "Action : Challenge",
+      "description": "You use your Focus issue a challenge to to a Creature, causing your Attacks to deal an extra 1d8 Damage.  This effect persists until someone other than you does Damage to this Creature. This Focus cannot be broken by taking damage.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1224,
+      "name": "Master Duelist",
+      "description": "Gain +1 to Melee Attacks and +1 Block.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "AZ6=1:AZ7=1:AZ8=1:AZM=1:AD3=1"
+    }
+  ]
+}

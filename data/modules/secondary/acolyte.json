@@ -1,0 +1,71 @@
+{
+  "id": 230,
+  "name": "Acolyte",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1414,
+      "name": "Sect",
+      "description": "You are part of a religious order that worships an Entity or Entities associated with life or death. Gain +1 Arcanum and +1 Runecarving",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AC4=1:AS7=1"
+    },
+    {
+      "id": 1415,
+      "name": "Of the Faith",
+      "description": "Learn 2 Beginner and 2 Novice Spells from the Divine or Necromancy School of Magic",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AD7=2"
+    },
+    {
+      "id": 1416,
+      "name": "Brothers and Sisters",
+      "description": "While you are within 6 Units of another member of your Sect or another Character who has the Sect trait, you reroll any Attack and Defense Checks when you Roll a 1 on a d12.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1417,
+      "name": "Servant",
+      "description": "Gain +1 Spell Damage, +1 Dark Mitigation and +1 Divine Mitigation.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ4=1:AD8=1:AD7=1"
+    },
+    {
+      "id": 1418,
+      "name": "Craft : Sacred Symbol",
+      "description": "When you Craft either a Shield, Necklace or Chest Piece, you can add a Conduit Slot Infusion without taking up an Infusion Slot and add iconography associated with your Sect. This Item gains +2 Spell Damage when Equipped by you or a member of your Sect as a Conduit.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 1419,
+      "name": "Reaction : Absolute Faith",
+      "description": "In response to making a Resistance or Resilience Check, gain a 1d4 Bonus. If the Bonus was the cause of a success, gain Temporary Health equal to your Level until the end of your next Full Rest. If you have the Brothers and Sisters trait, you can use this on any eligble member of your Sect within 6 Units.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1420,
+      "name": "Final Service",
+      "description": "In response to reaching 3 Lifeline Points or lower, you can choose to forfeit any remaining Lifeline points and skip ahead to making your Death Check, with the result needed to live becoming a 4 or higher. If you survive, you gain Health equal to double your Level. On a failure, you die and become eligble for a Pact with an Entity associated wtih your Sect.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TD"
+    }
+  ]
+}

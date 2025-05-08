@@ -1,0 +1,71 @@
+{
+  "id": 256,
+  "name": "Devout",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1589,
+      "name": "Devout",
+      "description": "You dedicate your channeling to a diety or entity that empowers your magic. You can only Cast Spells from the Abjuration and Divine Schools of Magic, however your Damage Bonus Modifiers are doubled on those Spells.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1590,
+      "name": "Crusader",
+      "description": "Gain +1 Damage with Slashing and Crushing Weapons",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AZA=1:AZB=1"
+    },
+    {
+      "id": 1591,
+      "name": "Radiant Shield",
+      "description": "Gain +1 Resistance and +2 Dark Mitigation",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AD1=1:AD7=1"
+    },
+    {
+      "id": 1592,
+      "name": "Dedication of Faith",
+      "description": "Your Melee Weapons deal 1d4 Divine Damage which increases to 1d8 at level 7 and 2d8 at level 11. Roll an additional Dice against Undead and Dark Creatures.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1593,
+      "name": "Reaction : Healing Words",
+      "description": "You Channel a Touch Healing Spell that requires 1 Action to Heal a Creature within 6 Units if they are able to hear you.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1595,
+      "name": "Free Action : Turn the Unfaithful",
+      "description": "When you deal Divine Damage to a Dark or Undead Creature, you force them to make a Resilience Check against half the total Damage taken after Mitigations, or they become Afraid of you.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1594,
+      "name": "Improved Healing and Shielding",
+      "description": "Your Healing and Shielding Spells are improved by 1 Dice.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TG"
+    }
+  ]
+}

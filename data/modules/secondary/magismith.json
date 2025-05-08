@@ -1,0 +1,71 @@
+{
+  "id": 223,
+  "name": "Magismith",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1365,
+      "name": "Magismith",
+      "description": "Gain Access to Magismithing. You can use Beginner and Novice Level Catalysts in your Magismithing Recipes.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1366,
+      "name": "Magismith Catalyst Expert",
+      "description": "Gain +1 Spell Damage. Additionally, Catalysts that you create count as 1 tier higher for the purpose of Magismith Recipes.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "TC:AZ4=1"
+    },
+    {
+      "id": 1367,
+      "name": "Jewelry Infusions",
+      "description": "You can add an additional Infusion to Rings you Craft.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1368,
+      "name": "Variable Mitigations",
+      "description": "When you add a Magismithing Infusion to Chest Armor, a Shield or a Weapon, add +2 Mitigation of your choice against Dark, Divine, Arcane or Psychic to the Object.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1369,
+      "name": "Forged in Magic",
+      "description": "Any Object you Craft receives the Immutable and Conduit Slot Infusion without consuming an Infusion Slot when you add a Lead Ingot to the Recipes.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1370,
+      "name": "Craft : Transfer Enchantment",
+      "description": "You spend 1 Day and a Pinch of Powdered Gold to transfer all of the magical effects from one piece of Equipment to another non-magical piece of Equipment that occupies the same Equipment Slot as the original.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 1371,
+      "name": "Improved Magismithing",
+      "description": "Gain +1 Smithing. Additionally, you can use Journeyman Catalysts in your Magismithing Recipes at Level 7, Expert at 9 and Master at 11.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TC:AC1=1"
+    }
+  ]
+}

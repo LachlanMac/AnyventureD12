@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               }}
               className="text-glow"
             >
-              Starbelter
+              AnyventureD12
             </Link>
             <p style={{ 
               marginTop: '0.5rem',

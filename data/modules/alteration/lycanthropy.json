@@ -1,0 +1,143 @@
+{
+  "id": 122,
+  "name": "Lycanthropy",
+  "mtype": "alteration",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 2051,
+      "name": "Tearing Claws",
+      "description": "While you are in Lycanthrope form, your claws count as Light 1 Handed Slashing Weapons and cause the Bleeding Condition on a True Hit.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "TA"
+    },
+    {
+      "id": 2052,
+      "name": "Wild Tracker",
+      "description": "Your Lycanthropy has manifested in innate hunting skills. Gain +1 Search and +1 Wilderness",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASG=1:ASB=1"
+    },
+    {
+      "id": 2053,
+      "name": "Calming Allies",
+      "description": "Despite your savagery, you are still receptive to intervention from allies. While in Lycanthropy form, an Ally can use an Action to attempt to calm you down by making a Contested Persuasion Check against your Resilience. If they succeed, you lose any Maddened Condition affecting you. If they succeed with a result of 15 or higher, you revert back to your original form.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "TA"
+    },
+    {
+      "id": 2054,
+      "name": "Beastial Manifestations",
+      "description": "Your Lycanthropy has advanced to a point where your body is subtly transformed. Gain +2 Cold Mitigation, +1 Strength and +1 Acrobatics.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AD5=2:AS2=1:AS3=1"
+    },
+    {
+      "id": 2055,
+      "name": "Action : Lunge",
+      "description": "While in Lycanthrope Form, you leap from a standing position a distance equal to your Athletics Modifier and make an Attack with one of your Claws.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 2056,
+      "name": "Free Action : Blood Trail",
+      "description": "While in Lycanthrope Form, you Move up to your Movement Speed towards a Creature that has the Bleeding or Wounded Condition.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 2057,
+      "name": "Inner Beast",
+      "description": "Gain +1 Resilience, +1 Athletics and +1 Damage with Slashing Weapons",
+      "mtype": "core",
+      "location": "5",
+      "cost": 3,
+      "data": "AS1=1:AS6=1:AZA=1"
+    },
+    {
+      "id": 2058,
+      "name": "Reaction : Resist",
+      "description": "After being forced to make a Resilience Check, add 1d6 to your Check.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 2059,
+      "name": "Action [Daily] : Alphahowl",
+      "description": "While in Lycanthrope form, you let loose a devastating howl by making an Animals Check. Any hostile Beast within 20 Units must make a Resilience Check greater than or equal to your Animals Check or become Afraid of you. At the end of each turn, they can attempt to make the Check again against the initial Animals Check. Otherwise, the Afraid Condition lasts for 1 minute.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "XD1"
+    },
+    {
+      "id": 2060,
+      "name": "Fortified",
+      "description": "When you transform into a Lycanthrope, the Temporary Health you gain is doubled.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "TA"
+    },
+    {
+      "id": 2061,
+      "name": "Free Action : Offhand Claw",
+      "description": "When you make an Attack with one of your claws while in Lycanthropy Form, you can make an additional Attack with your offhand.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 2062,
+      "name": "Overcome Weakness",
+      "description": "Your strength with your inner beast has grown to a point where you can remove your Lycanthropy Weakness Trait.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "TA"
+    },
+    {
+      "id": 2063,
+      "name": "Action [Daily] : Controlled Transformation",
+      "description": "When a Creature has the Bleeding Condition within 20 Units if you, can you willfully transform into a Lycanthrope without making a Check or be subjected to the Maddened Condition.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "XD1"
+    },
+    {
+      "id": 2064,
+      "name": "Action : Lycanthrope Bite",
+      "description": "While in Lycanthrope form, You make an Unarmed Attack against a Creature that deals an additional 1d10 Physical Damage. A Creature must make a Resilience Check against the total Physical Damage dealt after Mitigation or become Diseased. If the Disease Creature is a Humanoid and they are not cured within 1d20 days, they are inflicted with Lycanthropy.",
+      "mtype": "core",
+      "location": "a",
+      "cost": 0,
+      "data": "XX3"
+    },
+    {
+      "id": 2065,
+      "name": "Lycanthrope",
+      "description": "You are afflicted with Lycanthropy and suffer the benefits and weaknesses. Whenever you are the Target of a True Hit, you must make a Resilience Check against half the total Damage taken after Mitigation or transform into your Lycanthrope Form, gaining Temporary Health equal to your Level and losing the ability to Speak. If there is a Creature within 20 Units has the Bleeding Condition, you become Maddened, which cannot be avoided or removed by any spells, immunities or effects. You remain in this form until you reach 0 Health, at which point you revert back to your original form, gain 1 Tier of Exhaustion, and make a LIfeline Check. The Lycanthrope transformation lasts 1d6 hours and you cannot transform again until you complete a Full Rest.",
+      "mtype": "core",
+      "location": "b",
+      "cost": 0,
+      "data": "TA"
+    }
+  ]
+}

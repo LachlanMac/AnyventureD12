@@ -10,40 +10,61 @@ interface SkillData {
 interface Character {
   attributes: {
     physique: number;
-    agility: number;
+    finesse: number;
     mind: number;
     knowledge: number;
     social: number;
   };
-  skills: {
-    fitness: SkillData;
-    deflect: SkillData;
-    might: SkillData;
-    evade: SkillData;
-    stealth: SkillData;
-    coordination: SkillData;
-    resilience: SkillData;
-    concentration: SkillData;
-    senses: SkillData;
-    science: SkillData;
-    technology: SkillData;
-    medicine: SkillData;
-    xenology: SkillData;
-    negotiation: SkillData;
-    behavior: SkillData;
-    presence: SkillData;
-  };
+
+    skills: {
+      // Physique
+      fitness: SkillData;
+      deflection: SkillData;
+      might: SkillData;
+      endurance: SkillData;
+      // Agility
+      evasion: SkillData;
+      stealth: SkillData;
+      coordination: SkillData;
+      thievery: SkillData;
+      // Mind
+      resilience: SkillData;
+      concentration: SkillData;
+      senses: SkillData;
+      logic: SkillData;
+      // Knowledge
+      wildcraft: SkillData;
+      academics: SkillData;
+      magic: SkillData;
+      medicine: SkillData;
+      // Social
+      expression: SkillData;
+      presence: SkillData;
+      insight: SkillData;
+      persuasion: SkillData;
+    };
+    
   weaponSkills: {
+    unarmed: SkillData;
+    throwing: SkillData;
     rangedWeapons: SkillData;
-    meleeWeapons: SkillData;
-    weaponSystems: SkillData;
-    heavyRangedWeapons: SkillData;
+    simpleMeleeWeapons: SkillData;
+    complexMeleeWeapons: SkillData;
+  };
+
+  magicSkills: {
+    black: SkillData;
+    primal: SkillData;
+    alteration: SkillData;
+    divine: SkillData;
+    mystic: SkillData;
   };
   craftingSkills: {
     engineering: SkillData;
     fabrication: SkillData;
-    biosculpting: SkillData;
-    synthesis: SkillData;
+    alchemy: SkillData;
+    glyphcraft: SkillData;
+    cooking : SkillData;
   };
   languages: string[];
   stances: string[];
@@ -62,31 +83,36 @@ interface InfoTabProps {
 const ATTRIBUTE_SKILLS = {
   physique: [
     { id: 'fitness', name: 'Fitness' },
-    { id: 'deflect', name: 'Deflect' },
+    { id: 'deflection', name: 'Deflection' },
     { id: 'might', name: 'Might' },
+    { id: 'endurance', name: 'Endurance' },
   ],
-  agility: [
-    { id: 'evade', name: 'Evade' },
+  finesse: [
+    { id: 'evasion', name: 'Evasion' },
     { id: 'stealth', name: 'Stealth' },
     { id: 'coordination', name: 'Coordination' },
+    { id: 'thievery', name: 'Thievery' },
   ],
   mind: [
     { id: 'resilience', name: 'Resilience' },
     { id: 'concentration', name: 'Concentration' },
     { id: 'senses', name: 'Senses' },
+    { id: 'logic', name: 'Logic' },
   ],
   knowledge: [
-    { id: 'science', name: 'Science' },
-    { id: 'technology', name: 'Technology' },
+    { id: 'wildcraft', name: 'Wildcraft' },
+    { id: 'academics', name: 'Academics' },
+    { id: 'magic', name: 'Magic' },
     { id: 'medicine', name: 'Medicine' },
-    { id: 'xenology', name: 'Xenology' },
   ],
   social: [
-    { id: 'negotiation', name: 'Negotiation' },
-    { id: 'behavior', name: 'Behavior' },
+    { id: 'expression', name: 'Expression' },
     { id: 'presence', name: 'Presence' },
+    { id: 'insight', name: 'Insight' },
+    { id: 'persuasion', name: 'Persuasion' },
   ],
 };
+
 
 // Dice type mapping
 const DICE_TYPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
@@ -306,32 +332,6 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
               marginBottom: '1rem',
             }}
           >
-            <div
-              style={{
-                color: 'var(--color-white)',
-                fontWeight: 'bold',
-                marginBottom: '0.5rem',
-              }}
-            >
-              Examples:
-            </div>
-            <ul
-              style={{
-                color: 'var(--color-cloud)',
-                fontSize: '0.875rem',
-                paddingLeft: '1.5rem',
-              }}
-            >
-              <li style={{ marginBottom: '0.5rem' }}>
-                <strong>Attribute Skills:</strong> For Fitness (d{character.skills.fitness.value * 2 + 2}), roll {character.attributes.physique}d{character.skills.fitness.value * 2 + 2} based on your Physique attribute.
-              </li>
-              <li style={{ marginBottom: '0.5rem' }}>
-                <strong>Weapon Skills:</strong> For Ranged Weapons (d{character.weaponSkills.rangedWeapons.value * 2 + 2}), roll {character.weaponSkills.rangedWeapons.talent}d{character.weaponSkills.rangedWeapons.value * 2 + 2} based on your talent stars.
-              </li>
-              <li>
-                <strong>Crafting Skills:</strong> For Engineering (d{character.craftingSkills.engineering.value * 2 + 2}), roll {character.craftingSkills.engineering.talent}d{character.craftingSkills.engineering.value * 2 + 2} based on your talent stars.
-              </li>
-            </ul>
           </div>
         </CardBody>
       </Card>

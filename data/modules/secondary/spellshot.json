@@ -1,0 +1,71 @@
+{
+  "id": 242,
+  "name": "Spellshot",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1498,
+      "name": "Spellshot",
+      "description": "When your Ranged Weapon is a Conduit, your Ray and Projectile spells that target a single Creature use your Ranged Attack modifier instead of your Spell Attack Modifier. Additionally, the Range of these spells is set to your Maximum Range for your Ranged Conduit.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TV"
+    },
+    {
+      "id": 1499,
+      "name": "Arcane Power",
+      "description": "Gain +1 Spell Damage and +1 Arcanum",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AZ4=1:AS7=1"
+    },
+    {
+      "id": 1500,
+      "name": "Pure Shot",
+      "description": "Gain +1 Damage with Ranged Weapons and +1 Maximum Range on all Ranged Weapons",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZ9=1:O1=1:O2=1:O3=1"
+    },
+    {
+      "id": 1501,
+      "name": "Action : Arcane Blast",
+      "description": "You target a point within 10 Units that you can see and make a Ranged Attack with your Spellshot Focus. All Creatures within a 2 Unit Radius of that point must make a Resistance Check against your Attack Roll or take 1d6 + your combined Ranged Damage and Spell Damage Bonus Modifier. The combined Damage Bonus is doubled on a True Hit.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1502,
+      "name": "Action : Heat Seaker",
+      "description": "You make a Ranged Attack that is not affected by Cover at a Target you have seen in the past minute. The Targets Dodge Modifier cannot be used to attempt to avoid this Attack.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1503,
+      "name": "Action : Arcane Delivery",
+      "description": "You Cast a Utility Spell that has a Channeling Time of 1 Action, but the Range becomes equal to that of your Spellshot Conduit. This Spell can only Target an Allied Creature.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1504,
+      "name": "Free Action : Ammo Infusion",
+      "description": "When you successfully Channel a Projectile or Ray Spell through your Ranged Conduit, the Physical Damage from all other Ranged Attacks on this turn becomes the same Damage Type as the initial Spell.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

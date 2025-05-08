@@ -11,42 +11,59 @@ interface SkillData {
 interface Character {
   attributes: {
     physique: number;
-    agility: number;
+    finesse: number;
     mind: number;
     knowledge: number;
     social: number;
   };
   skills: {
     fitness: SkillData;
-    deflect: SkillData;
+    deflection: SkillData;
     might: SkillData;
-    evade: SkillData;
+    endurance: SkillData;
+    evasion: SkillData;
     stealth: SkillData;
     coordination: SkillData;
+    thievery: SkillData;
     resilience: SkillData;
     concentration: SkillData;
     senses: SkillData;
-    science: SkillData;
-    technology: SkillData;
+    logic: SkillData;
+    wildcraft: SkillData;
+    academics: SkillData;
+    magic: SkillData;
     medicine: SkillData;
-    xenology: SkillData;
-    negotiation: SkillData;
-    behavior: SkillData;
+    expression: SkillData;
     presence: SkillData;
+    insight: SkillData;
+    persuasion: SkillData;
   };
   weaponSkills: {
+    unarmed: SkillData;
+    throwing: SkillData;
     rangedWeapons: SkillData;
-    meleeWeapons: SkillData;
-    weaponSystems: SkillData;
-    heavyRangedWeapons: SkillData;
+    simpleMeleeWeapons: SkillData;
+    complexMeleeWeapons: SkillData;
   };
+
+  magicSkills: {
+    black: SkillData;       // necromancy, witchcraft (fiend)
+    primal: SkillData;      // evocation, druidic (cosmic)
+    alteration: SkillData;  // illusion, transmutation (fey)
+    divine: SkillData;      // abjuration, divine (draconic)
+    mystic: SkillData;      // auguration, shamanic (astral)
+  };
+
   craftingSkills: {
     engineering: SkillData;
     fabrication: SkillData;
-    biosculpting: SkillData;
-    synthesis: SkillData;
+    alchemy: SkillData;
+    cooking: SkillData;
+    glyphcraft: SkillData;
   };
 }
+
+
 
 interface SkillsTabProps {
   character: Character;
@@ -80,54 +97,25 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         </p>
       </div>
 
-      {/* Attribute Skill Sections */}
       <AttributeSkillsSection
         attributeName="Physique"
         attributeValue={character.attributes.physique}
         skills={[
-          {
-            id: 'fitness',
-            name: 'Fitness',
-            value: character.skills.fitness.value,
-            talent: character.attributes.physique,
-          },
-          {
-            id: 'deflect',
-            name: 'Deflect',
-            value: character.skills.deflect.value,
-            talent: character.attributes.physique,
-          },
-          {
-            id: 'might',
-            name: 'Might',
-            value: character.skills.might.value,
-            talent: character.attributes.physique,
-          },
+          { id: 'fitness', name: 'Fitness', value: character.skills.fitness.value, talent: character.attributes.physique },
+          { id: 'deflection', name: 'Deflection', value: character.skills.deflection.value, talent: character.attributes.physique },
+          { id: 'might', name: 'Might', value: character.skills.might.value, talent: character.attributes.physique },
+          { id: 'endurance', name: 'Endurance', value: character.skills.endurance.value, talent: character.attributes.physique },
         ]}
       />
 
       <AttributeSkillsSection
-        attributeName="Agility"
-        attributeValue={character.attributes.agility}
+        attributeName="Finesse"
+        attributeValue={character.attributes.finesse}
         skills={[
-          {
-            id: 'evade',
-            name: 'Evade',
-            value: character.skills.evade.value,
-            talent: character.attributes.agility,
-          },
-          {
-            id: 'stealth',
-            name: 'Stealth',
-            value: character.skills.stealth.value,
-            talent: character.attributes.agility,
-          },
-          {
-            id: 'coordination',
-            name: 'Coordination',
-            value: character.skills.coordination.value,
-            talent: character.attributes.agility,
-          },
+          { id: 'evasion', name: 'Evasion', value: character.skills.evasion.value, talent: character.attributes.finesse },
+          { id: 'stealth', name: 'Stealth', value: character.skills.stealth.value, talent: character.attributes.finesse },
+          { id: 'coordination', name: 'Coordination', value: character.skills.coordination.value, talent: character.attributes.finesse },
+          { id: 'thievery', name: 'Thievery', value: character.skills.thievery.value, talent: character.attributes.finesse },
         ]}
       />
 
@@ -135,24 +123,10 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         attributeName="Mind"
         attributeValue={character.attributes.mind}
         skills={[
-          {
-            id: 'resilience',
-            name: 'Resilience',
-            value: character.skills.resilience.value,
-            talent: character.attributes.mind,
-          },
-          {
-            id: 'concentration',
-            name: 'Concentration',
-            value: character.skills.concentration.value,
-            talent: character.attributes.mind,
-          },
-          {
-            id: 'senses',
-            name: 'Senses',
-            value: character.skills.senses.value,
-            talent: character.attributes.mind,
-          },
+          { id: 'resilience', name: 'Resilience', value: character.skills.resilience.value, talent: character.attributes.mind },
+          { id: 'concentration', name: 'Concentration', value: character.skills.concentration.value, talent: character.attributes.mind },
+          { id: 'senses', name: 'Senses', value: character.skills.senses.value, talent: character.attributes.mind },
+          { id: 'logic', name: 'Logic', value: character.skills.logic.value, talent: character.attributes.mind },
         ]}
       />
 
@@ -160,30 +134,10 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         attributeName="Knowledge"
         attributeValue={character.attributes.knowledge}
         skills={[
-          {
-            id: 'science',
-            name: 'Science',
-            value: character.skills.science.value,
-            talent: character.attributes.knowledge,
-          },
-          {
-            id: 'technology',
-            name: 'Technology',
-            value: character.skills.technology.value,
-            talent: character.attributes.knowledge,
-          },
-          {
-            id: 'medicine',
-            name: 'Medicine',
-            value: character.skills.medicine.value,
-            talent: character.attributes.knowledge,
-          },
-          {
-            id: 'xenology',
-            name: 'Xenology',
-            value: character.skills.xenology.value,
-            talent: character.attributes.knowledge,
-          },
+          { id: 'wildcraft', name: 'Wildcraft', value: character.skills.wildcraft.value, talent: character.attributes.knowledge },
+          { id: 'academics', name: 'Academics', value: character.skills.academics.value, talent: character.attributes.knowledge },
+          { id: 'magic', name: 'Magic', value: character.skills.magic.value, talent: character.attributes.knowledge },
+          { id: 'medicine', name: 'Medicine', value: character.skills.medicine.value, talent: character.attributes.knowledge },
         ]}
       />
 
@@ -191,56 +145,34 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         attributeName="Social"
         attributeValue={character.attributes.social}
         skills={[
-          {
-            id: 'negotiation',
-            name: 'Negotiation',
-            value: character.skills.negotiation.value,
-            talent: character.attributes.social,
-          },
-          {
-            id: 'behavior',
-            name: 'Behavior',
-            value: character.skills.behavior.value,
-            talent: character.attributes.social,
-          },
-          {
-            id: 'presence',
-            name: 'Presence',
-            value: character.skills.presence.value,
-            talent: character.attributes.social,
-          },
+          { id: 'expression', name: 'Expression', value: character.skills.expression.value, talent: character.attributes.social },
+          { id: 'presence', name: 'Presence', value: character.skills.presence.value, talent: character.attributes.social },
+          { id: 'insight', name: 'Insight', value: character.skills.insight.value, talent: character.attributes.social },
+          { id: 'persuasion', name: 'Persuasion', value: character.skills.persuasion.value, talent: character.attributes.social },
         ]}
       />
 
-      {/* Specialized Skills Section */}
       <SpecializedSkillsSection
         title="Weapon Skills"
         description="Weapon skills have their own talent values that determine how many dice you roll for attacks."
         skills={[
-          {
-            id: 'rangedWeapons',
-            name: 'Ranged Weapons',
-            value: character.weaponSkills.rangedWeapons.value,
-            talent: character.weaponSkills.rangedWeapons.talent,
-          },
-          {
-            id: 'meleeWeapons',
-            name: 'Melee Weapons',
-            value: character.weaponSkills.meleeWeapons.value,
-            talent: character.weaponSkills.meleeWeapons.talent,
-          },
-          {
-            id: 'weaponSystems',
-            name: 'Weapon Systems',
-            value: character.weaponSkills.weaponSystems.value,
-            talent: character.weaponSkills.weaponSystems.talent,
-          },
-          {
-            id: 'heavyRangedWeapons',
-            name: 'Heavy Ranged Weapons',
-            value: character.weaponSkills.heavyRangedWeapons.value,
-            talent: character.weaponSkills.heavyRangedWeapons.talent,
-          },
+          { id: 'unarmed', name: 'Unarmed', value: character.weaponSkills.unarmed.value, talent: character.weaponSkills.unarmed.talent },
+          { id: 'throwing', name: 'Throwing', value: character.weaponSkills.throwing.value, talent: character.weaponSkills.throwing.talent },
+          { id: 'rangedWeapons', name: 'Ranged Weapons', value: character.weaponSkills.rangedWeapons.value, talent: character.weaponSkills.rangedWeapons.talent },
+          { id: 'simpleMeleeWeapons', name: 'Simple Melee Weapons', value: character.weaponSkills.simpleMeleeWeapons.value, talent: character.weaponSkills.simpleMeleeWeapons.talent },
+          { id: 'complexMeleeWeapons', name: 'Complex Melee Weapons', value: character.weaponSkills.complexMeleeWeapons.value, talent: character.weaponSkills.complexMeleeWeapons.talent },
+        ]}
+      />
+
+      <SpecializedSkillsSection
+        title="Magic Skills"
+        description="Magic skills represent affinity with different sources of arcane or planar power."
+        skills={[
+          { id: 'black', name: 'Black', value: character.magicSkills.black.value, talent: character.magicSkills.black.talent },
+          { id: 'primal', name: 'Primal', value: character.magicSkills.primal.value, talent: character.magicSkills.primal.talent },
+          { id: 'alteration', name: 'Alteration', value: character.magicSkills.alteration.value, talent: character.magicSkills.alteration.talent },
+          { id: 'divine', name: 'Divine', value: character.magicSkills.divine.value, talent: character.magicSkills.divine.talent },
+          { id: 'mystic', name: 'Mystic', value: character.magicSkills.mystic.value, talent: character.magicSkills.mystic.talent },
         ]}
       />
 
@@ -248,30 +180,11 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         title="Crafting Skills"
         description="Crafting skills are used to create and modify equipment and items."
         skills={[
-          {
-            id: 'engineering',
-            name: 'Engineering',
-            value: character.craftingSkills.engineering.value,
-            talent: character.craftingSkills.engineering.talent,
-          },
-          {
-            id: 'fabrication',
-            name: 'Fabrication',
-            value: character.craftingSkills.fabrication.value,
-            talent: character.craftingSkills.fabrication.talent,
-          },
-          {
-            id: 'biosculpting',
-            name: 'Biosculpting',
-            value: character.craftingSkills.biosculpting.value,
-            talent: character.craftingSkills.biosculpting.talent,
-          },
-          {
-            id: 'synthesis',
-            name: 'Synthesis',
-            value: character.craftingSkills.synthesis.value,
-            talent: character.craftingSkills.synthesis.talent,
-          },
+          { id: 'engineering', name: 'Engineering', value: character.craftingSkills.engineering.value, talent: character.craftingSkills.engineering.talent },
+          { id: 'fabrication', name: 'Fabrication', value: character.craftingSkills.fabrication.value, talent: character.craftingSkills.fabrication.talent },
+          { id: 'alchemy', name: 'Alchemy', value: character.craftingSkills.alchemy.value, talent: character.craftingSkills.alchemy.talent },
+          { id: 'cooking', name: 'Cooking', value: character.craftingSkills.cooking.value, talent: character.craftingSkills.cooking.talent },
+          { id: 'glyphcraft', name: 'Glyphcraft', value: character.craftingSkills.glyphcraft.value, talent: character.craftingSkills.glyphcraft.talent },
         ]}
       />
 

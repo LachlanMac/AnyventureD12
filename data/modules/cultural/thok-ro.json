@@ -1,0 +1,71 @@
+{
+  "id": 5,
+  "name": "Thok-Ro [Purposeful Industry]",
+  "mtype": "racial",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1027,
+      "name": "One Purpose",
+      "description": "Orcish culture is one of loyalty and perserverance to a greater cause. Gain +1 Resilience and +1 Initiative.",
+      "mtype": "racial",
+      "location": "1",
+      "cost": 2,
+      "data": "AS6=1:ASH=1:AL3"
+    },
+    {
+      "id": 1028,
+      "name": "Faithless",
+      "description": "The Orcish cultures have long since given up worshipping the Gods and insulate themselves from the temptations they offer. Gain +3 Dark and +3 Divine Mitigation.",
+      "mtype": "racial",
+      "location": "2a",
+      "cost": 2,
+      "data": "AD7=3:AD8=3"
+    },
+    {
+      "id": 1029,
+      "name": "The Old Ways",
+      "description": "The Orcish culture still has small remnants of those who have dedicated themselves to shamanism. Gain 3 Beginner and 3 Novice Druidic Spells.",
+      "mtype": "racial",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1030,
+      "name": "Body and Mind",
+      "description": "Orcish culture values a diverse eduction so that all who share in their lifestyle can find the correct path. Gain +1 Athletics and +1 Academics.",
+      "mtype": "racial",
+      "location": "3",
+      "cost": 2,
+      "data": "AS1=1:AS9=1"
+    },
+    {
+      "id": 1031,
+      "name": "Trained by the Thok-Ro",
+      "description": "You have training with the Thok-Ro Warriors. Gain +1 Block with Shields and +1 Damage with Slashing Weapons.",
+      "mtype": "racial",
+      "location": "4a",
+      "cost": 2,
+      "data": "W5D3=1:AZA=1"
+    },
+    {
+      "id": 1032,
+      "name": "Craft : Refining",
+      "description": "The Orcish culture cherishes perfection and perfect metalwork. Once per executing a Recipe that requires an Ingot and before you attempt your Crafting Check, your next Check counts as an Overcraft on a Dice Roll of 9 or higher.",
+      "mtype": "racial",
+      "location": "4b",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 1033,
+      "name": "Orcish Industry",
+      "description": "The Orcish culture believes in cross-trained artisans to secure their future. Gain +1 Smithing, +1 Ammocraft, +1 Alchemy and +1 Engineering.",
+      "mtype": "racial",
+      "location": "5",
+      "cost": 3,
+      "data": "AC1=1:AC6=1:AC5=1:AC7=1"
+    }
+  ]
+}

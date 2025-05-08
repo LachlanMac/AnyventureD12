@@ -1,0 +1,71 @@
+{
+  "id": 217,
+  "name": "Spellslinger",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1323,
+      "name": "Acceleration Magic",
+      "description": "Gain +1 Arcanum and +1 Spell Damage",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AS7=1:AZ4=1"
+    },
+    {
+      "id": 1324,
+      "name": "Reaction : Spell of Opportunity",
+      "description": "In response to a Hostile Creature leaving your Area of Control, you Channel a 1 Action Touch Spell against the Target.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1325,
+      "name": "Free Action : Mobile Casting",
+      "description": "After using the Channel Action to complete a Spell, you move 2 Units as part of that Action.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1326,
+      "name": "Improved Spells",
+      "description": "Gain +1 Spell Attack",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ2=1"
+    },
+    {
+      "id": 1327,
+      "name": "Amplified Force",
+      "description": "Your Ray and Projectile Spells deal unavoidable Splash Damage to Creatures that are Adjacent to your initial Target",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1328,
+      "name": "Empowered Conduit",
+      "description": "Gain +6 Power and +6 Power Regeneration",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "FP=6:FR=6"
+    },
+    {
+      "id": 1329,
+      "name": "Action : High Velocity Magic",
+      "description": "You Channel a Ray or Projectile Spell that takes 1 Action and gain a 1d4 Bonus to the Spell Attack Check. Additionally, the Range of the Spell is doubled and is not affected by Cover.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "id": 218,
+  "name": "Thespian",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1330,
+      "name": "Penchant for Dramatics",
+      "description": "Gain +1 Performance. You can use your Performance Modifier in situations where a Persuasion Check would be called for to persuade, deceive or intimidate.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "ASE=1"
+    },
+    {
+      "id": 1331,
+      "name": "Reaction : Feign Death",
+      "description": "In response to a Creature making an Attack against you, make a Performance Check to pretend that you have died. Any Creature with a Persistent Insight Check higher than your Performance Checks can tell that you are feigning, otherwise you are believed to be dead.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1332,
+      "name": "Reaction : Mocking Taunt",
+      "description": "In response to a Creature starting their turn within 4 Units of you, make a Performance Check against their Insight. If it fails, the Creature has a 1d4 Penalty to Attack Checks against any Target other than you. This does not work on Beasts, Constructs or Creatures without the ability to make Insight Checks.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1333,
+      "name": "Reaction : Improvise",
+      "description": "In response to failing a Defense Check, make another Defensive Check using a different Skill with a 1d4 Bonus.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1334,
+      "name": "Performing Arts",
+      "description": "Gain +1 Acrobatics and +1 Performance",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AS3=1:ASE=1"
+    },
+    {
+      "id": 1335,
+      "name": "Traveling Troupe",
+      "description": "Gain +1 Cooking, +1 Resilience and +1 Wilderness",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AC2=1:AS6=1:ASB=1"
+    },
+    {
+      "id": 1336,
+      "name": "Free Action : Encore!",
+      "description": "After rolling a True Hit on a Creature with an Attack, make a different type of Attack on the same Creature such as a Spell after using a Melee Attack or an Attack with a Ranged Weapon after hitting with a Melee Weapon. If the Target dies as a result of this Attack, you gain a Heroic Action.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

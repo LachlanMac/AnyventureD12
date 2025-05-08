@@ -1,0 +1,71 @@
+{
+  "id": 205,
+  "name": "Monster Slayer",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1239,
+      "name": "Monster Bane",
+      "description": "Gain a 1d4 Bonus to Defense Checks against Monsters and Beasts.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1240,
+      "name": "Monster Tracker",
+      "description": "Gain +1 Search and +1 Initiative",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASH=1:ASG=1"
+    },
+    {
+      "id": 1241,
+      "name": "Fearless Hunter",
+      "description": "Gain Immunity to the Afraid Condition",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "I=1"
+    },
+    {
+      "id": 1242,
+      "name": "Action : Devastate",
+      "description": "If you have Moved at least 4 Units on a turn, you can make a Melee Attack dealing bonus Damage equal to the distance in Units you moved. If the Target is a Monster or Beast, this bonus is doubled.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1243,
+      "name": "Increased Potency",
+      "description": "Gain +1 Spell Damage and Gain +1 Damage with Melee Attacks",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZ4=1:AZA=1:AZB=1:AZC=1:AZN=1"
+    },
+    {
+      "id": 1244,
+      "name": "Monster Tamer",
+      "description": "You can Tame a Monster as a Pet within the Level of the Pet Taming Formula using your Persuasion Skill instead of your Animals Skill.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1245,
+      "name": "Action : Monster Harvest",
+      "description": "You make an Attack with a Spell or Weapon. If this Attack brings a Creature to 8 or less Health, the Monster is executed. You gain Permanent Temporary Heath that recharges after each Full Rest equal to the Level of the Monster you killed. Other effects that grant Temporary Health no longer work on you.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

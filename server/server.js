@@ -34,7 +34,7 @@ const app = express();
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:6000',
+  origin: process.env.FRONTEND_URL || 'http://localhost:4000',
   credentials: true  // Allow cookies to be sent
 }));
 app.use(express.json());
@@ -125,7 +125,7 @@ app.get('*', (req, res) => {
 });
 
 // Define port
-const PORT = process.env.PORT || 6000;
+const PORT = process.env.PORT || 4000;
 
 // Connect to database, then start server
 connectDB().then(() => {

@@ -112,7 +112,7 @@ const CharacterSchema = new Schema({
   // Core Attributes (each now starts at 1 and has max of 3)
   attributes: {
     physique: { type: Number, default: 1, min: 1, max: 3 },
-    agility: { type: Number, default: 1, min: 1, max: 3 },
+    finesse : { type: Number, default: 1, min: 1, max: 3 },
     mind: { type: Number, default: 1, min: 1, max: 3 },
     knowledge: { type: Number, default: 1, min: 1, max: 3 },
     social: { type: Number, default: 1, min: 1, max: 3 }
@@ -122,45 +122,60 @@ const CharacterSchema = new Schema({
   skills: {
     // Physique Skills
     fitness: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
-    deflect: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
+    deflection: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
     might: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
-    
+    endurance: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
+
+
     // Agility Skills
-    evade: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.agility.default }) },
-    stealth: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.agility.default }) },
-    coordination: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.agility.default }) },
-    
+    evasion: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
+    stealth: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
+    coordination: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
+    thievery: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
+
     // Mind Skills
     resilience: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
     concentration: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
     senses: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
+    logic: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
     
     // Knowledge Skills
-    science: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
-    technology: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
+    wildcraft: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
+    academics: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
+    magic: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
     medicine: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
-    xenology: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
     
     // Social Skills
-    negotiation: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
-    behavior: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
-    presence: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) }
+    expression: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
+    presence: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
+    insight: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
+    persuasion: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) }
   },
   
   // Specialized skills that don't depend on attributes
   weaponSkills: {
-    rangedWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 1 }) },
-    meleeWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 1 }) },
-    weaponSystems: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0 }) },
-    heavyRangedWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0 }) }
+    unarmed :{},
+    throwing:{},
+    rangedWeapons:{},
+    simpleMeleeWeapons:{}, 
+    complexMeleeWeapons:{}
+  },
+
+  magicSkills:{
+    black :{}, //necromancy, witchcraft  (fiend)
+    primal:{}, //evocation, druidic      (cosmic)
+    alteration:{}, //illusion, transmutation (fey)
+    divine:{}, //abjuration, divine, (draconic)
+    mystic:{}, //auguration, shamanic  (astral)
   },
   
   // Crafting Skills
   craftingSkills: {
     engineering: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
     fabrication: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
-    biosculpting: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
-    synthesis: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) }
+    alchemy: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
+    cooking: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
+    glyphcraft: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
   },
   
   // Track remaining talent stars for character creation
@@ -228,14 +243,14 @@ const CharacterSchema = new Schema({
   immunities: [String],
   vision: [String],
   mitigation: {
-    kinetic: { type: Number, default: 0 },
+    physical: { type: Number, default: 0 },
     cold: { type: Number, default: 0 },
     heat: { type: Number, default: 0 },
-    electrical: { type: Number, default: 0 },
-    mental: { type: Number, default: 0 },
-    toxic: { type: Number, default: 0 },
-    sonic: { type: Number, default: 0 },
-    radiation: { type: Number, default: 0 }
+    lightning: { type: Number, default: 0 },
+    psychic: { type: Number, default: 0 },
+    dark: { type: Number, default: 0 },
+    divine: { type: Number, default: 0 },
+    arcane: { type: Number, default: 0 },
   },
   traits: [TraitSchema],
   // Store module bonuses separately to track what came from modules
@@ -251,35 +266,38 @@ CharacterSchema.pre('save', function(next) {
   // Set skill talents based on attributes
   // Physique Skills
   this.skills.fitness.talent = this.attributes.physique;
-  this.skills.deflect.talent = this.attributes.physique;
+  this.skills.deflection.talent = this.attributes.physique;
   this.skills.might.talent = this.attributes.physique;
-  
+  this.skills.endurance.talent = this.attributes.physique;
+
   // Agility Skills
-  this.skills.evade.talent = this.attributes.agility;
-  this.skills.stealth.talent = this.attributes.agility;
-  this.skills.coordination.talent = this.attributes.agility;
-  
+  this.skills.evade.talent = this.attributes.finesse;
+  this.skills.stealth.talent = this.attributes.finesse;
+  this.skills.coordination.talent = this.attributes.finesse;
+  this.skills.thievery.talent = this.attributes.finesse;
+
   // Mind Skills
   this.skills.resilience.talent = this.attributes.mind;
   this.skills.concentration.talent = this.attributes.mind;
   this.skills.senses.talent = this.attributes.mind;
-  
+  this.skills.logic.talent = this.attributes.mind;
   // Knowledge Skills
-  this.skills.science.talent = this.attributes.knowledge;
-  this.skills.technology.talent = this.attributes.knowledge;
+  this.skills.academics.talent = this.attributes.knowledge;
   this.skills.medicine.talent = this.attributes.knowledge;
-  this.skills.xenology.talent = this.attributes.knowledge;
+  this.skills.magic.talent = this.attributes.knowledge;
+  this.skills.wildcraft.talent = this.attributes.knowledge;
   
   // Social Skills
-  this.skills.negotiation.talent = this.attributes.social;
-  this.skills.behavior.talent = this.attributes.social;
+  this.skills.expression.talent = this.attributes.social;
+  this.skills.insight.talent = this.attributes.social;
   this.skills.presence.talent = this.attributes.social;
-  
+  this.skills.persuasion.talent = this.attributes.social;
+
   // Calculate resources
-  this.resources.health.max = 8 + (this.attributes.physique * 2);
-  this.resources.stamina.max = 5 + (this.attributes.physique);
-  this.resources.resolve.max = 5 + (this.attributes.mind);
-  
+  this.resources.health.max = 5;
+  this.resources.stamina.max = 5;
+  this.resources.resolve.max = 5;
+
   // Ensure current resources don't exceed max
   if (!this.resources.health.current || this.resources.health.current > this.resources.health.max) {
     this.resources.health.current = this.resources.health.max;
@@ -291,9 +309,6 @@ CharacterSchema.pre('save', function(next) {
     this.resources.resolve.current = this.resources.resolve.max;
   }
   
-  // Set initiative based on attributes
-  this.initiative = this.attributes.agility + this.attributes.mind;
-
   // Apply module effects
   this.applyModuleEffects();
   this.applyTraitEffects();
@@ -506,6 +521,7 @@ CharacterSchema.methods.applyModuleEffects = async function() {
     skills: {},
     craftingSkills: {},
     weaponSkills: {},
+    magicSkills: {},
     mitigation: {},
     traits: [],
     immunities: [],
@@ -513,7 +529,6 @@ CharacterSchema.methods.applyModuleEffects = async function() {
     conditionalEffects: [],
     health: 0,
     movement: 0,
-    initiative: 0
   };
   
   // Apply module effects logic here...

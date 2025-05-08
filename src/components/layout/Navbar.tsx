@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                 color: 'var(--color-metal-gold)',
               }}
             >
-              Starbelter TTRPG
+              AnyventureD12 TTRPG
             </span>
           </Link>
 

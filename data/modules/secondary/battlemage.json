@@ -1,0 +1,71 @@
+{
+  "id": 204,
+  "name": "Battlemage",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1232,
+      "name": "Close Combat Specialist",
+      "description": "Gain +1 Concentration and Gain +1 Strength",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AS5=1:AS2=1"
+    },
+    {
+      "id": 1233,
+      "name": "Quick Cast",
+      "description": "Removes 1 Action of Cast Penalty from Medium or Heavy Armor",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "W3DZ:W2DZ"
+    },
+    {
+      "id": 1234,
+      "name": "Innate Spells",
+      "description": "Learn Two Beginner Spells and Two Novice Spells from any one Traditional School of Magic",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "SV1=2"
+    },
+    {
+      "id": 1235,
+      "name": "Reaction : Endure",
+      "description": "If you are forced to make a Concentration Check after taking Damage to maintain your Focus, choose to succeed automatically.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1236,
+      "name": "Dual Training",
+      "description": "Gain +1 to Melee Attacks and +1 Spell Attack",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZ6=1:AZ7=1:AZ8=1:AZM=1:AZ2=1"
+    },
+    {
+      "id": 1237,
+      "name": "Battlemagic",
+      "description": "Gain +1 Spell Damage and +1 Physical Mitigation",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AZ4=1:AD4=1"
+    },
+    {
+      "id": 1238,
+      "name": "Free Action : Spell Combo",
+      "description": "If you hit an enemy with a Melee Weapon, you Channel a Spell that takes only 1 Action. This Spell cannot be Charged.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

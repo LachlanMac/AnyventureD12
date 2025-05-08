@@ -1,0 +1,71 @@
+{
+  "id": 273,
+  "name": "Battledancer",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1708,
+      "name": "The Way of the Battle Dancer",
+      "description": "Gain +1 Athletics and +1 to Damage with Unarmed Strikes",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AZN=1:AS1=1"
+    },
+    {
+      "id": 1709,
+      "name": "Action : Circle Kick",
+      "description": "Make an Unarmed Attack against a Creature. You can then Move up to your Movement Speed as long as remain Adjacent to your initial Target regardless if the Attack is successful. Your next Melee Attack this turn against a Creature other than the original Target has a 1d4 Attack Bonus.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1710,
+      "name": "Action : Sweeping Kick",
+      "description": "Make a Contested Check against a Target one Size Larger than you or smaller using your Performance against their Acrobatics or Athletics Skill. If successful, the Creature becomes Prone and takes Physical Damage equal to the result of your Check.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1713,
+      "name": "Performer",
+      "description": "Gain +1 Performance and +1 Acrobatics",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ASE=1:AS3=1"
+    },
+    {
+      "id": 1712,
+      "name": "Dancing Strikes",
+      "description": "Gain +1 Attack with Unarmed Strikes",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZM=1"
+    },
+    {
+      "id": 1711,
+      "name": "Elusive Dance",
+      "description": "Gain +1 Dodge",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AD2=1"
+    },
+    {
+      "id": 1714,
+      "name": "Reaction : Lunging Kick",
+      "description": "When an Ally within 4 Units is the Target of a Melee Attack, quickly dash without provoking Reactions to a Tile that is Adjacent to both your Ally and the provoking Creature and make an Unarmed Attack. If the Attack Hits, the Attacking Creature suffers a 1d4 Penalty to their Attack.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    }
+  ]
+}

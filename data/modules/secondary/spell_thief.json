@@ -1,0 +1,71 @@
+{
+  "id": 237,
+  "name": "Spell Thief",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1463,
+      "name": "Spell Thief",
+      "description": "You gain +2 Flexible Spell Slots which you fill with any Beginner or Novice Level Spells from any Traditional School of Magic. When an Ally Channels a Spell with you as the Target, you can replace one of these Spells with the new Spell. You can slot Journeyman Spells at Level 9 and Expert at 11.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1464,
+      "name": "Increased Capacity",
+      "description": "Gain +1 Flexible Spell Slot and +1 Arcanum",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1465,
+      "name": "Potent Spells",
+      "description": "Gain +1 Spell Damage",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZ4=1"
+    },
+    {
+      "id": 1466,
+      "name": "Reaction : Spell Steal",
+      "description": "In response to a Spell being Channeled within 8 Units, you make an Arcanum Check against the Spell Attack. On a success and if you are capable of Learning the Spell, you replace one of your Flexible Spell Slots with this one.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1467,
+      "name": "Craft : Stolen Research",
+      "description": "You can use the Research Recipe to permanently Learn a Spell within your Flexible Spell Slots if it is a Traditional School of Magic.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1468,
+      "name": "Spell Heist",
+      "description": "When a Creature Botches their Spell Attack on your Spell Steal ability, the Spell fails and they cannot use that Spell again for 1 Hour.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1469,
+      "name": "Action : Channel Flexible Spell",
+      "description": "You Channel a Spell from one of your Flexible Spell Slots which is automatically Charged and has a +2 Bonus to its Spell Attack.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

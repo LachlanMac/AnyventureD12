@@ -1,66 +1,71 @@
 {
+  "id": 203,
   "name": "Assassin",
+  "mtype": "secondary",
   "ruleset": 0,
   "options": [
     {
-      "name": "Assassin",
-      "description": "Gain +1 Stealth and +1 Attack with Light Melee Weapons. You deal an additional 1d6 damage against surprised targets.",
+      "id": 1225,
+      "name": "Skulker",
+      "description": "Gain +1 Stealth and +1 Thievery",
+      "mtype": "sub",
       "location": "1",
-      "data": "AS5=1:AZ2=1:TO"
+      "cost": 2,
+      "data": "AS4=1:ASA=1"
     },
     {
-      "name": "Silent Stalker",
-      "description": "Gain +1 Stealth. You can move at full speed while hidden without penalty.",
+      "id": 1226,
+      "name": "Action : Deadly Poison",
+      "description": "You make an Attack with a Weapon or piece of Ammunition that is coated in Poison and roll a 1d4. If the Attack hits, instead of your Target becoming Poisoned, they take instantaneous Poison Damage as if the Poison lasted a number of rounds equal to the result of the d4.",
+      "mtype": "sub",
       "location": "2a",
-      "data": "AS5=1:TD"
+      "cost": 2,
+      "data": "XX3"
     },
     {
-      "name": "Lethal Strike",
-      "description": "Your critical hits with Light Melee Weapons deal an additional 1d8 damage. Gain +1 Attack with Light Melee Weapons.",
+      "id": 1227,
+      "name": "Free Action : From the Shadows",
+      "description": "After making an Attack while Hidden, you roll a Stealth Check with a 1d4 Penalty and attempt to remain Hidden.",
+      "mtype": "sub",
       "location": "2b",
-      "data": "AZ2=1:TO"
+      "cost": 2,
+      "data": "Y"
     },
     {
-      "name": "Infiltration Expert",
-      "description": "Gain +1 Stealth and the ability to quickly analyze and bypass security systems. You can pick locks and disable alarms with advantage.",
+      "id": 1228,
+      "name": "Quick and Silent",
+      "description": "Gain +1 Steath and +1 Movement Speed",
+      "mtype": "sub",
       "location": "3",
-      "data": "AS5=1:TD"
+      "cost": 2,
+      "data": "AS4=1:AV=1"
     },
     {
-      "name": "Action : Mark Target",
-      "description": "Study a target for weaknesses. Your next attack against that target before the end of your next turn has advantage and deals an additional 2d6 damage.",
+      "id": 1229,
+      "name": "Stealth Specialist",
+      "description": "Gain +2 Attack when Hidden or Invisbile and your True Hit threshold is increased by 1.",
+      "mtype": "sub",
       "location": "4a",
-      "data": "XX3"
+      "cost": 2,
+      "data": "TO"
     },
     {
-      "name": "Reaction : Shadow Step",
-      "description": "When you are hidden and an enemy moves within 5 feet of you, you can move up to half your movement speed without revealing yourself.",
+      "id": 1230,
+      "name": "Poisoned Blade",
+      "description": "Gain +1 Alchemy and +1 Damage to Piercing Weapons",
+      "mtype": "sub",
       "location": "4b",
-      "data": "ZX2"
+      "cost": 2,
+      "data": "AC5=2:AZC=1"
     },
     {
-      "name": "Poison Master",
-      "description": "Gain +1 Synthesis. You can apply poisons as a bonus action, and your poisons deal an additional 1d4 damage or have a more potent effect.",
+      "id": 1231,
+      "name": "Action: Assassinate",
+      "description": "You make a quick and deadly attack with a Light 1 Handed Weapon. If you are Hidden deal an additional 2d8 Damage which is doubled in the event of a True Hit. If you are not Hidden, this Attack deals an extra 1d8 Damage and is also doubled in the event of a True Hit.",
+      "mtype": "sub",
       "location": "5",
-      "data": "AC4=1:TD"
-    },
-    {
-      "name": "Action : Death Strike",
-      "description": "Make a weapon attack with advantage. If it hits and the target is surprised or hasn't taken a turn in combat yet, it must make a Constitution save or take double damage.",
-      "location": "6a",
+      "cost": 3,
       "data": "XX3"
-    },
-    {
-      "name": "Free Action : Perfect Disguise",
-      "description": "You can assume a perfect disguise in just 1 minute, gaining advantage on Deception checks to maintain your cover.",
-      "location": "6b",
-      "data": "Y:TD"
-    },
-    {
-      "name": "Master Assassin",
-      "description": "Gain +1 Stealth and +1 Attack with all weapons. Your critical hit threshold with all weapons improves by 1, and you deal an additional 2d6 damage against surprised targets.",
-      "location": "7",
-      "data": "AS5=1:AZ1=1:AZ2=1:AZ3=1:AZD=1:AZE=1:AZF=1:TO"
     }
   ]
 }

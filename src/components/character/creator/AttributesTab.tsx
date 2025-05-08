@@ -7,7 +7,7 @@ const ATTRIBUTES = [
     name: 'Physique',
     description: 'Physical strength, endurance, and overall body power.',
   },
-  { id: 'agility', name: 'Agility', description: 'Speed, reflexes, balance, and coordination.' },
+  { id: 'finesse', name: 'Finesse', description: 'Speed, reflexes, balance, and coordination.' },
   { id: 'mind', name: 'Mind', description: 'Mental fortitude, focus, and perception.' },
   {
     id: 'knowledge',
@@ -24,29 +24,33 @@ const ATTRIBUTES = [
 // Skill mappings by attribute category
 const ATTRIBUTE_SKILLS = {
   physique: [
+    { id: 'deflection', name: 'Deflection' },
+    { id: 'endurance', name: 'Fitness' },
     { id: 'fitness', name: 'Fitness' },
-    { id: 'deflect', name: 'Deflect' },
     { id: 'might', name: 'Might' },
   ],
-  agility: [
-    { id: 'evade', name: 'Evade' },
-    { id: 'stealth', name: 'Stealth' },
+  finesse: [
     { id: 'coordination', name: 'Coordination' },
+    { id: 'evasion', name: 'Evasion' },
+    { id: 'stealth', name: 'Stealth' },
+    { id: 'thievery', name: 'Thievery' },
   ],
   mind: [
-    { id: 'resilience', name: 'Resilience' },
     { id: 'concentration', name: 'Concentration' },
+    { id: 'logic', name: 'Logic' },
+    { id: 'resilience', name: 'Resilience' },
     { id: 'senses', name: 'Senses' },
   ],
   knowledge: [
-    { id: 'science', name: 'Science' },
-    { id: 'technology', name: 'Technology' },
+    { id: 'academics', name: 'Academics' },
+    { id: 'magic', name: 'Magic' },
     { id: 'medicine', name: 'Medicine' },
-    { id: 'xenology', name: 'Xenology' },
+    { id: 'wildcraft', name: 'Wildcraft' },
   ],
   social: [
-    { id: 'negotiation', name: 'Negotiation' },
-    { id: 'behavior', name: 'Behavior' },
+    { id: 'expression', name: 'Expression' },
+    { id: 'insight', name: 'Insight' },
+    { id: 'persuasion', name: 'Persuasion' },
     { id: 'presence', name: 'Presence' },
   ],
 };
@@ -54,7 +58,7 @@ const ATTRIBUTE_SKILLS = {
 interface AttributesTabProps {
   attributes: {
     physique: number;
-    agility: number;
+    finesse: number;
     mind: number;
     knowledge: number;
     social: number;

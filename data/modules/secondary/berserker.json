@@ -1,0 +1,71 @@
+{
+  "id": 207,
+  "name": "Berserker",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1253,
+      "name": "Savage",
+      "description": "Lose 2 Dodge and Block while gaining +2 Damage to all Melee Weapons and +1 to Melee Attacks",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AD2=-2:AD3=-2:AZ3=2:AZ6=1:AZ7=1:AZ8=1:AZM=1"
+    },
+    {
+      "id": 1254,
+      "name": "Ferocious Strikes",
+      "description": "Gain +1 Damage to Melee Attacks and +1 Strength",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AZA=1:AZB=1:AZC=1:AZN=1:AS2=1"
+    },
+    {
+      "id": 1255,
+      "name": "Warrior",
+      "description": "Gain +1 Resilience and +3 Health",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS6=1:AH=3"
+    },
+    {
+      "id": 1256,
+      "name": "Reaction : Berserker Endurance",
+      "description": "In response to being the target of a Melee Attack, you make a Resilience Check instead of a Block or Dodge Check agains the Attack Check. On a success, you do not take any Damage. On a failure, you reduce the Damage by a result equal to your Resilience Check.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AD4=1:ADA=1"
+    },
+    {
+      "id": 1257,
+      "name": "Unyielding",
+      "description": "You do not suffer the negative effects of being in Lifeline until you reach 1 Lifeline point, at which point you fall Unconcious",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1258,
+      "name": "Executer",
+      "description": "You can Critically Hit with any Melee Weapon or Unarmed Attack.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1259,
+      "name": "Free Action : Fury Swipe",
+      "description": "Directly after taking the Attack Action, you make an additional Attack with a 1d4 Penalty.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

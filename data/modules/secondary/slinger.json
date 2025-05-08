@@ -1,66 +1,71 @@
 {
+  "id": 236,
   "name": "Slinger",
+  "mtype": "secondary",
   "ruleset": 0,
   "options": [
     {
+      "id": 1456,
       "name": "Slinger",
-      "description": "",
+      "description": "Gain the Dual Wielding Stance which allows you to equip an Ultra Light Ranged weapon in your Offhand. Once per turn, you can make an Attack with your Offhand that does not consume an Action and does not apply your Damage Bonus Modifier.",
+      "mtype": "sub",
       "location": "1",
-      "data": "AZ3=1:B"
+      "cost": 2,
+      "data": "H=20"
     },
     {
-      "name": "Action : Powershot",
-      "description": "You make an attack with a Ranged Weapon at an adjacent target without penalty. If your attack deals damage, your target loses their Reaction until the start of their next turn.",
+      "id": 1457,
+      "name": "Free Action : Double Reload",
+      "description": "Reload up to 2 Equipped Ultra Light Ranged Weapons that have an Ammunition Capacity.",
+      "mtype": "sub",
       "location": "2a",
-      "data": "TG"
-    },
-    {
-      "name": "Action : Covershot",
-      "description": "You make an with a Ranged Weapon but discard your two highest dice rolls, causing your target to have a 1d4 penalty to any Ranged Attacks they make on their next turn.",
-      "location": "2b",
-      "data": "TG"
-    },
-    {
-      "name": "",
-      "description": "",
-      "location": "3",
-      "data": "AZ3=1"
-    },
-    {
-      "name": "Dual Wield",
-      "description": "When you roll a Ranged Attack with a small weapon while having another small Ranged Weapon in your off-hand, your primary weapon uses the highest dice while your off-hand weapon uses the second. If you only roll one dice, your off-hand weapon has a static roll of 3.",
-      "location": "4a",
-      "data": "ZX2"
-    },
-    {
-      "name": "Specialist",
-      "description": "Gain +1 Attack with Ranged Weapons.",
-      "location": "4b",
-      "data": "XX3"
-    },
-    {
-      "name": "",
-      "description": "",
-      "location": "5",
-      "data": "TO"
-    },
-    {
-      "name": "Reation : Quick Draw",
-      "description": "When you are the target of an attack by a Ranged Weapon, make an attack against the target if they are within your optimal range. If your attack value is higher, their attack is canceled and you deal damage, otherwise, you take damage.",
-      "location": "6a",
+      "cost": 2,
       "data": "Y"
     },
     {
-      "name": "Critical Mastery",
-      "description": "Gain +1 to Critical Hit chance with Ultra-Light Ranged Weapons. Your Critical Hits with Ultra-Light Ranged Weapons deal +1d4 damage.",
-      "location": "6b",
-      "data": "AZF=1"
+      "id": 1458,
+      "name": "Reaction : Cover Dive",
+      "description": "When Targeted by a Melee Attack or Projectile, dive 2 Units without provoking Reactions and fall Prone while making an Attack with an Ultra Light Ranged Weapon with a 1d4 Penalty to hit. Gain a +2 Bonus to your Defense Checks against the Attack as well as any Bonuses for Cover in your new position.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ZX2"
     },
     {
-      "name": "Action : Flurry Shot",
-      "description": "Your dual wielding penalty with Ultra-Light Ranged Weapons is removed. Additionally, gain +1 damage with Ultra-Light Ranged Weapons.",
-      "location": "7",
-      "data": "AZ9=1:B1"
+      "id": 1459,
+      "name": "Desperado",
+      "description": "Gain +2 Units of Maximum Range on Ultra Light Ranged Weapons. Additionally, apply your Damage Bonus Modifier to Attacks you make with your Offhand Ultra Light Ranged Weapon.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TO:O1=2"
+    },
+    {
+      "id": 1460,
+      "name": "Action : Point Blank Overload",
+      "description": "You make an Attack with an Ultra Light Ranged Weapon at a Creature that is Adjacent to you, dealing an extra 1d6 Damage. If hit, a Large or smaller Creature must make an Athletics or Acrobatics Check against the total Damage dealt after Mitigations, or be Shoved 1 Unit backwards and fall Prone.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1461,
+      "name": "Action : Cover Shot",
+      "description": "Make an Attack with your Offhand Ultra Light Ranged Weapon with a 1d6 Penalty and Move a number of Units equal to the result of the d6. When you reach your new Location, you can make an Attack with your Primary Weapon if eligble.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1462,
+      "name": "Master Slinger",
+      "description": "Gain +1 Attack and +1 Damage with Ranged Weapons",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "AZ5=1:AZ9=1"
     }
   ]
 }

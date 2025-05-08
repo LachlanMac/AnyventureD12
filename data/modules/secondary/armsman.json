@@ -1,0 +1,71 @@
+{
+  "id": 252,
+  "name": "Armsman",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1561,
+      "name": "Action : Diverting Strike",
+      "description": "You make an Attack with a Heavy Melee Weapon with a 1d4 Attack Bonus. If you miss, make a seperate Attack with a Light 1-Handed Weapon.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1562,
+      "name": "Weapon Expert",
+      "description": "Gain +1 Smithing and +1 Damage to Attacks with Slashing, Piercing and Crushing Weapons",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AC1=1:AZA=1:AZB=1:AZC=1"
+    },
+    {
+      "id": 1563,
+      "name": "Armsman Stance",
+      "description": "Gain the Armsman Stance",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "H=15"
+    },
+    {
+      "id": 1564,
+      "name": "Recurring Blows",
+      "description": "When you miss a Creature with a Melee Attack, the next Attack you make before the start of your next turn gains a 1d4 Bonus.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1565,
+      "name": "Reaction : Change Stance",
+      "description": "You can use your Reaction at any point to change your Stance instead of an Action. As part of the Reaction, you can make an Attack with a Melee Weapon with a 1d4 Attack Penalty.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1566,
+      "name": "Free Action : Follow-up",
+      "description": "After making an Attack with a 1 Handed Melee Weapon, you quickly fire an Ultra-Light Ranged Weapon and Reload it if it has an Ammunition Capacity.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1567,
+      "name": "Weapon Master",
+      "description": "Your Ranged Attack, Slashing Attack, Piercing Attack and Bludgeoning Attack Modifier all become equal to your highest value Ranged or Melee Attack Modifier",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "AZR=1"
+    }
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "id": 105,
+  "name": "Witchcraft Magic",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1844,
+      "name": "Beginner Occultist",
+      "description": "You can research Beginner Level Witch Spells and gain +1 Power.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "S91=4:FP=1"
+    },
+    {
+      "id": 1845,
+      "name": "Potent Spells",
+      "description": "Gain +1 Spell Damage",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "AZ4=1"
+    },
+    {
+      "id": 1846,
+      "name": "Witch Companion",
+      "description": "Gain a Witches Familiar",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "OW"
+    },
+    {
+      "id": 1847,
+      "name": "Action : Hex",
+      "description": "Mark a Creature that you can see within 15 Units and curse them with a Hex that lasts for 1 minute. Any time you hit a Creature with a new Spell or Weapon Attack, you deal extra 1d8 (2d8 if Improved) Dark Damage. Hex can only be used again if the Hexed Creature dies, otherwise, you must wait until you finish a Full Rest to use this ability again.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1848,
+      "name": "Researcher of the Dark Arts",
+      "description": "Gain +1 Scribing and +2 Dark Mitigation",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "AC3=1:AD7=2"
+    },
+    {
+      "id": 1849,
+      "name": "Defiler",
+      "description": "Gain +4 Divine Mitigation",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "AD8=4"
+    },
+    {
+      "id": 1850,
+      "name": "Novice Occultist",
+      "description": "You can research Novice Level Witch Spells, gain +1 Spell Attack and +2 Power.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "S92=4:AZ2=1:FP=2"
+    },
+    {
+      "id": 1851,
+      "name": "Coven",
+      "description": "You create or join a Coven of up to 4 other Creatures with this Trait. While in the same Coven, witches can communicate telepathically, no matter the distance. Additionally, witches gain +2 Spell Damage Bonus Modifier for each member of the Coven within 20 Units. A witch can only leave a Coven if they die.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1852,
+      "name": "Special Recipes",
+      "description": "You Gain +2 Cooking and +1 Alchemy",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "DU"
+    },
+    {
+      "id": 1853,
+      "name": "Journeyman Occultist",
+      "description": "You can research Journeyman Level Druidic Spells, gain +5 Power and +1 Concentration",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "S93=3:AS5=1:FP=5"
+    },
+    {
+      "id": 1854,
+      "name": "Free Action : Dark Stalker",
+      "description": "If you start your turn in Darkness, gain a +2 Attack on all Spells and Weapons until the end of your turn.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1855,
+      "name": "Reaction : Transfer Spell",
+      "description": "When a Creature dies that is affected by one of your Spells that you are maintaining Focus on, you can use a Reaction to move that Spell to another Creature by making a Spell Attack against their Resistance. On a failure, the Spell ends.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1856,
+      "name": "Expert Occultist",
+      "description": "You can research Expert Level Witch Spells, gain +8 Power, +1 Spell Attack and +1 Spell Damage",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "S94=2:AZ2=1:AZ4=1:FP=8"
+    },
+    {
+      "id": 1857,
+      "name": "Witch Eyes",
+      "description": "You Gain Ultravision up to 10 Units",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "DU"
+    },
+    {
+      "id": 1858,
+      "name": "Improved Hex",
+      "description": "Your Hex damage is increased to 2d8 Dark Damage and your True Hit threshold is increased by 1.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "TG"
+    },
+    {
+      "id": 1859,
+      "name": "Master Occultist",
+      "description": "You can research Master Level Witch Spells, gain +10 Power, +1 Spell Attack and +1 Resistance. Additionally, you can research or learn Grand Master Witch Spells at level 13.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "FP=6:AZ2=1:AD1=1"
+    }
+  ]
+}

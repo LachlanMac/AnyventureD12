@@ -40,7 +40,7 @@ interface Character {
   race: string;
   attributes: {
     physique: number;
-    agility: number;
+    finesse: number;
     mind: number;
     knowledge: number;
     social: number;
@@ -142,7 +142,7 @@ const CharacterView: React.FC = () => {
           race: 'Human',
           attributes: {
             physique: 2,
-            agility: 3,
+            finesse: 3,
             mind: 2,
             knowledge: 1,
             social: 2,

@@ -1,0 +1,71 @@
+{
+  "id": 258,
+  "name": "Wrestler",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1603,
+      "name": "Good Physique",
+      "description": "Gain +1 Acrobatics and +1 Athletics",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AS1=1:AS3=1"
+    },
+    {
+      "id": 1604,
+      "name": "Grapplemaster",
+      "description": "A Creature that is Grappled by you has a 1d4 Penalty to their Attack Rolls.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1605,
+      "name": "Leverage",
+      "description": "You can Shove and Grapple Creatures that are one Size larger than you.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1606,
+      "name": "Improvised Attacks",
+      "description": "Gain +1 Attack with Crushing Weapons and Unarmed Attacks",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ7=1:AZM=1"
+    },
+    {
+      "id": 1607,
+      "name": "Free Action : Powershove",
+      "description": "When you make a successful Shove Action, you both displace and knock the creature Prone instead of choosing between the two.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1608,
+      "name": "Reaction : Reversal",
+      "description": "When a Creature attempts to Shove or Grapple you, gain a 1d4 Bonus to your roll. If you win the Check, you can choose to Shove or Grapple the Creature.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1609,
+      "name": "Action : Slam",
+      "description": "When you have a target Grappled or are adjacent to a target that is Prone, you make an Unarmed Attack on them that is upgraded to a Brutal Critical if it hits.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

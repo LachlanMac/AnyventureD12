@@ -10,7 +10,7 @@ export default defineConfig({
     port: 5174,
     proxy: {
       '/api': {
-        target: 'http://localhost:6000',
+        target: 'http://localhost:4000',
         changeOrigin: true,
         secure: false
       },

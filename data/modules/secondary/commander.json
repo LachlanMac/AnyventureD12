@@ -1,66 +1,71 @@
 {
+  "id": 210,
   "name": "Commander",
+  "mtype": "secondary",
   "ruleset": 0,
   "options": [
     {
-      "name": "Commander",
-      "description": "Gain +1 Presence and +1 Tactics. Allies within 30 feet gain +1 to Initiative rolls.",
+      "id": 1274,
+      "name": "Leadership",
+      "description": "Gain +1 Persuasion and +1 Insight",
+      "mtype": "sub",
       "location": "1",
-      "data": "ASG=1:ASH=1:TD"
+      "cost": 2,
+      "data": "ASC=1:ASD=1"
     },
     {
-      "name": "Tactical Analysis",
-      "description": "As a bonus action, you can identify the weaknesses of an enemy you can see. You and your allies gain +1 to Attack rolls against that enemy.",
+      "id": 1275,
+      "name": "Reaction : Guidance",
+      "description": "In response to an Ally being the Target of an Attack Roll, grant them a 1d4 Bonus to their Defensive Checks until the start of their turn.",
+      "mtype": "sub",
       "location": "2a",
-      "data": "TD"
-    },
-    {
-      "name": "Inspiring Leader",
-      "description": "After a short rest, you can give an inspiring speech. Up to six allies who hear it gain temporary hit points equal to your level + your Presence modifier.",
-      "location": "2b",
-      "data": "TD"
-    },
-    {
-      "name": "Combat Coordinator",
-      "description": "Gain +1 Tactics. As a bonus action, you can grant an ally within 60 feet a special reaction they can use before your next turn.",
-      "location": "3",
-      "data": "ASH=1:TD"
-    },
-    {
-      "name": "Action : Pincer Maneuver",
-      "description": "Designate an enemy and an ally. If both you and that ally attack the designated enemy before the end of your next turn, both attacks have advantage.",
-      "location": "4a",
-      "data": "XX3"
-    },
-    {
-      "name": "Reaction : Redirect Attack",
-      "description": "When an ally within 30 feet is hit by an attack, you can direct another ally within 5 feet of the target to impose disadvantage on the attack roll.",
-      "location": "4b",
+      "cost": 2,
       "data": "ZX2"
     },
     {
-      "name": "Master Tactician",
-      "description": "Gain +1 Presence and +1 Tactics. At the start of combat, you can rearrange the initiative order for you and up to three allies.",
+      "id": 1276,
+      "name": "Free Action : Forced March",
+      "description": "You command an Ally to Move up to 2 Units without provoking Reactions.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1277,
+      "name": "Lead from the Front",
+      "description": "Gain +1 Physical Mitigation, +2 Psychic Mitigation and +2 Health",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AD4=1:AD9=2:AH=2"
+    },
+    {
+      "id": 1278,
+      "name": "Born Commander",
+      "description": "Become Good at Persuasion",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1279,
+      "name": "Free Action : Lead by Example",
+      "description": "When you land a killing blow on an Enemy, you can grant an Ally within 10 Units Temporary Health equal to your Persuasion Modifier. If the killing blow was a True Hit, you gain a Heroic Action.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1280,
+      "name": "Coordinator",
+      "description": "If two or more Allies are within 1 Unit of a target, all Melee Attacks on that target have a +2 Attack Bonus",
+      "mtype": "sub",
       "location": "5",
-      "data": "ASG=1:ASH=1:TD"
-    },
-    {
-      "name": "Action : Strategic Advantage",
-      "description": "Analyze the battlefield and designate up to three points as strategic positions. Allies who move to these positions gain +1 to Attack and +1 to AC until they move.",
-      "location": "6a",
-      "data": "XX3"
-    },
-    {
-      "name": "Rallying Cry",
-      "description": "As a bonus action, you can shout a rallying cry. Allies within 60 feet who can hear you gain advantage on their next Attack roll and +1d4 temporary hit points.",
-      "location": "6b",
-      "data": "TD"
-    },
-    {
-      "name": "Master Commander",
-      "description": "Gain +1 Presence and +1 Tactics. Once per combat, you can grant an ally an entire extra turn that they take immediately after yours.",
-      "location": "7",
-      "data": "ASG=1:ASH=1:TD"
+      "cost": 3,
+      "data": "TO"
     }
   ]
 }

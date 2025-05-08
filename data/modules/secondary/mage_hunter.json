@@ -1,0 +1,71 @@
+{
+  "id": 211,
+  "name": "Mage Hunter",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1281,
+      "name": "Prepared Mind",
+      "description": "Gain +1 Resistance and +2 Psychic Mitigation",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AD1=1:AS9=2"
+    },
+    {
+      "id": 1282,
+      "name": "Free Action : Suppress",
+      "description": "You make a Sonic Attack at a Creature within 3 Units by making a Contested Check using your Arcanum against their Concentration. On a success, your Target has a 1d4 Penalty to all Spell Attacks until the start of your next turn.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1283,
+      "name": "Reaction : Mageslayer",
+      "description": "In response to a Creature Channeling a Spell within 3 Units that you have an unobstructed path to, you Move within your Melee Range and make a Melee Attack against them, dealing Bonus Damage equal to your Arcanum Bonus Modifier. The Creature must then make a Concentration Check to maintain Focus, or the Spell fails.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1284,
+      "name": "Hunter of Magic",
+      "description": "Gain +1 Search and +1 Arcanum",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "ASG=1:AS7=1"
+    },
+    {
+      "id": 1285,
+      "name": "Magical Sense",
+      "description": "When a Spell is Channeled within 10 Units of you, you become accutely aware of other magic within the Area. This awareness extends to Spells of equal or lower Level than the initially Channeled Spell that are affecting Creatures or Objects.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1286,
+      "name": "Distracting Blows",
+      "description": "When you force a Creature to make a Concentration Check to maintain Focus, the Required Check is increased by an amount equal to your Arcanum Modifier.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1287,
+      "name": "Spell Breaker",
+      "description": "When you interrupt a Spell that is being Channeled or Maintained with Focus, you immediately gain an Action. This can occur once until the start of your next turn.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TO"
+    }
+  ]
+}
