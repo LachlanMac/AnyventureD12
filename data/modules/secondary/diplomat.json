@@ -1,0 +1,66 @@
+{
+  "name": "Diplomat",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Diplomat",
+      "description": "Gain +1 Negotiation, +1 Behavior, and +1 Presence. You can speak one additional language of your choice.",
+      "location": "1",
+      "data": "ASE=1:ASF=1:ASG=1:ALZ"
+    },
+    {
+      "name": "Body Language Expert",
+      "description": "Gain +1 Behavior. You can detect lies with advantage on your Behavior check.",
+      "location": "2a",
+      "data": "ASF=1:TD"
+    },
+    {
+      "name": "Persuasive Speech",
+      "description": "Gain +1 Negotiation. You can convince a neutral NPC to perform a non-dangerous task for you.",
+      "location": "2b",
+      "data": "ASE=1:TD"
+    },
+    {
+      "name": "Cultural Expert",
+      "description": "Gain +1 Xenology and knowledge of cultural protocols. You have advantage on social checks when interacting with different species or cultures.",
+      "location": "3",
+      "data": "ASD=1:TD"
+    },
+    {
+      "name": "Action : De-escalation",
+      "description": "Make a Negotiation check to attempt to end a conflict peacefully. If successful, hostile creatures become neutral for 1 minute.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Diplomatic Immunity",
+      "description": "When you or an ally would be targeted by an attack, make a Presence check. If successful, the attacker must choose a different target or lose their action.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Inspiring Presence",
+      "description": "Gain +1 Presence. You and allies within 30 feet gain advantage on saves against fear and charm effects.",
+      "location": "5",
+      "data": "ASG=1:TD"
+    },
+    {
+      "name": "Action : Diplomatic Solution",
+      "description": "Make a Negotiation check against a hostile creature. If successful, you can establish a temporary truce and open negotiations.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Polyglot",
+      "description": "Learn three additional languages of your choice. You can understand the general meaning of any spoken language after listening to it for 1 minute.",
+      "location": "6b",
+      "data": "ALZ:TD"
+    },
+    {
+      "name": "Master Diplomat",
+      "description": "Gain +1 to all Social Skills. Once per day, you can automatically succeed on a social interaction check. Even hostile creatures will listen to your proposals.",
+      "location": "7",
+      "data": "ASE=1:ASF=1:ASG=1:TD"
+    }
+  ]
+}

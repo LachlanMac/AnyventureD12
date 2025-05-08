@@ -1,0 +1,66 @@
+{
+  "name": "Marksman",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Marksman",
+      "description": "Gain +1 Attack with Ranged and Heavy Ranged Weapons. Your effective range with these weapons is increased by 2 units.",
+      "location": "1",
+      "data": "AZ3=1:AZ4=1"
+    },
+    {
+      "name": "Action : Aimed Shot",
+      "description": "Take careful aim at a target. Your next Ranged or Heavy Ranged attack before the end of your next turn has a +1d4 Attack bonus and deals +1d4 damage.",
+      "location": "2a",
+      "data": "XX3"
+    },
+    {
+      "name": "Steady Hands",
+      "description": "You ignore the first level of penalties from difficult conditions (weather, visibility, movement) when making Ranged attacks.",
+      "location": "2b",
+      "data": "TD"
+    },
+    {
+      "name": "Ranged Weapon Specialist",
+      "description": "Gain +1 Attack with Ranged Weapons.",
+      "location": "3",
+      "data": "AZ3=1"
+    },
+    {
+      "name": "Vital Shot",
+      "description": "Your Critical Hit threshold with Ranged and Heavy Ranged Weapons is improved by 1, and critical hits deal an additional 1d6 damage.",
+      "location": "4a",
+      "data": "AZF=1:AZG=1"
+    },
+    {
+      "name": "Action : Suppressive Fire",
+      "description": "Fire a barrage of shots to suppress enemies. All enemies in a 3x3 area within range must make a Dodge check or be unable to move from their position until the start of your next turn.",
+      "location": "4b",
+      "data": "XX3"
+    },
+    {
+      "name": "Long Shot",
+      "description": "Your Ranged and Heavy Ranged Weapon attacks no longer suffer range penalties and gain +1 damage.",
+      "location": "5",
+      "data": "AZ9=1:AZA=1:TD"
+    },
+    {
+      "name": "Reaction : Covering Fire",
+      "description": "When an ally within 10 units is targeted by an enemy attack, you can make a Ranged or Heavy Ranged Weapon attack against that enemy. If you hit, the enemy's attack has a 1d4 penalty.",
+      "location": "6a",
+      "data": "ZX2"
+    },
+    {
+      "name": "Action : Disarming Shot",
+      "description": "Make a Ranged or Heavy Ranged Weapon attack with a 1d4 penalty. If the attack hits, the target must succeed on a Strength check or drop one item they're holding.",
+      "location": "6b",
+      "data": "XX3"
+    },
+    {
+      "name": "Master Marksman",
+      "description": "Once per turn when you hit with a Ranged or Heavy Ranged Weapon, you can choose to deal maximum damage instead of rolling dice. Additionally, gain +1 Attack with Ranged and Heavy Ranged Weapons.",
+      "location": "7",
+      "data": "AZ3=1:AZ4=1:TO"
+    }
+  ]
+}

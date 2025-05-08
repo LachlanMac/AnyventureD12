@@ -1,0 +1,66 @@
+{
+  "name": "Slinger",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Slinger",
+      "description": "",
+      "location": "1",
+      "data": "AZ3=1:B"
+    },
+    {
+      "name": "Action : Powershot",
+      "description": "You make an attack with a Ranged Weapon at an adjacent target without penalty. If your attack deals damage, your target loses their Reaction until the start of their next turn.",
+      "location": "2a",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Covershot",
+      "description": "You make an with a Ranged Weapon but discard your two highest dice rolls, causing your target to have a 1d4 penalty to any Ranged Attacks they make on their next turn.",
+      "location": "2b",
+      "data": "TG"
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "3",
+      "data": "AZ3=1"
+    },
+    {
+      "name": "Dual Wield",
+      "description": "When you roll a Ranged Attack with a small weapon while having another small Ranged Weapon in your off-hand, your primary weapon uses the highest dice while your off-hand weapon uses the second. If you only roll one dice, your off-hand weapon has a static roll of 3.",
+      "location": "4a",
+      "data": "ZX2"
+    },
+    {
+      "name": "Specialist",
+      "description": "Gain +1 Attack with Ranged Weapons.",
+      "location": "4b",
+      "data": "XX3"
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "5",
+      "data": "TO"
+    },
+    {
+      "name": "Reation : Quick Draw",
+      "description": "When you are the target of an attack by a Ranged Weapon, make an attack against the target if they are within your optimal range. If your attack value is higher, their attack is canceled and you deal damage, otherwise, you take damage.",
+      "location": "6a",
+      "data": "Y"
+    },
+    {
+      "name": "Critical Mastery",
+      "description": "Gain +1 to Critical Hit chance with Ultra-Light Ranged Weapons. Your Critical Hits with Ultra-Light Ranged Weapons deal +1d4 damage.",
+      "location": "6b",
+      "data": "AZF=1"
+    },
+    {
+      "name": "Action : Flurry Shot",
+      "description": "Your dual wielding penalty with Ultra-Light Ranged Weapons is removed. Additionally, gain +1 damage with Ultra-Light Ranged Weapons.",
+      "location": "7",
+      "data": "AZ9=1:B1"
+    }
+  ]
+}

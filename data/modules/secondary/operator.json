@@ -1,0 +1,66 @@
+{
+  "name": "Operator",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Operator",
+      "description": "Gain +1 Attack with Weapon Systems and +1 Technology. You can operate complex weapon systems with expertise.",
+      "location": "1",
+      "data": "AZ5=1:ASB=1:TD"
+    },
+    {
+      "name": "Targeting Systems",
+      "description": "Gain +1 Attack with Weapon Systems. You can use advanced targeting software to overcome cover and concealment penalties.",
+      "location": "2a",
+      "data": "AZ5=1:TD"
+    },
+    {
+      "name": "System Diagnostics",
+      "description": "Gain +1 Technology. You can quickly diagnose and repair malfunctions in weapon systems as a bonus action.",
+      "location": "2b",
+      "data": "ASB=1:TD"
+    },
+    {
+      "name": "Optimized Systems",
+      "description": "Gain +1 Damage with Weapon Systems. You can enhance weapon system performance beyond normal specifications.",
+      "location": "3",
+      "data": "AZB=1:TD"
+    },
+    {
+      "name": "Action : Overcharge Weapons",
+      "description": "Temporarily overcharge a weapon system for one round. The next attack with that system deals an additional 2d6 damage but cannot be used again for 1d4 rounds.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Emergency Shutdown",
+      "description": "When a weapon system would malfunction or explode, you can instantly shut it down to prevent damage or further issues.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Multi-System Specialist",
+      "description": "Gain +1 Attack with Weapon Systems and +1 Technology. You can operate and coordinate multiple weapon systems simultaneously.",
+      "location": "5",
+      "data": "AZ5=1:ASB=1:TD"
+    },
+    {
+      "name": "Action : Precision Strike",
+      "description": "Take careful aim with a weapon system. Your next attack ignores all cover bonuses and deals an additional 2d8 damage on a hit.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "System Override",
+      "description": "Gain +1 Technology. You can bypass safety protocols to push weapon systems beyond their designed limits, increasing their damage by 50% for one attack.",
+      "location": "6b",
+      "data": "ASB=1:TD"
+    },
+    {
+      "name": "Master Operator",
+      "description": "Gain +1 Attack and +1 Damage with Weapon Systems. You can use your action to assume direct control of automated defense systems within 100 feet, turning them against their owners.",
+      "location": "7",
+      "data": "AZ5=1:AZB=1:TD"
+    }
+  ]
+}

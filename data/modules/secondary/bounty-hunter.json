@@ -1,0 +1,66 @@
+{
+  "name": "Bounty Hunter",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Bounty Hunter",
+      "description": "Gain +1 Senses and the ability to collect trophies from defeated targets. Each trophy gives you a +1 bonus to tracking similar creatures.",
+      "location": "1",
+      "data": "AS9=1:TYD"
+    },
+    {
+      "name": "Skilled Tracker",
+      "description": "Gain +1 Senses and the ability to follow tracks that are up to 7 days old.",
+      "location": "2a",
+      "data": "AS9=1:TD"
+    },
+    {
+      "name": "Trophy Collection",
+      "description": "Trophies collected from powerful enemies provide you with specific bonuses related to their abilities or weaknesses.",
+      "location": "2b",
+      "data": "TYD"
+    },
+    {
+      "name": "Relentless Pursuit",
+      "description": "Gain +1 Movement Speed when tracking a specific target. You gain advantage on Senses checks to track a target you've wounded.",
+      "location": "3",
+      "data": "AV=1:TD"
+    },
+    {
+      "name": "Action : Mark Target",
+      "description": "Designate one creature within sight as your bounty. You gain +1d4 to Attack and Damage rolls against this target until they are defeated or you designate a new target.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Pursuit",
+      "description": "When your marked target attempts to flee or move away from you, you can move up to half your movement speed to follow them.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Dead or Alive",
+      "description": "You can choose to deal non-lethal damage with any weapon without penalty. Gain +1d4 damage against targets that have less than half their maximum health.",
+      "location": "5",
+      "data": "TD:TO"
+    },
+    {
+      "name": "Action : Binding Capture",
+      "description": "Make an attack roll with a 1d4 penalty. If successful, the target is restrained. They must succeed on a Strength check to break free.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Enhanced Trophy Benefits",
+      "description": "The bonuses you gain from trophies increase by +1, and you can now benefit from up to 3 trophies simultaneously.",
+      "location": "6b",
+      "data": "TYD"
+    },
+    {
+      "name": "Master Bounty Hunter",
+      "description": "You gain the ability to track targets across any terrain with no penalty. Your marked target cannot benefit from invisibility, hiding, or similar effects against you. Additionally, gain +1 to Attack and Damage against marked targets.",
+      "location": "7",
+      "data": "TD:TO"
+    }
+  ]
+}

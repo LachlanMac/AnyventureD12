@@ -1,0 +1,66 @@
+{
+  "name": "Aerialist",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Aerialist",
+      "description": "Gain +1 Coordination and +1 Evade. You can use jetpacks and personal flight devices with expertise.",
+      "location": "1",
+      "data": "AS6=1:AS4=1:TD"
+    },
+    {
+      "name": "Aerial Maneuvers",
+      "description": "Gain +1 Coordination. You can perform complex aerial maneuvers while using flight devices without making an ability check.",
+      "location": "2a",
+      "data": "AS6=1:TD"
+    },
+    {
+      "name": "Improved Propulsion",
+      "description": "Your flight speed with jetpacks and similar devices increases by 50%. Gain +1 Engineering.",
+      "location": "2b",
+      "data": "AC1=1:TD"
+    },
+    {
+      "name": "Aerial Combat Training",
+      "description": "Gain +1 Evade and +1 Attack while flying. You don't suffer disadvantage on attack rolls while using flight devices.",
+      "location": "3",
+      "data": "AS4=1:AZ2=1:AZ3=1:TD"
+    },
+    {
+      "name": "Action : Aerial Strike",
+      "description": "Dive attack from above. Move up to your flight speed and make an attack with advantage that deals an additional 1d6 damage.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Evasive Jets",
+      "description": "When targeted by an attack while flying, you can use your reaction to move up to half your flight speed without provoking opportunity attacks.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Flight Expert",
+      "description": "Gain +1 Coordination and +1 Evade. Your fuel consumption for flight devices is reduced by 50%, effectively doubling their operational time.",
+      "location": "5",
+      "data": "AS6=1:AS4=1:TD"
+    },
+    {
+      "name": "Action : Aerial Bombardment",
+      "description": "While flying, you can drop explosives or other objects on targets below with deadly accuracy, affecting a 10-foot radius area with a successful attack.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Free Action : Quick Boost",
+      "description": "You can use a quick burst from your jetpack to gain 10 feet of height or horizontal movement as a free action once per turn.",
+      "location": "6b",
+      "data": "Y"
+    },
+    {
+      "name": "Master Aerialist",
+      "description": "Gain +1 Coordination and +1 Evade. You can hover indefinitely with flight devices that normally cannot hover. You gain a permanent flight speed of 10 feet even without devices due to your mastery of micro-jets and anti-grav tech.",
+      "location": "7",
+      "data": "AS6=1:AS4=1:TD:T5"
+    }
+  ]
+}

@@ -1,0 +1,5 @@
+{
+  "name": "Substance Addiction",
+  "type": "negative",
+  "description": "You are addicted to a substance [Alcohol, Stimulants, Depresents, Pain Medication]. You gain 1 Resolve at the end of a full rest on a day that you used and lose 1 Resolve at the end of a full rest on a day you didn't."
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Guardian",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Guardian",
+      "description": "Gain +1 Physical Mitigation and +1 Block while wearing Heavy Armor. You are proficient with shields.",
+      "location": "1",
+      "data": "AD4=1:AD1=1:W3DR"
+    },
+    {
+      "name": "Shield Expert",
+      "description": "Gain +1 Block. You can use your shield to protect an adjacent ally, granting them a +1 bonus to AC.",
+      "location": "2a",
+      "data": "AD1=1:TD"
+    },
+    {
+      "name": "Heavy Armor Master",
+      "description": "Gain +1 Physical Mitigation while wearing Heavy Armor. You reduce the damage from physical attacks by an additional 2 points.",
+      "location": "2b",
+      "data": "W3AD4=1:TD"
+    },
+    {
+      "name": "Protective Instincts",
+      "description": "Gain +1 Block and +1 Resilience. You can use your reaction to redirect an attack targeting an adjacent ally to yourself.",
+      "location": "3",
+      "data": "AD1=1:AS7=1:TD"
+    },
+    {
+      "name": "Action : Defensive Stance",
+      "description": "Enter a defensive stance until the start of your next turn. While in this stance, you gain +2 to all Mitigation values and advantage on saving throws against effects that would move you.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Shield Block",
+      "description": "When you or an adjacent ally would take damage from an attack, you can use your reaction to reduce that damage by 1d10 + your Block modifier.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Living Wall",
+      "description": "Gain +1 Physical Mitigation and +1 Block. You cannot be moved against your will while wearing Heavy Armor, and you count as one size larger for the purpose of grappling and shoving.",
+      "location": "5",
+      "data": "AD4=1:AD1=1:W3I20:W3I12:TD"
+    },
+    {
+      "name": "Action : Shield Slam",
+      "description": "Make a special attack with your shield. If it hits, the target takes 1d8 + your Strength modifier damage and must make a Strength save or be pushed 10 feet and knocked prone.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Indomitable Defense",
+      "description": "Gain +1 to all Mitigation types while wearing Heavy Armor. Once per day, you can automatically succeed on a saving throw against an effect that would damage or incapacitate you.",
+      "location": "6b",
+      "data": "W3AD1=1:W3AD2=1:W3AD3=1:W3AD4=1:W3AD5=1:W3AD6=1:W3AD7=1:W3AD8=1:TD"
+    },
+    {
+      "name": "Master Guardian",
+      "description": "Gain +2 Physical Mitigation and +2 Block while wearing Heavy Armor. You can extend your damage reduction abilities to all allies within 10 feet. Once per combat, you can negate all damage from a single attack targeting you or an adjacent ally.",
+      "location": "7",
+      "data": "AD4=2:AD1=2:W3TD"
+    }
+  ]
+}

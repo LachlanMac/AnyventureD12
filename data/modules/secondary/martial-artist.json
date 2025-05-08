@@ -1,0 +1,66 @@
+{
+  "name": "Martial Artist",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Martial Artist",
+      "description": "Gain +1 Attack with Unarmed Strikes and +2 maximum Focus.",
+      "location": "1",
+      "data": "AZ1=1:FP=2"
+    },
+    {
+      "name": "Martial Stance",
+      "description": "You can enter a special stance as a bonus action. While in this stance, your Unarmed Strikes deal +1 damage and you gain +1 Dodge.",
+      "location": "2a",
+      "data": "AZ7=1:AD2=1:TG"
+    },
+    {
+      "name": "Ki Control",
+      "description": "Gain +3 maximum Focus and +1 Focus Regeneration per round.",
+      "location": "2b",
+      "data": "FP=3:FR=1"
+    },
+    {
+      "name": "Flowing Movements",
+      "description": "Gain +1 Coordination and +1 Dodge. You can move through enemy-occupied spaces without penalty.",
+      "location": "3",
+      "data": "AS6=1:AD2=1:TG"
+    },
+    {
+      "name": "Action : Stunning Strike",
+      "description": "Make an Unarmed Strike. If it hits, the target must make a Resilience check or be Stunned until the end of your next turn.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Deflect Missile",
+      "description": "When you are hit by a ranged weapon attack, you can spend 1 Focus to reduce the damage by 1d10 + your Coordination modifier. If you reduce the damage to 0, you can catch the projectile.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Ki-Empowered Strikes",
+      "description": "Your Unarmed Strikes count as magical for the purpose of overcoming damage resistance. You can spend 1 Focus to add 1d6 energy damage to your Unarmed Strike.",
+      "location": "5",
+      "data": "TD:FP=2"
+    },
+    {
+      "name": "Action : Whirlwind Attack",
+      "description": "You can spend 2 Focus to make an Unarmed Strike against each enemy within your reach.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Diamond Soul",
+      "description": "Gain +1 Resistance and +1 Physical Mitigation. You can spend 1 Focus to reroll a failed saving throw.",
+      "location": "6b",
+      "data": "AD3=1:AD4=1:TD"
+    },
+    {
+      "name": "Master Martial Artist",
+      "description": "Gain +1 Attack and +1 Damage with Unarmed Strikes. Your critical hit threshold with Unarmed Strikes improves by 1, and you can spend 3 Focus to automatically score a critical hit with an Unarmed Strike.",
+      "location": "7",
+      "data": "AZ1=1:AZ7=1:AZD=1:TD"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Soldier",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Soldier's Training",
+      "description": "Gain +1 Concentration and +1 Fitness.",
+      "location": "1",
+      "data": "AS1=1:W2AD4=1:W3AD4=1"
+    },
+    {
+      "name": "Combat Training",
+      "description": "Gain proficiency with all weapon types. You gain +1 to Attack with all weapon types.",
+      "location": "2a",
+      "data": "AZ2=1:AZ3=1:AZ4=1:AZ7=1:AZM=1"
+    },
+    {
+      "name": "Tactical Armor",
+      "description": "Reduce the Stealth penalty from Medium and Heavy Armor by 1. Additionally, gain +1 Physical Mitigation while wearing Armor.",
+      "location": "2b",
+      "data": "W2DY:W3DY:W2AD4=1:W3AD4=1"
+    },
+    {
+      "name": "",
+      "description": " ",
+      "location": "3",
+      "data": "AS1=1:AH=3"
+    },
+    {
+      "name": "Action : Superior Overwatch",
+      "description": "When you take the Overwatch action",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Flanking Shot",
+      "description": "When an adjacent ally would be hit by an attack, you can choose to become the target of that attack instead.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Combat Expertise",
+      "description": "Gain +1 to all Attack modifiers and +1 Physical Mitigation while wearing Armor.",
+      "location": "5",
+      "data": "AZ2=1:AZ3=1:AZ4=1:AZM=1:W2AD4=1:W3AD4=1"
+    },
+    {
+      "name": "Action : Coordinate Attack",
+      "description": "Designate one enemy within sight. Until the start of your next turn, all allies gain a +1d4 Attack bonus against that enemy.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Battle Hardened",
+      "description": "Gain resistance to Fear effects and +5 maximum Health. You can make a Fitness check to resist being Stunned or Dazed.",
+      "location": "6b",
+      "data": "AH=5:I1:TD"
+    },
+    {
+      "name": "Master Soldier",
+      "description": "",
+      "location": "7",
+      "data": "AZ2=1:AZ3=1:AZ4=1:AZM=1:AD4=2:TX"
+    }
+  ]
+}

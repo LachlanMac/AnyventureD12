@@ -1,0 +1,66 @@
+{
+  "name": "Psychologist",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Psychologist",
+      "description": "Gain +1 Behavior and +1 Presence. You can analyze a creature's mental state and emotional responses with a successful check.",
+      "location": "1",
+      "data": "ASF=1:ASG=1:TD"
+    },
+    {
+      "name": "Keen Insight",
+      "description": "Gain +1 Behavior. You can determine if a creature is lying with advantage on your check.",
+      "location": "2a",
+      "data": "ASF=1:TD"
+    },
+    {
+      "name": "Calming Presence",
+      "description": "Gain +1 Presence. You can use your action to calm an emotional or distressed creature, reducing their aggression or fear.",
+      "location": "2b",
+      "data": "ASG=1:TD"
+    },
+    {
+      "name": "Mental Fortitude",
+      "description": "Gain +1 Behavior and +1 Mental Mitigation. You have advantage on saving throws against mind-affecting abilities.",
+      "location": "3",
+      "data": "ASF=1:AD5=1:TD"
+    },
+    {
+      "name": "Action : Psychological Manipulation",
+      "description": "Target a creature that can understand you and make a Behavior check against their Resistance. If successful, you can influence their emotional state, making them friendly, fearful, or confused for 1 minute.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Emotional Support",
+      "description": "When an ally within 30 feet fails a save against a fear, charm, or confusion effect, you can use your reaction to grant them a reroll with advantage.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Trauma Counseling",
+      "description": "Gain +1 Behavior and +1 Medicine. You can remove mental conditions like fear, confusion, or madness after spending 10 minutes with a creature.",
+      "location": "5",
+      "data": "ASF=1:ASC=1:TD"
+    },
+    {
+      "name": "Action : Break Will",
+      "description": "Target a creature and make a contested Behavior check against their Resistance. If successful, the target becomes susceptible to suggestion and will truthfully answer one question.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Mental Shield",
+      "description": "Gain +1 Mental Mitigation and immunity to being charmed or frightened. You can extend this immunity to one ally within 30 feet as a bonus action.",
+      "location": "6b",
+      "data": "AD5=1:I4:I1:TD"
+    },
+    {
+      "name": "Master Psychologist",
+      "description": "Gain +1 Behavior and +1 Presence. You can read and influence the thoughts of creatures within 30 feet. Once per day, you can implant a suggestion that the target believes is their own idea.",
+      "location": "7",
+      "data": "ASF=1:ASG=1:TD"
+    }
+  ]
+}

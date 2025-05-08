@@ -1,0 +1,66 @@
+{
+  "name": "Demolitionist",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Demolitionist",
+      "description": "Gain +1 Synthesis and +1 Heat Mitigation. You can craft basic explosive devices.",
+      "location": "1",
+      "data": "AC4=1:AD3=1:TC"
+    },
+    {
+      "name": "Blast Radius",
+      "description": "The area of effect of your explosives increases by 50%. You gain +1 Heat Mitigation.",
+      "location": "2a",
+      "data": "AD3=1:TC"
+    },
+    {
+      "name": "Controlled Detonation",
+      "description": "You can choose which targets in the blast radius of your explosives are affected. Gain +1 Synthesis.",
+      "location": "2b",
+      "data": "AC4=1:TC"
+    },
+    {
+      "name": "Explosive Expert",
+      "description": "Your explosives deal +1d6 damage. You gain immunity to being knocked prone by explosions.",
+      "location": "3",
+      "data": "TC:I20"
+    },
+    {
+      "name": "Action : Remote Detonation",
+      "description": "Place an explosive device that you can detonate as a bonus action anytime within the next hour.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Defuse",
+      "description": "When you detect an explosive device, you can attempt to disarm it as a reaction with advantage on your check.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Advanced Explosives",
+      "description": "Your explosives ignore half of the target's relevant damage resistance. Gain +1 Synthesis and +1 Heat Mitigation.",
+      "location": "5",
+      "data": "AC4=1:AD3=1:TC"
+    },
+    {
+      "name": "Action : Breaching Charge",
+      "description": "Place an explosive specifically designed to create openings in structures. It deals triple damage to objects and structures.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Specialized Payloads",
+      "description": "You can craft explosives with additional effects such as smoke, flashbang, EMP, or corrosive damage.",
+      "location": "6b",
+      "data": "TC"
+    },
+    {
+      "name": "Master Demolitionist",
+      "description": "Your explosives deal +2d6 damage. You gain immunity to fire damage and can create a chain reaction with multiple explosives for exponentially increasing damage.",
+      "location": "7",
+      "data": "I14:TC"
+    }
+  ]
+}

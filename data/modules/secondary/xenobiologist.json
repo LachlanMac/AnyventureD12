@@ -1,0 +1,66 @@
+{
+  "name": "Xenobiologist",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Xenobiologist",
+      "description": "Gain +1 Science and +1 Xenology. You can identify the species, abilities, and basic biology of alien creatures with a successful check.",
+      "location": "1",
+      "data": "ASA=1:ASD=1:TD"
+    },
+    {
+      "name": "Anatomical Knowledge",
+      "description": "Gain +1 Science. You know the vulnerable points of different species. Your attacks against creatures you've studied deal an additional 1d4 damage.",
+      "location": "2a",
+      "data": "ASA=1:TD"
+    },
+    {
+      "name": "Xeno-Adaptation",
+      "description": "Gain +1 Xenology. You can quickly adapt to alien environments, gaining advantage on Constitution checks to resist environmental hazards.",
+      "location": "2b",
+      "data": "ASD=1:TD"
+    },
+    {
+      "name": "Biological Analysis",
+      "description": "Gain +1 Science and +1 Medicine. After studying a creature for 1 minute, you learn its resistances, immunities, and vulnerabilities.",
+      "location": "3",
+      "data": "ASA=1:ASC=1:TD"
+    },
+    {
+      "name": "Action : Exploit Weakness",
+      "description": "Target a creature you can see and make a Science check. If successful, you identify a key weakness, and attacks against that creature ignore resistance and treat immunity as resistance for 1 minute.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Predict Behavior",
+      "description": "When a creature you've studied makes an attack or uses an ability, you can predict its effects and warn an ally, giving them advantage on their saving throw or defense.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Alien Biology Expert",
+      "description": "Gain +1 Xenology and +1 Science. You can create specialized treatments, antidotes, or compounds effective against specific alien species.",
+      "location": "5",
+      "data": "ASD=1:ASA=1:TD"
+    },
+    {
+      "name": "Action : Tranquilizing Strike",
+      "description": "Make an attack with a specially prepared tranquilizer. If it hits, the target must make a Constitution save or fall unconscious for 1 hour. This works on creatures normally immune to sleep effects.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Adaptive Immunity",
+      "description": "Gain +1 Science and immunity to disease. You have advantage on saving throws against poison and biological attacks.",
+      "location": "6b",
+      "data": "ASA=1:I8:TD"
+    },
+    {
+      "name": "Master Xenobiologist",
+      "description": "Gain +1 Science, +1 Xenology, and +1 Medicine. You can mimic the biological abilities of creatures you've studied, temporarily gaining one natural ability, attack, or defense of such a creature once per day.",
+      "location": "7",
+      "data": "ASA=1:ASD=1:ASC=1:TD"
+    }
+  ]
+}

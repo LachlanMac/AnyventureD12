@@ -1,0 +1,5 @@
+{
+    "name": "Phobia",
+    "type": "negative",
+    "description": "You have a fear of []. When you are exposed to the source of your fear, lose 1 Resolve. If in combat, this loss occurs at the start of each round, instead."
+  }

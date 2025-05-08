@@ -1,0 +1,66 @@
+{
+  "name": "Saboteur",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Saboteur",
+      "description": "Gain +1 Engineering and +1 Coordination. You can identify weak points in structures and mechanical devices.",
+      "location": "1",
+      "data": "AC1=1:AS6=1:TD"
+    },
+    {
+      "name": "Structural Weakness",
+      "description": "Your attacks against objects and structures deal double damage. Gain +1 Engineering.",
+      "location": "2a",
+      "data": "AC1=1:TD"
+    },
+    {
+      "name": "Quick Sabotage",
+      "description": "You can sabotage a mechanical device as a bonus action. The device will fail or malfunction after 1d4 rounds.",
+      "location": "2b",
+      "data": "TD"
+    },
+    {
+      "name": "Mechanical Intuition",
+      "description": "Gain +1 Engineering and the ability to understand the function of technological devices after studying them for 1 minute.",
+      "location": "3",
+      "data": "AC1=1:TD"
+    },
+    {
+      "name": "Action : System Overload",
+      "description": "Target a mechanical or electrical system within touch range. Make an Engineering check to cause it to overload, dealing 2d6 damage to the system and anyone within 5 feet.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Disable Trap",
+      "description": "When you trigger or detect a trap, you can attempt to disable it immediately as a reaction.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Destabilizing Strikes",
+      "description": "Your attacks can target structural weak points. Once per turn, your weapon attack can deal an additional 1d8 damage to constructs, vehicles, or structures.",
+      "location": "5",
+      "data": "TO"
+    },
+    {
+      "name": "Action : Critical Malfunction",
+      "description": "Target a mechanical device and make an Engineering check. If successful, the device suffers a catastrophic failure that can affect other nearby systems.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reverse Engineering",
+      "description": "Gain +1 Engineering. After examining a technological device for 10 minutes, you can create a similar temporary device using scavenged parts.",
+      "location": "6b",
+      "data": "AC1=1:TD"
+    },
+    {
+      "name": "Master Saboteur",
+      "description": "Gain +1 Engineering and +1 Coordination. You can identify and exploit critical weaknesses in any system or structure. Your sabotage actions now have triple their normal effect.",
+      "location": "7",
+      "data": "AC1=1:AS6=1:TD"
+    }
+  ]
+}

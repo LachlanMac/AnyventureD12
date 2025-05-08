@@ -1,0 +1,66 @@
+{
+  "name": "Infiltrator",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Infiltrator",
+      "description": "Gain +1 Stealth, +1 Coordination, and +1 Evade. You can hold your breath for twice as long as normal.",
+      "location": "1",
+      "data": "AS5=1:AS6=1:AS4=1:TD"
+    },
+    {
+      "name": "Stealthy Movement",
+      "description": "Gain +1 Stealth. You don't trigger pressure plates or similar weight-based traps unless you choose to.",
+      "location": "2a",
+      "data": "AS5=1:TD"
+    },
+    {
+      "name": "Acrobatic Infiltration",
+      "description": "Gain +1 Coordination. You can squeeze through spaces as if you were one size smaller, and you can climb difficult surfaces without making an ability check.",
+      "location": "2b",
+      "data": "AS6=1:TD"
+    },
+    {
+      "name": "Threat Detection",
+      "description": "Gain +1 Evade and +1 Senses. You have advantage on checks to detect traps, ambushes, and hidden threats.",
+      "location": "3",
+      "data": "AS4=1:AS9=1:TD"
+    },
+    {
+      "name": "Action : Vanish",
+      "description": "Make a Stealth check to hide even when directly observed, as long as you have some form of concealment, cover, or distraction.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Slip Away",
+      "description": "When targeted by an attack or detected while hidden, you can move up to half your movement speed without provoking opportunity attacks.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Advanced Infiltration",
+      "description": "Gain +1 Stealth and +1 Technology. You can bypass electronic security systems and locks with advantage on your checks.",
+      "location": "5",
+      "data": "AS5=1:ASB=1:TD"
+    },
+    {
+      "name": "Action : Perfect Timing",
+      "description": "Study a patrol pattern, security system, or similar cyclic obstacle. You can automatically determine the perfect moment to slip past it without being detected.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Shadow Blend",
+      "description": "Gain +1 Stealth. While in dim light or darkness, you can use your action to become invisible until you move or take an action.",
+      "location": "6b",
+      "data": "AS5=1:TD"
+    },
+    {
+      "name": "Master Infiltrator",
+      "description": "Gain +1 Stealth, +1 Coordination, and +1 Evade. You can move silently without making Stealth checks, and you ignore difficult terrain when moving stealthily.",
+      "location": "7",
+      "data": "AS5=1:AS6=1:AS4=1:TD"
+    }
+  ]
+}

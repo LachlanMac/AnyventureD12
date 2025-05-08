@@ -1,0 +1,5 @@
+{
+    "name":"Social Anxiety Disorder", 
+    "type":"negative",  
+    "description": "You have social anxiety disorder. If you roll a 1 on any dice during a social check, you lose 1 resolve. Additionally, until your next full rest, you always use the lowest dice roll on your social checks instead of the highest when rolling with talent bonuses."  
+}

@@ -1,0 +1,66 @@
+{
+  "name": "Scoundrel",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Business Connections",
+      "description": "For better or worse, you seem to know someone from everywhere. Gain +1 Negotiation. Additionally, when entering a new system with a settlement such as a city or station, you have a connection with a humanoid that owes you a favor.",
+      "location": "1",
+      "data": ""
+    },
+    {
+      "name": "Reaction : Roll Out",
+      "description": "In response to being the target of an attack that requires an Evasion or Deflect Check, you gain a 1d4 bonus to the check and roll to an adjacent tile without provoking Reactions.",
+      "location": "2a",
+      "data": "Z"
+    },
+    {
+      "name": "Free Action : Cheap Shot",
+      "description": "You make a Melee Attack that deals no damage but causes your opponent to become dazed if they fail a contested Resilience Check unless they are a Humanoid, in which case they become Stunned. An entity can only be targeted once by this ability per combat.",
+      "location": "2b",
+      "data": "Y"
+    },
+    {
+      "name": "Roguish Charm",
+      "description": "Somehow, you are both charming and slimey at the same time. Gain +1 Stealth and +1 Presence.",
+      "location": "3",
+      "data": "AV=1:AD2=1:TG"
+    },
+    {
+      "name": "Professional Gambler",
+      "description": "Your skill with games of chance has given you a lot of experience with trying to pick up on the tells of your opposition while masking your own thoughts. Gain +1 Behavior and +1 Mental Mitigation.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Action : Improvise",
+      "description": "You improvise, by either using your wit or a physical object to distract your opponents. Until the start of your next turn, gain a 1d4 bonus to all attack and defense checks.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Alert",
+      "description": "The nature of your business has made you cautious, never letting your guard down and always ready to avoid the next blow. Gain +1 Evasion and +1 Senses.",
+      "location": "5",
+      "data": "TO"
+    },
+    {
+      "name": "Hidden Blaster",
+      "description": "Gain +1 Ranged Weapons. Additionally, you can hide a small Ranged Weapon on your person that cannot be discovered by detection. The first time you use this weapon during combat, gain a 1d4 bonus to both the damage and attack rolls.",
+      "location": "6a",
+      "data": "Y"
+    },
+    {
+      "name": "Hot Shot Pilot",
+      "description": "Your line of expertise has given you invaluable experience with starships and their weaponry. Gain +1 Weapon Systems and +1 Coordination.",
+      "location": "6b",
+      "data": "AD3=1:TD"
+    },
+    {
+      "name": "Catch Phrases",
+      "description": "You have three different catch phrases for the following events: Making an attack to finish off an opponent, predicting danger to yourself within the next minute, and encouraging an ally with a skill check. Once per day, you can use one of these to grant a 1d8 bonus on a related roll.",
+      "location": "7",
+      "data": "TD"
+    }
+  ]
+}

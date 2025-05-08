@@ -1,0 +1,66 @@
+{
+  "name": "Trapper",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Trapper",
+      "description": "Gain +1 Senses and +1 Xenology. You can craft basic traps with minimal materials.",
+      "location": "1",
+      "data": "AS9=1:ASD=1:TC"
+    },
+    {
+      "name": "Trap Specialist",
+      "description": "Your traps are more difficult to detect. Creatures trying to spot your traps have a 1d4 penalty to their check.",
+      "location": "2a",
+      "data": "TC"
+    },
+    {
+      "name": "Tranquilizing Expert",
+      "description": "You can craft tranquilizing ammunition for any ranged weapon. Targets hit by this ammunition must make a Resilience check or fall unconscious for 1 hour.",
+      "location": "2b",
+      "data": "TC"
+    },
+    {
+      "name": "Wilderness Knowledge",
+      "description": "Gain +1 Xenology and +1 Senses. You can identify creature types by examining their tracks or other signs.",
+      "location": "3",
+      "data": "AS9=1:ASD=1"
+    },
+    {
+      "name": "Action : Quick Trap",
+      "description": "Set up a trap in an adjacent area as an action. Creatures entering that area must make a Senses check or trigger the trap, becoming immobilized or taking 1d8 damage.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Advanced Tranquilizers",
+      "description": "Your tranquilizers now affect creatures one size larger than normally possible. The target gets a 1d4 penalty on their resistance check.",
+      "location": "4b",
+      "data": "TC"
+    },
+    {
+      "name": "Camouflaged Traps",
+      "description": "Your traps are virtually invisible. Creatures searching for your traps have a 2d4 penalty to their check. Your traps deal +1d6 damage or impose an additional negative effect on targets.",
+      "location": "5",
+      "data": "TC"
+    },
+    {
+      "name": "Action : Control Environment",
+      "description": "You can manipulate a 20ft area of terrain to aid your trapping, creating difficult terrain, concealment, or other tactical advantages that last for 10 minutes.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Specialized Toxins",
+      "description": "You can craft tranquilizers and poisons that target specific species with increased effectiveness. These concoctions bypass 50% of the target's resistances to such effects.",
+      "location": "6b",
+      "data": "TC"
+    },
+    {
+      "name": "Master Trapper",
+      "description": "Your traps can now trigger multiple effects in sequence. Additionally, you can set up a network of connected traps that you can trigger remotely as a bonus action. Gain +1 to Xenology and Senses.",
+      "location": "7",
+      "data": "AS9=1:ASD=1:TC"
+    }
+  ]
+}

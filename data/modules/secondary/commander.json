@@ -1,0 +1,66 @@
+{
+  "name": "Commander",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Commander",
+      "description": "Gain +1 Presence and +1 Tactics. Allies within 30 feet gain +1 to Initiative rolls.",
+      "location": "1",
+      "data": "ASG=1:ASH=1:TD"
+    },
+    {
+      "name": "Tactical Analysis",
+      "description": "As a bonus action, you can identify the weaknesses of an enemy you can see. You and your allies gain +1 to Attack rolls against that enemy.",
+      "location": "2a",
+      "data": "TD"
+    },
+    {
+      "name": "Inspiring Leader",
+      "description": "After a short rest, you can give an inspiring speech. Up to six allies who hear it gain temporary hit points equal to your level + your Presence modifier.",
+      "location": "2b",
+      "data": "TD"
+    },
+    {
+      "name": "Combat Coordinator",
+      "description": "Gain +1 Tactics. As a bonus action, you can grant an ally within 60 feet a special reaction they can use before your next turn.",
+      "location": "3",
+      "data": "ASH=1:TD"
+    },
+    {
+      "name": "Action : Pincer Maneuver",
+      "description": "Designate an enemy and an ally. If both you and that ally attack the designated enemy before the end of your next turn, both attacks have advantage.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Redirect Attack",
+      "description": "When an ally within 30 feet is hit by an attack, you can direct another ally within 5 feet of the target to impose disadvantage on the attack roll.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Master Tactician",
+      "description": "Gain +1 Presence and +1 Tactics. At the start of combat, you can rearrange the initiative order for you and up to three allies.",
+      "location": "5",
+      "data": "ASG=1:ASH=1:TD"
+    },
+    {
+      "name": "Action : Strategic Advantage",
+      "description": "Analyze the battlefield and designate up to three points as strategic positions. Allies who move to these positions gain +1 to Attack and +1 to AC until they move.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Rallying Cry",
+      "description": "As a bonus action, you can shout a rallying cry. Allies within 60 feet who can hear you gain advantage on their next Attack roll and +1d4 temporary hit points.",
+      "location": "6b",
+      "data": "TD"
+    },
+    {
+      "name": "Master Commander",
+      "description": "Gain +1 Presence and +1 Tactics. Once per combat, you can grant an ally an entire extra turn that they take immediately after yours.",
+      "location": "7",
+      "data": "ASG=1:ASH=1:TD"
+    }
+  ]
+}

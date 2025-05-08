@@ -1,0 +1,66 @@
+{
+  "name": "Pilot",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Pilot",
+      "description": "Gain +1 Coordination and +1 Piloting. You can operate any standard vehicle proficiently, even without prior experience.",
+      "location": "1",
+      "data": "AS6=1:ASH=1:TD"
+    },
+    {
+      "name": "Evasive Maneuvers",
+      "description": "Gain +1 Piloting. You can use your reaction to impose disadvantage on attacks against a vehicle you're piloting.",
+      "location": "2a",
+      "data": "ASH=1:TD"
+    },
+    {
+      "name": "Vehicle Expert",
+      "description": "Gain +1 Engineering. You can quickly analyze and understand the controls and capabilities of any vehicle after a brief examination.",
+      "location": "2b",
+      "data": "AC1=1:TD"
+    },
+    {
+      "name": "Precision Control",
+      "description": "Gain +1 Coordination and +1 Piloting. You can perform complex maneuvers with vehicles that would normally be impossible or require a difficult check.",
+      "location": "3",
+      "data": "AS6=1:ASH=1:TD"
+    },
+    {
+      "name": "Action : Stunt Pilot",
+      "description": "Perform an extraordinary maneuver with your vehicle that grants you advantage on your next attack or defense while piloting.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Emergency Maneuver",
+      "description": "When your vehicle would take damage or crash, you can make a Piloting check to reduce the damage by half or avoid the crash entirely.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Ace Pilot",
+      "description": "Gain +1 Piloting and +1 Coordination. You have advantage on all Piloting checks during combat or hazardous conditions.",
+      "location": "5",
+      "data": "ASH=1:AS6=1:TD"
+    },
+    {
+      "name": "Action : Combat Maneuver",
+      "description": "Use your vehicle to perform a special combat maneuver such as ramming, targeting a weak point, or creating cover for allies.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Free Action : Quick Analysis",
+      "description": "You can instantly assess the status, capabilities, and weak points of any vehicle you can see as a free action.",
+      "location": "6b",
+      "data": "Y"
+    },
+    {
+      "name": "Master Pilot",
+      "description": "Gain +1 Piloting and +1 Coordination. You can pilot any vehicle at its maximum capability regardless of damage or environmental conditions. Once per day, you can automatically succeed on a Piloting check without rolling.",
+      "location": "7",
+      "data": "ASH=1:AS6=1:TD"
+    }
+  ]
+}

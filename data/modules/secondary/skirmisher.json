@@ -1,0 +1,66 @@
+{
+  "name": "Skirmisher",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Skirmisher",
+      "description": "Gain +1 Movement Speed and +1 Evade. You don't provoke opportunity attacks when you dash.",
+      "location": "1",
+      "data": "AV=1:AS4=1:TD"
+    },
+    {
+      "name": "Mobile Combatant",
+      "description": "When you hit a creature with a weapon attack, you don't provoke opportunity attacks from that creature for the rest of the turn.",
+      "location": "2a",
+      "data": "TD"
+    },
+    {
+      "name": "Hit and Run",
+      "description": "After you make a melee attack against a creature, you can move up to half your movement speed as a free action.",
+      "location": "2b",
+      "data": "TD"
+    },
+    {
+      "name": "Lightning Reflexes",
+      "description": "Gain +1 Evade and +1 Initiative. You can use the Dash or Disengage action as a bonus action.",
+      "location": "3",
+      "data": "AS4=1:ASH=1:TD"
+    },
+    {
+      "name": "Action : Flying Strike",
+      "description": "Move up to your speed and make a weapon attack. This movement doesn't provoke opportunity attacks.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Sidestep",
+      "description": "When a creature targets you with an attack, you can move 5 feet without provoking opportunity attacks. If this causes the attack to miss, you can move an additional 5 feet.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Harrying Attacks",
+      "description": "Your attacks reduce the target's movement speed by 10 feet until the start of your next turn. Gain +1 Evade.",
+      "location": "5",
+      "data": "AS4=1:TD"
+    },
+    {
+      "name": "Action : Disorienting Strike",
+      "description": "Make a weapon attack that deals normal damage. If it hits, the target has disadvantage on attack rolls against all creatures except you until the start of your next turn.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Free Action : Battle Flow",
+      "description": "After defeating an enemy, you can move up to half your movement speed and make an additional attack against a different target as a free action.",
+      "location": "6b",
+      "data": "Y"
+    },
+    {
+      "name": "Master Skirmisher",
+      "description": "Gain +1 Movement Speed and +1 Evade. You can take the Dash action as a bonus action. When you use the Dash action, difficult terrain doesn't slow your movement that turn.",
+      "location": "7",
+      "data": "AV=1:AS4=1:TD"
+    }
+  ]
+}

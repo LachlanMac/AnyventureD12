@@ -1,0 +1,66 @@
+{
+  "name": "Brawler",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Brawler",
+      "description": "Gain +1 Attack and +1 Damage with Unarmed Strikes and Melee Weapons.",
+      "location": "1",
+      "data": "AZ1=1:AZ7=1:AZ2=1:AZ8=1"
+    },
+    {
+      "name": "Tough as Nails",
+      "description": "Gain +3 maximum Health and +1 Physical Mitigation.",
+      "location": "2a",
+      "data": "AH=3:AD4=1"
+    },
+    {
+      "name": "Reaction : Counter Strike",
+      "description": "When a creature misses you with a melee attack, you can immediately make an Unarmed Strike or Melee Weapon attack against them.",
+      "location": "2b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Fighting Spirit",
+      "description": "Gain +1 Attack with Unarmed Strikes and Melee Weapons. When you drop to 0 Health, you can choose to remain conscious at 1 Health once per day.",
+      "location": "3",
+      "data": "AZ1=1:AZ2=1:TD"
+    },
+    {
+      "name": "Action : Haymaker",
+      "description": "Make an Unarmed Strike with a 1d4 Attack penalty. On a hit, the target takes normal damage and must make a Strength check or be pushed back 1 unit and become Prone.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Brutal Fighter",
+      "description": "Your Critical Hit threshold with Unarmed Strikes and Melee Weapons is improved by 1, and Critical Hits deal an additional 1d6 damage.",
+      "location": "4b",
+      "data": "AZD=1:AZE=1"
+    },
+    {
+      "name": "Battle Hardened",
+      "description": "Gain resistance to Pain and Fear effects. When you're reduced to half your maximum Health or lower, you gain +1 to all Attack and Damage rolls.",
+      "location": "5",
+      "data": "I1:TD"
+    },
+    {
+      "name": "Action : Flurry of Blows",
+      "description": "Make three Unarmed Strikes or two Melee Weapon attacks against one or more targets within your reach, each with a 1d4 Attack penalty.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Iron Fists",
+      "description": "Your Unarmed Strikes count as adamantine weapons for the purpose of overcoming damage resistance. Gain +1d4 damage with Unarmed Strikes.",
+      "location": "6b",
+      "data": "TD:TO"
+    },
+    {
+      "name": "Master Brawler",
+      "description": "Gain +1 Attack and +1 Damage with Unarmed Strikes and Melee Weapons. Once per turn when you hit with an Unarmed Strike or Melee Weapon, you can force the target to make a Strength check or be Stunned until the end of your next turn.",
+      "location": "7",
+      "data": "AZ1=1:AZ7=1:AZ2=1:AZ8=1:TO"
+    }
+  ]
+}

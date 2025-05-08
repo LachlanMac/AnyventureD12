@@ -1,0 +1,66 @@
+{
+  "name": "Communications Specialist",
+  "ruleset": 0,
+  "options": [
+    {
+      "name": "Communications Specialist",
+      "description": "Gain +1 Technology and +1 Negotiation. You can operate and repair communication devices with expertise.",
+      "location": "1",
+      "data": "ASB=1:ASE=1:TD"
+    },
+    {
+      "name": "Signal Booster",
+      "description": "You can amplify communication signals to double their normal range. Gain +1 Technology.",
+      "location": "2a",
+      "data": "ASB=1:TD"
+    },
+    {
+      "name": "Universal Translator",
+      "description": "Gain +1 Negotiation. You can understand and communicate in any language after hearing it for 1 minute, though with limited fluency.",
+      "location": "2b",
+      "data": "ASE=1:TD"
+    },
+    {
+      "name": "Clear Channel",
+      "description": "Gain +1 Technology. You can establish secure communications that cannot be intercepted or jammed by conventional means.",
+      "location": "3",
+      "data": "ASB=1:TD"
+    },
+    {
+      "name": "Action : Emergency Broadcast",
+      "description": "Send a critical message that reaches all communication devices within 1 mile, overriding any blocks or interference.",
+      "location": "4a",
+      "data": "XX3"
+    },
+    {
+      "name": "Reaction : Signal Intercept",
+      "description": "When you detect an electronic communication within range, you can intercept and decode it before it reaches its intended recipient.",
+      "location": "4b",
+      "data": "ZX2"
+    },
+    {
+      "name": "Battlefield Coordination",
+      "description": "Gain +1 Negotiation and +1 Technology. You can use communication systems to coordinate allies, giving up to 3 allies a +1 bonus to Attack rolls for 1 minute.",
+      "location": "5",
+      "data": "ASE=1:ASB=1:TD"
+    },
+    {
+      "name": "Action : Precise Targeting",
+      "description": "Use communication systems to guide an ally's attack. One ally within communication range gains advantage on their next attack roll and deals an additional 1d6 damage if it hits.",
+      "location": "6a",
+      "data": "XX3"
+    },
+    {
+      "name": "Electronic Warfare",
+      "description": "Gain +1 Technology. You can jam enemy communications or electronic devices within 100 feet for 1 minute with a successful Technology check.",
+      "location": "6b",
+      "data": "ASB=1:TD"
+    },
+    {
+      "name": "Master Communications Specialist",
+      "description": "Gain +1 Technology and +1 Negotiation. You can communicate with allies telepathically within 1 mile as long as they are carrying a communication device. You can also pinpoint the location of any active communication device within 1 mile.",
+      "location": "7",
+      "data": "ASB=1:ASE=1:TD"
+    }
+  ]
+}
