@@ -1,0 +1,85 @@
+########### SKILLS ###########
+KEY (S)
+EX. SS1=1 SKILL  ST1=1 TALENT
+###############################
+1: Physique
+2: Finesse
+3: Mind
+4: Knowledge
+5: Social
+
+A: Fitness
+B: Deflection
+C: Might
+D: Endurance
+E: Evasion
+F: Stealth
+G: Coordination
+H: Thievery
+I: Resilience
+J: Concentration
+K: Senses
+L: Logic
+M: Wildcraft
+N: Academics
+O: Magic
+P: Medicine
+Q: Expression
+R: Presence
+S: Insight
+T: Persuasion
+
+########### WEAPONS ###########
+KEY (W)
+EX. WS1=1 SKILL  WT1=1 TALENT
+###############################
+1: Unarmed
+2: Throwing
+3: Simple Melee Weapons
+4: Simple Ranged Weapons
+5: Complex Melee Weapons
+6: Complex Ranged Weapons
+
+############ MAGIC ############
+KEY (M)
+EX. MS1=1 SKILL  MT1=1 TALENT
+################################
+1: Black
+2: Primal
+3: Alteration
+4: Divine
+5: Mysticism
+
+############ CRAFTING ############
+KEY (C)
+EX. CS1=1 SKILL  CT1=1 TALENT
+##################################
+1: Engineering
+2: Fabrication
+3: Alchemy
+4: Cooking
+5: Gylphcraft
+6: Bioshaping
+
+########## MITIGATIONS ###########
+KEY (M)
+EX. M1=1 MITIGATION
+##################################
+1: Physical
+2: Heat
+3: Cold
+4: Lightning
+5: Dark
+6: Divine
+7: Arcane
+8: Psychic
+9: Toxic
+
+############## AUTO ##############
+KEY (A)
+EX. A1=1
+##################################
+1: HEALTH
+2: RESOLVE
+3: STAMINA
+4: MOVEMENT
