@@ -81,6 +81,7 @@ import {
       userId,
       name: '',
       race: '',
+      culture: '', // Add default culture field
       portraitUrl: null,
       attributes: {
         physique: 1,
@@ -118,7 +119,6 @@ import {
       level: 1,
       experience: 0,
       movement: 5,
-      initiative: 0,
       characterCreation: {
         attributePointsRemaining: 5,
         talentStarsRemaining: 5,

@@ -1,79 +1,13 @@
 import React from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
-
+import { Character } from '../../../types/character';
 interface SkillData {
   value: number; // Dice type (1-6)
   talent: number; // Number of dice (0-3)
 }
 
-interface Character {
-  attributes: {
-    physique: number;
-    finesse: number;
-    mind: number;
-    knowledge: number;
-    social: number;
-  };
 
-    skills: {
-      // Physique
-      fitness: SkillData;
-      deflection: SkillData;
-      might: SkillData;
-      endurance: SkillData;
-      // Agility
-      evasion: SkillData;
-      stealth: SkillData;
-      coordination: SkillData;
-      thievery: SkillData;
-      // Mind
-      resilience: SkillData;
-      concentration: SkillData;
-      senses: SkillData;
-      logic: SkillData;
-      // Knowledge
-      wildcraft: SkillData;
-      academics: SkillData;
-      magic: SkillData;
-      medicine: SkillData;
-      // Social
-      expression: SkillData;
-      presence: SkillData;
-      insight: SkillData;
-      persuasion: SkillData;
-    };
-    
-  weaponSkills: {
-    unarmed: SkillData;
-    throwing: SkillData;
-    rangedWeapons: SkillData;
-    simpleMeleeWeapons: SkillData;
-    complexMeleeWeapons: SkillData;
-  };
-
-  magicSkills: {
-    black: SkillData;
-    primal: SkillData;
-    alteration: SkillData;
-    divine: SkillData;
-    mystic: SkillData;
-  };
-  craftingSkills: {
-    engineering: SkillData;
-    fabrication: SkillData;
-    alchemy: SkillData;
-    glyphcraft: SkillData;
-    cooking : SkillData;
-  };
-  languages: string[];
-  stances: string[];
-  modulePoints: {
-    total: number;
-    spent: number;
-  };
-  movement: number;
-}
 
 interface InfoTabProps {
   character: Character;
@@ -238,7 +172,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={3} size="md" />
+                      <TalentDisplay talent={skillData.talent} maxTalent={5} size="md" />
                     </div>
                   </div>
                 );
@@ -246,6 +180,57 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
             {!Object.values(character.weaponSkills).some(skill => skill.talent > 0) && (
               <div className="col-span-2 text-center p-4 text-cloud">
                 No weapon skills with talent points assigned.
+              </div>
+            )}
+          </div>
+        </CardBody>
+      </Card>
+
+          {/* Magic Skills */}
+      <Card variant="default">
+        <CardHeader>
+          <h2
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '1.25rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Magic Skills
+          </h2>
+        </CardHeader>
+        <CardBody>
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {Object.entries(character.magicSkills)
+              .filter(([_, data]) => data.talent > 0) // Only show skills with talent
+              .map(([skillId, skillData]) => {
+                const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
+
+                return (
+                  <div 
+                    key={skillId} 
+                    className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
+                  >
+                    <div>
+                      <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                        {skillId
+                          .replace(/([A-Z])/g, ' $1')
+                          .replace(/^./, str => str.toUpperCase())}
+                      </div>
+                      <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+                       
+                        {skillData.talent > 0 ? `${skillData.talent}${dieType}` : 'No dice'}
+                      </div>
+                    </div>
+                    <div className="flex items-center gap-2">
+                      <TalentDisplay talent={skillData.talent} maxTalent={5} size="md" />
+                    </div>
+                  </div>
+                );
+              })}
+            {!Object.values(character.magicSkills).some(skill => skill.talent > 0) && (
+              <div className="col-span-2 text-center p-4 text-cloud">
+                No magic skills with talent points assigned.
               </div>
             )}
           </div>
@@ -285,7 +270,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={3} size="md" />
+                      <TalentDisplay talent={skillData.talent} maxTalent={5} size="md" />
                     </div>
                   </div>
                 );

@@ -38,6 +38,7 @@ interface Character {
   userId: string;
   name: string;
   race: string;
+  culture:string;
   attributes: {
     physique: number;
     finesse: number;
@@ -48,34 +49,49 @@ interface Character {
   traits: Trait[];
   skills: {
     fitness: SkillData;
-    deflect: SkillData;
+    deflection: SkillData;
     might: SkillData;
-    evade: SkillData;
+    endurance: SkillData;
+    evasion: SkillData;
     stealth: SkillData;
     coordination: SkillData;
+    thievery: SkillData;
     resilience: SkillData;
     concentration: SkillData;
     senses: SkillData;
-    science: SkillData;
-    technology: SkillData;
+    logic: SkillData;
+    wildcraft: SkillData;
+    academics: SkillData;
+    magic: SkillData;
     medicine: SkillData;
-    xenology: SkillData;
-    negotiation: SkillData;
-    behavior: SkillData;
+    expression: SkillData;
+    persuasion: SkillData;
+    insight: SkillData;
     presence: SkillData;
-  };
+  },
+  
   weaponSkills: {
-    rangedWeapons: SkillData;
-    meleeWeapons: SkillData;
-    weaponSystems: SkillData;
-    heavyRangedWeapons: SkillData;
-  };
+    unarmed: SkillData;
+    throwing: SkillData;
+    simpleRangedWeapons: SkillData;
+    simpleMeleeWeapons: SkillData;
+    complexRangedWeapons: SkillData;
+    complexMeleeWeapons: SkillData;
+  },
   craftingSkills: {
     engineering: SkillData;
     fabrication: SkillData;
-    biosculpting: SkillData;
-    synthesis: SkillData;
-  };
+    alchemy: SkillData;
+    cooking: SkillData;
+    glyphcraft: SkillData;
+  },
+  magicSkills: {
+    black: SkillData;
+    primal: SkillData;
+    alteration: SkillData;
+    divine: SkillData;
+    mystic: SkillData;
+  },
   resources: {
     health: { current: number; max: number };
     stamina: { current: number; max: number };
@@ -90,6 +106,7 @@ interface Character {
     gender: string;
   };
   biography: string;
+  portraitUrl:string;
   appearance: string;
   actions: Action[];
   modules: any[]; // Simplified for this example
@@ -139,7 +156,9 @@ const CharacterView: React.FC = () => {
           _id: id || '12345',
           userId: 'test-user-id',
           name: 'Zara Chen',
-          race: 'Human',
+          race: 'Test Race',
+          culture: 'Test Culture',
+          portraitUrl: '',
           attributes: {
             physique: 2,
             finesse: 3,
@@ -149,43 +168,50 @@ const CharacterView: React.FC = () => {
           },
           traits: [],
           skills: {
-            // Physique Skills
             fitness: { value: 2, talent: 0 },
-            deflect: { value: 3, talent: 0 },
+            deflection: { value: 3, talent: 0 },
             might: { value: 2, talent: 0 },
-
-            // Agility Skills
-            evade: { value: 3, talent: 0 },
+            endurance: { value: 2, talent: 0 },
+            evasion: { value: 3, talent: 0 },
             stealth: { value: 4, talent: 0 },
             coordination: { value: 3, talent: 0 },
-
-            // Mind Skills
+            thievery: { value: 3, talent: 0 },
             resilience: { value: 2, talent: 0 },
             concentration: { value: 3, talent: 0 },
             senses: { value: 4, talent: 0 },
-
-            // Knowledge Skills
-            science: { value: 2, talent: 0 },
-            technology: { value: 1, talent: 0 },
+            logic: { value: 2, talent: 0 },
+            wildcraft: { value: 2, talent: 0 },
+            academics: { value: 2, talent: 0 },
+            magic: { value: 3, talent: 0 },
             medicine: { value: 3, talent: 0 },
-            xenology: { value: 2, talent: 0 },
-
-            // Social Skills
-            negotiation: { value: 2, talent: 0 },
-            behavior: { value: 3, talent: 0 },
+            expression: { value: 2, talent: 0 },
+            persuasion: { value: 2, talent: 0 },
+            insight: { value: 3, talent: 0 },
             presence: { value: 2, talent: 0 },
           },
+          
           weaponSkills: {
-            rangedWeapons: { value: 3, talent: 2 },
-            meleeWeapons: { value: 2, talent: 1 },
-            weaponSystems: { value: 1, talent: 0 },
-            heavyRangedWeapons: { value: 2, talent: 0 },
+            unarmed: { value: 2, talent: 1 },
+            throwing: { value: 2, talent: 0 },
+            simpleRangedWeapons: { value: 3, talent: 2 },
+            simpleMeleeWeapons: { value: 2, talent: 1 },
+            complexRangedWeapons: { value: 2, talent: 0 },
+            complexMeleeWeapons: { value: 1, talent: 0 },
           },
+          
           craftingSkills: {
             engineering: { value: 1, talent: 1 },
             fabrication: { value: 2, talent: 1 },
-            biosculpting: { value: 1, talent: 0 },
-            synthesis: { value: 2, talent: 0 },
+            alchemy: { value: 1, talent: 0 },
+            cooking: { value: 2, talent: 0 },
+            glyphcraft: { value: 1, talent: 0 },
+          },
+          magicSkills: {
+            black: { value: 0, talent: 0 },
+            primal: { value: 0, talent: 0 },
+            alteration: { value: 0, talent: 0 },
+            divine: { value: 0, talent: 0 },
+            mystic: { value: 0, talent: 0 },
           },
           resources: {
             health: { current: 12, max: 12 },
@@ -395,9 +421,12 @@ const CharacterView: React.FC = () => {
           {/* Background Tab */}
           {activeTab === 'background' && (
             <BackgroundTab
-              physicalTraits={character.physicalTraits}
-              appearance={character.appearance}
-              biography={character.biography}
+            physicalTraits={character.physicalTraits}
+            appearance={character.appearance}
+            biography={character.biography}
+            race={character.race}
+            culture={character.culture}
+            portraitUrl={character.portraitUrl}
             />
           )}
         </div>

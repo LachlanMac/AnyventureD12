@@ -1,0 +1,27 @@
+{
+  "id": 4,
+  "name": "Orycotal",
+  "description": "Orycotal are humanoid creatures with rabbit-like ears and elongated limbs, giving them exceptional mobility. They are typically a peaceful ancestry who prefer the company of their own kind. However, Orycotal are always tempted to follow their curiousity to figure out the mysteries of the world. Orycotal are sometimes mistaken for fey by outsiders, but despite a long and troubled history with the mischievous creatures of the feywild, that could not be further from the truth.",
+  "homeworld": "Atlah",
+  "img": "img/ancestries/orycotal.webp",
+  "portrait": "img/ancestries/portraits/orycotal.png",
+  "lifespan": "average 160 years, mature at 20",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Orycotal",
+  "options": [
+    {
+      "name": "Bounding Steps",
+      "description": "Your Jump range becomes equal to your Athletics, even from a stationary position. Additionally, gain +1 Acrobatics and +1 Movement Speed.",
+      "location": "1",
+      "data": "AV=1:AS3=1"
+    },
+    {
+      "name": "Free Action : Quick Hop",
+      "description": "You take the Jump Action but avoid any Attacks of Opportunity. Instead of Jumping a distance, you can also elect to remove any Prone Condition.",
+      "location": "2",
+      "data": "Y"
+    }
+  ]
+}

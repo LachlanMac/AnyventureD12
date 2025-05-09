@@ -1,0 +1,27 @@
+{
+  "id": 17,
+  "name": "Tidewalker",
+  "homeworld": "Atlah",
+  "description": "Tidewalkers are aquatic humanoids adapted to underwater life, with sharp teeth to aid their carnivorous diets and gils just above their brow ridge which allow them to breathe underwater. There are countless tribes of tidewalkers spread throughout the temperate waters of Atlah, living in unison with other creatures that dwell in the depths of the ocean. Their culture emphasizes survival and cooperation, often revolving around life in the deep seas and coastal areas.",
+  "img": "img/ancestries/tidewalker.webp",
+  "portrait": "img/ancestries/portraits/tidewalker.png",
+  "lifespan": "average 110 years, mature at 16",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Qualatiq",
+  "options": [
+    {
+      "name": "Tidewalking",
+      "description": "You can breathe and speak normally while submerged in water. Additionally, your scales grant you a bonus of +1 Physical Mitigation and +2 Dark Mitigation.",
+      "location": "1",
+      "data": "TA:AD4=1:AD7=2"
+    },
+    {
+      "name": "Action : Echolocate",
+      "description": "Using sound, you can sense the presence of Creatures within 20 Units that do not have full cover until the start of your next turn.",
+      "location": "2",
+      "data": "XX3"
+    }
+  ]
+}

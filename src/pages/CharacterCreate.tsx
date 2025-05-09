@@ -2,8 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
-
-// Import creator components
 import StepIndicator from '../components/character/creator/StepIndicator';
 import BasicInfoTab from '../components/character/creator/BasicInfoTab';
 import AttributesTab from '../components/character/creator/AttributesTab';
@@ -20,6 +18,7 @@ import {
   Character, 
   Trait, 
   RacialModule, 
+  CultureModule,
   Attributes 
 } from '../types/character';
 
@@ -35,13 +34,41 @@ const CharacterCreate: React.FC = () => {
   const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(5);
   const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(5);
   const [racialModules, setRacialModules] = useState<RacialModule[]>([]);
+  const [cultureModules, setCultureModules] = useState<CultureModule[]>([]);
   const [selectedRacialModule, setSelectedRacialModule] = useState<RacialModule | null>(null);
+  const [selectedCultureModule, setSelectedCultureModule] = useState<CultureModule | null>(null);
 
   // Define steps
   const steps = ['Basic Info', 'Attributes', 'Talents', 'Traits', 'Background'];
 
   // Initialize character state using the utility function
   const [character, setCharacter] = useState<Character>(createDefaultCharacter('test-user-id'));
+
+  useEffect(() => {
+    const fetchModules = async () => {
+      try {
+        const raceResponse = await fetch('/api/modules/type/racial');
+        if (!raceResponse.ok) {
+          throw new Error('Failed to fetch racial modules');
+        }
+        const raceData = await raceResponse.json();
+        setRacialModules(raceData);
+        
+        // Add culture modules fetching
+        const cultureResponse = await fetch('/api/modules/type/cultural');
+        if (!cultureResponse.ok) {
+          throw new Error('Failed to fetch culture modules');
+        }
+        const cultureData = await cultureResponse.json();
+        setCultureModules(cultureData);
+      } catch (err) {
+        console.error('Error fetching modules:', err);
+      }
+    };
+  
+    fetchModules();
+  }, []);
+  
 
   useEffect(() => {
     const fetchRacialModules = async () => {
@@ -60,6 +87,11 @@ const CharacterCreate: React.FC = () => {
   
     fetchRacialModules();
   }, []);
+
+  const handleCultureChange = (cultureName: string, cultureModule: CultureModule) => {
+    updateCharacter('culture', cultureName);
+    setSelectedCultureModule(cultureModule);
+  };
 
   const handleRaceChange = (raceName: string, racialModule: RacialModule) => {
     console.log("handleRaceChange called with:", raceName);
@@ -223,6 +255,10 @@ const CharacterCreate: React.FC = () => {
           setError('Please select a race');
           return false;
         }
+        if (!character.culture) {
+          setError('Please select a culture');
+          return false;
+        }
         return true;
 
       case 2:
@@ -315,11 +351,24 @@ const CharacterCreate: React.FC = () => {
           });
         }
       }
-
+      if (selectedCultureModule) {
+        const tier1Option = selectedCultureModule.options.find(option => option.location === '1');
+        
+        if (tier1Option) {
+          initialModules.push({
+            moduleId: selectedCultureModule._id,
+            selectedOptions: [{
+              location: '1',
+              selectedAt: new Date().toISOString()
+            }]
+          });
+        }
+      }
       // Transform the character data for the API
       const characterData = {
         name: character.name,
         race: character.race,
+        culture: character.culture, 
         attributes: character.attributes,
         skills: character.skills,
         weaponSkills: character.weaponSkills,
@@ -435,9 +484,11 @@ const CharacterCreate: React.FC = () => {
               <BasicInfoTab 
                 name={character.name}
                 race={character.race}
+                culture={character.culture}
                 modulePoints={character.modulePoints.total}
                 onNameChange={(name) => updateCharacter('name', name)}
                 onRaceChange={handleRaceChange}
+                onCultureChange={handleCultureChange}
                 onModulePointsChange={(points) => {
                   updateNestedField('modulePoints', 'total', points);
                   updateCharacter('level', Math.floor(points / 10));
@@ -485,6 +536,7 @@ const CharacterCreate: React.FC = () => {
                 biography={character.biography}
                 name={character.name}
                 race={character.race}
+                culture={character.culture}
                 level={character.level}
                 modulePoints={character.modulePoints}
                 attributes={character.attributes}

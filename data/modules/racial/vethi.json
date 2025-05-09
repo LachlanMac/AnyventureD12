@@ -1,0 +1,27 @@
+{
+  "id": 20,
+  "name": "Vethi",
+  "homeworld": "Yyeshi",
+  "description": "The Vethi are tall, slender humanoids with an additional third eye that grants them unique abilities. They are notoriously bad at identifying individuals based on facial structure, and instead identify their own by the unique antlers that they grow in their adolescent years. Their culture is steeped in ancient, forbidden magic, leading to a mix of reverence and caution among their people.",
+  "img": "img/ancestries/vethi.webp",
+  "portrait": "img/ancestries/portraits/vethi.png",
+  "lifespan": "average 120 years, mature at 20",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Vethan",
+  "options": [
+    {
+      "name": "Eye of the Veth",
+      "description": "You can communicate Telepathically to a Creature within 14 Units who shares a Language with you. They cannot communicate verbally, but can give a response of either affirmation, denial or indifference.",
+      "location": "1",
+      "data": "TA"
+    },
+    {
+      "name": "Action : Third Eye",
+      "description": "You unleash the power of your Third Eye towards a Target you can see within 10 Units. For the next minute, this Creature has a -2 Modifier to Resistance Checks provoked by you until the end of your next Turn. This disables your Eye of the Veth until you complete the next Full Rest.",
+      "location": "2",
+      "data": "XX3"
+    }
+  ]
+}

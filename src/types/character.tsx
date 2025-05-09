@@ -104,13 +104,22 @@ export interface SkillData {
       selectedAt: string;
     }[];
   }
-  
+  export interface CultureModule {
+    _id: string;
+    name: string;
+    mtype: string;
+    ruleset: number;
+    options: ModuleOption[];
+    description?: string;
+  }
+
   // Complete character structure
   export interface Character {
     _id?: string;
     userId: string;
     name: string;
     race: string;
+    culture: string;
     portraitUrl?: string | null;
     attributes: Attributes;
     skills: SkillMap;
@@ -130,9 +139,9 @@ export interface SkillData {
     level: number;
     experience: number;
     movement: number;
-    initiative: number;
     characterCreation?: {
       attributePointsRemaining: number;
       talentStarsRemaining: number;
     };
+   
   }

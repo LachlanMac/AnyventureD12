@@ -1,49 +1,27 @@
 {
+  "id": 7,
   "name": "Human",
-  "ruleset": 0,
-  "description":"sadfsdaf",
+  "description": "Humans are a diverse and adaptable species, having spread across the temperature moon of Atlah in great number. They are known for having many different types of cultures and beliefs, so much so that they often find themselves quarreling with each other.",
+  "homeworld": "Atlah",
+  "img": "img/ancestries/human.webp",
+  "portrait": "img/ancestries/portraits/human.png",
+  "lifespan": "average 75 years, mature at 18",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Lattus",
   "options": [
     {
-      "name": "Adaptable",
-      "description": "Humans are one of the most adaptable species",
+      "name": "Heart of the Party",
+      "description": "Social interaction is key to thriving in the various cultures of Humanity. Become Good at one Social Skill.",
       "location": "1",
-      "data": "AS3=1:ASH=1"
+      "data": "TA"
     },
     {
-      "name": "Efficient Digestiion",
-      "description": "You take half Damage from falling that is applied after the Acrobatics Check to Mitigate the Damage. Additionally, you take no Damage when falling 6 Units or less.",
-      "location": "2a",
-      "data": "TG"
-    },
-    {
-      "name": "Fight or Flight",
-      "description": "Your Acrobatics Modifier replaces your Athletics for determining the distance you can Jump and checks that involve Climbing.",
-      "location": "2b",
-      "data": "TG"
-    },
-    {
-      "name": "Innovative",
-      "description": "Engineering / Tech",
-      "location": "3",
-      "data": "ZX2"
-    },
-    {
-      "name": "Xenophiles",
-      "description": "Make an Attack with a +2 Modifier. If your Attack hits, you can bounce off your Target 1 unit plus a distance equal to your Melee Range and avoid provoking Reactions.",
-      "location": "4a",
-      "data": ""
-    },
-    {
-      "name": "kjjl",
-      "description": "hjkhj",
-      "location": "4b",
-      "data": "TD"
-    },
-    {
-      "name": "Master Acrobat",
-      "description": "Gain +1 Dodge, +1 Movement Speed and +1 Acrobatics",
-      "location": "5",
-      "data": "AD2=1:AV=1:AS3=1"
+      "name": "Action : Human Destiny",
+      "description": "You immediately enter Lifeline but gain 12 Lifeline Points. If combat ends before you die, you gain Health equal to your Level.",
+      "location": "2",
+      "data": "XX3"
     }
   ]
 }

@@ -108,7 +108,10 @@ const CharacterSchema = new Schema({
     type: String,
     required: [true, 'Race is required']
   },
-  
+  culture: {
+    type: String,
+    required: [true, 'Culture is required']
+  },
   // Core Attributes (each now starts at 1 and has max of 3)
   attributes: {
     physique: { type: Number, default: 1, min: 1, max: 3 },
@@ -268,7 +271,7 @@ CharacterSchema.pre('save', function(next) {
   this.skills.endurance.talent = this.attributes.physique;
 
   // Agility Skills
-  this.skills.evade.talent = this.attributes.finesse;
+  this.skills.evasion.talent = this.attributes.finesse;
   this.skills.stealth.talent = this.attributes.finesse;
   this.skills.coordination.talent = this.attributes.finesse;
   this.skills.thievery.talent = this.attributes.finesse;

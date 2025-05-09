@@ -1,0 +1,35 @@
+{
+    "name": "Battleaxe",
+    "description": "A heavy, broad-bladed weapon capable of devastating cuts.",
+    "weight": 4,
+    "type": "weapon",
+    "rarity": "common",
+    "weapon_data": {
+      "category": "complexMelee",
+      "flags": ["heavy", "versatile"],
+      "primary": {
+        "damage": "1d8",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 1
+      },
+      "secondary": {
+        "damage": "1d10",
+        "damage_type": "physical",
+        "category": "slash"
+      }
+    },
+    "movement": -1,
+    "weaponSkills": {
+      "complexMeleeWeapons": {
+        "add_bonus": 2
+      }
+    },
+    "skills": {
+      "might": {
+        "add_talent": 1
+      }
+    }
+  }

@@ -1,22 +1,27 @@
 import React from 'react';
-import { RacialModule } from '../../../types/character';
+import { RacialModule, Module } from '../../../types/character';
 import RaceSelection from '../RaceSelection';
+import CultureSelection from '../CultureSelection';
 
 interface BasicInfoTabProps {
   name: string;
   race: string;
+  culture: string; 
   modulePoints: number;
   onNameChange: (name: string) => void;
   onRaceChange: (race: string, racialModule: RacialModule) => void;
+  onCultureChange: (culture: string, cultureModule: Module) => void;
   onModulePointsChange: (points: number) => void;
 }
 
 const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
   name,
   race,
+  culture,
   modulePoints,
   onNameChange,
   onRaceChange,
+  onCultureChange,
   onModulePointsChange,
 }) => {
   return (
@@ -29,7 +34,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
           marginBottom: '1.5rem',
         }}
       >
-        Basic Information
+        Origin
       </h2>
 
       <div style={{ marginBottom: '1.5rem' }}>
@@ -62,6 +67,12 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
       <RaceSelection 
         selectedRace={race} 
         onSelectRace={onRaceChange}
+      />
+      
+      {/* Culture Selection Component */}
+      <CultureSelection 
+        selectedCulture={culture} 
+        onSelectCulture={onCultureChange}
       />
       
       <div style={{ marginBottom: '1.5rem' }}>

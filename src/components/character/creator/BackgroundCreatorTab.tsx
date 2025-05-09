@@ -11,6 +11,7 @@ interface BackgroundCreatorTabProps {
   biography: string;
   name: string;
   race: string;
+  culture: string; 
   level: number;
   modulePoints: {
     total: number;
@@ -29,6 +30,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
   biography,
   name,
   race,
+  culture,
   level,
   modulePoints,
   attributes,
@@ -245,7 +247,12 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
             {race || 'Not selected'}
           </div>
         </div>
-
+        <div style={{ marginBottom: '1rem' }}>
+          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Culture</div>
+          <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+            {culture || 'Not selected'}
+          </div>
+        </div>
         <div style={{ marginBottom: '1rem' }}>
           <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
             Level

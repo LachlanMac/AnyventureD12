@@ -9,6 +9,8 @@ interface BackgroundTabProps {
     gender: string;
   };
   appearance: string;
+  race: string;
+  culture: string;
   biography: string;
   portraitUrl?: string | null;
 }
@@ -17,6 +19,8 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
   physicalTraits, 
   appearance, 
   biography,
+  race,
+  culture,
   portraitUrl
 }) => {
   return (
@@ -61,7 +65,46 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
           </CardBody>
         </Card>
       )}
-
+        {/* Origins */}
+        <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+        <CardHeader>
+          <h2
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '1.25rem',
+              fontWeight: 'bold',
+            }}
+          >
+            Origins
+          </h2>
+        </CardHeader>
+        <CardBody>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))',
+              gap: '1.5rem',
+            }}
+          >
+            <div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
+                Race
+              </div>
+              <div style={{ color: 'var(--color-white)' }}>
+                {race || 'Not specified'}
+              </div>
+            </div>
+            <div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
+                Culture
+              </div>
+              <div style={{ color: 'var(--color-white)' }}>
+                {culture || 'Not specified'}
+              </div>
+            </div>
+          </div>
+        </CardBody>
+      </Card>
       <Card variant="default" style={{ marginBottom: '1.5rem' }}>
         <CardHeader>
           <h2

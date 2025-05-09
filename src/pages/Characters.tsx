@@ -1,21 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
-
+import { Character } from '../types/character';
 // Define Character type
-interface Character {
-  _id: string;
-  name: string;
-  race: string;
-  level: number;
-  biography: string;
-  createdAt: string;
-  portraitUrl?: string | null;
-  modulePoints?: {
-    total: number;
-    spent: number;
-  };
-}
 
 const Characters: React.FC = () => {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -289,6 +276,21 @@ const Characters: React.FC = () => {
                       >
                         {character.race}
                       </span>
+
+                      {character.culture && (
+                      <span
+                        style={{
+                          backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                          color: 'var(--color-white)',
+                          fontSize: '0.75rem',
+                          padding: '0.125rem 0.5rem',
+                          borderRadius: '9999px',
+                        }}
+                      >
+                        {character.culture}
+                      </span>
+                    )}
+
                       <span
                         style={{
                           backgroundColor: 'rgba(0, 0, 0, 0.2)',

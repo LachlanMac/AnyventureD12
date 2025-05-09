@@ -9,6 +9,7 @@ interface CharacterHeaderProps {
     _id: string;
     name: string;
     race: string;
+    culture: string;
     modulePoints?: {
       total: number;
       spent: number;
@@ -177,12 +178,22 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
 
               <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+                  Culture
+                </div>
+                <div style={{ color: 'var(--color-white)' }}>
+                  {character.culture || 'Not specified'}
+                </div>
+              </div>
+
+              <div>
+                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
                   Movement
                 </div>
                 <div style={{ color: 'var(--color-white)' }}>
                   {character.movement} Units
                 </div>
               </div>
+
 
               <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>

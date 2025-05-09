@@ -2,68 +2,7 @@ import React from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import AttributeSkillsSection from '../AttributeSkillsSection';
 import SpecializedSkillsSection from '../SpecializedSkillsSection';
-
-interface SkillData {
-  value: number;
-  talent: number;
-}
-
-interface Character {
-  attributes: {
-    physique: number;
-    finesse: number;
-    mind: number;
-    knowledge: number;
-    social: number;
-  };
-  skills: {
-    fitness: SkillData;
-    deflection: SkillData;
-    might: SkillData;
-    endurance: SkillData;
-    evasion: SkillData;
-    stealth: SkillData;
-    coordination: SkillData;
-    thievery: SkillData;
-    resilience: SkillData;
-    concentration: SkillData;
-    senses: SkillData;
-    logic: SkillData;
-    wildcraft: SkillData;
-    academics: SkillData;
-    magic: SkillData;
-    medicine: SkillData;
-    expression: SkillData;
-    presence: SkillData;
-    insight: SkillData;
-    persuasion: SkillData;
-  };
-  weaponSkills: {
-    unarmed: SkillData;
-    throwing: SkillData;
-    rangedWeapons: SkillData;
-    simpleMeleeWeapons: SkillData;
-    complexMeleeWeapons: SkillData;
-  };
-
-  magicSkills: {
-    black: SkillData;       // necromancy, witchcraft (fiend)
-    primal: SkillData;      // evocation, druidic (cosmic)
-    alteration: SkillData;  // illusion, transmutation (fey)
-    divine: SkillData;      // abjuration, divine (draconic)
-    mystic: SkillData;      // auguration, shamanic (astral)
-  };
-
-  craftingSkills: {
-    engineering: SkillData;
-    fabrication: SkillData;
-    alchemy: SkillData;
-    cooking: SkillData;
-    glyphcraft: SkillData;
-  };
-}
-
-
+import { Character } from '../../../types/character';
 
 interface SkillsTabProps {
   character: Character;

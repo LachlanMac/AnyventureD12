@@ -186,7 +186,8 @@ export const initializeModules = async () => {
       fs.mkdirSync(path.join(modulesDir, 'racial'), { recursive: true });
       fs.mkdirSync(path.join(modulesDir, 'core'), { recursive: true });
       fs.mkdirSync(path.join(modulesDir, 'secondary'), { recursive: true });
-      
+      fs.mkdirSync(path.join(modulesDir, 'culture'), { recursive: true });
+
       // Create sample module
       const sampleModule = {
         name: "Acrobat",

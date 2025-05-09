@@ -19,6 +19,7 @@ import { getUser } from './middleware/auth.js';
 
 // Import config and utils
 import setupPassport from './config/passport.js';
+import { initializeItems } from './utils/itemSeeder.js';
 import { initializeModules } from './utils/moduleSeeder.js';
 import { initializeTraits } from './utils/traitSeeder.js';
 
@@ -65,13 +66,12 @@ const connectDB = async () => {
     const conn = await mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/starventured12');
     console.log(`MongoDB Connected: ${conn.connection.host}`);
     
-    // Initialize modules after database connection is established
+    console.log('Initializing items...');
+    await initializeItems();
     console.log('Initializing modules...');
     await initializeModules();
-    console.log('Modules initialized');
     console.log('Initializing traits...');
     await initializeTraits();
-    console.log('Traits initialized');
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
     process.exit(1);

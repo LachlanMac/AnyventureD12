@@ -1,0 +1,30 @@
+{
+    "name": "Shortsword",
+    "description": "A versatile blade favored by those who value speed over power.",
+    "weight": 2,
+    "type": "weapon",
+    "rarity": "common",
+    "weapon_data": {
+      "category": "simpleMelee",
+      "flags": ["light", "finesse"],
+      "primary": {
+        "damage": "1d6",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 1
+      },
+      "secondary": {
+        "damage": "1d4",
+        "damage_type": "physical",
+        "category": "pierce"
+      }
+    },
+    "weaponSkills": {
+      "simpleMeleeWeapons": {
+        "add_bonus": 1
+      }
+    }
+  }
+  
