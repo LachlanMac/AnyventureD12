@@ -269,10 +269,11 @@ export const resetAndReseedModules = async () => {
     console.log(`Found ${moduleData.length} modules to seed.`);
     
     for (const data of moduleData) {
-      await Module.create(data);
-      if (VERBOSE_LOGGING) {
-        console.log(`Created module: ${data.name}`);
+       if (VERBOSE_LOGGING) {
+        console.log(`Created module: ${data.name}`, data);
       }
+      await Module.create(data);
+     
     }
     
     console.log('Module reset and reseed completed successfully!');

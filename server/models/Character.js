@@ -22,20 +22,19 @@ const ModuleSchema = new Schema({
   options: [ModuleOptionSchema]
 });
 
-// Updated skill schema with talent stars
 const SkillSchema = new Schema({
-  value: { type: Number, default: 1 },   // Dice type (1d4, 1d6, etc.) - ranges from 1-6
-  talent: { type: Number, default: 0 }   // Number of dice to roll - ranges from 0-3
+  value: { type: Number, default: 0 },  
+  talent: { type: Number, default: 0 }
 });
 
 const CraftSchema = new Schema({
-  value: { type: Number, default: 1 },   // Dice type (1d4, 1d6, etc.) - ranges from 1-6
-  talent: { type: Number, default: 0 }   // Number of dice to roll - ranges from 0-3
+  value: { type: Number, default: 0 },   
+  talent: { type: Number, default: 0 } 
 });
 
 const WeaponSkillSchema = new Schema({
-  value: { type: Number, default: 1 },   // Dice type (1d4, 1d6, etc.) - ranges from 1-6
-  talent: { type: Number, default: 0 }   // Number of dice to roll - ranges from 0-3
+  value: { type: Number, default: 0 },   
+  talent: { type: Number, default: 0 } 
 });
 
 const ActionSchema = new Schema({
@@ -114,11 +113,11 @@ const CharacterSchema = new Schema({
   },
   // Core Attributes (each now starts at 1 and has max of 3)
   attributes: {
-    physique: { type: Number, default: 1, min: 1, max: 3 },
-    finesse : { type: Number, default: 1, min: 1, max: 3 },
-    mind: { type: Number, default: 1, min: 1, max: 3 },
-    knowledge: { type: Number, default: 1, min: 1, max: 3 },
-    social: { type: Number, default: 1, min: 1, max: 3 }
+    physique: { type: Number, default: 1, min: 1, max: 4 },
+    finesse : { type: Number, default: 1, min: 1, max: 4 },
+    mind: { type: Number, default: 1, min: 1, max: 4 },
+    knowledge: { type: Number, default: 1, min: 1, max: 4 },
+    social: { type: Number, default: 1, min: 1, max: 4 }
   },
   
   // Skills based on attributes - now using updated SkillSchema
@@ -178,10 +177,9 @@ const CharacterSchema = new Schema({
     bioshaping: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },
   },
   
-  // Track remaining talent stars for character creation
   characterCreation: {
-    attributePointsRemaining: { type: Number, default: 5 },
-    talentStarsRemaining: { type: Number, default: 5 }
+    attributePointsRemaining: { type: Number, default: 6 },
+    talentStarsRemaining: { type: Number, default: 8 }
   },
   
   // Resources

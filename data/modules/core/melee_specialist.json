@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Melee Specialist",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Fledgling Combatant",
+      "description": "You have trained with several types of melee weapons. Gain +1 skill with simple and complex melee weapons.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Power Strike",
+      "description": "You make a powerful attack against an enemy with a simple or complex melee weapon. You roll an additional dice for your attack, but do not benefit from any extra damage. Instead, do three times the primary damage of your weapon.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Close the Gap",
+      "description": "You move up to 2 units towards an enemy and then make an attack against them with a melee weapon.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 1,
+      "data": ""
+    },
+    {
+      "name": "Reaction : Reactive Strike",
+      "description": "When an enemy moves within your melee range, make an attack against them.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Conditioning",
+      "description": "Your dedication to weapon training has resulted in increased conditioning. You gain +1 skill with fitness and +2 health.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Parry",
+      "description": "You have trained to block attacks with your weapons. You gain +1 skill with deflection.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Skilled Combatant",
+      "description": "You have trained with several types of melee weapons. Gain +1 skill with simple and complex melee weapons.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Perfect Form",
+      "description": "You ignore penalties for weapons with the 'heavy' property and gain +1 skill with coordination.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Critical Hits",
+      "description": "When all of your dice hit when making an attack with a simple or complex ranged weapon, deal extra damage equal to your weapon damage.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Talented Combatant",
+      "description": "Your relentless training has resulted in +1 talent with simple and complex melee weapons.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

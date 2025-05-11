@@ -55,7 +55,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
         }}
       >
         Attributes define your character's basic capabilities. Each attribute has a
-        maximum value of 3 and determines the number of dice you roll for related skills.
+        maximum value of 4 and determines the number of dice you roll for related skills.
         All attributes start at 1.
       </p>
 
@@ -79,7 +79,6 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                     fontSize: '0.875rem',
                   }}
                 >
-                  {/* This would need to be updated to use attribute descriptions if available */}
                   Related to {skills.map(skill => skill.name).join(', ')}
                 </span>
               </div>
@@ -145,13 +144,13 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
               <button
                 type="button"
                 disabled={
-                  attributes[attributeId as keyof Attributes] >= 3 || attributePointsRemaining <= 0
+                  attributes[attributeId as keyof Attributes] >= 4 || attributePointsRemaining <= 0
                 }
                 onClick={() =>
                   onUpdateAttribute(
                     attributeId as keyof Attributes,
                     Math.min(
-                      3,
+                      4,
                       attributes[attributeId as keyof Attributes] + 1
                     )
                   )
@@ -164,11 +163,11 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                   color: 'var(--color-white)',
                   border: 'none',
                   cursor:
-                    attributes[attributeId as keyof Attributes] >= 3 || attributePointsRemaining <= 0
+                    attributes[attributeId as keyof Attributes] >= 4 || attributePointsRemaining <= 0
                       ? 'not-allowed'
                       : 'pointer',
                   opacity:
-                    attributes[attributeId as keyof Attributes] >= 3 || attributePointsRemaining <= 0
+                    attributes[attributeId as keyof Attributes] >= 4 || attributePointsRemaining <= 0
                       ? 0.5
                       : 1,
                 }}
@@ -192,7 +191,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                     top: 0,
                     left: 0,
                     height: '100%',
-                    width: `${(attributes[attributeId as keyof Attributes] / 3) * 100}%`,
+                    width: `${(attributes[attributeId as keyof Attributes] / 4) * 100}%`,
                     backgroundColor: 'var(--color-sat-purple)',
                     borderRadius: '0.375rem',
                     transition: 'width 0.3s',

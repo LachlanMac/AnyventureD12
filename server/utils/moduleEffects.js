@@ -4,323 +4,282 @@
  * @param {Object} character - The character to apply effects to
  * @param {String} dataString - The data string containing effect codes
  */
+// server/utils/moduleEffects.js - Updated parsing logic
+
 export const applyDataEffects = (character, dataString) => {
-    if (!dataString) return;
+  if (!dataString) return;
+  
+  // Initialize module bonuses if not exists
+  if (!character.moduleBonuses) character.moduleBonuses = {};
+  
+  // Split the data string by colon for multiple effects
+  const effects = dataString.split(':');
+  
+  for (const effect of effects) {
+    // Skip empty effects
+    if (!effect.trim()) continue;
     
-    // Initialize module bonuses object if not exists
-    if (!character.moduleBonuses) character.moduleBonuses = {};
+    // Parse the effect code
+    const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+)/);
+    if (!match) continue;
     
-    // Split the data string by colon for multiple effects
-    const effects = dataString.split(':');
+    const [_, category, type, code, valueStr] = match;
+    const value = parseInt(valueStr);
     
-    for (const effect of effects) {
-      // Special case for Trait - these don't follow the standard pattern
-      if (effect.startsWith('T')) {
-        applyTraitEffect(character, effect);
-        continue;
-      }
-      
-      // Special case for Immunity - these don't follow the standard pattern
-      if (effect.startsWith('I')) {
-        applyImmunityEffect(character, effect);
-        continue;
-      }
-      
-      // Special case for Language - these contain a string
-      if (effect.startsWith('L=')) {
-        const languageName = effect.substring(2).replace(/"/g, '');
-        if (!character.languages.includes(languageName)) {
-          character.languages.push(languageName);
+    switch(category) {
+      case 'S': // Skills
+        handleSkillEffect(character, type, code, value);
+        break;
+      case 'W': // Weapons
+        handleWeaponEffect(character, type, code, value);
+        break;
+      case 'M': // Magic or Mitigations (check type)
+        if (type === 'S' || type === 'T') {
+          handleMagicEffect(character, type, code, value);
+        } else {
+          handleMitigationEffect(character, code, value);
         }
-        continue;
-      }
+        break;
+      case 'C': // Crafting
+        handleCraftingEffect(character, type, code, value);
+        break;
+      case 'A': // Auto (health, resolve, etc.)
+        handleAutoEffect(character, code, value);
+        break;
+    }
+  }
+};
+
+// Handler functions for each category
+
+const handleSkillEffect = (character, type, code, value) => {
+  // Map the code to skill/attribute
+  const mapping = getSkillMapping(code);
+  if (!mapping) return;
+  
+  if (type === 'S') { // Skill increase
+    // Regular skills can have their value increased
+    if (mapping.type === 'skill') {
+      if (!character.moduleBonuses.skills) character.moduleBonuses.skills = {};
+      if (!character.moduleBonuses.skills[mapping.id]) character.moduleBonuses.skills[mapping.id] = { value: 0, talent: 0 };
+      character.moduleBonuses.skills[mapping.id].value += value;
       
-      // Special case for actions/reactions/free actions
-      if (effect.startsWith('X') || effect.startsWith('Z') || effect.startsWith('Y')) {
-        applyActionEffect(character, effect);
-        continue;
-      }
-      
-      // Handle When clauses
-      if (effect.startsWith('W')) {
-        // For now, store these as conditional effects that will be checked when relevant
-        if (!character.moduleBonuses.conditionalEffects) {
-          character.moduleBonuses.conditionalEffects = [];
-        }
-        character.moduleBonuses.conditionalEffects.push(effect);
-        continue;
-      }
-      
-      // Parse standard effect code (e.g., "AS3=1")
-      const match = effect.match(/([A-Z]+)([0-9A-Z]*)=([+-]?[0-9]+)/);
-      if (!match) continue;
-      
-      const [_, code, subcode, valueStr] = match;
-      const value = parseInt(valueStr);
-      
-      // Apply effect based on code
-      switch(code) {
-        // Auto section
-        case 'AV': // Movement speed
-          if (!character.moduleBonuses.movement) character.moduleBonuses.movement = 0;
-          character.moduleBonuses.movement += value;
-          character.movement += value; // Apply directly to character movement
-          break;
-          
-        case 'AH': // Health
-          if (!character.moduleBonuses.health) character.moduleBonuses.health = 0;
-          character.moduleBonuses.health += value;
-          character.resources.health.max += value; // Apply directly to max health
-          character.resources.health.current += value; // Also increase current health
-          break;
-          
-        case 'AD': // Defense/Mitigation
-          const mitigationType = mapMitigationType(subcode);
-          if (mitigationType) {
-            if (!character.moduleBonuses.mitigation) character.moduleBonuses.mitigation = {};
-            if (!character.moduleBonuses.mitigation[mitigationType]) {
-              character.moduleBonuses.mitigation[mitigationType] = 0;
-            }
-            character.moduleBonuses.mitigation[mitigationType] += value;
-            
-            // Also update character's mitigation if it exists
-            if (character.mitigation && character.mitigation[mitigationType] !== undefined) {
-              character.mitigation[mitigationType] += value;
-            }
-          }
-          break;
-          
-        case 'AZ': // Weapon skill
-          const weaponSkill = mapWeaponSkill(subcode);
-          if (weaponSkill) {
-            if (!character.moduleBonuses.weaponSkills) character.moduleBonuses.weaponSkills = {};
-            if (!character.moduleBonuses.weaponSkills[weaponSkill]) {
-              character.moduleBonuses.weaponSkills[weaponSkill] = 0;
-            }
-            character.moduleBonuses.weaponSkills[weaponSkill] += value;
-            
-            // Update character's weapon skills if they exist
-            if (character.weaponSkills && character.weaponSkills[weaponSkill] !== undefined) {
-              character.weaponSkills[weaponSkill] += value;
-            }
-          }
-          break;
-          
-        case 'AS': // Skill bonus
-          const skill = mapSkill(subcode);
-          if (skill && character.skills[skill]) {
-            if (!character.moduleBonuses.skills) character.moduleBonuses.skills = {};
-            if (!character.moduleBonuses.skills[skill]) character.moduleBonuses.skills[skill] = 0;
-            character.moduleBonuses.skills[skill] += value;
-            
-            // Apply bonus to the skill
-            character.skills[skill].value += value;
-          }
-          break;
-          
-        case 'AC': // Crafting skill
-          const craftSkill = mapCraftSkill(subcode);
-          if (craftSkill && character.craftingSkills[craftSkill]) {
-            if (!character.moduleBonuses.craftingSkills) character.moduleBonuses.craftingSkills = {};
-            if (!character.moduleBonuses.craftingSkills[craftSkill]) {
-              character.moduleBonuses.craftingSkills[craftSkill] = 0;
-            }
-            character.moduleBonuses.craftingSkills[craftSkill] += value;
-            
-            // Apply bonus to the crafting skill
-            character.craftingSkills[craftSkill].value += value;
-          }
-          break;
-          
-        // Vision section
-        case 'VD': // Vision
-          const visionType = mapVisionType(subcode);
-          if (visionType) {
-            if (!character.moduleBonuses.vision) character.moduleBonuses.vision = [];
-            if (!character.moduleBonuses.vision.includes(visionType)) {
-              character.moduleBonuses.vision.push(visionType);
-            }
-            
-            // Update character's vision if it exists
-            if (character.vision && !character.vision.includes(visionType)) {
-              character.vision.push(visionType);
-            }
-          }
-          break;
+      // Apply to character
+      if (character.skills[mapping.id]) {
+        character.skills[mapping.id].value += value;
       }
     }
-  };
-  
-  /**
-   * Apply trait effects to a character
-   * @param {Object} character - The character to apply effects to
-   * @param {String} effect - The trait effect code
-   */
-  const applyTraitEffect = (character, effect) => {
-    // Initialize traits array if it doesn't exist
-    if (!character.moduleBonuses.traits) character.moduleBonuses.traits = [];
-    
-    // Add the trait to the list
-    if (!character.moduleBonuses.traits.includes(effect)) {
-      character.moduleBonuses.traits.push(effect);
+  } else if (type === 'T') { // Talent increase
+    // Only attributes can have their talent increased
+    if (mapping.type === 'attribute') {
+      if (!character.moduleBonuses.attributes) character.moduleBonuses.attributes = {};
+      if (!character.moduleBonuses.attributes[mapping.id]) character.moduleBonuses.attributes[mapping.id] = 0;
+      character.moduleBonuses.attributes[mapping.id] += value;
+      
+      // Apply to character
+      if (character.attributes[mapping.id] !== undefined) {
+        character.attributes[mapping.id] += value;
+      }
     }
-    
-    // For now, we're just storing the trait codes.
-    // In a more sophisticated system, you'd parse these and apply specific effects.
-  };
+  }
+};
+
+const handleWeaponEffect = (character, type, code, value) => {
+  const weaponSkill = mapWeaponCode(code);
+  if (!weaponSkill) return;
   
-  /**
-   * Apply immunity effects to a character
-   * @param {Object} character - The character to apply effects to
-   * @param {String} effect - The immunity effect code
-   */
-  const applyImmunityEffect = (character, effect) => {
-    // Parse immunity code
-    const match = effect.match(/I([0-9]+)/);
-    if (!match) return;
-    
-    const immunityCode = match[1];
-    const immunityType = mapImmunityType(immunityCode);
-    
-    if (!immunityType) return;
-    
-    // Initialize immunities array if it doesn't exist
-    if (!character.moduleBonuses.immunities) character.moduleBonuses.immunities = [];
-    
-    // Add the immunity to the list
-    if (!character.moduleBonuses.immunities.includes(immunityType)) {
-      character.moduleBonuses.immunities.push(immunityType);
+  if (!character.moduleBonuses.weaponSkills) character.moduleBonuses.weaponSkills = {};
+  if (!character.moduleBonuses.weaponSkills[weaponSkill]) {
+    character.moduleBonuses.weaponSkills[weaponSkill] = { value: 0, talent: 0 };
+  }
+  
+  if (type === 'S') { // Skill increase
+    character.moduleBonuses.weaponSkills[weaponSkill].value += value;
+    if (character.weaponSkills[weaponSkill]) {
+      character.weaponSkills[weaponSkill].value += value;
     }
-    
-    // Update character's immunities if they exist
-    if (character.immunities && !character.immunities.includes(immunityType)) {
-      character.immunities.push(immunityType);
+  } else if (type === 'T') { // Talent increase
+    character.moduleBonuses.weaponSkills[weaponSkill].talent += value;
+    if (character.weaponSkills[weaponSkill]) {
+      character.weaponSkills[weaponSkill].talent += value;
     }
+  }
+};
+
+const handleMagicEffect = (character, type, code, value) => {
+  const magicSkill = mapMagicCode(code);
+  if (!magicSkill) return;
+  
+  if (!character.moduleBonuses.magicSkills) character.moduleBonuses.magicSkills = {};
+  if (!character.moduleBonuses.magicSkills[magicSkill]) {
+    character.moduleBonuses.magicSkills[magicSkill] = { value: 0, talent: 0 };
+  }
+  
+  if (type === 'S') { // Skill increase
+    character.moduleBonuses.magicSkills[magicSkill].value += value;
+    if (character.magicSkills[magicSkill]) {
+      character.magicSkills[magicSkill].value += value;
+    }
+  } else if (type === 'T') { // Talent increase
+    character.moduleBonuses.magicSkills[magicSkill].talent += value;
+    if (character.magicSkills[magicSkill]) {
+      character.magicSkills[magicSkill].talent += value;
+    }
+  }
+};
+
+const handleCraftingEffect = (character, type, code, value) => {
+  const craftingSkill = mapCraftingCode(code);
+  if (!craftingSkill) return;
+  
+  if (!character.moduleBonuses.craftingSkills) character.moduleBonuses.craftingSkills = {};
+  if (!character.moduleBonuses.craftingSkills[craftingSkill]) {
+    character.moduleBonuses.craftingSkills[craftingSkill] = { value: 0, talent: 0 };
+  }
+  
+  if (type === 'S') { // Skill increase
+    character.moduleBonuses.craftingSkills[craftingSkill].value += value;
+    if (character.craftingSkills[craftingSkill]) {
+      character.craftingSkills[craftingSkill].value += value;
+    }
+  } else if (type === 'T') { // Talent increase
+    character.moduleBonuses.craftingSkills[craftingSkill].talent += value;
+    if (character.craftingSkills[craftingSkill]) {
+      character.craftingSkills[craftingSkill].talent += value;
+    }
+  }
+};
+
+const handleMitigationEffect = (character, code, value) => {
+  const mitigationType = mapMitigationCode(code);
+  if (!mitigationType) return;
+  
+  if (!character.moduleBonuses.mitigation) character.moduleBonuses.mitigation = {};
+  if (!character.moduleBonuses.mitigation[mitigationType]) {
+    character.moduleBonuses.mitigation[mitigationType] = 0;
+  }
+  
+  character.moduleBonuses.mitigation[mitigationType] += value;
+  
+  // Apply to character
+  if (character.mitigation && character.mitigation[mitigationType] !== undefined) {
+    character.mitigation[mitigationType] += value;
+  }
+};
+
+const handleAutoEffect = (character, code, value) => {
+  switch (code) {
+    case '1': // Health
+      if (!character.moduleBonuses.health) character.moduleBonuses.health = 0;
+      character.moduleBonuses.health += value;
+      character.resources.health.max += value;
+      character.resources.health.current += value;
+      break;
+    case '2': // Resolve
+      if (!character.moduleBonuses.resolve) character.moduleBonuses.resolve = 0;
+      character.moduleBonuses.resolve += value;
+      character.resources.resolve.max += value;
+      character.resources.resolve.current += value;
+      break;
+    case '3': // Stamina
+      if (!character.moduleBonuses.stamina) character.moduleBonuses.stamina = 0;
+      character.moduleBonuses.stamina += value;
+      character.resources.stamina.max += value;
+      character.resources.stamina.current += value;
+      break;
+    case '4': // Movement
+      if (!character.moduleBonuses.movement) character.moduleBonuses.movement = 0;
+      character.moduleBonuses.movement += value;
+      character.movement += value;
+      break;
+  }
+};
+
+// Mapping functions
+const getSkillMapping = (code) => {
+  const attributeMap = {
+    '1': { id: 'physique', type: 'attribute' },
+    '2': { id: 'finesse', type: 'attribute' },
+    '3': { id: 'mind', type: 'attribute' },
+    '4': { id: 'knowledge', type: 'attribute' },
+    '5': { id: 'social', type: 'attribute' },
   };
   
-  /**
-   * Apply action/reaction/free action effects to a character
-   * @param {Object} character - The character to apply effects to
-   * @param {String} effect - The action effect code
-   */
-  const applyActionEffect = (character, effect) => {
-    // This would be handled by the option name parser in the character model
-    // The effect here is just storing information about the action's usage
-    if (!character.moduleBonuses.actionUsage) character.moduleBonuses.actionUsage = {};
-    
-    character.moduleBonuses.actionUsage[effect] = {
-      type: effect[0] === 'X' ? 'action' : effect[0] === 'Z' ? 'reaction' : 'freeAction',
-      daily: effect[1] === 'D',
-      uses: effect[2] ? parseInt(effect[2]) : 1
-    };
+  const skillMap = {
+    'A': { id: 'fitness', type: 'skill' },
+    'B': { id: 'deflection', type: 'skill' },
+    'C': { id: 'might', type: 'skill' },
+    'D': { id: 'endurance', type: 'skill' },
+    'E': { id: 'evasion', type: 'skill' },
+    'F': { id: 'stealth', type: 'skill' },
+    'G': { id: 'coordination', type: 'skill' },
+    'H': { id: 'thievery', type: 'skill' },
+    'I': { id: 'resilience', type: 'skill' },
+    'J': { id: 'concentration', type: 'skill' },
+    'K': { id: 'senses', type: 'skill' },
+    'L': { id: 'logic', type: 'skill' },
+    'M': { id: 'wildcraft', type: 'skill' },
+    'N': { id: 'academics', type: 'skill' },
+    'O': { id: 'magic', type: 'skill' },
+    'P': { id: 'medicine', type: 'skill' },
+    'Q': { id: 'expression', type: 'skill' },
+    'R': { id: 'presence', type: 'skill' },
+    'S': { id: 'insight', type: 'skill' },
+    'T': { id: 'persuasion', type: 'skill' },
   };
   
-  /**
-   * Map mitigation type code to actual mitigation type
-   * @param {String} code - The mitigation type code
-   * @returns {String|null} - The mapped mitigation type or null if not found
-   */
-  const mapMitigationType = (code) => {
-    const mitigationMap = {
-      '1': 'kinetic',
-      '2': 'cold',
-      '3': 'heat',
-      '4': 'electrical',
-      '5': 'mental',
-      '6': 'toxic',
-      '7': 'sonic',
-      '8': 'radiation'
-    };
-    
-    return mitigationMap[code] || null;
+  return attributeMap[code] || skillMap[code] || null;
+};
+
+const mapWeaponCode = (code) => {
+  const map = {
+    '1': 'unarmed',
+    '2': 'throwing',
+    '3': 'simpleMeleeWeapons',
+    '4': 'simpleRangedWeapons',
+    '5': 'complexMeleeWeapons',
+    '6': 'complexRangedWeapons',
   };
-  
-  /**
-   * Map weapon skill code to actual weapon skill
-   * @param {String} code - The weapon skill code
-   * @returns {String|null} - The mapped weapon skill or null if not found
-   */
-  const mapWeaponSkill = (code) => {
-    const weaponSkillMap = {
-      '1': 'attackWithUnarmed',
-      '2': 'attackWithMeleeWeapons',
-      '3': 'attackWithRangedWeapons',
-      '4': 'attackWithHeavyRangedWeapons',
-      '5': 'attackWithWeaponSystems',
-      '6': 'attackWithPlasmaBlade',
-      '7': 'damageWithUnarmed',
-      '8': 'damageWithMeleeWeapons',
-      '9': 'damageWithRangedWeapons',
-      'A': 'damageWithHeavyRangedWeapons',
-      'B': 'damageWithWeaponSystems',
-      'C': 'damageWithPlasmaBlade',
-      'D': 'critsWithUnarmed',
-      'E': 'critsWithMeleeWeapons',
-      'F': 'critsWithRangedWeapons',
-      'G': 'critsWithHeavyRangedWeapons',
-      'H': 'critsWithWeaponSystems',
-      'I': 'critsWithPlasmaBlade',
-      'J': 'brutalCritsWithUnarmed',
-      'K': 'brutalCritsWithMeleeWeapons',
-      'L': 'brutalCritsWithRangedWeapons',
-      'M': 'brutalCritsWithHeavyRangedWeapons',
-      'N': 'brutalCritsWithWeaponSystems',
-      'O': 'brutalCritsWithPlasmaBlade',
-      'P': 'upgradedUnarmed',
-      'Q': 'upgradedMeleeWeapons',
-      'R': 'upgradedRangedWeapons',
-      'S': 'upgradedHeavyRangedWeapons',
-      'T': 'upgradedWeaponSystems',
-      'U': 'upgradedPlasmaBlade'
-    };
-    
-    return weaponSkillMap[code] || null;
+  return map[code];
+};
+
+const mapMagicCode = (code) => {
+  const map = {
+    '1': 'black',
+    '2': 'primal',
+    '3': 'alteration',
+    '4': 'divine',
+    '5': 'mystic',
   };
-  
-  /**
-   * Map skill code to actual skill name
-   * @param {String} code - The skill code
-   * @returns {String|null} - The mapped skill name or null if not found
-   */
-  const mapSkill = (code) => {
-    const skillMap = {
-      '1': 'fitness',
-      '2': 'deflect',
-      '3': 'might',
-      '4': 'evade',
-      '5': 'stealth',
-      '6': 'coordination',
-      '7': 'resilience',
-      '8': 'concentration',
-      '9': 'senses',
-      'A': 'science',
-      'B': 'technology',
-      'C': 'medicine',
-      'D': 'xenology',
-      'E': 'negotiation',
-      'F': 'behavior',
-      'G': 'presence'
-    };
-    
-    return skillMap[code] || null;
+  return map[code];
+};
+
+const mapCraftingCode = (code) => {
+  const map = {
+    '1': 'engineering',
+    '2': 'fabrication',
+    '3': 'alchemy',
+    '4': 'cooking',
+    '5': 'glyphcraft',
+    '6': 'bioshaping',
   };
-  
-  /**
-   * Map craft skill code to actual craft skill name
-   * @param {String} code - The craft skill code
-   * @returns {String|null} - The mapped craft skill name or null if not found
-   */
-  const mapCraftSkill = (code) => {
-    const craftSkillMap = {
-      '1': 'engineering',
-      '2': 'fabrication',
-      '3': 'biosculpting',
-      '4': 'synthesis'
-    };
-    
-    return craftSkillMap[code] || null;
+  return map[code];
+};
+
+const mapMitigationCode = (code) => {
+  const map = {
+    '1': 'physical',
+    '2': 'heat',
+    '3': 'cold',
+    '4': 'lightning',
+    '5': 'dark',
+    '6': 'divine',
+    '7': 'arcane',
+    '8': 'psychic',
+    '9': 'toxic',
   };
-  
+  return map[code];
+};
   /**
    * Map vision type code to actual vision type
    * @param {String} code - The vision type code

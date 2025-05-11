@@ -136,7 +136,7 @@ const CharacterCreate: React.FC = () => {
       return;
     }
 
-    if (newValue < 1 || newValue > 3) {
+    if (newValue < 1 || newValue > 4) {
       // Outside valid range
       return;
     }
@@ -167,7 +167,6 @@ const CharacterCreate: React.FC = () => {
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {
-      // Not enough talent stars
       return;
     }
 
@@ -195,7 +194,6 @@ const CharacterCreate: React.FC = () => {
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {
-      // Not enough talent stars
       return;
     }
 
@@ -223,7 +221,6 @@ const CharacterCreate: React.FC = () => {
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {
-      // Not enough talent stars
       return;
     }
 

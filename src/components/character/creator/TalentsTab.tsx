@@ -34,7 +34,7 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
   ) => {
     const skillData = skillMap[skillId] || { value: 0, talent: 0 };
 
-    return [1, 2, 3].map((talentPosition) => {
+    return [1, 2, 3, 4].map((talentPosition) => {
       const isFilled = skillData.talent >= talentPosition;
       const isFirstStar = talentPosition === 1;
 

@@ -120,8 +120,8 @@ import {
       experience: 0,
       movement: 5,
       characterCreation: {
-        attributePointsRemaining: 5,
-        talentStarsRemaining: 5,
+        attributePointsRemaining: 6,
+        talentStarsRemaining: 8,
       }
     };
   };
