@@ -5,14 +5,13 @@
   "ruleset": 1,
  "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Sworn Dedication",
+      "description": "You devote yourself to a divine being or sacred force, vowing to uphold its tenets. Your creed demands the destruction of undead and dark-aligned creatures. You cannot willfully aid these beings or channel dark magic without forsaking your oath. Through your faith, you gain +2 maximum resolve.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
       "data": "AE=1"
     },
-   
     {
       "name": "",
       "description": "",
@@ -30,48 +29,48 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Fortified from Darkness",
+      "description": "You gain +1 dark mitigation and +1 health",
       "mtype": "core",
       "location": "3",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Advisor",
+      "description": "You gain +1 skill with insight. Additionally, you can grant an ally +1 resolve during each full rest.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Crusader",
+      "description": "You openly bear the symbol of your faith, and your words carry divine authority. Accusations you make against those who consort with darkness are taken seriously by the faithful. Institutions aligned with your deity will offer shelter, healing, and support to you and your allies, so long as you remain in good standing. Additionally, gain +1 skill with presence.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Dedicated",
+      "description": "Your service to the heavens has given you a closer connection to the gods. You gain +1 skill with divine magic.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Brand the Wicked",
+      "description": "You mark a creature, branding them and making them more suspectible to divine attacks. Any divine damage that strikes this enemy is not affected by divine mitigation.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Daily Reaction : Reward the Faithful",
+      "description": "In response to making a resilience check, you can choose to succeed at the cost of 1 resolve. If you have broken your tenets without receiving penance, you must spend 5 resolve instead.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

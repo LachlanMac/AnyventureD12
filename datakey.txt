@@ -83,3 +83,13 @@ EX. A1=1
 2: RESOLVE
 3: STAMINA
 4: MOVEMENT
+
+
+############## CREATURES ##############
+### NO KEYS #####
+1: Minion
+2: Thrall
+3: Standard
+4: Elite
+5: Legendary
+6: Mythic

@@ -6,7 +6,7 @@
  "options": [
     {
       "name": "Frenzied Spirit",
-      "description": "When you take damage while below 10 health, you roll a resilience check. If the result is less than a 8, you enter a Frenzy which grants you a bonus dice on attack, endurance and might checks but a penalty dice on defense checks. At the start of each of your successive turns, roll a resilience check: on a 2 or lower, you gain the maddened condition.",
+      "description": "When you take damage while below 10 health, you roll a resilience check. If the result is less than a 8, you enter a Frenzy which grants you a bonus dice on attack, endurance and might checks but a penalty dice on defense checks for the next minute. At the start of each of your successive turns, roll a resilience check: on a 2 or lower, you gain the maddened condition.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -37,7 +37,7 @@
       "data": ""
     },
     {
-      "name": "Massive Weapons",
+      "name": "Massive Weaponry",
       "description": "You gain +1 skill with complex melee weapons.",
       "mtype": "core",
       "location": "4a",
@@ -45,7 +45,7 @@
       "data": ""
     },
     {
-      "name": "Simple Weapons",
+      "name": "The Old Way",
       "description": "You gain +1 skill with simple melee weapons and +1 skill with throwing.",
       "mtype": "core",
       "location": "4b",

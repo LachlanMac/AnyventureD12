@@ -70,7 +70,7 @@
     },
     {
       "name": "Knockout",
-      "description": "When you deal damage with an unarmed attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they become unconscious for a minute.",
+      "description": "When you deal damage with an unarmed attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they become unconscious for 1 minute.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

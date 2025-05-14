@@ -47,7 +47,7 @@
     },
      {
       "name": "Halo",
-      "description": "Your use of divine magic has caused you to have subtle, radiant glow which you can transfer onto objects giving them a soft glow that emits light in a 3 unit radius. Additionally, Gain +2 divine mitigation. ",
+      "description": "Your use of divine magic has caused you to have subtle, radiant glow which you can transfer to objects, causing them to emit a gentle light in a 3-unit radius. Additionally, Gain +2 divine mitigation. ",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
