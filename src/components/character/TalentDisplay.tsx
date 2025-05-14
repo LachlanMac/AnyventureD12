@@ -7,10 +7,10 @@ interface TalentDisplayProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-// Component to display talent stars
+
 const TalentDisplay: React.FC<TalentDisplayProps> = ({
   talent,
-  maxTalent = 3,
+  maxTalent = 4,
   showNumber = false,
   size = 'md',
 }) => {

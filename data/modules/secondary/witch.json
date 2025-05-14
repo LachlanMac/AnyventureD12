@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Witch",
+  "mtype": "core",
+  "ruleset": 1,
+ "options": [
+    {
+      "name": "Action : Hex",
+      "description": "You put a hex on a creature you can see. For the next minute, the next time that creature takes dark damage, they roll 1 less dice on their next check, ending the hex.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Coven",
+      "description": "You either create or join an established coven of up to 4 other witches with this trait. Each member of the coven uses the highest resilience skill in the coven when making checks. Addditionally, coven members can dedicate their concentration to telepathically communicate or see through the eyes of any other member assuming they are on the same plane of existence. A member can only leave a coven if they die.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Familiar",
+      "description": "You designate a tiny beast as a familiar. This familiar is unique in that it can be used as a origin point for spells that you channel. While you are alive, your familiar cannot permanently die, and can be resummoned by performing a 1 hour ritual.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Occult Senses",
+      "description": "Your senses have become accutely calibrated. You, your familiar or any creature summoned by you has ultravision. Additionally, you gain +1 skill with senses.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AE=1"
+    },
+    {
+      "name": "Reaction : Blood Price",
+      "description": "In response to a creature dealing damage physical damage to you, you deal half the damage done as dark damage to them. If you have the bleeding condition, this damage becomes equal to the amount of damage done to you.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Sigil",
+      "description": "Immediately after channeling a spell, instead of it being activated, infuse an object you are touching with that magic. When this occurs, you specify a condition to take place within the next day which will then cause the spell to activate. If this condition never happens within that timeframe, the spell is removed.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSJ=1:SSG=1"
+    },
+    {
+      "name": "Darkcraft",
+      "description": "You are an experienced witch. You gain +1 skill with alchemy and +1 dark mitigation.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "WS1=3:WS4=1"
+    },
+    {
+      "name": "Shadow Witch",
+      "description": "You are practiced in the dark arts. Gain +1 skill with dark magic. If you have a familiar, when you channel a dark spell using a ritual, the material components and the duration required are reduced by half.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Lunar Witch",
+      "description": "You are practiced in lunar magic. Gain +1 skill with primal magic and you can learn spells from the cosmic subschool.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Dark Contracts",
+      "description": "You are experienced in listening to the plights of others so that you may use your magic to aid them for a cost. Gain +1 skill with insight and +1 skill with persuasion. When you enter into a contract with a humanoid that willfully breaks an agreement you have come to, they become permanently affected by your Hex action and can be the target of dark spells despite any distance requirements.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

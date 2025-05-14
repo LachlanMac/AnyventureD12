@@ -88,7 +88,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                   </h3>
                   <TalentDisplay 
                     talent={character.attributes[attributeKey as keyof typeof character.attributes]} 
-                    maxTalent={3} 
+                    maxTalent={4} 
                     showNumber={true}
                     size="md"
                   />
@@ -172,7 +172,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={5} size="md" />
+                      <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
                     </div>
                   </div>
                 );
@@ -223,7 +223,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={5} size="md" />
+                      <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
                     </div>
                   </div>
                 );
@@ -270,7 +270,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={5} size="md" />
+                      <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
                     </div>
                   </div>
                 );

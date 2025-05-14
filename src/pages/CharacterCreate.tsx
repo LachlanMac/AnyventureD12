@@ -31,8 +31,8 @@ const CharacterCreate: React.FC = () => {
   const [portraitFile, setPortraitFile] = useState<File | null>(null);
   
   // Tracking for attribute and talent points
-  const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(5);
-  const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(5);
+  const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(6);
+  const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(8);
   const [racialModules, setRacialModules] = useState<RacialModule[]>([]);
   const [cultureModules, setCultureModules] = useState<CultureModule[]>([]);
   const [selectedRacialModule, setSelectedRacialModule] = useState<RacialModule | null>(null);
@@ -159,7 +159,7 @@ const CharacterCreate: React.FC = () => {
 
   // Update specialized skill talent
   const updateSpecializedSkillTalent = (skillId: string, newTalent: number) => {
-    if (newTalent < 0 || newTalent > 3) {
+    if (newTalent < 0 || newTalent > 4) {
       return; // Invalid value
     }
 
@@ -186,7 +186,7 @@ const CharacterCreate: React.FC = () => {
 
   // Update magic skill talent
   const updateMagicSkillTalent = (skillId: string, newTalent: number) => {
-    if (newTalent < 0 || newTalent > 3) {
+    if (newTalent < 0 || newTalent > 4) {
       return; // Invalid value
     }
 
@@ -213,7 +213,7 @@ const CharacterCreate: React.FC = () => {
 
   // Update crafting skill talent
   const updateCraftingSkillTalent = (skillId: string, newTalent: number) => {
-    if (newTalent < 0 || newTalent > 3) {
+    if (newTalent < 0 || newTalent > 4) {
       return; // Invalid value
     }
 
