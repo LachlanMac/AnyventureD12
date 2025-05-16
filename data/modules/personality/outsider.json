@@ -1,0 +1,89 @@
+{
+  "id": 105,
+  "name": "",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "",
+      "description": "-1 presence, learn language",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+   
+    {
+      "name": "Chameleon",
+      "description": "You have skill with masking the fact that you are an outsider and can often hide yourself in plain sight. Gain +1 to your stealth skill. When rolling a stealth check as part of a group, your stealth check becomes equal to the highest roll of the group.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Polyglot",
+      "description": "You pick up the local language quickly and make an effort to adapt to local customs. Gain +1 skill with persuasion. Additionally, gain +2 language points.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

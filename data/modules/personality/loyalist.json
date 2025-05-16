@@ -1,0 +1,90 @@
+
+{
+  "id": 105,
+  "name": "",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "",
+      "description": "-1 insight",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+   
+    {
+      "name": "Dedicated Loyalty",
+      "description": "Your loyalty to your friends transcends magical effects. You gain +1 skill with concentration. Additionally, when you attack an ally as a result of being charmed, confused or maddened, you only roll 1 dice despite your talents.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Trusting",
+      "description": "Your trusting nature has made you naturally more likeable. Gain +1 skill with presence. Additionally, you once per day, you can substitute a wildcraft check involving an animal with your presence skill.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Downtime Action : Strengthen Bonds",
+      "description": "You spend time strengthing the bond between you and an ally. While you are within a moderate range (20 units) from your ally, resolve checks that either individual makes are rolled by both, and the higher value is used. This bond lasts until this downtime action is used again.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": " ",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

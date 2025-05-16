@@ -1,0 +1,89 @@
+{
+  "id": 105,
+  "name": "",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+   
+    {
+      "name": "Perfectionist's Focus",
+      "description": "Perfection requires constant focus. You gain +1 skill with concentration. Additionally, once per day, you can reroll one concentration check.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Creative Vision",
+      "description": "Gain +1 skill with expression. Additionally, once per day when you successfully craft something that you did not overcraft, you can roll an expression check in a second attempt at overcrafting.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Downtime Action : Obscessive Perfection",
+      "description": "Spend 1 Resolve over the next day and make either a knowledge or craft skill check, recording the final result. After your next full rest, you may attempt to recapture that moment of inspiration. Roll a d12: on a 1, your check automatically becomes a 1; on a 12, it automatically becomes a 20. Otherwise, reuse your previously recorded check result as a static value.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Craft : Create",
+      "description": "You put your soul into the next thing you craft, gaining a bonus dice on your check. If the recipe fails, you lose 5 resolve.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

@@ -1,0 +1,90 @@
+{
+  "id": 105,
+  "name": "",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "triggers":[],
+ "options": [
+      {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+   
+    {
+      "name": "Take the Initiative",
+      "description": "You are the first to act, often to set an example. Gain +1 skill with initiative. On the first round of combat, you gain a bonus dice to all your actions.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Natural Born Leader",
+      "description": "You are born to lead and find it easy to get people to do your bidding. Gain +1 skill with the presence skill. Once per day, you can replace any persuasion check with a presence check.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Downtime Action : Rousing Speech",
+      "description": "You spend time writing and performing a speech to either raise spirits or move someone to your opinion, with an audience suitable for your reputation. A presence check of 6-9 is midly successful, granting 5 temporary health to all who hear it. A check of 10 or higher is very successful and 10 temporary health and may be more likely to move others to your belief. In the event of a perfect check, all who hear become charmed by you for an hour or until it breaks naturally.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : To the Death",
+      "description": "While at 0 health, you lead by example and show your bravery, rolling a presence check. You and all allies within a short (10 unit) radius gain temporary health equal to your check for the next minute.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Lead the Charge",
+      "description": "",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Proven Leader",
+      "description": "Allied characters gain a bonus dice to their resilience when they are within a short (10 units) radius of you.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

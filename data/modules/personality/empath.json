@@ -1,0 +1,89 @@
+{
+  "id": 105,
+  "name": "",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+   
+    {
+      "name": "Expressive",
+      "description": "You are no stranger to expressing yourself, be that through art or strong emotions. Gain +1 skill with expression. Additionally, once per day, you can use an expression check instead of persuasion to appeal to someone's emotions.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Insightful",
+      "description": "You are especially insightful and know when someone is hurting. Gain +1 skill with insight. Additionally, once per day, you can substitute a medicine check with your insight skill if it is being used on an ally.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Downtime Action : Community Outreach",
+      "description": "You spend time embedding yourself in the community, offering help where you can by volunteering your time or services. This fulfilling work can help make local connections and restore your resolve. An insight check of an 6-9 is midly successful and restores 2 resolve, while a 10 or higher is very successful and restores 5 resolve. On a perfect check, you restore your resolve and all the resolve of the individuals you interacted with in your outreach.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Daily Action : Plea",
+      "description": "When an ally is at 0 resolve, you can make a plea in a desperate attempt to keep them going. Roll an expression check; for each dice over 6, they gain one resolve.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}
