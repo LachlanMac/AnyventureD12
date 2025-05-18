@@ -97,7 +97,7 @@ import {
       craftingSkills: initializeCraftingSkills(),
       resources: {
         health: { current: 5, max: 5 },
-        stamina: { current: 5, max: 5 },
+        energy: { current: 5, max: 5 },
         resolve: { current: 5, max: 5 },
       },
       modulePoints: {

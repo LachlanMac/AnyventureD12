@@ -9,6 +9,7 @@ import {
 } from '../controllers/characterController.js';
 import { protect } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
+import characterSpellRoutes from './characterSpellRoutes.js';
 
 const router = express.Router();
 
@@ -17,6 +18,7 @@ router.use(protect);
 
 // Mount the module routes
 router.use('/:characterId/modules', characterModuleRoutes);
+router.use('/:characterId/spells', characterSpellRoutes);
 
 // Routes for /api/characters
 router.route('/')

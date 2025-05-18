@@ -95,7 +95,7 @@ interface Character {
   },
   resources: {
     health: { current: number; max: number };
-    stamina: { current: number; max: number };
+    energy: { current: number; max: number };
     resolve: { current: number; max: number };
   };
   languages: string[];

@@ -46,7 +46,7 @@
     },
     {
       "name": "Action : Harvest",
-      "description": "You siphon the magic from one undead creature under your command that is within a moderate (20 units) range, destroying it and recovering 2d4 health and completely restoring your stamina.",
+      "description": "You siphon the magic from one undead creature under your command that is within a moderate (20 units) range, destroying it and recovering 2d4 health and completely restoring your energy.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,

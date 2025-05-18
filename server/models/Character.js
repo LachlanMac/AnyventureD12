@@ -45,6 +45,27 @@ const ActionSchema = new Schema({
   sourceModuleOption: String
 });
 
+
+const CharacterSpellSchema = new Schema({
+  spellId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Spell',
+    required: true
+  },
+  dateAdded: {
+    type: Date,
+    default: Date.now
+  },
+  favorite: {
+    type: Boolean,
+    default: false
+  },
+  notes: {
+    type: String,
+    default: ''
+  }
+});
+
 // Character's selected modules
 const CharacterModuleSchema = new Schema({
   moduleId: {
@@ -85,6 +106,12 @@ const CharacterSchema = new Schema({
     type: String,
     required: [true, 'Culture is required']
   },
+  spellSlots: {
+    type: Number,
+    default: 10,
+    min: 0
+  },
+  spells: [CharacterSpellSchema],
   // Core Attributes (each now starts at 1 and has max of 3)
   attributes: {
     physique: { type: Number, default: 1, min: 1, max: 4 },
@@ -162,7 +189,7 @@ const CharacterSchema = new Schema({
       current: { type: Number, default: 0 },
       max: { type: Number, default: 0 }
     },
-    stamina: {
+    energy: {
       current: { type: Number, default: 0 },
       max: { type: Number, default: 0 }
     },
@@ -265,15 +292,15 @@ CharacterSchema.pre('save', function(next) {
 
   // Calculate resources
   this.resources.health.max = 5;
-  this.resources.stamina.max = 5;
+  this.resources.energy.max = 5;
   this.resources.resolve.max = 5;
 
   // Ensure current resources don't exceed max
   if (!this.resources.health.current || this.resources.health.current > this.resources.health.max) {
     this.resources.health.current = this.resources.health.max;
   }
-  if (!this.resources.stamina.current || this.resources.stamina.current > this.resources.stamina.max) {
-    this.resources.stamina.current = this.resources.stamina.max;
+  if (!this.resources.energy.current || this.resources.energy.current > this.resources.energy.max) {
+    this.resources.energy.current = this.resources.energy.max;
   }
   if (!this.resources.resolve.current || this.resources.resolve.current > this.resources.resolve.max) {
     this.resources.resolve.current = this.resources.resolve.max;
@@ -414,6 +441,53 @@ CharacterSchema.methods.removeModule = async function(moduleId) {
     return false;
   }
 }
+
+CharacterSchema.methods.addSpell = async function(spellId) {
+  try {
+    // Check if spell already exists in character's spells
+    if (this.spells.some(s => s.spellId.toString() === spellId.toString())) {
+      return { success: false, message: 'Spell already added to character' };
+    }
+    
+    // Check if character has available spell slots
+    if (this.spells.length >= this.spellSlots) {
+      return { success: false, message: 'No spell slots available' };
+    }
+    
+    // Add the spell
+    this.spells.push({
+      spellId,
+      dateAdded: Date.now()
+    });
+    
+    await this.save();
+    return { success: true, message: 'Spell added successfully' };
+  } catch (error) {
+    console.error('Error adding spell to character:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+CharacterSchema.methods.removeSpell = async function(spellId) {
+  try {
+    // Check if spell exists in character's spells
+    const spellIndex = this.spells.findIndex(s => s.spellId.toString() === spellId.toString());
+    
+    if (spellIndex === -1) {
+      return { success: false, message: 'Spell not found on character' };
+    }
+    
+    // Remove the spell
+    this.spells.splice(spellIndex, 1);
+    
+    await this.save();
+    return { success: true, message: 'Spell removed successfully' };
+  } catch (error) {
+    console.error('Error removing spell from character:', error);
+    return { success: false, message: error.message };
+  }
+};
+
 /**
 * Deselect a module option
 * @param {ObjectId} moduleId - The ID of the module

@@ -4,7 +4,7 @@ import Card, { CardBody } from '../../ui/Card';
 interface ResourceBarProps {
   resources: {
     health: { current: number; max: number };
-    stamina: { current: number; max: number };
+    energy: { current: number; max: number };
     resolve: { current: number; max: number };
   };
 }
@@ -78,7 +78,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources }) => {
         </CardBody>
       </Card>
 
-      {/* Stamina */}
+      {/* Energy */}
       <Card variant="default">
         <CardBody>
           <div style={{ textAlign: 'center' }}>
@@ -89,7 +89,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources }) => {
                 marginBottom: '0.5rem',
               }}
             >
-              Stamina
+              Energy
             </div>
             <div
               style={{
@@ -99,11 +99,11 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources }) => {
                 marginBottom: '0.5rem',
               }}
             >
-              {resources.stamina.current} / {resources.stamina.max}
+              {resources.energy.current} / {resources.energy.max}
             </div>
             {renderStatBar(
-              resources.stamina.current,
-              resources.stamina.max,
+              resources.energy.current,
+              resources.energy.max,
               'var(--color-metal-gold)'
             )}
           </div>

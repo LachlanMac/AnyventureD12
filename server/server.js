@@ -13,6 +13,8 @@ import characterRoutes from './routes/characterRoutes.js';
 import authRoutes from './routes/authRoutes.js';
 import moduleRoutes from './routes/moduleRoutes.js';
 import portraitRoutes from './routes/portraitRoutes.js';
+import spellRoutes from './routes/spellRoutes.js';
+import characterSpellRoutes from './routes/characterSpellRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -20,6 +22,7 @@ import { getUser } from './middleware/auth.js';
 import setupPassport from './config/passport.js';
 import { initializeItems } from './utils/itemSeeder.js';
 import { initializeModules } from './utils/moduleSeeder.js';
+import { initializeSpells } from './utils/spellSeeder.js';
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -67,6 +70,8 @@ const connectDB = async () => {
     await initializeItems();
     console.log('Initializing modules...');
     await initializeModules();
+    console.log('Initializing spells...');
+    await initializeSpells();
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
     process.exit(1);
@@ -78,7 +83,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/characters', characterRoutes);
 app.use('/api/modules', moduleRoutes);
 app.use('/api/portraits', portraitRoutes);
-
+app.use('/api/spells', spellRoutes);
+app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {
   res.json({ message: 'API is running' });

@@ -16,7 +16,7 @@ interface CharacterHeaderProps {
     };
     resources: {
       health: { current: number; max: number };
-      stamina: { current: number; max: number };
+      energy: { current: number; max: number };
       resolve: { current: number; max: number };
     };
     movement: number;
@@ -150,10 +150,10 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
             )}
             
             {renderResourceBar(
-              character.resources.stamina.current,
-              character.resources.stamina.max, 
+              character.resources.energy.current,
+              character.resources.energy.max, 
               'var(--color-metal-gold)', 
-              'Stamina'
+              'Energy'
             )}
             
             {renderResourceBar(

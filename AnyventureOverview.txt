@@ -92,15 +92,15 @@ A player is limited by spell slots, or how many spells they can know at a time. 
 
 Player Resources:
 
-All players will have Health, Resolve and Stamina.
+All players will have Health, Resolve and Energy.
 
 Health determines what it sounds like. 
 
 Resolve is mental health.  For instance, psychic damage deals damage directly to this. When a player reaches 0 resolve, they may "break" becoming more susceptible to mental effects like fear, panic and maybe even becoming catatonic. A player can also use resolve to "Stay up" in cmbat after reaching 0 health.
 
-Stamina is the resource for using Actions and Reactions.  By default a player has 5 max stamina, and generates +2 per round of combat, limiting their actions and reactions
+Energy is the resource for using Actions and Reactions.  By default a player has 5 max Energy, and generates +2 per round of combat, limiting their actions and reactions
 
-In combat, a player can take 2 actions and move. Of course they are limited by stamina as well. 
+In combat, a player can take 2 actions and move. Of course they are limited by Energy as well. 
 
 
  
@@ -135,7 +135,7 @@ Instead of leveling, players will gain module points, awarded by their GM. They 
 There is currently a "trait" system to handle the more social aspects of the game, and how a player can recover/lose resolve over the course of roleplay or combat.
 
 MOVEMENT:
-All players have a standard movement. It will likely be between 4-6. Using the "Move Action" lets them go double of that by using a stamina) 
+All players have a standard movement. It will likely be between 4-6. Using the "Move Action" lets them go double of that by using a Energy) 
 
 COMBAT RULES:
 Characters act in initiative order, by rolling initiative.
@@ -159,7 +159,7 @@ Attack (Costs no energy)
 Channel A Spell (Costs some energy)
 
 Reactions:
-Attack of Opportunity (hit a guy leaving your area, spend 1 stamina)
+Attack of Opportunity (hit a guy leaving your area, spend 1 energy)
 Cover Eyes (Cover eyes from vision attacks, have to be quick)
 Cover Ears (Cover ears from sonic attacks, have to be quick)
 Fall Prone (Fall to the ground)

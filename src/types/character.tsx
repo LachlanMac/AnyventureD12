@@ -24,7 +24,7 @@ export interface SkillData {
   // Character resources structure
   export interface Resources {
     health: { current: number; max: number };
-    stamina: { current: number; max: number };
+    energy: { current: number; max: number };
     resolve: { current: number; max: number };
   }
   
