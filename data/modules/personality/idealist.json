@@ -3,14 +3,15 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
+  "stressors":["Your core beliefs face challenge","You witness injustice","You violate your oath or personal code"],
  "options": [
       {
-      "name": "Idealism",
-      "description": "You are idealistic. You gain +1 resolve a day, but when you are broken or numbed, you roll a penalty dice to attempt to end the condition.",
+      "name": "Idealist",
+      "description": "You are an idealist, driven by unwavering beliefs in how the world should be and refusing to compromise your vision despite the pragmatic realities others accept. Your passionate convictions inspire those around you while sometimes blinding you to practical limitations, creating both devoted followers and frustrated opponents. You value principles, vision, and integrity above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "AE=1"
+      "data": ""
     },
    
     {
@@ -19,7 +20,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TG:SST=1"
     },
     {
       "name": "Manifesto",
@@ -27,7 +28,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG:SSN=1"
     },
     {
       "name": "Downtime Action : Conversion",
@@ -35,7 +36,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "Y"
     },
     {
       "name": "Daily Reacton : Fervent Conviction",
@@ -43,7 +44,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "ZD"
     },
     {
       "name": "Action : Reinforced Idealism",
@@ -51,15 +52,15 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
-      "name": "",
+      "name": "Visionary Idealist",
       "description": "Gain +1 talent with social and +1 skill with persuasion.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SST=1"
     },
     {
       "name": "WIP",

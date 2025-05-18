@@ -4,10 +4,11 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
+  "stressors":["You experience betrayal from an ally","You break a promise","You abandon an ally"],
  "options": [
       {
-      "name": "",
-      "description": "-1 insight",
+      "name": "Loyalist",
+      "description": "You are a loyalist, steadfast in your dedication to friends, causes, or ideals, even when doing so puts you at personal risk or disadvantage. Your unwavering loyalty makes you both a treasured ally and sometimes a person whose judgment can be clouded by your bonds. You value dedication, trust, and sacrifice above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -44,7 +45,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "ZX"
     },
     {
       "name": "Action : Coordinated Flank",
@@ -52,15 +53,15 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
-      "name": "",
+      "name": "Unbreakable Bonds",
       "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SSS=1"
     },
     {
       "name": "WIP",

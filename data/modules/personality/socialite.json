@@ -3,10 +3,11 @@
   "name": "Socialite",
   "mtype": "secondary",
   "ruleset": 1,
+  "stressors":["You face public mockery or accusation","You fail a social check severely","You experience betrayal from an ally"],
  "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Socialite",
+      "description": "You are a socialite, thriving in social environments where your natural charm and expressiveness make you the heart of any gathering. Your ability to navigate social dynamics comes naturally to you, although you may struggle when forced to spend extended periods in isolation or silence. You value connection, expression, and social harmony above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -43,7 +44,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "ZX"
     },
     {
       "name": "Action : Mock",
@@ -51,15 +52,15 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
-      "name": "",
+      "name": "Social Luminary",
       "description": "Gain +1 talent with social and +1 skill with presence.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SSR=1"
     },
     {
       "name": "WIP",

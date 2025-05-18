@@ -3,10 +3,11 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
+  "stressors":["You become imprisoned against your will","You face public mockery or accusation","Your core beliefs face challenge"],
  "options": [
       {
-      "name": "",
-      "description": "-1 presence, learn language",
+      "name": "Outsider",
+      "description": "You are an outsider, never quite fitting in with established social groups and viewing societies from a perspective that others cannot share. Your position on the margins grants you unique insights and adaptability, though it often leaves you searching for acceptance or purpose. You value independence, authenticity, and adaptability above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -43,7 +44,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
       "name": "Reaction : Adapt",
@@ -51,15 +52,15 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "ZX"
     },
     {
-      "name": "",
+      "name": "Sovereign Stranger",
       "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SSS=1"
     },
     {
       "name": "WIP",

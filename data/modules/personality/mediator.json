@@ -4,10 +4,11 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
+  "stressors":["You fail a social check severely","You witness injustice","You face public mockery or accusation"],
  "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Mediator",
+      "description": "You are a mediator, naturally drawn to resolve conflicts through patient negotiation and careful understanding of all perspectives involved. Your balanced approach allows you to find common ground where others see only irreconcilable differences, though you sometimes struggle with the moral ambiguity of compromise. You value harmony, fairness, and mutual understanding above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -44,7 +45,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "ZX"
     },
     {
       "name": "Action : Calm",
@@ -52,15 +53,15 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
-      "name": "",
+      "name": "Skilled Negotiator",
       "description": "Gain +1 talent with social and +1 skill with persuasion.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SST=1"
     },
     {
       "name": "WIP",

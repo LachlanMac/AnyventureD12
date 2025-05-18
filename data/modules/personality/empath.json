@@ -3,14 +3,15 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
+ "stressors":["You witness suffering of the vulnerable","Your actions cause an ally harm","You witness an ally break"],
   "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Empath",
+      "description": "You are an empath, deeply attuned to the emotions and needs of those around you, with an innate ability to sense the unspoken feelings that others try to hide. Your empathic nature guides you to provide comfort, offer understanding, and bridge emotional divides that others cannot cross. You value compassion, authentic connection, and emotional honesty above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "AE=1"
+      "data": ""
     },
    
     {
@@ -19,7 +20,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Insightful",
@@ -27,7 +28,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG:SSS=1"
     },
     {
       "name": "Downtime Action : Community Outreach",
@@ -35,7 +36,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "Y"
     },
     {
       "name": "Daily Action : Plea",
@@ -43,7 +44,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "XD"
     },
     {
       "name": "Action : Read Emotions",
@@ -51,7 +52,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
       "name": "Talented Empath",
@@ -59,7 +60,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SSS=1"
     },
     {
       "name": "WIP",

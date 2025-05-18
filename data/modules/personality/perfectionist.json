@@ -3,10 +3,10 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
+"stressors":["You fail a crucial check","You fail to craft an item","You lose a competition"], "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Perfectionist",
+      "description": "You are a perfectionist, driven by an unrelenting desire to achieve flawless results in everything you attempt, often at great personal cost. Your exacting standards push you to excel where others would settle for adequacy, though your pursuit of perfection can lead to burnout and dissatisfaction. You value excellence, precision, and mastery above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -35,15 +35,15 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "Y"
     },
     {
-      "name": "Craft : Create",
+      "name": "Daily Craft : Create",
       "description": "You put your soul into the next object you craft, gaining a bonus dice on your check. If the recipe fails, you lose 5 resolve.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "CD"
     },
     {
       "name": "Action : Optimized Attacks",
@@ -51,15 +51,15 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
-      "name": "",
+      "name": "Strive for Excellence",
       "description": "Gain +1 talent with social and +1 skill with expression.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SSQ=1"
     },
     {
       "name": "WIP",

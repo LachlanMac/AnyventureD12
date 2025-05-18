@@ -3,11 +3,11 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
-  "triggers":[],
+"stressors":["Your plan fails","You witness an ally die","You abandon an ally"],
  "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Leader",
+      "description": "You are a natural leader who inspires others to follow your guidance through both your commanding presence and your willingness to face danger first. Your leadership manifests in your readiness to take initiative, set examples, and make difficult decisions that others shy away from. You value courage, responsibility, and strategic thinking above all else.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -44,7 +44,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
       "name": "Action : Rally",
@@ -52,7 +52,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "XX"
     },
     {
       "name": "Proven Leader",
@@ -60,7 +60,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "ST5=1:SSR=1"
     },
     {
       "name": "WIP",
