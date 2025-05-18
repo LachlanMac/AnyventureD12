@@ -39,7 +39,7 @@
     },
     {
       "name": "Craft : Create",
-      "description": "You put your soul into the next thing you craft, gaining a bonus dice on your check. If the recipe fails, you lose 5 resolve.",
+      "description": "You put your soul into the next object you craft, gaining a bonus dice on your check. If the recipe fails, you lose 5 resolve.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,

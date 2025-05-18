@@ -38,7 +38,7 @@
       "data": ""
     },
     {
-      "name": "",
+      "name": "Action : Distraction",
       "description": "",
       "mtype": "core",
       "location": "4a",
@@ -46,8 +46,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Mock",
+      "description": "You mock a creature that you share a language with by rolling any social check against the target's resilience. Until the start of your next turn, that creature gains a bonus attack dice against you, but a penalty against your allies.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,

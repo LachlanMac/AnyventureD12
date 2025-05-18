@@ -30,15 +30,15 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Downtime Action : Vanish",
+      "description": "You take some time and scrub any existence or record of your existence in an area, the size of which is determined by a persuasion check; A check of an 6-9 is midly successful and allows you to convince those within a small area like a village or city block, while a 10 or higher is very successful and expands over a large town. On a perfect check, your effort is wide spread and can expand over a larg city.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
+      "name": "Reaction : Gutfeelin",
       "description": "",
       "mtype": "core",
       "location": "4a",

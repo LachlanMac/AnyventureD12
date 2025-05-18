@@ -39,7 +39,7 @@
     },
     {
       "name": "Daily Reacton : Fervent Conviction",
-      "description": "In response to either losing resolve or taking psychic damage, roll a resilience check. On a 6 or higher, the loss or damage is completely mitigated, otherwise, it the damage or loss of resolve is doubled.",
+      "description": "In response to either losing resolve or taking psychic damage, roll a resilience check. On a 6 or higher, the loss or damage is completely mitigated, otherwise, the damage or loss of resolve is doubled.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,

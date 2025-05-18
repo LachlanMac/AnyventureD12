@@ -39,7 +39,7 @@
     },
     {
       "name": "Daily Action : Plea",
-      "description": "When an ally is at 0 resolve, you can make a plea in a desperate attempt to keep them going. Roll an expression check; for each dice over 6, they gain one resolve.",
+      "description": "When an ally is at 0 resolve, you can make a plea in a desperate attempt to keep them going. Roll an expression check; for each dice you roll over 6, they gain one resolve.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
