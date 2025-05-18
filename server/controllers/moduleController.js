@@ -43,7 +43,7 @@ export const getModulesByType = async (req, res) => {
     const { type } = req.params;
     
     // Validate type
-    if (!['racial', 'core', 'secondary', 'cultural', 'personality'].includes(type)) {
+    if (!['racial', 'core', 'secondary', 'cultural','personality'].includes(type)) {
       return res.status(400).json({ message: 'Invalid module type' });
     }
     
@@ -137,9 +137,7 @@ export const selectModuleOption = async (req, res) => {
       return res.status(400).json({ message: 'Option location is required' });
     }
     
-    // Find character and populate modules
-    const character = await Character.findById(req.params.characterId)
-      .populate('modules.moduleId');
+    const character = await Character.findById(req.params.characterId);
     
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });

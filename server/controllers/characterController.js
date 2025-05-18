@@ -39,7 +39,7 @@ export const getCharacter = async (req, res) => {
 
     // Apply module bonuses directly to the character's attributes
     applyModuleBonusesToCharacter(characterWithBonuses);
-    //console.log(characterWithBonuses);
+    console.log(characterWithBonuses);
     
     res.json(characterWithBonuses);
   } catch (error) {

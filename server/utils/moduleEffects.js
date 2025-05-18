@@ -7,18 +7,10 @@
 // server/utils/moduleEffects.js - Updated parsing logic
 
 export const applyDataEffects = (character, dataString) => {
-  console.log(dataString);
   if (!dataString) return;
   
   // Initialize module bonuses if not exists
   if (!character.moduleBonuses) character.moduleBonuses = {};
-  
-  // Initialize trait categories if not exists
-  if (!character.moduleBonuses.traitCategories) character.moduleBonuses.traitCategories = {
-    general: [],
-    crafting: [],
-    ancestry: []
-  };
   
   // Split the data string by colon for multiple effects
   const effects = dataString.split(':');
@@ -27,104 +19,36 @@ export const applyDataEffects = (character, dataString) => {
     // Skip empty effects
     if (!effect.trim()) continue;
     
-    // Handle trait category codes
-    if (effect.startsWith('T')) {
-      const traitCode = effect.substring(0, 2); // Get first two characters
-      const traitDetail = effect.substring(2); // Get rest of the string if any
-      
-      switch (traitCode) {
-        case 'TG':
-          // Handle General Trait
-          console.log('General trait found:', traitDetail);
-          if (!character.moduleBonuses.traitCategories.general.includes(traitDetail)) {
-            character.moduleBonuses.traitCategories.general.push(traitDetail || 'General Trait');
-          }
-          break;
-          
-        case 'TC':
-          // Handle Crafting Trait
-          console.log('Crafting trait found:', traitDetail);
-          if (!character.moduleBonuses.traitCategories.crafting.includes(traitDetail)) {
-            character.moduleBonuses.traitCategories.crafting.push(traitDetail || 'Crafting Trait');
-          }
-          break;
-          
-        case 'TA':
-          // Handle Ancestry Trait
-          console.log('Ancestry trait found:', traitDetail);
-          if (!character.moduleBonuses.traitCategories.ancestry.includes(traitDetail)) {
-            character.moduleBonuses.traitCategories.ancestry.push(traitDetail || 'Ancestry Trait');
-          }
-          break;
-          
-        default:
-          // Unknown trait code
-          console.log(`Unknown trait code: ${traitCode}`);
-      }
-      
-      continue;
+    // Parse the effect code
+    const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+)/);
+    if (!match) continue;
+    
+    const [_, category, type, code, valueStr] = match;
+    const value = parseInt(valueStr);
+    
+    switch(category) {
+      case 'S': // Skills
+        handleSkillEffect(character, type, code, value);
+        break;
+      case 'W': // Weapons
+        handleWeaponEffect(character, type, code, value);
+        break;
+      case 'M': // Magic or Mitigations (check type)
+        if (type === 'S' || type === 'T') {
+          handleMagicEffect(character, type, code, value);
+        } else {
+          handleMitigationEffect(character, code, value);
+        }
+        break;
+      case 'C': // Crafting
+        handleCraftingEffect(character, type, code, value);
+        break;
+      case 'A': // Auto (health, resolve, etc.)
+        handleAutoEffect(character, code, value);
+        break;
     }
-    
-    // Handle skill advancement (like SSG=1)
-    const skillMatch = effect.match(/SS([A-Z])=(\d+)/);
-    if (skillMatch) {
-      const [_, skillCode, valueStr] = skillMatch;
-      const value = parseInt(valueStr);
-      
-      // Map skill code to actual skill name
-      const skillName = mapSkillCodeToName(skillCode);
-      if (skillName && character.skills && character.skills[skillName]) {
-        console.log(`Applying skill bonus: ${skillName} +${value}`);
-        
-        // Initialize skill bonus tracking
-        if (!character.moduleBonuses.skills) character.moduleBonuses.skills = {};
-        if (!character.moduleBonuses.skills[skillName]) character.moduleBonuses.skills[skillName] = 0;
-        
-        // Track and apply the bonus
-        character.moduleBonuses.skills[skillName] += value;
-        character.skills[skillName].value += value;
-      }
-      continue;
-    }
-    
-    // Original pattern for standard effect codes
-    const standardMatch = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+)/);
-    if (standardMatch) {
-      const [_, category, type, code, valueStr] = standardMatch;
-      const value = parseInt(valueStr);
-      
-      // Process the effect based on category, type, code, and value
-      switch(category) {
-        case 'S': // Skills
-          handleSkillEffect(character, type, code, value);
-          break;
-        case 'W': // Weapons
-          handleWeaponEffect(character, type, code, value);
-          break;
-        case 'M': // Magic or Mitigations
-          if (type === 'S' || type === 'T') {
-            handleMagicEffect(character, type, code, value);
-          } else {
-            handleMitigationEffect(character, code, value);
-          }
-          break;
-        case 'C': // Crafting
-          handleCraftingEffect(character, type, code, value);
-          break;
-        case 'A': // Auto (health, resolve, etc.)
-          handleAutoEffect(character, code, value);
-          break;
-      }
-      continue;
-    }
-    
-    // Handle any other special codes here
-    
-    // Log unhandled effect codes for debugging
-    console.log(`Unhandled effect code: ${effect}`);
   }
 };
-
 
 // Handler functions for each category
 
@@ -306,33 +230,7 @@ const getSkillMapping = (code) => {
   
   return attributeMap[code] || skillMap[code] || null;
 };
-// Helper function to map skill codes to skill names
-function mapSkillCodeToName(code) {
-  const skillMap = {
-    'A': 'fitness',
-    'B': 'deflection',
-    'C': 'might',
-    'D': 'endurance',
-    'E': 'evasion',
-    'F': 'stealth',
-    'G': 'coordination',
-    'H': 'thievery',
-    'I': 'resilience',
-    'J': 'concentration',
-    'K': 'senses',
-    'L': 'logic',
-    'M': 'wildcraft',
-    'N': 'academics',
-    'O': 'magic',
-    'P': 'medicine',
-    'Q': 'expression',
-    'R': 'presence',
-    'S': 'insight',
-    'T': 'persuasion',
-  };
-  
-  return skillMap[code];
-}
+
 const mapWeaponCode = (code) => {
   const map = {
     '1': 'unarmed',
