@@ -2,12 +2,6 @@ import React from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
 import { Character } from '../../../types/character';
-interface SkillData {
-  value: number; // Dice type (1-6)
-  talent: number; // Number of dice (0-3)
-}
-
-
 
 interface InfoTabProps {
   character: Character;
@@ -280,43 +274,6 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                 No crafting skills with talent points assigned.
               </div>
             )}
-          </div>
-        </CardBody>
-      </Card>
-
-      {/* Dice System Reference Card */}
-      <Card variant="default">
-        <CardHeader>
-          <h2
-            style={{
-              color: 'var(--color-white)',
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-            }}
-          >
-            Dice System Reference
-          </h2>
-        </CardHeader>
-        <CardBody>
-          <p
-            style={{
-              color: 'var(--color-cloud)',
-              marginBottom: '1rem',
-              fontSize: '0.875rem',
-            }}
-          >
-            For skill checks, you roll a number of dice determined by your attribute value or talent stars.
-            The die type (d4, d6, etc.) is determined by the skill level, which can be improved through modules.
-          </p>
-
-          <div
-            style={{
-              backgroundColor: 'var(--color-dark-elevated)',
-              padding: '1rem',
-              borderRadius: '0.5rem',
-              marginBottom: '1rem',
-            }}
-          >
           </div>
         </CardBody>
       </Card>

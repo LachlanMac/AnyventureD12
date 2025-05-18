@@ -27,8 +27,7 @@ interface TraitsTabProps {
   stressors?: string[];
 }
 
-const TraitsTab: React.FC<TraitsTabProps> = ({ character, characterId, personality, stressors = [] }) => {
-  // Get trait categories from character data
+const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality, stressors = [] }) => {
   const traitCategories = character.derivedTraits || {
     General: [],
     Crafting: [],
@@ -36,10 +35,8 @@ const TraitsTab: React.FC<TraitsTabProps> = ({ character, characterId, personali
     Uncategorized: []
   };
 
-  // Render a trait category if it has traits
   const renderTraitCategory = (categoryName: string, traits: ModuleTrait[] = []) => {
     if (!traits || traits.length === 0) return null;
-    
     return (
       <div key={categoryName} style={{ marginBottom: '2rem' }}>
         <h3 style={{
@@ -113,58 +110,6 @@ const TraitsTab: React.FC<TraitsTabProps> = ({ character, characterId, personali
 
   return (
     <div>
-      {personality && (
-        <Card variant="default" style={{ marginBottom: '2rem' }}>
-          <CardHeader
-            style={{
-              backgroundColor: 'var(--color-sat-purple-faded)',
-            }}
-          >
-            <h3
-              style={{
-                color: 'var(--color-white)',
-                fontSize: '1.25rem',
-                fontWeight: 'bold',
-              }}
-            >
-              Personality: {personality}
-            </h3>
-          </CardHeader>
-          <CardBody>
-            {stressors.length > 0 && (
-              <div>
-                <h4
-                  style={{
-                    color: 'var(--color-metal-gold)',
-                    fontSize: '1rem',
-                    marginBottom: '1rem',
-                  }}
-                >
-                  Character Stressors:
-                </h4>
-                <div>
-                  {stressors.map((stressor, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        padding: '0.75rem',
-                        borderRadius: '0.5rem',
-                        marginBottom: '0.75rem',
-                      }}
-                    >
-                      <div style={{ color: 'var(--color-cloud)' }}>
-                        {stressor}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-          </CardBody>
-        </Card>
-      )}
-
       {!hasAnyTraits ? (
         <Card variant="default">
           <CardBody>

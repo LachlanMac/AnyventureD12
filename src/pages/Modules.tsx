@@ -51,13 +51,11 @@ const ModulesPage: React.FC = () => {
   // Search functionality
   const [searchTerm, setSearchTerm] = useState<string>('');
 
-  // Fetch character and modules data
   useEffect(() => {
     const fetchData = async () => {
       try {
         setLoading(true);
 
-        // Fetch character data
         const characterResponse = await fetch(`/api/characters/${characterId}`);
         if (!characterResponse.ok) {
           throw new Error('Failed to fetch character data');
@@ -84,10 +82,8 @@ const ModulesPage: React.FC = () => {
     fetchData();
   }, [characterId]);
 
-  // Check if a module is selected by the character
   const isModuleSelected = (moduleId: string) => {
     return character?.modules.some((m) => {
-      // Handle both populated and unpopulated moduleId cases
       if (typeof m.moduleId === 'string') {
         return m.moduleId === moduleId;
       } else {
@@ -96,10 +92,8 @@ const ModulesPage: React.FC = () => {
     }) || false;
   };
 
-  // Get the character module for a given module ID
   const getCharacterModule = (moduleId: string) => {
     return character?.modules.find((m) => {
-      // Handle both populated and unpopulated moduleId cases
       if (typeof m.moduleId === 'string') {
         return m.moduleId === moduleId;
       } else {
@@ -108,19 +102,11 @@ const ModulesPage: React.FC = () => {
     });
   };
 
-  // Check if an option is selected by the character
   const isOptionSelected = (moduleId: string, location: string) => {
     const charModule = getCharacterModule(moduleId);
     return charModule?.selectedOptions.some((o) => o.location === location) || false;
   };
 
-  // Check if a racial module has any selected options
-  const hasSelectedOptions = (moduleId: string) => {
-    const charModule = getCharacterModule(moduleId);
-    return (charModule?.selectedOptions.length || 0) > 0;
-  };
-
-  // Check if an option can be selected (prerequisites met)
   const canSelectOption = (module: Module, location: string) => {
     if (location === '1') return true;
     const tierMatch = location.match(/^(\d+)/);
@@ -237,7 +223,6 @@ const ModulesPage: React.FC = () => {
         const updatedCharacter = await response.json();
         setCharacter(updatedCharacter);
       } else {
-        // Just deselect the option
         const response = await fetch(
           `/api/characters/${characterId}/modules/${moduleId}/options/${location}`,
           {
@@ -262,101 +247,52 @@ const ModulesPage: React.FC = () => {
     }
   };
 
-  // Handle clicking on a module in the list (just to view, not add)
   const handleViewModule = (module: Module) => {
     setSelectedModule(module);
   };
 
-  // Check if user has enough module points
   const hasEnoughPoints = (cost: number = 1) => {
     return ((character?.modulePoints.total || 0) - (character?.modulePoints.spent || 0)) >= cost;
   };
 
-  // Filter and sort modules for display
   const getDisplayModules = () => {
-    if (!allModules.length) return [];
-    
-    let filteredModules = [...allModules];
-    
-    // Filter out racial modules that have no selected options
+  if (!allModules.length) return [];
+  
+  let filteredModules = [...allModules];
+  
+  filteredModules = filteredModules.filter((module) => module.mtype !== 'racial');
+  filteredModules = filteredModules.filter((module) => {
+    if (module.mtype !== 'cultural' && module.mtype !== 'personality') return true;
+        return isModuleSelected(module._id);
+  });
+  
+  if (searchTerm.trim() !== '') {
+    const term = searchTerm.toLowerCase().trim();
     filteredModules = filteredModules.filter((module) => {
-      // Keep non-racial modules
-      if (module.mtype !== 'racial') return true;
-      
-      // For racial modules, only keep those with at least one selected option
-      return hasSelectedOptions(module._id);
+      if (module.name.toLowerCase().includes(term)) return true;
+      if (module.mtype.toLowerCase().includes(term)) return true;
+      return module.options.some(
+        option => 
+          option.name.toLowerCase().includes(term) || 
+          option.description.toLowerCase().includes(term)
+      );
     });
+  }
+  
+  return filteredModules.sort((a, b) => {
+    const aSelected = isModuleSelected(a._id);
+    const bSelected = isModuleSelected(b._id);
     
-    // Apply search term filter
-    if (searchTerm.trim() !== '') {
-      const term = searchTerm.toLowerCase().trim();
-      filteredModules = filteredModules.filter((module) => {
-        // Search in module name
-        if (module.name.toLowerCase().includes(term)) return true;
-        
-        // Search in module type
-        if (module.mtype.toLowerCase().includes(term)) return true;
-        
-        // Search in options
-        return module.options.some(
-          option => 
-            option.name.toLowerCase().includes(term) || 
-            option.description.toLowerCase().includes(term)
-        );
-      });
+    if (aSelected && !bSelected) return -1;
+    if (!aSelected && bSelected) return 1;
+    
+    if (a.mtype !== b.mtype) {
+      const typeOrder = { cultural: 0, personality: 1, core: 2, secondary: 3 };
+      return typeOrder[a.mtype as keyof typeof typeOrder] - typeOrder[b.mtype as keyof typeof typeOrder];
     }
-    
-    // Sort modules: selected modules first, then by type and name
-    return filteredModules.sort((a, b) => {
-      // Selected modules go first
-      const aSelected = isModuleSelected(a._id);
-      const bSelected = isModuleSelected(b._id);
-      
-      if (aSelected && !bSelected) return -1;
-      if (!aSelected && bSelected) return 1;
-      
-      // If both are selected or both are not selected, sort by type then name
-      if (a.mtype !== b.mtype) {
-        const typeOrder = { racial: 0, core: 1, secondary: 2 };
-        return typeOrder[a.mtype as keyof typeof typeOrder] - typeOrder[b.mtype as keyof typeof typeOrder];
-      }
-      
-      // Sort by name as last resort
-      return a.name.localeCompare(b.name);
-    });
-  };
-
-  if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="loading-spinner"></div>
-      </div>
-    );
-  }
-
-  if (error) {
-    return (
-      <div
-        style={{
-          padding: '2rem',
-          backgroundColor: 'rgba(152, 94, 109, 0.2)',
-          borderRadius: '0.5rem',
-          border: '1px solid var(--color-sunset)',
-          color: 'var(--color-white)',
-          textAlign: 'center',
-        }}
-      >
-        <h2 style={{ marginBottom: '1rem' }}>Error</h2>
-        <p>{error}</p>
-        <div style={{ marginTop: '1rem' }}>
-          <Button variant="accent" onClick={() => window.location.reload()}>
-            Try Again
-          </Button>
-        </div>
-      </div>
-    );
-  }
-
+    return a.name.localeCompare(b.name);
+  });
+};
   const displayModules = getDisplayModules();
 
   return (

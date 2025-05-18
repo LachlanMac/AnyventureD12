@@ -316,7 +316,6 @@ const personalityName = personalityModule &&
           {/* Traits Tab */}
           {character && activeTab === 'traits' && (
             <TraitsTab 
-              traits={character.traits} 
               character={character} 
               characterId={character._id}
               personality={personalityName}
