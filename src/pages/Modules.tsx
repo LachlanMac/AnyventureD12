@@ -122,50 +122,35 @@ const ModulesPage: React.FC = () => {
 
   // Check if an option can be selected (prerequisites met)
   const canSelectOption = (module: Module, location: string) => {
-    // Always allow tier 1
     if (location === '1') return true;
-
-    // Get parent tier number (e.g., "2" from "2a")
     const tierMatch = location.match(/^(\d+)/);
     if (!tierMatch) return false;
-
     const tier = parseInt(tierMatch[1]);
+    const charModule = getCharacterModule(module._id);
 
-    // For tier 2 and above, check if prerequisite tiers are selected
+    if (charModule?.selectedOptions.some(o => o.location.startsWith(tier.toString()) && o.location !== location)) {
+      return false; // Another option from the same tier is already selected
+    }
+
     if (tier === 2) {
-      // For tier 2, check if tier 1 is selected
       return isOptionSelected(module._id, '1');
     } else {
-      // For tier 3+, either:
-      // 1. If it's a sub-option (e.g. "3a", "3b"), check if a tier 2 option is selected
-      // 2. If it's a main tier (e.g. "3"), check if any previous tier is selected
-
       const isSubOption = location.length > 1; // Like "3a", "4b", etc.
-
       if (isSubOption) {
-        // Need to check if the parent tier is selected
         const previousTier = (tier - 1).toString();
         const charModule = getCharacterModule(module._id);
-
-        // Check if any option from the previous tier is selected
         return charModule?.selectedOptions.some((o) => o.location.startsWith(previousTier)) || false;
       } else {
-        // Need to check if any option from the previous tier is selected
         const previousTier = (tier - 1).toString();
         const charModule = getCharacterModule(module._id);
-
-        // Check if any option from the previous tier is selected
         return charModule?.selectedOptions.some((o) => o.location.startsWith(previousTier)) || false;
       }
     }
   };
-
   // Handle selecting a module and its first option
   const handleSelectOption = async (moduleId: string, location: string) => {
     try {
-      // If this is tier 1 and the module isn't added yet, add module first
       if (location === '1' && !isModuleSelected(moduleId)) {
-        // Add the module first
         const addModuleResponse = await fetch(`/api/characters/${characterId}/modules/${moduleId}`, {
           method: 'POST',
           headers: {
@@ -173,12 +158,9 @@ const ModulesPage: React.FC = () => {
           },
           credentials: 'include',
         });
-
         if (!addModuleResponse.ok) {
           throw new Error('Failed to add module');
         }
-        
-        // Then select the option
         const selectOptionResponse = await fetch(`/api/characters/${characterId}/modules/${moduleId}/options`, {
           method: 'POST',
           headers: {
@@ -187,15 +169,12 @@ const ModulesPage: React.FC = () => {
           credentials: 'include',
           body: JSON.stringify({ location }),
         });
-
         if (!selectOptionResponse.ok) {
           throw new Error('Failed to select option');
         }
-
         const updatedCharacter = await selectOptionResponse.json();
         setCharacter(updatedCharacter);
       } else {
-        // Just select the option (module already added)
         const response = await fetch(`/api/characters/${characterId}/modules/${moduleId}/options`, {
           method: 'POST',
           headers: {
@@ -204,11 +183,9 @@ const ModulesPage: React.FC = () => {
           credentials: 'include',
           body: JSON.stringify({ location }),
         });
-
         if (!response.ok) {
           throw new Error('Failed to select option');
         }
-
         const updatedCharacter = await response.json();
         setCharacter(updatedCharacter);
       }
@@ -217,16 +194,17 @@ const ModulesPage: React.FC = () => {
       setError(err instanceof Error ? err.message : 'Failed to select option');
     }
   };
-
-  // Handle deselecting a module option
   const handleDeselectOption = async (moduleId: string, location: string, moduleType: string) => {
     try {
-      // Prevent deselecting tier 1 option if it's a racial module
       if (location === '1' && moduleType === 'racial') {
-        return; // Prevent deselection of racial module tier 1
+        return;
       }
-      
-      // If this is tier 1, deselecting it will remove the entire module
+      if (location === '1' && moduleType === 'personality') {
+        return;
+      }
+      if (location === '1' && moduleType === 'cultural') {
+        return;
+      }
       if (location === '1') {
         const response = await fetch(`/api/characters/${characterId}/modules/${moduleId}`, {
           method: 'DELETE',

@@ -63,7 +63,9 @@ export const applyModuleBonusesToCharacter = (character) => {
       }
     }
   }
-  
+  console.log("*************")
+  console.log(bonuses);
+    console.log("*************")
   // Apply collected bonuses directly to character
   applyBonusesToCharacter(character, bonuses);
   
@@ -77,6 +79,7 @@ export const applyModuleBonusesToCharacter = (character) => {
   return character;
 };
 
+
 // Parse data string and collect bonuses
 const parseDataString = (dataString, bonuses) => {
   if (!dataString) return;
@@ -85,96 +88,209 @@ const parseDataString = (dataString, bonuses) => {
   const effects = dataString.split(':');
   
   for (const effect of effects) {
-    // Handle different types of effects
+    if (!effect.trim()) continue;
     
-    // Skill bonus (AS3=1)
-    const skillMatch = effect.match(/AS([0-9A-Z])=(\d+)/);
+    // SKILLS (S) - matching SSA=3 or ST1=1 pattern
+    const skillMatch = effect.match(/^S([ST])([A-T0-9])=(-?\d+)$/);
     if (skillMatch) {
-      const skillCode = skillMatch[1];
-      const value = parseInt(skillMatch[2]);
-      const skill = mapSkillCode(skillCode);
+      const [_, type, code, valueStr] = skillMatch;
+      const value = parseInt(valueStr);
       
-      if (skill) {
-        bonuses.skills[skill] = (bonuses.skills[skill] || 0) + value;
+      if (type === 'S') { // Skill value
+        if (/^[1-5]$/.test(code)) {
+          // Attribute skill (e.g. SS1=1 for Physique)
+          const attributeMappings = {
+            '1': 'physique',
+            '2': 'finesse',
+            '3': 'mind',
+            '4': 'knowledge',
+            '5': 'social'
+          };
+          const attributeName = attributeMappings[code];
+          if (attributeName) {
+            if (!bonuses.attributes) bonuses.attributes = {};
+            bonuses.attributes[attributeName] = (bonuses.attributes[attributeName] || 0) + value;
+          }
+        } else {
+          // Regular skill (e.g. SSA=1 for Fitness)
+          const skillMappings = {
+            'A': 'fitness',
+            'B': 'deflection',
+            'C': 'might',
+            'D': 'endurance',
+            'E': 'evasion',
+            'F': 'stealth',
+            'G': 'coordination',
+            'H': 'thievery',
+            'I': 'resilience',
+            'J': 'concentration',
+            'K': 'senses',
+            'L': 'logic',
+            'M': 'wildcraft',
+            'N': 'academics',
+            'O': 'magic',
+            'P': 'medicine',
+            'Q': 'expression',
+            'R': 'presence',
+            'S': 'insight',
+            'T': 'persuasion'
+          };
+          const skillName = skillMappings[code];
+          if (skillName) {
+            if (!bonuses.skills) bonuses.skills = {};
+            bonuses.skills[skillName] = (bonuses.skills[skillName] || 0) + value;
+          }
+        }
+      } else if (type === 'T') { // Talent value
+        if (/^[1-5]$/.test(code)) {
+          console.log(code);
+          // Attribute talent (e.g. ST1=1 for Physique)
+          const attributeMappings = {
+            '1': 'physique',
+            '2': 'finesse',
+            '3': 'mind',
+            '4': 'knowledge',
+            '5': 'social'
+          };
+          const attributeName = attributeMappings[code];
+          if (attributeName) {
+            if (!bonuses.attributeTalents) bonuses.attributeTalents = {};
+            bonuses.attributeTalents[attributeName] = (bonuses.attributeTalents[attributeName] || 0) + value;
+          }
+        } 
       }
       continue;
     }
     
-    // Crafting skill bonus (AC3=1)
-    const craftMatch = effect.match(/AC([0-9A-Z])=(\d+)/);
-    if (craftMatch) {
-      const craftCode = craftMatch[1];
-      const value = parseInt(craftMatch[2]);
-      const craftSkill = mapCraftSkillCode(craftCode);
-      
-      if (craftSkill) {
-        bonuses.craftingSkills[craftSkill] = (bonuses.craftingSkills[craftSkill] || 0) + value;
-      }
-      continue;
-    }
-    
-    // Weapon skill bonus (AZ3=1)
-    const weaponMatch = effect.match(/AZ([0-9A-Z])=(\d+)/);
+    // WEAPONS (W) - matching WS1=1 or WT3=1 pattern
+    const weaponMatch = effect.match(/^W([ST])([1-6])=(-?\d+)$/);
     if (weaponMatch) {
-      const weaponCode = weaponMatch[1];
-      const value = parseInt(weaponMatch[2]);
-      const weaponSkill = mapWeaponSkillCode(weaponCode);
+      const [_, type, code, valueStr] = weaponMatch;
+      const value = parseInt(valueStr);
       
-      if (weaponSkill) {
-        bonuses.weaponSkills[weaponSkill] = (bonuses.weaponSkills[weaponSkill] || 0) + value;
+      const weaponMappings = {
+        '1': 'unarmed',
+        '2': 'throwing',
+        '3': 'simpleMeleeWeapons',
+        '4': 'simpleRangedWeapons',
+        '5': 'complexMeleeWeapons',
+        '6': 'complexRangedWeapons'
+      };
+      
+      const weaponName = weaponMappings[code];
+      if (weaponName) {
+        if (!bonuses.weaponSkills) bonuses.weaponSkills = {};
+        if (!bonuses.weaponSkills[weaponName]) bonuses.weaponSkills[weaponName] = {};
+        
+        if (type === 'S') { // Skill value
+          bonuses.weaponSkills[weaponName].value = (bonuses.weaponSkills[weaponName].value || 0) + value;
+        } else if (type === 'T') { // Talent value
+          bonuses.weaponSkills[weaponName].talent = (bonuses.weaponSkills[weaponName].talent || 0) + value;
+        }
       }
       continue;
     }
     
-    // Defense/Mitigation bonus (AD3=1)
-    const defenseMatch = effect.match(/AD([0-9A-Z])=(\d+)/);
-    if (defenseMatch) {
-      const defenseCode = defenseMatch[1];
-      const value = parseInt(defenseMatch[2]);
-      const mitigationType = mapMitigationCode(defenseCode);
+    // MAGIC (M) - matching MS1=1 or MT3=1 pattern
+    const magicMatch = effect.match(/^M([ST])([1-5])=(-?\d+)$/);
+    if (magicMatch) {
+      const [_, type, code, valueStr] = magicMatch;
+      const value = parseInt(valueStr);
       
+      const magicMappings = {
+        '1': 'black',
+        '2': 'primal',
+        '3': 'alteration',
+        '4': 'divine',
+        '5': 'mystic'
+      };
+      
+      const magicName = magicMappings[code];
+      if (magicName) {
+        if (!bonuses.magicSkills) bonuses.magicSkills = {};
+        if (!bonuses.magicSkills[magicName]) bonuses.magicSkills[magicName] = {};
+        
+        if (type === 'S') { // Skill value
+          bonuses.magicSkills[magicName].value = (bonuses.magicSkills[magicName].value || 0) + value;
+        } else if (type === 'T') { // Talent value
+          bonuses.magicSkills[magicName].talent = (bonuses.magicSkills[magicName].talent || 0) + value;
+        }
+      }
+      continue;
+    }
+    
+    // CRAFTING (C) - matching CS1=1 or CT3=1 pattern
+    const craftingMatch = effect.match(/^C([ST])([1-6])=(-?\d+)$/);
+    if (craftingMatch) {
+      const [_, type, code, valueStr] = craftingMatch;
+      const value = parseInt(valueStr);
+      
+      const craftingMappings = {
+        '1': 'engineering',
+        '2': 'fabrication',
+        '3': 'alchemy',
+        '4': 'cooking',
+        '5': 'glyphcraft',
+        '6': 'bioshaping'
+      };
+      
+      const craftingName = craftingMappings[code];
+      if (craftingName) {
+        if (!bonuses.craftingSkills) bonuses.craftingSkills = {};
+        if (!bonuses.craftingSkills[craftingName]) bonuses.craftingSkills[craftingName] = {};
+        
+        if (type === 'S') { // Skill value
+          bonuses.craftingSkills[craftingName].value = (bonuses.craftingSkills[craftingName].value || 0) + value;
+        } else if (type === 'T') { // Talent value
+          bonuses.craftingSkills[craftingName].talent = (bonuses.craftingSkills[craftingName].talent || 0) + value;
+        }
+      }
+      continue;
+    }
+    
+    // MITIGATIONS (M) - matching M1=1 pattern
+    // Since Magic and Mitigation both use M, we differentiate by checking if the second character is a number
+    const mitigationMatch = effect.match(/^M([1-9])=(-?\d+)$/);
+    if (mitigationMatch) {
+      const [_, code, valueStr] = mitigationMatch;
+      const value = parseInt(valueStr);
+      
+      const mitigationMappings = {
+        '1': 'physical',
+        '2': 'heat',
+        '3': 'cold',
+        '4': 'lightning',
+        '5': 'dark',
+        '6': 'divine',
+        '7': 'arcane',
+        '8': 'psychic',
+        '9': 'toxic'
+      };
+      
+      const mitigationType = mitigationMappings[code];
       if (mitigationType) {
+        if (!bonuses.mitigation) bonuses.mitigation = {};
         bonuses.mitigation[mitigationType] = (bonuses.mitigation[mitigationType] || 0) + value;
       }
       continue;
     }
     
-    // Health bonus (AH=5)
-    const healthMatch = effect.match(/AH=(\d+)/);
-    if (healthMatch) {
-      const value = parseInt(healthMatch[1]);
-      bonuses.health += value;
-      continue;
-    }
-    
-    // Movement bonus (AV=2)
-    const movementMatch = effect.match(/AV=(\d+)/);
-    if (movementMatch) {
-      const value = parseInt(movementMatch[1]);
-      bonuses.movement += value;
-      continue;
-    }
-    
-    // Immunity (I3)
-    const immunityMatch = effect.match(/I(\d+)/);
-    if (immunityMatch) {
-      const immunityCode = immunityMatch[1];
-      const immunity = mapImmunityCode(immunityCode);
+    // AUTO stats (A) - matching A1=1 pattern
+    const autoMatch = effect.match(/^A([1-4])=(-?\d+)$/);
+    if (autoMatch) {
+      const [_, code, valueStr] = autoMatch;
+      const value = parseInt(valueStr);
       
-      if (immunity && !bonuses.immunities.includes(immunity)) {
-        bonuses.immunities.push(immunity);
-      }
-      continue;
-    }
-    
-    // Vision (D1, D2, etc.)
-    const visionMatch = effect.match(/D([0-9])/);
-    if (visionMatch) {
-      const visionCode = visionMatch[1];
-      const vision = mapVisionCode(visionCode);
+      const autoMappings = {
+        '1': 'health',
+        '2': 'resolve',
+        '3': 'stamina',
+        '4': 'movement'
+      };
       
-      if (vision && !bonuses.vision.includes(vision)) {
-        bonuses.vision.push(vision);
+      const statType = autoMappings[code];
+      if (statType) {
+        bonuses[statType] = (bonuses[statType] || 0) + value;
       }
       continue;
     }
@@ -190,6 +306,14 @@ const applyBonusesToCharacter = (character, bonuses) => {
     }
   }
   
+ if (bonuses.attributeTalents) {
+    for (const [attribute, value] of Object.entries(bonuses.attributeTalents)) {
+      if (character.attributes && character.attributes[attribute] !== undefined) {
+        character.attributes[attribute] += value;
+      }
+    }
+  }
+
   // Apply crafting skill bonuses
   for (const [skill, value] of Object.entries(bonuses.craftingSkills)) {
     if (character.craftingSkills[skill]) {
@@ -238,103 +362,4 @@ const applyBonusesToCharacter = (character, bonuses) => {
       character.vision.push(vision);
     }
   }
-};
-
-// Mapping functions for codes to actual names
-const mapSkillCode = (code) => {
-  const skillMap = {
-    '1': 'fitness',
-    '2': 'deflect',
-    '3': 'might',
-    '4': 'evade',
-    '5': 'stealth',
-    '6': 'coordination',
-    '7': 'resilience',
-    '8': 'concentration',
-    '9': 'senses',
-    'A': 'science',
-    'B': 'technology',
-    'C': 'medicine',
-    'D': 'xenology',
-    'E': 'negotiation',
-    'F': 'behavior',
-    'G': 'presence',
-    'H': 'initiative'  // This is special - it maps to the initiative value
-  };
-  return skillMap[code];
-};
-
-const mapCraftSkillCode = (code) => {
-  const craftMap = {
-    '1': 'engineering',
-    '2': 'fabrication',
-    '3': 'biosculpting',
-    '4': 'synthesis'
-  };
-  return craftMap[code];
-};
-
-const mapWeaponSkillCode = (code) => {
-  const weaponMap = {
-    '1': 'attackWithUnarmed',
-    '2': 'attackWithMeleeWeapons',
-    '3': 'attackWithRangedWeapons',
-    '4': 'attackWithHeavyRangedWeapons',
-    '5': 'attackWithWeaponSystems',
-    '7': 'damageWithUnarmed',
-    '8': 'damageWithMeleeWeapons',
-    '9': 'damageWithRangedWeapons',
-    'A': 'damageWithHeavyRangedWeapons',
-    'B': 'damageWithWeaponSystems'
-    // ... add other mappings as needed
-  };
-  return weaponMap[code];
-};
-
-const mapMitigationCode = (code) => {
-  const mitigationMap = {
-    '1': 'kinetic',
-    '2': 'cold',
-    '3': 'heat',
-    '4': 'electrical',
-    '5': 'mental',
-    '6': 'toxic',
-    '7': 'sonic',
-    '8': 'radiation'
-  };
-  return mitigationMap[code];
-};
-
-const mapImmunityCode = (code) => {
-  const immunityMap = {
-    '1': 'afraid',
-    '2': 'bleeding',
-    '3': 'blinded',
-    '4': 'confused',
-    '5': 'dazed',
-    '6': 'deafened',
-    '7': 'exhausted',
-    '8': 'hidden',
-    '9': 'ignited',
-    '10': 'biological',
-    '11': 'prone',
-    '12': 'sleeping',
-    '13': 'stasis',
-    '14': 'stunned',
-    '15': 'trapped',
-    '16': 'unconscious',
-    '17': 'wounded',
-    '20': 'prone'  // Additional mapping for prone
-  };
-  return immunityMap[code];
-};
-
-const mapVisionCode = (code) => {
-  const visionMap = {
-    '1': 'thermal',
-    '2': 'void',
-    '3': 'normal',
-    '4': 'enhanced'
-  };
-  return visionMap[code];
 };

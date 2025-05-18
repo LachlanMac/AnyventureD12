@@ -355,28 +355,17 @@ CharacterSchema.methods.addModule = async function(moduleId) {
 */
 CharacterSchema.methods.selectOption = async function(moduleId, location) {
   try {
-    // Find the module
     const moduleIndex = this.modules.findIndex(m => 
       m.moduleId.toString() === moduleId.toString()
     );
-    
     if (moduleIndex === -1) {
-      return false; // Module not found
+      return false; 
     }
-    
-    // Check if option is already selected
     if (this.modules[moduleIndex].selectedOptions.some(o => o.location === location)) {
-      return false; // Option already selected
+      return false; 
     }
-    
-    // Check if character has enough module points
     const availablePoints = this.modulePoints.total - this.modulePoints.spent;
-    
-    // New simplified cost structure - all options cost 1 point
     const optionCost = 1;
-    
-    // Don't charge for Tier 1 option (location === '1') if this is the first option selected
-    // for this module (i.e., the module was just added)
     const isFirstOptionForModule = this.modules[moduleIndex].selectedOptions.length === 0;
     const isTierOne = location === '1';
     
