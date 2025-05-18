@@ -512,7 +512,6 @@ CharacterSchema.methods.deselectOption = async function(moduleId, location) {
 };
 
 
-// Continue with the rest of the character model methods...
 CharacterSchema.methods.applyModuleEffects = async function() {
   // Reset module bonuses
   this.moduleBonuses = {
@@ -527,12 +526,96 @@ CharacterSchema.methods.applyModuleEffects = async function() {
     conditionalEffects: [],
     health: 0,
     movement: 0,
+    traitCategories: {
+      general: [],
+      crafting: [],
+      ancestry: []
+    }
   };
   
-  // Apply module effects logic here...
-  // (This is just a stub - the actual implementation would be more complex)
+  // Skip if no modules
+  if (!this.modules || this.modules.length === 0) {
+    return;
+  }
+  
+  // Process each module
+  for (const moduleItem of this.modules) {
+    try {
+      // Skip if moduleId isn't populated
+      if (!moduleItem.moduleId) {
+        console.log("Skipping module with null moduleId:", moduleItem);
+        continue;
+      }
+      
+      // Get module data (either object or try to resolve string ID)
+      let moduleData = moduleItem.moduleId;
+      if (typeof moduleData === 'string') {
+        try {
+          const Module = mongoose.model('Module');
+          moduleData = await Module.findById(moduleData);
+          if (!moduleData) {
+            console.log(`Could not find module with ID ${moduleItem.moduleId}`);
+            continue;
+          }
+        } catch (err) {
+          console.error(`Error loading module ${moduleItem.moduleId}:`, err);
+          continue;
+        }
+      }
+      
+      // Validate moduleData has options
+      if (!moduleData || !moduleData.options || !Array.isArray(moduleData.options)) {
+        console.log("Invalid module data (missing options array):", moduleData);
+        continue;
+      }
+      
+      // Get selected options
+      const selectedOptions = moduleItem.selectedOptions || [];
+      
+      // Skip if no options selected
+      if (selectedOptions.length === 0) {
+        continue;
+      }
+      
+      // Process each selected option
+      for (const selected of selectedOptions) {
+        // Find the option in the module
+        const option = moduleData.options.find(opt => opt.location === selected.location);
+        
+        if (option && option.data) {
+          // Use the moduleEffects utility to apply data effects
+          applyDataEffects(this, option.data);
+        }
+      }
+    } catch (err) {
+      console.error("Error processing module:", err);
+      // Continue to the next module instead of crashing
+      continue;
+    }
+  }
 };
 
+
+const parseModuleId = async function(moduleId) {
+  // If it's already an object with _id, it's already populated
+  if (moduleId && typeof moduleId === 'object' && moduleId._id) {
+    return moduleId;
+  }
+  
+  // If it's a string, try to load the module
+  if (typeof moduleId === 'string') {
+    try {
+      const Module = mongoose.model('Module');
+      return await Module.findById(moduleId);
+    } catch (err) {
+      console.error(`Error loading module ${moduleId}:`, err);
+      return null;
+    }
+  }
+  
+  // Otherwise, it's invalid
+  return null;
+};
 
 CharacterSchema.methods.applyTraitEffects = async function() {
   // Reset trait bonuses

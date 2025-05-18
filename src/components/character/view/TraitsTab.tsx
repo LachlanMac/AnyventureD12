@@ -14,13 +14,70 @@ interface Trait {
 interface TraitsTabProps {
   traits: Trait[];
   characterId: string;
+  personality?: string;
+  stressors?: string[];
 }
 
-const TraitsTab: React.FC<TraitsTabProps> = ({ traits, characterId }) => {
+const TraitsTab: React.FC<TraitsTabProps> = ({  traits, characterId, personality, stressors = []  }) => {
+  
   const navigate = useNavigate();
 
   return (
     <div>
+
+ {personality && (
+        <Card variant="default" style={{ marginBottom: '2rem' }}>
+          <CardHeader
+            style={{
+              backgroundColor: 'var(--color-sat-purple-faded)',
+            }}
+          >
+            <h3
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '1.25rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Personality: {personality}
+            </h3>
+          </CardHeader>
+          <CardBody>
+            {stressors.length > 0 && (
+              <div>
+                <h4
+                  style={{
+                    color: 'var(--color-metal-gold)',
+                    fontSize: '1rem',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  Character Stressors:
+                </h4>
+                <div>
+                  {stressors.map((stressor, index) => (
+                    <div
+                      key={index}
+                      style={{
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        padding: '0.75rem',
+                        borderRadius: '0.5rem',
+                        marginBottom: '0.75rem',
+                      }}
+                    >
+                      <div style={{ color: 'var(--color-cloud)' }}>
+                        {stressor}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
+          </CardBody>
+        </Card>
+      )}
+    
+
       {traits.length === 0 ? (
         <Card variant="default">
           <CardBody>

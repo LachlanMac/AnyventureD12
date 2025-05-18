@@ -1,7 +1,7 @@
 {
   "id": 105,
-  "name": "",
-  "mtype": "secondary",
+  "name": "Leader",
+  "mtype": "personality",
   "ruleset": 1,
 "stressors":["Your plan fails","You witness an ally die","You abandon an ally"],
  "options": [
@@ -16,11 +16,11 @@
    
     {
       "name": "Take the Initiative",
-      "description": "You are the first to act, often to set an example. Gain +1 skill with initiative. On the first round of combat, you gain a bonus dice to all your actions.",
+      "description": "You are the first to act, often to set an example. Gain +1 skill with coordination. On the first round of combat, you gain a bonus dice to all your actions.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TG:SSG=1"
     },
     {
       "name": "Natural Born Leader",
@@ -28,7 +28,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG:SSR=1"
     },
     {
       "name": "Downtime Action : Rousing Speech",
@@ -36,7 +36,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "Y"
     },
     {
       "name": "Action : To the Death",

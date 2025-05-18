@@ -33,11 +33,15 @@ const ModuleSchema = new Schema({
   mtype: { 
     type: String, 
     required: true,
-    enum: ['racial', 'core', 'secondary', 'alteration','cultural', 'planar']
+    enum: ['racial', 'core', 'secondary', 'alteration','cultural', 'planar', 'personality']
   },
   ruleset: { 
     type: Number, 
     default: 0 
+  },
+   stressors: {
+    type: [String],
+    default: []
   },
   options: [ModuleOptionSchema]
 }, {

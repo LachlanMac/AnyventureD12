@@ -1,7 +1,7 @@
 {
   "id": 105,
   "name": "Socialite",
-  "mtype": "secondary",
+  "mtype": "personality",
   "ruleset": 1,
   "stressors":["You face public mockery or accusation","You fail a social check severely","You experience betrayal from an ally"],
  "options": [
@@ -28,7 +28,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Downtime Action : Seek Ally",
@@ -36,7 +36,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "Y"
     },
     {
       "name": "Reaction : Center of Attention",

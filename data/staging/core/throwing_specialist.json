@@ -6,23 +6,23 @@
  "options": [
     {
       "name": "Fledgling Marksman",
-      "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple and complex ranged weapons.",
+      "description": "You have trained with throwing weapons and other objects to deal damage. Gain +1 skill with throwing.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
       "data": "WS1=3:WS4=1"
     },
     {
-      "name": "Action : Aimed Shot",
-      "description": "While making an attack with a simple or complex ranged weapon, roll an additional attack dice.",
+      "name": "",
+      "description": "",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Action : Headshot",
-      "description": "While making an attack with a simple or complex ranged weapon, roll one less dice but the damage on your primary attack dice is doubled.",
+      "name": "",
+      "description": "",
       "mtype": "core",
       "location": "2b",
       "cost": 2,

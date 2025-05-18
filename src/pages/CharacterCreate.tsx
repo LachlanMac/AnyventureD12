@@ -8,6 +8,7 @@ import AttributesTab from '../components/character/creator/AttributesTab';
 import TalentsTab from '../components/character/creator/TalentsTab';
 import TraitsCreatorTab from '../components/character/creator/TraitsCreatorTab';
 import BackgroundCreatorTab from '../components/character/creator/BackgroundCreatorTab';
+import PersonalityCreatorTab from '../components/character/creator/PersonalityCreatorTab';
 
 // Import utility functions and types from the shared files
 import { 
@@ -19,7 +20,8 @@ import {
   Trait, 
   RacialModule, 
   CultureModule,
-  Attributes 
+  Attributes,
+  Module 
 } from '../types/character';
 
 const CharacterCreate: React.FC = () => {
@@ -37,9 +39,11 @@ const CharacterCreate: React.FC = () => {
   const [cultureModules, setCultureModules] = useState<CultureModule[]>([]);
   const [selectedRacialModule, setSelectedRacialModule] = useState<RacialModule | null>(null);
   const [selectedCultureModule, setSelectedCultureModule] = useState<CultureModule | null>(null);
-
+  const [selectedPersonality, setSelectedPersonality] = useState<string>('');
+  const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
+  const [stressors, setStressors] = useState<string[]>([]);
   // Define steps
-  const steps = ['Basic Info', 'Attributes', 'Talents', 'Traits', 'Background'];
+  const steps = ['Basic Info', 'Attributes', 'Talents', 'Personality', 'Background'];
 
   // Initialize character state using the utility function
   const [character, setCharacter] = useState<Character>(createDefaultCharacter('test-user-id'));
@@ -91,6 +95,11 @@ const CharacterCreate: React.FC = () => {
   const handleCultureChange = (cultureName: string, cultureModule: CultureModule) => {
     updateCharacter('culture', cultureName);
     setSelectedCultureModule(cultureModule);
+  };
+  const handlePersonalitySelect = (personalityName: string, personalityModule: Module) => {
+    setSelectedPersonality(personalityName);
+    setSelectedPersonalityModule(personalityModule);
+    setStressors(personalityModule.stressors || []);
   };
 
   const handleRaceChange = (raceName: string, racialModule: RacialModule) => {
@@ -274,12 +283,9 @@ const CharacterCreate: React.FC = () => {
         }
         return true;
       case 4:
-        // Check if exactly 3 traits are selected
-        if (selectedTraits.length !== 3) {
-          setError(
-            `You must select exactly 3 traits. Currently selected: ${selectedTraits.length}`
-          );
-          return false;
+        if (!selectedPersonality) {
+        setError('Please select a personality for your character');
+        return false;
         }
         return true;
       default:
@@ -361,6 +367,21 @@ const CharacterCreate: React.FC = () => {
           });
         }
       }
+
+       if (selectedPersonalityModule) {
+      const tier1Option = selectedPersonalityModule.options.find(option => option.location === '1');
+      
+      if (tier1Option) {
+        initialModules.push({
+          moduleId: selectedPersonalityModule._id,
+          selectedOptions: [{
+            location: '1',
+            selectedAt: new Date().toISOString()
+          }]
+        });
+      }
+    }
+
       // Transform the character data for the API
       const characterData = {
         name: character.name,
@@ -377,6 +398,7 @@ const CharacterCreate: React.FC = () => {
         biography: character.biography,
         appearance: character.appearance,
         physicalTraits: character.physicalTraits,
+        stressors: stressors,
         modules: initialModules,
         characterCreation: {
           attributePointsRemaining: attributePointsRemaining,
@@ -514,17 +536,14 @@ const CharacterCreate: React.FC = () => {
                 onUpdateCraftingSkillTalent={updateCraftingSkillTalent}
               />
             )}
-
             {/* Step 4: Traits */}
             {step === 4 && (
-              <TraitsCreatorTab 
-                selectedTraits={selectedTraits}
-                availableModulePoints={character.modulePoints.total - character.modulePoints.spent}
-                onSelectTrait={handleSelectTrait}
-                onDeselectTrait={handleDeselectTrait}
+              <PersonalityCreatorTab 
+                selectedPersonality={selectedPersonality}
+                stressors={stressors}
+                onSelectPersonality={handlePersonalitySelect}
               />
             )}
-
             {/* Step 5: Background */}
             {step === 5 && (
               <BackgroundCreatorTab 

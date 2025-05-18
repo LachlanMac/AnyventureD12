@@ -1,6 +1,6 @@
 {
   "id": 105,
-  "name": "",
+  "name": "B",
   "mtype": "secondary",
   "ruleset": 1,
  "options": [
@@ -13,16 +13,16 @@
       "data": "AE=1"
     },
     {
-      "name": "",
-      "description": "",
+      "name": "A",
+      "description": "A",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "B",
+      "description": "B",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -77,8 +77,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "EE",
+      "description": "ee",
       "mtype": "core",
       "location": "7",
       "cost": 3,

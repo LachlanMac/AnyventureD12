@@ -94,6 +94,8 @@ export interface SkillData {
     ruleset: number;
     options: ModuleOption[];
     description?: string;
+    stressors?: string[]; 
+
   }
   
   // Character module structure
@@ -138,6 +140,7 @@ export interface SkillData {
     traits: CharacterTrait[];
     level: number;
     experience: number;
+    stressors: string[];
     movement: number;
     characterCreation?: {
       attributePointsRemaining: number;

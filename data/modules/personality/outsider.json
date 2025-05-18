@@ -1,7 +1,7 @@
 {
   "id": 105,
-  "name": "",
-  "mtype": "secondary",
+  "name": "Outsider",
+  "mtype": "personality",
   "ruleset": 1,
   "stressors":["You become imprisoned against your will","You face public mockery or accusation","Your core beliefs face challenge"],
  "options": [

@@ -89,7 +89,7 @@ const AttributeSkillsSection: React.FC<AttributeSkillsSectionProps> = ({
               key={skill.id}
               name={skill.name}
               value={skill.value}
-              talent={attributeValue} // For attribute skills, the talent is the attribute value
+              talent={attributeValue}
             />
           ))}
         </div>

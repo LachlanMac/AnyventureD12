@@ -1,8 +1,8 @@
 
 {
   "id": 105,
-  "name": "",
-  "mtype": "secondary",
+  "name": "Loyalist",
+  "mtype": "personality",
   "ruleset": 1,
   "stressors":["You experience betrayal from an ally","You break a promise","You abandon an ally"],
  "options": [

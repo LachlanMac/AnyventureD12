@@ -1,7 +1,7 @@
 {
   "id": 105,
-  "name": "",
-  "mtype": "secondary",
+  "name": "Schemer",
+  "mtype": "personality",
   "ruleset": 1,
   "stressors":["Your plan fails","You discover someone has lied to you","You become imprisoned against your will"],
  "options": [

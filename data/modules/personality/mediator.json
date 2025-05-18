@@ -1,8 +1,8 @@
 
 {
   "id": 105,
-  "name": "",
-  "mtype": "secondary",
+  "name": "Mediator",
+  "mtype": "personality",
   "ruleset": 1,
   "stressors":["You fail a social check severely","You witness injustice","You face public mockery or accusation"],
  "options": [

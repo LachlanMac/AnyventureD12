@@ -39,6 +39,7 @@ interface Character {
   name: string;
   race: string;
   culture:string;
+  stressors: string[];
   attributes: {
     physique: number;
     finesse: number;
@@ -121,6 +122,9 @@ interface Character {
   updatedAt: string;
 }
 
+
+
+
 const CharacterView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -131,7 +135,15 @@ const CharacterView: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('info');
+  const personalityModule = character?.modules.find((m: any) => 
+  m.moduleId && 
+  typeof m.moduleId !== 'string' && 
+  m.moduleId.mtype === 'secondary'
+);
 
+const personalityName = personalityModule && 
+  typeof personalityModule.moduleId !== 'string' ? 
+  personalityModule.moduleId.name : undefined;
   useEffect(() => {
     const fetchCharacter = async () => {
       try {
@@ -158,6 +170,7 @@ const CharacterView: React.FC = () => {
           name: 'Zara Chen',
           race: 'Test Race',
           culture: 'Test Culture',
+          stressors:[],
           portraitUrl: '',
           attributes: {
             physique: 2,
@@ -414,8 +427,13 @@ const CharacterView: React.FC = () => {
           {activeTab === 'actions' && <ActionsTab actions={character.actions} />}
 
           {/* Traits Tab */}
-          {activeTab === 'traits' && (
-            <TraitsTab traits={character.traits} characterId={character._id} />
+          {character && activeTab === 'traits' && (
+            <TraitsTab 
+              traits={character.traits} 
+              characterId={character._id}
+              personality={personalityName}
+              stressors={character.stressors || []}
+            />
           )}
 
           {/* Background Tab */}
