@@ -47,8 +47,8 @@
       "data": ""
     },
     {
-      "name": "Action : Lead the Charge",
-      "description": "",
+      "name": "Action : Rally",
+      "description": "You attempt to rally your allies that can hear you to your position by calling out or blowing a horn. Until the start of your next turn, the movement speed of your allies is doubled when they are moving towards you or an enemy that you are adjacent to.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -56,7 +56,7 @@
     },
     {
       "name": "Proven Leader",
-      "description": "Allied characters gain a bonus dice to their resilience when they are within a short (10 units) radius of you.",
+      "description": "Gain +1 talent with social and +1 skill with presence.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
@@ -64,7 +64,7 @@
     },
     {
       "name": "WIP",
-      "description": "This is currently not implemented",
+      "description": "Allied characters gain a bonus dice to their resilience when they are within a short (10 units) radius of you.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,

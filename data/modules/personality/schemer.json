@@ -46,8 +46,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Daily Reaction : Backup Plan",
+      "description": "In response to making a check of any kind, reroll the check using any other mind or social skill.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -55,7 +55,7 @@
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 talent with social and +1 skill with logic.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

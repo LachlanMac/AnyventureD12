@@ -38,16 +38,16 @@
       "data": ""
     },
     {
-      "name": "Reaction : Gutfeelin",
-      "description": "",
+      "name": "Action : Slip Away",
+      "description": "You slip away from combat or a social situation if you are at least a short distance (10 units) away from the nearest enemy and are within 2 units of an object or creature that grants you at least half-cover.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Reaction : Adapt",
+      "description": "In response to taking damage of the same type you've already taken since the end of your last turn, gain 1d6 mitigation to that type before calculating damage.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -55,7 +55,7 @@
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

@@ -46,8 +46,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Reinforced Idealism",
+      "description": "You take the Defense action, but instead of gaining just a bonus dice to evasion and deflection, you gain a bonus dice to any contested or defensive check you make.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -55,7 +55,7 @@
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 talent with social and +1 skill with persuasion.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

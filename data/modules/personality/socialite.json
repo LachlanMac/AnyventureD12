@@ -38,8 +38,8 @@
       "data": ""
     },
     {
-      "name": "Action : Distraction",
-      "description": "",
+      "name": "Reaction : Center of Attention",
+      "description": "In response to an enemy that is adjacent to you making an attack on an ally, the attack instead targets you.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
@@ -55,7 +55,7 @@
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 talent with social and +1 skill with presence.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

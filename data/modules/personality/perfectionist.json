@@ -46,8 +46,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Optimized Attacks",
+      "description": "You make a probing attack with a weapon or spell but with a penalty dice. If the attack hits or misses, you can discover one talent, skill, mitigation or invulnerability of the creature.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -55,7 +55,7 @@
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 talent with social and +1 skill with expression.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

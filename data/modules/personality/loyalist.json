@@ -47,8 +47,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": " ",
+      "name": "Action : Coordinated Flank",
+      "description": "You coordinate a flank with your ally, both making a melee attack against the same target. You make your attack with a bonus dice and your ally makes theirs with a penalty dice. Your ally must be able to use a reaction, but it does not have a cost.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -56,7 +56,7 @@
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

@@ -3,7 +3,7 @@
   "name": "",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
+  "options": [
       {
       "name": "",
       "description": "",
@@ -54,8 +54,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Talented Empath",
+      "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
