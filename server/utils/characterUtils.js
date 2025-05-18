@@ -1,5 +1,3 @@
-// server/utils/characterUtils.js
-import { applyDataEffects } from './moduleEffects.js';
 
 export const applyModuleBonusesToCharacter = (character) => {
   // Store original values to track changes
@@ -63,9 +61,6 @@ export const applyModuleBonusesToCharacter = (character) => {
       }
     }
   }
-  console.log("*************")
-  console.log(bonuses);
-    console.log("*************")
   // Apply collected bonuses directly to character
   applyBonusesToCharacter(character, bonuses);
   
@@ -363,3 +358,58 @@ const applyBonusesToCharacter = (character, bonuses) => {
     }
   }
 };
+
+export const parseTraitCategory = (dataString) => {
+  if (!dataString) return null;
+  if (dataString.includes('TG')) return 'General';
+  if (dataString.includes('TC')) return 'Crafting';
+  if (dataString.includes('TA')) return 'Ancestry';
+  
+  return null;
+};
+
+// Extract and categorize traits from modules
+export const extractTraitsFromModules = (character) => {
+  // Define our trait categories
+  const traitCategories = {
+    General: [],
+    Crafting: [],
+    Ancestry: [],
+    Uncategorized: []
+  };
+  
+  // No modules, return empty categories
+  if (!character.modules || character.modules.length === 0) {
+    return traitCategories;
+  }
+  
+  // Process module options to extract traits
+  character.modules.forEach(module => {
+    // Skip if moduleId isn't populated
+    if (!module.moduleId || typeof module.moduleId === 'string') return;
+    
+    // Process each selected option
+    module.selectedOptions.forEach(selectedOption => {
+      const option = module.moduleId.options.find(opt => opt.location === selectedOption.location);
+      if (!option || !option.data) return;
+      
+      // Determine the trait category
+      const category = parseTraitCategory(option.data);
+      if (category) {
+        // Create a trait object from the option
+        const trait = {
+          name: option.name,
+          description: option.description,
+          source: module.moduleId.name,
+          type: 'module-derived' // To differentiate from old system
+        };
+        
+        // Add to appropriate category
+        traitCategories[category].push(trait);
+      }
+    });
+  });
+  
+  return traitCategories;
+};
+

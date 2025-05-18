@@ -194,6 +194,22 @@ const ModulesPage: React.FC = () => {
       setError(err instanceof Error ? err.message : 'Failed to select option');
     }
   };
+
+  const canDeselectOption = (moduleId: string, location: string) => {
+  if (location === '1') {
+    return true; 
+  }
+  const charModule = getCharacterModule(moduleId);
+  if (!charModule) return false;
+  const tierNumber = parseInt(location.charAt(0));
+  const nextTierNumber = tierNumber + 1;
+  const hasDependentOptions = charModule.selectedOptions.some(o => {
+    const optionTier = parseInt(o.location.charAt(0));
+    return optionTier === nextTierNumber;
+  });
+  return !hasDependentOptions;
+};
+
   const handleDeselectOption = async (moduleId: string, location: string, moduleType: string) => {
     try {
       if (location === '1' && moduleType === 'racial') {
@@ -658,9 +674,15 @@ const ModulesPage: React.FC = () => {
                                 }}
                                 onClick={() => {
                                   if (canSelect && (isSelected || hasEnoughPointsForOption)) {
-                                    isSelected
-                                      ? handleDeselectOption(selectedModule._id, option.location, selectedModule.mtype)
-                                      : handleSelectOption(selectedModule._id, option.location);
+                                    if (isSelected) {
+                                      // Check if the option can be deselected before attempting to deselect it
+                                      if (canDeselectOption(selectedModule._id, option.location)) {
+                                        handleDeselectOption(selectedModule._id, option.location, selectedModule.mtype);
+                                      }
+                                      // If it can't be deselected, do nothing (silently ignore the click)
+                                    } else {
+                                      handleSelectOption(selectedModule._id, option.location);
+                                    }
                                   }
                                 }}
                               >

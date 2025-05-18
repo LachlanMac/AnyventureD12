@@ -162,123 +162,10 @@ const personalityName = personalityModule &&
         setLoading(false);
       } catch (err) {
         console.error('Error fetching character:', err);
-        
-        // Fallback to mock data for development if needed
-        const mockCharacter: Character = {
-          _id: id || '12345',
-          userId: 'test-user-id',
-          name: 'Zara Chen',
-          race: 'Test Race',
-          culture: 'Test Culture',
-          stressors:[],
-          portraitUrl: '',
-          attributes: {
-            physique: 2,
-            finesse: 3,
-            mind: 2,
-            knowledge: 1,
-            social: 2,
-          },
-          traits: [],
-          skills: {
-            fitness: { value: 2, talent: 0 },
-            deflection: { value: 3, talent: 0 },
-            might: { value: 2, talent: 0 },
-            endurance: { value: 2, talent: 0 },
-            evasion: { value: 3, talent: 0 },
-            stealth: { value: 4, talent: 0 },
-            coordination: { value: 3, talent: 0 },
-            thievery: { value: 3, talent: 0 },
-            resilience: { value: 2, talent: 0 },
-            concentration: { value: 3, talent: 0 },
-            senses: { value: 4, talent: 0 },
-            logic: { value: 2, talent: 0 },
-            wildcraft: { value: 2, talent: 0 },
-            academics: { value: 2, talent: 0 },
-            magic: { value: 3, talent: 0 },
-            medicine: { value: 3, talent: 0 },
-            expression: { value: 2, talent: 0 },
-            persuasion: { value: 2, talent: 0 },
-            insight: { value: 3, talent: 0 },
-            presence: { value: 2, talent: 0 },
-          },
-          
-          weaponSkills: {
-            unarmed: { value: 2, talent: 1 },
-            throwing: { value: 2, talent: 0 },
-            simpleRangedWeapons: { value: 3, talent: 2 },
-            simpleMeleeWeapons: { value: 2, talent: 1 },
-            complexRangedWeapons: { value: 2, talent: 0 },
-            complexMeleeWeapons: { value: 1, talent: 0 },
-          },
-          
-          craftingSkills: {
-            engineering: { value: 1, talent: 1 },
-            fabrication: { value: 2, talent: 1 },
-            alchemy: { value: 1, talent: 0 },
-            cooking: { value: 2, talent: 0 },
-            glyphcraft: { value: 1, talent: 0 },
-          },
-          magicSkills: {
-            black: { value: 0, talent: 0 },
-            primal: { value: 0, talent: 0 },
-            alteration: { value: 0, talent: 0 },
-            divine: { value: 0, talent: 0 },
-            mystic: { value: 0, talent: 0 },
-          },
-          resources: {
-            health: { current: 12, max: 12 },
-            stamina: { current: 7, max: 7 },
-            resolve: { current: 7, max: 7 },
-          },
-          languages: ['Common', 'Terran Standard'],
-          stances: ['Defensive Stance'],
-          physicalTraits: {
-            size: 'Medium',
-            weight: '165 lbs',
-            height: '5\'9"',
-            gender: 'Female',
-          },
-          biography:
-            'Born on the lunar colony of New Armstrong, Zara always dreamed of exploring beyond the solar system. After graduating top of her class at the Galactic Academy, she joined the Stellar Exploration Corps and quickly rose through the ranks due to her exceptional navigation skills and cool head in crisis situations.',
-          appearance:
-            'Tall with an athletic build, short black hair with a silver streak, and piercing blue eyes. Usually seen wearing a customized navy blue flight suit with red detailing and a well-worn leather jacket adorned with mission patches.',
-          actions: [
-            {
-              name: 'Quick Dodge',
-              description: 'You can use your Dodge Modifier to Defend against Ray Attacks',
-              type: 'Reaction',
-              sourceModule: 'Acrobat',
-              sourceModuleOption: 'Quick Dodge',
-            },
-            {
-              name: 'Rolling Dodge',
-              description:
-                'Gain +1 Dodge until the start of your next turn. Each time you Dodge an Attack successfully, gain another +1 Dodge until the start of your next turn',
-              type: 'Reaction',
-              sourceModule: 'Acrobat',
-              sourceModuleOption: 'Rolling Dodge',
-            },
-          ],
-          modules: [],
-          level: 3,
-          experience: 1250,
-          modulePoints: {
-            total: 10,
-            spent: 1,
-          },
-          movement: 5,
-          createdAt: new Date().toISOString(),
-          updatedAt: new Date().toISOString(),
-        };
-
-        console.log('Using mock character data:', mockCharacter);
-        setCharacter(mockCharacter);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
     };
-
     fetchCharacter();
   }, [id]);
 
@@ -430,6 +317,7 @@ const personalityName = personalityModule &&
           {character && activeTab === 'traits' && (
             <TraitsTab 
               traits={character.traits} 
+              character={character} 
               characterId={character._id}
               personality={personalityName}
               stressors={character.stressors || []}

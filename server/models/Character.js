@@ -62,32 +62,6 @@ const CharacterModuleSchema = new Schema({
   }
 });
 
-// Add this new schema after the existing schemas in Character.js
-const TraitSchema = new Schema({
-  traitId: {
-    type: Schema.Types.ObjectId,
-    ref: 'Trait',
-    required: true
-  },
-  name: { 
-    type: String, 
-    required: true 
-  },
-  type: { 
-    type: String, 
-    enum: ['positive', 'negative'],
-    required: true
-  },
-  description: { 
-    type: String,
-    required: true
-  },
-  dateAdded: {
-    type: Date,
-    default: Date.now
-  }
-});
-
 
 const CharacterSchema = new Schema({
   userId: {
@@ -250,8 +224,6 @@ const CharacterSchema = new Schema({
     divine: { type: Number, default: 0 },
     arcane: { type: Number, default: 0 },
   },
-  traits: [TraitSchema],
-  // Store module bonuses separately to track what came from modules
   moduleBonuses: Schema.Types.Mixed
 }, {
   timestamps: true
@@ -309,7 +281,6 @@ CharacterSchema.pre('save', function(next) {
   
   // Apply module effects
   this.applyModuleEffects();
-  this.applyTraitEffects();
   next();
 });
 /**
@@ -523,82 +494,6 @@ CharacterSchema.methods.applyModuleEffects = async function() {
 };
 
 
-CharacterSchema.methods.applyTraitEffects = async function() {
-  // Reset trait bonuses
-  if (!this.moduleBonuses) this.moduleBonuses = {};
-  if (!this.moduleBonuses.traitEffects) this.moduleBonuses.traitEffects = [];
-  
-  this.moduleBonuses.traitEffects = [];
-  
-  // Apply each trait's effects
-  if (this.traits && this.traits.length > 0) {
-    for (const trait of this.traits) {
-      // Store trait information in moduleBonuses.traitEffects
-      this.moduleBonuses.traitEffects.push({
-        name: trait.name,
-        type: trait.type,
-        effects: trait.effects || []
-      });
-      
-      // If we have a trait effects utility, we would call it here:
-      // await applyTraitEffects(this, trait);
-    }
-  }
-};
-
-// Add method to add a trait to the character
-CharacterSchema.methods.addTrait = async function(trait) {
-  // Check if the trait already exists
-  const existingTrait = this.traits.find(t => 
-    t.traitId.toString() === trait._id.toString()
-  );
-  
-  if (existingTrait) {
-    return false; // Trait already added
-  }
-  
-  // Add the trait
-  this.traits.push({
-    traitId: trait._id,
-    name: trait.name,
-    type: trait.type,
-    description: trait.description
-  });
-  
-  // If this is a positive trait, deduct 1 module point
-  if (trait.type === 'positive') {
-    this.modulePoints.spent += 1;
-  }
-  
-  return true;
-};
-
-// Add method to remove a trait from the character
-CharacterSchema.methods.removeTrait = async function(traitId) {
-  // Find the trait in the array
-  const traitIndex = this.traits.findIndex(t => 
-    t.traitId.toString() === traitId.toString()
-  );
-  
-  if (traitIndex === -1) {
-    return false; // Trait not found
-  }
-  
-  // Store the trait before removing
-  const trait = this.traits[traitIndex];
-  
-  // Remove the trait
-  this.traits.splice(traitIndex, 1);
-  
-  // If it was a positive trait, refund 1 module point
-  if (trait.type === 'positive') {
-    this.modulePoints.spent -= 1;
-  }
-  
-  return true;
-};
-
-// Add other methods as needed
 
 const Character = mongoose.model('Character', CharacterSchema);
 
