@@ -1,0 +1,89 @@
+{
+  "id": 105,
+  "name": "Socialite",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+   
+    {
+      "name": "Heart of the Party",
+      "description": "You are a pleasure to be around. Gain +1 skill with the presence and +1 skill with expression. ",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "First Impressions",
+      "description": "The best time to make an impression is in your first meeting. Gain +1 skill with persuasion. Additionally, the first time you meet someone, roll a bonus dice for all social checks involving them for the next hour.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Downtime Action : Seek Ally",
+      "description": "You spend time seeking out an ally who shares a common purpose with you, with their resources and usefulness dependent upon a persuasion check. A check of 6-9 is midly successful, gaining an ally that may offer minor assistance with your goals. A check of 10 or higher is very successful and the ally is much more resourceful. In the event of a perfect check, the ally is extremely resourceful and wields significant power and influence.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "WIP",
+      "description": "This is currently not implemented",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

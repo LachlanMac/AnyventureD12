@@ -5,8 +5,8 @@
   "ruleset": 1,
  "options": [
       {
-      "name": "",
-      "description": "",
+      "name": "Idealism",
+      "description": "You are idealistic. You gain +1 resolve a day, but when you are broken or numbed, you roll a penalty dice to attempt to end the condition.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -14,24 +14,24 @@
     },
    
     {
-      "name": "",
-      "description": "",
+      "name": "Positive Idealism",
+      "description": "You are enthusiastic to share your ideas and beliefs and present your case well. Gain +1 skill to persuasion. Additionally, gain +2 resolve.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Manifesto",
+      "description": "You are a visionary and have often put your dream to quill and scroll. You gain +1 skill with academics. Additionally, when you persuasion attempts made through writing gain a bonus dice.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Downtime Action : Conversion",
+      "description": "You spend time, asserting your views in an attempt to bring a non-hostile individual along to your line of thinking. Your success is tied to a persuasion check; of an 6-9 is midly successful and suggests a good dialogue, while a 10 or higher is very successful and may convince or convert an individual. On a perfect check, the you are able to convert even the most stubborn individual.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
