@@ -23,16 +23,16 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Diplomat",
+      "description": "You are skilled in understanding people and their needs. Gain +1 skill with insight. Additionally, gain +2 language points.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Downtime Action : Call Meeting",
+      "description": "You meticulously send written invitations for a meeting at a location of your choosing. The location and nature of this meeting is not discoverable by non-magical means. The attendence is based on the quality of your invitations; A persuasion check of an 6-9 is midly successful and invitees may attend or send a represtative, while a 10 or higher is very successful all invitees will attend or send a representative. On a perfect check, the invitees will all attend personally.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -47,8 +47,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Calm",
+      "description": "You target a creature that is currently acting aggressively towards you and attempt to calm them by using either persuasion if relying on words or presence if relying on body language. On a check of 12 or higher, a creature who is not normally hostile or is acting in a hostile manner due to being affected by the maddened, confused or charmed conditions will lose that condition and become non-hostile.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,

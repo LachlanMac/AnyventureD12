@@ -14,32 +14,32 @@
     },
    
     {
-      "name": "",
-      "description": "",
+      "name": "Contigency Planning",
+      "description": "Gain +1 skill with coordination. At the start of each day, choose one skill and make a standard skill check, noting your highest rolled dice result. Until your next full rest, whenever you make another check using that same skill, you may replace any single dice result with the stored result from that initial roll.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Deceiver",
+      "description": "You lie as easily as you breathe. Gain +1 to the persuasion skill. When you are not telling the truth, you roll an additional dice on persuasion checks.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Downtime Action : Intrigue",
+      "description": "Over the course of approximately a day, you choose to either gather or spread rumors, with the quality of the intrigue proprotional to a persuasion check; A check of an 6-9 is midly successful, while an 10 or higher is very successful.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Misdirection",
+      "description": "You make a melee attack with a penalty dice, deliberately telegraphing your movements to create an opening. Whether your attack hits or misses, you expose a vulnerability in your target's defenses. The next attack check rolled against that target before the start of your next turn gains two bonus dice.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,

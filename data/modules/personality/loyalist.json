@@ -39,8 +39,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Reaction : Shared Burden",
+      "description": "In response to you or your bonded ally taking psychic damage, your mental connection shares the pain. The original damage is reduced by half, but both you and your bonded ally take this reduced amount.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,

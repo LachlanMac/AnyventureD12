@@ -46,8 +46,8 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Read Emotions",
+      "description": "You make an insight check and attempt to read the emotions or state of a creature by making an insight check, with the quality of the information learned dependent upon the result. If the creature is not a beast or humanoid, roll with a penalty dice. The information revealed may involve desires, mood or state of mind.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
