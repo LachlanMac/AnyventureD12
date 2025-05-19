@@ -10,22 +10,36 @@ import ModulesTab from '../components/character/view/ModulesTab';
 import ActionsTab from '../components/character/view/ActionsTab';
 import TraitsTab from '../components/character/view/TraitsTab';
 import BackgroundTab from '../components/character/view/BackgroundTab';
+import SpellsTab from '../components/character/view/SpellsTab';
 
 // Type definitions included here for completeness
 interface Action {
   name: string;
   description: string;
-  type: 'Action' | 'Reaction' | 'Free Action';
+  type: 'Action' | 'Reaction';
   sourceModule: string;
   sourceModuleOption: string;
 }
-
-interface Trait {
-  traitId: string;
-  name: string;
-  type: 'positive' | 'negative';
-  description: string;
+interface CharacterSpell {
+  spellId: {
+    _id: string;
+    name: string;
+    description: string;
+    duration: string;
+    range: string;
+    school: string;
+    subschool: string;
+    checkToCast: number;
+    components: string[];
+    energy: number;
+    damage: number;
+    damageType: string;
+    concentration: boolean;
+    reaction: boolean;
+  };
   dateAdded: string;
+  favorite: boolean;
+  notes: string;
 }
 
 interface SkillData {
@@ -47,7 +61,8 @@ interface Character {
     knowledge: number;
     social: number;
   };
-  traits: Trait[];
+  spells: CharacterSpell[];
+  spellSlots: number;
   skills: {
     fitness: SkillData;
     deflection: SkillData;
@@ -322,7 +337,13 @@ const personalityName = personalityModule &&
               stressors={character.stressors || []}
             />
           )}
-
+          {activeTab === 'spells' && (
+             <SpellsTab 
+              characterId={character._id} 
+              spells={character.spells || []} 
+              spellSlots={character.spellSlots || 10} 
+            />
+          )}
           {/* Background Tab */}
           {activeTab === 'background' && (
             <BackgroundTab

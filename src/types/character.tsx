@@ -59,14 +59,6 @@ export interface SkillData {
     description: string;
   }
   
-  // Character trait structure (for traits assigned to a character)
-  export interface CharacterTrait {
-    traitId: string;
-    name: string;
-    type: 'positive' | 'negative';
-    description: string;
-    dateAdded: string;
-  }
   
   // Module option structure
   export interface ModuleOption {
@@ -137,7 +129,6 @@ export interface SkillData {
     appearance: string;
     actions: Action[];
     modules: CharacterModule[];
-    traits: CharacterTrait[];
     level: number;
     experience: number;
     stressors: string[];

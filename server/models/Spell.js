@@ -75,7 +75,7 @@ const SpellSchema = new Schema({
   },
   damageType: {
     type: String,
-    required: true,
+    required: false,
     enum: [
       'dark',
       'divine',

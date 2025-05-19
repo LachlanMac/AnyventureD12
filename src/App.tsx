@@ -17,6 +17,7 @@ import CharacterView from './pages/CharacterView';
 import Campaigns from './pages/Campaigns';
 import ModulesPage from './pages/Modules';
 import ModuleBrowser from './pages/ModuleBrowser';
+import SpellsPage from './pages/SpellsPage';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -103,6 +104,14 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <CharacterCreate />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/characters/:id/spells"
+                  element={
+                    <MainLayout>
+                      <SpellsPage />
                     </MainLayout>
                   }
                 />
