@@ -1,0 +1,16 @@
+{
+    "name": "Beast Speak",
+    "description": "You infuse yourself with magic, allowing you to speak and understand beasts by communicating basic ideas and concepts.",
+    "duration": "Concentration",
+    "range": "Adjacent",
+    "checkToCast": 2,
+    "components": [
+      ""
+    ],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

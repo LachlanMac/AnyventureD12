@@ -1,0 +1,14 @@
+{
+    "name": "Accelerate",
+    "description": "As a reaction to a projectile passing within a short radius to you, you accelerate it, causing it to deal additional damage equal to the extra damage modifier on the weapon.",
+    "duration": "Instantaneous",
+    "range": "Short",
+    "checkToCast": 2,
+    "components": ["a lodestone"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": true,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

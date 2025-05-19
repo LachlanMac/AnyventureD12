@@ -1,0 +1,16 @@
+{
+    "name": "Dark Missile",
+    "description": "You launch a tainted projectile that deals 4 dark damage on a hit if the target fails a defense check of 5.",
+    "duration": "Instantaneous",
+    "range": "Medium",
+    "checkToCast": 2,
+    "components": [
+      "an iron arrow"
+    ],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 4,
+    "damageType": "dark"
+}

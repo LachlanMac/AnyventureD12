@@ -25,7 +25,7 @@ const Footer: React.FC = () => {
               }}
               className="text-glow"
             >
-              AnyventureD12
+              Anyventure TTRPG
             </Link>
             <p style={{ 
               marginTop: '0.5rem',

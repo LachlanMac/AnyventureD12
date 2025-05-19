@@ -1,0 +1,16 @@
+{
+    "name": "Hemorrhage",
+    "description": "You open the wounds of a creature, causing them to gain the bleeding condition.",
+    "duration": "Instantaneous",
+    "range": "Short",
+    "checkToCast": 2,
+    "components": [
+      "a knife or dagger"
+    ],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

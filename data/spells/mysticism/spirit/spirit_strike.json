@@ -1,0 +1,14 @@
+{
+    "name": "Spirit Strike",
+    "description": "You target the soul of a living enemy dealing 2 true damage if the target fails a resilience check of 5.",
+    "duration": "Instantaneous",
+    "range": "Short",
+    "checkToCast": 2,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 2,
+    "damageType": "true"
+}

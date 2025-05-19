@@ -48,10 +48,8 @@ const SpellSchema = new Schema({
     min: 1
   },
   components: {
-    verbal: { type: Boolean, default: true },
-    somatic: { type: Boolean, default: true },
-    material: { type: Boolean, default: false },
-    materialDescription: { type: String }
+    type: [String],
+    default: []
   },
   ritualDuration: {
     type: String,
@@ -69,6 +67,26 @@ const SpellSchema = new Schema({
     type: Number,
     required: true,
     min: 1
+  },
+  damage: {
+    type: Number,
+    required: true,
+    min: 0
+  },
+  damageType: {
+    type: String,
+    required: true,
+    enum: [
+      'dark',
+      'divine',
+      'psychic',
+      'heat',
+      'cold',
+      'lightning',
+      'arcane',
+      'toxic',
+      'physical'
+    ]
   },
   // Meta data
   createdAt: {

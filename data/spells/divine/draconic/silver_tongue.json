@@ -1,0 +1,14 @@
+{
+    "name": "Silver Tongue",
+    "description": "You place a piece of silver into your mouth, causing your persuasion checks to be rolled with a 3d10 for the next hour.",
+    "duration": "1 hour",
+    "range": "Adjacent",
+    "checkToCast": 2,
+    "components": ["a silver nugget"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

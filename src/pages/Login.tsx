@@ -44,7 +44,7 @@ const Login: React.FC = () => {
             marginBottom: '1.5rem',
           }}
         >
-          StarVentureD12
+          Anyventure TTRPG
         </h1>
 
         <div style={{ marginBottom: '2rem' }}>
