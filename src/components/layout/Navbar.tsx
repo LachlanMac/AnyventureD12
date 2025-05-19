@@ -33,7 +33,7 @@ const Navbar: React.FC = () => {
                 color: 'var(--color-metal-gold)',
               }}
             >
-              AnyventureD12 TTRPG
+              Anyventure TTRPG
             </span>
           </Link>
 

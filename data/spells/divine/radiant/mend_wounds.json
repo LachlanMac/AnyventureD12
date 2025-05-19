@@ -1,6 +1,6 @@
 {
     "name": "Mend Wounds",
-    "description": "You touch a humanoid or beast and attempt to close their wounds, restoring their health by 2. A creature cannot be brought above half health by this spell.",
+    "description": "You touch a humanoid or beast and attempt to close their wounds, restoring their health by 2 and removing any bleeding condition. A creature cannot be brought above half their maximum health by this spell.",
     "duration": "Instantaneous",
     "range": "Adjacent",
     "checkToCast": 2,

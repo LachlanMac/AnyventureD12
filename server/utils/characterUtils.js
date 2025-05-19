@@ -279,7 +279,7 @@ const parseDataString = (dataString, bonuses) => {
       const autoMappings = {
         '1': 'health',
         '2': 'resolve',
-        '3': 'stamina',
+        '3': 'energy',
         '4': 'movement'
       };
       

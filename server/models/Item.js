@@ -76,7 +76,7 @@ const ItemSchema = new Schema({
   // Character attribute modifications
   health: { type: Number, default: 0 },
   resolve: { type: Number, default: 0 },
-  stamina: { type: Number, default: 0 },
+  energy: { type: Number, default: 0 },
   movement: { type: Number, default: 0 },
   
   // Skill bonuses

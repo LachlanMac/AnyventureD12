@@ -31,7 +31,7 @@ export const seedSpells = async () => {
       
       for (const subschool of subschools) {
         const subschoolDir = path.join(schoolDir, subschool);
-        
+        console.log("Checking ", subschool);
         // Get all JSON files in the subschool directory
         const files = fs.readdirSync(subschoolDir)
           .filter(file => file.endsWith('.json'));

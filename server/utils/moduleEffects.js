@@ -181,11 +181,11 @@ const handleAutoEffect = (character, code, value) => {
       character.resources.resolve.max += value;
       character.resources.resolve.current += value;
       break;
-    case '3': // Stamina
-      if (!character.moduleBonuses.stamina) character.moduleBonuses.stamina = 0;
-      character.moduleBonuses.stamina += value;
-      character.resources.stamina.max += value;
-      character.resources.stamina.current += value;
+    case '3': // energy
+      if (!character.moduleBonuses.energy) character.moduleBonuses.energy = 0;
+      character.moduleBonuses.energy += value;
+      character.resources.energy.max += value;
+      character.resources.energy.current += value;
       break;
     case '4': // Movement
       if (!character.moduleBonuses.movement) character.moduleBonuses.movement = 0;
