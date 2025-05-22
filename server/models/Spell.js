@@ -32,7 +32,7 @@ const SpellSchema = new Schema({
       validator: function(v) {
         const validSubschools = {
           alteration: ['fey', 'illusion', 'transmutation'],
-          black: ['fiend', 'illusion', 'transmutation'],
+          black: ['fiend', 'necromancy', 'witchcraft'],
           divine: ['draconic', 'radiant', 'protection'],
           mysticism: ['spirit', 'divination', 'astral'],
           primal: ['cosmic', 'elemental', 'nature']
@@ -85,7 +85,8 @@ const SpellSchema = new Schema({
       'lightning',
       'arcane',
       'toxic',
-      'physical'
+      'physical',
+      'true'
     ]
   },
   // Meta data

@@ -1,6 +1,6 @@
 {
   "id": 105,
-  "name": "B",
+  "name": "Devout",
   "mtype": "secondary",
   "ruleset": 1,
  "options": [
@@ -77,8 +77,8 @@
       "data": ""
     },
     {
-      "name": "EE",
-      "description": "ee",
+      "name": "Cleanser",
+      "description": "When you restore health to a creature, you also cleanse them of any disease, poison or exhaustion.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

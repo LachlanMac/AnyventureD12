@@ -74,6 +74,7 @@ EX. M1=1 MITIGATION
 7: Arcane
 8: Psychic
 9: Toxic
+A: True
 
 ############## AUTO ##############
 KEY (A)

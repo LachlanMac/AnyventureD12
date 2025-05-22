@@ -19,7 +19,7 @@ export const seedSpells = async () => {
     
     for (const school of schools) {
       const schoolDir = path.join(spellsDir, school);
-      
+        console.log("Checking ", schoolDir);
       // Skip if directory doesn't exist
       if (!fs.existsSync(schoolDir)) {
         console.log(`Directory for school ${school} not found, skipping...`);
@@ -28,10 +28,10 @@ export const seedSpells = async () => {
       
       const subschools = fs.readdirSync(schoolDir)
         .filter(file => fs.statSync(path.join(schoolDir, file)).isDirectory());
-      
+     
       for (const subschool of subschools) {
         const subschoolDir = path.join(schoolDir, subschool);
-        console.log("Checking ", subschool);
+       
         // Get all JSON files in the subschool directory
         const files = fs.readdirSync(subschoolDir)
           .filter(file => file.endsWith('.json'));
@@ -81,10 +81,9 @@ export const initializeSpells = async () => {
     console.log(`Found ${spellCount} existing spells in database.`);
     
     // Seed spells if needed
-    if (spellCount === 0) {
-      console.log('No spells found in database. Seeding initial spells...');
-      await seedSpells();
-    }
+  
+    await seedSpells();
+    
     
     console.log('Spell initialization complete.');
     return true;

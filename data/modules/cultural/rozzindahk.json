@@ -1,14 +1,15 @@
 {
   "id": 16,
   "name": "Rozzindahk [Lore of the Earth]",
-  "mtype": "racial",
+  "mtype": "cultural",
+   "description":"",
   "ruleset": 0,
   "options": [
     {
       "id": 1117,
       "name": "Bounty of the Land",
       "description": "The Stout-Folk are a culture that works the soil, from farmers to miners. Gain +1 Wilderness, +1 Smithing and +1 Cooking.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "1",
       "cost": 2,
       "data": "ASB=1:AC2=1:AC1=1:ALU"
@@ -17,7 +18,7 @@
       "id": 1118,
       "name": "Action : Throwing Arm",
       "description": "You make a Throwing Attack with a +2 Bonus to Attack and double the Range you can normally throw that object or weapon. Additionally, a True Hit on this Attack is upgraded to a Critical Hit",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "2a",
       "cost": 2,
       "data": "XX3"
@@ -26,7 +27,7 @@
       "id": 1119,
       "name": "Tavern Legends",
       "description": "The Stout-Folk culture is renowned for their prowess in the tavern. Gain +1 Resilience. When you complete a Favorable Full Rest after a day where you have consumed alcohol, gain a Luck Dice.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "2b",
       "cost": 2,
       "data": "TG:AS6=1"
@@ -35,7 +36,7 @@
       "id": 1120,
       "name": "Truefooted",
       "description": "The Stout-Folk culture does not place much stock in footwear and have grown comfortable barefoot, growing protective calluses. Gain +1 Acrobatics, +1 Stealth and +1 Physical Mitigation.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "3",
       "cost": 2,
       "data": "AS3=1:AS4=1:AD4=1"
@@ -44,7 +45,7 @@
       "id": 1121,
       "name": "Heavy Metal",
       "description": "The Stout-Folk are renowned for their complex metalwork, resulting in impressive hammers and plate armor. Gain an Infusion Slot when crafting Bludgeoning Weapons and Heavy Armor. Additionally, gain +1 Damage with Bludgeoning Weapons.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "4a",
       "cost": 2,
       "data": "TC:AZB=1"
@@ -53,7 +54,7 @@
       "id": 1122,
       "name": "Action : Giantsbane",
       "description": "You make an Attack with a Weapon against a Creature one or more sizes larger than you and deal an extra 1d10 Primary Damage for each Size difference.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "4b",
       "cost": 2,
       "data": "XX3"
@@ -62,7 +63,7 @@
       "id": 1123,
       "name": "Legacy of Armor",
       "description": "The Stout-Folk are renowned for utilizing heavier armors for protection. Gain +1 Block, Resistance and Dodge while wearing Medium or Heavy Armor.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "5",
       "cost": 3,
       "data": "W2D2=1:W2D3=1:W2D1=1"

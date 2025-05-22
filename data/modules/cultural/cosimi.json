@@ -1,14 +1,15 @@
 {
   "id": 10,
-  "name": "Cosimi [Starblessed Thralls]",
-  "mtype": "racial",
+  "name": "Cosimi ",
+  "mtype": "cultural",
+  "description":"Starblessed Thralls\nThe cosimi are a migratory people who look towards the stars for guidance as they travel the world. They often travel unburdened by possessions and are proficient in living off the land.",
   "ruleset": 0,
   "options": [
     {
       "id": 1072,
       "name": "Elven Striders",
       "description": "Elven culture requires quick feet and decision making to survive their harsh homeland. Gain +1 Movement Speed and +1 Initiative.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "1",
       "cost": 2,
       "data": "AV=1:ASH=1:AL2"
@@ -17,7 +18,7 @@
       "id": 1073,
       "name": "Action : Bladedancing",
       "description": "As part of the Elven culture, you have perfected the Bladedancer form. Make an Attack with a Slashing Weapon and gain a 1d4 Bonus to Dodge Checks until the start of your next turn.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "2a",
       "cost": 2,
       "data": "XX3"
@@ -26,7 +27,7 @@
       "id": 1074,
       "name": "Naturopathy",
       "description": "Living in the wilderness has caused a more homegrown focus on healing. Gain +1 Alchemy and +1 Medicine.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "2b",
       "cost": 2,
       "data": "AS8=1:AC5=1"
@@ -35,7 +36,7 @@
       "id": 1075,
       "name": "Astral Navigators",
       "description": "The Elven culture are trained to move with the guidance of celestial bodies and cannot get lost while under the stars. Gain +1 Search and +1 Wilderness.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "3",
       "cost": 2,
       "data": "ASG=1:ASB=1"
@@ -44,7 +45,7 @@
       "id": 1076,
       "name": "Gift from the Stars",
       "description": "Those who grow up within the Elven culture are exposed to the magic of the stars. You Learn 3 Beginner and 3 Novice Level Cosmic Spells and gain +2 Arcane Mitigation.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "4a",
       "cost": 2,
       "data": "ADC=2"
@@ -53,7 +54,7 @@
       "id": 1077,
       "name": "Efficient Archery",
       "description": "The Elven culture teaches bowmanship at a young age. Gain +1 Attack and +1 Damage with Ranged Weapons. Additionally, Basic Ammunition you make gains 1 Infusion Slot.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "4b",
       "cost": 2,
       "data": "AZ5=1:AZ9=1:TC"
@@ -62,7 +63,7 @@
       "id": 1078,
       "name": "Elven Woads",
       "description": "Cumbersome armor is rare within Elven Society and most fight with little in the way of protection, often opting to show painted skin. Gain +2 Dodge while not wearing armor.",
-      "mtype": "racial",
+      "mtype": "cultural",
       "location": "5",
       "cost": 3,
       "data": "W0D2=2"

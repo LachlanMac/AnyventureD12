@@ -1,7 +1,7 @@
 {
   "id": 105,
   "name": "Divine Magic",
-  "mtype": "secondary",
+  "mtype": "core",
   "ruleset": 1,
  "options": [
       {
@@ -79,7 +79,7 @@
     },
     {
       "name": "Cleanser",
-      "description": "When you restore health to a creature, you also cleanse them of any disease, poison or exhaustion.",
+      "description": "Your relentless training has resulted in +1 talent with divine magic spells.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

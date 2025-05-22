@@ -198,3 +198,13 @@ Possible other conditions (poisoned, diseased, panic?,
 
 
 
+Creature tiers
+
+
+Minion
+Thrall
+Foe
+Champion
+Elite
+Legend
+Mythic

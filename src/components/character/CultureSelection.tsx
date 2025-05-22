@@ -1,4 +1,3 @@
-// src/components/character/CultureSelection.tsx
 import React, { useState, useEffect } from 'react';
 import { Module } from '../../types/character';
 
@@ -26,13 +25,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
         const data = await response.json();
         console.log("Fetched culture modules in CultureSelection:", data);
         
-        // Add description field to each module if needed
-        const modulesWithDescriptions = data.map((module: Module) => ({
-          ...module,
-          description: module.description || getCultureDescription(module.name),
-        }));
-
-        setCultureModules(modulesWithDescriptions);
+        setCultureModules(data);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching culture modules:', err);
@@ -43,24 +36,6 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
 
     fetchCultureModules();
   }, []);
-
-  // Get culture description - this would come from the API in production
-  const getCultureDescription = (cultureName: string): string => {
-    switch (cultureName) {
-      case 'Terran Federation':
-        return 'The primary human interstellar government, known for its strong democratic values and military prowess.';
-      case 'Stellar Nomads':
-        return 'Communities that live their entire lives aboard massive generation ships, with unique cultures based on self-sufficiency and technological adaptation.';
-      case 'Corporate Citizens':
-        return 'People raised within the powerful megacorporations that span multiple star systems, valuing efficiency and technological advancement.';
-      case 'Fringe Colonists':
-        return 'Hardy pioneers who live on the outskirts of civilized space, developing strong independence and survival skills.';
-      case 'Void Monks':
-        return 'Spiritual communities who seek enlightenment through the study of space phenomena and isolation in deep space monasteries.';
-      default:
-        return 'A cultural group with its own customs, traditions, and perspectives on interstellar society.';
-    }
-  };
 
   // Handler for culture selection
   const handleCultureSelect = (cultureName: string) => {
@@ -73,9 +48,31 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
     }
   };
 
-  // Get culture portrait URL
-  const getCulturePortraitUrl = (cultureName: string): string => {
-    return `/assets/cultures/${cultureName.toLowerCase().replace(/\s+/g, '_')}.png`;
+  // Get culture description
+  const getCultureDescription = (module: Module): string => {
+    // First check if the module has a description property
+    if (module.description && module.description.trim() !== '') {
+      return module.description;
+    }
+    
+    // If not, check if any of the tier 1 options have a description
+    const tier1Option = module.options.find(option => option.location === '1');
+    if (tier1Option && tier1Option.description && tier1Option.description.trim() !== '') {
+      return tier1Option.description;
+    }
+    
+    // Fallback to a generic description
+    return `The ${module.name} culture has its own customs, traditions, and perspectives on interstellar society.`;
+  };
+
+  // Get the description of the currently selected culture
+  const getSelectedCultureDescription = (): string => {
+    if (!selectedCulture) return 'Select a culture to see information';
+    
+    const selectedModule = cultureModules.find(module => module.name === selectedCulture);
+    if (!selectedModule) return 'Select a culture to see information';
+    
+    return getCultureDescription(selectedModule);
   };
 
   // Toggle section expansion
@@ -193,9 +190,6 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
                 onClick={() => handleCultureSelect(module.name)}
               >
                 <span>{module.name}</span>
-               
-                
-   
               </button>
             ))}
           </div>
@@ -222,8 +216,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
                   {selectedCulture}
                 </h3>
                 <p style={{ color: 'var(--color-cloud)' }}>
-                  {cultureModules.find((module) => module.name === selectedCulture)?.description ||
-                    'Select a culture to see information'}
+                  {getSelectedCultureDescription()}
                 </p>
 
                 {/* Display first tier culture traits for the selected culture */}

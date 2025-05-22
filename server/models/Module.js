@@ -39,6 +39,10 @@ const ModuleSchema = new Schema({
     type: Number, 
     default: 0 
   },
+  description: {
+    type: String,
+    required: false
+  },
   options: [ModuleOptionSchema]
 }, {
   timestamps: true
