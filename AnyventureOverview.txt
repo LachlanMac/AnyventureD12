@@ -109,6 +109,12 @@ Crafting:
 Crafting works the same as the other skills (weapon & magic)
 Crafting Skills: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping
 There are talents and skills that determine what you can craft. Like spells, recipes can be learned.
+There will be recipes for crafting which determine extra ingredients (like research) and such to make things.
+Once a player character knows a recipie, they dont need that anymore
+
+There is a concept of overcrafting which works similar to the attack dice having "extra damage". So if a talent 3, skill 4 player rolls a check to make a sword that requires a 6 to make:
+they roll 3d12 and roll a 6, 7 and 3.  
+The 7 is their success for the craft, and the 6 contributes to "overcrafting" which improves the recipe.
 
 Languages:
 Languages are a big part of the system, but mechanically detatched.  As with the other skills, they will have "4" tiers.
@@ -208,3 +214,7 @@ Champion
 Elite
 Legend
 Mythic
+
+
+Cultural Ideas
+Bonus social dice with different groups, like merchants, nobles, soldiers, etc.

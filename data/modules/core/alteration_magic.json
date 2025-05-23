@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Altermage",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "Adaptive Mind",
+      "description": "You have learned to bend reality through controlled change. Gain +1 skill with alteration magic.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+    {
+      "name": "Action : Flux Field",
+      "description": "You create an area of unstable reality with a radius of 5 units within a moderate (20 units) range. Until the start of your next turn, the first time each ally inside this field rolls a '1' on a dice face, they reroll that dice.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Reaction : Amplify Force",
+      "description": "In response any creature making a melee attack, but before the result of the roll is known, amplify that attack. Each extra damage dice is instead upgraded to primary damage.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Adaptive Resistance",
+      "description": "Your body learns to resist harmful forces. Gain +1 skill with endurance. Additionally, at the start of each day, roll an alteration magic check and gain the mitigation of your choice equal to half the total rolled.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Mutable Form",
+      "description": "You adapt to change more easily, both mentally and physically. Gain +1 skill with resilience. Additionally, You can alter minor physical features (hair color, eye color, height by 6 inches) over the course of 10 minutes.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Immutable",
+      "description": "You are naturally immutable. Gain +2 spirit mitigation. You are unable to be affected by transformation magic, whether beneficial or harmful. This includes: size or shape changes, petrification, aging/time effects, and spells that modify your fundamental nature or temporal existence.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Skilled Altermage",
+      "description": "Your mastery over the forces of change has grown considerably. Gain +1 skill with alteration magic.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Reaction : Amplified Resistance",
+      "description": "In response to taking damage that matches your Adaptive Resistance type, halve the damage before mitigation is applied. Then reduce your current Adaptive Resistance mitigation by 1. If reduced to 0, you lose all Adaptive Resistance benefits until your next full rest.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Daily Action : Energy Discharge",
+      "description": "You touch an adjacent creature and discharge your adaptive energy. Make an alteration magic attack against their endurance. Each successful dice deals damage equal to your current Adaptive Resistance mitigation bonus, using the same damage type you chose for that mitigation.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Master Altermage",
+      "description": "You have become a true master of change and adaptation. Gain +1 talent with alteration magic spells.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

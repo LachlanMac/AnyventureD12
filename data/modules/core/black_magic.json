@@ -30,16 +30,16 @@
       "data": ""
     },
     {
-      "name": "Aura of Fear",
-      "description": "Gain +1 skill with presence.",
+      "name": "Dark Studies",
+      "description": "Gain +1 skill with magic knowledge and +1 spell capacity.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Sineater",
-      "description": "You gain +1 skill with resilience.",
+      "name": "Profane Lore",
+      "description": "Gain +1 skill with academics. You automatically know if a creature, object, or location has been tainted by dark magic by touching it with an action, and can identify the specific subschools.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
