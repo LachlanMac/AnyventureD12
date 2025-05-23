@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Fabricator",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Apprentice Smith",
+      "description": "You have learned the fundamentals of metalworking and fabrication. Gain +1 skill with fabrication.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "CS2=1"
+    },
+    {
+      "name": "Metallurgy",
+      "description": "You have studied metals and their properties. You gain +1 academics and roll a bonus dice when making checks that identify rocks, minerals or metal. Additionally, when you fail fabricating a weapon or piece of armor, you can spend an hour to recover any ingots you used.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "SS1=1:AH=2"
+    },
+    {
+      "name": "Scrapyard Smith",
+      "description": "You have talent with making more with less. You gain +1 logic and do not suffer the first-time craft penalty for a recipe you have never made before. Additionally, you can spend 4 hours smelting down a weapon or piece of armor and recover ingots from it.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZB=1"
+    },
+    {
+      "name": "Reaction : Brace",
+      "description": "In response to making a deflection check or a check to avoid being displaced, roll an additionally fabrication check with a single dice, adding it to the original check.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "name": "Forge Labor",
+      "description": "Working near a forge has strengthened your body and made you more tolerant of heat. Gain +1 skill with fitness and +1 heat mitigation.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "name": "Hammer Strokes",
+      "description": "You can swing a club as naturally as you swing your smithing hammer. Gain +1 skill with simple melee weapons and +1 skill with might.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "name": "Master Craftsman",
+      "description": "Your fabrication skills have reached professional levels. Gain +1 skill with fabrication. When making fabrication checks, any roll under a 4 becomes a 3.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "CS2=1:CS1=1:TC"
+    },
+    {
+       "name": "Improved Weapons",
+      "description": "You have focused on crafting superior arms. Weapons you fabricate gain an extra module slot.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+       "name": "Improved Armor", 
+      "description": "You have focused on crafting superior armor. Armor you fabricate gains an extra module slot.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "name": "Legendary Artisan",
+      "description": "You have achieved mastery over your craft. Gain +1 talent and +1 skill with fabrication. When making fabrication checks, any roll under a 6 becomes a 5.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "CT2=1:TC"
+    }
+  ]
+}

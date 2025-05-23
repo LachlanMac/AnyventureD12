@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Alchemist",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Apprentice Alchemist",
+      "description": "You have learned the fundamentals of mixing reagents and brewing potions. Gain +1 skill with alchemy.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "CS3=1"
+    },
+    {
+      "name": "Volatile Brews",
+      "description": "You specialize in creating harmful substances using the victim's own biology against them. Gain +1 skill with medicine knowledge. When you create a potion or elixir with a damaging component, instead of rolling for damage, it always deals the maximum.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "SS4=1:TC"
+    },
+    {
+      "name": "Healing Draughts",
+      "description": "You specialize in beneficial concoctions. Gain +1 skill with wildcraft knowledge. Healing potions you craft restore an additional die of health.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "SS4=1:TC"
+    },
+    {
+      "name": "Careful Mixing",
+      "description": "Your precise methods create more potent results. Gain +1 skill with concentration. Potions you craft are harder to resist, with their required checks increased by 1.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SS3=1:TC"
+    },
+    {
+      "name": "Action : Quick Application",
+      "description": "You apply a poison or potion to a weapon or piece of ammunition as part of an attack action.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "name": "Action : Spash Zone",
+      "description": "You throw a potion a short (10 units) distance and increase the radius of it by 1 unit. Potions that normally would only affect a single target now can also target one adjacent creature.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "name": "Skilled Alchemist",
+      "description": "Your alchemical skills have reached professional levels. Gain +1 skill with alchemy. When making alchemy checks, any roll under a 4 becomes a 3.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "CS3=1:TC"
+    },
+    {
+      "name": "Efficient Potions",
+      "description": "You rely on experience when creating potions. You gain +1 logic. Additionally, when you overcraft at least twice on a recipe, you produce an extra potion.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "name": "Chemist",
+      "description": "You are skilled in identifying and experimenting with alchemy. Gain +1 skill with academics and a bonus dice to checks to identify alchemical substances. Additionally, when attempting a recipe for the first time, if you roll an academics check greater than or equal to the check required by the recipie, you eliminate the first-time penalty.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "name": "Legendary Alchemist",
+      "description": "You have achieved mastery over the alchemical arts. Gain +1 talent and +1 skill with alchemy. When making alchemy checks, any roll under a 6 becomes a 5.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "CT3=1:TC"
+    }
+  ]
+}

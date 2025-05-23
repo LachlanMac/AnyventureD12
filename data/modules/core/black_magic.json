@@ -23,7 +23,7 @@
     },
     {
       "name": "Reaction : Twisted Magic",
-      "description": "In reponse to a spell or effect dealing divine or arcane damage to any creature within a moderate (10 unit) range of you, roll a black magic check and convert that amount of the damage to dark. The rest of the damage is dealt as the original damage type and mitigated seperately.",
+      "description": "In reponse to a spell or effect dealing divine or spirit damage to any creature within a moderate (10 unit) range of you, roll a black magic check and convert that amount of the damage to dark. The rest of the damage is dealt as the original damage type and mitigated seperately.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -78,7 +78,7 @@
       "data": ""
     },
     {
-      "name": "",
+      "name": "Master Heretic",
       "description": "Your relentless training has resulted in +1 talent with black magic spells.",
       "mtype": "core",
       "location": "7",
