@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Engineer",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Apprentice Engineer",
+      "description": "You have learned the fundamentals of mechanical design and engineering. Gain +1 skill with engineering.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "CS1=1"
+    },
+    {
+      "name": "Practical Applications",
+      "description": "Your skill in engineering comes from experimenting and hands on experience. Gain +1 skill with logic. When you fail making a recipe that you do not know, you learn that recipe.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Applied Engineering",
+      "description": "Your skill in engineering comes from books and best practices. Gain +1 skill with academics. Additionally, you do not suffer a first-time penalty for engineering recipes you do not know.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Structural Analysis",
+      "description": "You quickly analyze an object or structure to determine how much force is needed to manipulate it. Make an engineering check (with a required check of 5 for simple objects and 8 for complex mechanisms). On success, you learn the exact skill check and type required to push, break, collapse, or otherwise alter the object's current state.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Locksmith",
+      "description": "Gain +1 skill with thievery. When you roll a check to pick a lock using a thievery check, roll an engineering check and add the highest dice to your thievery check pool.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Precision Engineering",
+      "description": "Ranged weapons you engineer gain an extra module slot. Additionally, you gain +1 skill with complex ranged weapons.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Skilled Engineer",
+      "description": "Your engineering skills have reached professional levels. Gain +1 skill with engineering. When making engineering checks, any roll under a 4 becomes a 3.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "CS1=1:TC"
+    },
+    {
+      "name": "Superior Constructs",
+      "description": "Constructs you create gain a bonus damage on all attack checks and have an additional 5 maximum health.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Trapmaster",
+      "description": "Traps you create always deal maximum damage when triggered. Additionally, when making a check against a trap to either disarm it or avoid it, you can substitute an engineering check for the original check.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Legendary Engineer",
+      "description": "You have achieved mastery over engineering and design. Gain +1 talent and +1 skill with engineering. When making engineering checks, any roll under a 6 becomes a 5.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "CT1=1:CS1=1:TC"
+    }
+  ]
+}

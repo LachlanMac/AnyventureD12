@@ -29,16 +29,16 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Knife Tricks",
+      "description": "Your time in the kitchen has made you proficient with the tools. Gain +1 skill with coordination and +1 skill with expression.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Knife Tricks",
-      "description": "Your time in the kitchen has made you a bit of a showoff. Gain +1 skill with coordination and +1 skill with expression.",
+      "name": "Exotic Cooking",
+      "description": "Your experience has given you a perspective on other cultures. Gain +1 skill with insight and gain +1 language points.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
