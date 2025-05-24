@@ -71,7 +71,7 @@
     },
     {
       "name": "Action : Spirit Shift",
-      "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to spirit damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
+      "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to aether damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

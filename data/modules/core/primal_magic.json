@@ -14,7 +14,7 @@
     },
     {
       "name": "Action : Kinesis",
-      "description": "You make a ranged spell attack using your primal magic skill at a target within a short (10 unit) distance. For each dice that hits, deal 3 arcane damage.",
+      "description": "You make a ranged spell attack using your primal magic skill at a target within a short (10 unit) distance. For each dice that hits, deal 3 physical damage.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
