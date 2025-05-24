@@ -1,0 +1,18 @@
+When creating a module, here are the instructions:
+If it is a secondary module, we need to make sure we don't have overlap between any other module (especically core modules)
+We need to make sure there are at least 2-3 actions/reactions mixed in.
+We should only give the big skill bonuses (weapon/magic skills) at either tier 5 if the module is very specific, or as a choice in tier 6.
+For instance, a shaman module may get a choice at tier 6 to go primal spell path or mysticism spell path because either could work.
+When we give +1 to a skill that isn't one of the wepaons/magic/crafts, we should generally try to give a passive effect with it that is creative
+
+Actions for weapons can have type themes as well between Slashing, Bludgeoning or Piercing.  If an action does require one of those, it should be noted. "This action requires a weapon with the Slashing property"
+
+Besides that, we can do things like:
+
+Add max health, resolve, energy (rarely)
+Add mitigations if it makes sense
+Add immunities to conditions
+Add senses
+Add languages
+Things that grant temproary health or resolve
+and more...Refer to the rules document to really expand creativity.
