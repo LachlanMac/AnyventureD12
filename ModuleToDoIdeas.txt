@@ -1,2 +1,12 @@
 This file is my to:do list for modules and their general descriptions for themes.
 
+Blood Mage - a channeler who uses their health to power ("charge") their spells. They gain bonuses while bleeding, like maybe a bonus dice on spells. 
+Reaver - a melee specialist who revels in carnage. They may have some slight anatomy skills and do better against someone who is bleeding. They may gain some bonuses with melee weapons (simple?) but as a 6a option since I dont think i want to give them complex weapons here.
+Painseeker - a character that is more effective when they are lower health..maybe like below half health or something. Maybe some ability that lets them concentrate on their pain to benefit more from it.  Also reckless abilities that put them into harms way.
+Guardian - a heavy shield based module that aims to protect allies with their shield. Should have a few reactions that do that (like block for an ally if they are adjacent)
+Shaman - a subset that can choose to etiher get a primal or mysticism spell skill at tier 6. They can use animal spirits to fight with them as a pet. (have to think of a way to designate this)
+Executioner - a slashing melee module based on complex weapons like huge axes/glaives etc...Maybe they have some sort of mechanic that executes tier minions or thralls in one hit giving them a bonus (execute action)
+
+
+
+//actions push the limit (use endurance instead of resilience to contiune fighting on...) maybe berserker?

@@ -49,7 +49,9 @@ However, the enemy may have mitigation to the damage types:
 Damage Types: Physical, Heat, Cold, Lightning, Dark, Divine, Arcane, Psychic, Toxic
 
 A sword deals physical damage.  If the enemy had +4 mitigation, that means any damage equal to 4 or lower is completely mitigated to 0. In this example, the sword did 5 damage, so the enemy takes ALL the damage.
-If the attack roll was changed to 6,1,1 - this would mean that the player only hit "1" dice for 3 damage which means, they deal nothing to an enemy who has 3 or more mitigation to physical damage.
+If the attack roll was changed to 6,1,1 - this would mean that the player only hit "1" dice for 3 damage which means, they deal nothing to an enemy who has 3 or more mitigation to physical damage.|
+
+RULE CHANGE:  If the damage is over half but less than full, you take half damage. 
 
 Also, evasion either completely dodges or gets hit completely
 deflection will only reduce the damage by half, unless the character has a shield.
@@ -102,6 +104,13 @@ Energy is the resource for using Actions and Reactions.  By default a player has
 
 In combat, a player can take 2 actions and move. Of course they are limited by Energy as well. 
 
+
+Reaching 0 Health:
+When a character reaches 0 health, they can elect to spend resolve to continue fighting at the risk of greater injury.
+When a creature starts their turn with 0 health, if they want to remain consicious, they must make a resilience check of 4 or higher. They can choose to either fall prone and do nothing, or spend a resolve to keep fighting.
+If a creature stays up at 0 health, they must roll a d20 when they take more than 5 damage. Otherwise, the hit is just a narrative "scar" or non-fatal wound.
+A 11-20 means they are okay. a 1 means they are executed. a 2-9 means they receive a permanent injury of some kind (maybe roll on a table unless the dm has a "narrative token" to use)
+If a creature does fall unconscious, to regain consciousness, they must either be stabilized and gain at least 1 health or complete a full rest at half health. 
 
  
 Crafting:

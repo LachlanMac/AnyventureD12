@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Medic",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Field Medicine",
+      "description": "You have learned battlefield first aid and emergency care. Gain +1 skill with medicine.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SS6=1"
+    },
+    {
+      "name": "Action : Triage",
+      "description": "You quickly stabilize an ally's condition to prevent further deterioration. Make a medicine check and grant temporary health equal to your result. This temporary health lasts until the end of combat. This action can only be used on each creature once per combat.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Reaction : Emergency Response",
+      "description": "In response to an ally within your sprint distance dropping to 0 health, you immediately move towards them and make a medicine check against the total damage dealt after mitigation. If your check is greater than or equal to the damage dealt, the ally sets their health to 1 instead, avoiding the effects of dropping to 0.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Treat Wounds",
+      "description": "You spend 5 minutes carefully treating an ally's injuries using a medicine kit, which is consumed in the process. Make a medicine check and restore health equal to the result. This ability can only target the same creature once per day.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Combat Medic",
+      "description": "You are trained to work under pressure. Gain +1 skill with concentration. When you are not dedicating your concentration to something else, you gain a bonus dice on medicine checks during combat.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SS4=1"
+    },
+    {
+      "name": "Trauma Training",
+      "description": "You are experienced with battlefield and have witness some gruesome injuries. Gain +1 skill with resilience. Your experience has made you immune to losing resolve when allies reach 0 health or fall unconscious.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSG=1"
+    },
+    {
+      "name": "Action : Stabilize",
+      "description": "You quickly treat a creature with a bandage that is unconscious, bleeding or both by making a medicine check of 5 or higher. A creature treated in this way has any bleeding condition removed and regains consciousness if they recover any health.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "SS1=1"
+    },
+    {
+      "name": "Improved Treat Wounds",
+      "description": "When you treat someone's wounds with a medicine check, also add the second highest dice in the pool in the calculation to determine how many health they recover.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "SS5=1"
+    },
+    {
+      "name": "Improved Stabilize",
+      "description": "When you stablize someone, you can also use an item with them as the target such as a potion, antidote or other consumable.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "SS7=1"
+    },
+    {
+      "name": "Action : Resuscitation",
+      "description": "You attempt to revive a creature that has died within the last minute. Make a medicine check of 6 or higher each round for 3 consecutive rounds. If successful all 3 times, they return to life with 1 health but remain unconscious. The attempt fails if you fail twice in a row, skip a round, or are interrupted. Failed attempts cannot be restarted on the same creature.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}
