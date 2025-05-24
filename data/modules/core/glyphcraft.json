@@ -38,7 +38,7 @@
     },
     {
       "name": "Arcane Infusion",
-      "description": "Gain +1 skill with primal magic. When you create a rune that deals aether damage, you can instead change the damage type to either lightning, heat or cold.",
+      "description": "You are able to infuse your runes with raw magic. Gain +1 skill with primal magic. When you create a rune that deals aether damage, you can instead change the damage type to either lightning, heat or cold.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
@@ -46,7 +46,7 @@
     },
     {
       "name": "Shared Words",
-      "description": "Your runes can be triggered by others who know the command word, and you can teach them these words. Gain +1 language point and +1 skill with academics. Your runes can be activated by anyone within a short (10 unit) radius who speaks the command word.",
+      "description": "Your runes can be triggered by others who know the command word, and you can teach them these words. Unlock a magical language of your choice and gain +1 language point in it. Your runes can be activated by anyone within a short (10 unit) radius who speaks the command word.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
