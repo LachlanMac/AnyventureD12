@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Assassin",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Death from Shadows",
+      "description": "You strike with lethal precision when enemies cannot see you coming. When you are hidden, all extra dice on weapon attacks become equal to primary damage instead of their normal extra damage value.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Phantom Throw",
+      "description": "You make a throwing attack while hidden. If the attack hits, the target becomes dazed until the end of their next turn. Roll a stealth check; on a 6 or higher, you remain hidden.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Silencing Strike",
+      "description": "You make a precise attack designed to prevent your target from calling for help. You make an unarmed attack that deals no damage, but strikes in a way that the target cannot speak or make noise until the end of their next turn if the attack hits.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Shadow Walker",
+      "description": "You move through darkness like a living shadow. Gain +1 skill with stealth. When you kill a creature, the next stealth check you make before the start of your next turn gains a bonus dice.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSO=1"
+    },
+    {
+      "name": "Stalker",
+      "description": "You can track and pursue targets relentlessly. Gain +1 skill with senses. You can automatically detect if someone you've seen before is within a short (10 unit) distance.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SSP=1"
+    },
+    {
+      "name": "Cold Blooded",
+      "description": "Death doesn't affect you the way it affects others. Gain +1 skill with resilience. You are immune to any effects that cause a loss of resolve due to death.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSP=1"
+    },
+    {
+      "name": "Action : Assassinate",
+      "description": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a weapon that has the piercing property. If the attack hits, the target dies instantly if they are minion tier, or if you roll 2 successful dice against thrall tier, or 3 successful dice against foe tier creatures.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Poison Master",
+      "description": "You have mastered the art of toxins and chemical warfare. Gain +1 skill with alchemy. When you poison a creature, the first time they take damage from it, they take it twice.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "SS3=1"
+    },
+    {
+      "name": "Remote Kill",
+      "description": "You have mastered the art of killing with traps. Gain +1 skill with engineering. When your traps do damage to a thrall or minion, they are executed even if the damage did not bring them to 0 health.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "SSG=1"
+    },
+    {
+      "name": "Master Assassin",
+      "description": "You have achieved legendary status as a dealer of death. Gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "WS2=1"
+    }
+  ]
+}

@@ -108,7 +108,7 @@ In combat, a player can take 2 actions and move. Of course they are limited by E
 Reaching 0 Health:
 When a character reaches 0 health, they can elect to spend resolve to continue fighting at the risk of greater injury.
 When a creature starts their turn with 0 health, if they want to remain consicious, they must make a resilience check of 4 or higher. They can choose to either fall prone and do nothing, or spend a resolve to keep fighting.
-If a creature stays up at 0 health, they must roll a d20 when they take more than 5 damage. Otherwise, the hit is just a narrative "scar" or non-fatal wound.
+If a creature stays up at 0 health, they must roll a d20 when they take more than 5 damage or take damage from bleeding or poison. Otherwise, the hit is just a narrative "scar" or non-fatal wound.
 A 11-20 means they are okay. a 1 means they are executed. a 2-9 means they receive a permanent injury of some kind (maybe roll on a table unless the dm has a "narrative token" to use)
 If a creature does fall unconscious, to regain consciousness, they must either be stabilized and gain at least 1 health or complete a full rest at half health. 
 
@@ -169,7 +169,7 @@ Actions:
 Rest (remove winded, gain +2 energy)
 Move (move full speed, spend 1 energy)
 Grapple (+1 energy, lasts only one round)
-Jump (+1 energy pick a tile to jump to, roll a fitness check, you succeed...otherwise you only jump in that direction equal to your roll)
+Jump (+1 energy pick a tile to jump to, roll a fitness check, you succeed..Up to your movemnet speed)
 Attack (Costs no energy)
 Channel A Spell (Costs some energy)
 
