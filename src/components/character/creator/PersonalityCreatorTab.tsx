@@ -12,7 +12,7 @@ interface PersonalityCreatorTabProps {
 const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
   selectedPersonality,
   stressors,
-  onSelectPersonality
+  onSelectPersonality,
 }) => {
   return (
     <div>
@@ -37,9 +37,10 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
         }}
       >
         <p>
-          Choose a personality type that defines your character's approach to the world.
-          Your personality determines how your character interacts with others and reacts to different situations.
-          Each personality type comes with specific stressors that may affect your character during gameplay.
+          Choose a personality type that defines your character's approach to the world. Your
+          personality determines how your character interacts with others and reacts to different
+          situations. Each personality type comes with specific stressors that may affect your
+          character during gameplay.
         </p>
       </div>
 
@@ -63,7 +64,8 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
           </CardHeader>
           <CardBody>
             <p style={{ color: 'var(--color-cloud)', marginBottom: '1rem' }}>
-              These stressors represent situations that may challenge your character's emotional stability.
+              These stressors represent situations that may challenge your character's emotional
+              stability.
             </p>
             <div>
               {stressors.map((stressor, index) => (
@@ -76,9 +78,7 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
                     marginBottom: '0.75rem',
                   }}
                 >
-                  <div style={{ color: 'var(--color-cloud)' }}>
-                    {stressor}
-                  </div>
+                  <div style={{ color: 'var(--color-cloud)' }}>{stressor}</div>
                 </div>
               ))}
             </div>

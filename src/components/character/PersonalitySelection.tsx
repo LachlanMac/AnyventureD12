@@ -6,9 +6,9 @@ interface PersonalitySelectionProps {
   onSelectPersonality: (personality: string, personalityModule: Module) => void;
 }
 
-const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({ 
-  selectedPersonality, 
-  onSelectPersonality 
+const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
+  selectedPersonality,
+  onSelectPersonality,
 }) => {
   const [personalityModules, setPersonalityModules] = useState<Module[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -26,7 +26,7 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
         }
 
         const data = await response.json();
-        console.log("Fetched personality modules:", data);
+        console.log('Fetched personality modules:', data);
         setPersonalityModules(data);
         setLoading(false);
       } catch (err) {
@@ -41,9 +41,9 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
 
   // Handler for personality selection
   const handlePersonalitySelect = (personalityName: string) => {
-    const selectedModule = personalityModules.find(module => module.name === personalityName);
+    const selectedModule = personalityModules.find((module) => module.name === personalityName);
     if (selectedModule) {
-      console.log("Selected personality module:", selectedModule);
+      console.log('Selected personality module:', selectedModule);
       onSelectPersonality(personalityName, selectedModule);
     } else {
       console.error(`Could not find personality module for: ${personalityName}`);
@@ -85,7 +85,7 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
 
   return (
     <div style={{ marginBottom: '1.5rem' }}>
-      <div 
+      <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -105,21 +105,21 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
         >
           Personality Selection
         </label>
-        <div 
+        <div
           style={{
             transition: 'transform 0.3s ease',
             transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
             strokeLinejoin="round"
             style={{ color: 'var(--color-cloud)' }}
           >
@@ -131,11 +131,11 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
       {expanded && (
         <>
           {/* Personality selection grid */}
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))', 
-              gap: '1rem' 
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))',
+              gap: '1rem',
             }}
           >
             {personalityModules.map((module) => (
@@ -189,7 +189,7 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
                 >
                   {selectedPersonality}
                 </h3>
-                
+
                 {/* Display personality description from tier 1 option */}
                 {selectedPersonality && (
                   <div>
@@ -198,9 +198,7 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
                       ?.options.filter((option) => option.location === '1')
                       .map((option) => (
                         <div key={option.name}>
-                          <p style={{ color: 'var(--color-cloud)' }}>
-                            {option.description}
-                          </p>
+                          <p style={{ color: 'var(--color-cloud)' }}>{option.description}</p>
                         </div>
                       ))}
                   </div>

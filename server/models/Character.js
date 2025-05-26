@@ -66,6 +66,74 @@ const CharacterSpellSchema = new Schema({
   }
 });
 
+const CharacterItemSchema = new Schema({
+  // Either a reference OR full item data
+  itemId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Item',
+    required: false // Not required if we have itemData
+  },
+  
+  // Full item data (only populated when customized)
+  itemData: {
+    type: Schema.Types.Mixed,
+    default: null
+  },
+  
+  // Flag to indicate if this is customized
+  isCustomized: {
+    type: Boolean,
+    default: false
+  },
+  
+  // Common fields for both cases
+  quantity: {
+    type: Number,
+    default: 1,
+    min: 1
+  },
+  
+  condition: {
+    current: { type: Number, default: 100 },
+    max: { type: Number, default: 100 }
+  },
+  
+  dateAdded: {
+    type: Date,
+    default: Date.now
+  },
+  
+  dateModified: {
+    type: Date,
+    default: null
+  },
+  
+  notes: {
+    type: String,
+    default: ''
+  }
+});
+
+// Virtual to get the effective item data
+CharacterItemSchema.virtual('item').get(function() {
+  if (this.isCustomized && this.itemData) {
+    return this.itemData;
+  }
+  return this.itemId; // Will be populated
+});
+
+const EquipmentSlotSchema = new Schema({
+  itemId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Item',
+    default: null
+  },
+  equippedAt: {
+    type: Date,
+    default: null
+  }
+}, { _id: false });
+
 // Character's selected modules
 const CharacterModuleSchema = new Schema({
   moduleId: {
@@ -112,6 +180,27 @@ const CharacterSchema = new Schema({
     min: 0
   },
   spells: [CharacterSpellSchema],
+  
+  // Inventory system
+  inventory: [CharacterItemSchema],
+  
+  // Equipment slots
+  equipment: {
+    // Gear slots
+    hands: { type: EquipmentSlotSchema, default: () => ({}) },
+    feet: { type: EquipmentSlotSchema, default: () => ({}) },
+    body: { type: EquipmentSlotSchema, default: () => ({}) },
+    head: { type: EquipmentSlotSchema, default: () => ({}) },
+    cloak: { type: EquipmentSlotSchema, default: () => ({}) },
+    accessory1: { type: EquipmentSlotSchema, default: () => ({}) },
+    accessory2: { type: EquipmentSlotSchema, default: () => ({}) },
+    
+    // Weapon/shield slots (4 flexible slots)
+    weapon1: { type: EquipmentSlotSchema, default: () => ({}) },
+    weapon2: { type: EquipmentSlotSchema, default: () => ({}) },
+    weapon3: { type: EquipmentSlotSchema, default: () => ({}) },
+    weapon4: { type: EquipmentSlotSchema, default: () => ({}) }
+  },
   // Core Attributes (each now starts at 1 and has max of 3)
   attributes: {
     physique: { type: Number, default: 1, min: 1, max: 4 },
@@ -120,7 +209,48 @@ const CharacterSchema = new Schema({
     knowledge: { type: Number, default: 1, min: 1, max: 4 },
     social: { type: Number, default: 1, min: 1, max: 4 }
   },
-  
+
+  /* Numbers coorespond to ranges: 
+  1 Adjacent	0	Literally touching
+  2 Nearby	1	Just out of arm’s reach
+  3 Very Short 2-5  Close AF
+  4 Short	6–10	Easily reached with effort
+  5  Moderate	11–20	Noticeable gap; needs focus
+  6 Distant	21–40	Clearly far; limited detail
+  7 Remote	41–100	Hard to perceive clearly
+  8 Unlimited */
+    detection :{
+    normal:  { type: Number, default: 8 },
+    darksight:  { type: Number, default: 0 }, 
+    infravision:  { type: Number, default: 0 }, 
+    deadsight:  { type: Number, default: 0 },    
+    echolocation:  { type: Number, default: 0 }, 
+    tremorsense:  { type: Number, default: 0 }, 
+    truesight:  { type: Number, default: 0 }, 
+    aethersight:  { type: Number, default: 0 }, 
+  },
+  immunity: {
+    afraid:         { type: Boolean, default: false },
+    bleeding:       { type: Boolean, default: false },
+    blinded:        { type: Boolean, default: false },
+    broken:         { type: Boolean, default: false },
+    charmed:        { type: Boolean, default: false },
+    confused:       { type: Boolean, default: false },
+    dazed:          { type: Boolean, default: false },
+    deafened:       { type: Boolean, default: false },
+    diseased:       { type: Boolean, default: false },
+    hidden:         { type: Boolean, default: false },
+    ignited:        { type: Boolean, default: false },
+    impaired:       { type: Boolean, default: false },
+    incapacitated:  { type: Boolean, default: false },
+    maddened:       { type: Boolean, default: false },
+    muted:          { type: Boolean, default: false },
+    numbed:         { type: Boolean, default: false },
+    poisoned:       { type: Boolean, default: false },
+    prone:          { type: Boolean, default: false },
+    stunned:        { type: Boolean, default: false },
+    winded:         { type: Boolean, default: false }
+  },
   // Skills based on attributes - now using updated SkillSchema
   skills: {
     // Physique Skills
@@ -150,6 +280,15 @@ const CharacterSchema = new Schema({
     persuasion: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) }
   },
   
+
+  musicSkills: {
+    vocal: { type: Number, default: 0 },
+    percussion: { type: Number, default: 0 },
+    wind: { type: Number, default: 0 },
+    strings: { type: Number, default: 0 },
+    brass:{ type: Number, default: 0 }
+  },
+
   // Specialized skills that don't depend on attributes
   weaponSkills: {
     unarmed :{},
@@ -484,6 +623,202 @@ CharacterSchema.methods.removeSpell = async function(spellId) {
     return { success: true, message: 'Spell removed successfully' };
   } catch (error) {
     console.error('Error removing spell from character:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+// Inventory management methods
+CharacterSchema.methods.addItem = async function(itemId, quantity = 1) {
+  try {
+    // Check if item already exists in inventory (non-customized items only)
+    const existingItemIndex = this.inventory.findIndex(i => 
+      !i.isCustomized && i.itemId && i.itemId.toString() === itemId.toString()
+    );
+    
+    if (existingItemIndex !== -1) {
+      // Item exists, increase quantity
+      this.inventory[existingItemIndex].quantity += quantity;
+    } else {
+      // Add new item to inventory
+      this.inventory.push({
+        itemId,
+        quantity,
+        isCustomized: false,
+        dateAdded: Date.now()
+      });
+    }
+    
+    await this.save();
+    return { success: true, message: 'Item added to inventory successfully' };
+  } catch (error) {
+    console.error('Error adding item to inventory:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+CharacterSchema.methods.removeItem = async function(itemId, quantity = 1) {
+  try {
+    const itemIndex = this.inventory.findIndex(i => i.itemId.toString() === itemId.toString());
+    
+    if (itemIndex === -1) {
+      return { success: false, message: 'Item not found in inventory' };
+    }
+    
+    const currentItem = this.inventory[itemIndex];
+    
+    if (currentItem.quantity <= quantity) {
+      // Remove entire item entry
+      this.inventory.splice(itemIndex, 1);
+    } else {
+      // Decrease quantity
+      currentItem.quantity -= quantity;
+    }
+    
+    await this.save();
+    return { success: true, message: 'Item removed from inventory successfully' };
+  } catch (error) {
+    console.error('Error removing item from inventory:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+CharacterSchema.methods.equipItem = async function(itemId, slotName) {
+  try {
+    // Check if item exists in inventory
+    const inventoryItem = this.inventory.find(i => i.itemId.toString() === itemId.toString());
+    if (!inventoryItem) {
+      return { success: false, message: 'Item not found in inventory' };
+    }
+    
+    // Check if slot exists
+    if (!this.equipment[slotName]) {
+      return { success: false, message: 'Invalid equipment slot' };
+    }
+    
+    // If slot is occupied, unequip current item first
+    if (this.equipment[slotName].itemId) {
+      await this.unequipItem(slotName);
+    }
+    
+    // Equip the item
+    this.equipment[slotName] = {
+      itemId: itemId,
+      equippedAt: Date.now()
+    };
+    
+    await this.save();
+    return { success: true, message: 'Item equipped successfully' };
+  } catch (error) {
+    console.error('Error equipping item:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+CharacterSchema.methods.unequipItem = async function(slotName) {
+  try {
+    // Check if slot exists
+    if (!this.equipment[slotName]) {
+      return { success: false, message: 'Invalid equipment slot' };
+    }
+    
+    // Clear the slot
+    this.equipment[slotName] = {
+      itemId: null,
+      equippedAt: null
+    };
+    
+    await this.save();
+    return { success: true, message: 'Item unequipped successfully' };
+  } catch (error) {
+    console.error('Error unequipping item:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+// Method to customize an item (copy-on-write)
+CharacterSchema.methods.customizeItem = async function(inventoryIndex, modifications) {
+  try {
+    const inventoryItem = this.inventory[inventoryIndex];
+    
+    if (!inventoryItem) {
+      return { success: false, message: 'Item not found in inventory' };
+    }
+    
+    // If not already customized, copy the base item data
+    if (!inventoryItem.isCustomized) {
+      // Need to populate the base item if it's just an ID
+      if (!inventoryItem.itemId.name) {
+        await this.populate(`inventory.${inventoryIndex}.itemId`);
+      }
+      
+      // Copy all base item data
+      const baseItem = inventoryItem.itemId;
+      inventoryItem.itemData = {
+        ...baseItem.toObject(),
+        _id: undefined, // Remove the base item's ID
+        originalItemId: baseItem._id, // Keep reference to original
+        __v: undefined,
+        createdAt: undefined,
+        updatedAt: undefined
+      };
+      
+      // Clear the reference and mark as customized
+      inventoryItem.itemId = undefined;
+      inventoryItem.isCustomized = true;
+    }
+    
+    // Apply modifications
+    Object.assign(inventoryItem.itemData, modifications);
+    inventoryItem.dateModified = Date.now();
+    
+    // Mark the inventory subdocument as modified
+    this.markModified(`inventory.${inventoryIndex}.itemData`);
+    
+    await this.save();
+    return { success: true, message: 'Item customized successfully' };
+  } catch (error) {
+    console.error('Error customizing item:', error);
+    return { success: false, message: error.message };
+  }
+};
+
+// Method to get effective item data
+CharacterSchema.methods.getInventoryItemData = async function(inventoryIndex) {
+  const inventoryItem = this.inventory[inventoryIndex];
+  
+  if (!inventoryItem) return null;
+  
+  if (inventoryItem.isCustomized) {
+    return inventoryItem.itemData;
+  } else {
+    // Populate if needed
+    if (!inventoryItem.itemId || !inventoryItem.itemId.name) {
+      await this.populate(`inventory.${inventoryIndex}.itemId`);
+    }
+    return inventoryItem.itemId;
+  }
+};
+
+// Method to update item quantity
+CharacterSchema.methods.updateItemQuantity = async function(inventoryIndex, newQuantity) {
+  try {
+    const inventoryItem = this.inventory[inventoryIndex];
+    
+    if (!inventoryItem) {
+      return { success: false, message: 'Item not found in inventory' };
+    }
+    
+    if (newQuantity < 1) {
+      // Remove item if quantity is 0 or less
+      this.inventory.splice(inventoryIndex, 1);
+    } else {
+      inventoryItem.quantity = newQuantity;
+    }
+    
+    await this.save();
+    return { success: true, message: 'Quantity updated successfully' };
+  } catch (error) {
+    console.error('Error updating item quantity:', error);
     return { success: false, message: error.message };
   }
 };

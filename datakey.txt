@@ -84,6 +84,9 @@ EX. A1=1
 2: RESOLVE
 3: STAMINA
 4: MOVEMENT
+5: HEALTH REGEN
+6: RESOLVE REGEN
+7: STAMINA REGEN
 
 
 ############## CREATURES ##############
@@ -94,3 +97,56 @@ EX. A1=1
 4: Elite
 5: Legendary
 6: Mythic
+
+########### SENSES ###################
+KEY (V)
+EX. V2=5 is DARKVISION equal to MODERATE 
+  0=None
+  1=Adjacent	
+  2=Nearby	
+  3=Very Short
+  4=Short
+  5=Moderate
+  6=Distant
+  7=Remote
+  8=Unlimited
+#####################################
+1: NORMAL
+2: DARKSIGHT
+3: INFRAVISION
+4: DEADSIGHT
+5: ECHOLOCATION
+6: TREMORSENSE
+7: TRUESIGHT
+8: AETHERSIGHT
+
+
+########### IMMUNITIES ###################
+KEY (I)
+##########################################
+A: AFRAID
+B: BLEEDING
+C: BLINDED
+D: CHARMED
+E:
+F:
+G:
+H:
+I:
+J:
+K:
+L:
+M:
+N:
+O:
+P:
+Q:
+R:
+S:
+T:
+U:
+V:
+W:
+X:
+Y:
+Z:

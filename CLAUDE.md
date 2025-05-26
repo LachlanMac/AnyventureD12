@@ -17,7 +17,8 @@ npm run lint            # Run ESLint
 npm run format          # Run Prettier
 
 # Data Management
-npm run reset-modules   # Reseed modules/spells/items from JSON files
+npm run reset-modules   # Reseed modules/spells from JSON files
+npm run reset-items     # Reseed items from JSON files
 npm run kill-ports      # Kill processes on ports 5173 and 4000
 ```
 

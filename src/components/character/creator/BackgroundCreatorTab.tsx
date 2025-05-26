@@ -11,12 +11,12 @@ interface BackgroundCreatorTabProps {
   biography: string;
   name: string;
   race: string;
-  culture: string; 
+  culture: string;
   level: number;
   modulePoints: {
     total: number;
   };
-  attributes: import('../../../types/character').Attributes
+  attributes: import('../../../types/character').Attributes;
   portraitFile: File | null;
   onUpdatePhysicalTrait: (trait: string, value: string) => void;
   onUpdateAppearance: (value: string) => void;
@@ -77,9 +77,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
       </div>
 
       <div style={{ marginBottom: '1.5rem' }}>
-        <div
-          style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
-        >
+        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
           <div>
             <label
               style={{
@@ -101,9 +99,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
                 padding: '0.5rem 0.75rem',
               }}
               value={physicalTraits.height}
-              onChange={(e) =>
-                onUpdatePhysicalTrait('height', e.target.value)
-              }
+              onChange={(e) => onUpdatePhysicalTrait('height', e.target.value)}
               placeholder="E.g. 6'2"
             />
           </div>
@@ -129,9 +125,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
                 padding: '0.5rem 0.75rem',
               }}
               value={physicalTraits.weight}
-              onChange={(e) =>
-                onUpdatePhysicalTrait('weight', e.target.value)
-              }
+              onChange={(e) => onUpdatePhysicalTrait('weight', e.target.value)}
               placeholder="E.g. 180 lbs"
             />
           </div>
@@ -236,9 +230,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
 
         <div style={{ marginBottom: '1rem' }}>
           <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Name</div>
-          <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-            {name || 'Unnamed'}
-          </div>
+          <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{name || 'Unnamed'}</div>
         </div>
 
         <div style={{ marginBottom: '1rem' }}>
@@ -254,26 +246,19 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
           </div>
         </div>
         <div style={{ marginBottom: '1rem' }}>
-          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-            Level
-          </div>
+          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Level</div>
           <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
             {level} ({modulePoints.total} Module Points)
           </div>
         </div>
 
         <div>
-          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-            Key Attributes
-          </div>
+          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Key Attributes</div>
           <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
             {Object.entries(attributes)
               .sort(([, a], [, b]) => b - a)
               .slice(0, 2)
-              .map(
-                ([key, value]) =>
-                  `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`
-              )
+              .map(([key, value]) => `${key.charAt(0).toUpperCase() + key.slice(1)}: ${value}`)
               .join(', ')}
           </div>
         </div>

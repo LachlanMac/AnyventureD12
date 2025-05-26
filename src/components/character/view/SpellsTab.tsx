@@ -49,10 +49,10 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
     const fetchSpellData = async () => {
       try {
         setLoading(true);
-        
+
         // Create an enhanced copy of the spells array
         const enhancedSpellsData = [...spells] as CharacterSpell[];
-        
+
         // Fetch spell data for each spell ID
         for (let i = 0; i < enhancedSpellsData.length; i++) {
           const spell = enhancedSpellsData[i];
@@ -66,7 +66,7 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
             console.error(`Error fetching data for spell ${spell.spellId}:`, spellError);
           }
         }
-        
+
         setEnhancedSpells(enhancedSpellsData);
         setLoading(false);
       } catch (err) {
@@ -88,13 +88,13 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
   const getSchoolColor = (school: string | undefined) => {
     switch (school?.toLowerCase()) {
       case 'alteration':
-         return 'rgba(215, 183, 64, 0.7)';
+        return 'rgba(215, 183, 64, 0.7)';
       case 'black':
         return 'rgba(215, 183, 64, 0.7)';
       case 'divine':
         return 'rgba(215, 183, 64, 0.7)';
       case 'mysticism':
-         return 'rgba(215, 183, 64, 0.7)';
+        return 'rgba(215, 183, 64, 0.7)';
       case 'primal':
         return 'rgba(215, 183, 64, 0.7)';
       default:
@@ -175,11 +175,7 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {enhancedSpells.map((spell) => (
-            <Card 
-              key={spell._id} 
-              variant="default" 
-              hoverEffect={true}
-            >
+            <Card key={spell._id} variant="default" hoverEffect={true}>
               <CardHeader
                 style={{
                   backgroundColor: getSchoolColor(spell.spellData?.school),
@@ -258,18 +254,22 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
                         <span style={{ fontWeight: 'bold' }}>Range:</span> {spell.spellData.range}
                       </div>
                       <div>
-                        <span style={{ fontWeight: 'bold' }}>Duration:</span> {spell.spellData.duration}
+                        <span style={{ fontWeight: 'bold' }}>Duration:</span>{' '}
+                        {spell.spellData.duration}
                       </div>
                       <div>
-                        <span style={{ fontWeight: 'bold' }}>Energy Cost:</span> {spell.spellData.energy}
+                        <span style={{ fontWeight: 'bold' }}>Energy Cost:</span>{' '}
+                        {spell.spellData.energy}
                       </div>
                       <div>
-                        <span style={{ fontWeight: 'bold' }}>Check to Cast:</span> {spell.spellData.checkToCast}
+                        <span style={{ fontWeight: 'bold' }}>Check to Cast:</span>{' '}
+                        {spell.spellData.checkToCast}
                       </div>
                       {spell.spellData.damage > 0 && (
                         <>
                           <div>
-                            <span style={{ fontWeight: 'bold' }}>Damage:</span> {spell.spellData.damage}
+                            <span style={{ fontWeight: 'bold' }}>Damage:</span>{' '}
+                            {spell.spellData.damage}
                           </div>
                           <div>
                             <span style={{ fontWeight: 'bold' }}>Damage Type:</span>{' '}
@@ -278,7 +278,7 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
                         </>
                       )}
                     </div>
-                    
+
                     {/* Additional spell properties */}
                     <div
                       style={{
@@ -301,7 +301,7 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
                           Concentration
                         </span>
                       )}
-                      
+
                       {spell.spellData.reaction && (
                         <span
                           style={{
@@ -315,29 +315,32 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
                           Reaction
                         </span>
                       )}
-                      
-                      {spell.spellData.components && spell.spellData.components.length > 0 && 
-                      spell.spellData.components[0] !== "" && (
-                        <span
-                          style={{
-                            fontSize: '0.75rem',
-                            padding: '0.125rem 0.375rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            borderRadius: '0.25rem',
-                            color: 'var(--color-white)',
-                          }}
-                        >
-                          Components: {spell.spellData.components.join(', ')}
-                        </span>
-                      )}
+
+                      {spell.spellData.components &&
+                        spell.spellData.components.length > 0 &&
+                        spell.spellData.components[0] !== '' && (
+                          <span
+                            style={{
+                              fontSize: '0.75rem',
+                              padding: '0.125rem 0.375rem',
+                              backgroundColor: 'var(--color-dark-elevated)',
+                              borderRadius: '0.25rem',
+                              color: 'var(--color-white)',
+                            }}
+                          >
+                            Components: {spell.spellData.components.join(', ')}
+                          </span>
+                        )}
                     </div>
                   </>
                 ) : (
-                  <div style={{ color: 'var(--color-cloud)', textAlign: 'center', padding: '1rem' }}>
+                  <div
+                    style={{ color: 'var(--color-cloud)', textAlign: 'center', padding: '1rem' }}
+                  >
                     Loading spell details...
                   </div>
                 )}
-                
+
                 {/* Spell notes if present */}
                 {spell.notes && (
                   <div

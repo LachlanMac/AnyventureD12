@@ -1,17 +1,12 @@
 // server/controllers/itemController.js
 import Item from '../models/Item.js';
-import { 
-  getAllItems, 
-  getItemsByType, 
-  getWeaponsByCategory 
-} from '../utils/itemLoader.js';
 
 // @desc    Get all items
 // @route   GET /api/items
 // @access  Public
 export const getItems = async (req, res) => {
   try {
-    const items = await getAllItems();
+    const items = await Item.find({});
     res.json(items);
   } catch (error) {
     console.error('Error fetching items:', error);
@@ -50,7 +45,7 @@ export const getItemsByTypeRoute = async (req, res) => {
       return res.status(400).json({ message: 'Invalid item type' });
     }
     
-    const items = await getItemsByType(type);
+    const items = await Item.find({ type });
     res.json(items);
   } catch (error) {
     console.error('Error fetching items by type:', error);
@@ -73,7 +68,10 @@ export const getWeaponsByCategoryRoute = async (req, res) => {
       return res.status(400).json({ message: 'Invalid weapon category' });
     }
     
-    const weapons = await getWeaponsByCategory(category);
+    const weapons = await Item.find({ 
+      type: 'weapon', 
+      'weapon_data.category': category 
+    });
     res.json(weapons);
   } catch (error) {
     console.error('Error fetching weapons by category:', error);

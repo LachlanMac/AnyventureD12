@@ -11,6 +11,7 @@ import ActionsTab from '../components/character/view/ActionsTab';
 import TraitsTab from '../components/character/view/TraitsTab';
 import BackgroundTab from '../components/character/view/BackgroundTab';
 import SpellsTab from '../components/character/view/SpellsTab';
+import InventoryTab from '../components/character/view/InventoryTab';
 
 // Type definitions included here for completeness
 interface Action {
@@ -52,7 +53,7 @@ interface Character {
   userId: string;
   name: string;
   race: string;
-  culture:string;
+  culture: string;
   stressors: string[];
   attributes: {
     physique: number;
@@ -84,8 +85,8 @@ interface Character {
     persuasion: SkillData;
     insight: SkillData;
     presence: SkillData;
-  },
-  
+  };
+
   weaponSkills: {
     unarmed: SkillData;
     throwing: SkillData;
@@ -93,21 +94,21 @@ interface Character {
     simpleMeleeWeapons: SkillData;
     complexRangedWeapons: SkillData;
     complexMeleeWeapons: SkillData;
-  },
+  };
   craftingSkills: {
     engineering: SkillData;
     fabrication: SkillData;
     alchemy: SkillData;
     cooking: SkillData;
     glyphcraft: SkillData;
-  },
+  };
   magicSkills: {
     black: SkillData;
     primal: SkillData;
     alteration: SkillData;
     divine: SkillData;
     mystic: SkillData;
-  },
+  };
   resources: {
     health: { current: number; max: number };
     energy: { current: number; max: number };
@@ -122,7 +123,7 @@ interface Character {
     gender: string;
   };
   biography: string;
-  portraitUrl:string;
+  portraitUrl: string;
   appearance: string;
   actions: Action[];
   modules: any[]; // Simplified for this example
@@ -133,12 +134,11 @@ interface Character {
     spent: number;
   };
   movement: number;
+  inventory: any[];
+  equipment: any;
   createdAt: string;
   updatedAt: string;
 }
-
-
-
 
 const CharacterView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -150,29 +150,28 @@ const CharacterView: React.FC = () => {
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('info');
-  const personalityModule = character?.modules.find((m: any) => 
-  m.moduleId && 
-  typeof m.moduleId !== 'string' && 
-  m.moduleId.mtype === 'secondary'
-);
+  const personalityModule = character?.modules.find(
+    (m: any) => m.moduleId && typeof m.moduleId !== 'string' && m.moduleId.mtype === 'secondary'
+  );
 
-const personalityName = personalityModule && 
-  typeof personalityModule.moduleId !== 'string' ? 
-  personalityModule.moduleId.name : undefined;
+  const personalityName =
+    personalityModule && typeof personalityModule.moduleId !== 'string'
+      ? personalityModule.moduleId.name
+      : undefined;
   useEffect(() => {
     const fetchCharacter = async () => {
       try {
         setLoading(true);
-        
+
         // Use the actual API endpoint instead of mock data
         const response = await fetch(`/api/characters/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch character data');
         }
-        
+
         const characterData = await response.json();
         console.log('Character data from API:', characterData); // Log to check structure
-        
+
         setCharacter(characterData);
         setLoading(false);
       } catch (err) {
@@ -330,29 +329,35 @@ const personalityName = personalityModule &&
 
           {/* Traits Tab */}
           {character && activeTab === 'traits' && (
-            <TraitsTab 
-              character={character} 
+            <TraitsTab
+              character={character}
               characterId={character._id}
               personality={personalityName}
               stressors={character.stressors || []}
             />
           )}
           {activeTab === 'spells' && (
-             <SpellsTab 
-              characterId={character._id} 
-              spells={character.spells || []} 
-              spellSlots={character.spellSlots || 10} 
+            <SpellsTab
+              characterId={character._id}
+              spells={character.spells || []}
+              spellSlots={character.spellSlots || 10}
             />
           )}
+
+          {/* Inventory Tab */}
+          {activeTab === 'inventory' && (
+            <InventoryTab character={character} onCharacterUpdate={setCharacter} />
+          )}
+
           {/* Background Tab */}
           {activeTab === 'background' && (
             <BackgroundTab
-            physicalTraits={character.physicalTraits}
-            appearance={character.appearance}
-            biography={character.biography}
-            race={character.race}
-            culture={character.culture}
-            portraitUrl={character.portraitUrl}
+              physicalTraits={character.physicalTraits}
+              appearance={character.appearance}
+              biography={character.biography}
+              race={character.race}
+              culture={character.culture}
+              portraitUrl={character.portraitUrl}
             />
           )}
         </div>

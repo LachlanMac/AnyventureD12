@@ -25,9 +25,7 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
               height: '2rem',
               borderRadius: '9999px',
               backgroundColor:
-                currentStep >= index + 1
-                  ? 'var(--color-sat-purple)'
-                  : 'var(--color-dark-elevated)',
+                currentStep >= index + 1 ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',

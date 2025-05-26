@@ -18,6 +18,8 @@ import Campaigns from './pages/Campaigns';
 import ModulesPage from './pages/Modules';
 import ModuleBrowser from './pages/ModuleBrowser';
 import SpellsPage from './pages/SpellsPage';
+import ItemBrowser from './pages/ItemBrowser';
+import ItemManager from './pages/ItemManager';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -128,6 +130,22 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <ModulesPage />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/character/:characterId/items"
+                  element={
+                    <MainLayout>
+                      <ItemBrowser />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/items/manage"
+                  element={
+                    <MainLayout>
+                      <ItemManager />
                     </MainLayout>
                   }
                 />

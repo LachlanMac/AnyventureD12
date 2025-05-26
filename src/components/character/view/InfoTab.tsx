@@ -41,12 +41,10 @@ const ATTRIBUTE_SKILLS = {
   ],
 };
 
-
 // Dice type mapping
 const DICE_TYPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
 
 const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
-
   return (
     <div className="grid grid-cols-1 gap-6">
       {/* Attributes and Skills */}
@@ -65,24 +63,24 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
         <CardBody>
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
             {Object.entries(ATTRIBUTE_SKILLS).map(([attributeKey, skills]) => (
-              <div 
-                key={attributeKey} 
+              <div
+                key={attributeKey}
                 className="p-4 bg-dark-elevated rounded-lg border border-dark-border"
               >
                 {/* Attribute Name and Stars */}
                 <div className="flex justify-between items-center mb-3">
-                  <h3 
-                    style={{ 
-                      color: 'var(--color-metal-gold)', 
-                      fontSize: '1.125rem', 
-                      fontWeight: 'bold'
+                  <h3
+                    style={{
+                      color: 'var(--color-metal-gold)',
+                      fontSize: '1.125rem',
+                      fontWeight: 'bold',
                     }}
                   >
                     {attributeKey.charAt(0).toUpperCase() + attributeKey.slice(1)}
                   </h3>
-                  <TalentDisplay 
-                    talent={character.attributes[attributeKey as keyof typeof character.attributes]} 
-                    maxTalent={4} 
+                  <TalentDisplay
+                    talent={character.attributes[attributeKey as keyof typeof character.attributes]}
+                    maxTalent={4}
                     showNumber={true}
                     size="md"
                   />
@@ -94,26 +92,27 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                     const skillData = character.skills[skill.id as keyof typeof character.skills];
                     // Now we use the attribute value for talent (number of dice)
                     // and the skill value for the die type
-                    const attributeValue = character.attributes[attributeKey as keyof typeof character.attributes];
-                    const dieType = attributeValue + DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
-                    
+                    const attributeValue =
+                      character.attributes[attributeKey as keyof typeof character.attributes];
+                    const dieType =
+                      attributeValue + DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
+
                     return (
                       <div key={skill.id} className="flex justify-between items-center">
                         <span style={{ color: 'var(--color-white)' }}>{skill.name}</span>
                         <div className="flex items-center gap-2">
-                         
-                          <span 
-                            style={{ 
-                              color: 'var(--color-metal-gold)', 
-                              fontWeight: 'bold' 
+                          <span
+                            style={{
+                              color: 'var(--color-metal-gold)',
+                              fontWeight: 'bold',
                             }}
                           >
                             {skillData.value >= 0 ? `+${skillData.value}` : '-'}
                           </span>
-                          <span 
-                            style={{ 
-                              color: 'var(--color-cloud)', 
-                              fontSize: '0.875rem' 
+                          <span
+                            style={{
+                              color: 'var(--color-cloud)',
+                              fontSize: '0.875rem',
                             }}
                           >
                             ({dieType})
@@ -150,18 +149,17 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                 const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
 
                 return (
-                  <div 
-                    key={skillId} 
+                  <div
+                    key={skillId}
                     className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
                   >
                     <div>
                       <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
                         {skillId
                           .replace(/([A-Z])/g, ' $1')
-                          .replace(/^./, str => str.toUpperCase())}
+                          .replace(/^./, (str) => str.toUpperCase())}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                       
                         {skillData.talent > 0 ? `${skillData.talent}${dieType}` : 'No dice'}
                       </div>
                     </div>
@@ -171,7 +169,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                   </div>
                 );
               })}
-            {!Object.values(character.weaponSkills).some(skill => skill.talent > 0) && (
+            {!Object.values(character.weaponSkills).some((skill) => skill.talent > 0) && (
               <div className="col-span-2 text-center p-4 text-cloud">
                 No weapon skills with talent points assigned.
               </div>
@@ -180,7 +178,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
         </CardBody>
       </Card>
 
-          {/* Magic Skills */}
+      {/* Magic Skills */}
       <Card variant="default">
         <CardHeader>
           <h2
@@ -201,18 +199,17 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                 const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
 
                 return (
-                  <div 
-                    key={skillId} 
+                  <div
+                    key={skillId}
                     className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
                   >
                     <div>
                       <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
                         {skillId
                           .replace(/([A-Z])/g, ' $1')
-                          .replace(/^./, str => str.toUpperCase())}
+                          .replace(/^./, (str) => str.toUpperCase())}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                       
                         {skillData.talent > 0 ? `${skillData.talent}${dieType}` : 'No dice'}
                       </div>
                     </div>
@@ -222,7 +219,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                   </div>
                 );
               })}
-            {!Object.values(character.magicSkills).some(skill => skill.talent > 0) && (
+            {!Object.values(character.magicSkills).some((skill) => skill.talent > 0) && (
               <div className="col-span-2 text-center p-4 text-cloud">
                 No magic skills with talent points assigned.
               </div>
@@ -251,8 +248,8 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
               .map(([skillId, skillData]) => {
                 const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
                 return (
-                  <div 
-                    key={skillId} 
+                  <div
+                    key={skillId}
                     className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
                   >
                     <div>
@@ -269,7 +266,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                   </div>
                 );
               })}
-            {!Object.values(character.craftingSkills).some(skill => skill.talent > 0) && (
+            {!Object.values(character.craftingSkills).some((skill) => skill.talent > 0) && (
               <div className="col-span-2 text-center p-4 text-cloud">
                 No crafting skills with talent points assigned.
               </div>

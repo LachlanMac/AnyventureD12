@@ -69,11 +69,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources }) => {
             >
               {resources.health.current} / {resources.health.max}
             </div>
-            {renderStatBar(
-              resources.health.current,
-              resources.health.max,
-              'var(--color-sunset)'
-            )}
+            {renderStatBar(resources.health.current, resources.health.max, 'var(--color-sunset)')}
           </div>
         </CardBody>
       </Card>

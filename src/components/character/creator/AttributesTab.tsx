@@ -5,7 +5,10 @@ import { ATTRIBUTE_SKILLS } from '../../../constants/skillConstants';
 interface AttributesTabProps {
   attributes: Attributes;
   attributePointsRemaining: number;
-  onUpdateAttribute: (attribute: keyof import('../../../types/character').Attributes, newValue: number) => void
+  onUpdateAttribute: (
+    attribute: keyof import('../../../types/character').Attributes,
+    newValue: number
+  ) => void;
 }
 
 const AttributesTab: React.FC<AttributesTabProps> = ({
@@ -37,14 +40,10 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
             backgroundColor: 'var(--color-dark-elevated)',
             padding: '0.5rem 1rem',
             borderRadius: '0.375rem',
-            color:
-              attributePointsRemaining > 0
-                ? 'var(--color-metal-gold)'
-                : 'var(--color-white)',
+            color: attributePointsRemaining > 0 ? 'var(--color-metal-gold)' : 'var(--color-white)',
           }}
         >
-          Points Remaining:{' '}
-          <span style={{ fontWeight: 'bold' }}>{attributePointsRemaining}</span>
+          Points Remaining: <span style={{ fontWeight: 'bold' }}>{attributePointsRemaining}</span>
         </div>
       </div>
 
@@ -54,9 +53,8 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
           marginBottom: '1.5rem',
         }}
       >
-        Attributes define your character's basic capabilities. Each attribute has a
-        maximum value of 4 and determines the number of dice you roll for related skills.
-        All attributes start at 1.
+        Attributes define your character's basic capabilities. Each attribute has a maximum value of
+        4 and determines the number of dice you roll for related skills. All attributes start at 1.
       </p>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -79,7 +77,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                     fontSize: '0.875rem',
                   }}
                 >
-                  Related to {skills.map(skill => skill.name).join(', ')}
+                  Related to {skills.map((skill) => skill.name).join(', ')}
                 </span>
               </div>
             </div>
@@ -93,16 +91,11 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
             >
               <button
                 type="button"
-                disabled={
-                  attributes[attributeId as keyof Attributes] <= 1
-                }
+                disabled={attributes[attributeId as keyof Attributes] <= 1}
                 onClick={() =>
                   onUpdateAttribute(
                     attributeId as keyof Attributes,
-                    Math.max(
-                      1,
-                      attributes[attributeId as keyof Attributes] - 1
-                    )
+                    Math.max(1, attributes[attributeId as keyof Attributes] - 1)
                   )
                 }
                 style={{
@@ -113,13 +106,8 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                   color: 'var(--color-white)',
                   border: 'none',
                   cursor:
-                    attributes[attributeId as keyof Attributes] <= 1
-                      ? 'not-allowed'
-                      : 'pointer',
-                  opacity:
-                    attributes[attributeId as keyof Attributes] <= 1
-                      ? 0.5
-                      : 1,
+                    attributes[attributeId as keyof Attributes] <= 1 ? 'not-allowed' : 'pointer',
+                  opacity: attributes[attributeId as keyof Attributes] <= 1 ? 0.5 : 1,
                 }}
               >
                 -
@@ -149,10 +137,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                 onClick={() =>
                   onUpdateAttribute(
                     attributeId as keyof Attributes,
-                    Math.min(
-                      4,
-                      attributes[attributeId as keyof Attributes] + 1
-                    )
+                    Math.min(4, attributes[attributeId as keyof Attributes] + 1)
                   )
                 }
                 style={{
@@ -163,11 +148,13 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                   color: 'var(--color-white)',
                   border: 'none',
                   cursor:
-                    attributes[attributeId as keyof Attributes] >= 4 || attributePointsRemaining <= 0
+                    attributes[attributeId as keyof Attributes] >= 4 ||
+                    attributePointsRemaining <= 0
                       ? 'not-allowed'
                       : 'pointer',
                   opacity:
-                    attributes[attributeId as keyof Attributes] >= 4 || attributePointsRemaining <= 0
+                    attributes[attributeId as keyof Attributes] >= 4 ||
+                    attributePointsRemaining <= 0
                       ? 0.5
                       : 1,
                 }}
@@ -229,13 +216,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                       color: 'var(--color-white)',
                     }}
                   >
-                    {skill.name} (
-                    {
-                      attributes[
-                        attributeId as keyof Attributes
-                      ]
-                    }{' '}
-                    dice)
+                    {skill.name} ({attributes[attributeId as keyof Attributes]} dice)
                   </div>
                 ))}
               </div>
@@ -262,9 +243,8 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
           Dice System
         </h3>
         <p style={{ color: 'var(--color-cloud)' }}>
-          For skill checks, you'll roll a number of dice equal to your attribute value
-          (1-3). Each skill has a die type from 1d4 to 1d20 that you'll set in the next
-          step.
+          For skill checks, you'll roll a number of dice equal to your attribute value (1-3). Each
+          skill has a die type from 1d4 to 1d20 that you'll set in the next step.
         </p>
       </div>
     </div>

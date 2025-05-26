@@ -32,32 +32,36 @@ const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality, stressors
     General: [],
     Crafting: [],
     Ancestry: [],
-    Uncategorized: []
+    Uncategorized: [],
   };
 
   const renderTraitCategory = (categoryName: string, traits: ModuleTrait[] = []) => {
     if (!traits || traits.length === 0) return null;
     return (
       <div key={categoryName} style={{ marginBottom: '2rem' }}>
-        <h3 style={{
-          color: 'var(--color-metal-gold)',
-          fontSize: '1.25rem',
-          fontWeight: 'bold',
-          marginBottom: '1rem'
-        }}>
+        <h3
+          style={{
+            color: 'var(--color-metal-gold)',
+            fontSize: '1.25rem',
+            fontWeight: 'bold',
+            marginBottom: '1rem',
+          }}
+        >
           {categoryName} Traits
         </h3>
-        
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
-          gap: '1rem'
-        }}>
+
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+            gap: '1rem',
+          }}
+        >
           {traits.map((trait, index) => (
             <Card key={`${trait.name}-${index}`} variant="default">
               <CardHeader
                 style={{
-                  backgroundColor: 'var(--color-sat-purple-faded)'
+                  backgroundColor: 'var(--color-sat-purple-faded)',
                 }}
               >
                 <div
@@ -83,7 +87,8 @@ const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality, stressors
                       fontSize: '0.75rem',
                       padding: '0.125rem 0.375rem',
                       borderRadius: '0.25rem',
-                    }}>
+                    }}
+                  >
                     {trait.source}
                   </span>
                 </div>
@@ -106,7 +111,9 @@ const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality, stressors
   };
 
   // Check if we have any traits across all categories
-  const hasAnyTraits = Object.values(traitCategories).some(category => category && category.length > 0);
+  const hasAnyTraits = Object.values(traitCategories).some(
+    (category) => category && category.length > 0
+  );
 
   return (
     <div>

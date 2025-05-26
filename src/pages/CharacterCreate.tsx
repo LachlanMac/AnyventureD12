@@ -11,17 +11,14 @@ import BackgroundCreatorTab from '../components/character/creator/BackgroundCrea
 import PersonalityCreatorTab from '../components/character/creator/PersonalityCreatorTab';
 
 // Import utility functions and types from the shared files
-import { 
-  createDefaultCharacter, 
-  updateSkillTalentsFromAttributes
-} from '../utils/characterUtils';
-import { 
-  Character, 
-  Trait, 
-  RacialModule, 
+import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
+import {
+  Character,
+  Trait,
+  RacialModule,
   CultureModule,
   Attributes,
-  Module 
+  Module,
 } from '../types/character';
 
 const CharacterCreate: React.FC = () => {
@@ -31,7 +28,7 @@ const CharacterCreate: React.FC = () => {
   const [error, setError] = useState<string | null>(null);
   const [selectedTraits, setSelectedTraits] = useState<Trait[]>([]);
   const [portraitFile, setPortraitFile] = useState<File | null>(null);
-  
+
   // Tracking for attribute and talent points
   const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(6);
   const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(8);
@@ -57,7 +54,7 @@ const CharacterCreate: React.FC = () => {
         }
         const raceData = await raceResponse.json();
         setRacialModules(raceData);
-        
+
         // Add culture modules fetching
         const cultureResponse = await fetch('/api/modules/type/cultural');
         if (!cultureResponse.ok) {
@@ -69,10 +66,9 @@ const CharacterCreate: React.FC = () => {
         console.error('Error fetching modules:', err);
       }
     };
-  
+
     fetchModules();
   }, []);
-  
 
   useEffect(() => {
     const fetchRacialModules = async () => {
@@ -88,7 +84,7 @@ const CharacterCreate: React.FC = () => {
         // Handle error appropriately
       }
     };
-  
+
     fetchRacialModules();
   }, []);
 
@@ -103,12 +99,12 @@ const CharacterCreate: React.FC = () => {
   };
 
   const handleRaceChange = (raceName: string, racialModule: RacialModule) => {
-    console.log("handleRaceChange called with:", raceName);
-    console.log("Received racial module:", racialModule);
-    
+    console.log('handleRaceChange called with:', raceName);
+    console.log('Received racial module:', racialModule);
+
     // Update the race in character state
     updateCharacter('race', raceName);
-    
+
     // Store the racial module directly
     setSelectedRacialModule(racialModule);
   };
@@ -161,7 +157,7 @@ const CharacterCreate: React.FC = () => {
 
     // Update skills' talent values based on the new attribute value
     const characterWithUpdatedSkills = updateSkillTalentsFromAttributes(updatedCharacter);
-    
+
     setCharacter(characterWithUpdatedSkills);
     setAttributePointsRemaining((prev) => prev + pointDifference);
   };
@@ -184,7 +180,7 @@ const CharacterCreate: React.FC = () => {
       weaponSkills: {
         ...prev.weaponSkills,
         [skillId]: {
-          ...prev.weaponSkills[skillId] || { value: 0 },
+          ...(prev.weaponSkills[skillId] || { value: 0 }),
           talent: newTalent,
         },
       },
@@ -211,7 +207,7 @@ const CharacterCreate: React.FC = () => {
       magicSkills: {
         ...prev.magicSkills,
         [skillId]: {
-          ...prev.magicSkills[skillId] || { value: 0 },
+          ...(prev.magicSkills[skillId] || { value: 0 }),
           talent: newTalent,
         },
       },
@@ -238,7 +234,7 @@ const CharacterCreate: React.FC = () => {
       craftingSkills: {
         ...prev.craftingSkills,
         [skillId]: {
-          ...prev.craftingSkills[skillId] || { value: 0 },
+          ...(prev.craftingSkills[skillId] || { value: 0 }),
           talent: newTalent,
         },
       },
@@ -284,8 +280,8 @@ const CharacterCreate: React.FC = () => {
         return true;
       case 4:
         if (!selectedPersonality) {
-        setError('Please select a personality for your character');
-        return false;
+          setError('Please select a personality for your character');
+          return false;
         }
         return true;
       default:
@@ -342,51 +338,59 @@ const CharacterCreate: React.FC = () => {
       let initialModules = [];
       if (selectedRacialModule) {
         // Find the tier 1 option of the racial module
-        const tier1Option = selectedRacialModule.options.find(option => option.location === '1');
-        
+        const tier1Option = selectedRacialModule.options.find((option) => option.location === '1');
+
         if (tier1Option) {
           initialModules.push({
             moduleId: selectedRacialModule._id,
-            selectedOptions: [{
-              location: '1',
-              selectedAt: new Date().toISOString()
-            }]
+            selectedOptions: [
+              {
+                location: '1',
+                selectedAt: new Date().toISOString(),
+              },
+            ],
           });
         }
       }
       if (selectedCultureModule) {
-        const tier1Option = selectedCultureModule.options.find(option => option.location === '1');
-        
+        const tier1Option = selectedCultureModule.options.find((option) => option.location === '1');
+
         if (tier1Option) {
           initialModules.push({
             moduleId: selectedCultureModule._id,
-            selectedOptions: [{
-              location: '1',
-              selectedAt: new Date().toISOString()
-            }]
+            selectedOptions: [
+              {
+                location: '1',
+                selectedAt: new Date().toISOString(),
+              },
+            ],
           });
         }
       }
 
-       if (selectedPersonalityModule) {
-      const tier1Option = selectedPersonalityModule.options.find(option => option.location === '1');
-      
-      if (tier1Option) {
-        initialModules.push({
-          moduleId: selectedPersonalityModule._id,
-          selectedOptions: [{
-            location: '1',
-            selectedAt: new Date().toISOString()
-          }]
-        });
+      if (selectedPersonalityModule) {
+        const tier1Option = selectedPersonalityModule.options.find(
+          (option) => option.location === '1'
+        );
+
+        if (tier1Option) {
+          initialModules.push({
+            moduleId: selectedPersonalityModule._id,
+            selectedOptions: [
+              {
+                location: '1',
+                selectedAt: new Date().toISOString(),
+              },
+            ],
+          });
+        }
       }
-    }
 
       // Transform the character data for the API
       const characterData = {
         name: character.name,
         race: character.race,
-        culture: character.culture, 
+        culture: character.culture,
         attributes: character.attributes,
         skills: character.skills,
         weaponSkills: character.weaponSkills,
@@ -425,22 +429,22 @@ const CharacterCreate: React.FC = () => {
         console.log('NOT OK');
         throw new Error('Failed to create character');
       }
-      
+
       const data = await response.json();
       console.log('Character created:', data);
-      
+
       // Now upload portrait if one was selected
       if (portraitFile) {
         try {
           const formData = new FormData();
           formData.append('portrait', portraitFile);
-          
+
           const portraitResponse = await fetch(`/api/portraits/${data._id}/portrait`, {
             method: 'POST',
             body: formData,
             credentials: 'include',
           });
-          
+
           if (!portraitResponse.ok) {
             console.warn('Failed to upload portrait, but character was created');
           }
@@ -500,7 +504,7 @@ const CharacterCreate: React.FC = () => {
           <CardBody>
             {/* Step 1: Basic Information */}
             {step === 1 && (
-              <BasicInfoTab 
+              <BasicInfoTab
                 name={character.name}
                 race={character.race}
                 culture={character.culture}
@@ -517,7 +521,7 @@ const CharacterCreate: React.FC = () => {
 
             {/* Step 2: Attributes */}
             {step === 2 && (
-              <AttributesTab 
+              <AttributesTab
                 attributes={character.attributes}
                 attributePointsRemaining={attributePointsRemaining}
                 onUpdateAttribute={updateAttribute}
@@ -526,7 +530,7 @@ const CharacterCreate: React.FC = () => {
 
             {/* Step 3: Talents */}
             {step === 3 && (
-              <TalentsTab 
+              <TalentsTab
                 weaponSkills={character.weaponSkills}
                 magicSkills={character.magicSkills}
                 craftingSkills={character.craftingSkills}
@@ -538,7 +542,7 @@ const CharacterCreate: React.FC = () => {
             )}
             {/* Step 4: Traits */}
             {step === 4 && (
-              <PersonalityCreatorTab 
+              <PersonalityCreatorTab
                 selectedPersonality={selectedPersonality}
                 stressors={stressors}
                 onSelectPersonality={handlePersonalitySelect}
@@ -546,7 +550,7 @@ const CharacterCreate: React.FC = () => {
             )}
             {/* Step 5: Background */}
             {step === 5 && (
-              <BackgroundCreatorTab 
+              <BackgroundCreatorTab
                 physicalTraits={character.physicalTraits}
                 appearance={character.appearance}
                 biography={character.biography}
@@ -557,7 +561,7 @@ const CharacterCreate: React.FC = () => {
                 modulePoints={character.modulePoints}
                 attributes={character.attributes}
                 portraitFile={portraitFile}
-                onUpdatePhysicalTrait={(trait, value) => 
+                onUpdatePhysicalTrait={(trait, value) =>
                   updateNestedField('physicalTraits', trait, value)
                 }
                 onUpdateAppearance={(value) => updateCharacter('appearance', value)}

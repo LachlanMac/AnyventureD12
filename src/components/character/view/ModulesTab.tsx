@@ -53,9 +53,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
         }}
       >
         <Link to={`/characters/${characterId}/modules`}>
-          <Button variant="accent">
-            Manage Modules
-          </Button>
+          <Button variant="accent">Manage Modules</Button>
         </Link>
       </div>
 
@@ -124,7 +122,13 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
               <CardBody>
                 {module.selectedOptions && module.selectedOptions.length > 0 ? (
                   <>
-                    <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', fontSize: '0.875rem' }}>
+                    <div
+                      style={{
+                        color: 'var(--color-cloud)',
+                        marginBottom: '0.5rem',
+                        fontSize: '0.875rem',
+                      }}
+                    >
                       Selected Options:
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -150,7 +154,13 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
                     </div>
                   </>
                 ) : (
-                  <p style={{ color: 'var(--color-cloud)', fontStyle: 'italic', fontSize: '0.875rem' }}>
+                  <p
+                    style={{
+                      color: 'var(--color-cloud)',
+                      fontStyle: 'italic',
+                      fontSize: '0.875rem',
+                    }}
+                  >
                     No options selected
                   </p>
                 )}

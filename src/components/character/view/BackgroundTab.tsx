@@ -15,13 +15,13 @@ interface BackgroundTabProps {
   portraitUrl?: string | null;
 }
 
-const BackgroundTab: React.FC<BackgroundTabProps> = ({ 
-  physicalTraits, 
-  appearance, 
+const BackgroundTab: React.FC<BackgroundTabProps> = ({
+  physicalTraits,
+  appearance,
   biography,
   race,
   culture,
-  portraitUrl
+  portraitUrl,
 }) => {
   return (
     <div>
@@ -51,9 +51,9 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
                   border: '1px solid var(--color-dark-border)',
                 }}
               >
-                <img 
-                  src={portraitUrl} 
-                  alt="Character portrait" 
+                <img
+                  src={portraitUrl}
+                  alt="Character portrait"
                   style={{
                     width: '100%',
                     height: '100%',
@@ -65,8 +65,8 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
           </CardBody>
         </Card>
       )}
-        {/* Origins */}
-        <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+      {/* Origins */}
+      <Card variant="default" style={{ marginBottom: '1.5rem' }}>
         <CardHeader>
           <h2
             style={{
@@ -87,20 +87,12 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
             }}
           >
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-                Race
-              </div>
-              <div style={{ color: 'var(--color-white)' }}>
-                {race || 'Not specified'}
-              </div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Race</div>
+              <div style={{ color: 'var(--color-white)' }}>{race || 'Not specified'}</div>
             </div>
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-                Culture
-              </div>
-              <div style={{ color: 'var(--color-white)' }}>
-                {culture || 'Not specified'}
-              </div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Culture</div>
+              <div style={{ color: 'var(--color-white)' }}>{culture || 'Not specified'}</div>
             </div>
           </div>
         </CardBody>
@@ -126,36 +118,26 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
             }}
           >
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-                Gender
-              </div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Gender</div>
               <div style={{ color: 'var(--color-white)' }}>
                 {physicalTraits.gender || 'Not specified'}
               </div>
             </div>
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-                Height
-              </div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Height</div>
               <div style={{ color: 'var(--color-white)' }}>
                 {physicalTraits.height || 'Not specified'}
               </div>
             </div>
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-                Weight
-              </div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Weight</div>
               <div style={{ color: 'var(--color-white)' }}>
                 {physicalTraits.weight || 'Not specified'}
               </div>
             </div>
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>
-                Size
-              </div>
-              <div style={{ color: 'var(--color-white)' }}>
-                {physicalTraits.size || 'Medium'}
-              </div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Size</div>
+              <div style={{ color: 'var(--color-white)' }}>{physicalTraits.size || 'Medium'}</div>
             </div>
           </div>
         </CardBody>
@@ -193,9 +175,7 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
           </h2>
         </CardHeader>
         <CardBody>
-          <p style={{ color: 'var(--color-cloud)' }}>
-            {biography || 'No biography provided.'}
-          </p>
+          <p style={{ color: 'var(--color-cloud)' }}>{biography || 'No biography provided.'}</p>
         </CardBody>
       </Card>
     </div>

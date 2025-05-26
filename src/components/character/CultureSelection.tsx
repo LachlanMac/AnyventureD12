@@ -6,7 +6,10 @@ interface CultureSelectionProps {
   onSelectCulture: (culture: string, cultureModule: Module) => void;
 }
 
-const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, onSelectCulture }) => {
+const CultureSelection: React.FC<CultureSelectionProps> = ({
+  selectedCulture,
+  onSelectCulture,
+}) => {
   const [cultureModules, setCultureModules] = useState<Module[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -23,8 +26,8 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
         }
 
         const data = await response.json();
-        console.log("Fetched culture modules in CultureSelection:", data);
-        
+        console.log('Fetched culture modules in CultureSelection:', data);
+
         setCultureModules(data);
         setLoading(false);
       } catch (err) {
@@ -39,9 +42,9 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
 
   // Handler for culture selection
   const handleCultureSelect = (cultureName: string) => {
-    const selectedModule = cultureModules.find(module => module.name === cultureName);
+    const selectedModule = cultureModules.find((module) => module.name === cultureName);
     if (selectedModule) {
-      console.log("Selected culture module in CultureSelection:", selectedModule);
+      console.log('Selected culture module in CultureSelection:', selectedModule);
       onSelectCulture(cultureName, selectedModule);
     } else {
       console.error(`Could not find culture module for culture: ${cultureName}`);
@@ -54,13 +57,13 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
     if (module.description && module.description.trim() !== '') {
       return module.description;
     }
-    
+
     // If not, check if any of the tier 1 options have a description
-    const tier1Option = module.options.find(option => option.location === '1');
+    const tier1Option = module.options.find((option) => option.location === '1');
     if (tier1Option && tier1Option.description && tier1Option.description.trim() !== '') {
       return tier1Option.description;
     }
-    
+
     // Fallback to a generic description
     return `The ${module.name} culture has its own customs, traditions, and perspectives on interstellar society.`;
   };
@@ -68,10 +71,10 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
   // Get the description of the currently selected culture
   const getSelectedCultureDescription = (): string => {
     if (!selectedCulture) return 'Select a culture to see information';
-    
-    const selectedModule = cultureModules.find(module => module.name === selectedCulture);
+
+    const selectedModule = cultureModules.find((module) => module.name === selectedCulture);
     if (!selectedModule) return 'Select a culture to see information';
-    
+
     return getCultureDescription(selectedModule);
   };
 
@@ -111,7 +114,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
 
   return (
     <div style={{ marginBottom: '1.5rem' }}>
-      <div 
+      <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -131,21 +134,21 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
         >
           Culture Selection
         </label>
-        <div 
+        <div
           style={{
             transition: 'transform 0.3s ease',
             transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
             strokeLinejoin="round"
             style={{ color: 'var(--color-cloud)' }}
           >
@@ -157,11 +160,11 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
       {expanded && (
         <>
           {/* Culture selection grid */}
-          <div 
-            style={{ 
-              display: 'grid', 
-              gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))', 
-              gap: '1rem' 
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))',
+              gap: '1rem',
             }}
           >
             {cultureModules.map((module) => (
@@ -215,9 +218,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({ selectedCulture, on
                 >
                   {selectedCulture}
                 </h3>
-                <p style={{ color: 'var(--color-cloud)' }}>
-                  {getSelectedCultureDescription()}
-                </p>
+                <p style={{ color: 'var(--color-cloud)' }}>{getSelectedCultureDescription()}</p>
 
                 {/* Display first tier culture traits for the selected culture */}
                 {selectedCulture && (

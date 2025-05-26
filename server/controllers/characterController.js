@@ -29,7 +29,8 @@ export const getCharacter = async (req, res) => {
   try {
     // Find character by ID and populate the modules with their data
     const character = await Character.findById(req.params.id)
-      .populate('modules.moduleId');
+      .populate('modules.moduleId')
+      .populate('inventory.itemId');
 
     
     if (!character) {
@@ -127,6 +128,170 @@ export const deleteCharacter = async (req, res) => {
     res.json({ message: 'Character removed' });
   } catch (error) {
     console.error('Error deleting character:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Add item to character inventory
+// @route   POST /api/characters/:id/inventory
+// @access  Private
+export const addItemToInventory = async (req, res) => {
+  try {
+    const { itemId, quantity = 1 } = req.body;
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const result = await character.addItem(itemId, quantity);
+    
+    if (result.success) {
+      res.json(character);
+    } else {
+      res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error('Error adding item to inventory:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Remove item from character inventory
+// @route   DELETE /api/characters/:id/inventory/:itemId
+// @access  Private
+export const removeItemFromInventory = async (req, res) => {
+  try {
+    const { itemId } = req.params;
+    const { quantity = 1 } = req.body;
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const result = await character.removeItem(itemId, quantity);
+    
+    if (result.success) {
+      res.json(character);
+    } else {
+      res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error('Error removing item from inventory:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Equip item to character equipment slot
+// @route   PUT /api/characters/:id/equipment/:slotName
+// @access  Private
+export const equipItem = async (req, res) => {
+  try {
+    const { itemId } = req.body;
+    const { slotName } = req.params;
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const result = await character.equipItem(itemId, slotName);
+    
+    if (result.success) {
+      res.json(character);
+    } else {
+      res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error('Error equipping item:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Unequip item from character equipment slot
+// @route   DELETE /api/characters/:id/equipment/:slotName
+// @access  Private
+export const unequipItem = async (req, res) => {
+  try {
+    const { slotName } = req.params;
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const result = await character.unequipItem(slotName);
+    
+    if (result.success) {
+      res.json(character);
+    } else {
+      res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error('Error unequipping item:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Customize an item in character inventory
+// @route   POST /api/characters/:id/inventory/:index/customize
+// @access  Private
+export const customizeItem = async (req, res) => {
+  try {
+    const { index } = req.params;
+    const { modifications } = req.body;
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    const result = await character.customizeItem(parseInt(index), modifications);
+    
+    if (result.success) {
+      // Re-fetch with proper population
+      const updatedCharacter = await Character.findById(req.params.id)
+        .populate('inventory.itemId')
+        .populate('modules.moduleId');
+      
+      res.json(updatedCharacter);
+    } else {
+      res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error('Error customizing item:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Update item quantity in character inventory
+// @route   PUT /api/characters/:id/inventory/:index/quantity
+// @access  Private
+export const updateItemQuantity = async (req, res) => {
+  try {
+    const { index } = req.params;
+    const { quantity } = req.body;
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    const result = await character.updateItemQuantity(parseInt(index), parseInt(quantity));
+    
+    if (result.success) {
+      // Re-fetch with proper population
+      const updatedCharacter = await Character.findById(req.params.id)
+        .populate('inventory.itemId')
+        .populate('modules.moduleId');
+      
+      res.json(updatedCharacter);
+    } else {
+      res.status(400).json({ message: result.message });
+    }
+  } catch (error) {
+    console.error('Error updating item quantity:', error);
     res.status(500).json({ message: error.message });
   }
 };

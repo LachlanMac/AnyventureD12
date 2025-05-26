@@ -184,6 +184,27 @@ export const getWeaponsByCategory = async (category) => {
   }
 };
 
+// Function to reset and reseed all items
+export const resetAndReseedItems = async () => {
+  try {
+    console.log('Resetting all items...');
+    
+    // This will purge all existing items and reseed from files
+    const success = await seedItems(true);
+    
+    if (success) {
+      const newItemCount = await Item.countDocuments();
+      console.log(`Successfully reseeded ${newItemCount} items.`);
+      return true;
+    }
+    
+    return false;
+  } catch (err) {
+    console.error(`Error resetting items: ${err.message}`);
+    return false;
+  }
+};
+
 // Export a function to run at server startup
 export const initializeItems = async () => {
   try {

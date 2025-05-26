@@ -5,7 +5,13 @@ import {
   getCharacter,
   createCharacter,
   updateCharacter,
-  deleteCharacter
+  deleteCharacter,
+  addItemToInventory,
+  removeItemFromInventory,
+  equipItem,
+  unequipItem,
+  customizeItem,
+  updateItemQuantity
 } from '../controllers/characterController.js';
 import { protect } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
@@ -29,5 +35,24 @@ router.route('/:id')
   .get(getCharacter)
   .put(updateCharacter)
   .delete(deleteCharacter);
+
+// Inventory management routes
+router.route('/:id/inventory')
+  .post(addItemToInventory);
+
+router.route('/:id/inventory/:itemId')
+  .delete(removeItemFromInventory);
+
+// Equipment management routes
+router.route('/:id/equipment/:slotName')
+  .put(equipItem)
+  .delete(unequipItem);
+
+// Item customization and quantity routes
+router.route('/:id/inventory/:index/customize')
+  .post(customizeItem);
+
+router.route('/:id/inventory/:index/quantity')
+  .put(updateItemQuantity);
 
 export default router;

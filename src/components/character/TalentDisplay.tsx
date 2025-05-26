@@ -7,7 +7,6 @@ interface TalentDisplayProps {
   size?: 'sm' | 'md' | 'lg';
 }
 
-
 const TalentDisplay: React.FC<TalentDisplayProps> = ({
   talent,
   maxTalent = 4,
@@ -37,10 +36,9 @@ const TalentDisplay: React.FC<TalentDisplayProps> = ({
             fontSize: size === 'sm' ? '0.75rem' : '0.875rem',
             marginRight: '0.25rem',
           }}
-        >
-        </span>
+        ></span>
       )}
-<div style={{ display: 'flex', gap: '0.25rem' }}>
+      <div style={{ display: 'flex', gap: '0.25rem' }}>
         {Array.from({ length: talent }).map((_, i) => (
           <div key={i} style={{ width: starSize, height: starSize }}>
             <svg

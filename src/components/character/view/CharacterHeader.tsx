@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
-import Button from '../../../components/ui/Button'
+import Button from '../../../components/ui/Button';
 import CharacterPortraitUploader from '../CharacterPortraitUploader';
 
 interface CharacterHeaderProps {
@@ -37,20 +37,20 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
       // Create form data
       const formData = new FormData();
       formData.append('portrait', file);
-      
+
       // Upload portrait
       const response = await fetch(`/api/portraits/${character._id}/portrait`, {
         method: 'POST',
         body: formData,
         credentials: 'include',
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to upload portrait');
       }
-      
+
       const data = await response.json();
-      
+
       // Update portrait URL
       setPortraitUrl(data.portraitUrl);
     } catch (error) {
@@ -117,10 +117,12 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
           >
             {character.name}
           </h1>
-          
+
           <div className="flex gap-2">
             <Link to={`/characters/${character._id}/edit`}>
-              <Button variant="secondary" size="sm">Edit</Button>
+              <Button variant="secondary" size="sm">
+                Edit
+              </Button>
             </Link>
             <Button variant="outline" size="sm" onClick={onDelete}>
               Delete
@@ -144,22 +146,22 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
           <div className="flex-1">
             {renderResourceBar(
               character.resources.health.current,
-              character.resources.health.max, 
-              'var(--color-sunset)', 
+              character.resources.health.max,
+              'var(--color-sunset)',
               'Health'
             )}
-            
+
             {renderResourceBar(
               character.resources.energy.current,
-              character.resources.energy.max, 
-              'var(--color-metal-gold)', 
+              character.resources.energy.max,
+              'var(--color-metal-gold)',
               'Energy'
             )}
-            
+
             {renderResourceBar(
-              character.resources.resolve.current, 
-              character.resources.resolve.max, 
-              'var(--color-sat-purple)', 
+              character.resources.resolve.current,
+              character.resources.resolve.max,
+              'var(--color-sat-purple)',
               'Resolve'
             )}
           </div>
@@ -168,49 +170,36 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
               <div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                  Race
-                </div>
-                <div style={{ color: 'var(--color-white)' }}>
-                  {character.race}
-                </div>
+                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Race</div>
+                <div style={{ color: 'var(--color-white)' }}>{character.race}</div>
               </div>
 
               <div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                  Culture
-                </div>
+                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Culture</div>
                 <div style={{ color: 'var(--color-white)' }}>
                   {character.culture || 'Not specified'}
                 </div>
               </div>
 
               <div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                  Movement
-                </div>
-                <div style={{ color: 'var(--color-white)' }}>
-                  {character.movement} Units
-                </div>
+                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Movement</div>
+                <div style={{ color: 'var(--color-white)' }}>{character.movement} Units</div>
               </div>
-
 
               <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
                   Module Points
                 </div>
                 <div style={{ color: 'var(--color-white)' }}>
-                  {character.modulePoints ? 
-                    `${character.modulePoints.total - character.modulePoints.spent} / ${character.modulePoints.total}` : 
-                    'Not available'}
+                  {character.modulePoints
+                    ? `${character.modulePoints.total - character.modulePoints.spent} / ${character.modulePoints.total}`
+                    : 'Not available'}
                 </div>
               </div>
 
               {character.languages && character.languages.length > 0 && (
                 <div>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                    Languages
-                  </div>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Languages</div>
                   <div style={{ color: 'var(--color-white)' }}>
                     {character.languages.join(', ')}
                   </div>
@@ -219,12 +208,8 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
 
               {character.stances && character.stances.length > 0 && (
                 <div>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                    Stances
-                  </div>
-                  <div style={{ color: 'var(--color-white)' }}>
-                    {character.stances.join(', ')}
-                  </div>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Stances</div>
+                  <div style={{ color: 'var(--color-white)' }}>{character.stances.join(', ')}</div>
                 </div>
               )}
             </div>

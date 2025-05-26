@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Bruiser",
+  "mtype": "secondary",
+  "ruleset": 1,
+ "options": [
+      {
+      "name": "Tough",
+      "description": "Gain +1 skill with endurance. Also, you ignore the first time you would become winded during combat.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AE=1"
+    },
+    {
+      "name": "Slugger",
+      "description": "Once per round, on any Action or Reaction, when you make a melee attack, you can also make an unarmed attack. The round resets at the start of your turn.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+       "name": "Engager",
+      "description": "You are usually first to join the fray. Gain +1 skill with coordination. On the first turn of combat, your free movement speed during your turn is doubled.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Vitality",
+      "description": "You are naturally more hardy than others. Gain +3 health.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Bodyblow",
+      "description": "You make an unarmed attack at a creature that is your size or smaller. If the attack hits, the target loses 1 energy.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+        "name": "Action : Pummel",
+      "description": "You make a vicious attack with either an unarmed or melee weapon that has the bludgeon tab. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",,
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Powerful Parry",
+      "description": "Gain +1 skill with deflection. If a creature hard fails an attack with a melee weapon against your deflection check, they drop their weapon.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Heavy Hitter",
+      "description": "Gain +1 skill with complex melee weapons.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Street Fighter",
+      "description": "Gain +1 skill with unarmed attacks.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Curbstomp",
+      "description": "You target a creature that is prone and making a devestating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and thralls have a penalty dice against this attack and are executed if any of the dice hit.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

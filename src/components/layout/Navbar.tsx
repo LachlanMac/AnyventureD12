@@ -121,6 +121,29 @@ const Navbar: React.FC = () => {
                     >
                       {user?.username || 'User'}
                     </div>
+                    <Link
+                      to="/items/manage"
+                      style={{
+                        display: 'block',
+                        width: '100%',
+                        textAlign: 'left',
+                        padding: '0.5rem 1rem',
+                        color: 'var(--color-cloud)',
+                        transition: 'background-color 0.2s',
+                        textDecoration: 'none',
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)';
+                        e.currentTarget.style.color = 'var(--color-white)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = 'var(--color-cloud)';
+                      }}
+                      onClick={() => setUserMenuOpen(false)}
+                    >
+                      Manage Items
+                    </Link>
                     <button
                       onClick={logout}
                       style={{
@@ -250,13 +273,22 @@ const Navbar: React.FC = () => {
             </MobileNavLink>
 
             {isAuthenticated && (
-              <MobileNavLink
-                to="/characters/create"
-                isActive={isActive('/characters/create')}
-                onClick={() => setIsOpen(false)}
-              >
-                Create Character
-              </MobileNavLink>
+              <>
+                <MobileNavLink
+                  to="/characters/create"
+                  isActive={isActive('/characters/create')}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Create Character
+                </MobileNavLink>
+                <MobileNavLink
+                  to="/items/manage"
+                  isActive={isActive('/items/manage')}
+                  onClick={() => setIsOpen(false)}
+                >
+                  Manage Items
+                </MobileNavLink>
+              </>
             )}
 
             {isAuthenticated ? (

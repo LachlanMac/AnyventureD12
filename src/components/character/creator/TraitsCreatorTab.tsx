@@ -19,7 +19,7 @@ const TraitsCreatorTab: React.FC<TraitsCreatorTabProps> = ({
   selectedTraits,
   availableModulePoints,
   onSelectTrait,
-  onDeselectTrait
+  onDeselectTrait,
 }) => {
   return (
     <div>

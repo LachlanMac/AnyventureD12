@@ -5,10 +5,22 @@ const { Schema } = mongoose;
 // Define the skill data structure used throughout the schema
 const SkillBonusSchema = new Schema({
   add_bonus: { type: Number, default: 0 },
-  set_bonus: { type: Number, default: -1 },
-  add_talent: { type: Number, default: 0 },
-  set_talent: { type: Number, default: -1 }
+  set_bonus: { type: Number, default: 0 },
 }, { _id: false });
+
+const TalentBonusSchema = new Schema({
+  add_talent: { type: Number, default: 0 },
+  set_talent: { type: Number, default: 0 }
+}, { _id: false });
+
+
+const SkillTalentBonusSchema = new Schema({
+  add_bonus: { type: Number, default: 0 },
+  set_bonus: { type: Number, default: 0 },
+  add_talent: { type: Number, default: 0 },
+  set_talent: { type: Number, default: 0 }
+}, { _id: false });
+
 
 // Define weapon damage structure
 const DamageSchema = new Schema({
@@ -43,46 +55,58 @@ const ItemSchema = new Schema({
   // Item type information
   type: { 
     type: String, 
-    enum: ["weapon", "gear", "shield", "consumable", "container", "currency"],
+    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "trade_good", "consumable", "tool", "instrument", "ammunition" ],
     required: true 
   },
-  // For gear
-  slot :{
-    type: String,
-    enum: ["hands", "feet", "body", "head", "accessory", "cloak"],
-    required: false
-  },
 
-  // For weapons
-  weapon_data: {
-    category: { 
+  weapon_category: { 
       type: String, 
       enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
-      required: function() { return this.type === 'weapon'; }
     },
-    primary: DamageSchema,
-    secondary: DamageSchema
+  primary: DamageSchema,
+  secondary: DamageSchema,
+
+
+ armor_penalties:{
+    movement: {type:Number, default:0},
+    energy: {type:Number, default:0},
+    fitness: {type:Number, default:0},
+    stealth: {type:Number, default:0},
+    coordination: {type:Number, default:0},
+    evasion: {type:Number, default:0},
+    deflection: {type:Number, default:0},
+    senses: {type:Number, default:0},
+ },
+ 
+
+ health: {
+    max:      { type: Number, default: 0 },   
+    recovery: { type: Number, default: 0 }    
+  },
+  resolve: {
+    max:      { type: Number, default: 0 },   
+    recovery: { type: Number, default: 0 }    
+  },
+  energy: {
+    max:      { type: Number, default: 0 },   
+    recovery: { type: Number, default: 0 }    
+  },
+
+  movement: {                               
+    type: Number,
+    default: 0
   },
   
-  // For armor
-  armor_data: {
-    category: { 
-      type: String, 
-      enum: ["light", "medium", "heavy", "shield"],
-      required: function() { return this.type === 'armor'; }
-    },
-    base_mitigation: { type: Number, default: 0 },
-    dexterity_limit: { type: Number, default: 0 }
+  attributes :{
+      physique: { type: TalentBonusSchema, default: () => ({}) },
+      finesse: { type: TalentBonusSchema, default: () => ({}) },
+      mind: { type: TalentBonusSchema, default: () => ({}) },
+      knowledge: { type: TalentBonusSchema, default: () => ({}) },
+      social: { type: TalentBonusSchema, default: () => ({}) },
   },
-  
-  // Character attribute modifications
-  health: { type: Number, default: 0 },
-  resolve: { type: Number, default: 0 },
-  energy: { type: Number, default: 0 },
-  movement: { type: Number, default: 0 },
-  
+
   // Skill bonuses
-  skills: {
+  basic: {
     // Basic skills
     fitness: { type: SkillBonusSchema, default: () => ({}) },
     deflection: { type: SkillBonusSchema, default: () => ({}) },
@@ -107,32 +131,32 @@ const ItemSchema = new Schema({
   },
   
   // Crafting skill bonuses
-  crafts: {
-    engineering: { type: SkillBonusSchema, default: () => ({}) },
-    fabrication: { type: SkillBonusSchema, default: () => ({}) },
-    alchemy: { type: SkillBonusSchema, default: () => ({}) },
-    cooking: { type: SkillBonusSchema, default: () => ({}) },
-    glyphcraft: { type: SkillBonusSchema, default: () => ({}) },
-    bioSculpting: { type: SkillBonusSchema, default: () => ({}) }
+  craft: {
+    engineering: { type: SkillTalentBonusSchema, default: () => ({}) },
+    fabrication: { type: SkillTalentBonusSchema, default: () => ({}) },
+    alchemy: { type: SkillTalentBonusSchema, default: () => ({}) },
+    cooking: { type: SkillTalentBonusSchema, default: () => ({}) },
+    glyphcraft: { type: SkillTalentBonusSchema, default: () => ({}) },
+    bioSculpting: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
   // Magic skill bonuses
   magic: {
-    black: { type: SkillBonusSchema, default: () => ({}) },
-    primal: { type: SkillBonusSchema, default: () => ({}) },
-    alteration: { type: SkillBonusSchema, default: () => ({}) },
-    divine: { type: SkillBonusSchema, default: () => ({}) },
-    mystic: { type: SkillBonusSchema, default: () => ({}) }
+    black: { type: SkillTalentBonusSchema, default: () => ({}) },
+    primal: { type: SkillTalentBonusSchema, default: () => ({}) },
+    alteration: { type: SkillTalentBonusSchema, default: () => ({}) },
+    divine: { type: SkillTalentBonusSchema, default: () => ({}) },
+    mystic: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
   // Weapon skill bonuses
-  weaponSkills: {
-    unarmed: { type: SkillBonusSchema, default: () => ({}) },
-    throwing: { type: SkillBonusSchema, default: () => ({}) },
-    simpleRangedWeapons: { type: SkillBonusSchema, default: () => ({}) },
-    simpleMeleeWeapons: { type: SkillBonusSchema, default: () => ({}) },
-    complexRangedWeapons: { type: SkillBonusSchema, default: () => ({}) },
-    complexMeleeWeapons: { type: SkillBonusSchema, default: () => ({}) }
+  weapon: {
+    unarmed: { type: SkillTalentBonusSchema, default: () => ({}) },
+    throwing: { type: SkillTalentBonusSchema, default: () => ({}) },
+    simpleRangedWeapons: { type: SkillTalentBonusSchema, default: () => ({}) },
+    simpleMeleeWeapons: { type: SkillTalentBonusSchema, default: () => ({}) },
+    complexRangedWeapons: { type: SkillTalentBonusSchema, default: () => ({}) },
+    complexMeleeWeapons: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
   // Mitigation bonuses
@@ -148,12 +172,40 @@ const ItemSchema = new Schema({
     toxic: { type: Number, default: 0 }
   },
   
-  // Special effects and custom game logic
-  effects: [{
-    type: { type: String, required: true },
-    description: { type: String, default: "" },
-    data: { type: Schema.Types.Mixed } // For custom effect data
-  }],
+  // Detections - vision types with range values
+  detections: {
+    normal: { type: Number, default: 0 },
+    darksight: { type: Number, default: 0 },
+    infravision: { type: Number, default: 0 },
+    deadsight: { type: Number, default: 0 },
+    echolocation: { type: Number, default: 0 },
+    tremorsense: { type: Number, default: 0 },
+    truesight: { type: Number, default: 0 },
+    aethersight: { type: Number, default: 0 }
+  },
+  
+  // Immunities - condition immunities
+  immunities: {
+    afraid: { type: Boolean, default: false },
+    bleeding: { type: Boolean, default: false },
+    blinded: { type: Boolean, default: false },
+    charmed: { type: Boolean, default: false },
+    confused: { type: Boolean, default: false },
+    dazed: { type: Boolean, default: false },
+    diseased: { type: Boolean, default: false },
+    exhausted: { type: Boolean, default: false },
+    frightened: { type: Boolean, default: false },
+    grappled: { type: Boolean, default: false },
+    incapacitated: { type: Boolean, default: false },
+    invisible: { type: Boolean, default: false },
+    paralyzed: { type: Boolean, default: false },
+    petrified: { type: Boolean, default: false },
+    poisoned: { type: Boolean, default: false },
+    prone: { type: Boolean, default: false },
+    restrained: { type: Boolean, default: false },
+    stunned: { type: Boolean, default: false },
+    unconscious: { type: Boolean, default: false }
+  },
   
   // Metadata
   createdAt: { type: Date, default: Date.now },

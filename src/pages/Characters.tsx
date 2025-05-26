@@ -13,7 +13,7 @@ const Characters: React.FC = () => {
     const fetchCharacters = async () => {
       try {
         setLoading(true);
-        
+
         // Make API call to fetch characters for the authenticated user
         const response = await fetch('/api/characters', {
           credentials: 'include', // Include cookies for authentication
@@ -28,7 +28,9 @@ const Characters: React.FC = () => {
         setLoading(false);
       } catch (err) {
         console.error('Error fetching characters:', err);
-        setError(err instanceof Error ? err.message : 'Failed to load characters. Please try again later.');
+        setError(
+          err instanceof Error ? err.message : 'Failed to load characters. Please try again later.'
+        );
         setLoading(false);
       }
     };
@@ -239,8 +241,8 @@ const Characters: React.FC = () => {
                     }}
                   >
                     {character.portraitUrl ? (
-                      <img 
-                        src={character.portraitUrl} 
+                      <img
+                        src={character.portraitUrl}
                         alt={character.name}
                         style={{
                           width: '100%',
@@ -278,18 +280,18 @@ const Characters: React.FC = () => {
                       </span>
 
                       {character.culture && (
-                      <span
-                        style={{
-                          backgroundColor: 'rgba(0, 0, 0, 0.2)',
-                          color: 'var(--color-white)',
-                          fontSize: '0.75rem',
-                          padding: '0.125rem 0.5rem',
-                          borderRadius: '9999px',
-                        }}
-                      >
-                        {character.culture}
-                      </span>
-                    )}
+                        <span
+                          style={{
+                            backgroundColor: 'rgba(0, 0, 0, 0.2)',
+                            color: 'var(--color-white)',
+                            fontSize: '0.75rem',
+                            padding: '0.125rem 0.5rem',
+                            borderRadius: '9999px',
+                          }}
+                        >
+                          {character.culture}
+                        </span>
+                      )}
 
                       <span
                         style={{
@@ -300,7 +302,10 @@ const Characters: React.FC = () => {
                           borderRadius: '9999px',
                         }}
                       >
-                        Module Points: {character.modulePoints ? character.modulePoints.total : character.level * 10}
+                        Module Points:{' '}
+                        {character.modulePoints
+                          ? character.modulePoints.total
+                          : character.level * 10}
                       </span>
                     </div>
                   </div>

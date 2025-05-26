@@ -83,13 +83,15 @@ const ModulesPage: React.FC = () => {
   }, [characterId]);
 
   const isModuleSelected = (moduleId: string) => {
-    return character?.modules.some((m) => {
-      if (typeof m.moduleId === 'string') {
-        return m.moduleId === moduleId;
-      } else {
-        return m.moduleId._id === moduleId;
-      }
-    }) || false;
+    return (
+      character?.modules.some((m) => {
+        if (typeof m.moduleId === 'string') {
+          return m.moduleId === moduleId;
+        } else {
+          return m.moduleId._id === moduleId;
+        }
+      }) || false
+    );
   };
 
   const getCharacterModule = (moduleId: string) => {
@@ -114,7 +116,11 @@ const ModulesPage: React.FC = () => {
     const tier = parseInt(tierMatch[1]);
     const charModule = getCharacterModule(module._id);
 
-    if (charModule?.selectedOptions.some(o => o.location.startsWith(tier.toString()) && o.location !== location)) {
+    if (
+      charModule?.selectedOptions.some(
+        (o) => o.location.startsWith(tier.toString()) && o.location !== location
+      )
+    ) {
       return false; // Another option from the same tier is already selected
     }
 
@@ -125,11 +131,15 @@ const ModulesPage: React.FC = () => {
       if (isSubOption) {
         const previousTier = (tier - 1).toString();
         const charModule = getCharacterModule(module._id);
-        return charModule?.selectedOptions.some((o) => o.location.startsWith(previousTier)) || false;
+        return (
+          charModule?.selectedOptions.some((o) => o.location.startsWith(previousTier)) || false
+        );
       } else {
         const previousTier = (tier - 1).toString();
         const charModule = getCharacterModule(module._id);
-        return charModule?.selectedOptions.some((o) => o.location.startsWith(previousTier)) || false;
+        return (
+          charModule?.selectedOptions.some((o) => o.location.startsWith(previousTier)) || false
+        );
       }
     }
   };
@@ -137,24 +147,30 @@ const ModulesPage: React.FC = () => {
   const handleSelectOption = async (moduleId: string, location: string) => {
     try {
       if (location === '1' && !isModuleSelected(moduleId)) {
-        const addModuleResponse = await fetch(`/api/characters/${characterId}/modules/${moduleId}`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-        });
+        const addModuleResponse = await fetch(
+          `/api/characters/${characterId}/modules/${moduleId}`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+          }
+        );
         if (!addModuleResponse.ok) {
           throw new Error('Failed to add module');
         }
-        const selectOptionResponse = await fetch(`/api/characters/${characterId}/modules/${moduleId}/options`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          credentials: 'include',
-          body: JSON.stringify({ location }),
-        });
+        const selectOptionResponse = await fetch(
+          `/api/characters/${characterId}/modules/${moduleId}/options`,
+          {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            credentials: 'include',
+            body: JSON.stringify({ location }),
+          }
+        );
         if (!selectOptionResponse.ok) {
           throw new Error('Failed to select option');
         }
@@ -182,19 +198,19 @@ const ModulesPage: React.FC = () => {
   };
 
   const canDeselectOption = (moduleId: string, location: string) => {
-  if (location === '1') {
-    return true; 
-  }
-  const charModule = getCharacterModule(moduleId);
-  if (!charModule) return false;
-  const tierNumber = parseInt(location.charAt(0));
-  const nextTierNumber = tierNumber + 1;
-  const hasDependentOptions = charModule.selectedOptions.some(o => {
-    const optionTier = parseInt(o.location.charAt(0));
-    return optionTier === nextTierNumber;
-  });
-  return !hasDependentOptions;
-};
+    if (location === '1') {
+      return true;
+    }
+    const charModule = getCharacterModule(moduleId);
+    if (!charModule) return false;
+    const tierNumber = parseInt(location.charAt(0));
+    const nextTierNumber = tierNumber + 1;
+    const hasDependentOptions = charModule.selectedOptions.some((o) => {
+      const optionTier = parseInt(o.location.charAt(0));
+      return optionTier === nextTierNumber;
+    });
+    return !hasDependentOptions;
+  };
 
   const handleDeselectOption = async (moduleId: string, location: string, moduleType: string) => {
     try {
@@ -252,47 +268,50 @@ const ModulesPage: React.FC = () => {
   };
 
   const hasEnoughPoints = (cost: number = 1) => {
-    return ((character?.modulePoints.total || 0) - (character?.modulePoints.spent || 0)) >= cost;
+    return (character?.modulePoints.total || 0) - (character?.modulePoints.spent || 0) >= cost;
   };
 
   const getDisplayModules = () => {
-  if (!allModules.length) return [];
-  
-  let filteredModules = [...allModules];
-  
-  filteredModules = filteredModules.filter((module) => module.mtype !== 'racial');
-  filteredModules = filteredModules.filter((module) => {
-    if (module.mtype !== 'cultural' && module.mtype !== 'personality') return true;
-        return isModuleSelected(module._id);
-  });
-  
-  if (searchTerm.trim() !== '') {
-    const term = searchTerm.toLowerCase().trim();
+    if (!allModules.length) return [];
+
+    let filteredModules = [...allModules];
+
+    filteredModules = filteredModules.filter((module) => module.mtype !== 'racial');
     filteredModules = filteredModules.filter((module) => {
-      if (module.name.toLowerCase().includes(term)) return true;
-      if (module.mtype.toLowerCase().includes(term)) return true;
-      return module.options.some(
-        option => 
-          option.name.toLowerCase().includes(term) || 
-          option.description.toLowerCase().includes(term)
-      );
+      if (module.mtype !== 'cultural' && module.mtype !== 'personality') return true;
+      return isModuleSelected(module._id);
     });
-  }
-  
-  return filteredModules.sort((a, b) => {
-    const aSelected = isModuleSelected(a._id);
-    const bSelected = isModuleSelected(b._id);
-    
-    if (aSelected && !bSelected) return -1;
-    if (!aSelected && bSelected) return 1;
-    
-    if (a.mtype !== b.mtype) {
-      const typeOrder = { cultural: 0, personality: 1, core: 2, secondary: 3 };
-      return typeOrder[a.mtype as keyof typeof typeOrder] - typeOrder[b.mtype as keyof typeof typeOrder];
+
+    if (searchTerm.trim() !== '') {
+      const term = searchTerm.toLowerCase().trim();
+      filteredModules = filteredModules.filter((module) => {
+        if (module.name.toLowerCase().includes(term)) return true;
+        if (module.mtype.toLowerCase().includes(term)) return true;
+        return module.options.some(
+          (option) =>
+            option.name.toLowerCase().includes(term) ||
+            option.description.toLowerCase().includes(term)
+        );
+      });
     }
-    return a.name.localeCompare(b.name);
-  });
-};
+
+    return filteredModules.sort((a, b) => {
+      const aSelected = isModuleSelected(a._id);
+      const bSelected = isModuleSelected(b._id);
+
+      if (aSelected && !bSelected) return -1;
+      if (!aSelected && bSelected) return 1;
+
+      if (a.mtype !== b.mtype) {
+        const typeOrder = { cultural: 0, personality: 1, core: 2, secondary: 3 };
+        return (
+          typeOrder[a.mtype as keyof typeof typeOrder] -
+          typeOrder[b.mtype as keyof typeof typeOrder]
+        );
+      }
+      return a.name.localeCompare(b.name);
+    });
+  };
   const displayModules = getDisplayModules();
 
   return (
@@ -341,7 +360,7 @@ const ModulesPage: React.FC = () => {
       {/* Search bar */}
       <div style={{ marginBottom: '2rem' }}>
         <div style={{ position: 'relative' }}>
-          <input 
+          <input
             type="text"
             placeholder="Search modules..."
             value={searchTerm}
@@ -356,7 +375,7 @@ const ModulesPage: React.FC = () => {
               paddingLeft: '2.5rem',
             }}
           />
-          <div 
+          <div
             style={{
               position: 'absolute',
               left: '0.75rem',
@@ -365,15 +384,15 @@ const ModulesPage: React.FC = () => {
               color: 'var(--color-cloud)',
             }}
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              width="16" 
-              height="16" 
-              viewBox="0 0 24 24" 
-              fill="none" 
-              stroke="currentColor" 
-              strokeWidth="2" 
-              strokeLinecap="round" 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="16"
+              height="16"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth="2"
+              strokeLinecap="round"
               strokeLinejoin="round"
             >
               <circle cx="11" cy="11" r="8"></circle>
@@ -395,15 +414,15 @@ const ModulesPage: React.FC = () => {
                 padding: '0.25rem',
               }}
             >
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                width="16" 
-                height="16" 
-                viewBox="0 0 24 24" 
-                fill="none" 
-                stroke="currentColor" 
-                strokeWidth="2" 
-                strokeLinecap="round" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="16"
+                height="16"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
                 strokeLinejoin="round"
               >
                 <line x1="18" y1="6" x2="6" y2="18"></line>
@@ -435,14 +454,14 @@ const ModulesPage: React.FC = () => {
                   No modules available
                 </div>
               ) : (
-                <div 
-                  style={{ 
-                    display: 'flex', 
-                    flexDirection: 'column', 
+                <div
+                  style={{
+                    display: 'flex',
+                    flexDirection: 'column',
                     gap: '0.5rem',
                     maxHeight: '600px',
                     overflowY: 'auto',
-                    paddingRight: '0.25rem'
+                    paddingRight: '0.25rem',
                   }}
                 >
                   {displayModules.map((module) => (
@@ -458,7 +477,7 @@ const ModulesPage: React.FC = () => {
                         border:
                           selectedModule?._id === module._id
                             ? '1px solid var(--color-metal-gold)'
-                            : isModuleSelected(module._id) 
+                            : isModuleSelected(module._id)
                               ? '1px solid var(--color-sat-purple)'
                               : '1px solid transparent',
                       }}
@@ -580,14 +599,19 @@ const ModulesPage: React.FC = () => {
                           {tierOptions.map((option) => {
                             // Adjust width based on tier
                             const optionWidth = isOddTier ? '50%' : '100%';
-                            const isSelected = isOptionSelected(selectedModule._id, option.location);
-                            
+                            const isSelected = isOptionSelected(
+                              selectedModule._id,
+                              option.location
+                            );
+
                             // For Tier 1, always make it selectable if module isn't added yet
                             // For other tiers, check prerequisites
-                            const canSelect = option.location === '1' 
-                              ? true 
-                              : (isModuleSelected(selectedModule._id) && canSelectOption(selectedModule, option.location));
-                            
+                            const canSelect =
+                              option.location === '1'
+                                ? true
+                                : isModuleSelected(selectedModule._id) &&
+                                  canSelectOption(selectedModule, option.location);
+
                             const hasEnoughPointsForOption = hasEnoughPoints(1);
 
                             return (
@@ -603,17 +627,27 @@ const ModulesPage: React.FC = () => {
                                     ? '1px solid var(--color-metal-gold)'
                                     : '1px solid var(--color-dark-border)',
                                   width: optionWidth,
-                                  cursor: canSelect && (isSelected || hasEnoughPointsForOption) ? 'pointer' : 'not-allowed',
-                                  opacity: !canSelect || (!isSelected && !hasEnoughPointsForOption) ? 0.5 : 1,
+                                  cursor:
+                                    canSelect && (isSelected || hasEnoughPointsForOption)
+                                      ? 'pointer'
+                                      : 'not-allowed',
+                                  opacity:
+                                    !canSelect || (!isSelected && !hasEnoughPointsForOption)
+                                      ? 0.5
+                                      : 1,
                                   position: 'relative',
-                                  textAlign: 'center'
+                                  textAlign: 'center',
                                 }}
                                 onClick={() => {
                                   if (canSelect && (isSelected || hasEnoughPointsForOption)) {
                                     if (isSelected) {
                                       // Check if the option can be deselected before attempting to deselect it
                                       if (canDeselectOption(selectedModule._id, option.location)) {
-                                        handleDeselectOption(selectedModule._id, option.location, selectedModule.mtype);
+                                        handleDeselectOption(
+                                          selectedModule._id,
+                                          option.location,
+                                          selectedModule.mtype
+                                        );
                                       }
                                       // If it can't be deselected, do nothing (silently ignore the click)
                                     } else {
@@ -641,7 +675,7 @@ const ModulesPage: React.FC = () => {
                                     fontWeight: 'bold',
                                     fontSize: '1rem',
                                     marginBottom: '0.5rem',
-                                    marginTop: '0.5rem'
+                                    marginTop: '0.5rem',
                                   }}
                                 >
                                   {option.name}

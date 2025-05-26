@@ -46,7 +46,7 @@
     },
     {
       "name": "Stage Presence",
-      "description": "Your commanding presence can captivate any audience. Gain +1 skill with presence.",
+      "description": "Your commanding presence can captivate any audience. Gain +1 skill with presence. When you perform somewhere, people are much more likely remember you positively.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -62,7 +62,7 @@
     },
     {
       "name": "Performing Arts",
-      "description": "Your theatrical training encompasses multiple disciplines. Gain +1 skill with coordination. Your performances can incorporate acrobatics, dance, and complex choreography, allowing you to use expression checks for physical entertainment.",
+      "description": "Your theatrical training encompasses multiple disciplines. Gain +1 skill with coordination.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
@@ -70,7 +70,7 @@
     },
     {
       "name": "Traveling Troupe",
-      "description": "Your life on the road has given you skills to shine in a community. Gain +1 skill with cooking and learn gain 2 points in a music skill.",
+      "description": "Your life on the road has given you skills to shine in a community. Gain +1 skill with cooking and become proficient in one musical skill.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -78,7 +78,7 @@
     },
     {
       "name": "Reaction : Improvise",
-      "description": "In response to failing any skill check, you can immediately attempt the same task using a different skill of your choice..",
+      "description": "In response to failing any skill check while in combat, you can immediately attempt the same task using a different skill of your choice.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

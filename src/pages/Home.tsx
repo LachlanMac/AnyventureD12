@@ -8,7 +8,9 @@ const Home: React.FC = () => {
 
       <div className="container mx-auto px-4 py-16 relative z-10">
         <header className="text-center mb-16">
-          <h1 className="text-6xl font-display font-bold mb-4 text-space-highlight">Anyventure TTRPG</h1>
+          <h1 className="text-6xl font-display font-bold mb-4 text-space-highlight">
+            Anyventure TTRPG
+          </h1>
           <p className="text-xl max-w-2xl mx-auto text-gray-300">
             Embark on an epic tabletop role-playing adventure across the cosmos. Create characters,
             explore strange new worlds, and forge your own path among the stars.

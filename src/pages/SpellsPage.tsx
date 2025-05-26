@@ -77,11 +77,11 @@ const SpellsPage: React.FC = () => {
         setAllSpells(spellsData);
 
         const uniqueSchools = [
-        ...new Set(spellsData.map((spell: Spell) => spell.school as string))
+          ...new Set(spellsData.map((spell: Spell) => spell.school as string)),
         ] as string[];
         setSchools(uniqueSchools);
         const uniqueSubschools = [
-        ...new Set(spellsData.map((spell: Spell) => spell.subschool as string))
+          ...new Set(spellsData.map((spell: Spell) => spell.subschool as string)),
         ] as string[];
         setSubschools(uniqueSubschools);
 
@@ -98,13 +98,15 @@ const SpellsPage: React.FC = () => {
 
   // Check if a spell is already learned by the character
   const isSpellLearned = (spellId: string) => {
-    return character?.spells.some((s) => {
-      if (typeof s.spellId === 'string') {
-        return s.spellId === spellId;
-      } else {
-        return s.spellId._id === spellId;
-      }
-    }) || false;
+    return (
+      character?.spells.some((s) => {
+        if (typeof s.spellId === 'string') {
+          return s.spellId === spellId;
+        } else {
+          return s.spellId._id === spellId;
+        }
+      }) || false
+    );
   };
 
   // Get the character's spell data for a specific spell
@@ -230,11 +232,11 @@ const SpellsPage: React.FC = () => {
       if (a.school !== b.school) {
         return a.school.localeCompare(b.school);
       }
-      
+
       if (a.subschool !== b.subschool) {
         return a.subschool.localeCompare(b.subschool);
       }
-      
+
       return a.name.localeCompare(b.name);
     });
   };
@@ -497,8 +499,8 @@ const SpellsPage: React.FC = () => {
                           selectedSpell?._id === spell._id
                             ? '1px solid var(--color-metal-gold)'
                             : isSpellLearned(spell._id)
-                            ? '1px solid var(--color-sat-purple)'
-                            : '1px solid transparent',
+                              ? '1px solid var(--color-sat-purple)'
+                              : '1px solid transparent',
                       }}
                       onClick={() => {
                         setSelectedSpell(spell);
@@ -798,7 +800,7 @@ const SpellsPage: React.FC = () => {
                     )}
                   </div>
                 </div>
-                
+
                 {/* Spell properties */}
                 <div
                   style={{
@@ -834,7 +836,7 @@ const SpellsPage: React.FC = () => {
                         Concentration
                       </span>
                     )}
-                    
+
                     {selectedSpell.reaction && (
                       <span
                         style={{
@@ -847,20 +849,21 @@ const SpellsPage: React.FC = () => {
                         Reaction
                       </span>
                     )}
-                    
-                    {selectedSpell.components && selectedSpell.components.length > 0 && 
-                     selectedSpell.components[0] !== "" && (
-                      <span
-                        style={{
-                          padding: '0.25rem 0.75rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          borderRadius: '0.25rem',
-                          color: 'var(--color-white)',
-                        }}
-                      >
-                        Components: {selectedSpell.components.join(', ')}
-                      </span>
-                    )}
+
+                    {selectedSpell.components &&
+                      selectedSpell.components.length > 0 &&
+                      selectedSpell.components[0] !== '' && (
+                        <span
+                          style={{
+                            padding: '0.25rem 0.75rem',
+                            backgroundColor: 'var(--color-dark-elevated)',
+                            borderRadius: '0.25rem',
+                            color: 'var(--color-white)',
+                          }}
+                        >
+                          Components: {selectedSpell.components.join(', ')}
+                        </span>
+                      )}
                   </div>
                 </div>
 
@@ -920,9 +923,7 @@ const SpellsPage: React.FC = () => {
                       disabled={!hasAvailableSpellSlots()}
                       style={{ flex: 1 }}
                     >
-                      {hasAvailableSpellSlots()
-                        ? 'Learn Spell'
-                        : 'No Spell Slots Available'}
+                      {hasAvailableSpellSlots() ? 'Learn Spell' : 'No Spell Slots Available'}
                     </Button>
                   )}
                 </div>

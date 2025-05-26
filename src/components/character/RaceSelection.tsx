@@ -24,8 +24,8 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
         }
 
         const data = await response.json();
-        console.log("Fetched racial modules in RaceSelection:", data);
-        
+        console.log('Fetched racial modules in RaceSelection:', data);
+
         // Add description field to each module if needed
         const modulesWithDescriptions = data.map((module: RacialModule) => ({
           ...module,
@@ -64,9 +64,9 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
 
   // Handler for race selection
   const handleRaceSelect = (raceName: string) => {
-    const selectedModule = racialModules.find(module => module.name === raceName);
+    const selectedModule = racialModules.find((module) => module.name === raceName);
     if (selectedModule) {
-      console.log("Selected racial module in RaceSelection:", selectedModule);
+      console.log('Selected racial module in RaceSelection:', selectedModule);
       onSelectRace(raceName, selectedModule);
     } else {
       console.error(`Could not find racial module for race: ${raceName}`);
@@ -114,7 +114,7 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
 
   return (
     <div style={{ marginBottom: '1.5rem' }}>
-      <div 
+      <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
@@ -134,21 +134,21 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
         >
           Ancestry Selection
         </label>
-        <div 
+        <div
           style={{
             transition: 'transform 0.3s ease',
             transform: expanded ? 'rotate(180deg)' : 'rotate(0deg)',
           }}
         >
-          <svg 
-            xmlns="http://www.w3.org/2000/svg" 
-            width="20" 
-            height="20" 
-            viewBox="0 0 24 24" 
-            fill="none" 
-            stroke="currentColor" 
-            strokeWidth="2" 
-            strokeLinecap="round" 
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
             strokeLinejoin="round"
             style={{ color: 'var(--color-cloud)' }}
           >
@@ -156,78 +156,78 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
           </svg>
         </div>
       </div>
-  
+
       {/* Race selection grid - this is what gets collapsed */}
       {expanded && (
-        <div 
-          style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))', 
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(210px, 1fr))',
             gap: '1rem',
-            marginBottom: '1rem'
+            marginBottom: '1rem',
           }}
         >
           {racialModules.map((module) => (
             <button
-            key={module.name}
-            type="button"
-            style={{
-              position: 'relative',
-              padding: '0.75rem 1.5rem 0.75rem 1rem', // Reduced right padding to make room for portrait
-              borderRadius: '0.375rem',
-              backgroundColor:
-                selectedRace === module.name
-                  ? 'var(--color-sat-purple)'
-                  : 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: 'none',
-              cursor: 'pointer',
-              transition: 'background-color 0.2s',
-              height: '60px',
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'flex-start',
-              textAlign: 'left',
-              overflow: 'hidden',
-            }}
-            onClick={() => handleRaceSelect(module.name)}
-          >
-            <span style={{ maxWidth: 'calc(100% - 50px)' }}>{module.name}</span>
-            <div 
+              key={module.name}
+              type="button"
               style={{
-                position: 'absolute',
-                right: '0',
-                top: '0',
-                bottom: '0',
-                width: '50px', // Increased width for larger portrait
-                overflow: 'hidden',
-                backgroundColor: 'rgba(0,0,0,0.2)',
+                position: 'relative',
+                padding: '0.75rem 1.5rem 0.75rem 1rem', // Reduced right padding to make room for portrait
+                borderRadius: '0.375rem',
+                backgroundColor:
+                  selectedRace === module.name
+                    ? 'var(--color-sat-purple)'
+                    : 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: 'none',
+                cursor: 'pointer',
+                transition: 'background-color 0.2s',
+                height: '60px',
                 display: 'flex',
                 alignItems: 'center',
-                justifyContent: 'center',
-                borderTopRightRadius: '0.375rem',
-                borderBottomRightRadius: '0.375rem',
+                justifyContent: 'flex-start',
+                textAlign: 'left',
+                overflow: 'hidden',
               }}
+              onClick={() => handleRaceSelect(module.name)}
             >
-              <img 
-                src={getRacePortraitUrl(module.name)} 
-                alt={module.name}
-                onError={(e) => {
-                  // Fallback for missing images
-                  e.currentTarget.src = '/assets/races/default.png';
-                }}
+              <span style={{ maxWidth: 'calc(100% - 50px)' }}>{module.name}</span>
+              <div
                 style={{
-                  width: '100%',
-                  height: '100%',
-                  objectFit: 'cover',
+                  position: 'absolute',
+                  right: '0',
+                  top: '0',
+                  bottom: '0',
+                  width: '50px', // Increased width for larger portrait
+                  overflow: 'hidden',
+                  backgroundColor: 'rgba(0,0,0,0.2)',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  borderTopRightRadius: '0.375rem',
+                  borderBottomRightRadius: '0.375rem',
                 }}
-              />
-            </div>
-          </button>
+              >
+                <img
+                  src={getRacePortraitUrl(module.name)}
+                  alt={module.name}
+                  onError={(e) => {
+                    // Fallback for missing images
+                    e.currentTarget.src = '/assets/races/default.png';
+                  }}
+                  style={{
+                    width: '100%',
+                    height: '100%',
+                    objectFit: 'cover',
+                  }}
+                />
+              </div>
+            </button>
           ))}
         </div>
       )}
-  
+
       {/* Race description - this always shows if a race is selected */}
       <div
         style={{
@@ -252,7 +252,7 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
               {racialModules.find((module) => module.name === selectedRace)?.description ||
                 'Select a race to see information'}
             </p>
-  
+
             {/* Display first tier racial traits for the selected race */}
             <div style={{ marginTop: '1rem' }}>
               <h4
@@ -265,33 +265,32 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                 Racial Traits
               </h4>
               <div>
-              {racialModules
-                .find((module) => module.name === selectedRace)
-                ?.options
-                .map((option) => (
-                  <div
-                    key={option.name}
-                    style={{
-                      backgroundColor: 'rgba(85, 65, 130, 0.2)',
-                      padding: '0.5rem',
-                      borderRadius: '0.25rem',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
+                {racialModules
+                  .find((module) => module.name === selectedRace)
+                  ?.options.map((option) => (
                     <div
+                      key={option.name}
                       style={{
-                        fontWeight: 'bold',
-                        color: 'var(--color-white)',
-                        marginBottom: '0.25rem',
+                        backgroundColor: 'rgba(85, 65, 130, 0.2)',
+                        padding: '0.5rem',
+                        borderRadius: '0.25rem',
+                        marginBottom: '0.5rem',
                       }}
                     >
-                      {option.name}
+                      <div
+                        style={{
+                          fontWeight: 'bold',
+                          color: 'var(--color-white)',
+                          marginBottom: '0.25rem',
+                        }}
+                      >
+                        {option.name}
+                      </div>
+                      <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+                        {option.description}
+                      </div>
                     </div>
-                    <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                      {option.description}
-                    </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             </div>
           </>

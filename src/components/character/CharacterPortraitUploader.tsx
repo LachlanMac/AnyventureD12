@@ -7,10 +7,10 @@ interface CharacterPortraitUploaderProps {
   size?: 'small' | 'medium' | 'large';
 }
 
-const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({ 
-  currentPortrait, 
+const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
+  currentPortrait,
   onPortraitChange,
-  size = 'large' // 'small', 'medium', or 'large'
+  size = 'large', // 'small', 'medium', or 'large'
 }) => {
   const [preview, setPreview] = useState<string | null>(currentPortrait || null);
   const [isHovering, setIsHovering] = useState(false);
@@ -18,7 +18,7 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
 
   // Determine dimensions based on size prop
   const getDimensions = () => {
-    switch(size) {
+    switch (size) {
       case 'small':
         return { width: '100px', height: '100px' };
       case 'medium':
@@ -66,7 +66,7 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
 
   return (
     <div>
-      <div 
+      <div
         style={{
           position: 'relative',
           width: dimensions.width,
@@ -83,9 +83,9 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
       >
         {/* Display preview or placeholder */}
         {preview ? (
-          <img 
-            src={preview} 
-            alt="Character portrait" 
+          <img
+            src={preview}
+            alt="Character portrait"
             style={{
               width: '100%',
               height: '100%',
@@ -95,7 +95,7 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
             }}
           />
         ) : (
-          <div 
+          <div
             style={{
               display: 'flex',
               flexDirection: 'column',
@@ -107,18 +107,18 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
               textAlign: 'center',
             }}
           >
-            <svg 
-              xmlns="http://www.w3.org/2000/svg" 
-              fill="none" 
-              viewBox="0 0 24 24" 
-              stroke="currentColor" 
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
               style={{ width: '2rem', height: '2rem', marginBottom: '0.5rem' }}
             >
-              <path 
-                strokeLinecap="round" 
-                strokeLinejoin="round" 
-                strokeWidth={2} 
-                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" 
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"
               />
             </svg>
             <span style={{ fontSize: '0.75rem' }}>Upload Portrait</span>
@@ -127,7 +127,7 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
 
         {/* Overlay when hovering */}
         {isHovering && (
-          <div 
+          <div
             style={{
               position: 'absolute',
               top: 0,
@@ -142,18 +142,18 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
             }}
           >
             <div style={{ textAlign: 'center' }}>
-              <svg 
-                xmlns="http://www.w3.org/2000/svg" 
-                fill="none" 
-                viewBox="0 0 24 24" 
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
                 stroke="currentColor"
                 style={{ width: '1.5rem', height: '1.5rem', margin: '0 auto 0.5rem' }}
               >
-                <path 
-                  strokeLinecap="round" 
-                  strokeLinejoin="round" 
-                  strokeWidth={2} 
-                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" 
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"
                 />
               </svg>
               <span>{preview ? 'Change Portrait' : 'Upload Portrait'}</span>
@@ -173,11 +173,7 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
 
       {/* Button to trigger file selection (optional) */}
       <div style={{ marginTop: '0.5rem', textAlign: 'center' }}>
-        <Button
-          variant="secondary"
-          size="sm"
-          onClick={handleUploadClick}
-        >
+        <Button variant="secondary" size="sm" onClick={handleUploadClick}>
           {preview ? 'Change Portrait' : 'Upload Portrait'}
         </Button>
       </div>

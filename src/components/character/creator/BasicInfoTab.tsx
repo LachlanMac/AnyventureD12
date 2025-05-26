@@ -6,7 +6,7 @@ import CultureSelection from '../CultureSelection';
 interface BasicInfoTabProps {
   name: string;
   race: string;
-  culture: string; 
+  culture: string;
   modulePoints: number;
   onNameChange: (name: string) => void;
   onRaceChange: (race: string, racialModule: RacialModule) => void;
@@ -64,17 +64,11 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
       </div>
 
       {/* Race Selection Component */}
-      <RaceSelection 
-        selectedRace={race} 
-        onSelectRace={onRaceChange}
-      />
-      
+      <RaceSelection selectedRace={race} onSelectRace={onRaceChange} />
+
       {/* Culture Selection Component */}
-      <CultureSelection 
-        selectedCulture={culture} 
-        onSelectCulture={onCultureChange}
-      />
-      
+      <CultureSelection selectedCulture={culture} onSelectCulture={onCultureChange} />
+
       <div style={{ marginBottom: '1.5rem' }}>
         <label
           style={{
@@ -113,8 +107,8 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
             marginTop: '0.5rem',
           }}
         >
-          Module points determine your starting power level. Your character level is
-          calculated as Module Points / 10.
+          Module points determine your starting power level. Your character level is calculated as
+          Module Points / 10.
         </p>
       </div>
     </div>
