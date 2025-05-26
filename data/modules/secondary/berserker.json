@@ -78,7 +78,7 @@
    },
    {
      "name": "Deathless Rage",
-     "description": "While at 0 health, you completely restore your energy when you hit a creature with an action. Additionally, gain +1 to your max energy.",
+     "description": "While at 0 health, you completely restore your energy when you hit a creature with an action. Additionally, gain +1 maximum energy.",
      "mtype": "core",
      "location": "7",
      "cost": 3,

@@ -83,7 +83,7 @@ const SpellSchema = new Schema({
       'heat',
       'cold',
       'lightning',
-      'arcane',
+      'aether',
       'toxic',
       'physical',
       'true'

@@ -14,7 +14,7 @@
     },
     {
       "name": "Action : Reposition",
-      "description": "You strike an enemy and reposition yourself to where you are still adjacent to them. This has a limit equal to your movement speed when considering exceptionally large enemies.",
+      "description": "You strike an enemy and reposition yourself to where you are still adjacent to your target. This has a limit equal to your movement speed when considering exceptionally large enemies.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,

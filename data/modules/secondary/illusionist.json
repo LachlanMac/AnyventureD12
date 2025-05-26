@@ -61,7 +61,7 @@
       "data": ""
     },
     {
-      "name": "",
+      "name": "Magician",
       "description": "You've perfected the art of stage magic through mundane and magical means. Gain +1 skill with expression. You learn the illusify spell and can use it at will without requiring your concentration.",
       "mtype": "core",
       "location": "6a",
@@ -70,7 +70,7 @@
     },
     {
       "name": "Vivid Imagination",
-      "description": "The terrors of the world are nothing compared to the horrors you have created as illusions. Gain +1 resolve and +1 psychic mitigation.",
+      "description": "The terrors of the world are nothing compared to the horrors you have created as illusions. Gain +1 maximum resolve and +1 psychic mitigation.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

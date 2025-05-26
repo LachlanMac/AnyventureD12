@@ -43,10 +43,16 @@ const ItemSchema = new Schema({
   // Item type information
   type: { 
     type: String, 
-    enum: ["weapon", "armor", "gear", "consumable", "container", "currency"],
+    enum: ["weapon", "gear", "shield", "consumable", "container", "currency"],
     required: true 
   },
-  
+  // For gear
+  slot :{
+    type: String,
+    enum: ["hands", "feet", "body", "head", "accessory", "cloak"],
+    required: false
+  },
+
   // For weapons
   weapon_data: {
     category: { 
@@ -54,10 +60,6 @@ const ItemSchema = new Schema({
       enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
       required: function() { return this.type === 'weapon'; }
     },
-    flags: [{ 
-      type: String, 
-      enum: ["heavy", "light", "silvered", "blackened", "masterwork", "magical", "cursed", "two-handed", "versatile", "reach", "finesse", "ammunition", "loading", "special"]
-    }],
     primary: DamageSchema,
     secondary: DamageSchema
   },
@@ -142,7 +144,8 @@ const ItemSchema = new Schema({
     psychic: { type: Number, default: 0 },
     dark: { type: Number, default: 0 },
     divine: { type: Number, default: 0 },
-    arcane: { type: Number, default: 0 }
+    aether: { type: Number, default: 0 },
+    toxic: { type: Number, default: 0 }
   },
   
   // Special effects and custom game logic

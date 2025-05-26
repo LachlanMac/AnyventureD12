@@ -54,7 +54,7 @@
     },
     {
       "name": "Mind-Body Connection",
-      "description": "Your dedication to your body has resulted in a stronger willpower. Gain +1 resilience and +1 energy.",
+      "description": "Your dedication to your body has resulted in a stronger willpower. Gain +1 resilience and +1 maximum energy.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
