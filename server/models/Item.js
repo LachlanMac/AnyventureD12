@@ -63,6 +63,11 @@ const ItemSchema = new Schema({
       type: String, 
       enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
     },
+  bonus_attack: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
   primary: DamageSchema,
   secondary: DamageSchema,
 

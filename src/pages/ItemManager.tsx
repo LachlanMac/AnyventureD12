@@ -824,7 +824,7 @@ const ItemManager: React.FC = () => {
                               <option value="lightning">Lightning</option>
                               <option value="dark">Dark</option>
                               <option value="divine">Divine</option>
-                              <option value="arcane">Arcane</option>
+                              <option value="aetheric">Aetheric</option>
                               <option value="psychic">Psychic</option>
                               <option value="toxic">Toxic</option>
                             </select>
@@ -1043,7 +1043,7 @@ const ItemManager: React.FC = () => {
                             <option value="lightning">Lightning</option>
                             <option value="dark">Dark</option>
                             <option value="divine">Divine</option>
-                            <option value="arcane">Arcane</option>
+                            <option value="aetheric">Aetheric</option>
                             <option value="psychic">Psychic</option>
                             <option value="toxic">Toxic</option>
                           </select>

@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Dual Wielder",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Two-Weapon Fighting",
+      "description": "You have learned to fight effectively with a simple melee weapons in each hand. Gain +1 skill with coordination. When dual wielding, your offhand attacks roll with only a single penalty dice.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSG=1"
+    },
+    {
+      "name": "Action : Disengaging Strike",
+      "description": "You attack with your offhand weapon while using your main weapon to defend. Make an offhand attack and immediately move up to 3 units. Until the start of your next turn, reroll any deflection or evasion dice that land on the 1 face.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Synchronized Strikes",
+      "description": "You coordinate both weapons in a devastating combination. Until the end of your turn, your weapon damage cannot be reduced by physical mitigation.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Stamina",
+      "description": "You have adpated to the stamina requirements for swinging two weapons in compbat. Gain +1 skill with fitness and +1 maximum energy.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Weapon Finesse",
+      "description": "Wielding two weapons has improved your footwork, allowing you to dance around your enemies' strikes. Gain +1 skill with evasion",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SSI=1"
+    },
+    {
+      "name": "Inpenetrable Defense",
+      "description": "You utilize your dual weapons to create an impenetrable defense. Gain +1 skill with deflection.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSH=1"
+    },
+    {
+      "name": "Weapon Master",
+      "description": "Your mastery of light weapons has reached professional levels. Gain +1 skill with simple melee weapons.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "WS2=1"
+    },
+    {
+      "name": "Reaction : Cross Block",
+      "description": "In response to being targeted by a melee attack, you cross both weapons to block. Make a deflection check with a bonus dice. If you successfully deflect the attack, instead of taking half damage from a deflection check without a shield, you take none.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Reaction : Dual Opportunity",
+      "description": "In response to a creature leaving or enterting a tile adjacent to you, you make an attack with both your main and offhand",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Ambidextrous",
+      "description": "You have achieved perfect coordination with both hands. You no longer have a penalty dice when making offhand attacks, rolling with your full talent. Additionally, you can make up to 2 offhand attacks per turn instead of the normal limit of 1.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

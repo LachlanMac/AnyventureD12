@@ -23,6 +23,17 @@ interface CharacterHeaderProps {
     languages?: string[];
     stances?: string[];
     portraitUrl?: string | null;
+    mitigation?: {
+      physical?: number;
+      heat?: number;
+      cold?: number;
+      lightning?: number;
+      dark?: number;
+      divine?: number;
+      aetheric?: number;
+      psychic?: number;
+      toxic?: number;
+    };
   };
   onDelete: () => void;
 }
@@ -142,30 +153,6 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
             />
           </div>
 
-          {/* Resource bars - middle column */}
-          <div className="flex-1">
-            {renderResourceBar(
-              character.resources.health.current,
-              character.resources.health.max,
-              'var(--color-sunset)',
-              'Health'
-            )}
-
-            {renderResourceBar(
-              character.resources.energy.current,
-              character.resources.energy.max,
-              'var(--color-metal-gold)',
-              'Energy'
-            )}
-
-            {renderResourceBar(
-              character.resources.resolve.current,
-              character.resources.resolve.max,
-              'var(--color-sat-purple)',
-              'Resolve'
-            )}
-          </div>
-
           {/* Character details - right column */}
           <div className="flex-1">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
@@ -214,6 +201,182 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
               )}
             </div>
           </div>
+        </div>
+
+        {/* Resources and Mitigation Section */}
+        <div className="flex flex-col md:flex-row gap-6 mt-6">
+          {/* Resource bars and Movement - left column */}
+          <div className="flex-1">
+            {renderResourceBar(
+              character.resources.health.current,
+              character.resources.health.max,
+              'var(--color-sunset)',
+              'Health'
+            )}
+
+            {renderResourceBar(
+              character.resources.energy.current,
+              character.resources.energy.max,
+              'var(--color-metal-gold)',
+              'Energy'
+            )}
+
+            {renderResourceBar(
+              character.resources.resolve.current,
+              character.resources.resolve.max,
+              'var(--color-sat-purple)',
+              'Resolve'
+            )}
+
+            {/* Movement Speeds */}
+            <div className="mt-4">
+              <div className="grid grid-cols-2 gap-3">
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Movement Speed</div>
+                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
+                    {character.movement} Units
+                  </div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Sprint Speed</div>
+                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
+                    {character.movement * 2} Units
+                  </div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Climb Speed</div>
+                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
+                    3 Units
+                  </div>
+                </div>
+                <div style={{ textAlign: 'center' }}>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Swim Speed</div>
+                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
+                    3 Units
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          {/* Mitigation Table - right column */}
+          {character.mitigation && (
+            <div className="flex-1 flex justify-center">
+              <div
+                style={{
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  borderRadius: '0.375rem',
+                  border: '1px solid var(--color-dark-border)',
+                  overflow: 'hidden',
+                  width: '100%',
+                  maxWidth: '500px',
+                }}
+              >
+                <table
+                  style={{
+                    width: '100%',
+                    borderCollapse: 'collapse',
+                  }}
+                >
+                  <thead>
+                    <tr
+                      style={{
+                        backgroundColor: 'var(--color-dark-bg)',
+                        borderBottom: '1px solid var(--color-dark-border)',
+                      }}
+                    >
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'left',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                      >
+                        Mitigation
+                      </th>
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                      >
+                        Complete
+                      </th>
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                      >
+                        Half
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {Object.entries(character.mitigation).map(([type, value], index) => (
+                      <tr
+                        key={type}
+                        style={{
+                          borderBottom:
+                            index < Object.entries(character.mitigation).length - 1
+                              ? '1px solid var(--color-dark-border)'
+                              : 'none',
+                        }}
+                      >
+                        <td
+                          style={{
+                            color: 'var(--color-white)',
+                            padding: '0.25rem 0.5rem',
+                            textTransform: 'capitalize',
+                            fontWeight: '500',
+                            fontSize: '0.875rem',
+                          }}
+                        >
+                          {type}
+                        </td>
+                        <td
+                          style={{
+                            color: 'var(--color-metal-gold)',
+                            padding: '0.25rem 0.5rem',
+                            textAlign: 'center',
+                            fontWeight: '600',
+                            fontSize: '0.875rem',
+                          }}
+                        >
+                          {value}
+                        </td>
+                        <td
+                          style={{
+                            color: 'var(--color-sat-purple)',
+                            padding: '0.25rem 0.5rem',
+                            textAlign: 'center',
+                            fontWeight: '600',
+                            fontSize: '0.875rem',
+                          }}
+                        >
+                          {value * 2}
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          )}
         </div>
       </CardBody>
     </Card>

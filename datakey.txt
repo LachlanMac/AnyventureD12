@@ -40,6 +40,11 @@ EX. WS1=1 SKILL  WT1=1 TALENT
 5: Complex Melee Weapons
 6: Complex Ranged Weapons
 
+#: Increase by 1
+A: Improved Critical?
+B: Double Critical?
+C: Exploding Critical?
+
 ############ MAGIC ############
 KEY (M)
 EX. MS1=1 SKILL  MT1=1 TALENT
@@ -71,7 +76,7 @@ EX. M1=1 MITIGATION
 4: Lightning
 5: Dark
 6: Divine
-7: Arcane
+7: Aetheric
 8: Psychic
 9: Toxic
 A: True
@@ -124,29 +129,29 @@ EX. V2=5 is DARKVISION equal to MODERATE
 ########### IMMUNITIES ###################
 KEY (I)
 ##########################################
-A: AFRAID
-B: BLEEDING
-C: BLINDED
-D: CHARMED
-E:
-F:
-G:
-H:
-I:
-J:
-K:
-L:
-M:
-N:
-O:
-P:
-Q:
-R:
-S:
-T:
-U:
-V:
-W:
-X:
-Y:
-Z:
+A: AFRAID  
+B: BLEEDING  
+C: BLINDED  
+D: CHARMED  
+E: CONFUSED  
+F: DAZED  
+G: DEAFENED  
+H: DISEASED  
+I: WINDED  
+J: PRONE  
+K: POISONED  
+L: MUTED  
+M: STUNNED  
+N: IMPAIRED  
+O: NUMBED  
+P: BROKEN  
+Q: INCAPACITATED  
+R: IGNITED  
+S: HIDDEN  
+T: MADDENED  
+U:  
+V:  
+W:  
+X:  
+Y:  
+Z:  

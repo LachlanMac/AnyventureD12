@@ -203,23 +203,29 @@ const ItemBrowser: React.FC = () => {
                 </div>
                 {(item.health?.max !== 0 || item.health?.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
-                    <strong>Health:</strong> 
-                    {item.health?.max !== 0 && ` ${item.health.max > 0 ? '+' : ''}${item.health.max} max`}
-                    {item.health?.recovery !== 0 && ` ${item.health.recovery > 0 ? '+' : ''}${item.health.recovery} recovery`}
+                    <strong>Health:</strong>
+                    {item.health?.max !== 0 &&
+                      ` ${item.health.max > 0 ? '+' : ''}${item.health.max} max`}
+                    {item.health?.recovery !== 0 &&
+                      ` ${item.health.recovery > 0 ? '+' : ''}${item.health.recovery} recovery`}
                   </div>
                 )}
                 {(item.energy?.max !== 0 || item.energy?.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
                     <strong>Energy:</strong>
-                    {item.energy?.max !== 0 && ` ${item.energy.max > 0 ? '+' : ''}${item.energy.max} max`}
-                    {item.energy?.recovery !== 0 && ` ${item.energy.recovery > 0 ? '+' : ''}${item.energy.recovery} recovery`}
+                    {item.energy?.max !== 0 &&
+                      ` ${item.energy.max > 0 ? '+' : ''}${item.energy.max} max`}
+                    {item.energy?.recovery !== 0 &&
+                      ` ${item.energy.recovery > 0 ? '+' : ''}${item.energy.recovery} recovery`}
                   </div>
                 )}
                 {(item.resolve?.max !== 0 || item.resolve?.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
                     <strong>Resolve:</strong>
-                    {item.resolve?.max !== 0 && ` ${item.resolve.max > 0 ? '+' : ''}${item.resolve.max} max`}
-                    {item.resolve?.recovery !== 0 && ` ${item.resolve.recovery > 0 ? '+' : ''}${item.resolve.recovery} recovery`}
+                    {item.resolve?.max !== 0 &&
+                      ` ${item.resolve.max > 0 ? '+' : ''}${item.resolve.max} max`}
+                    {item.resolve?.recovery !== 0 &&
+                      ` ${item.resolve.recovery > 0 ? '+' : ''}${item.resolve.recovery} recovery`}
                   </div>
                 )}
                 {item.movement !== 0 && (
@@ -306,36 +312,39 @@ const ItemBrowser: React.FC = () => {
             )}
 
             {/* Attributes */}
-            {item.attributes && Object.values(item.attributes).some((attr) => attr.add_talent > 0 || attr.set_talent > 0) && (
-              <div>
-                <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-                  Attribute Bonuses
-                </h3>
-                <div
-                  style={{
-                    backgroundColor: 'var(--color-dark-elevated)',
-                    padding: '1rem',
-                    borderRadius: '0.375rem',
-                  }}
-                >
-                  {Object.entries(item.attributes).map(([attrName, attr]) => {
-                    if (attr.add_talent > 0 || attr.set_talent > 0) {
-                      return (
-                        <div
-                          key={attrName}
-                          style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
-                        >
-                          <strong style={{ textTransform: 'capitalize' }}>{attrName}:</strong>
-                          {attr.add_talent > 0 && ` +${attr.add_talent} talent`}
-                          {attr.set_talent > 0 && ` Set to ${attr.set_talent} talent`}
-                        </div>
-                      );
-                    }
-                    return null;
-                  })}
+            {item.attributes &&
+              Object.values(item.attributes).some(
+                (attr) => attr.add_talent > 0 || attr.set_talent > 0
+              ) && (
+                <div>
+                  <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
+                    Attribute Bonuses
+                  </h3>
+                  <div
+                    style={{
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      padding: '1rem',
+                      borderRadius: '0.375rem',
+                    }}
+                  >
+                    {Object.entries(item.attributes).map(([attrName, attr]) => {
+                      if (attr.add_talent > 0 || attr.set_talent > 0) {
+                        return (
+                          <div
+                            key={attrName}
+                            style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
+                          >
+                            <strong style={{ textTransform: 'capitalize' }}>{attrName}:</strong>
+                            {attr.add_talent > 0 && ` +${attr.add_talent} talent`}
+                            {attr.set_talent > 0 && ` Set to ${attr.set_talent} talent`}
+                          </div>
+                        );
+                      }
+                      return null;
+                    })}
+                  </div>
                 </div>
-              </div>
-            )}
+              )}
 
             {/* Basic Skills */}
             {item.basic &&
@@ -588,7 +597,17 @@ const ItemBrowser: React.FC = () => {
                             {value < 0 ? (
                               <span style={{ color: 'var(--color-sunset)' }}>Impaired</span>
                             ) : (
-                              ['None', 'Adjacent', 'Nearby', 'Very Short', 'Short', 'Moderate', 'Distant', 'Remote', 'Unlimited'][value]
+                              [
+                                'None',
+                                'Adjacent',
+                                'Nearby',
+                                'Very Short',
+                                'Short',
+                                'Moderate',
+                                'Distant',
+                                'Remote',
+                                'Unlimited',
+                              ][value]
                             )}
                           </div>
                         )

@@ -1,0 +1,205 @@
+[
+  {
+    "id": "akan",
+    "name": "Akan",
+    "description": "The native language of the Arah-ka is monotone in nature with very small variations in pitch or speed but utilizes a series of hand gestures are an integral part of establishing meaning.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "as_bok",
+    "name": "As-Bok",
+    "description": "The native language of Minotaurs, marked by a distinctly gravelly quality and deep, resonant tones.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "common",
+    "name": "Common",
+    "description": "The language that commerce and diplomacy is conducted in between different cultures and language speaker throughout the Viridus Nexus.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "elven",
+    "name": "Elven",
+    "description": "The native language of Elves which exhibits complex, soft, and breathy patterns, with many words gracefully concluding in a gentle exhale.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "giant",
+    "name": "Giant",
+    "description": "The ancient tongue of the first Giants now used natively by species with Giants-Blood is filled with long vowels and harsh consonants amplified by deep thrumming from the chest.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "goblin",
+    "name": "Goblin",
+    "description": "The native language of the Goblins, utilizing a broad range of tonal variations, making it sound almost like a melody, with high and low pitches intricately woven.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "gnilbark",
+    "name": "Gnilbark",
+    "description": "The native language of the Gnolls, featuring a series of throaty barks and growls with volume often indicating different meaning.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "hssshek",
+    "name": "Hssshek",
+    "description": "The native language of the Lizardfolk which is characterized by a series of hissing sounds, in which the duration and pitch of each hiss convey different meanings. Some of these pitches extend beyond the normal auditory spectrum of certain ancestries.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "lattus",
+    "name": "Lattus",
+    "description": "The native language of Humans and the origin of the common tongue. This language can vary greatly by region and culture but is mostly utilized in writing and in scholarly texts.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "orcish",
+    "name": "Orcish",
+    "description": "The native language of Orcs which is composed of clipped syllables and a rhythmic cadence like the steady beating of a drum.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "qualatiq",
+    "name": "Qualatiq",
+    "description": "The native language of Tidewalkers that has a unique trilling sound, with rapid vibrations of the tongue against the roof of the mouth to create sound that travels through water. Using this language to channel spells ignores the penalty from being engulfed.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "shimmerspeak",
+    "name": "Shimmerspeak",
+    "description": "The native language of Gnomes which uses a unique whistling sound for certain syllables, creating a musical and airy tone.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "sign_language",
+    "name": "Sign Language",
+    "description": "A language of hand gestures and facial expressions that conveys meaning and is used as a primary form of communication by those who cannot speak or cannot hear.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "underspeak",
+    "name": "Underspeak",
+    "description": "The native language of the Stout-Folk which is characterized by several vowels strung together with abrupt consonant endings that often sound harsh and breathy.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "vethan",
+    "name": "Vethan",
+    "description": "The language of the Vethi is characterized by elongated vowel sounds and a leisurely pace, creating a calming, drawn-out cadence. The Gloxy, however, speak this language natively with quick, staccato vowels.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "draconic",
+    "name": "Draconic",
+    "description": "The non-magical language of Dragons, often used to communicate with humanoids is fashioned to be a simplified version of the old tongue that incorporates exaggerated emphasis on vowels and the first consonant of each word.",
+    "code": "",
+    "magic": 0
+  },
+  {
+    "id": "aeron",
+    "name": "Aeron",
+    "description": "The magical language of Aeron, the upper elemental plane of Sky and the plane of Valor. When channeling in this language, spells from the aeromancy and divine schools of magic are automatically charged on a true hit. Additionally, aeromancy spells that have a range of at least 2 units gain an extra 4 units of range.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "arcanascript",
+    "name": "Arcanascript",
+    "description": "The written language of magic, allowing a fluent individual the ability to decipher magical runes, such as those used in scribing and runecarving. Scribing and runecarving checks made while using this language gain a 1d4 bonus.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "chiroglyphics",
+    "name": "Chiroglyphics",
+    "description": "A non-spoken language that uses hand gestures to trace arcane runes into the air, allowing a character to channel spells without needing to speak. Both the penalty for the muted and engulfed condition are removed, but someone using this language to channel spells while grappled suffers a 1d4 penalty to spell attacks.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "demonic",
+    "name": "Demonic",
+    "description": "The language of the Abyss which is required to channel some of the darkest spells in the witchcraft school of magic. When a spell is channeled that deals damage using this language, that initial damage is increased by 1d4 for each level of spell - with beginner adding 1d4 and master adding 5d4. When any spell is channeled using this language, roll a 1d12 or use the spell attack check if one is required. If dice lands on the 1 face, roll on the entity encounter table [demonic category].",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "divine",
+    "name": "Divine",
+    "description": "The language of the plane of Divinity and the entities that reside there. When a spell that restores health is channeled in this language, roll a 1d8 and add that to the amount restored. If the d8 lands on the 1 face, the channeler rolls on the entity encounter table [divine category]. On an 8, any wounded or exhausted condition affecting the target of the spell is removed.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "deadspeak",
+    "name": "Deadspeak",
+    "description": "The language of the Dead, allowing a necromancer to perform certain rituals. A speaker of this language can call the spirit of a recently (within 10 days) deceased humanoid to their corpse by rolling a 1d12. If the d12 lands on a 9 or higher, the spirit is bound to answer 3 questions, otherwise the spirit can refuse to communicate. In the event the d12 face is a 1, roll on the entity encounter table [undead category].",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "old_draconic",
+    "name": "Old Draconic",
+    "description": "The magical and ancient language of the Dragons, passsed on to their chosen people ages ago. A user of this language can telepathically speak to a creature within 20 units.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "infernal",
+    "name": "Infernal",
+    "description": "The magical language of the Infernal, the lower elemental plane of Fire. When channeling in this language, spells from the pyromancy and fiend schools of magic are automatically charged on a true hit. Additionally, fiend spells that strike a creature that is ignited cause the damage from that condition to be dark instead of fire and require 2 actions instead of 1 to extinguish.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "orycotal",
+    "name": "Orycotal",
+    "description": "The language of the Orycotal which has a mesmerizing effect on those who do not know it, allowing the Orycotal to weave in words of their langauge with another language they speak. This lowers Insight and Search Checks by 2 when listening to this language.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "okkor",
+    "name": "Okkor",
+    "description": "The magical language of Okkor, the upper elemental plane of Earth and plane of Growth. When channeling in this language, spells from the geomancy and divine schools of magic are automatically charged on a true hit. Additionally, geomancy spells that deal physical damage deal arcane damage instead.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "sylvan",
+    "name": "Sylvan",
+    "description": "The magical language of the Fey, allowing the user to speak to plantoids and beasts and gaining a +2 bonus to all social checks while doing so. The beasts and plantoids can understand simple concepts from the speaker but can not communicate back unless otherwise capable.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "abyssal",
+    "name": "Abyssal",
+    "description": "The magical language of Abyssal, the lower elemental plane of Water. When channeling in this language, spells from the aquamancy and fiend schools of magic are automatically charged on a true hit. Additionally, aquamancy spells gain a 1d4 bonus to their attack check when completely submerged under water.",
+    "code": "",
+    "magic": 1
+  },
+  {
+    "id": "void_speak",
+    "name": "Void Speak",
+    "description": "The language of the void. Terrible and guttural, this language calls upon the darkest depths of the lower planes to infuse magic. When channeling spells using this language, gain a +2 on the spell attack. If the face value of the spell attack is a 1, roll on the entity encounter table [void category].",
+    "code": "",
+    "magic": 1
+  }
+]

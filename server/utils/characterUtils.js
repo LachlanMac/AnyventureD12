@@ -257,7 +257,7 @@ const parseDataString = (dataString, bonuses) => {
         '4': 'lightning',
         '5': 'dark',
         '6': 'divine',
-        '7': 'arcane',
+        '7': 'aetheric',
         '8': 'psychic',
         '9': 'toxic'
       };

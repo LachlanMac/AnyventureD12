@@ -335,7 +335,7 @@ const CharacterCreate: React.FC = () => {
     setIsLoading(true);
     try {
       console.log('Sending character data:', character);
-      let initialModules = [];
+      const initialModules = [];
       if (selectedRacialModule) {
         // Find the tier 1 option of the racial module
         const tier1Option = selectedRacialModule.options.find((option) => option.location === '1');

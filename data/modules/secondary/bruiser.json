@@ -46,7 +46,7 @@
     },
     {
         "name": "Action : Pummel",
-      "description": "You make a vicious attack with either an unarmed or melee weapon that has the bludgeon tab. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",,
+      "description": "You make a vicious attack with either an unarmed or melee weapon that has the bludgeon tab. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,

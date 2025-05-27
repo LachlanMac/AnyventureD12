@@ -230,7 +230,7 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
 
       <SpecializedSkillsSection
         title="Magic Skills"
-        description="Magic skills represent affinity with different sources of arcane or planar power."
+        description="Magic skills represent affinity with different sources of magical or planar power."
         skills={[
           {
             id: 'black',

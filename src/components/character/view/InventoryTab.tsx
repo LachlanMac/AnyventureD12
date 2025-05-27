@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { Character, Item, CharacterItem, Equipment } from '../../../types/character';
+import { Character, Item, CharacterItem } from '../../../types/character';
 import ItemEditModal from './ItemEditModal';
 
 interface InventoryTabProps {
@@ -8,86 +8,6 @@ interface InventoryTabProps {
   onCharacterUpdate: (character: Character) => void;
 }
 
-interface EquipmentSlotProps {
-  slotName: string;
-  slotLabel: string;
-  equippedItem: Item | null;
-  onEquip: (itemId: string, slotName: string) => void;
-  onUnequip: (slotName: string) => void;
-  allowedTypes?: string[];
-}
-
-const EquipmentSlot: React.FC<EquipmentSlotProps> = ({
-  slotName,
-  slotLabel,
-  equippedItem,
-  onEquip,
-  onUnequip,
-  allowedTypes = [],
-}) => {
-  const handleDrop = (e: React.DragEvent) => {
-    e.preventDefault();
-    const itemId = e.dataTransfer.getData('text/plain');
-    if (itemId) {
-      onEquip(itemId, slotName);
-    }
-  };
-
-  const handleDragOver = (e: React.DragEvent) => {
-    e.preventDefault();
-  };
-
-  return (
-    <div
-      className="equipment-slot"
-      onDrop={handleDrop}
-      onDragOver={handleDragOver}
-      style={{
-        width: '80px',
-        height: '80px',
-        border: '2px dashed var(--color-dark-border)',
-        borderRadius: '8px',
-        display: 'flex',
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-        backgroundColor: equippedItem ? 'var(--color-dark-bg)' : 'transparent',
-        cursor: 'pointer',
-        position: 'relative',
-        margin: '4px',
-      }}
-    >
-      <div style={{ fontSize: '0.75rem', color: 'var(--color-cloud)', textAlign: 'center' }}>
-        {slotLabel}
-      </div>
-      {equippedItem ? (
-        <div
-          style={{
-            position: 'absolute',
-            top: '0',
-            left: '0',
-            right: '0',
-            bottom: '0',
-            display: 'flex',
-            alignItems: 'center',
-            justifyContent: 'center',
-            backgroundColor: 'var(--color-dark-bg)',
-            borderRadius: '6px',
-            cursor: 'pointer',
-          }}
-          onClick={() => onUnequip(slotName)}
-          title={`${equippedItem.name} (Click to unequip)`}
-        >
-          <span
-            style={{ fontSize: '0.75rem', color: 'var(--color-metal-gold)', textAlign: 'center' }}
-          >
-            {equippedItem.name.substring(0, 8)}
-          </span>
-        </div>
-      ) : null}
-    </div>
-  );
-};
 
 interface InventoryItemProps {
   item: Item;
@@ -95,8 +15,12 @@ interface InventoryItemProps {
   inventoryIndex: number;
   onRemove: (index: number) => void;
   onEquip: (itemId: string, slotName: string) => void;
+  onUnequip: (slotName: string) => void;
   onEdit: (index: number) => void;
   isCustomized: boolean;
+  isEquipped: boolean;
+  equippedSlot?: string;
+  canEquip: boolean;
 }
 
 const InventoryItem: React.FC<InventoryItemProps> = ({
@@ -105,44 +29,68 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   inventoryIndex,
   onRemove,
   onEquip,
+  onUnequip,
   onEdit,
   isCustomized,
+  isEquipped,
+  equippedSlot,
+  canEquip,
 }) => {
-  const handleDragStart = (e: React.DragEvent) => {
-    e.dataTransfer.setData('text/plain', item._id || inventoryIndex.toString());
-  };
+  const getAvailableSlot = (): string | null => {
+    // Map item types to equipment slots
+    const typeToSlotMap: Record<string, string[]> = {
+      weapon: ['weapon1', 'weapon2', 'weapon3', 'weapon4'],
+      headwear: ['head'],
+      body: ['body'],
+      cloak: ['cloak'],
+      boots: ['feet'],
+      gloves: ['hands'],
+      shield: ['shield'],
+      accessory: ['accessory1', 'accessory2', 'accessory3', 'accessory4'],
+    };
 
-  const handleDoubleClick = () => {
-    // Auto-equip to appropriate slot
-    let targetSlot = '';
+    const availableSlots = typeToSlotMap[item.type];
+    if (!availableSlots) return null;
+
+    // For weapons and accessories, unlimited equipping is allowed
     if (item.type === 'weapon') {
-      targetSlot = 'weapon1'; // Try first weapon slot
-    } else if (item.slot) {
-      targetSlot = item.slot === 'accessory' ? 'accessory1' : item.slot;
+      return 'weapon1'; // Backend will handle finding next available slot
+    }
+    if (item.type === 'accessory') {
+      return 'accessory1'; // Backend will handle finding next available slot
     }
 
-    if (targetSlot) {
-      onEquip(item._id || inventoryIndex.toString(), targetSlot);
+    // For other gear, only one can be equipped
+    return availableSlots[0];
+  };
+
+  const handleEquip = () => {
+    const slot = getAvailableSlot();
+    if (slot && item._id) {
+      onEquip(item._id, slot);
+    }
+  };
+
+  const handleUnequip = () => {
+    if (equippedSlot) {
+      onUnequip(equippedSlot);
     }
   };
 
   return (
     <div
-      draggable
-      onDragStart={handleDragStart}
-      onDoubleClick={handleDoubleClick}
       style={{
         padding: '0.75rem',
-        backgroundColor: 'var(--color-dark-bg)',
-        border: '1px solid var(--color-dark-border)',
+        backgroundColor: isEquipped ? 'var(--color-sat-purple-faded)' : 'var(--color-dark-bg)',
+        border: isEquipped 
+          ? '2px solid var(--color-metal-gold)' 
+          : '1px solid var(--color-dark-border)',
         borderRadius: '8px',
         margin: '0.5rem 0',
-        cursor: 'grab',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
       }}
-      title="Drag to equipment slot or double-click to auto-equip"
     >
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
@@ -165,12 +113,43 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
               Customized
             </span>
           )}
+          {isEquipped && (
+            <span
+              style={{
+                color: 'var(--color-metal-gold)',
+                fontSize: '0.75rem',
+                backgroundColor: 'var(--color-dark-bg)',
+                padding: '0.125rem 0.5rem',
+                borderRadius: '4px',
+                fontWeight: 'bold',
+              }}
+            >
+              Equipped
+            </span>
+          )}
         </div>
         <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>
           {item.type} - {item.rarity}
         </div>
       </div>
       <div style={{ display: 'flex', gap: '0.5rem' }}>
+        {canEquip && (
+          <button
+            onClick={isEquipped ? handleUnequip : handleEquip}
+            style={{
+              backgroundColor: isEquipped ? 'var(--color-destructive)' : 'var(--color-metal-gold)',
+              color: 'white',
+              border: 'none',
+              borderRadius: '4px',
+              padding: '0.25rem 0.5rem',
+              cursor: 'pointer',
+              fontSize: '0.75rem',
+              fontWeight: 'bold',
+            }}
+          >
+            {isEquipped ? 'Unequip' : 'Equip'}
+          </button>
+        )}
         <button
           onClick={() => onEdit(inventoryIndex)}
           style={{
@@ -206,7 +185,6 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
 
 const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdate }) => {
   const navigate = useNavigate();
-  const [equippedItems, setEquippedItems] = useState<Record<string, Item>>({});
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [editingItem, setEditingItem] = useState<{ index: number; item: CharacterItem } | null>(
@@ -214,7 +192,8 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   );
 
   // Helper function to get item data from hybrid inventory item
-  const getItemFromInventory = (invItem: CharacterItem): Item | null => {
+  const getItemFromInventory = (invItem: CharacterItem | undefined): Item | null => {
+    if (!invItem) return null;
     if (invItem.isCustomized && invItem.itemData) {
       return invItem.itemData;
     } else if (invItem.itemId && typeof invItem.itemId === 'object') {
@@ -222,38 +201,6 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     }
     return null;
   };
-
-  // Fetch equipped items
-  useEffect(() => {
-    const fetchEquippedItems = async () => {
-      try {
-        const equipped: Record<string, Item> = {};
-
-        for (const [slotName, slot] of Object.entries(character.equipment || {})) {
-          if (slot.itemId) {
-            // Find the item in inventory
-            const invItem = character.inventory?.find((inv) => {
-              const item = getItemFromInventory(inv);
-              return item && item._id === slot.itemId;
-            });
-
-            if (invItem) {
-              const item = getItemFromInventory(invItem);
-              if (item) {
-                equipped[slotName] = item;
-              }
-            }
-          }
-        }
-
-        setEquippedItems(equipped);
-      } catch (error) {
-        console.error('Error processing equipped items:', error);
-      }
-    };
-
-    fetchEquippedItems();
-  }, [character.inventory, character.equipment]);
 
   const handleAddItem = () => {
     navigate(`/character/${character._id}/items`);
@@ -285,20 +232,11 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     }
   };
 
-  const handleEquipItem = async (itemIdentifier: string, slotName: string) => {
+  const handleEquipItem = async (itemId: string, slotName: string) => {
     try {
-      // itemIdentifier could be an item ID or an inventory index
-      const inventoryIndex = parseInt(itemIdentifier);
-      let itemId: string;
-
-      if (!isNaN(inventoryIndex)) {
-        // It's an inventory index
-        const invItem = character.inventory[inventoryIndex];
-        const item = getItemFromInventory(invItem);
-        itemId = item?._id || '';
-      } else {
-        // It's an item ID
-        itemId = itemIdentifier;
+      if (!itemId) {
+        console.error('No item ID provided for equipping');
+        return;
       }
 
       const response = await fetch(`/api/characters/${character._id}/equipment/${slotName}`, {
@@ -311,6 +249,8 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
       if (response.ok) {
         const updatedCharacter = await response.json();
         onCharacterUpdate(updatedCharacter);
+      } else {
+        console.error('Failed to equip item:', response.statusText);
       }
     } catch (error) {
       console.error('Error equipping item:', error);
@@ -379,7 +319,27 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     }
   };
 
-  // Filter inventory items
+  // Helper function to check if an item is equipped
+  const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
+    if (!character.equipment) return { equipped: false };
+    
+    for (const [slotName, slot] of Object.entries(character.equipment)) {
+      if (slot.itemId === item._id) {
+        return { equipped: true, slot: slotName };
+      }
+    }
+    return { equipped: false };
+  };
+
+  // Helper function to check if an item can be equipped
+  const canItemBeEquipped = (item: Item): boolean => {
+    const equipableTypes = [
+      'weapon', 'headwear', 'body', 'cloak', 'boots', 'gloves', 'shield', 'accessory'
+    ];
+    return equipableTypes.includes(item.type);
+  };
+
+  // Filter and sort inventory items
   const filteredInventory =
     character.inventory?.filter((invItem, index) => {
       const item = getItemFromInventory(invItem);
@@ -391,9 +351,27 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
       return matchesName && matchesType;
     }) || [];
 
+  // Sort inventory: equipped items first, then by name
+  const sortedInventory = [...filteredInventory].sort((a, b) => {
+    const itemA = getItemFromInventory(a);
+    const itemB = getItemFromInventory(b);
+    if (!itemA || !itemB) return 0;
+
+    const equippedA = isItemEquipped(itemA);
+    const equippedB = isItemEquipped(itemB);
+
+    // Equipped items first
+    if (equippedA.equipped && !equippedB.equipped) return -1;
+    if (!equippedA.equipped && equippedB.equipped) return 1;
+
+    // Then sort by name
+    return itemA.name.localeCompare(itemB.name);
+  });
+
   return (
     <div style={{ padding: '1rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: '1fr 300px', gap: '2rem' }}>
+      {/* Single column layout - just inventory */}
+      <div>
         {/* Inventory Section */}
         <div>
           <div
@@ -457,140 +435,47 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
           </div>
 
           {/* Inventory Items */}
-          <div style={{ maxHeight: '500px', overflowY: 'auto' }}>
-            {filteredInventory.length === 0 ? (
+          <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+            {sortedInventory.length === 0 ? (
               <div style={{ color: 'var(--color-muted)', textAlign: 'center', padding: '2rem' }}>
                 No items in inventory. Click "Add Item" to browse items.
               </div>
             ) : (
-              character.inventory?.map((invItem, index) => {
+              sortedInventory.map((invItem, sortedIndex) => {
                 const item = getItemFromInventory(invItem);
                 if (!item) return null;
 
-                // Check if item matches filters
-                const matchesName = item.name.toLowerCase().includes(filter.toLowerCase());
-                const matchesType = typeFilter === 'all' || item.type === typeFilter;
-                if (!matchesName || !matchesType) return null;
+                // Find the original index in the character's inventory
+                const originalIndex = character.inventory?.findIndex(
+                  (originalInvItem) => originalInvItem === invItem
+                ) ?? -1;
+
+                if (originalIndex === -1) {
+                  console.warn('Could not find original index for inventory item');
+                  return null;
+                }
+
+                const equipmentStatus = isItemEquipped(item);
+                const canEquip = canItemBeEquipped(item);
 
                 return (
                   <InventoryItem
-                    key={index}
+                    key={`${originalIndex}-${item._id}`}
                     item={item}
                     inventoryItem={invItem}
-                    inventoryIndex={index}
+                    inventoryIndex={originalIndex}
                     onRemove={handleRemoveItem}
                     onEquip={handleEquipItem}
+                    onUnequip={handleUnequipItem}
                     onEdit={handleEditItem}
                     isCustomized={invItem.isCustomized}
+                    isEquipped={equipmentStatus.equipped}
+                    equippedSlot={equipmentStatus.slot}
+                    canEquip={canEquip}
                   />
                 );
               })
             )}
-          </div>
-        </div>
-
-        {/* Equipment Section (Paperdoll) */}
-        <div>
-          <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '1rem' }}>Equipment</h3>
-          <div
-            style={{
-              display: 'grid',
-              gridTemplateColumns: 'repeat(3, 1fr)',
-              gap: '0.5rem',
-              justifyItems: 'center',
-            }}
-          >
-            {/* Row 1 */}
-            <div></div>
-            <EquipmentSlot
-              slotName="head"
-              slotLabel="Head"
-              equippedItem={equippedItems.head || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-            <div></div>
-
-            {/* Row 2 */}
-            <EquipmentSlot
-              slotName="hands"
-              slotLabel="Hands"
-              equippedItem={equippedItems.hands || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-            <EquipmentSlot
-              slotName="body"
-              slotLabel="Body"
-              equippedItem={equippedItems.body || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-            <EquipmentSlot
-              slotName="cloak"
-              slotLabel="Cloak"
-              equippedItem={equippedItems.cloak || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-
-            {/* Row 3 */}
-            <EquipmentSlot
-              slotName="accessory1"
-              slotLabel="Ring 1"
-              equippedItem={equippedItems.accessory1 || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-            <EquipmentSlot
-              slotName="feet"
-              slotLabel="Feet"
-              equippedItem={equippedItems.feet || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-            <EquipmentSlot
-              slotName="accessory2"
-              slotLabel="Ring 2"
-              equippedItem={equippedItems.accessory2 || null}
-              onEquip={handleEquipItem}
-              onUnequip={handleUnequipItem}
-            />
-          </div>
-
-          {/* Weapon Slots */}
-          <div style={{ marginTop: '2rem' }}>
-            <h4 style={{ color: 'var(--color-metal-gold)', marginBottom: '1rem' }}>Weapon Slots</h4>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '0.5rem' }}>
-              <EquipmentSlot
-                slotName="weapon1"
-                slotLabel="Weapon 1"
-                equippedItem={equippedItems.weapon1 || null}
-                onEquip={handleEquipItem}
-                onUnequip={handleUnequipItem}
-              />
-              <EquipmentSlot
-                slotName="weapon2"
-                slotLabel="Weapon 2"
-                equippedItem={equippedItems.weapon2 || null}
-                onEquip={handleEquipItem}
-                onUnequip={handleUnequipItem}
-              />
-              <EquipmentSlot
-                slotName="weapon3"
-                slotLabel="Weapon 3"
-                equippedItem={equippedItems.weapon3 || null}
-                onEquip={handleEquipItem}
-                onUnequip={handleUnequipItem}
-              />
-              <EquipmentSlot
-                slotName="weapon4"
-                slotLabel="Weapon 4"
-                equippedItem={equippedItems.weapon4 || null}
-                onEquip={handleEquipItem}
-                onUnequip={handleUnequipItem}
-              />
-            </div>
           </div>
         </div>
       </div>

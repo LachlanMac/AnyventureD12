@@ -344,7 +344,14 @@ const CharacterSchema = new Schema({
     spent: { type: Number, default: 0 }  // Points spent on modules
   },
   
-  // Languages and Stances
+  // Languages with proficiency levels (0-3 stars)
+  languageSkills: {
+    type: Map,
+    of: Number,
+    default: new Map([['common', 2]]) // All characters start with Common at proficiency 2
+  },
+  
+  // Legacy languages field (for backward compatibility)
   languages: [String],
   stances: [String],
   
@@ -388,7 +395,8 @@ const CharacterSchema = new Schema({
     psychic: { type: Number, default: 0 },
     dark: { type: Number, default: 0 },
     divine: { type: Number, default: 0 },
-    arcane: { type: Number, default: 0 },
+    aetheric: { type: Number, default: 0 },
+    toxic: { type: Number, default: 0 },
   },
   moduleBonuses: Schema.Types.Mixed
 }, {

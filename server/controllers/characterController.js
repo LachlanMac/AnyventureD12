@@ -199,6 +199,8 @@ export const equipItem = async (req, res) => {
     const result = await character.equipItem(itemId, slotName);
     
     if (result.success) {
+      // Populate inventory items before sending response
+      await character.populate('inventory.itemId');
       res.json(character);
     } else {
       res.status(400).json({ message: result.message });
@@ -224,6 +226,8 @@ export const unequipItem = async (req, res) => {
     const result = await character.unequipItem(slotName);
     
     if (result.success) {
+      // Populate inventory items before sending response
+      await character.populate('inventory.itemId');
       res.json(character);
     } else {
       res.status(400).json({ message: result.message });

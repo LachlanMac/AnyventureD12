@@ -187,6 +187,7 @@ export interface Item {
     | 'complexRanged'
     | 'unarmed'
     | 'throwing';
+  bonus_attack?: number;
   primary?: Damage;
   secondary?: Damage;
   armor_penalties?: Record<string, number>;
@@ -233,12 +234,36 @@ export interface Equipment {
   body: EquipmentSlot;
   head: EquipmentSlot;
   cloak: EquipmentSlot;
+  shield: EquipmentSlot;
   accessory1: EquipmentSlot;
   accessory2: EquipmentSlot;
+  accessory3: EquipmentSlot;
+  accessory4: EquipmentSlot;
   weapon1: EquipmentSlot;
   weapon2: EquipmentSlot;
   weapon3: EquipmentSlot;
   weapon4: EquipmentSlot;
+}
+
+// Music skills structure
+export interface MusicSkills {
+  vocal: number;
+  percussion: number;
+  wind: number;
+  strings: number;
+  brass: number;
+}
+
+// Language definition
+export interface Language {
+  id: string;
+  name: string;
+  description: string;
+}
+
+// Language skills structure (Map-like object)
+export interface LanguageSkills {
+  [languageId: string]: number; // 0-3 proficiency level
 }
 
 // Complete character structure
@@ -254,6 +279,8 @@ export interface Character {
   weaponSkills: SkillMap;
   magicSkills: SkillMap;
   craftingSkills: SkillMap;
+  musicSkills: MusicSkills;
+  languageSkills: LanguageSkills;
   resources: Resources;
   modulePoints: ModulePoints;
   languages: string[];

@@ -41,9 +41,11 @@ const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab }
             padding: '0.75rem 1.5rem',
             color: activeTab === tab.id ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
             fontWeight: activeTab === tab.id ? 'bold' : 'normal',
+            borderTop: 'none',
+            borderLeft: 'none',
+            borderRight: 'none',
             borderBottom: activeTab === tab.id ? '2px solid var(--color-metal-gold)' : 'none',
             backgroundColor: 'transparent',
-            border: 'none',
             cursor: 'pointer',
           }}
         >

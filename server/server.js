@@ -95,6 +95,9 @@ app.get('/api', (req, res) => {
 // Serve uploaded files
 app.use('/uploads', express.static(path.join(__dirname, '../uploads')));
 
+// Serve data files (for languages, etc.)
+app.use('/data', express.static(path.join(__dirname, '../data')));
+
 // Handle 404 errors for API routes
 app.use('/api/*', (req, res) => {
   res.status(404).json({ message: 'API route not found' });

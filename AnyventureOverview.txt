@@ -65,7 +65,9 @@ Damage Types: Physical, Heat, Cold, Lightning, Dark, Divine, Arcane, Psychic, To
 A sword deals physical damage.  If the enemy had +4 mitigation, that means any damage equal to 4 or lower is completely mitigated to 0. In this example, the sword did 5 damage, so the enemy takes ALL the damage.
 If the attack roll was changed to 6,1,1 - this would mean that the player only hit "1" dice for 3 damage which means, they deal nothing to an enemy who has 3 or more mitigation to physical damage.|
 
-RULE CHANGE:  If the damage is over half but less than full, you take half damage. 
+If the damage is over half but less than full, you take half damage. 
+Critical Hits: Critical hits start when you get a d12. On a roll of a 12, you deal extra damage. On a d16, a 15-16 crits. On a d20 a 18-19-20 crits. 
+
 
 Also, evasion either completely dodges or gets hit completely
 deflection will only reduce the damage by half, unless the character has a shield.
@@ -197,11 +199,18 @@ Fall Prone (Fall to the ground)
 CONDITIONS:
 (These are still a WIP and not final)
 
+
+
+
+
+
+
+
 Mental Conditions
 Condition	Effect
 Broken	Resolve is 0. Cannot regain Resolve. All Mind checks (Resilience, Concentration, Logic, Senses) suffer a -1 die penalty. Must make a DC 10 check during a Favorable Rest (Resilience or Concentration) to recover.
 Numbed	Cannot gain or lose Resolve. Cannot use Resolve to stay up at 0 Health.
-Dazed	Cannot use Concentration. Ends at the end of your next turn automatically.
+Dazed	Cannot use Concentration. Cant take reactions. Ends at the end of your next turn automatically.
 Stunned	Cannot take Actions or Reactions. Requires a DC 10 Resilience, Concentration, or Endurance check to recover. The DC is reduced by 1 after each failed attempt.
 Afraid	Cannot take Reactions. Must roll DC 12 Resilience to use an Action. On failure, you move away from the source of fear a number of units equal to half the difference. On success, the condition ends. Each failure lowers the DC by 1.
 Maddened	You attack allies and cannot distinguish friend from foe. All targets are treated as hostile.
@@ -215,7 +224,7 @@ Prone	You are on the ground. Movement is halved. Melee attackers gain +1 die aga
 Bleeding	Take 1 damage at the end of your turn. Can be stopped with a successful Medicine check or magical healing.
 Blinded	-1 die on all Attack rolls and Defense rolls (Evasion or Deflection). Cannot make visual checks.
 Incapacitated	You cannot take Actions, Reactions, or Movement. Automatically fail physical defense checks. Affects sleeping, paralyzed, frozen, or unconscious states.
-Impaired	You cannot move or take Reactions. -1 die on both Attack rolls and Defense checks. Cannot use 2-handed weapons effectively. Applies to being Grappled, tangled, hobbled, etc.
+Impaired	You cannot move. -1 die on both Attack rolls and Defense checks. Cannot use 2-handed weapons effectively. Applies to being Grappled, tangled, hobbled, etc.
 Weakened	You deal -1 damage with all attacks and abilities. Optional: also take -1 die on Might or Endurance checks.
 Energized	Regenerate +1 extra energy per round. Optional: +1 movement speed. Ends after 2 rounds or upon becoming Winded.
 
@@ -237,3 +246,6 @@ Mythic
 
 Cultural Ideas
 Bonus social dice with different groups, like merchants, nobles, soldiers, etc.
+
+
+V
