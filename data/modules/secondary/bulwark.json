@@ -13,16 +13,16 @@
       "data": ""
     },
     {
-      "name": "Guardian's Stance",
-      "description": "",
+      "name": "Solid Footing",
+      "description": "When under the effect of your Shield Wall reaction or the Defensive Action, you cannot be displaced or knocked prone.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
       "data": "SS1=1"
     },
     {
-      "name": "Shield Master",
-      "description": "",
+      "name": "Glancing Blows",
+      "description": "You are proficient with using your shield to deflect blows. Gain +1 physical mitigation.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -30,7 +30,7 @@
     },
     {
       "name": "Action : Shield Bash",
-      "description": "You strike an adjacent enemy with your shield. Make a deflection check as your attack roll against their evasion or deflection. If you hit, they take physical damage as if your shield was a weapon with 3 primary and 2 secondary damage.",
+      "description": "You strike an adjacent enemy with your shield. Make a deflection check as your attack roll against their evasion or deflection. If you hit, the target takes physical damage as if your shield was a weapon with 3 primary and 2 secondary damage.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -62,15 +62,15 @@
     },
     {
       "name": "Reaction : Hold the Line",
-      "description": "In response to a large or smaller creature attempting to move past you within your weapon's reach, you can make an attack of opportunity. If the attack hits, the creature's movement immediately stops and they cannot move for the rest of their turn.",
+      "description": "In response to a large or smaller creature attempting to move past you within your melee weapon's reach, you can make an attack of opportunity. If the attack hits, the creature cannot willfully move into an area where your weapon could reach it.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Action : Mass Cover",
-      "description": "You position your shield to protect multiple allies from area effects. Choose a direction and move up to your movement speed. All allies within 2 units behind you in that direction gain the benefit of your shield's protection against the next area effect that targets them this round.",
+      "name": "Reaction : Mass Cover",
+      "description": "You quickly move up to 3 units and position your shield to protect multiple allies from area effect attacks. All allies within 2 units behind you in that direction gain the benefit of your shield's protection against the next area effect that targets them this round.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
