@@ -29,8 +29,8 @@
       "data": "SS2=1"
     },
     {
-      "name": "Quick Draw",
-      "description": "",
+      "name": "Reaction : Follow-Up",
+      "description": "In response to you making an attack with a melee weapon, reroll your melee weapon check and take that result, stead.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -53,8 +53,8 @@
       "data": "SSG=1"
     },
     {
-      "name": "Masterful Criticals",
-      "description": "",
+      "name": "Weapon Consistency",
+      "description": "You gain improved critials with complex weapons, causing even your extra dice to add the primary damage to your total roll.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
@@ -78,7 +78,7 @@
     },
     {
       "name": "Master Armsman",
-      "description": "You have achieved mastery over all forms of weaponry. Gain +1 skill with simple ranged weapons and +1 skill with complex melee weapons.",
+      "description": "You have achieved mastery over many forms of weaponry. Gain +1 skill with simple ranged weapons and +1 skill with complex melee weapons.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
