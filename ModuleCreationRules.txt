@@ -16,3 +16,5 @@ Add senses
 Add languages
 Things that grant temproary health or resolve
 and more...Refer to the rules document to really expand creativity.
+
+Dont' EVER give the same skill twice. For example. Do not give +1 endurance in 2a, then +1 endurance in 6b.
