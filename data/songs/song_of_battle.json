@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "name": "Song of Battle",
+  "magical": false,
+  "difficulty": 6,
+  "harmony":"percussion",
+  "description": "A driving percussion rhythm that synchronizes allies' attacks, granting them enhanced combat prowess.",
+  "effect":"+1 Bonus Attack Dice & 1 Free Melee Attack"
+}

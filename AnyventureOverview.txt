@@ -148,24 +148,17 @@ Languages are a big part of the system, but mechanically detatched.  As with the
 1 is basical knowledge
 2 is fluency
 3 is mastery
-
 basic knowledge may cause you to have a penalty on persuasion/insight when trying to talk to or understand someone (1 less dice)
 fluency is normal dice
 and mastery is an extra dice
 There are also magical languages that may have some effects.
-
 MODULES:
 Modules are the bread and butter of the system - they are mini-skill trees themed as an archetype.  There are 7 tiers with 11 total traits going in a 1-2-1-2-1-2-1 pattern where the player must select 1 option in the choice tiers. These are where unique actions & reactions will be obtained as well as skill increases and other traits/abilities that make a character more unqiue.
 For example, Medic may give an Action to "triage" where they can apply some sort of healing effect.
 A necromancer module may look something like this (WIP)
-
-
 PLAYER PROGRESSION:
-
 Instead of leveling, players will gain module points, awarded by their GM. They can then invest these into modules to grow stronger. Languages may be handled in a bit more nuanced way and be less official. 
-
 There is currently a "trait" system to handle the more social aspects of the game, and how a player can recover/lose resolve over the course of roleplay or combat.
-
 MOVEMENT:
 All players have a standard movement. It will likely be between 4-6. Using the "Sprint Action" lets them go double of that by using a Energy) 
 
@@ -176,12 +169,10 @@ Rounds are 6 seconds
 Characters can only use reactions after their first turn. (making initative a little bit stronger)
 Every round, a character can take 2 actions and move their standard movement and take as many reactions as they want.
 
-
 DEFAULT ABILILITIES:
 All characters will have default abilities
 
 Actions:
-
 Rest (remove winded, gain +2 energy)
 Sprint (move full speed, spend 1 energy)
 Grapple (+1 energy, lasts only one round)
@@ -198,14 +189,6 @@ Fall Prone (Fall to the ground)
 
 CONDITIONS:
 (These are still a WIP and not final)
-
-
-
-
-
-
-
-
 Mental Conditions
 Condition	Effect
 Broken	Resolve is 0. Cannot regain Resolve. All Mind checks (Resilience, Concentration, Logic, Senses) suffer a -1 die penalty. Must make a DC 10 check during a Favorable Rest (Resilience or Concentration) to recover.
@@ -243,9 +226,7 @@ Elite
 Legend
 Mythic
 
-
 Cultural Ideas
 Bonus social dice with different groups, like merchants, nobles, soldiers, etc.
 
-
-V
+When helping another character, you can use either the same skill or a different skill. If using the same skill, you must have equal or higher skill level than the person you're helping - they gain a bonus die to their check. If using a different skill, roll a single die (or with penalty if the skill isn't clearly relevant); if your roll meets or beats the DC, the main actor rolls an additional die after seeing their initial result. Only one character can assist per check.

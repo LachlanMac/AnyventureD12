@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Daily Action : Scholar's Memory",
-      "description": "When you first encounter a creature, faction or entity, you can make an academic check to recall historical information to aid you in battle. On a 6-9, you learn your target's lowest mitigation and one condition it is not immune to. On a 10 or higher, you learn two of the target's lowest mitigations and two conidtions it is immune to.",
+      "description": "You can recall useful information about a humanoid, beast or monster creature you encounter for the first time. Make an academics check to determine what you remember: on a 6-9, you learn a single target's weakest mitigation type and one condition they are not immune to. On a 10 or higher, you learn their two weakest mitigation types and two conditions they are not immune to.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -14,7 +14,7 @@
     },
     {
       "name": "Art of War",
-      "description": "You have studied military history and tactical theory extensively. Gain +1 skill with logic. Your Scholar's Memory ability works on humanoid creatures, organized groups, and military formations, providing bonuses to predict their tactics and exploit their strategies.",
+      "description": "You have studied military history and tactical theory extensively. Gain +1 skill with logic. If you successfully use your Scholar's Memory action, you also gain your choice of a bonus dice to attack checks or defense checks until the end of combat against your target and any identical creatures.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
@@ -22,15 +22,15 @@
     },
     {
       "name": "Arcane Studies",
-      "description": "You have delved into the histories of magical creatures and otherworldly beings. Gain +1 skill with magic knowledge. Your Scholar's Memory ability works on magical creatures, elementals, fiends, celestials, and other supernatural entities.",
+      "description": "You have delved into the histories of magical creatures and otherworldly beings. Gain +1 skill with magic knowledge. Your Scholar's Memory ability works on magical creatures such as elementals, constructs, divine and dark types.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
       "data": "SS3=1"
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Walking Library",
+      "description": "Your mind is a repository of countless facts and figures. Gain +1 skill with academics. When you help an ally make an academics check, your help dice replaces their check if it is higher.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -53,32 +53,32 @@
       "data": "SS2=1"
     },
     {
-      "name": "Master Scholar",
-      "description": "Your research abilities have reached professional levels. Gain +1 skill with academics. Your Scholar's Memory ability can now be used twice per day on the same creature type, and you automatically succeed on checks to recall basic historical information.",
+      "name": "Studious",
+      "description": "Your dedication to research has sharpened your focus. Gain +1 skill with concentration. When you spend at least 1 hour researching a creature, faction or entity, you gain a bonus dice to your academics check for your Scholar's Memory action.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
       "data": "SSN=1"
     },
     {
-      "name": "Action : Inspiring Tale",
-      "description": "You recount a legendary tale that inspires your allies to greatness. All allies within a moderate (20 unit) distance gain temporary health equal to your academics skill and a bonus dice on their next skill check. This ability can only be used once per encounter.",
+      "name": "Ancient Song",
+      "description": "You've discovered and mastered a song from ages past. Gain +1 skill with expression. You learn 1 song of any difficulty and become proficient in one musical skill.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Reaction : Historical Precedent",
-      "description": "In response to an enemy using a special ability or spell, you can recall a historical counter-strategy. Make an academics check against the ability's complexity or difficulty. On success, choose one ally within a short (10 unit) distance to gain advantage against that specific ability for the rest of combat.",
+      "name": "Living Archive",
+      "description": "Immediately after completing a full rest, make an academics check and note the highest number. Until your next full rest, you can replace one of your academics dice rolls with that number.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Living Legend",
-      "description": "Your knowledge has become so vast that you are a walking repository of history. Your Scholar's Memory ability no longer has daily limits, and when you successfully recall information about a creature, all allies who can hear you also gain the tactical benefits for the encounter.",
+      "name": "Action : Second Edition",
+      "description": "You dedicate your concentration to clearing your memory, allowing your Scholar's Memory action to refresh at the start of your next turn. Additionally, you can now use it on creatures you've previously attempted to recall information about, even if those attempts failed.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
