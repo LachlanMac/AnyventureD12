@@ -2,26 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
-
-// These interfaces match the structure in the Character model
-interface ModuleOption {
-  name: string;
-  description: string;
-  location: string;
-}
-
-interface CharacterModule {
-  moduleId: {
-    _id: string;
-    name: string;
-    mtype: string;
-    options?: ModuleOption[];
-  };
-  selectedOptions: {
-    location: string;
-    selectedAt: string;
-  }[];
-}
+import { CharacterModule, Module } from '../../../types/character';
 
 interface ModulesTabProps {
   characterId: string;
@@ -41,6 +22,14 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
       default:
         return 'var(--color-dark-elevated)';
     }
+  };
+
+  // Helper function to safely get module data
+  const getModuleData = (moduleId: string | Module): Module | null => {
+    if (typeof moduleId === 'string') {
+      return null; // When it's just a string ID, we don't have the full module data
+    }
+    return moduleId;
   };
 
   return (
@@ -82,10 +71,10 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Here we map through the character's modules array */}
           {modules.map((module) => (
-            <Card key={module.moduleId?._id || 'unknown'} variant="default" hoverEffect={true}>
+            <Card key={getModuleData(module.moduleId)?._id || 'unknown'} variant="default" hoverEffect={true}>
               <CardHeader
                 style={{
-                  backgroundColor: getModuleTypeColor(module.moduleId?.mtype || ''),
+                  backgroundColor: getModuleTypeColor(getModuleData(module.moduleId)?.mtype || ''),
                   opacity: 0.8,
                 }}
               >
@@ -103,7 +92,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
                       fontWeight: 'bold',
                     }}
                   >
-                    {module.moduleId?.name || 'Module'}
+                    {getModuleData(module.moduleId)?.name || 'Module'}
                   </h3>
                   <span
                     style={{
@@ -115,7 +104,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
                       textTransform: 'capitalize',
                     }}
                   >
-                    {module.moduleId?.mtype || 'Unknown'}
+                    {getModuleData(module.moduleId)?.mtype || 'Unknown'}
                   </span>
                 </div>
               </CardHeader>
@@ -133,7 +122,8 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
                     </div>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
                       {module.selectedOptions.map((option) => {
-                        const optionDetails = module.moduleId?.options?.find(
+                        const moduleData = getModuleData(module.moduleId);
+                        const optionDetails = moduleData?.options?.find(
                           (o) => o.location === option.location
                         );
                         return (
