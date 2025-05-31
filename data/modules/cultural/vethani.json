@@ -1,8 +1,8 @@
 {
   "id": 20,
-  "name": "Vethani [Nurturing Erudites]",
+  "name": "Vethani",
   "mtype": "cultural",
-   "description":"",
+  "description": "Nurturing Erudites\n",
   "ruleset": 0,
   "options": [
     {

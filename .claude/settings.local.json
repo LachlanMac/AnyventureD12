@@ -11,7 +11,9 @@
       "Bash(grep:*)",
       "Bash(npm run lint:*)",
       "Bash(npx tsc:*)",
-      "Bash(npm run build:*)"
+      "Bash(npm run build:*)",
+      "Bash(ls:*)",
+      "Bash(mv:*)"
     ],
     "deny": []
   },

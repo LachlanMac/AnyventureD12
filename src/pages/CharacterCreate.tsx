@@ -28,6 +28,7 @@ const CharacterCreate: React.FC = () => {
 
   // Tracking for attribute and talent points
   const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(6);
+  const [startingTalents, setStartingTalents] = useState<number>(8);
   const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(8);
   const [_racialModules, setRacialModules] = useState<RacialModule[]>([]);
   const [_cultureModules, setCultureModules] = useState<CultureModule[]>([]);
@@ -273,6 +274,12 @@ const CharacterCreate: React.FC = () => {
     setPortraitFile(file);
   };
 
+  const handleStartingTalentsChange = (newStartingTalents: number) => {
+    const currentSpentTalents = startingTalents - talentStarsRemaining;
+    setStartingTalents(newStartingTalents);
+    setTalentStarsRemaining(newStartingTalents - currentSpentTalents);
+  };
+
 
   // Handle next step
   const handleNextStep = () => {
@@ -462,13 +469,14 @@ const CharacterCreate: React.FC = () => {
                 race={character.race}
                 culture={character.culture}
                 modulePoints={character.modulePoints.total}
+                startingTalents={startingTalents}
                 onNameChange={(name) => updateCharacter('name', name)}
                 onRaceChange={handleRaceChange}
                 onCultureChange={handleCultureChange}
                 onModulePointsChange={(points) => {
                   updateNestedField('modulePoints', 'total', points);
-                  updateCharacter('level', Math.floor(points / 10));
                 }}
+                onStartingTalentsChange={handleStartingTalentsChange}
               />
             )}
 
@@ -510,7 +518,6 @@ const CharacterCreate: React.FC = () => {
                 name={character.name}
                 race={character.race}
                 culture={character.culture}
-                level={character.level}
                 modulePoints={character.modulePoints}
                 attributes={character.attributes}
                 portraitFile={portraitFile}

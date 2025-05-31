@@ -1,9 +1,9 @@
 {
   "id": 1,
-  "name": "Draconii [Legacy of Dragons]",
+  "name": "Draconii",
   "mtype": "cultural",
   "ruleset": 0,
-   "description":"",
+  "description": "Legacy of Dragons\n",
   "options": [
     {
       "id": 1000,

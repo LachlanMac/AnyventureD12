@@ -8,10 +8,12 @@ interface BasicInfoTabProps {
   race: string;
   culture: string;
   modulePoints: number;
+  startingTalents: number;
   onNameChange: (name: string) => void;
   onRaceChange: (race: string, racialModule: RacialModule) => void;
   onCultureChange: (culture: string, cultureModule: Module) => void;
   onModulePointsChange: (points: number) => void;
+  onStartingTalentsChange: (talents: number) => void;
 }
 
 const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
@@ -19,10 +21,12 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
   race,
   culture,
   modulePoints,
+  startingTalents,
   onNameChange,
   onRaceChange,
   onCultureChange,
   onModulePointsChange,
+  onStartingTalentsChange,
 }) => {
   return (
     <div>
@@ -107,8 +111,49 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
             marginTop: '0.5rem',
           }}
         >
-          Module points determine your starting power level. Your character level is calculated as
-          Module Points / 10.
+          Module points determine your starting power level.
+        </p>
+      </div>
+
+      <div style={{ marginBottom: '1.5rem' }}>
+        <label
+          style={{
+            display: 'block',
+            color: 'var(--color-cloud)',
+            marginBottom: '0.5rem',
+          }}
+        >
+          Starting Talents
+        </label>
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <input
+            type="number"
+            min="4"
+            max="20"
+            step="1"
+            style={{
+              width: '100%',
+              backgroundColor: 'var(--color-dark-elevated)',
+              color: 'var(--color-white)',
+              border: '1px solid var(--color-dark-border)',
+              borderRadius: '0.375rem',
+              padding: '0.5rem 0.75rem',
+            }}
+            value={startingTalents}
+            onChange={(e) => {
+              const value = parseInt(e.target.value);
+              onStartingTalentsChange(value);
+            }}
+          />
+        </div>
+        <p
+          style={{
+            fontSize: '0.875rem',
+            color: 'var(--color-cloud)',
+            marginTop: '0.5rem',
+          }}
+        >
+          Talent points to distribute among weapon, magic, and crafting skills. Default is 8.
         </p>
       </div>
     </div>

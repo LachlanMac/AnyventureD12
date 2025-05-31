@@ -12,7 +12,6 @@ interface BackgroundCreatorTabProps {
   name: string;
   race: string;
   culture: string;
-  level: number;
   modulePoints: {
     total: number;
   };
@@ -31,7 +30,6 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
   name,
   race,
   culture,
-  level,
   modulePoints,
   attributes,
   portraitFile,
@@ -56,106 +54,121 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
         Character Background
       </h2>
 
-      {/* Portrait upload section */}
-      <div style={{ marginBottom: '2rem' }}>
-        <label
-          style={{
-            display: 'block',
-            color: 'var(--color-cloud)',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Character Portrait
-        </label>
-        <div className="flex justify-center md:justify-start">
+      {/* Portrait and Physical Traits Section */}
+      <div style={{ display: 'flex', gap: '2rem', marginBottom: '2rem', alignItems: 'flex-start' }}>
+        {/* Left Column - Portrait */}
+        <div style={{ flexShrink: 0 }}>
+          <label
+            style={{
+              display: 'block',
+              color: 'var(--color-cloud)',
+              marginBottom: '0.5rem',
+            }}
+          >
+            Character Portrait
+          </label>
           <CharacterPortraitUploader
             currentPortrait={portraitPreview}
             onPortraitChange={onUpdatePortrait}
             size="large"
           />
         </div>
-      </div>
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
-          <div>
-            <label
-              style={{
-                display: 'block',
-                color: 'var(--color-cloud)',
-                marginBottom: '0.5rem',
-              }}
-            >
-              Height
-            </label>
-            <input
-              type="text"
-              style={{
-                width: '100%',
-                backgroundColor: 'var(--color-dark-elevated)',
-                color: 'var(--color-white)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '0.375rem',
-                padding: '0.5rem 0.75rem',
-              }}
-              value={physicalTraits.height}
-              onChange={(e) => onUpdatePhysicalTrait('height', e.target.value)}
-              placeholder="E.g. 6'2"
-            />
-          </div>
+        {/* Right Column - Physical Traits */}
+        <div style={{ flex: 1, minWidth: 0 }}>
+          <label
+            style={{
+              display: 'block',
+              color: 'var(--color-cloud)',
+              marginBottom: '0.5rem',
+            }}
+          >
+            Physical Traits
+          </label>
+          
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+            <div>
+              <label
+                style={{
+                  display: 'block',
+                  color: 'var(--color-cloud)',
+                  marginBottom: '0.25rem',
+                  fontSize: '0.875rem',
+                }}
+              >
+                Height
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  color: 'var(--color-white)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '0.375rem',
+                  padding: '0.5rem 0.75rem',
+                }}
+                value={physicalTraits.height}
+                onChange={(e) => onUpdatePhysicalTrait('height', e.target.value)}
+                placeholder="E.g. 6'2 inches"
+              />
+            </div>
 
-          <div>
-            <label
-              style={{
-                display: 'block',
-                color: 'var(--color-cloud)',
-                marginBottom: '0.5rem',
-              }}
-            >
-              Weight
-            </label>
-            <input
-              type="text"
-              style={{
-                width: '100%',
-                backgroundColor: 'var(--color-dark-elevated)',
-                color: 'var(--color-white)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '0.375rem',
-                padding: '0.5rem 0.75rem',
-              }}
-              value={physicalTraits.weight}
-              onChange={(e) => onUpdatePhysicalTrait('weight', e.target.value)}
-              placeholder="E.g. 180 lbs"
-            />
+            <div>
+              <label
+                style={{
+                  display: 'block',
+                  color: 'var(--color-cloud)',
+                  marginBottom: '0.25rem',
+                  fontSize: '0.875rem',
+                }}
+              >
+                Weight
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  color: 'var(--color-white)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '0.375rem',
+                  padding: '0.5rem 0.75rem',
+                }}
+                value={physicalTraits.weight}
+                onChange={(e) => onUpdatePhysicalTrait('weight', e.target.value)}
+                placeholder="E.g. 180 lbs"
+              />
+            </div>
+
+            <div>
+              <label
+                style={{
+                  display: 'block',
+                  color: 'var(--color-cloud)',
+                  marginBottom: '0.25rem',
+                  fontSize: '0.875rem',
+                }}
+              >
+                Gender
+              </label>
+              <input
+                type="text"
+                style={{
+                  width: '100%',
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  color: 'var(--color-white)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '0.375rem',
+                  padding: '0.5rem 0.75rem',
+                }}
+                value={physicalTraits.gender}
+                onChange={(e) => onUpdatePhysicalTrait('gender', e.target.value)}
+                placeholder="Enter gender (optional)"
+              />
+            </div>
           </div>
         </div>
-      </div>
-
-      <div style={{ marginBottom: '1.5rem' }}>
-        <label
-          style={{
-            display: 'block',
-            color: 'var(--color-cloud)',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Gender
-        </label>
-        <input
-          type="text"
-          style={{
-            width: '100%',
-            backgroundColor: 'var(--color-dark-elevated)',
-            color: 'var(--color-white)',
-            border: '1px solid var(--color-dark-border)',
-            borderRadius: '0.375rem',
-            padding: '0.5rem 0.75rem',
-          }}
-          value={physicalTraits.gender}
-          onChange={(e) => onUpdatePhysicalTrait('gender', e.target.value)}
-          placeholder="Enter gender (optional)"
-        />
       </div>
 
       <div style={{ marginBottom: '1.5rem' }}>
@@ -246,9 +259,9 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
           </div>
         </div>
         <div style={{ marginBottom: '1rem' }}>
-          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Level</div>
+          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Module Points</div>
           <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-            {level} ({modulePoints.total} Module Points)
+            {modulePoints.total}
           </div>
         </div>
 

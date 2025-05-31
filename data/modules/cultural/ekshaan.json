@@ -1,9 +1,9 @@
 {
   "id": 12,
-  "name": "Ekshaan [Vermin of the Depths]",
+  "name": "Ekshaan",
   "mtype": "cultural",
   "ruleset": 0,
-   "description":"",
+  "description": "Vermin of the Depths\n",
   "options": [
     {
       "id": 1090,

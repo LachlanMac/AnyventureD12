@@ -1,9 +1,9 @@
 {
   "id": 4,
-  "name": "Orycota [Curious Wanderers]",
+  "name": "Orycota",
   "mtype": "cultural",
   "ruleset": 0,
-   "description":"",
+  "description": "Curious Wanderers\n",
   "options": [
     {
       "id": 1018,
