@@ -5,31 +5,31 @@
  "ruleset": 1,
  "options": [
    {
-     "name": "",
-     "description": "",
+     "name": "SENT TIER 1",
+     "description": "SENT TIER 1 DESC",
      "mtype": "core",
      "location": "1",
      "cost": 2,
      "data": ""
    },
    {
-     "name": "",
-     "description": "Gain +1 skill with logic.",
+     "name": "Sharp Mind",
+     "description": "Gain +1 skill with logic. When you are confused and roll a 6 or 7 on the confusion table, your confusion ends.",
      "mtype": "core",
      "location": "2a",
      "cost": 2,
      "data": "SSL=1"
    },
    {
-     "name": "",
-     "description": "Gain +1 skill with concentration.",
+     "name": "Focused Mind",
+     "description": "Gain +1 skill with concentration. When you are concentrating on something, you are immune to the confused condition.",
      "mtype": "core",
      "location": "2b",
      "cost": 2,
      "data": "SS4=1"
    },
    {
-     "name": "",
+     "name": "SENT TIER 3",
      "description": "Gain +1 skill with academics.",
      "mtype": "core",
      "location": "3",
@@ -53,24 +53,24 @@
      "data": ""
    },
    {
-     "name": "",
-     "description": "",
+     "name": "SENT TIER 5",
+     "description": "SENT TIER 5 DESC",
      "mtype": "core",
      "location": "5",
      "cost": 2,
      "data": ""
    },
    {
-     "name": "",
-     "description": "",
+     "name": "Reaction : Adapt",
+     "description": "DESC",
      "mtype": "core",
      "location": "6a",
      "cost": 2,
      "data": ""
    },
    {
-     "name": "",
-     "description": "",
+     "name": "SENT TIER 6b",
+     "description": "DESC",
      "mtype": "core",
      "location": "6b",
      "cost": 2,
