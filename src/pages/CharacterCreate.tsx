@@ -6,7 +6,6 @@ import StepIndicator from '../components/character/creator/StepIndicator';
 import BasicInfoTab from '../components/character/creator/BasicInfoTab';
 import AttributesTab from '../components/character/creator/AttributesTab';
 import TalentsTab from '../components/character/creator/TalentsTab';
-import TraitsCreatorTab from '../components/character/creator/TraitsCreatorTab';
 import BackgroundCreatorTab from '../components/character/creator/BackgroundCreatorTab';
 import PersonalityCreatorTab from '../components/character/creator/PersonalityCreatorTab';
 
@@ -14,7 +13,6 @@ import PersonalityCreatorTab from '../components/character/creator/PersonalityCr
 import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
 import {
   Character,
-  Trait,
   RacialModule,
   CultureModule,
   Attributes,
@@ -26,14 +24,13 @@ const CharacterCreate: React.FC = () => {
   const [step, setStep] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
-  const [selectedTraits, setSelectedTraits] = useState<Trait[]>([]);
   const [portraitFile, setPortraitFile] = useState<File | null>(null);
 
   // Tracking for attribute and talent points
   const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(6);
   const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(8);
-  const [racialModules, setRacialModules] = useState<RacialModule[]>([]);
-  const [cultureModules, setCultureModules] = useState<CultureModule[]>([]);
+  const [_racialModules, setRacialModules] = useState<RacialModule[]>([]);
+  const [_cultureModules, setCultureModules] = useState<CultureModule[]>([]);
   const [selectedRacialModule, setSelectedRacialModule] = useState<RacialModule | null>(null);
   const [selectedCultureModule, setSelectedCultureModule] = useState<CultureModule | null>(null);
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
@@ -70,23 +67,6 @@ const CharacterCreate: React.FC = () => {
     fetchModules();
   }, []);
 
-  useEffect(() => {
-    const fetchRacialModules = async () => {
-      try {
-        const response = await fetch('/api/modules/type/racial');
-        if (!response.ok) {
-          throw new Error('Failed to fetch racial modules');
-        }
-        const data = await response.json();
-        setRacialModules(data);
-      } catch (err) {
-        console.error('Error fetching racial modules:', err);
-        // Handle error appropriately
-      }
-    };
-
-    fetchRacialModules();
-  }, []);
 
   const handleCultureChange = (cultureName: string, cultureModule: CultureModule) => {
     updateCharacter('culture', cultureName);
@@ -293,27 +273,6 @@ const CharacterCreate: React.FC = () => {
     setPortraitFile(file);
   };
 
-  const handleSelectTrait = (trait: Trait) => {
-    setSelectedTraits((prev) => [...prev, trait]);
-
-    // If it's a positive trait, deduct a module point
-    if (trait.type === 'positive') {
-      updateNestedField('modulePoints', 'spent', character.modulePoints.spent + 1);
-    }
-  };
-
-  const handleDeselectTrait = (traitId: string) => {
-    // Find the trait before removing it
-    const trait = selectedTraits.find((t) => t._id === traitId);
-
-    // Remove the trait
-    setSelectedTraits((prev) => prev.filter((t) => t._id !== traitId));
-
-    // If it was a positive trait, refund the module point
-    if (trait && trait.type === 'positive') {
-      updateNestedField('modulePoints', 'spent', character.modulePoints.spent - 1);
-    }
-  };
 
   // Handle next step
   const handleNextStep = () => {
@@ -408,12 +367,6 @@ const CharacterCreate: React.FC = () => {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,
         },
-        traits: selectedTraits.map((trait) => ({
-          traitId: trait._id,
-          name: trait.name,
-          type: trait.type,
-          description: trait.description,
-        })),
       };
 
       const response = await fetch(`/api/characters`, {

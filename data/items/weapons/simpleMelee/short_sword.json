@@ -1,30 +1,61 @@
 {
-    "name": "Shortsword",
-    "description": "A versatile blade favored by those who value speed over power.",
-    "weight": 2,
-    "type": "weapon",
-    "rarity": "common",
-    "weapon_data": {
-      "category": "simpleMelee",
-      "flags": ["light", "finesse"],
-      "primary": {
-        "damage": "1d6",
-        "damage_extra": "0",
-        "damage_type": "physical",
-        "category": "slash",
-        "min_range": 0,
-        "max_range": 1
-      },
-      "secondary": {
-        "damage": "1d4",
-        "damage_type": "physical",
-        "category": "pierce"
-      }
-    },
-    "weaponSkills": {
-      "simpleMeleeWeapons": {
-        "add_bonus": 1
-      }
+  "name": "Shortsword",
+  "description": "A versatile blade favored by those who value speed over power.",
+  "type": "weapon",
+  "weapon_category": "simpleMelee",
+  "weight": 2,
+  "value": 25,
+  "rarity": "common",
+  "primary": {
+    "damage": "3",
+    "damage_extra": "2",
+    "damage_type": "physical",
+    "category": "slash",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 0,
+    "max_range": 1
+  },
+  "secondary": {
+    "damage": "2",
+    "damage_extra": "1",
+    "damage_type": "physical",
+    "category": "pierce",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 0,
+    "max_range": 1
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {
+    "simpleMeleeWeapons": {
+      "add_bonus": 1,
+      "set_bonus": 0,
+      "add_talent": 0,
+      "set_talent": 0
     }
-  }
+  },
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {}
+}
   

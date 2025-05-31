@@ -9,7 +9,6 @@ interface TalentDisplayProps {
 
 const TalentDisplay: React.FC<TalentDisplayProps> = ({
   talent,
-  maxTalent = 4,
   showNumber = false,
   size = 'md',
 }) => {

@@ -280,7 +280,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     }
   };
 
-  const handleSaveItem = async (index: number, modifications: Partial<Item>, quantity: number) => {
+  const handleSaveItem = async (index: number, modifications: Partial<Item>, _quantity: number) => {
     try {
       const response = await fetch(
         `/api/characters/${character._id}/inventory/${index}/customize`,
@@ -341,7 +341,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
   // Filter and sort inventory items
   const filteredInventory =
-    character.inventory?.filter((invItem, index) => {
+    character.inventory?.filter((invItem, _index) => {
       const item = getItemFromInventory(invItem);
       if (!item) return false;
 
@@ -441,7 +441,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                 No items in inventory. Click "Add Item" to browse items.
               </div>
             ) : (
-              sortedInventory.map((invItem, sortedIndex) => {
+              sortedInventory.map((invItem, _sortedIndex) => {
                 const item = getItemFromInventory(invItem);
                 if (!item) return null;
 

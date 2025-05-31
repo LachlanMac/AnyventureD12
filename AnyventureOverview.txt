@@ -81,13 +81,16 @@ Heavy can completely mitigate anything if successful.
 
 Ranged weapons and spells will have an optimal range. 
 Descriptor	Units	Notes
-Adjacent	0	Literally touching
-Nearby	1	Just out of arm’s reach
-Very Short 2-5  Close AF
-Short	6–10	Easily reached with effort
-Moderate	11–20	Noticeable gap; needs focus
-Distant	21–40	Clearly far; limited detail
-Remote	41–100	Hard to perceive clearly
+
+0: No Min
+1: Adjacent	0	Literally touching
+2: Nearby	1	Just out of arm’s reach
+3: Very Short 2-5  Close AF
+4: Short	6–10	Easily reached with effort
+5: Moderate	11–20	Noticeable gap; needs focus
+6: Distant	21–40	Clearly far; limited detail
+7: Remote	41–100	Hard to perceive clearly
+8: Unlimited
 
 A longbow may have a Distant range, giving a penalty for anything outside of it. 
 Spells work in a similar way.  here are the types of magic:

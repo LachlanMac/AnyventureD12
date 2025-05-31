@@ -15,6 +15,38 @@ interface APIItem extends Item {
   armor_data?: ArmorData;
 }
 
+// Helper function to convert range numbers to descriptive text
+const getRangeDescription = (minRange: number, maxRange: number): string => {
+  const rangeMap: { [key: number]: string } = {
+    0: 'No Min',
+    1: 'Adjacent',
+    2: 'Nearby',
+    3: 'Very Short',
+    4: 'Short',
+    5: 'Moderate',
+    6: 'Distant',
+    7: 'Remote',
+    8: 'Unlimited',
+  };
+
+  // Get descriptive names
+  const minDesc = rangeMap[minRange] || 'Unknown';
+  const maxDesc = rangeMap[maxRange] || 'Unknown';
+
+  // If min is 0 (No Min), only show max
+  if (minRange === 0) {
+    return maxDesc;
+  }
+
+  // If both are the same, show only one
+  if (minDesc === maxDesc) {
+    return minDesc;
+  }
+
+  // Otherwise show range
+  return `${minDesc} - ${maxDesc}`;
+};
+
 const ItemBrowser: React.FC = () => {
   const { characterId } = useParams<{ characterId: string }>();
 
@@ -282,13 +314,15 @@ const ItemBrowser: React.FC = () => {
                       extra hit
                     </div>
                   )}
-                  {item.weapon_data.primary.min_range > 0 ||
-                    (item.weapon_data.primary.max_range > 0 && (
+                  {(item.weapon_data.primary.min_range > 0 ||
+                    item.weapon_data.primary.max_range > 0) && (
                       <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                        <strong>Range:</strong> {item.weapon_data.primary.min_range}-
-                        {item.weapon_data.primary.max_range}
+                        <strong>Range:</strong> {getRangeDescription(
+                          item.weapon_data.primary.min_range,
+                          item.weapon_data.primary.max_range
+                        )}
                       </div>
-                    ))}
+                    )}
                   {item.weapon_data.secondary && item.weapon_data.secondary.damage !== '0' && (
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Secondary Damage:</strong> {item.weapon_data.secondary.damage}{' '}

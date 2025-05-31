@@ -22,7 +22,7 @@
    },
    {
      "name": "Focused Mind",
-     "description": "Gain +1 skill with concentration. When you are concentrating on something, you are immune to the confused condition.",
+     "description": "Gain +1 skill with concentration. ",
      "mtype": "core",
      "location": "2b",
      "cost": 2,
@@ -61,24 +61,24 @@
      "data": ""
    },
    {
-     "name": "Reaction : Adapt",
-     "description": "DESC",
+     "name": "Ancient Defenses",
+     "description": "ou have studied the protective wards and divine rituals of ancient civilizations. Gain +1 skill with magic knowledge and +1 divine and +1 dark mitigation.",
      "mtype": "core",
      "location": "6a",
      "cost": 2,
      "data": ""
    },
    {
-     "name": "SENT TIER 6b",
-     "description": "DESC",
+     "name": "Warrior-Scholar",
+     "description": "You combine battlefield medicine with anatomical knowledge to protect yourself and others. Gain +1 skill with medicine and +1 physical mitigation.",
      "mtype": "core",
      "location": "6b",
      "cost": 2,
      "data": ""
    },
    {
-     "name": "Scholar-Warrior",
-     "description": "Your fusion of academic study and martial prowess has reached its pinnacle. Gain +1 skill with wildcraft, magic knowledge, and medicine.",
+     "name": "Daily Action : Attack of Legends",
+     "description": "You channel the legendary techniques of history's greatest warriors into a single devastating strike. Roll both an academics check and a weapon attack, discarding the lowest die from each pool before combining them. If this attack defeats an elite tier or higher creature, your resolve is completely restored.",
      "mtype": "core",
      "location": "7",
      "cost": 3,

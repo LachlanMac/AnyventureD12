@@ -92,10 +92,11 @@ export const CardHeader: React.FC<CardHeaderProps> = ({ className = '', children
 interface CardBodyProps {
   className?: string;
   children: ReactNode;
+  style?: React.CSSProperties;
 }
 
-export const CardBody: React.FC<CardBodyProps> = ({ className = '', children }) => {
-  return <div className={`p-5 ${className}`}>{children}</div>;
+export const CardBody: React.FC<CardBodyProps> = ({ className = '', children, style }) => {
+  return <div className={`p-5 ${className}`} style={style}>{children}</div>;
 };
 
 interface CardFooterProps {

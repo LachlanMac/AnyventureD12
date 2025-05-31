@@ -27,7 +27,7 @@ interface TraitsTabProps {
   stressors?: string[];
 }
 
-const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality, stressors = [] }) => {
+const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality: _personality, stressors: _stressors = [] }) => {
   const traitCategories = character.derivedTraits || {
     General: [],
     Crafting: [],

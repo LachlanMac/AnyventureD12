@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
 import { Item, CharacterItem } from '../../../types/character';
-import Button from '../../ui/Button';
 import { ChevronDown, ChevronRight } from 'lucide-react';
 
 interface ItemEditModalProps {
@@ -75,16 +74,6 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
     setHasChanges(true);
   };
 
-  const handleNestedFieldChange = (parent: string, field: string, value: any) => {
-    setEditedItem((prev) => ({
-      ...prev,
-      [parent]: {
-        ...(prev[parent as keyof Item] as any),
-        [field]: value,
-      },
-    }));
-    setHasChanges(true);
-  };
 
   const handleQuantityChange = (value: string) => {
     const newQuantity = parseInt(value) || 1;
@@ -2317,7 +2306,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
             </label>
             <textarea
               value={inventoryItem.notes || ''}
-              onChange={(e) => {
+              onChange={(_e) => {
                 // Notes are stored on the inventory item, not the item itself
                 // This would need a separate update method
               }}

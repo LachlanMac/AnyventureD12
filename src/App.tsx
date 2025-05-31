@@ -16,10 +16,12 @@ import CharacterCreate from './pages/CharacterCreate';
 import CharacterView from './pages/CharacterView';
 import Campaigns from './pages/Campaigns';
 import ModulesPage from './pages/Modules';
-import ModuleBrowser from './pages/ModuleBrowser';
+import ModuleCompendium from './pages/ModuleCompendium';
 import SpellsPage from './pages/SpellsPage';
 import ItemBrowser from './pages/ItemBrowser';
 import ItemManager from './pages/ItemManager';
+import ItemCompendium from './pages/ItemCompendium';
+import SpellCompendium from './pages/SpellCompendium';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -91,7 +93,23 @@ const App: React.FC = () => {
                 path="/modules"
                 element={
                   <MainLayout>
-                    <ModuleBrowser />
+                    <ModuleCompendium />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/items"
+                element={
+                  <MainLayout>
+                    <ItemCompendium />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/spells"
+                element={
+                  <MainLayout>
+                    <SpellCompendium />
                   </MainLayout>
                 }
               />

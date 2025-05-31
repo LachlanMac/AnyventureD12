@@ -1,35 +1,67 @@
 {
-    "name": "Battleaxe",
-    "description": "A heavy, broad-bladed weapon capable of devastating cuts.",
-    "weight": 4,
-    "type": "weapon",
-    "rarity": "common",
-    "weapon_data": {
-      "category": "complexMelee",
-      "flags": ["heavy", "versatile"],
-      "primary": {
-        "damage": "1d8",
-        "damage_extra": "0",
-        "damage_type": "physical",
-        "category": "slash",
-        "min_range": 0,
-        "max_range": 1
-      },
-      "secondary": {
-        "damage": "1d10",
-        "damage_type": "physical",
-        "category": "slash"
-      }
-    },
-    "movement": -1,
-    "weaponSkills": {
-      "complexMeleeWeapons": {
-        "add_bonus": 2
-      }
-    },
-    "skills": {
-      "might": {
-        "add_talent": 1
-      }
+  "name": "Battleaxe",
+  "description": "A heavy, broad-bladed weapon capable of devastating cuts.",
+  "type": "weapon",
+  "weapon_category": "complexMelee",
+  "weight": 4,
+  "value": 75,
+  "rarity": "common",
+  "primary": {
+    "damage": "4",
+    "damage_extra": "0",
+    "damage_type": "physical",
+    "category": "slash",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 0,
+    "max_range": 1
+  },
+  "secondary": {
+    "damage": "5",
+    "damage_extra": "0",
+    "damage_type": "physical",
+    "category": "slash",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 0,
+    "max_range": 1
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": -1,
+  "attributes": {},
+  "basic": {
+    "might": {
+      "add_bonus": 0,
+      "set_bonus": 0,
+      "add_talent": 1,
+      "set_talent": 0
     }
-  }
+  },
+  "weapon": {
+    "complexMeleeWeapons": {
+      "add_bonus": 2,
+      "set_bonus": 0,
+      "add_talent": 0,
+      "set_talent": 0
+    }
+  },
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {}
+}
