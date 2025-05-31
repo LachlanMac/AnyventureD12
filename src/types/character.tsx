@@ -81,7 +81,7 @@ export interface RacialModule {
 export interface Module {
   _id: string;
   name: string;
-  mtype: 'racial' | 'core' | 'secondary' | 'cultural' | 'personality';
+  mtype: 'racial' | 'core' | 'secondary' | 'cultural' | 'personality' | 'alteration' | 'planar';
   ruleset: number;
   options: ModuleOption[];
   description?: string;
