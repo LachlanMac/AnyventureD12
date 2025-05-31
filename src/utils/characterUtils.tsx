@@ -92,9 +92,9 @@ export const createDefaultCharacter = (userId: string): Character => {
     magicSkills: initializeMagicSkills(),
     craftingSkills: initializeCraftingSkills(),
     resources: {
-      health: { current: 5, max: 5 },
+      health: { current: 20, max: 20 },
       energy: { current: 5, max: 5 },
-      resolve: { current: 5, max: 5 },
+      resolve: { current: 20, max: 20 },
     },
     modulePoints: {
       total: 10,

@@ -27,6 +27,15 @@ const ModulesPage: React.FC = () => {
 
   // Search functionality
   const [searchTerm, setSearchTerm] = useState<string>('');
+  const [typeFilters, setTypeFilters] = useState<{
+    core: boolean;
+    secondary: boolean;
+    alteration: boolean;
+  }>({
+    core: true,
+    secondary: true,
+    alteration: true,
+  });
 
   useEffect(() => {
     const fetchData = async () => {
@@ -38,6 +47,12 @@ const ModulesPage: React.FC = () => {
           throw new Error('Failed to fetch character data');
         }
         const characterData = await characterResponse.json();
+        
+        // Filter out any modules with null moduleId
+        if (characterData.modules) {
+          characterData.modules = characterData.modules.filter((m: CharacterModule) => m.moduleId !== null);
+        }
+        
         setCharacter(characterData);
 
         // Fetch all modules
@@ -62,6 +77,9 @@ const ModulesPage: React.FC = () => {
   const isModuleSelected = (moduleId: string) => {
     return (
       character?.modules.some((m) => {
+        if (!m.moduleId) {
+          return false;
+        }
         if (typeof m.moduleId === 'string') {
           return m.moduleId === moduleId;
         } else {
@@ -73,6 +91,9 @@ const ModulesPage: React.FC = () => {
 
   const getCharacterModule = (moduleId: string) => {
     return character?.modules.find((m) => {
+      if (!m.moduleId) {
+        return false;
+      }
       if (typeof m.moduleId === 'string') {
         return m.moduleId === moduleId;
       } else {
@@ -253,10 +274,26 @@ const ModulesPage: React.FC = () => {
 
     let filteredModules = [...allModules];
 
-    filteredModules = filteredModules.filter((module) => module.mtype !== 'racial');
+    // Exclude racial and planar modules
+    filteredModules = filteredModules.filter((module) => module.mtype !== 'racial' && module.mtype !== 'planar');
+    
     filteredModules = filteredModules.filter((module) => {
-      if (module.mtype !== 'cultural' && module.mtype !== 'personality') return true;
-      return isModuleSelected(module._id);
+      // Always show cultural and personality modules if they're selected
+      if ((module.mtype === 'cultural' || module.mtype === 'personality') && isModuleSelected(module._id)) {
+        return true;
+      }
+      
+      // Don't show unselected cultural/personality modules
+      if (module.mtype === 'cultural' || module.mtype === 'personality') {
+        return false;
+      }
+      
+      // Apply type filters
+      if (module.mtype === 'core' && !typeFilters.core) return false;
+      if (module.mtype === 'secondary' && !typeFilters.secondary) return false;
+      if (module.mtype === 'alteration' && !typeFilters.alteration) return false;
+      
+      return true;
     });
 
     if (searchTerm.trim() !== '') {
@@ -407,6 +444,65 @@ const ModulesPage: React.FC = () => {
               </svg>
             </button>
           )}
+        </div>
+      </div>
+
+      {/* Module type filters */}
+      <div style={{ marginBottom: '2rem' }}>
+        <div style={{ 
+          color: 'var(--color-cloud)', 
+          fontSize: '0.875rem', 
+          marginBottom: '0.5rem',
+          fontWeight: '600'
+        }}>
+          Filter by Type:
+        </div>
+        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+          <button
+            onClick={() => setTypeFilters(prev => ({ ...prev, core: !prev.core }))}
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '0.375rem',
+              backgroundColor: typeFilters.core ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+              color: 'var(--color-white)',
+              border: '1px solid var(--color-dark-border)',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              fontWeight: typeFilters.core ? 'bold' : 'normal',
+            }}
+          >
+            Core
+          </button>
+          <button
+            onClick={() => setTypeFilters(prev => ({ ...prev, secondary: !prev.secondary }))}
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '0.375rem',
+              backgroundColor: typeFilters.secondary ? 'var(--color-stormy)' : 'var(--color-dark-elevated)',
+              color: 'var(--color-white)',
+              border: '1px solid var(--color-dark-border)',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              fontWeight: typeFilters.secondary ? 'bold' : 'normal',
+            }}
+          >
+            Secondary
+          </button>
+          <button
+            onClick={() => setTypeFilters(prev => ({ ...prev, alteration: !prev.alteration }))}
+            style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '0.375rem',
+              backgroundColor: typeFilters.alteration ? 'var(--color-sunset)' : 'var(--color-dark-elevated)',
+              color: 'var(--color-white)',
+              border: '1px solid var(--color-dark-border)',
+              cursor: 'pointer',
+              transition: 'all 0.2s',
+              fontWeight: typeFilters.alteration ? 'bold' : 'normal',
+            }}
+          >
+            Alteration
+          </button>
         </div>
       </div>
 

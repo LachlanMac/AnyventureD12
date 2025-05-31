@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
 import { CharacterModule, Module } from '../../../types/character';
@@ -10,6 +10,8 @@ interface ModulesTabProps {
 }
 
 const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
+  const navigate = useNavigate();
+  
   // Helper function to get module type badge color
   const getModuleTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
@@ -41,9 +43,12 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
           marginBottom: '1.5rem',
         }}
       >
-        <Link to={`/characters/${characterId}/modules`}>
-          <Button variant="accent">Manage Modules</Button>
-        </Link>
+        <Button 
+          variant="accent" 
+          onClick={() => navigate(`/characters/${characterId}/modules`)}
+        >
+          Manage Modules
+        </Button>
       </div>
 
       {/* Note that we're checking modules.length - these are specifically the character's modules */}

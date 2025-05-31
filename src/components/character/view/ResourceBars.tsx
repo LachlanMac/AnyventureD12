@@ -74,38 +74,6 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources }) => {
         </CardBody>
       </Card>
 
-      {/* Energy */}
-      <Card variant="default">
-        <CardBody>
-          <div style={{ textAlign: 'center' }}>
-            <div
-              style={{
-                color: 'var(--color-cloud)',
-                fontSize: '0.875rem',
-                marginBottom: '0.5rem',
-              }}
-            >
-              Energy
-            </div>
-            <div
-              style={{
-                color: 'var(--color-white)',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-                marginBottom: '0.5rem',
-              }}
-            >
-              {resources.energy.current} / {resources.energy.max}
-            </div>
-            {renderStatBar(
-              resources.energy.current,
-              resources.energy.max,
-              'var(--color-metal-gold)'
-            )}
-          </div>
-        </CardBody>
-      </Card>
-
       {/* Resolve */}
       <Card variant="default">
         <CardBody>
@@ -133,6 +101,38 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources }) => {
               resources.resolve.current,
               resources.resolve.max,
               'var(--color-sat-purple)'
+            )}
+          </div>
+        </CardBody>
+      </Card>
+
+      {/* Energy */}
+      <Card variant="default">
+        <CardBody>
+          <div style={{ textAlign: 'center' }}>
+            <div
+              style={{
+                color: 'var(--color-cloud)',
+                fontSize: '0.875rem',
+                marginBottom: '0.5rem',
+              }}
+            >
+              Energy
+            </div>
+            <div
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '1.5rem',
+                fontWeight: 'bold',
+                marginBottom: '0.5rem',
+              }}
+            >
+              {resources.energy.current} / {resources.energy.max}
+            </div>
+            {renderStatBar(
+              resources.energy.current,
+              resources.energy.max,
+              'var(--color-metal-gold)'
             )}
           </div>
         </CardBody>

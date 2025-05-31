@@ -438,9 +438,9 @@ CharacterSchema.pre('save', function(next) {
   this.skills.persuasion.talent = this.attributes.social;
 
   // Calculate resources
-  this.resources.health.max = 5;
+  this.resources.health.max = 20;
   this.resources.energy.max = 5;
-  this.resources.resolve.max = 5;
+  this.resources.resolve.max = 20;
 
   // Ensure current resources don't exceed max
   if (!this.resources.health.current || this.resources.health.current > this.resources.health.max) {
