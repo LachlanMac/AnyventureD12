@@ -81,7 +81,7 @@ export interface RacialModule {
 export interface Module {
   _id: string;
   name: string;
-  mtype: 'racial' | 'core' | 'secondary';
+  mtype: 'racial' | 'core' | 'secondary' | 'cultural' | 'personality';
   ruleset: number;
   options: ModuleOption[];
   description?: string;
@@ -290,6 +290,7 @@ export interface Character {
   appearance: string;
   actions: Action[];
   modules: CharacterModule[];
+  traits: Trait[];
   level: number;
   experience: number;
   stressors: string[];

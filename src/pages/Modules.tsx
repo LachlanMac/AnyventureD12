@@ -2,31 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import { Module, ModuleOption, CharacterModule } from '../types/character';
 
 // Type definitions
-interface ModuleOption {
-  name: string;
-  description: string;
-  location: string;
-  data: string;
-}
-
-interface Module {
-  _id: string;
-  name: string;
-  mtype: 'racial' | 'core' | 'secondary';
-  ruleset: number;
-  options: ModuleOption[];
-}
-
 interface SelectedOption {
   location: string;
   selectedAt: string;
-}
-
-interface CharacterModule {
-  moduleId: string | Module;
-  selectedOptions: SelectedOption[];
 }
 
 interface Character {

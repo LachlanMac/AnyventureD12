@@ -327,12 +327,12 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
                     </tr>
                   </thead>
                   <tbody>
-                    {Object.entries(character.mitigation).map(([type, value], index) => (
+                    {character.mitigation && Object.entries(character.mitigation).map(([type, value], index) => (
                       <tr
                         key={type}
                         style={{
                           borderBottom:
-                            index < Object.entries(character.mitigation).length - 1
+                            index < Object.entries(character.mitigation || {}).length - 1
                               ? '1px solid var(--color-dark-border)'
                               : 'none',
                         }}

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import Button from '../components/ui/Button';
+import { Character } from '../types/character';
 
 // Import character view components
 import CharacterHeader from '../components/character/view/CharacterHeader';
@@ -13,14 +14,7 @@ import BackgroundTab from '../components/character/view/BackgroundTab';
 import SpellsTab from '../components/character/view/SpellsTab';
 import InventoryTab from '../components/character/view/InventoryTab';
 
-// Type definitions included here for completeness
-interface Action {
-  name: string;
-  description: string;
-  type: 'Action' | 'Reaction';
-  sourceModule: string;
-  sourceModuleOption: string;
-}
+// Type for spells that come from the API
 interface CharacterSpell {
   spellId: {
     _id: string;
@@ -43,99 +37,11 @@ interface CharacterSpell {
   notes: string;
 }
 
-interface SkillData {
-  value: number; // Dice type (1-6)
-  talent: number; // Number of dice (0-3)
-}
-
-interface Character {
+// Extended Character type to include API-specific fields
+interface CharacterWithAPI extends Character {
   _id: string;
-  userId: string;
-  name: string;
-  race: string;
-  culture: string;
-  stressors: string[];
-  attributes: {
-    physique: number;
-    finesse: number;
-    mind: number;
-    knowledge: number;
-    social: number;
-  };
   spells: CharacterSpell[];
   spellSlots: number;
-  skills: {
-    fitness: SkillData;
-    deflection: SkillData;
-    might: SkillData;
-    endurance: SkillData;
-    evasion: SkillData;
-    stealth: SkillData;
-    coordination: SkillData;
-    thievery: SkillData;
-    resilience: SkillData;
-    concentration: SkillData;
-    senses: SkillData;
-    logic: SkillData;
-    wildcraft: SkillData;
-    academics: SkillData;
-    magic: SkillData;
-    medicine: SkillData;
-    expression: SkillData;
-    persuasion: SkillData;
-    insight: SkillData;
-    presence: SkillData;
-  };
-
-  weaponSkills: {
-    unarmed: SkillData;
-    throwing: SkillData;
-    simpleRangedWeapons: SkillData;
-    simpleMeleeWeapons: SkillData;
-    complexRangedWeapons: SkillData;
-    complexMeleeWeapons: SkillData;
-  };
-  craftingSkills: {
-    engineering: SkillData;
-    fabrication: SkillData;
-    alchemy: SkillData;
-    cooking: SkillData;
-    glyphcraft: SkillData;
-  };
-  magicSkills: {
-    black: SkillData;
-    primal: SkillData;
-    alteration: SkillData;
-    divine: SkillData;
-    mystic: SkillData;
-  };
-  resources: {
-    health: { current: number; max: number };
-    energy: { current: number; max: number };
-    resolve: { current: number; max: number };
-  };
-  languages: string[];
-  stances: string[];
-  physicalTraits: {
-    size: string;
-    weight: string;
-    height: string;
-    gender: string;
-  };
-  biography: string;
-  portraitUrl: string;
-  appearance: string;
-  actions: Action[];
-  modules: any[]; // Simplified for this example
-  level: number;
-  experience: number;
-  modulePoints: {
-    total: number;
-    spent: number;
-  };
-  movement: number;
-  inventory: any[];
-  equipment: any;
   createdAt: string;
   updatedAt: string;
 }
@@ -146,7 +52,7 @@ const CharacterView: React.FC = () => {
   const location = useLocation();
   const justCreated = new URLSearchParams(location.search).get('created') === 'true';
 
-  const [character, setCharacter] = useState<Character | null>(null);
+  const [character, setCharacter] = useState<CharacterWithAPI | null>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('info');
@@ -346,7 +252,7 @@ const CharacterView: React.FC = () => {
 
           {/* Inventory Tab */}
           {activeTab === 'inventory' && (
-            <InventoryTab character={character} onCharacterUpdate={setCharacter} />
+            <InventoryTab character={character} onCharacterUpdate={(updatedChar) => setCharacter(updatedChar as CharacterWithAPI)} />
           )}
 
           {/* Background Tab */}

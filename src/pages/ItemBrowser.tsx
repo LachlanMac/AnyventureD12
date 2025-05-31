@@ -1,20 +1,39 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Item } from '../types/character';
+import { Item, Damage, ArmorData } from '../types/character';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
+
+// Extended Item type that matches backend API response
+interface APIItem extends Item {
+  slot?: string;
+  weapon_data?: {
+    category: string;
+    primary: Damage;
+    secondary: Damage;
+  };
+  armor_data?: ArmorData;
+}
 
 const ItemBrowser: React.FC = () => {
   const { characterId } = useParams<{ characterId: string }>();
 
-  const [items, setItems] = useState<Item[]>([]);
-  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+  const [items, setItems] = useState<APIItem[]>([]);
+  const [selectedItem, setSelectedItem] = useState<APIItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [rarityFilter, setRarityFilter] = useState('all');
   const [addingItem, setAddingItem] = useState(false);
+
+  // Helper function to check if a skill bonus has any non-zero values
+  const hasSkillBonus = (skill: any): boolean => {
+    return (skill?.add_bonus || 0) > 0 || 
+           (skill?.set_bonus || 0) > 0 || 
+           (skill?.add_talent || 0) > 0 || 
+           (skill?.set_talent || 0) > 0;
+  };
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -95,7 +114,7 @@ const ItemBrowser: React.FC = () => {
 
   const filteredItems = getFilteredItems();
 
-  const ItemDetail: React.FC<{ item: Item | null }> = ({ item }) => {
+  const ItemDetail: React.FC<{ item: APIItem | null }> = ({ item }) => {
     if (!item) {
       return (
         <div
@@ -314,7 +333,7 @@ const ItemBrowser: React.FC = () => {
             {/* Attributes */}
             {item.attributes &&
               Object.values(item.attributes).some(
-                (attr) => attr.add_talent > 0 || attr.set_talent > 0
+                (attr) => (attr?.add_talent || 0) > 0 || (attr?.set_talent || 0) > 0
               ) && (
                 <div>
                   <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
@@ -328,15 +347,15 @@ const ItemBrowser: React.FC = () => {
                     }}
                   >
                     {Object.entries(item.attributes).map(([attrName, attr]) => {
-                      if (attr.add_talent > 0 || attr.set_talent > 0) {
+                      if ((attr?.add_talent || 0) > 0 || (attr?.set_talent || 0) > 0) {
                         return (
                           <div
                             key={attrName}
                             style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
                           >
                             <strong style={{ textTransform: 'capitalize' }}>{attrName}:</strong>
-                            {attr.add_talent > 0 && ` +${attr.add_talent} talent`}
-                            {attr.set_talent > 0 && ` Set to ${attr.set_talent} talent`}
+                            {(attr?.add_talent || 0) > 0 && ` +${attr.add_talent} talent`}
+                            {(attr?.set_talent || 0) > 0 && ` Set to ${attr.set_talent} talent`}
                           </div>
                         );
                       }
@@ -348,13 +367,7 @@ const ItemBrowser: React.FC = () => {
 
             {/* Basic Skills */}
             {item.basic &&
-              Object.values(item.basic).some(
-                (skill) =>
-                  skill.add_bonus > 0 ||
-                  skill.set_bonus > 0 ||
-                  skill.add_talent > 0 ||
-                  skill.set_talent > 0
-              ) && (
+              Object.values(item.basic).some(hasSkillBonus) && (
                 <div>
                   <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
                     Basic Skill Bonuses
@@ -368,10 +381,10 @@ const ItemBrowser: React.FC = () => {
                   >
                     {Object.entries(item.basic).map(([skillName, skill]) => {
                       if (
-                        skill.add_bonus > 0 ||
-                        skill.set_bonus > 0 ||
-                        skill.add_talent > 0 ||
-                        skill.set_talent > 0
+                        (skill?.add_bonus || 0) > 0 ||
+                        (skill?.set_bonus || 0) > 0 ||
+                        (skill?.add_talent || 0) > 0 ||
+                        (skill?.set_talent || 0) > 0
                       ) {
                         return (
                           <div
@@ -379,10 +392,10 @@ const ItemBrowser: React.FC = () => {
                             style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
                           >
                             <strong style={{ textTransform: 'capitalize' }}>{skillName}:</strong>
-                            {skill.add_bonus > 0 && ` +${skill.add_bonus} skill`}
-                            {skill.set_bonus > 0 && ` Set to ${skill.set_bonus} skill`}
-                            {skill.add_talent > 0 && ` +${skill.add_talent} talent`}
-                            {skill.set_talent > 0 && ` Set to ${skill.set_talent} talent`}
+                            {(skill?.add_bonus || 0) > 0 && ` +${skill.add_bonus} skill`}
+                            {(skill?.set_bonus || 0) > 0 && ` Set to ${skill.set_bonus} skill`}
+                            {(skill?.add_talent || 0) > 0 && ` +${skill.add_talent} talent`}
+                            {(skill?.set_talent || 0) > 0 && ` Set to ${skill.set_talent} talent`}
                           </div>
                         );
                       }
@@ -396,10 +409,10 @@ const ItemBrowser: React.FC = () => {
             {item.weapon &&
               Object.values(item.weapon).some(
                 (skill) =>
-                  skill.add_bonus > 0 ||
-                  skill.set_bonus > 0 ||
-                  skill.add_talent > 0 ||
-                  skill.set_talent > 0
+                  (skill?.add_bonus || 0) > 0 ||
+                  (skill?.set_bonus || 0) > 0 ||
+                  (skill?.add_talent || 0) > 0 ||
+                  (skill?.set_talent || 0) > 0
               ) && (
                 <div>
                   <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
@@ -414,10 +427,10 @@ const ItemBrowser: React.FC = () => {
                   >
                     {Object.entries(item.weapon).map(([skillName, skill]) => {
                       if (
-                        skill.add_bonus > 0 ||
-                        skill.set_bonus > 0 ||
-                        skill.add_talent > 0 ||
-                        skill.set_talent > 0
+                        (skill?.add_bonus || 0) > 0 ||
+                        (skill?.set_bonus || 0) > 0 ||
+                        (skill?.add_talent || 0) > 0 ||
+                        (skill?.set_talent || 0) > 0
                       ) {
                         return (
                           <div
@@ -427,10 +440,10 @@ const ItemBrowser: React.FC = () => {
                             <strong style={{ textTransform: 'capitalize' }}>
                               {skillName.replace(/([A-Z])/g, ' $1').trim()}:
                             </strong>
-                            {skill.add_bonus > 0 && ` +${skill.add_bonus} skill`}
-                            {skill.set_bonus > 0 && ` Set to ${skill.set_bonus} skill`}
-                            {skill.add_talent > 0 && ` +${skill.add_talent} talent`}
-                            {skill.set_talent > 0 && ` Set to ${skill.set_talent} talent`}
+                            {(skill?.add_bonus || 0) > 0 && ` +${skill.add_bonus} skill`}
+                            {(skill?.set_bonus || 0) > 0 && ` Set to ${skill.set_bonus} skill`}
+                            {(skill?.add_talent || 0) > 0 && ` +${skill.add_talent} talent`}
+                            {(skill?.set_talent || 0) > 0 && ` Set to ${skill.set_talent} talent`}
                           </div>
                         );
                       }
@@ -444,10 +457,10 @@ const ItemBrowser: React.FC = () => {
             {item.magic &&
               Object.values(item.magic).some(
                 (skill) =>
-                  skill.add_bonus > 0 ||
-                  skill.set_bonus > 0 ||
-                  skill.add_talent > 0 ||
-                  skill.set_talent > 0
+                  (skill?.add_bonus || 0) > 0 ||
+                  (skill?.set_bonus || 0) > 0 ||
+                  (skill?.add_talent || 0) > 0 ||
+                  (skill?.set_talent || 0) > 0
               ) && (
                 <div>
                   <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
@@ -462,10 +475,10 @@ const ItemBrowser: React.FC = () => {
                   >
                     {Object.entries(item.magic).map(([skillName, skill]) => {
                       if (
-                        skill.add_bonus > 0 ||
-                        skill.set_bonus > 0 ||
-                        skill.add_talent > 0 ||
-                        skill.set_talent > 0
+                        (skill?.add_bonus || 0) > 0 ||
+                        (skill?.set_bonus || 0) > 0 ||
+                        (skill?.add_talent || 0) > 0 ||
+                        (skill?.set_talent || 0) > 0
                       ) {
                         return (
                           <div
@@ -473,10 +486,10 @@ const ItemBrowser: React.FC = () => {
                             style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
                           >
                             <strong style={{ textTransform: 'capitalize' }}>{skillName}:</strong>
-                            {skill.add_bonus > 0 && ` +${skill.add_bonus} skill`}
-                            {skill.set_bonus > 0 && ` Set to ${skill.set_bonus} skill`}
-                            {skill.add_talent > 0 && ` +${skill.add_talent} talent`}
-                            {skill.set_talent > 0 && ` Set to ${skill.set_talent} talent`}
+                            {(skill?.add_bonus || 0) > 0 && ` +${skill.add_bonus} skill`}
+                            {(skill?.set_bonus || 0) > 0 && ` Set to ${skill.set_bonus} skill`}
+                            {(skill?.add_talent || 0) > 0 && ` +${skill.add_talent} talent`}
+                            {(skill?.set_talent || 0) > 0 && ` Set to ${skill.set_talent} talent`}
                           </div>
                         );
                       }
@@ -490,10 +503,10 @@ const ItemBrowser: React.FC = () => {
             {item.craft &&
               Object.values(item.craft).some(
                 (skill) =>
-                  skill.add_bonus > 0 ||
-                  skill.set_bonus > 0 ||
-                  skill.add_talent > 0 ||
-                  skill.set_talent > 0
+                  (skill?.add_bonus || 0) > 0 ||
+                  (skill?.set_bonus || 0) > 0 ||
+                  (skill?.add_talent || 0) > 0 ||
+                  (skill?.set_talent || 0) > 0
               ) && (
                 <div>
                   <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
@@ -508,10 +521,10 @@ const ItemBrowser: React.FC = () => {
                   >
                     {Object.entries(item.craft).map(([skillName, skill]) => {
                       if (
-                        skill.add_bonus > 0 ||
-                        skill.set_bonus > 0 ||
-                        skill.add_talent > 0 ||
-                        skill.set_talent > 0
+                        (skill?.add_bonus || 0) > 0 ||
+                        (skill?.set_bonus || 0) > 0 ||
+                        (skill?.add_talent || 0) > 0 ||
+                        (skill?.set_talent || 0) > 0
                       ) {
                         return (
                           <div
@@ -521,10 +534,10 @@ const ItemBrowser: React.FC = () => {
                             <strong style={{ textTransform: 'capitalize' }}>
                               {skillName.replace(/([A-Z])/g, ' $1').trim()}:
                             </strong>
-                            {skill.add_bonus > 0 && ` +${skill.add_bonus} skill`}
-                            {skill.set_bonus > 0 && ` Set to ${skill.set_bonus} skill`}
-                            {skill.add_talent > 0 && ` +${skill.add_talent} talent`}
-                            {skill.set_talent > 0 && ` Set to ${skill.set_talent} talent`}
+                            {(skill?.add_bonus || 0) > 0 && ` +${skill.add_bonus} skill`}
+                            {(skill?.set_bonus || 0) > 0 && ` Set to ${skill.set_bonus} skill`}
+                            {(skill?.add_talent || 0) > 0 && ` +${skill.add_talent} talent`}
+                            {(skill?.set_talent || 0) > 0 && ` Set to ${skill.set_talent} talent`}
                           </div>
                         );
                       }

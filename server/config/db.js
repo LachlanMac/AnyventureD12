@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const connectDB = async () => {
   try {
     // Default to localhost MongoDB for local development
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/starventuredb';
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/anyventuredx';
     
     const conn = await mongoose.connect(mongoURI, {
       // These options are no longer needed in newer mongoose versions but kept for compatibility

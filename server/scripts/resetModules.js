@@ -9,7 +9,7 @@ dotenv.config();
 // Connect to MongoDB
 const connectDB = async () => {
   try {
-    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/starventuredb';
+    const mongoURI = process.env.MONGODB_URI || 'mongodb://localhost:27017/anyventuredx';
     
     await mongoose.connect(mongoURI, {
       useNewUrlParser: true,

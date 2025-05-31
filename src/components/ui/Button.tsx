@@ -1,7 +1,7 @@
 import React, { ButtonHTMLAttributes, ReactNode } from 'react';
 
 export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
-  variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost';
+  variant?: 'primary' | 'secondary' | 'accent' | 'outline' | 'ghost' | 'danger';
   size?: 'sm' | 'md' | 'lg';
   isLoading?: boolean;
   leftIcon?: ReactNode;
@@ -89,6 +89,15 @@ const Button: React.FC<ButtonProps> = ({
           '--hover-bg': 'rgba(255, 255, 255, 0.1)',
           '--active-bg': 'rgba(255, 255, 255, 0.15)',
           '--ring-color': 'rgba(255, 255, 255, 0.25)',
+        };
+      case 'danger':
+        return {
+          backgroundColor: 'var(--color-sunset)',
+          color: 'var(--color-white)',
+          border: 'none',
+          '--hover-bg': 'rgba(152, 94, 109, 0.9)', // --color-sunset with opacity
+          '--active-bg': 'var(--color-sunset)',
+          '--ring-color': 'rgba(152, 94, 109, 0.5)', // --color-sunset with opacity
         };
       default:
         return {};
