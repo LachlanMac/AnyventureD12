@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import { useNavigate } from 'react-router-dom';
+import Card, { CardBody } from '../components/ui/Card';
 
 interface Spell {
   _id: string;
@@ -19,10 +20,10 @@ interface Spell {
 }
 
 const SpellCompendium: React.FC = () => {
+  const navigate = useNavigate();
   const [spells, setSpells] = useState<Spell[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
-  const [selectedSpell, setSelectedSpell] = useState<Spell | null>(null);
 
   // Filters
   const [searchTerm, setSearchTerm] = useState('');
@@ -400,28 +401,19 @@ const SpellCompendium: React.FC = () => {
         </CardBody>
       </Card>
 
-      {/* Spells List and Detail */}
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-        {/* Spells list */}
-        <div className="lg:col-span-2">
-          <Card variant="default">
-            <CardBody style={{ padding: '0' }}>
-              <div style={{ display: 'flex', flexDirection: 'column' }}>
-                {filteredSpells.map((spell, index) => (
+      {/* Spells List */}
+      <Card variant="default">
+        <CardBody style={{ padding: '0' }}>
+          <div style={{ display: 'flex', flexDirection: 'column' }}>
+            {filteredSpells.map((spell, index) => (
                   <div
                     key={spell._id}
-                    onClick={() => setSelectedSpell(spell)}
+                    onClick={() => navigate(`/spells/${spell._id}`)}
                     style={{
                       padding: '1rem',
                       cursor: 'pointer',
-                      backgroundColor:
-                        selectedSpell?._id === spell._id
-                          ? 'var(--color-dark-elevated)'
-                          : 'transparent',
-                      borderLeft:
-                        selectedSpell?._id === spell._id
-                          ? '3px solid var(--color-metal-gold)'
-                          : '3px solid transparent',
+                      backgroundColor: 'transparent',
+                      borderLeft: '3px solid transparent',
                       borderBottom:
                         index < filteredSpells.length - 1
                           ? '1px solid var(--color-dark-border)'
@@ -429,95 +421,55 @@ const SpellCompendium: React.FC = () => {
                       transition: 'all 0.2s ease',
                     }}
                     onMouseEnter={(e) => {
-                      if (selectedSpell?._id !== spell._id) {
-                        e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
-                      }
+                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
                     }}
                     onMouseLeave={(e) => {
-                      if (selectedSpell?._id !== spell._id) {
-                        e.currentTarget.style.backgroundColor = 'transparent';
-                      }
+                      e.currentTarget.style.backgroundColor = 'transparent';
                     }}
                   >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      {/* Left section - Name and school info */}
-                      <div style={{ flex: '1', minWidth: '0' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem', marginBottom: '0.25rem' }}>
-                          <h3
-                            style={{
-                              color: 'var(--color-white)',
-                              fontSize: '1.125rem',
-                              fontWeight: 'bold',
-                              margin: 0,
-                            }}
-                          >
-                            {spell.name}
-                          </h3>
-                          <span
-                            style={{
-                              color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
-                              fontSize: '0.875rem',
-                              fontWeight: 'bold',
-                              textTransform: 'capitalize',
-                            }}
-                          >
-                            {spell.school}
-                          </span>
-                          <span style={{ color: 'var(--color-muted)' }}>•</span>
-                          <span
-                            style={{
-                              color: 'var(--color-cloud)',
-                              fontSize: '0.875rem',
-                              textTransform: 'capitalize',
-                            }}
-                          >
-                            {spell.subschool}
-                          </span>
-                        </div>
-                        <p
+                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                      {/* Top section - Name and school */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                        <h3
                           style={{
-                            color: 'var(--color-cloud)',
-                            fontSize: '0.875rem',
+                            color: 'var(--color-white)',
+                            fontSize: '1.125rem',
+                            fontWeight: 'bold',
                             margin: 0,
-                            overflow: 'hidden',
-                            textOverflow: 'ellipsis',
-                            whiteSpace: 'nowrap',
+                            flex: 1,
                           }}
                         >
-                          {spell.description}
-                        </p>
+                          {spell.name}
+                        </h3>
+                        <span
+                          style={{
+                            color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
+                            fontSize: '0.875rem',
+                            fontWeight: 'bold',
+                            textTransform: 'capitalize',
+                          }}
+                        >
+                          {spell.school}
+                        </span>
                       </div>
 
-                      {/* Middle section - Tags and range */}
-                      <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', minWidth: '120px' }}>
-                        <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.25rem', flexWrap: 'wrap', justifyContent: 'center' }}>
-                          {spell.concentration && (
-                            <span
-                              style={{
-                                color: 'var(--color-metal-gold)',
-                                fontSize: '0.75rem',
-                                backgroundColor: 'rgba(215, 183, 64, 0.2)',
-                                padding: '0.125rem 0.375rem',
-                                borderRadius: '0.25rem',
-                              }}
-                            >
-                              Concentration
-                            </span>
-                          )}
-                          {spell.reaction && (
-                            <span
-                              style={{
-                                fontSize: '0.75rem',
-                                color: 'var(--color-white)',
-                                backgroundColor: 'var(--color-dark-elevated)',
-                                padding: '0.125rem 0.375rem',
-                                borderRadius: '0.25rem',
-                              }}
-                            >
-                              Reaction
-                            </span>
-                          )}
-                        </div>
+                      {/* Bottom section - Stats and info */}
+                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
+                        {/* Subschool badge */}
+                        <span
+                          style={{
+                            color: 'var(--color-cloud)',
+                            fontSize: '0.75rem',
+                            textTransform: 'capitalize',
+                            backgroundColor: 'var(--color-dark-elevated)',
+                            padding: '0.25rem 0.75rem',
+                            borderRadius: '0.25rem',
+                          }}
+                        >
+                          {spell.subschool}
+                        </span>
+
+                        {/* Range */}
                         <span
                           style={{
                             fontSize: '0.75rem',
@@ -529,222 +481,59 @@ const SpellCompendium: React.FC = () => {
                         >
                           {spell.range}
                         </span>
-                      </div>
 
-                      {/* Right section - Quick stats */}
-                      <div style={{ display: 'flex', fontSize: '0.875rem', color: 'var(--color-muted)' }}>
-                        <div style={{ textAlign: 'center', width: '60px' }}>
-                          <div style={{ fontSize: '0.75rem' }}>Cast DC</div>
-                          <div style={{ color: 'var(--color-cloud)' }}>{spell.checkToCast}</div>
-                        </div>
-                        <div style={{ textAlign: 'center', width: '60px' }}>
-                          <div style={{ fontSize: '0.75rem' }}>Energy</div>
-                          <div style={{ color: 'var(--color-cloud)' }}>{spell.energy}</div>
-                        </div>
-                        <div style={{ textAlign: 'center', width: '60px' }}>
-                          <div style={{ fontSize: '0.75rem' }}>Damage</div>
-                          <div style={{ color: 'var(--color-cloud)' }}>
-                            {spell.damage > 0 ? spell.damage : '-'}
+                        {/* Tags */}
+                        {spell.concentration && (
+                          <span
+                            style={{
+                              color: 'var(--color-metal-gold)',
+                              fontSize: '0.75rem',
+                              backgroundColor: 'rgba(215, 183, 64, 0.2)',
+                              padding: '0.125rem 0.375rem',
+                              borderRadius: '0.25rem',
+                            }}
+                          >
+                            Concentration
+                          </span>
+                        )}
+                        {spell.reaction && (
+                          <span
+                            style={{
+                              fontSize: '0.75rem',
+                              color: 'var(--color-white)',
+                              backgroundColor: 'var(--color-dark-elevated)',
+                              padding: '0.125rem 0.375rem',
+                              borderRadius: '0.25rem',
+                            }}
+                          >
+                            Reaction
+                          </span>
+                        )}
+
+                        {/* Quick stats */}
+                        <div style={{ display: 'flex', gap: '1rem', marginLeft: 'auto', fontSize: '0.75rem', color: 'var(--color-muted)' }}>
+                          <div style={{ textAlign: 'center' }}>
+                            <div>Cast DC</div>
+                            <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{spell.checkToCast}</div>
                           </div>
+                          <div style={{ textAlign: 'center' }}>
+                            <div>Energy</div>
+                            <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{spell.energy}</div>
+                          </div>
+                          {spell.damage > 0 && (
+                            <div style={{ textAlign: 'center' }}>
+                              <div>Damage</div>
+                              <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{spell.damage}</div>
+                            </div>
+                          )}
                         </div>
                       </div>
                     </div>
                   </div>
-                ))}
-              </div>
-            </CardBody>
-          </Card>
-        </div>
-
-        {/* Selected spell detail */}
-        <div className="lg:col-span-1">
-          {selectedSpell ? (
-            <Card variant="default" style={{ position: 'sticky', top: '1rem' }}>
-              <CardHeader>
-                <h2
-                  style={{
-                    color: 'var(--color-white)',
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  {selectedSpell.name}
-                </h2>
-              </CardHeader>
-              <CardBody>
-                <SpellDetail spell={selectedSpell} />
-              </CardBody>
-            </Card>
-          ) : (
-            <Card variant="default">
-              <CardBody>
-                <div style={{ color: 'var(--color-cloud)', textAlign: 'center', padding: '2rem' }}>
-                  <p style={{ marginBottom: '0.5rem' }}>Select a spell to view details</p>
-                  <p style={{ fontSize: '0.875rem', color: 'var(--color-muted)' }}>
-                    Click on any spell card to see its full information
-                  </p>
-                </div>
-              </CardBody>
-            </Card>
-          )}
-        </div>
-      </div>
-    </div>
-  );
-};
-
-// Spell detail component
-const SpellDetail: React.FC<{ spell: Spell }> = ({ spell }) => {
-  const schoolColors: Record<string, string> = {
-    black: 'var(--color-sunset)',
-    primal: 'var(--color-old-gold)',
-    alteration: 'var(--color-sat-purple)',
-    divine: 'var(--color-stormy)',
-    mysticism: 'var(--color-evening)',
-  };
-
-  const damageTypeColors: Record<string, string> = {
-    physical: '#9CA3AF',
-    heat: '#EF4444',
-    cold: '#3B82F6',
-    lightning: '#FBBF24',
-    dark: '#6B21A8',
-    divine: '#F59E0B',
-    arcane: '#8B5CF6',
-    psychic: '#EC4899',
-    toxic: '#10B981',
-  };
-
-  return (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-      {/* School and Subschool */}
-      <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-        <span
-          style={{
-            color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
-            fontWeight: 'bold',
-            textTransform: 'capitalize',
-            fontSize: '1.1rem',
-          }}
-        >
-          {spell.school}
-        </span>
-        <span style={{ color: 'var(--color-muted)' }}>•</span>
-        <span
-          style={{
-            color: 'var(--color-cloud)',
-            fontSize: '1rem',
-            textTransform: 'capitalize',
-          }}
-        >
-          {spell.subschool}
-        </span>
-      </div>
-
-      {/* Description */}
-      <div>
-        <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.5rem' }}>Description</h3>
-        <p style={{ color: 'var(--color-cloud)', lineHeight: '1.6' }}>{spell.description}</p>
-      </div>
-
-      {/* Casting Requirements */}
-      <div>
-        <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-          Casting Requirements
-        </h3>
-        <div
-          style={{
-            backgroundColor: 'var(--color-dark-elevated)',
-            padding: '1rem',
-            borderRadius: '0.375rem',
-          }}
-        >
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.75rem' }}>
-            <div style={{ color: 'var(--color-cloud)' }}>
-              <strong>Check to Cast:</strong> {spell.checkToCast}
-            </div>
-            <div style={{ color: 'var(--color-cloud)' }}>
-              <strong>Energy Cost:</strong> {spell.energy}
-            </div>
-            <div style={{ color: 'var(--color-cloud)' }}>
-              <strong>Range:</strong> {spell.range}
-            </div>
-            <div style={{ color: 'var(--color-cloud)' }}>
-              <strong>Duration:</strong> {spell.duration}
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Components */}
-      {spell.components && spell.components.length > 0 && (
-        <div>
-          <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>Components</h3>
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-            {spell.components.map((component, index) => (
-              <span
-                key={index}
-                style={{
-                  backgroundColor: 'var(--color-dark-elevated)',
-                  color: 'var(--color-white)',
-                  padding: '0.25rem 0.75rem',
-                  borderRadius: '0.25rem',
-                  fontSize: '0.875rem',
-                }}
-              >
-                {component}
-              </span>
             ))}
           </div>
-        </div>
-      )}
-
-      {/* Damage */}
-      {spell.damage > 0 && (
-        <div>
-          <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>Damage</h3>
-          <div
-            style={{
-              backgroundColor: 'var(--color-dark-elevated)',
-              padding: '1rem',
-              borderRadius: '0.375rem',
-            }}
-          >
-            <div style={{ color: 'var(--color-cloud)' }}>
-              <strong>Damage:</strong> {spell.damage}{' '}
-              <span
-                style={{
-                  color: damageTypeColors[spell.damageType.toLowerCase()] || 'var(--color-cloud)',
-                  textTransform: 'capitalize',
-                }}
-              >
-                {spell.damageType}
-              </span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Special Properties */}
-      {(spell.concentration || spell.reaction) && (
-        <div>
-          <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-            Special Properties
-          </h3>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
-            {spell.concentration && (
-              <div style={{ color: 'var(--color-cloud)' }}>
-                <strong>Concentration:</strong> This spell requires concentration to maintain
-              </div>
-            )}
-            {spell.reaction && (
-              <div style={{ color: 'var(--color-cloud)' }}>
-                <strong>Reaction:</strong> This spell can be cast as a reaction
-              </div>
-            )}
-          </div>
-        </div>
-      )}
+        </CardBody>
+      </Card>
     </div>
   );
 };
