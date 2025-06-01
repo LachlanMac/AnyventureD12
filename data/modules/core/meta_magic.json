@@ -1,16 +1,16 @@
 {
   "id": 105,
-  "name": "Altermage",
+  "name": "Metamage",
   "mtype": "secondary",
   "ruleset": 1,
  "options": [
       {
       "name": "Adaptive Mind",
-      "description": "You have learned to bend reality through controlled change. Gain +1 skill with alteration magic.",
+      "description": "You have learned to bend reality through controlled change. Gain +1 skill with meta magic.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "AE=1"
+      "data": "MS3=1"
     },
     {
       "name": "Action : Flux Field",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Adaptive Resistance",
-      "description": "Your body learns to resist harmful forces. Gain +1 skill with endurance. Additionally, at the start of each day, roll an alteration magic check and gain the mitigation of your choice equal to half the total rolled.",
+      "description": "Your body learns to resist harmful forces. Gain +1 skill with endurance. Additionally, at the start of each day, roll a meta magic check and gain the mitigation of your choice equal to half the total rolled.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -53,8 +53,8 @@
       "data": ""
     },
     {
-      "name": "Skilled Altermage",
-      "description": "Your mastery over the forces of change has grown considerably. Gain +1 skill with alteration magic.",
+      "name": "Skilled Metamage",
+      "description": "Your mastery over the forces of change has grown considerably. Gain +1 skill with meta magic.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
@@ -70,15 +70,15 @@
     },
     {
       "name": "Daily Action : Energy Discharge",
-      "description": "You touch an adjacent creature and discharge your adaptive energy. Make an alteration magic attack against their endurance. Each successful dice deals damage equal to your current Adaptive Resistance mitigation bonus, using the same damage type you chose for that mitigation.",
+      "description": "You touch an adjacent creature and discharge your adaptive energy. Make a meta magic attack against their endurance. Each successful dice deals damage equal to your current Adaptive Resistance mitigation bonus, using the same damage type you chose for that mitigation.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "Master Altermage",
-      "description": "You have become a true master of change and adaptation. Gain +1 talent with alteration magic spells.",
+      "name": "Master Metamage",
+      "description": "You have become a true master of change and adaptation. Gain +1 talent with meta magic spells.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

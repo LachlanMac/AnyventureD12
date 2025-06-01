@@ -48,9 +48,9 @@ export const SPECIALIZED_SKILLS = [
 export const MAGIC_SKILLS = [
   { id: 'black', name: 'Black Magic', defaultTalent: 0 },
   { id: 'primal', name: 'Primal Magic', defaultTalent: 0 },
-  { id: 'alteration', name: 'Alteration Magic', defaultTalent: 0 },
+  { id: 'meta', name: 'Meta Magic', defaultTalent: 0 },
   { id: 'divine', name: 'Divine Magic', defaultTalent: 0 },
-  { id: 'mystic', name: 'Mysticism Magic', defaultTalent: 0 },
+  { id: 'mystic', name: 'Mystic Magic', defaultTalent: 0 },
 ];
 
 // Crafting skills

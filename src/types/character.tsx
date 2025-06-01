@@ -68,12 +68,24 @@ export interface ModuleOption {
   data: string;
 }
 
+// Subchoice structure for ancestry/culture options
+export interface Subchoice {
+  id: string;
+  name: string;
+  description: string;
+  data: string;
+}
+
 // Ancestry option structure (simplified, no location or cost)
 export interface AncestryOption {
   name: string;
   description: string;
   data: string;
   selected?: boolean;
+  subchoices?: Subchoice[];
+  requiresChoice?: boolean;
+  choiceType?: string;
+  selectedSubchoice?: string;
 }
 
 // Culture option structure (simplified, no location or cost)

@@ -21,18 +21,31 @@ const Home: React.FC = () => {
                 fontFamily: 'Orbitron, monospace',
                 fontSize: 'clamp(3rem, 8vw, 6rem)',
                 fontWeight: 700,
-                background: 'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
-                WebkitBackgroundClip: 'text',
-                WebkitTextFillColor: 'transparent',
-                backgroundClip: 'text',
-                textShadow: '0 0 30px rgba(215, 183, 64, 0.3)',
                 letterSpacing: '0.1em',
                 margin: '0',
                 textTransform: 'uppercase',
                 position: 'relative',
               }}
             >
-              AnyventureDX
+              <span
+                style={{
+                  background: 'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                  textShadow: '0 0 30px rgba(215, 183, 64, 0.3)',
+                }}
+              >
+                Anyventure
+              </span>
+              <span
+                style={{
+                  color: 'var(--color-sat-purple)',
+                  textShadow: '0 0 30px rgba(138, 43, 226, 0.5)',
+                }}
+              >
+                DX
+              </span>
             </h1>
             <div
               style={{

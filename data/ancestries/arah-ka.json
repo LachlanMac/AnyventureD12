@@ -13,8 +13,8 @@
         "options":[ 
             {
             "name": "Raised in Flames",
-            "description": "The Arah-Ka have the fire of the sun within their blood. Gain +8 Fire Mitigation",
-            "data": "AD6=8:TA"
+            "description": "The Arah-Ka have the fire of the sun within their blood as well as traces of Keydaran ancestry. Gain +3 heat mitigation and become immune to effects that would prematurely age you.",
+            "data": "AD6=3:TA"
           },
            {
             "name": "Action : Sun-Blessed Fire",
@@ -22,9 +22,9 @@
             "data": "XX3"
           },
           {
-            "name": "Desert Endurance",
-            "description": "Living in the harsh Scarlet Dunes has made you resistant to exhaustion and environmental hazards. Gain +1 Endurance and immunity to extreme heat.",
-            "data": "AS4=1:TA"
+            "name": "Photosynthetic",
+            "description": "The Arah-ka require sunlight for many crucial bodily functions. If you go an entire day without being exposed to sunlight, you do not recover health during a full rest.",
+            "data": ""
           }]
        
     }

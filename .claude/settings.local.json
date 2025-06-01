@@ -17,7 +17,10 @@
       "Bash(cp:*)",
       "Bash(mkdir:*)",
       "Bash(find:*)",
-      "Bash(npm run reset-modules:*)"
+      "Bash(npm run reset-modules:*)",
+      "Bash(npm run dev:clean:*)",
+      "Bash(curl:*)",
+      "Bash(node:*)"
     ],
     "deny": []
   },

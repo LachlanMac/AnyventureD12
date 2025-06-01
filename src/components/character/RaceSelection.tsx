@@ -1,6 +1,6 @@
 // src/components/character/RaceSelection.tsx (Modified)
 import React, { useState, useEffect } from 'react';
-import { Ancestry } from '../../types/character';
+import { Ancestry, Subchoice } from '../../types/character';
 
 interface RaceSelectionProps {
   selectedRace: string;
@@ -12,6 +12,7 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<boolean>(true);
+  const [subchoiceSelections, setSubchoiceSelections] = useState<Record<string, string>>({});
 
   useEffect(() => {
     const fetchAncestries = async () => {
@@ -43,10 +44,30 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
   const handleRaceSelect = (raceName: string) => {
     const selectedAncestry = ancestries.find((ancestry) => ancestry.name === raceName);
     if (selectedAncestry) {
-      console.log('Selected ancestry in RaceSelection:', selectedAncestry);
-      onSelectRace(raceName, selectedAncestry);
+      // Apply subchoice selections to the ancestry options
+      const ancestryWithSubchoices = {
+        ...selectedAncestry,
+        options: selectedAncestry.options.map(option => ({
+          ...option,
+          selectedSubchoice: subchoiceSelections[option.name] || undefined
+        }))
+      };
+      console.log('Selected ancestry with subchoices:', ancestryWithSubchoices);
+      onSelectRace(raceName, ancestryWithSubchoices);
     } else {
       console.error(`Could not find ancestry for race: ${raceName}`);
+    }
+  };
+
+  // Handler for subchoice selection
+  const handleSubchoiceSelect = (optionName: string, subchoiceId: string) => {
+    setSubchoiceSelections(prev => ({
+      ...prev,
+      [optionName]: subchoiceId
+    }));
+    // Re-trigger race selection to update parent
+    if (selectedRace) {
+      setTimeout(() => handleRaceSelect(selectedRace), 0);
     }
   };
 
@@ -266,6 +287,58 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
                         {option.description}
                       </div>
+                      {/* Subchoice dropdown */}
+                      {option.subchoices && option.subchoices.length > 0 && (
+                        <div style={{ marginTop: '0.5rem' }}>
+                          <label
+                            style={{
+                              display: 'block',
+                              color: 'var(--color-metal-gold)',
+                              fontSize: '0.75rem',
+                              marginBottom: '0.25rem',
+                            }}
+                          >
+                            Choose {option.choiceType || 'variant'}:
+                          </label>
+                          <select
+                            value={subchoiceSelections[option.name] || ''}
+                            onChange={(e) => handleSubchoiceSelect(option.name, e.target.value)}
+                            style={{
+                              width: '100%',
+                              padding: '0.375rem',
+                              backgroundColor: 'var(--color-dark-elevated)',
+                              color: 'var(--color-white)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.25rem',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            <option value="">Select...</option>
+                            {option.subchoices.map((subchoice) => (
+                              <option key={subchoice.id} value={subchoice.id}>
+                                {subchoice.name}
+                              </option>
+                            ))}
+                          </select>
+                          {/* Show selected subchoice description */}
+                          {subchoiceSelections[option.name] && (
+                            <div
+                              style={{
+                                marginTop: '0.25rem',
+                                padding: '0.375rem',
+                                backgroundColor: 'rgba(215, 183, 64, 0.1)',
+                                borderRadius: '0.25rem',
+                                fontSize: '0.75rem',
+                                color: 'var(--color-cloud)',
+                              }}
+                            >
+                              {option.subchoices.find(
+                                (sc) => sc.id === subchoiceSelections[option.name]
+                              )?.description}
+                            </div>
+                          )}
+                        </div>
+                      )}
                     </div>
                   ))}
               </div>

@@ -306,7 +306,10 @@ const CharacterCreate: React.FC = () => {
       // Prepare ancestry data (all 3 options are automatically selected)
       const ancestryData = selectedAncestry ? {
         ancestryId: selectedAncestry._id,
-        selectedOptions: selectedAncestry.options.map(option => option.name)
+        selectedOptions: selectedAncestry.options.map(option => ({
+          name: option.name,
+          selectedSubchoice: option.selectedSubchoice || null
+        }))
       } : null;
       
       // Prepare culture data (all 3 options are automatically selected)

@@ -32,7 +32,22 @@ export const applyModuleBonusesToCharacter = (character) => {
     if (ancestry.options) {
       // Apply all ancestry options (since all 3 are always granted)
       ancestry.options.forEach(option => {
-        if (option.data) {
+        // Find the corresponding selected option data
+        const selectedOptionData = character.ancestry.selectedOptions.find(
+          so => so.name === option.name
+        );
+        
+        // Check if this option has subchoices and a selection was made
+        if (option.subchoices && selectedOptionData && selectedOptionData.selectedSubchoice) {
+          // Find the selected subchoice and apply its data
+          const selectedSubchoice = option.subchoices.find(
+            sc => sc.id === selectedOptionData.selectedSubchoice
+          );
+          if (selectedSubchoice && selectedSubchoice.data) {
+            parseDataString(selectedSubchoice.data, bonuses);
+          }
+        } else if (option.data) {
+          // Regular option without subchoices
           parseDataString(option.data, bonuses);
         }
       });
@@ -237,7 +252,7 @@ const parseDataString = (dataString, bonuses) => {
       const magicMappings = {
         '1': 'black',
         '2': 'primal',
-        '3': 'alteration',
+        '3': 'meta',
         '4': 'divine',
         '5': 'mystic'
       };

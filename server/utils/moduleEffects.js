@@ -271,7 +271,7 @@ const mapMagicCode = (code) => {
   const map = {
     '1': 'black',
     '2': 'primal',
-    '3': 'alteration',
+    '3': 'meta',
     '4': 'divine',
     '5': 'mystic',
   };

@@ -185,7 +185,11 @@ const CharacterSchema = new Schema({
       required: false
     },
     selectedOptions: [{
-      type: String
+      name: String,
+      selectedSubchoice: {
+        type: String,
+        default: null
+      }
     }]
   },
   // New culture format  
@@ -327,7 +331,7 @@ const CharacterSchema = new Schema({
   magicSkills:{
     black :{}, //necromancy, witchcraft  (fiend)
     primal:{}, //evocation, druidic      (cosmic)
-    alteration:{}, //illusion, transmutation (fey)
+    meta:{}, //illusion, transmutation (fey)
     divine:{}, //abjuration, divine, (draconic)
     mystic:{}, //auguration, shamanic  (astral)
   },

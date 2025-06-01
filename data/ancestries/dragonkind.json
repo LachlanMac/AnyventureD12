@@ -18,13 +18,35 @@
     },
     {
       "name": "Draconic Horde",
-      "description": "Your Conduit does not contribute to the amount of Power you regenerate at the end of a Full Rest. Instead, you have a base Power Regeneration of 6 and designate an enclosed space as your Draconic Horde. For each 100 Gold in this space, you regenerate an additional 1 Power and 1 Health at the end of a Full Rest.",
+      "description": "Your lineage allows you to benefit from accumulating wealth in an static, enclosed area that you designate as your horde. For each 100 gold within your horde, you gain 1 temporary health at the end of a full rest to a maximum of 10. For each 1000 gold within your horde, you regenerate an additional resolve at the end of a favorable full rest.",
       "data": "TYD"
     },
     {
-      "name": "Draconic Resilience",
-      "description": "Your draconic heritage grants you natural armor and resistance to the element of your breath weapon. Gain +2 Physical Mitigation and +4 Mitigation to your chosen element (Fire, Cold, or Lightning).",
-      "data": "AD4=2:TA"
+      "name": "Draconic Heritage",
+      "description": "Choose your draconic lineage, determining your breath weapon element and natural resistances.",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "red",
+          "name": "Red Dragon Heritage",
+          "description": "Descended from red dragons, your breath weapon deals fire damage. Gain +2 Physical Mitigation and +4 Fire Mitigation.",
+          "data": "M1=2:M2=4"
+        },
+        {
+          "id": "white",
+          "name": "White Dragon Heritage",
+          "description": "Descended from white dragons, your breath weapon deals cold damage. Gain +2 Physical Mitigation and +4 Cold Mitigation.",
+          "data": "M1=2:M3=4"
+        },
+        {
+          "id": "blue",
+          "name": "Blue Dragon Heritage",
+          "description": "Descended from blue dragons, your breath weapon deals lightning damage. Gain +2 Physical Mitigation and +4 Lightning Mitigation.",
+          "data": "M1=2:M4=4"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "dragon_type"
     }
   ]
 }

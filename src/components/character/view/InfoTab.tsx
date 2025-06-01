@@ -328,9 +328,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                   >
                     <div>
                       <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                        {skillId
-                          .replace(/([A-Z])/g, ' $1')
-                          .replace(/^./, (str) => str.toUpperCase())}
+                        {skillId.charAt(0).toUpperCase() + skillId.slice(1)} Magic
                         {modifierIndicator && (
                           <span
                             style={{
