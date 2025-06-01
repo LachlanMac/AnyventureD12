@@ -132,7 +132,7 @@ const Footer: React.FC = () => {
               fontSize: '0.875rem',
             }}
           >
-            &copy; {currentYear} Space TTRPG. All rights reserved.
+            &copy; {currentYear} AnyventureDX. All rights reserved.
           </div>
 
           <div style={{ display: 'flex', gap: '1rem' }}>

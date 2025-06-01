@@ -30,7 +30,9 @@ export const getCharacter = async (req, res) => {
     // Find character by ID and populate the modules with their data
     const character = await Character.findById(req.params.id)
       .populate('modules.moduleId')
-      .populate('inventory.itemId');
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
 
     
     if (!character) {

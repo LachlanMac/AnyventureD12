@@ -119,6 +119,49 @@ const CharacterView: React.FC = () => {
     }
   };
 
+  const handleResourceChange = async (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => {
+    if (!character) return;
+
+    try {
+      // Update character locally first for immediate feedback
+      const updatedCharacter = {
+        ...character,
+        resources: {
+          ...character.resources,
+          [resource]: {
+            ...character.resources[resource],
+            current: newCurrent
+          }
+        }
+      };
+      setCharacter(updatedCharacter);
+
+      // Send update to server
+      const response = await fetch(`/api/characters/${id}/resources`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          resources: updatedCharacter.resources
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update character resources');
+      }
+
+      // Get updated character from server to ensure sync
+      const updatedData = await response.json();
+      setCharacter(updatedData);
+    } catch (err) {
+      console.error('Error updating character resources:', err);
+      // Revert on error
+      setCharacter(character);
+      setError('Failed to update resources. Please try again.');
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -213,7 +256,7 @@ const CharacterView: React.FC = () => {
         )}
 
         {/* Character header */}
-        <CharacterHeader character={character} onDelete={handleDelete} />
+        <CharacterHeader character={character} onDelete={handleDelete} onResourceChange={handleResourceChange} />
 
         {/* Tab navigation */}
         <div style={{ marginTop: '2rem' }}>

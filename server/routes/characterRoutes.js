@@ -113,4 +113,32 @@ router.patch('/:id/language-skills', async (req, res) => {
   }
 });
 
+// Resources update route
+router.patch('/:id/resources', async (req, res) => {
+  try {
+    const { resources } = req.body;
+    
+    // First find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+    
+    // Update the resources
+    character.resources = resources;
+    await character.save();
+    
+    res.json(character);
+  } catch (error) {
+    console.error('Error updating resources:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export default router;

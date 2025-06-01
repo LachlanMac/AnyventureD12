@@ -13,17 +13,17 @@
   "options": [
     {
       "name": "Tidewalking",
-      "description": "You can breathe and speak normally while submerged in water. Additionally, your scales grant you a bonus of +1 Physical Mitigation and +2 Dark Mitigation.",
+      "description": "Your body is apdated to survive the perils of the deep ocean, with hardened scales covering parts of your skin and gills on your brow. You can breathe and speak normally while submerged in water and you gain +1 physical mitigation.",
       "data": "TA:AD4=1:AD7=2"
     },
     {
       "name": "Action : Echolocate",
-      "description": "Using sound, you can sense the presence of Creatures within 20 Units that do not have full cover until the start of your next turn.",
+      "description": "You emit an ultrasonic pulse that reveals hidden threats. Until the start of your next turn, you can sense the location of all creatures within a moderate (10 units) distnace that don't have full cover. The range on this ability is doubled if done while submerged in water.",
       "data": "XX3"
     },
     {
-      "name": "Deep Sea Adaptation",
-      "description": "Your body is adapted to the crushing depths of the ocean. You are immune to pressure damage and gain +1 Fitness.",
+      "name": "Carnivorous Diet",
+      "description": "Your body is adapted to eating only completely unprocessed meat. You do not gain the benefits from eating prepared meals or snacks.",
       "data": "AS1=1:TA"
     }
   ]

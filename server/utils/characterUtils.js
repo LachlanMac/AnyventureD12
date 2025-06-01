@@ -113,13 +113,13 @@ const parseDataString = (dataString, bonuses) => {
   for (const effect of effects) {
     if (!effect.trim()) continue;
     
-    // SKILLS (S) - matching SSA=3 or ST1=1 pattern
-    const skillMatch = effect.match(/^S([ST])([A-T0-9])=(-?\d+)$/);
+    // SKILLS (S) - matching SSA=3, ST1=1, SSA=X, or SSA=Y pattern
+    const skillMatch = effect.match(/^S([ST])([A-T0-9])=(-?\d+|[XY])$/);
     if (skillMatch) {
       const [_, type, code, valueStr] = skillMatch;
-      const value = parseInt(valueStr);
+      const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
       
-      if (type === 'S') { // Skill value
+      if (type === 'S') { // Skill value or dice tier modifier
         if (/^[1-5]$/.test(code)) {
           // Attribute skill (e.g. SS1=1 for Physique)
           const attributeMappings = {
@@ -135,7 +135,7 @@ const parseDataString = (dataString, bonuses) => {
             bonuses.attributes[attributeName] = (bonuses.attributes[attributeName] || 0) + value;
           }
         } else {
-          // Regular skill (e.g. SSA=1 for Fitness)
+          // Regular skill (e.g. SSA=1 for Fitness or SSA=X for dice tier upgrade)
           const skillMappings = {
             'A': 'fitness',
             'B': 'deflection',
@@ -160,8 +160,16 @@ const parseDataString = (dataString, bonuses) => {
           };
           const skillName = skillMappings[code];
           if (skillName) {
-            if (!bonuses.skills) bonuses.skills = {};
-            bonuses.skills[skillName] = (bonuses.skills[skillName] || 0) + value;
+            if (typeof value === 'string' && (value === 'X' || value === 'Y')) {
+              // Handle dice tier modifications
+              if (!bonuses.skillDiceTierModifiers) bonuses.skillDiceTierModifiers = {};
+              const modifier = value === 'X' ? 1 : -1;
+              bonuses.skillDiceTierModifiers[skillName] = (bonuses.skillDiceTierModifiers[skillName] || 0) + modifier;
+            } else if (typeof value === 'number') {
+              // Handle regular skill value bonuses
+              if (!bonuses.skills) bonuses.skills = {};
+              bonuses.skills[skillName] = (bonuses.skills[skillName] || 0) + value;
+            }
           }
         }
       } else if (type === 'T') { // Talent value
@@ -185,11 +193,11 @@ const parseDataString = (dataString, bonuses) => {
       continue;
     }
     
-    // WEAPONS (W) - matching WS1=1 or WT3=1 pattern
-    const weaponMatch = effect.match(/^W([ST])([1-6])=(-?\d+)$/);
+    // WEAPONS (W) - matching WS1=1, WT3=1, WS1=X, or WS1=Y pattern
+    const weaponMatch = effect.match(/^W([ST])([1-6])=(-?\d+|[XY])$/);
     if (weaponMatch) {
       const [_, type, code, valueStr] = weaponMatch;
-      const value = parseInt(valueStr);
+      const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
       
       const weaponMappings = {
         '1': 'unarmed',
@@ -205,8 +213,14 @@ const parseDataString = (dataString, bonuses) => {
         if (!bonuses.weaponSkills) bonuses.weaponSkills = {};
         if (!bonuses.weaponSkills[weaponName]) bonuses.weaponSkills[weaponName] = {};
         
-        if (type === 'S') { // Skill value
-          bonuses.weaponSkills[weaponName].value = (bonuses.weaponSkills[weaponName].value || 0) + value;
+        if (type === 'S') { // Skill value or dice tier modifier
+          if (typeof value === 'string' && (value === 'X' || value === 'Y')) {
+            // Handle dice tier modifications
+            const modifier = value === 'X' ? 1 : -1;
+            bonuses.weaponSkills[weaponName].diceTierModifier = (bonuses.weaponSkills[weaponName].diceTierModifier || 0) + modifier;
+          } else if (typeof value === 'number') {
+            bonuses.weaponSkills[weaponName].value = (bonuses.weaponSkills[weaponName].value || 0) + value;
+          }
         } else if (type === 'T') { // Talent value
           bonuses.weaponSkills[weaponName].talent = (bonuses.weaponSkills[weaponName].talent || 0) + value;
         }
@@ -242,11 +256,11 @@ const parseDataString = (dataString, bonuses) => {
       continue;
     }
     
-    // CRAFTING (C) - matching CS1=1 or CT3=1 pattern
-    const craftingMatch = effect.match(/^C([ST])([1-6])=(-?\d+)$/);
+    // CRAFTING (C) - matching CS1=1, CT3=1, CS1=X, or CS1=Y pattern
+    const craftingMatch = effect.match(/^C([ST])([1-6])=(-?\d+|[XY])$/);
     if (craftingMatch) {
       const [_, type, code, valueStr] = craftingMatch;
-      const value = parseInt(valueStr);
+      const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
       
       const craftingMappings = {
         '1': 'engineering',
@@ -262,8 +276,14 @@ const parseDataString = (dataString, bonuses) => {
         if (!bonuses.craftingSkills) bonuses.craftingSkills = {};
         if (!bonuses.craftingSkills[craftingName]) bonuses.craftingSkills[craftingName] = {};
         
-        if (type === 'S') { // Skill value
-          bonuses.craftingSkills[craftingName].value = (bonuses.craftingSkills[craftingName].value || 0) + value;
+        if (type === 'S') { // Skill value or dice tier modifier
+          if (typeof value === 'string' && (value === 'X' || value === 'Y')) {
+            // Handle dice tier modifications
+            const modifier = value === 'X' ? 1 : -1;
+            bonuses.craftingSkills[craftingName].diceTierModifier = (bonuses.craftingSkills[craftingName].diceTierModifier || 0) + modifier;
+          } else if (typeof value === 'number') {
+            bonuses.craftingSkills[craftingName].value = (bonuses.craftingSkills[craftingName].value || 0) + value;
+          }
         } else if (type === 'T') { // Talent value
           bonuses.craftingSkills[craftingName].talent = (bonuses.craftingSkills[craftingName].talent || 0) + value;
         }
@@ -323,13 +343,27 @@ const parseDataString = (dataString, bonuses) => {
 // Apply collected bonuses to character
 const applyBonusesToCharacter = (character, bonuses) => {
   // Apply skill bonuses
-  for (const [skill, value] of Object.entries(bonuses.skills)) {
-    if (character.skills[skill]) {
-      character.skills[skill].value += value;
+  if (bonuses.skills) {
+    for (const [skill, value] of Object.entries(bonuses.skills)) {
+      if (character.skills[skill]) {
+        character.skills[skill].value += value;
+      }
     }
   }
   
- if (bonuses.attributeTalents) {
+  // Apply skill dice tier modifiers
+  if (bonuses.skillDiceTierModifiers) {
+    for (const [skill, modifier] of Object.entries(bonuses.skillDiceTierModifiers)) {
+      if (character.skills[skill]) {
+        if (!character.skills[skill].diceTierModifier) {
+          character.skills[skill].diceTierModifier = 0;
+        }
+        character.skills[skill].diceTierModifier += modifier;
+      }
+    }
+  }
+  
+  if (bonuses.attributeTalents) {
     for (const [attribute, value] of Object.entries(bonuses.attributeTalents)) {
       if (character.attributes && character.attributes[attribute] !== undefined) {
         character.attributes[attribute] += value;
@@ -338,37 +372,71 @@ const applyBonusesToCharacter = (character, bonuses) => {
   }
 
   // Apply crafting skill bonuses
-  for (const [skill, value] of Object.entries(bonuses.craftingSkills)) {
-    if (character.craftingSkills[skill]) {
-      character.craftingSkills[skill].value += value;
+  if (bonuses.craftingSkills) {
+    for (const [skill, data] of Object.entries(bonuses.craftingSkills)) {
+      if (character.craftingSkills[skill]) {
+        if (data.value !== undefined) {
+          character.craftingSkills[skill].value += data.value;
+        }
+        if (data.talent !== undefined) {
+          character.craftingSkills[skill].talent += data.talent;
+        }
+        if (data.diceTierModifier !== undefined) {
+          if (!character.craftingSkills[skill].diceTierModifier) {
+            character.craftingSkills[skill].diceTierModifier = 0;
+          }
+          character.craftingSkills[skill].diceTierModifier += data.diceTierModifier;
+        }
+      }
     }
   }
   
   // Apply weapon skill bonuses
-  for (const [skill, value] of Object.entries(bonuses.weaponSkills)) {
-    if (character.weaponSkills[skill]) {
-      character.weaponSkills[skill].value += value;
+  if (bonuses.weaponSkills) {
+    for (const [skill, data] of Object.entries(bonuses.weaponSkills)) {
+      if (character.weaponSkills[skill]) {
+        if (data.value !== undefined) {
+          character.weaponSkills[skill].value += data.value;
+        }
+        if (data.talent !== undefined) {
+          character.weaponSkills[skill].talent += data.talent;
+        }
+        if (data.diceTierModifier !== undefined) {
+          if (!character.weaponSkills[skill].diceTierModifier) {
+            character.weaponSkills[skill].diceTierModifier = 0;
+          }
+          character.weaponSkills[skill].diceTierModifier += data.diceTierModifier;
+        }
+      }
     }
   }
   
   // Apply mitigation bonuses
-  for (const [type, value] of Object.entries(bonuses.mitigation)) {
-    if (!character.mitigation) character.mitigation = {};
-    if (character.mitigation[type] !== undefined) {
-      character.mitigation[type] += value;
-    } else {
-      character.mitigation[type] = value;
+  if (bonuses.mitigation) {
+    for (const [type, value] of Object.entries(bonuses.mitigation)) {
+      if (!character.mitigation) character.mitigation = {};
+      if (character.mitigation[type] !== undefined) {
+        character.mitigation[type] += value;
+      } else {
+        character.mitigation[type] = value;
+      }
     }
   }
   
   // Apply health bonus
-  character.resources.health.max += bonuses.health;
+  if (bonuses.health) {
+    character.resources.health.max += bonuses.health;
+  }
   
   // Apply movement bonus
-  character.movement += bonuses.movement;
+  if (bonuses.movement) {
+    character.movement += bonuses.movement;
+  }
   
   // Apply initiative bonus
-  character.initiative += bonuses.initiative;
+  if (bonuses.initiative) {
+    character.initiative += bonuses.initiative;
+  }
   
   // Apply immunities
   if (!character.immunities) character.immunities = [];

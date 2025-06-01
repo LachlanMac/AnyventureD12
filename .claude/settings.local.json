@@ -15,7 +15,9 @@
       "Bash(ls:*)",
       "Bash(mv:*)",
       "Bash(cp:*)",
-      "Bash(mkdir:*)"
+      "Bash(mkdir:*)",
+      "Bash(find:*)",
+      "Bash(npm run reset-modules:*)"
     ],
     "deny": []
   },

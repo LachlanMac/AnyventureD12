@@ -12,19 +12,24 @@
   "language": "As-Bok",
   "options": [
     {
+      "name": "Large",
+      "description": "Minotaurs are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y"
+    },
+    {
       "name": "Action : Bullcharge",
-      "description": "If you use at least 4 Units of Movement Speed, you can make a special Shove Action, that if successful, deals Physical Damage equal to your Contested Strength Check made on the Shove Attack.",
+      "description": "You take a modified version of the Sprint action, which allows you to shove a creature your size or smaller if you travel at least half of your total sprint speed. If the shove is successful, the creature takes 2 physical damage for each unit you traveled during your sprint.",
       "data": "XX3"
     },
     {
       "name": "Dark Blood of the Ancients",
-      "description": "The blood of the first Minotaurs courses through your veins, tainting it with dark magic that shields you from the Divine. Gain +5 Divine Mitigation.",
+      "description": "The blood of the first Minotaurs courses through your veins, tainting it with dark magic that makes you more vulnerable to celestials. You suffer a -3 penalty to your divine mitigation.",
       "data": "AD8=5:TA"
     },
     {
-      "name": "Labyrinthine Mind",
-      "description": "Your people's ancient connection to mazes and underground passages grants you perfect spatial memory. You can never get lost in structures or dungeons you've been in before, and gain +1 Logic.",
-      "data": "AS7=1:TA"
+      "name": "Primitive",
+      "description": "Your logic, academics knowledge and magic knowledge skills are downgraded. Additionally, you can only learn languages at a basic level.",
+      "data": "SSL=Y:SSN=Y:SSO=Y"
     }
   ]
 }

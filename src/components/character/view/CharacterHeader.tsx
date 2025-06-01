@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
 import CharacterPortraitUploader from '../CharacterPortraitUploader';
+import ResourceBars from './ResourceBars';
 
 interface CharacterHeaderProps {
   character: {
@@ -36,9 +37,10 @@ interface CharacterHeaderProps {
     };
   };
   onDelete: () => void;
+  onResourceChange?: (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => void;
 }
 
-const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }) => {
+const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, onResourceChange }) => {
   const [portraitUrl, setPortraitUrl] = useState<string | null>(character.portraitUrl || null);
 
   const handlePortraitChange = async (file: File) => {
@@ -70,41 +72,6 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
     }
   };
 
-  // Helper function to render resource bars
-  const renderResourceBar = (current: number, max: number, color: string, label: string) => {
-    const percentage = (current / max) * 100;
-    return (
-      <div className="mb-3">
-        <div className="flex justify-between items-center mb-1">
-          <span style={{ color: 'var(--color-cloud)' }}>{label}</span>
-          <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-            {current}/{max}
-          </span>
-        </div>
-        <div
-          style={{
-            position: 'relative',
-            height: '0.75rem',
-            backgroundColor: 'var(--color-dark-elevated)',
-            borderRadius: '0.375rem',
-            overflow: 'hidden',
-          }}
-        >
-          <div
-            style={{
-              position: 'absolute',
-              top: 0,
-              left: 0,
-              height: '100%',
-              width: `${percentage}%`,
-              backgroundColor: color,
-              borderRadius: '0.375rem',
-            }}
-          />
-        </div>
-      </div>
-    );
-  };
 
   return (
     <Card variant="default">
@@ -207,26 +174,11 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
         <div className="flex flex-col md:flex-row gap-6 mt-6">
           {/* Resource bars and Movement - left column */}
           <div className="flex-1">
-            {renderResourceBar(
-              character.resources.health.current,
-              character.resources.health.max,
-              'var(--color-sunset)',
-              'Health'
-            )}
-
-            {renderResourceBar(
-              character.resources.energy.current,
-              character.resources.energy.max,
-              'var(--color-metal-gold)',
-              'Energy'
-            )}
-
-            {renderResourceBar(
-              character.resources.resolve.current,
-              character.resources.resolve.max,
-              'var(--color-sat-purple)',
-              'Resolve'
-            )}
+            <ResourceBars 
+              resources={character.resources} 
+              onResourceChange={onResourceChange}
+              readOnly={!onResourceChange}
+            />
 
             {/* Movement Speeds */}
             <div className="mt-4">
@@ -343,7 +295,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
                             padding: '0.25rem 0.5rem',
                             textTransform: 'capitalize',
                             fontWeight: '500',
-                            fontSize: '0.875rem',
+                            fontSize: '1rem',
                           }}
                         >
                           {type}
@@ -354,7 +306,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
                             padding: '0.25rem 0.5rem',
                             textAlign: 'center',
                             fontWeight: '600',
-                            fontSize: '0.875rem',
+                            fontSize: '1rem',
                           }}
                         >
                           {value}
@@ -365,7 +317,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete }
                             padding: '0.25rem 0.5rem',
                             textAlign: 'center',
                             fontWeight: '600',
-                            fontSize: '0.875rem',
+                            fontSize: '1rem',
                           }}
                         >
                           {value * 2}

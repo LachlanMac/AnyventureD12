@@ -8,6 +8,7 @@ interface Skill {
   name: string;
   value: number;
   talent: number;
+  diceTierModifier?: number;
 }
 
 interface AttributeSkillsSectionProps {
@@ -90,6 +91,7 @@ const AttributeSkillsSection: React.FC<AttributeSkillsSectionProps> = ({
               name={skill.name}
               value={skill.value}
               talent={attributeValue}
+              diceTierModifier={skill.diceTierModifier || 0}
             />
           ))}
         </div>

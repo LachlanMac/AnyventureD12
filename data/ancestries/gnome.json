@@ -11,20 +11,25 @@
   "home": "",
   "language": "Shimmerspeak",
   "options": [
+     {
+      "name": "Small",
+      "description": "Gnomes are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
+      "data": ""
+    },
     {
       "name": "Dual Synapses",
-      "description": "Gnomes have a talent for focusing on Spells and other Complex tasks, gaining a +1 Bonus to Concentration. Additionally, Gnomes can maintain Focus when Unconscious or Sleeping.",
+      "description": "Gnomes have a talent for focusing on spells and other complex tasks, gaining a +1 Bonus to Concentration. Additionally, Gnomes maintain their concentration while unconscious or sleeping.",
       "data": "TG:AS5=1"
     },
     {
       "name": "Action [Daily] : Gnomish Touch",
-      "description": "You touch an Object and reveal any Magical Properties on it. Additionally, you can make an Academics Check to appraise the item and determine its approximate value.",
+      "description": "You touch an object and reveal any magical properties on it. Additionally, you can make an academics check to appraise an item and determine its approximate value.",
       "data": "XD1"
     },
     {
-      "name": "Underground Adaptation",
-      "description": "Living in underground communities has given gnomes exceptional night vision and resilience. Gain Darkvision and +1 Senses.",
-      "data": "AS6=1:DI:TA"
+      "name": "",
+      "description": "",
+      "data": ""
     }
   ]
 }

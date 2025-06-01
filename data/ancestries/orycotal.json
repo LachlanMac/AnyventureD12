@@ -1,7 +1,7 @@
 {
   "id": 4,
   "name": "Orycotal",
-  "description": "Orycotal are humanoid creatures with rabbit-like ears and elongated limbs, giving them exceptional mobility. They are typically a peaceful ancestry who prefer the company of their own kind. However, Orycotal are always tempted to follow their curiousity to figure out the mysteries of the world. Orycotal are sometimes mistaken for fey by outsiders, but despite a long and troubled history with the mischievous creatures of the feywild, that could not be further from the truth.",
+  "description": "Orycotal are humanoid creatures with rabbit-like ears and elongated limbs, giving them exceptional mobility. They are typically a peaceful ancestry who prefer the company of their own kind. However, Orycotal are always tempted to follow their curiousity to figure out the mysteries of the world.",
   "homeworld": "Atlah",
   "img": "img/ancestries/orycotal.webp",
   "portrait": "img/ancestries/portraits/orycotal.png",
@@ -12,18 +12,18 @@
   "language": "Orycotal",
   "options": [
     {
-      "name": "Bounding Steps",
-      "description": "Your Jump range becomes equal to your Athletics, even from a stationary position. Additionally, gain +1 Acrobatics and +1 Movement Speed.",
-      "data": "AV=1:AS3=1"
+      "name": "The Magic of Orycota",
+      "description": "The orycotal are enchanted by ancient magic, allowing them to learn spells from the fey subschool if they are capable of learning metamagic spells. Additionally, your naturally affinity with magic allows you to gain +1 skill with magic knowledge.",
+      "data": ""
     },
     {
-      "name": "Free Action : Quick Hop",
-      "description": "You take the Jump Action but avoid any Attacks of Opportunity. Instead of Jumping a distance, you can also elect to remove any Prone Condition.",
+      "name": "Action : Hop-Skip",
+      "description": "You use the Jump action without having a running start. Your maximum jump distance is 6 units, and you gain a bonus die on your fitness check for the jump.",
       "data": "Y"
     },
     {
-      "name": "Lucky Rabbit's Foot",
-      "description": "Your natural luck helps you avoid danger and find fortune. Once per day, you can reroll any single d12 or lower die roll.",
+      "name": "",
+      "description": "",
       "data": "TA"
     }
   ]

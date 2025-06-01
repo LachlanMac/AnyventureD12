@@ -19,12 +19,12 @@ export const applyDataEffects = (character, dataString) => {
     // Skip empty effects
     if (!effect.trim()) continue;
     
-    // Parse the effect code
-    const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+)/);
+    // Parse the effect code - handle both numeric values and X/Y for dice tier modifications
+    const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+|[XY])/);
     if (!match) continue;
     
     const [_, category, type, code, valueStr] = match;
-    const value = parseInt(valueStr);
+    const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
     
     switch(category) {
       case 'S': // Skills
@@ -57,16 +57,40 @@ const handleSkillEffect = (character, type, code, value) => {
   const mapping = getSkillMapping(code);
   if (!mapping) return;
   
-  if (type === 'S') { // Skill increase
-    // Regular skills can have their value increased
-    if (mapping.type === 'skill') {
-      if (!character.moduleBonuses.skills) character.moduleBonuses.skills = {};
-      if (!character.moduleBonuses.skills[mapping.id]) character.moduleBonuses.skills[mapping.id] = { value: 0, talent: 0 };
-      character.moduleBonuses.skills[mapping.id].value += value;
-      
-      // Apply to character
-      if (character.skills[mapping.id]) {
-        character.skills[mapping.id].value += value;
+  if (type === 'S') { // Skill modifications
+    if (typeof value === 'string' && (value === 'X' || value === 'Y')) {
+      // Handle dice tier modifications
+      if (mapping.type === 'skill') {
+        if (!character.moduleBonuses.skills) character.moduleBonuses.skills = {};
+        if (!character.moduleBonuses.skills[mapping.id]) {
+          character.moduleBonuses.skills[mapping.id] = { value: 0, talent: 0, diceTierModifier: 0 };
+        }
+        
+        // X = upgrade (+1), Y = downgrade (-1)
+        const modifier = value === 'X' ? 1 : -1;
+        character.moduleBonuses.skills[mapping.id].diceTierModifier = 
+          (character.moduleBonuses.skills[mapping.id].diceTierModifier || 0) + modifier;
+        
+        // Apply to character
+        if (!character.skills[mapping.id]) {
+          character.skills[mapping.id] = { value: 0, talent: 0, diceTierModifier: 0 };
+        }
+        character.skills[mapping.id].diceTierModifier = 
+          (character.skills[mapping.id].diceTierModifier || 0) + modifier;
+      }
+    } else if (typeof value === 'number') {
+      // Regular skill value increase
+      if (mapping.type === 'skill') {
+        if (!character.moduleBonuses.skills) character.moduleBonuses.skills = {};
+        if (!character.moduleBonuses.skills[mapping.id]) {
+          character.moduleBonuses.skills[mapping.id] = { value: 0, talent: 0, diceTierModifier: 0 };
+        }
+        character.moduleBonuses.skills[mapping.id].value += value;
+        
+        // Apply to character
+        if (character.skills[mapping.id]) {
+          character.skills[mapping.id].value += value;
+        }
       }
     }
   } else if (type === 'T') { // Talent increase

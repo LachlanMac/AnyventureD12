@@ -24,17 +24,20 @@ const ModuleSchema = new Schema({
 
 const SkillSchema = new Schema({
   value: { type: Number, default: 0 },  
-  talent: { type: Number, default: 0 }
+  talent: { type: Number, default: 0 },
+  diceTierModifier: { type: Number, default: 0 }
 });
 
 const CraftSchema = new Schema({
   value: { type: Number, default: 0 },   
-  talent: { type: Number, default: 0 } 
+  talent: { type: Number, default: 0 },
+  diceTierModifier: { type: Number, default: 0 }
 });
 
 const WeaponSkillSchema = new Schema({
   value: { type: Number, default: 0 },   
-  talent: { type: Number, default: 0 } 
+  talent: { type: Number, default: 0 },
+  diceTierModifier: { type: Number, default: 0 }
 });
 
 const ActionSchema = new Schema({

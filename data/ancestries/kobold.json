@@ -11,19 +11,24 @@
   "home": "",
   "language": "Draconic",
   "options": [
+     {
+      "name": "Small",
+      "description": "Kobolds are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
+      "data": ""
+    },
     {
-      "name": "Short Lived, Trained Early",
-      "description": "Kobolds are fragile creatures and start training within the first few years of their lives. Gain +1 Attack to all Attacks but suffer a -5 Health penalty.",
+      "name": "Born to Fight",
+      "description": "Kobolds are born for battle. You gain +1 skill with simple melee and simple ranged weapons and +1 skill with evasion.",
       "data": "AZ1=1:AZ2=1:AH=-5:TA"
     },
     {
       "name": "Reaction : Play Dead",
-      "description": "In response to taking Damage, you fall Prone and convincingly play dead. A Creature cannot deduce that you are alive unless making a Contested Insight Check against your Performance.",
+      "description": "In response to taking damage, you fall prone and convincingly play dead. A creature cannot deduce that you are alive unless making a contested senses check against your expression if they have reason to suspect.",
       "data": "ZX2"
     },
     {
-      "name": "Tunnel Dweller",
-      "description": "Living in the sprawling tunnels of Kragfel has made you adept at navigating dark, cramped spaces. Gain Darkvision and +1 Stealth.",
+      "name": "Fragile",
+      "description": "Kobolds are naturally fragile creatures. You suffer a -5 penalty to your maximum health and a -1 penalty to your physical mitigation.",
       "data": "AS2=1:DI:TA"
     }
   ]

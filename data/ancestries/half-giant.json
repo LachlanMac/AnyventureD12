@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Giant Toss",
-      "description": "Make a Shove Attack against a Creature smaller than you, throwing them 4 Units and knocking them Prone. If the Creature collides with another Creature in their path, they are treated as a Projectile with your initial Strength Check being used as the Attack Roll. If the Creatures collide, they both take Physical Damage equal to your Strength Bonus Modifier.",
+      "description": "You take a modified version of the Shove action against a creature smaller than you. Instead of a success or fail, you can displace the creature 2 units, plus another unit for each successful might dice against their check to avoid it. The creature takes fall damage against the total distance traveled.",
       "data": "XX3"
     },
     {

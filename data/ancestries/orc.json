@@ -12,19 +12,19 @@
   "language": "Orcish",
   "options": [
     {
-      "name": "Orcish Regeneration",
-      "description": "When you complete a Full Rest, gain Additional Health equal to your Level and cure 1 Tier of the Wounded Condition.",
+      "name": "Orcish Endurance",
+      "description": "Orcs have evolved beyond their brutal past, but their bodies remain remarkably resilient. Gain +1 skill with resilience and heal 1 extra health per full rest.",
       "data": "TA"
     },
     {
-      "name": "Action [Daily] : Resilience",
-      "description": "If you are capable of taking an Action, you can shrug off Grapples, Dazes, Confusion, Blinds, Deafens, Poisons, and being Afraid, gaining 1d4 Health for each one removed.",
+      "name": "Daily Action : Endure",
+      "description": "You attempt to shake off any poisons, harmful substances in your body or remove the bleeding condition by rolling an endurance check. On a 6 or higher, you are successfully cleansed. On an 11 or higher, you also gain 5 temporary health which last until you complete your next full rest.",
       "data": "XD1"
     },
     {
-      "name": "Industrial Spirit",
-      "description": "Your people's focus on industry and craftsmanship has given you a natural affinity for creation. Gain +1 Fabrication and can work twice as fast on crafting projects.",
-      "data": "AT2=1:TA"
+      "name": "Innate Rage",
+      "description": "The fury of your ancestors still burns in your blood, erupting under moments of stress or uncertainty. When you become confused, you become maddened instead.",
+      "data": ""
     }
   ]
 }

@@ -12,18 +12,23 @@
   "language": "Underspeak",
   "options": [
     {
+      "name": "Small",
+      "description": "Stout-folk are small creatures, but do not suffer the physique penalty or gain a finesse bonus due to their broad and sturdy nature. You have a -1 penalty to movement speed.",
+      "data": ""
+    },
+    {
       "name": "Stout-Folk Skin",
-      "description": "The Stout-Folk have toughened skin that protects them against magic. Gain +1 Resistance and +3 Arcane Mitigation.",
+      "description": "The Stout-Folk have extremely resilient skin that offers protection from the elements and corrosive effects. Gain +1 toxic, lightning, cold and heat mitigation.",
       "data": "TA:AD1=1:ADC=3"
     },
     {
       "name": "Reaction : Strong Chin",
-      "description": "If you take Damage that would cause you to fall Unconcious, you can use your Reaction to delay it until the end of your next turn.",
+      "description": "In response to failing a check that results in you becoming dazed or stunned, roll a d20. On a 12 or higher, you ignore the condition.",
       "data": "ZX2"
     },
     {
-      "name": "Stone Sense",
-      "description": "Your deep connection to stone and earth allows you to sense your surroundings underground. You can detect hidden passages and structural weaknesses in stone within 10 Units.",
+      "name": "Sunblind",
+      "description": "Generations underground have left your eyes poorly adapted to bright light. You roll with a penalty die on senses checks that use vision while in daylight or similarly bright conditions.",
       "data": "TA"
     }
   ]

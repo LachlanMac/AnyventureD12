@@ -3,8 +3,9 @@
 
 // Basic skill data structure
 export interface SkillData {
-  value: number; // Dice type (1-6)
+  value: number; // Dice type (0-6)
   talent: number; // Number of dice (0-3)
+  diceTierModifier?: number; // Dice tier modifier (-1, 0, +1)
 }
 
 // Map of skill IDs to skill data

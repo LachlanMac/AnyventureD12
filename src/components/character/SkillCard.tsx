@@ -1,18 +1,25 @@
 import React from 'react';
 import TalentDisplay from './TalentDisplay';
+import { getModifiedDiceType, getSkillDiceString, getDiceTierModifierDescription } from '../../utils/diceUtils';
 
 interface SkillCardProps {
   name: string;
-  value: number; // Die type (1-6)
+  value: number; // Die type (0-6)
   talent: number; // Number of dice (0-3)
   showDieType?: boolean;
+  diceTierModifier?: number; // Dice tier modifier (-1, 0, +1)
 }
 
-// Dice type mapping
-const DICE_TYPES = ['1d4', '1d6', '1d8', '1d10', '1d12', '1d20'];
-
-const SkillCard: React.FC<SkillCardProps> = ({ name, value, talent, showDieType = true }) => {
-  const dieType = DICE_TYPES[Math.min(value - 1, DICE_TYPES.length - 1)];
+const SkillCard: React.FC<SkillCardProps> = ({ 
+  name, 
+  value, 
+  talent, 
+  showDieType = true, 
+  diceTierModifier = 0 
+}) => {
+  const dieType = getModifiedDiceType(value, diceTierModifier);
+  const diceString = getSkillDiceString(talent, value, diceTierModifier);
+  const modifierDescription = getDiceTierModifierDescription(diceTierModifier);
 
   return (
     <div
@@ -41,17 +48,31 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, value, talent, showDieType 
         </span>
 
         {showDieType && (
-          <span
-            style={{
-              color: 'var(--color-cloud)',
-              fontSize: '0.75rem',
-              padding: '0.125rem 0.375rem',
-              backgroundColor: 'var(--color-dark-surface)',
-              borderRadius: '9999px',
-            }}
-          >
-            {dieType}
-          </span>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+            <span
+              style={{
+                color: diceTierModifier > 0 ? '#10b981' : diceTierModifier < 0 ? 'var(--color-sunset)' : 'var(--color-cloud)',
+                fontSize: '0.75rem',
+                padding: '0.125rem 0.375rem',
+                backgroundColor: 'var(--color-dark-surface)',
+                borderRadius: '9999px',
+                border: diceTierModifier > 0 ? '1px solid #10b981' : diceTierModifier < 0 ? '1px solid var(--color-sunset)' : 'none',
+              }}
+            >
+              {dieType}
+            </span>
+            {modifierDescription && (
+              <span
+                style={{
+                  color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                  fontSize: '0.625rem',
+                  fontStyle: 'italic',
+                }}
+              >
+                {modifierDescription}
+              </span>
+            )}
+          </div>
         )}
       </div>
 
@@ -77,7 +98,7 @@ const SkillCard: React.FC<SkillCardProps> = ({ name, value, talent, showDieType 
           fontStyle: 'italic',
         }}
       >
-        Roll {talent > 0 ? `${talent}${dieType.substring(1)}` : 'No dice'}
+        Roll {diceString}
       </div>
     </div>
   );

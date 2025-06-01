@@ -3,6 +3,7 @@ import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
 import MusicTalentDisplay from '../MusicTalentDisplay';
 import { Character, Language } from '../../../types/character';
+import { getModifiedDiceType, getDiceTierModifierIndicator } from '../../../utils/diceUtils';
 
 interface InfoTabProps {
   character: Character;
@@ -42,8 +43,7 @@ const ATTRIBUTE_SKILLS = {
   ],
 };
 
-// Dice type mapping
-const DICE_TYPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd20'];
+// Dice type mapping (removed - using diceUtils instead)
 
 const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
   const [musicSkills, setMusicSkills] = useState(
@@ -187,8 +187,10 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                     // and the skill value for the die type
                     const attributeValue =
                       character.attributes[attributeKey as keyof typeof character.attributes];
-                    const dieType =
-                      attributeValue + DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
+                    const diceTierModifier = skillData.diceTierModifier || 0;
+                    const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
+                    const dieDisplay = attributeValue + diceType;
+                    const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
 
                     return (
                       <div key={skill.id} className="flex justify-between items-center">
@@ -201,6 +203,18 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                             }}
                           >
                             {skillData.value >= 0 ? `+${skillData.value}` : '-'}
+                            {modifierIndicator && (
+                              <span
+                                style={{
+                                  color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                                  marginLeft: '0.25rem',
+                                  fontSize: '0.875rem',
+                                  fontWeight: 'bold',
+                                }}
+                              >
+                                {modifierIndicator}
+                              </span>
+                            )}
                           </span>
                           <span
                             style={{
@@ -208,7 +222,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                               fontSize: '0.875rem',
                             }}
                           >
-                            ({dieType})
+                            ({dieDisplay})
                           </span>
                         </div>
                       </div>
@@ -239,7 +253,9 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
             {Object.entries(character.weaponSkills)
               .filter(([_, data]) => data.talent > 0) // Only show skills with talent
               .map(([skillId, skillData]) => {
-                const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
+                const diceTierModifier = skillData.diceTierModifier || 0;
+                const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
+                const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
 
                 return (
                   <div
@@ -251,9 +267,21 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                         {skillId
                           .replace(/([A-Z])/g, ' $1')
                           .replace(/^./, (str) => str.toUpperCase())}
+                        {modifierIndicator && (
+                          <span
+                            style={{
+                              color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                              marginLeft: '0.5rem',
+                              fontSize: '0.875rem',
+                              fontWeight: 'bold',
+                            }}
+                          >
+                            {modifierIndicator}
+                          </span>
+                        )}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.talent > 0 ? `${skillData.talent}${dieType}` : 'No dice'}
+                        {skillData.talent > 0 ? `${skillData.talent}${diceType}` : 'No dice'}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -289,7 +317,9 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
             {Object.entries(character.magicSkills)
               .filter(([_, data]) => data.talent > 0) // Only show skills with talent
               .map(([skillId, skillData]) => {
-                const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
+                const diceTierModifier = skillData.diceTierModifier || 0;
+                const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
+                const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
 
                 return (
                   <div
@@ -301,9 +331,21 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                         {skillId
                           .replace(/([A-Z])/g, ' $1')
                           .replace(/^./, (str) => str.toUpperCase())}
+                        {modifierIndicator && (
+                          <span
+                            style={{
+                              color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                              marginLeft: '0.5rem',
+                              fontSize: '0.875rem',
+                              fontWeight: 'bold',
+                            }}
+                          >
+                            {modifierIndicator}
+                          </span>
+                        )}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.talent > 0 ? `${skillData.talent}${dieType}` : 'No dice'}
+                        {skillData.talent > 0 ? `${skillData.talent}${diceType}` : 'No dice'}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -339,7 +381,10 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
             {Object.entries(character.craftingSkills)
               .filter(([_, data]) => data.talent > 0) // Only show skills with talent
               .map(([skillId, skillData]) => {
-                const dieType = DICE_TYPES[Math.min(skillData.value, DICE_TYPES.length - 1)];
+                const diceTierModifier = skillData.diceTierModifier || 0;
+                const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
+                const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
+                
                 return (
                   <div
                     key={skillId}
@@ -348,9 +393,21 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                     <div>
                       <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
                         {skillId.charAt(0).toUpperCase() + skillId.slice(1)}
+                        {modifierIndicator && (
+                          <span
+                            style={{
+                              color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                              marginLeft: '0.5rem',
+                              fontSize: '0.875rem',
+                              fontWeight: 'bold',
+                            }}
+                          >
+                            {modifierIndicator}
+                          </span>
+                        )}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.talent > 0 ? `${skillData.talent}${dieType}` : 'No dice'}
+                        {skillData.talent > 0 ? `${skillData.talent}${diceType}` : 'No dice'}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
