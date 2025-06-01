@@ -1,0 +1,22 @@
+{
+  "id": 20,
+  "name": "Vethani",
+  "description": "Nurturing Erudites\nThe Vethani culture shares a special relationship with all living things and finds purpose in the wilds. They carry the burden of their ancestors' crimes and have complex relationships with magic.",
+  "options": [
+    {
+      "name": "Antimagic",
+      "description": "In response to a Spell being Channeled within a number of Units equal to your Level, lower the Spell Attack by 1d8. If the Spell does not require a Spell Attack, the Spell fails if the result of the d8 is 6 or higher.",
+      "data": "XX3"
+    },
+    {
+      "name": "Enlightener's Wisdom",
+      "description": "Gain +1 Insight and animals trust you instinctively, never attacking unless provoked.",
+      "data": "ASS=1"
+    },
+    {
+      "name": "Natural Connection",
+      "description": "Gain +1 Wildcraft and you can sense the health and emotions of plants within 30 units.",
+      "data": "ASM=1"
+    }
+  ]
+}

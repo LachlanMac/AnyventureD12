@@ -1,0 +1,22 @@
+{
+  "id": 7,
+  "name": "Kendarrian",
+  "description": "Loyalty to Empire\nThe Kendarrians are a human culture built on imperial loyalty, diversity, and adaptability. They honor heroes and have strong religious traditions that sometimes border on zealotry.",
+  "options": [
+    {
+      "name": "Glorykill",
+      "description": "Whenever you land a killing blow on a Creature your Level or higher, you can grant an allied player a Heroic Action.",
+      "data": "XX3"
+    },
+    {
+      "name": "Imperial Diplomacy",
+      "description": "Gain +1 Persuasion and you can speak with authority that commands respect from civilized folk.",
+      "data": "AST=1"
+    },
+    {
+      "name": "Adaptive Heritage",
+      "description": "Gain +1 Resilience and you recover from exhaustion twice as quickly.",
+      "data": "ASI=1"
+    }
+  ]
+}

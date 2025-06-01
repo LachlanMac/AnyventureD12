@@ -1,0 +1,22 @@
+{
+  "id": 9,
+  "name": "Eydori",
+  "description": "Merit in Art\nThe Eydori are a culture that values beauty, art, and craftsmanship above all else. They celebrate even minor occasions with festivals and believe that true worth comes from creating beautiful objects and architecture.",
+  "options": [
+    {
+      "name": "Artistic Inspiration",
+      "description": "Spend a minute admiring an artifact, art piece or architecture (100+ years old, 100+ gold value). Gain a 1d4 Bonus to Performance Checks for the day and a 1d4 Bonus to your next Craft Check.",
+      "data": "XX3"
+    },
+    {
+      "name": "Festival Culture",
+      "description": "Gain +1 Persuasion and you can organize impromptu celebrations that improve local morale.",
+      "data": "AST=1"
+    },
+    {
+      "name": "Merit of Craft",
+      "description": "Gain +1 Fabrication and items you craft are considered one quality level higher for sale value.",
+      "data": "CS2=1"
+    }
+  ]
+}

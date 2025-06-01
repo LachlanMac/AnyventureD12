@@ -1,0 +1,30 @@
+{
+  "id": 6,
+  "name": "Gnome",
+  "description": "Gnomes are small humanoids known for their boundless curiosity and creativity. They remain fairly mysterious amongst the other peoples of the Viridus Nexus as they live underground and seldom leave their homes. They are natural inventors, blending magical and mechanical ingenuity to create new objects.",
+  "img": "img/ancestries/gnome.webp",
+  "portrait": "img/ancestries/portraits/gnome.png",
+  "homeworld": "Atlah",
+  "lifespan": "average 90 years, mature at 18",
+  "height": "",
+  "size": "Small",
+  "home": "",
+  "language": "Shimmerspeak",
+  "options": [
+    {
+      "name": "Dual Synapses",
+      "description": "Gnomes have a talent for focusing on Spells and other Complex tasks, gaining a +1 Bonus to Concentration. Additionally, Gnomes can maintain Focus when Unconscious or Sleeping.",
+      "data": "TG:AS5=1"
+    },
+    {
+      "name": "Action [Daily] : Gnomish Touch",
+      "description": "You touch an Object and reveal any Magical Properties on it. Additionally, you can make an Academics Check to appraise the item and determine its approximate value.",
+      "data": "XD1"
+    },
+    {
+      "name": "Underground Adaptation",
+      "description": "Living in underground communities has given gnomes exceptional night vision and resilience. Gain Darkvision and +1 Senses.",
+      "data": "AS6=1:DI:TA"
+    }
+  ]
+}

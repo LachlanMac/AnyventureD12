@@ -1,0 +1,30 @@
+{
+  "id": 10,
+  "name": "Elf",
+  "description": "Elves are wild humanoids, distinguisable by their long, pointed ears and skin tones which range from light blue to dark green. They typically live hard, long lives in small settlements in the most dangerous of the Fonteran jungles as a result of their displacement from their wars with the Orcs. Elven blood is infused with the cosmos, creating a culture that has learned to worship the stars and their meaning.",
+  "img": "img/ancestries/elf.webp",
+  "portrait": "img/ancestries/portraits/elf.png",
+  "homeworld": "Fonteras",
+  "lifespan": "average 250 years, mature at 18",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Elven",
+  "options": [
+    {
+      "name": "Born of Starlight",
+      "description": "The power of the celestials flows through your veins. If you are capable of learning divine magic, you can learn spells from the cosmic subschool.",
+      "data": "TA"
+    },
+    {
+      "name": "Action : Nebulous Eyes",
+      "description": "Your eyes glow with the power of the cosmos, allowing you to focus and improve your vision capabilities. While you maintain your concentration, you have darksight in a moderate (20 unit) distance.",
+      "data": "XD1"
+    },
+    {
+    "name": "Keydaran Blood",
+    "description": "The blood of the first Keyadar runs through the Elves, granting them +1 skill with resilience. They are also immune to effects that would prematurely age them.",
+    "data": "AS4=1:TA"
+    }
+  ]
+}

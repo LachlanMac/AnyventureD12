@@ -48,6 +48,9 @@ const Navbar: React.FC = () => {
             <NavLink to="/modules" isActive={isActive('/modules')}>
               Modules
             </NavLink>
+            <NavLink to="/conditions" isActive={isActive('/conditions')}>
+              Conditions
+            </NavLink>
 
             {/* Auth buttons */}
             {loading ? (
@@ -270,6 +273,14 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               Modules
+            </MobileNavLink>
+
+            <MobileNavLink
+              to="/conditions"
+              isActive={isActive('/conditions')}
+              onClick={() => setIsOpen(false)}
+            >
+              Conditions
             </MobileNavLink>
 
             {isAuthenticated && (

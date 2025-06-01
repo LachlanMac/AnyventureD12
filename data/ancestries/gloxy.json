@@ -1,0 +1,30 @@
+{
+  "id": 19,
+  "name": "Gloxy",
+  "description": "Gloxy are small, fox-like humanoids gifted with intelligence and magic as they were awakened long ago by the Vethi. They are known for their quick wits and helpful nature. Gloxy are typically named for the conditions during their birth rather than their clan name, with Snowborn accounting for a majority of surnames as most are born during the ceaseless snow on Yyeshi.",
+  "img": "img/ancestries/gloxy.webp",
+  "portrait": "img/ancestries/portraits/gloxy.png",
+  "homeworld": "Yyeshi",
+  "lifespan": "average 60 years, mature at 14",
+  "height": "",
+  "size": "Small",
+  "home": "",
+  "language": "Vethan",
+  "options": [
+    {
+      "name": "Enlightened Mind",
+      "description": "Gloxies were first awakened by the Vethi to be skilled assistants, but the enlightenment had some unintended consequences. Gain +1 Spell Attack, but become weak willed after receiving a compliment, suffering a -5 Penalty to their Insight for 1 minute. When in this state, Gloxies tend to be more agreeable and eager to please.",
+      "data": "TA:AZ2=1"
+    },
+    {
+      "name": "Action : Burrow",
+      "description": "You burrow into soft ground such as loose rocks, dirt, snow or sand and move up to 3 Units. While Burrowed in this way, you have a Burrow Speed equal to your Movement Speed and do not leave any noticeable marks on your entry point. This Action can be used again to Unburrow.",
+      "data": "XX3"
+    },
+    {
+      "name": "Vethi's Gift",
+      "description": "The awakening by the Vethi left a lasting magical imprint on all Gloxies. Gain +1 Academics and you can sense magical auras within 5 Units.",
+      "data": "AS9=1:TA"
+    }
+  ]
+}

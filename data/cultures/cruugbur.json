@@ -1,0 +1,22 @@
+{
+  "id": 8,
+  "name": "Cruugbur",
+  "description": "Bounty of the Land\nThe Cruugbur are a hardy culture of half-giants who thrive in the coldest regions. They value strength, grit, and survival above all else, living as nomads who domesticate beasts to survive in harsh climates.",
+  "options": [
+    {
+      "name": "Body over Mind",
+      "description": "Until the end of your next turn, you ignore the effects of the Wounded, Exhausted, Poisoned and Bleeding Conditions.",
+      "data": "XX3"
+    },
+    {
+      "name": "Winter's Voice",
+      "description": "Gain +1 Presence and beasts naturally respect your strength, making initial reactions more favorable.",
+      "data": "ASR=1"
+    },
+    {
+      "name": "Giant's Endurance",
+      "description": "Gain +1 Endurance and you require half the normal amount of food and water to survive.",
+      "data": "ASD=1"
+    }
+  ]
+}

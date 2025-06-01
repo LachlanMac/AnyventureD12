@@ -168,11 +168,33 @@ const CharacterSchema = new Schema({
   },
   race: {
     type: String,
-    required: [true, 'Race is required']
+    required: false // Deprecated - use ancestry instead
   },
   culture: {
     type: String,
-    required: [true, 'Culture is required']
+    required: false // Deprecated - use characterCulture instead
+  },
+  // New ancestry format
+  ancestry: {
+    ancestryId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Ancestry',
+      required: false
+    },
+    selectedOptions: [{
+      type: String
+    }]
+  },
+  // New culture format  
+  characterCulture: {
+    cultureId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Culture',
+      required: false
+    },
+    selectedOptions: [{
+      type: String
+    }]
   },
   spellSlots: {
     type: Number,

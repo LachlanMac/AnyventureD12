@@ -26,9 +26,37 @@ export const applyModuleBonusesToCharacter = (character) => {
     initiative: 0
   };
   
+  // Apply ancestry bonuses if present
+  if (character.ancestry && character.ancestry.ancestryId && character.ancestry.selectedOptions) {
+    const ancestry = character.ancestry.ancestryId;
+    if (ancestry.options) {
+      // Apply all ancestry options (since all 3 are always granted)
+      ancestry.options.forEach(option => {
+        if (option.data) {
+          parseDataString(option.data, bonuses);
+        }
+      });
+    }
+  }
+  
+  // Apply culture bonuses if present
+  if (character.characterCulture && character.characterCulture.cultureId && character.characterCulture.selectedOptions) {
+    const culture = character.characterCulture.cultureId;
+    if (culture.options) {
+      // Apply all culture options (since all 3 are always granted)
+      culture.options.forEach(option => {
+        if (option.data) {
+          parseDataString(option.data, bonuses);
+        }
+      });
+    }
+  }
+  
   // Skip if modules aren't populated
   if (!character.modules || character.modules.length === 0) {
-    character.moduleEffects = { applied: false, bonuses: {} };
+    // Apply any ancestry/culture bonuses even if no modules
+    applyBonusesToCharacter(character, bonuses);
+    character.moduleEffects = { applied: true, bonuses: bonuses };
     return character;
   }
   

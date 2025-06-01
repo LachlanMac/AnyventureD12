@@ -22,6 +22,7 @@ import ItemBrowser from './pages/ItemBrowser';
 import ItemManager from './pages/ItemManager';
 import ItemCompendium from './pages/ItemCompendium';
 import SpellCompendium from './pages/SpellCompendium';
+import ConditionsCompendium from './pages/ConditionsCompendium';
 import ItemDetail from './pages/ItemDetail';
 import SpellDetail from './pages/SpellDetail';
 
@@ -112,6 +113,14 @@ const App: React.FC = () => {
                 element={
                   <MainLayout>
                     <SpellCompendium />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/conditions"
+                element={
+                  <MainLayout>
+                    <ConditionsCompendium />
                   </MainLayout>
                 }
               />

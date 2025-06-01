@@ -1,0 +1,22 @@
+{
+  "id": 17,
+  "name": "Quellentian",
+  "description": "Unified Oceania\nThe Quellentians are a tidewalker culture at home in the water. They communicate through songs, befriend sea creatures, and shape water with their magic.",
+  "options": [
+    {
+      "name": "Action: Tidal Surge",
+      "description": "Create a surge of water that pushes all creatures within 10 units back 5 units and grants you a swim speed equal to double your movement for 1 round.",
+      "data": "XX3"
+    },
+    {
+      "name": "Oceanic Diplomacy",
+      "description": "Gain +1 Persuasion and you can communicate basic concepts to any aquatic creature.",
+      "data": "AST=1"
+    },
+    {
+      "name": "Deep Sea Adaptation",
+      "description": "Gain +1 Athletics and you can hold your breath for 10 times longer than normal.",
+      "data": "ASA=1"
+    }
+  ]
+}

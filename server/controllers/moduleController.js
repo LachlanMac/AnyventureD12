@@ -42,8 +42,8 @@ export const getModulesByType = async (req, res) => {
   try {
     const { type } = req.params;
     
-    // Validate type
-    if (!['racial', 'core', 'secondary', 'cultural','personality'].includes(type)) {
+    // Validate type - removed 'racial' and 'cultural' as they're now separate entities
+    if (!['core', 'secondary', 'personality', 'alteration', 'planar'].includes(type)) {
       return res.status(400).json({ message: 'Invalid module type' });
     }
     

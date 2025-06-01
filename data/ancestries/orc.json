@@ -1,0 +1,30 @@
+{
+  "id": 5,
+  "name": "Orc",
+  "description": "Orcs are robust humanoids with powerful builds and thick skin with unique regenerative properties. They often display prominent tusks and sharp features, but much of the aggression that used to dictate them has long since been redirected to bustling industry. Orcs are relatively peaceful and eager to trade with the rest of the Viridus Nexus, but their long feud with the Elves who share the same moon has caused them to be reserved and ready to defend themselves.",
+  "homeworld": "Fonteras",
+  "img": "img/ancestries/orc.webp",
+  "portrait": "img/ancestries/portraits/orc.png",
+  "lifespan": "average 110 years, mature at 20",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Orcish",
+  "options": [
+    {
+      "name": "Orcish Regeneration",
+      "description": "When you complete a Full Rest, gain Additional Health equal to your Level and cure 1 Tier of the Wounded Condition.",
+      "data": "TA"
+    },
+    {
+      "name": "Action [Daily] : Resilience",
+      "description": "If you are capable of taking an Action, you can shrug off Grapples, Dazes, Confusion, Blinds, Deafens, Poisons, and being Afraid, gaining 1d4 Health for each one removed.",
+      "data": "XD1"
+    },
+    {
+      "name": "Industrial Spirit",
+      "description": "Your people's focus on industry and craftsmanship has given you a natural affinity for creation. Gain +1 Fabrication and can work twice as fast on crafting projects.",
+      "data": "AT2=1:TA"
+    }
+  ]
+}

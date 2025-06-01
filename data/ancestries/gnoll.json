@@ -1,0 +1,30 @@
+{
+  "id": 14,
+  "name": "Gnoll",
+  "description": "Gnolls are humanoid creatures with canine features, including fur and sharp teeth. They are fierce hunters, often operating in packs, which has largely shaped their society around smaller tribes rather than large settlements. Loyalty and family are core values in Gnoll societies, and their culture revolves around the Eternal Hunt - a notion that their hunger and thirst for danger and glory is never satisfied.",
+  "img": "img/ancestries/gnoll.webp",
+  "portrait": "img/ancestries/portraits/gnoll.png",
+  "homeworld": "Atlah",
+  "lifespan": "average 50 years, mature at 10",
+  "height": "",
+  "size": "Medium to Large",
+  "home": "",
+  "language": "Gnilbark",
+  "options": [
+    {
+      "name": "Gnoll Honor Bond",
+      "description": "You make an unbreakable bond with another Humanoid, allowing them to use your Resilience Modifier when making Resilience Checks. This bond ends upon the death of either Creature.",
+      "data": "TA"
+    },
+    {
+      "name": "Action : Gnoll Bite",
+      "description": "You make an Unarmed Attack by biting a Creature and tasting its blood, dealing 1d10 extra Damage on a hit. If the attack hits and the Creature has blood, you learn its Physical and Elemental Mitigations.",
+      "data": "XX3"
+    },
+    {
+      "name": "Pack Hunter",
+      "description": "Your instincts as a pack hunter grant you bonuses when working with allies. Gain +1 Wildcraft and +1 die when flanking an enemy with an ally.",
+      "data": "AS8=1:TA"
+    }
+  ]
+}

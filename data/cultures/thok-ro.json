@@ -1,0 +1,22 @@
+{
+  "id": 5,
+  "name": "Thok-Ro",
+  "description": "Purposeful Industry\nThe Thok-Ro are an orcish culture of loyalty and perseverance to a greater cause. They value industry, perfection in craft, and have long since abandoned worship of the gods.",
+  "options": [
+    {
+      "name": "Reaction: Industrial Efficiency",
+      "description": "When you successfully craft an item, you can immediately begin crafting another item of the same type with a +1d4 bonus to the crafting check.",
+      "data": "XX3"
+    },
+    {
+      "name": "Purposeful Presence",
+      "description": "Gain +1 Presence and your dedication to your cause inspires others to work harder.",
+      "data": "ASR=1"
+    },
+    {
+      "name": "Master Craftsman",
+      "description": "Gain +1 Engineering and items you craft require 25% less materials.",
+      "data": "CS1=1"
+    }
+  ]
+}

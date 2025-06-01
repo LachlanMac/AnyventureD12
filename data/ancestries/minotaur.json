@@ -1,0 +1,30 @@
+{
+  "id": 15,
+  "name": "Minotaur",
+  "description": "Minotaurs are powerful beings with bull-like heads and muscular humanoid bodies. Due to their frightening nature and inconvenient size, they rarely live outisde the underground society they have built for themselves on Kragfel. Their culture is typically divided between advancing their society or regressing into their historic service with dark entities who would have them serve another cause.",
+  "homeworld": "Kragfel",
+  "img": "img/ancestries/minotaur.webp",
+  "portrait": "img/ancestries/portraits/minotaur.png",
+  "lifespan": "average 800 years, mature at 15",
+  "height": "",
+  "size": "Large",
+  "home": "",
+  "language": "As-Bok",
+  "options": [
+    {
+      "name": "Action : Bullcharge",
+      "description": "If you use at least 4 Units of Movement Speed, you can make a special Shove Action, that if successful, deals Physical Damage equal to your Contested Strength Check made on the Shove Attack.",
+      "data": "XX3"
+    },
+    {
+      "name": "Dark Blood of the Ancients",
+      "description": "The blood of the first Minotaurs courses through your veins, tainting it with dark magic that shields you from the Divine. Gain +5 Divine Mitigation.",
+      "data": "AD8=5:TA"
+    },
+    {
+      "name": "Labyrinthine Mind",
+      "description": "Your people's ancient connection to mazes and underground passages grants you perfect spatial memory. You can never get lost in structures or dungeons you've been in before, and gain +1 Logic.",
+      "data": "AS7=1:TA"
+    }
+  ]
+}

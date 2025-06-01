@@ -1,0 +1,22 @@
+{
+  "id": 1,
+  "name": "Draconii",
+  "description": "Legacy of Dragons",
+  "options": [
+    {
+      "name": "Reaction: Dragon's Honor",
+      "description": "When someone tells you a lie, you immediately know it as a Reaction. You can call them out, dealing 1d6 Psychic damage to the liar.",
+      "data": "XX3"
+    },
+    {
+      "name": "Draconic Presence",
+      "description": "Gain +1 Presence and your draconic heritage grants you advantage when negotiating with dragons or dragonkin.",
+      "data": "ASR=1"
+    },
+    {
+      "name": "Arcane Heritage",
+      "description": "Gain +1 Magic and you can understand the basic meaning of any draconic script or runes.",
+      "data": "ASO=1"
+    }
+  ]
+}

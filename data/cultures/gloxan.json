@@ -1,0 +1,22 @@
+{
+  "id": 19,
+  "name": "Gloxan",
+  "description": "Curious Altruist\nThe Gloxan culture values helping others and cherishes freedom. Originally assistants, they have developed a culture of protection, healing, and linguistic mastery.",
+  "options": [
+    {
+      "name": "Reaction: Protective Ward",
+      "description": "When an ally within 10 units is targeted by a spell, you can create a minor protective ward that grants them +1d4 to their defense roll.",
+      "data": "XX3"
+    },
+    {
+      "name": "Helper's Insight",
+      "description": "Gain +1 Insight and you can sense when someone genuinely needs help versus manipulation.",
+      "data": "ASS=1"
+    },
+    {
+      "name": "Medical Knowledge",
+      "description": "Gain +1 Medicine and healing items you create are 25% more effective.",
+      "data": "ASP=1"
+    }
+  ]
+}

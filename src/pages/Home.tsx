@@ -1,7 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
-import anyventureLogo from '../assets/anyventure_logo.png';
 import anyventureCharacters from '../assets/anyventure.png';
 
 const Home: React.FC = () => {
@@ -17,14 +16,31 @@ const Home: React.FC = () => {
         <div className="container mx-auto px-4 py-8">
           {/* Logo */}
           <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <img
-              src={anyventureLogo}
-              alt="Anyventure Logo"
+            <h1
               style={{
-                maxWidth: '600px',
+                fontFamily: 'Orbitron, monospace',
+                fontSize: 'clamp(3rem, 8vw, 6rem)',
+                fontWeight: 700,
+                background: 'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+                textShadow: '0 0 30px rgba(215, 183, 64, 0.3)',
+                letterSpacing: '0.1em',
+                margin: '0',
+                textTransform: 'uppercase',
+                position: 'relative',
+              }}
+            >
+              AnyventureDX
+            </h1>
+            <div
+              style={{
                 width: '100%',
-                height: 'auto',
-                margin: '0 auto',
+                height: '4px',
+                background: 'linear-gradient(90deg, transparent 0%, var(--color-metal-gold) 50%, transparent 100%)',
+                marginTop: '1rem',
+                borderRadius: '2px',
               }}
             />
           </div>
@@ -212,8 +228,8 @@ const Home: React.FC = () => {
         </h2>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-3 gap-6"
-          style={{ maxWidth: '900px', margin: '0 auto' }}
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          style={{ maxWidth: '1200px', margin: '0 auto' }}
         >
           <ResourceCard
             title="Item Compendium"
@@ -235,6 +251,13 @@ const Home: React.FC = () => {
             linkText="View Modules"
             linkTo="/modules"
             icon="📚"
+          />
+          <ResourceCard
+            title="Conditions Reference"
+            description="Quick reference for all status conditions and their effects in combat and roleplay."
+            linkText="View Conditions"
+            linkTo="/conditions"
+            icon="⚡"
           />
         </div>
       </div>

@@ -1,0 +1,30 @@
+{
+  "id": 7,
+  "name": "Human",
+  "description": "Humans are a diverse and adaptable species, having spread across the temperature moon of Atlah in great number. They are known for having many different types of cultures and beliefs, so much so that they often find themselves quarreling with each other.",
+  "homeworld": "Atlah",
+  "img": "img/ancestries/human.webp",
+  "portrait": "img/ancestries/portraits/human.png",
+  "lifespan": "average 75 years, mature at 18",
+  "height": "",
+  "size": "Medium",
+  "home": "",
+  "language": "Lattus",
+  "options": [
+    {
+      "name": "Heart of the Party",
+      "description": "Social interaction is key to thriving in the various cultures of Humanity. Become Good at one Social Skill.",
+      "data": "TA"
+    },
+    {
+      "name": "Action : Human Destiny",
+      "description": "You immediately enter Lifeline but gain 12 Lifeline Points. If combat ends before you die, you gain Health equal to your Level.",
+      "data": "XX3"
+    },
+    {
+      "name": "Adaptable Nature",
+      "description": "Human versatility allows them to excel in various endeavors. Gain +1 to any Attribute of your choice during character creation.",
+      "data": "AA=1"
+    }
+  ]
+}

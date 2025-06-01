@@ -1,81 +1,75 @@
 import React, { useState, useEffect } from 'react';
-import { Module } from '../../types/character';
+import { Culture } from '../../types/character';
 
 interface CultureSelectionProps {
   selectedCulture: string;
-  onSelectCulture: (culture: string, cultureModule: Module) => void;
+  onSelectCulture: (culture: string, cultureData: Culture) => void;
 }
 
 const CultureSelection: React.FC<CultureSelectionProps> = ({
   selectedCulture,
   onSelectCulture,
 }) => {
-  const [cultureModules, setCultureModules] = useState<Module[]>([]);
+  const [cultures, setCultures] = useState<Culture[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchCultureModules = async () => {
+    const fetchCultures = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/modules/type/cultural');
+        const response = await fetch('/api/cultures');
 
         if (!response.ok) {
-          throw new Error('Failed to fetch culture modules');
+          throw new Error('Failed to fetch cultures');
         }
 
         const data = await response.json();
-        console.log('Fetched culture modules in CultureSelection:', data);
+        console.log('Fetched cultures in CultureSelection:', data);
 
-        setCultureModules(data);
+        setCultures(data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching culture modules:', err);
+        console.error('Error fetching cultures:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
     };
 
-    fetchCultureModules();
+    fetchCultures();
   }, []);
 
   // Handler for culture selection
   const handleCultureSelect = (cultureName: string) => {
-    const selectedModule = cultureModules.find((module) => module.name === cultureName);
-    if (selectedModule) {
-      console.log('Selected culture module in CultureSelection:', selectedModule);
-      onSelectCulture(cultureName, selectedModule);
+    const selectedCulture = cultures.find((culture) => culture.name === cultureName);
+    if (selectedCulture) {
+      console.log('Selected culture in CultureSelection:', selectedCulture);
+      onSelectCulture(cultureName, selectedCulture);
     } else {
-      console.error(`Could not find culture module for culture: ${cultureName}`);
+      console.error(`Could not find culture for: ${cultureName}`);
     }
   };
 
   // Get culture description
-  const getCultureDescription = (module: Module): string => {
-    // First check if the module has a description property
-    if (module.description && module.description.trim() !== '') {
-      return module.description;
-    }
-
-    // If not, check if any of the tier 1 options have a description
-    const tier1Option = module.options.find((option) => option.location === '1');
-    if (tier1Option && tier1Option.description && tier1Option.description.trim() !== '') {
-      return tier1Option.description;
+  const getCultureDescription = (culture: Culture): string => {
+    // Check if the culture has a description property
+    if (culture.description && culture.description.trim() !== '') {
+      return culture.description;
     }
 
     // Fallback to a generic description
-    return `The ${module.name} culture has its own customs, traditions, and perspectives on interstellar society.`;
+    return `The ${culture.name} culture has its own customs, traditions, and perspectives on society.`;
   };
 
   // Get the description of the currently selected culture
   const getSelectedCultureDescription = (): string => {
     if (!selectedCulture) return 'Select a culture to see information';
 
-    const selectedModule = cultureModules.find((module) => module.name === selectedCulture);
-    if (!selectedModule) return 'Select a culture to see information';
+    const selected = cultures.find((culture) => culture.name === selectedCulture);
+    if (!selected) return 'Select a culture to see information';
 
-    return getCultureDescription(selectedModule);
+    return getCultureDescription(selected);
   };
 
   // Toggle section expansion
@@ -107,7 +101,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
         }}
       >
         <div>Error loading culture options: {error}</div>
-        <div style={{ marginTop: '1rem' }}>Using default cultures instead.</div>
+        <div style={{ marginTop: '1rem' }}>Please refresh the page to try again.</div>
       </div>
     );
   }
@@ -167,16 +161,16 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
               gap: '1rem',
             }}
           >
-            {cultureModules.map((module) => (
+            {cultures.map((culture) => (
               <button
-                key={module.name}
+                key={culture.name}
                 type="button"
                 style={{
                   position: 'relative',
                   padding: '0.75rem 1.5rem',
                   borderRadius: '0.375rem',
                   backgroundColor:
-                    selectedCulture === module.name
+                    selectedCulture === culture.name
                       ? 'var(--color-sat-purple)'
                       : 'var(--color-dark-elevated)',
                   color: 'var(--color-white)',
@@ -190,9 +184,9 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                   textAlign: 'left',
                   overflow: 'hidden',
                 }}
-                onClick={() => handleCultureSelect(module.name)}
+                onClick={() => handleCultureSelect(culture.name)}
               >
-                <span>{module.name}</span>
+                <span>{culture.name}</span>
               </button>
             ))}
           </div>
@@ -233,10 +227,9 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                       Cultural Traits
                     </h4>
                     <div>
-                      {cultureModules
-                        .find((module) => module.name === selectedCulture)
-                        ?.options.filter((option) => option.location === '1')
-                        .map((option) => (
+                      {cultures
+                        .find((culture) => culture.name === selectedCulture)
+                        ?.options.map((option) => (
                           <div
                             key={option.name}
                             style={{

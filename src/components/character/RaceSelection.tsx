@@ -1,75 +1,52 @@
 // src/components/character/RaceSelection.tsx (Modified)
 import React, { useState, useEffect } from 'react';
-import { RacialModule } from '../../types/character';
+import { Ancestry } from '../../types/character';
 
 interface RaceSelectionProps {
   selectedRace: string;
-  onSelectRace: (race: string, racialModule: RacialModule) => void;
+  onSelectRace: (race: string, ancestry: Ancestry) => void;
 }
 
 const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRace }) => {
-  const [racialModules, setRacialModules] = useState<RacialModule[]>([]);
+  const [ancestries, setAncestries] = useState<Ancestry[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<boolean>(true);
 
   useEffect(() => {
-    const fetchRacialModules = async () => {
+    const fetchAncestries = async () => {
       try {
         setLoading(true);
-        const response = await fetch('/api/modules/type/racial');
+        const response = await fetch('/api/ancestries');
 
         if (!response.ok) {
-          throw new Error('Failed to fetch racial modules');
+          throw new Error('Failed to fetch ancestries');
         }
 
         const data = await response.json();
-        console.log('Fetched racial modules in RaceSelection:', data);
+        console.log('Fetched ancestries in RaceSelection:', data);
 
-        // Add description field to each module if needed
-        const modulesWithDescriptions = data.map((module: RacialModule) => ({
-          ...module,
-          description: module.description || getRaceDescription(module.name),
-        }));
-
-        setRacialModules(modulesWithDescriptions);
+        setAncestries(data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching racial modules:', err);
+        console.error('Error fetching ancestries:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
     };
 
-    fetchRacialModules();
+    fetchAncestries();
   }, []);
 
-  // Get race description - this would come from the API in production
-  const getRaceDescription = (raceName: string): string => {
-    switch (raceName) {
-      case 'Human':
-        return 'Adaptable and innovative, humans are versatile explorers who have spread throughout the galaxy, establishing colonies and trade networks.';
-      case 'Jhen':
-        return 'Amphibious beings with enhanced sensory abilities, the Jhen are naturally attuned to water environments and excel at navigation and exploration.';
-      case 'Protoelf':
-        return 'Descendants of ancient genetic engineers, Protoelves have enhanced reflexes and mental capabilities along with extended lifespans.';
-      case 'Vxyahlian':
-        return 'Insect-like beings with exoskeletons and heightened engineering skills, Vxyahlians are natural builders and technologists.';
-      case 'Zssesh':
-        return 'Reptilian species with natural resilience to harsh environments, the Zssesh have remarkable regenerative capabilities and physical endurance.';
-      default:
-        return 'A mysterious species with unique physiologies and cultural perspectives, bringing diversity and unexpected approaches to challenges.';
-    }
-  };
 
   // Handler for race selection
   const handleRaceSelect = (raceName: string) => {
-    const selectedModule = racialModules.find((module) => module.name === raceName);
-    if (selectedModule) {
-      console.log('Selected racial module in RaceSelection:', selectedModule);
-      onSelectRace(raceName, selectedModule);
+    const selectedAncestry = ancestries.find((ancestry) => ancestry.name === raceName);
+    if (selectedAncestry) {
+      console.log('Selected ancestry in RaceSelection:', selectedAncestry);
+      onSelectRace(raceName, selectedAncestry);
     } else {
-      console.error(`Could not find racial module for race: ${raceName}`);
+      console.error(`Could not find ancestry for race: ${raceName}`);
     }
   };
 
@@ -89,7 +66,7 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
       <div style={{ textAlign: 'center', padding: '2rem' }}>
         <div className="loading-spinner" style={{ margin: '0 auto' }}></div>
         <div style={{ marginTop: '1rem', color: 'var(--color-cloud)' }}>
-          Loading racial options...
+          Loading ancestry options...
         </div>
       </div>
     );
@@ -106,8 +83,8 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
           color: 'var(--color-white)',
         }}
       >
-        <div>Error loading racial options: {error}</div>
-        <div style={{ marginTop: '1rem' }}>Using default races instead.</div>
+        <div>Error loading ancestry options: {error}</div>
+        <div style={{ marginTop: '1rem' }}>Please refresh the page to try again.</div>
       </div>
     );
   }
@@ -167,16 +144,16 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
             marginBottom: '1rem',
           }}
         >
-          {racialModules.map((module) => (
+          {ancestries.map((ancestry) => (
             <button
-              key={module.name}
+              key={ancestry.name}
               type="button"
               style={{
                 position: 'relative',
                 padding: '0.75rem 1.5rem 0.75rem 1rem', // Reduced right padding to make room for portrait
                 borderRadius: '0.375rem',
                 backgroundColor:
-                  selectedRace === module.name
+                  selectedRace === ancestry.name
                     ? 'var(--color-sat-purple)'
                     : 'var(--color-dark-elevated)',
                 color: 'var(--color-white)',
@@ -190,9 +167,9 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                 textAlign: 'left',
                 overflow: 'hidden',
               }}
-              onClick={() => handleRaceSelect(module.name)}
+              onClick={() => handleRaceSelect(ancestry.name)}
             >
-              <span style={{ maxWidth: 'calc(100% - 50px)' }}>{module.name}</span>
+              <span style={{ maxWidth: 'calc(100% - 50px)' }}>{ancestry.name}</span>
               <div
                 style={{
                   position: 'absolute',
@@ -210,8 +187,8 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                 }}
               >
                 <img
-                  src={getRacePortraitUrl(module.name)}
-                  alt={module.name}
+                  src={getRacePortraitUrl(ancestry.name)}
+                  alt={ancestry.name}
                   onError={(e) => {
                     // Fallback for missing images
                     e.currentTarget.src = '/assets/races/default.png';
@@ -249,8 +226,8 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
               {selectedRace}
             </h3>
             <p style={{ color: 'var(--color-cloud)' }}>
-              {racialModules.find((module) => module.name === selectedRace)?.description ||
-                'Select a race to see information'}
+              {ancestries.find((ancestry) => ancestry.name === selectedRace)?.description ||
+                'Select an ancestry to see information'}
             </p>
 
             {/* Display first tier racial traits for the selected race */}
@@ -262,11 +239,11 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                   marginBottom: '0.5rem',
                 }}
               >
-                Racial Traits
+                Ancestry Traits
               </h4>
               <div>
-                {racialModules
-                  .find((module) => module.name === selectedRace)
+                {ancestries
+                  .find((ancestry) => ancestry.name === selectedRace)
                   ?.options.map((option) => (
                     <div
                       key={option.name}
@@ -295,7 +272,7 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
             </div>
           </>
         ) : (
-          <p style={{ color: 'var(--color-cloud)' }}>Select a race to see information</p>
+          <p style={{ color: 'var(--color-cloud)' }}>Select an ancestry to see information</p>
         )}
       </div>
     </div>

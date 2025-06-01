@@ -1,0 +1,22 @@
+{
+  "id": 14,
+  "name": "Gnash",
+  "description": "Honorbound Pack\nThe Gnash are a gnollish culture built upon the concept of the great, unending hunt. They value pack loyalty, shamanic wisdom, and never-ending vigilance.",
+  "options": [
+    {
+      "name": "Mark of the Hunt",
+      "description": "You Mark a target you can see within 30 Units lasting until the end of a Full Rest. You gain +2 Movement Speed towards your target and deal an extra 1d10 Damage whenever you deal Physical Damage to them.",
+      "data": "XX3"
+    },
+    {
+      "name": "Oracle's Wisdom",
+      "description": "Gain +1 Insight and you can interpret omens to gain hints about future dangers once per day.",
+      "data": "ASS=1"
+    },
+    {
+      "name": "Hunter's Instinct",
+      "description": "Gain +1 Wildcraft and you can track creatures even days after they've passed.",
+      "data": "ASM=1"
+    }
+  ]
+}

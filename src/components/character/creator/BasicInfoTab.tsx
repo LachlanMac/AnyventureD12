@@ -1,5 +1,5 @@
 import React from 'react';
-import { RacialModule, Module } from '../../../types/character';
+import { Ancestry, Culture } from '../../../types/character';
 import RaceSelection from '../RaceSelection';
 import CultureSelection from '../CultureSelection';
 
@@ -10,8 +10,8 @@ interface BasicInfoTabProps {
   modulePoints: number;
   startingTalents: number;
   onNameChange: (name: string) => void;
-  onRaceChange: (race: string, racialModule: RacialModule) => void;
-  onCultureChange: (culture: string, cultureModule: Module) => void;
+  onRaceChange: (race: string, ancestry: Ancestry) => void;
+  onCultureChange: (culture: string, cultureData: Culture) => void;
   onModulePointsChange: (points: number) => void;
   onStartingTalentsChange: (talents: number) => void;
 }

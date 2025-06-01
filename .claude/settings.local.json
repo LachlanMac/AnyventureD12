@@ -13,7 +13,9 @@
       "Bash(npx tsc:*)",
       "Bash(npm run build:*)",
       "Bash(ls:*)",
-      "Bash(mv:*)"
+      "Bash(mv:*)",
+      "Bash(cp:*)",
+      "Bash(mkdir:*)"
     ],
     "deny": []
   },

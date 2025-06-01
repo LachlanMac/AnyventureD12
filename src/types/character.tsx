@@ -67,7 +67,47 @@ export interface ModuleOption {
   data: string;
 }
 
-// Racial Module structure (used in RaceSelection.tsx)
+// Ancestry option structure (simplified, no location or cost)
+export interface AncestryOption {
+  name: string;
+  description: string;
+  data: string;
+  selected?: boolean;
+}
+
+// Culture option structure (simplified, no location or cost)
+export interface CultureOption {
+  name: string;
+  description: string;
+  data: string;
+  selected?: boolean;
+}
+
+// Ancestry structure (replaces RacialModule)
+export interface Ancestry {
+  _id: string;
+  name: string;
+  description: string;
+  homeworld?: string;
+  img?: string;
+  portrait?: string;
+  lifespan?: string;
+  height?: string;
+  size?: string;
+  home?: string;
+  language?: string;
+  options: AncestryOption[];
+}
+
+// Culture structure (replaces CultureModule)
+export interface Culture {
+  _id: string;
+  name: string;
+  description: string;
+  options: CultureOption[];
+}
+
+// Racial Module structure (deprecated - use Ancestry instead)
 export interface RacialModule {
   _id: string;
   name: string;
@@ -96,6 +136,7 @@ export interface CharacterModule {
     selectedAt: string;
   }[];
 }
+// CultureModule structure (deprecated - use Culture instead)
 export interface CultureModule {
   _id: string;
   name: string;
@@ -266,13 +307,27 @@ export interface LanguageSkills {
   [languageId: string]: number; // 0-3 proficiency level
 }
 
+// Character ancestry selection
+export interface CharacterAncestry {
+  ancestryId: string;
+  selectedOptions: string[]; // Array of selected option names
+}
+
+// Character culture selection
+export interface CharacterCulture {
+  cultureId: string;
+  selectedOptions: string[]; // Array of selected option names
+}
+
 // Complete character structure
 export interface Character {
   _id?: string;
   userId: string;
   name: string;
-  race: string;
-  culture: string;
+  race: string; // Deprecated - use ancestry instead
+  culture: string; // Deprecated - use characterCulture instead
+  ancestry?: CharacterAncestry;
+  characterCulture?: CharacterCulture;
   portraitUrl?: string | null;
   attributes: Attributes;
   skills: SkillMap;

@@ -13,8 +13,8 @@ import PersonalityCreatorTab from '../components/character/creator/PersonalityCr
 import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
 import {
   Character,
-  RacialModule,
-  CultureModule,
+  Ancestry,
+  Culture,
   Attributes,
   Module,
 } from '../types/character';
@@ -30,10 +30,10 @@ const CharacterCreate: React.FC = () => {
   const [attributePointsRemaining, setAttributePointsRemaining] = useState<number>(6);
   const [startingTalents, setStartingTalents] = useState<number>(8);
   const [talentStarsRemaining, setTalentStarsRemaining] = useState<number>(8);
-  const [_racialModules, setRacialModules] = useState<RacialModule[]>([]);
-  const [_cultureModules, setCultureModules] = useState<CultureModule[]>([]);
-  const [selectedRacialModule, setSelectedRacialModule] = useState<RacialModule | null>(null);
-  const [selectedCultureModule, setSelectedCultureModule] = useState<CultureModule | null>(null);
+  const [_ancestries, setAncestries] = useState<Ancestry[]>([]);
+  const [_cultures, setCultures] = useState<Culture[]>([]);
+  const [selectedAncestry, setSelectedAncestry] = useState<Ancestry | null>(null);
+  const [selectedCulture, setSelectedCulture] = useState<Culture | null>(null);
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
   const [stressors, setStressors] = useState<string[]>([]);
@@ -44,34 +44,34 @@ const CharacterCreate: React.FC = () => {
   const [character, setCharacter] = useState<Character>(createDefaultCharacter('test-user-id'));
 
   useEffect(() => {
-    const fetchModules = async () => {
+    const fetchData = async () => {
       try {
-        const raceResponse = await fetch('/api/modules/type/racial');
-        if (!raceResponse.ok) {
-          throw new Error('Failed to fetch racial modules');
+        const ancestryResponse = await fetch('/api/ancestries');
+        if (!ancestryResponse.ok) {
+          throw new Error('Failed to fetch ancestries');
         }
-        const raceData = await raceResponse.json();
-        setRacialModules(raceData);
+        const ancestryData = await ancestryResponse.json();
+        setAncestries(ancestryData);
 
-        // Add culture modules fetching
-        const cultureResponse = await fetch('/api/modules/type/cultural');
+        // Fetch cultures
+        const cultureResponse = await fetch('/api/cultures');
         if (!cultureResponse.ok) {
-          throw new Error('Failed to fetch culture modules');
+          throw new Error('Failed to fetch cultures');
         }
         const cultureData = await cultureResponse.json();
-        setCultureModules(cultureData);
+        setCultures(cultureData);
       } catch (err) {
-        console.error('Error fetching modules:', err);
+        console.error('Error fetching data:', err);
       }
     };
 
-    fetchModules();
+    fetchData();
   }, []);
 
 
-  const handleCultureChange = (cultureName: string, cultureModule: CultureModule) => {
+  const handleCultureChange = (cultureName: string, culture: Culture) => {
     updateCharacter('culture', cultureName);
-    setSelectedCultureModule(cultureModule);
+    setSelectedCulture(culture);
   };
   const handlePersonalitySelect = (personalityName: string, personalityModule: Module) => {
     setSelectedPersonality(personalityName);
@@ -79,15 +79,15 @@ const CharacterCreate: React.FC = () => {
     setStressors(personalityModule.stressors || []);
   };
 
-  const handleRaceChange = (raceName: string, racialModule: RacialModule) => {
+  const handleRaceChange = (raceName: string, ancestry: Ancestry) => {
     console.log('handleRaceChange called with:', raceName);
-    console.log('Received racial module:', racialModule);
+    console.log('Received ancestry:', ancestry);
 
     // Update the race in character state
     updateCharacter('race', raceName);
 
-    // Store the racial module directly
-    setSelectedRacialModule(racialModule);
+    // Store the ancestry directly
+    setSelectedAncestry(ancestry);
   };
 
   // Update basic character field
@@ -302,37 +302,18 @@ const CharacterCreate: React.FC = () => {
     try {
       console.log('Sending character data:', character);
       const initialModules = [];
-      if (selectedRacialModule) {
-        // Find the tier 1 option of the racial module
-        const tier1Option = selectedRacialModule.options.find((option) => option.location === '1');
-
-        if (tier1Option) {
-          initialModules.push({
-            moduleId: selectedRacialModule._id,
-            selectedOptions: [
-              {
-                location: '1',
-                selectedAt: new Date().toISOString(),
-              },
-            ],
-          });
-        }
-      }
-      if (selectedCultureModule) {
-        const tier1Option = selectedCultureModule.options.find((option) => option.location === '1');
-
-        if (tier1Option) {
-          initialModules.push({
-            moduleId: selectedCultureModule._id,
-            selectedOptions: [
-              {
-                location: '1',
-                selectedAt: new Date().toISOString(),
-              },
-            ],
-          });
-        }
-      }
+      
+      // Prepare ancestry data (all 3 options are automatically selected)
+      const ancestryData = selectedAncestry ? {
+        ancestryId: selectedAncestry._id,
+        selectedOptions: selectedAncestry.options.map(option => option.name)
+      } : null;
+      
+      // Prepare culture data (all 3 options are automatically selected)
+      const cultureData = selectedCulture ? {
+        cultureId: selectedCulture._id,
+        selectedOptions: selectedCulture.options.map(option => option.name)
+      } : null;
 
       if (selectedPersonalityModule) {
         const tier1Option = selectedPersonalityModule.options.find(
@@ -355,8 +336,10 @@ const CharacterCreate: React.FC = () => {
       // Transform the character data for the API
       const characterData = {
         name: character.name,
-        race: character.race,
-        culture: character.culture,
+        race: character.race, // Keep for backward compatibility
+        culture: character.culture, // Keep for backward compatibility
+        ancestry: ancestryData, // New ancestry format
+        characterCulture: cultureData, // New culture format
         attributes: character.attributes,
         skills: character.skills,
         weaponSkills: character.weaponSkills,
