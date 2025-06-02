@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Nightshade",
   "description": "A dangerous poisonous plant with dark berries, used in various dark alchemical recipes",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 100,
   "rarity": "common"

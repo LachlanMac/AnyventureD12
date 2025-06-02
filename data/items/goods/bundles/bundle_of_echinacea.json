@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Echinacea",
   "description": "Purple coneflowers popular for their immune-boosting properties in herbal remedies",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 40,
   "rarity": "common"

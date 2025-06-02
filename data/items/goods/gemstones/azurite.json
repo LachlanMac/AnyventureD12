@@ -1,7 +1,8 @@
 {
   "name": "Azurite",
   "description": "A deep blue stone with intense color and crystalline structure",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 10,
   "rarity": "common"

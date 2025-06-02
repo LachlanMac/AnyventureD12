@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Mint",
   "description": "Fresh green leaves commonly used for their refreshing taste and aroma in cooking and teas",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 20,
   "rarity": "common"

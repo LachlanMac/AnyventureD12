@@ -1,7 +1,8 @@
 {
   "name": "Star Ruby",
   "description": "A deep red gem displaying a six-pointed star pattern when light hits it",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 2000,
   "rarity": "common"

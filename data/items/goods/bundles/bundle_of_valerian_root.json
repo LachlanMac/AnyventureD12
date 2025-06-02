@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Valerian Root",
   "description": "Pungent roots commonly used in sleep aids and calming potions",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 20,
   "rarity": "common"

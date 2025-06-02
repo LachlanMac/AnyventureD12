@@ -1,7 +1,8 @@
 {
   "name": "Sack of Rice",
   "description": "A large sack of dried rice grains, a versatile staple grain",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 5.0,
   "value": 100,
   "rarity": "common"

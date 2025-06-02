@@ -1,7 +1,8 @@
 {
   "name": "Turquoise",
   "description": "A blue-green stone with opaque appearance and waxy luster",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 30,
   "rarity": "common"

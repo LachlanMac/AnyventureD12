@@ -1,7 +1,8 @@
 {
   "name": "Opal",
   "description": "A milky stone with flashes of rainbow colors within",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 20,
   "rarity": "common"

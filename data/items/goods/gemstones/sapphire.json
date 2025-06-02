@@ -1,7 +1,8 @@
 {
   "name": "Sapphire",
   "description": "A vibrant blue crystal with exceptional clarity and hardness",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 700,
   "rarity": "common"

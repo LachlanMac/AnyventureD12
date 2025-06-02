@@ -1,7 +1,8 @@
 {
   "name": "Jar of Honey",
   "description": "Golden sweet syrup produced by bees, used for sweetening and preservation",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 2.0,
   "value": 80,
   "rarity": "common"

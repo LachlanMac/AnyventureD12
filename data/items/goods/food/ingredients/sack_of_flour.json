@@ -1,7 +1,8 @@
 {
   "name": "Sack of Flour",
   "description": "A large sack of ground grain flour, essential for baking bread and pastries",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 5.0,
   "value": 50,
   "rarity": "common"

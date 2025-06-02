@@ -1,7 +1,8 @@
 {
   "name": "Carnelian",
   "description": "An orange-red stone with translucent appearance and smooth surface",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 20,
   "rarity": "common"

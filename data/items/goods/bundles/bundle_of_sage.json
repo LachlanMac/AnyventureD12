@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Sage",
   "description": "Gray-green leaves often used for culinary purposes and in rituals for cleansing and protection",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 40,
   "rarity": "common"

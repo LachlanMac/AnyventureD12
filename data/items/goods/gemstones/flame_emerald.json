@@ -1,7 +1,8 @@
 {
   "name": "Flame Emerald",
   "description": "A fiery green crystal with orange-red inclusions resembling flames",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 3000,
   "rarity": "common"

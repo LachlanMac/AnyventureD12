@@ -1,7 +1,8 @@
 {
   "name": "Bottle of Vinegar",
   "description": "Sour fermented liquid used for preserving foods and adding tangy flavor",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 30,
   "rarity": "common"

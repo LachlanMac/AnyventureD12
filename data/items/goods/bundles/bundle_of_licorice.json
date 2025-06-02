@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Licorice",
   "description": "Sweet woody roots often used in medicinal concoctions for their distinct flavor",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 100,
   "rarity": "common"

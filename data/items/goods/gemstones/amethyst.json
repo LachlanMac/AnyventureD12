@@ -1,7 +1,8 @@
 {
   "name": "Amethyst",
   "description": "A purple quartz crystal with deep violet hues and glassy luster",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 80,
   "rarity": "common"

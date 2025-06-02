@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Eyestalk",
   "description": "A rare plant with a single bulbous growth that resembles an eye, complete with vein-like roots",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 700,
   "rarity": "common"

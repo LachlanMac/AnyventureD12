@@ -1,7 +1,8 @@
 {
   "name": "Dried Meat",
   "description": "Preserved strips of meat that keep well during long journeys",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 60,
   "rarity": "common"

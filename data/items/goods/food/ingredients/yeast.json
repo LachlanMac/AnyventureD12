@@ -1,7 +1,8 @@
 {
   "name": "Yeast",
   "description": "Live cultures essential for making bread rise and fermenting beverages",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 0.2,
   "value": 60,
   "rarity": "common"

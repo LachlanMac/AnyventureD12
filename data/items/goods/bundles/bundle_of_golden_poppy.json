@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Golden Poppy",
   "description": "Bright golden flowers known for their use in sleep-inducing potions",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 100,
   "rarity": "common"

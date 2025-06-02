@@ -1,7 +1,8 @@
 {
   "name": "Citrine",
   "description": "A yellow-orange quartz crystal with warm, sunny transparency",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 30,
   "rarity": "common"

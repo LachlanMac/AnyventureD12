@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Incense",
   "description": "Aromatic sticks and resins used to create pleasant atmosphere or in ritual practices",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 100,
   "rarity": "common"

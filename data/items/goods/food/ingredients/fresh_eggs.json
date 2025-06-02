@@ -1,7 +1,8 @@
 {
   "name": "Fresh Eggs",
   "description": "A dozen farm-fresh eggs essential for baking and cooking protein-rich meals",
-  "type": "ingredient",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.5,
   "value": 40,
   "rarity": "common"

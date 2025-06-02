@@ -1,7 +1,8 @@
 {
   "name": "Peridot",
-  "description": "A bright green gemstone known for its clear, glassy appearance",
-  "type": "gemstone",
+  "description": "A bright green goods known for its clear, glassy appearance",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 40,
   "rarity": "common"

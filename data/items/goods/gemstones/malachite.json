@@ -1,7 +1,8 @@
 {
   "name": "Malachite",
   "description": "A bright green stone with swirled patterns and opaque surface",
-  "type": "gemstone",
+  "type": "goods",
+"tags":["gemstone"],
   "weight": 0.1,
   "value": 10,
   "rarity": "common"

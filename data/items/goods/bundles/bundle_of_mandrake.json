@@ -1,7 +1,8 @@
 {
   "name": "Bundle of Mandrake",
   "description": "Forked roots resembling human form, notorious in folklore for magical practices and potions",
-  "type": "bundle",
+  "type": "goods",
+"tags":["ingredient"],
   "weight": 1.0,
   "value": 40,
   "rarity": "common"
