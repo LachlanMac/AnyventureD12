@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "X:TO"
+      "data": "X"
     },
     {
       "name": "Action : Silencing Strike",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "X:TO"
+      "data": "X"
     },
     {
       "name": "Shadow Walker",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "X:TO"
+      "data": "X"
     },
     {
       "name": "Poison Master",
