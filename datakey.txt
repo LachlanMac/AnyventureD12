@@ -49,8 +49,8 @@ B: Double Critical?
 C: Exploding Critical?
 
 ############ MAGIC ############
-KEY (M)
-EX. MS1=1 SKILL  MT1=1 TALENT
+KEY (Y)
+EX. YS1=1 SKILL  YT1=1 TALENT
 ################################
 1: Black
 2: Primal

@@ -63,6 +63,7 @@ export const getCharacter = async (req, res) => {
     // Apply module bonuses directly to the character's attributes
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
     res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error fetching character:', error);
@@ -146,13 +147,25 @@ export const updateCharacter = async (req, res) => {
     if (!isOwner) {
       return res.status(403).json({ message: 'Access denied' });
     }
-    const updatedCharacter = await Character.findByIdAndUpdate(
+    await Character.findByIdAndUpdate(
       req.params.id,
       req.body,
       { new: true, runValidators: true }
     );
     
-    res.json(updatedCharacter);
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error updating character:', error);
     if (error.name === 'ValidationError') {

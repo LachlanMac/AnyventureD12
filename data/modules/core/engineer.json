@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "SSL=1:TG"
     },
     {
       "name": "Applied Engineering",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "SSN=1:TG"
     },
     {
       "name": "Action : Structural Analysis",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "X"
     },
     {
       "name": "Locksmith",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "SSH=1:TG"
     },
     {
       "name": "Precision Engineering",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "WS6=1:TG"
     },
     {
       "name": "Skilled Engineer",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Trapmaster",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Legendary Engineer",

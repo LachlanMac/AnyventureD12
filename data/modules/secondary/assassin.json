@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "TO"
+      "data": "X:TO"
     },
     {
       "name": "Action : Silencing Strike",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "TO"
+      "data": "X:TO"
     },
     {
       "name": "Shadow Walker",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "SSO=1:TO"
+      "data": "SSF=1:TO"
     },
     {
       "name": "Stalker",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SSP=1:TG"
+      "data": "SSK=1:TG"
     },
     {
       "name": "Cold Blooded",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "TO"
+      "data": "X:TO"
     },
     {
       "name": "Poison Master",

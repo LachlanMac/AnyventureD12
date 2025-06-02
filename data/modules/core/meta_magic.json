@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "MS3=1"
+      "data": "YS3=1"
     },
     {
       "name": "Action : Flux Field",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "X"
     },
     {
       "name": "Reaction : Amplify Force",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "Z"
     },
     {
       "name": "Adaptive Resistance",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "SSD=1:TG"
     },
     {
       "name": "Mutable Form",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "SSI=1:TG"
     },
     {
       "name": "Immutable",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "M7=2:TG"
     },
     {
       "name": "Skilled Metamage",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "YS3=1"
     },
     {
       "name": "Reaction : Amplified Resistance",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "Z"
     },
     {
       "name": "Daily Action : Energy Discharge",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "X"
     },
     {
       "name": "Master Metamage",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "YT3=1"
     }
   ]
 }

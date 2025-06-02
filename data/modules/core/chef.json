@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "SSK=1:TG"
     },
     {
       "name": "Reinforced Food",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Knife Tricks",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "SSG=1:SSQ=1:TG"
     },
     {
       "name": "Exotic Cooking",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "XX3"
+      "data": "SSS=1:TG"
     },
     {
       "name": "Reaction : Trusty Pan",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SS4=1:TC"
+      "data": "Z"
     },
     {
       "name": "Skilled Chef",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": "SS2=1:TC"
+      "data": "A2=1:TG"
     },
     {
       "name": "Nutritionist",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": "SS1=1:TC"
+      "data": "SSP=1:A1=1:TG"
     },
     {
       "name": "Legendary Chef",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "CT4=1:CS4=1:TC"
+      "data": "CT4=1:CS4=1:TG"
     }
   ]
 }

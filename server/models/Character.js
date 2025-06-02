@@ -324,20 +324,20 @@ const CharacterSchema = new Schema({
 
   // Specialized skills that don't depend on attributes
   weaponSkills: {
-    unarmed :{},
-    throwing:{},
-    simpleRangedWeapons:{},
-    complexRangedWeapons:{},
-    simpleMeleeWeapons:{}, 
-    complexMeleeWeapons:{}
+    unarmed: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
+    throwing: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
+    simpleRangedWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
+    complexRangedWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
+    simpleMeleeWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
+    complexMeleeWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }
   },
 
   magicSkills:{
-    black :{}, //necromancy, witchcraft  (fiend)
-    primal:{}, //evocation, druidic      (cosmic)
-    meta:{}, //illusion, transmutation (fey)
-    divine:{}, //abjuration, divine, (draconic)
-    mystic:{}, //auguration, shamanic  (astral)
+    black: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //necromancy, witchcraft  (fiend)
+    primal: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //evocation, druidic      (cosmic)
+    meta: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //illusion, transmutation (fey)
+    divine: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //abjuration, divine, (draconic)
+    mystic: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //auguration, shamanic  (astral)
   },
   
   // Crafting Skills
@@ -947,10 +947,9 @@ CharacterSchema.methods.applyModuleEffects = async function() {
 
 // Pre-save hook to debug ancestry data
 CharacterSchema.pre('save', function(next) {
-  console.log('Pre-save hook - ancestry data:', JSON.stringify(this.ancestry, null, 2));
   if (this.ancestry && this.ancestry.selectedOptions) {
     this.ancestry.selectedOptions.forEach((opt, index) => {
-      console.log(`Pre-save - Option ${index} (${opt.name}):`, opt.selectedSubchoice);
+      //console.log(`Pre-save - Option ${index} (${opt.name}):`, opt.selectedSubchoice);
     });
   }
   next();

@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "WS1=3:WS4=1"
+      "data": "YS2=1"
     },
     {
       "name": "Action : Kinesis",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "ZX"
+      "data": "X"
     },
     {
       "name": "Reaction : Draw Nature",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "Z"
     },
     {
       "name": "Of the Elements",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "AE=1"
+      "data": "M2=1:M3=1:M4=1:TG"
     },
     {
       "name": "Anchored",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "CS1=1:TC"
+      "data": "SSD=1:TG"
     },
     {
       "name": "Studied Magic",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SSJ=1:SSG=1"
+      "data": "SSO=1:TG"
     },
     {
       "name": "Skilled Primalist",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "WS1=3:WS4=1"
+      "data": "YS2=1"
     },
     {
       "name": "Daily Action : Primal Overcharge",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "X"
     },
     {
       "name": "Reaction : Dampen Elements",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "Z"
     },
     {
       "name": "Talented Primalist",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "WT1=3:WT4=1"
+      "data": "YT2=1"
     }
   ]
 }

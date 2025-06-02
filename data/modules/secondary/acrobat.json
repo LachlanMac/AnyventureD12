@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "SSO=1:TG"
+      "data": "SSF=1:TG"
     },
     {
       "name": "Graceful Discipline",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "SSQ=1:TG"
+      "data": "SSJ=1:A2=1:TG"
     },
     {
       "name": "Reaction : Rolling Dodge",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "TD"
+      "data": "Z:TD"
     },
     {
       "name": "Swift Climber",
@@ -42,11 +42,11 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SS9=1:TG"
+      "data": "SSA=1:TG"
     },
     {
       "name": "Safe Fall",
-      "description": "Gain +1 coordination. You do not take damage from falling 5 or less units, and always land on your feet. Otherwise, the damage you take from falling is halved unless falling from 12 or more units.",
+      "description": "Gain +1 skill with coordination. You do not take damage from falling 5 or less units, and always land on your feet. Otherwise, the damage you take from falling is halved unless falling from 12 or more units.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "SSI=1:TD"
+      "data": "SSE=1:TD"
     },
     {
       "name": "Daily Action : Escape Artist",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": "TG"
+      "data": "X:TG"
     },
     {
      "name": "Reaction : Catch",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": "TD"
+      "data": "Z:TD"
     },
     {
       "name": "Parkour Master",

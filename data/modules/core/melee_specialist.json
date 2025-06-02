@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": ""
+      "data": "WS3=1:WS5=1"
     },
     {
       "name": "Action : Power Strike",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "X"
     },
     {
       "name": "Action : Close the Gap",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 1,
-      "data": ""
+      "data": "X"
     },
     {
       "name": "Reaction : Reactive Strike",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "Z"
     },
     {
       "name": "Conditioning",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "SSA=1:A1=2:TG"
     },
     {
       "name": "Parry",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "SSB=1:TG"
     },
     {
       "name": "Skilled Combatant",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "WS3=1:WS5=1"
     },
     {
       "name": "Perfect Form",
@@ -66,15 +66,15 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "SSG=1:TG"
     },
     {
       "name": "Critical Hits",
-      "description": "When all of your dice hit when making an attack with a simple or complex ranged weapon, deal extra damage equal to your weapon damage.",
+      "description": "When all of your dice hit when making an attack with a simple or complex melee weapon, deal extra damage equal to your weapon damage.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Talented Combatant",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "WT3=1:WT5=1"
     }
   ]
 }

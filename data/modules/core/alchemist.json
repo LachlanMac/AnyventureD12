@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "SS4=1:TC"
+      "data": "SSP=1:TG"
     },
     {
       "name": "Healing Draughts",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "SS4=1:TC"
+      "data": "SSM=1:TG"
     },
     {
       "name": "Careful Mixing",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "SS3=1:TC"
+      "data": "SSJ=1:TG"
     },
     {
       "name": "Action : Quick Application",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "XX3"
+      "data": "X"
     },
     {
       "name": "Action : Spash Zone",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "XX3"
+      "data": "X"
     },
     {
       "name": "Skilled Alchemist",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": "XX3"
+      "data": "SSL=1:TG"
     },
     {
       "name": "Chemist",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": "XX3"
+      "data": "SSN=1:TG"
     },
     {
       "name": "Legendary Alchemist",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "CT3=1:TC"
+      "data": "CT3=1:CS3=1:TG"
     }
   ]
 }

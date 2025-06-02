@@ -34,7 +34,26 @@ export const applyModuleBonusesToCharacter = (character) => {
       Object.keys(abilityBonuses).forEach(key => {
         if (typeof abilityBonuses[key] === 'object' && !Array.isArray(abilityBonuses[key])) {
           if (!bonuses[key]) bonuses[key] = {};
-          Object.assign(bonuses[key], abilityBonuses[key]);
+          
+          // Special handling for nested objects like weaponSkills, magicSkills, craftingSkills
+          if (key === 'weaponSkills' || key === 'magicSkills' || key === 'craftingSkills') {
+            Object.keys(abilityBonuses[key]).forEach(subKey => {
+              if (!bonuses[key][subKey]) bonuses[key][subKey] = {};
+              
+              // Add values instead of overwriting
+              Object.keys(abilityBonuses[key][subKey]).forEach(prop => {
+                bonuses[key][subKey][prop] = (bonuses[key][subKey][prop] || 0) + abilityBonuses[key][subKey][prop];
+              });
+            });
+          } 
+          // Special handling for flat key-value objects like skills, skillDiceTierModifiers, attributes
+          else if (key === 'skills' || key === 'skillDiceTierModifiers' || key === 'attributes' || key === 'mitigation') {
+            Object.keys(abilityBonuses[key]).forEach(subKey => {
+              bonuses[key][subKey] = (bonuses[key][subKey] || 0) + abilityBonuses[key][subKey];
+            });
+          } else {
+            Object.assign(bonuses[key], abilityBonuses[key]);
+          }
         } else {
           bonuses[key] = (bonuses[key] || 0) + abilityBonuses[key];
         }
@@ -236,6 +255,7 @@ const parseDataString = (dataString, bonuses) => {
       };
       
       const weaponName = weaponMappings[code];
+      
       if (weaponName) {
         if (!bonuses.weaponSkills) bonuses.weaponSkills = {};
         if (!bonuses.weaponSkills[weaponName]) bonuses.weaponSkills[weaponName] = {};

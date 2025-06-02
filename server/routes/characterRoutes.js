@@ -77,7 +77,20 @@ router.patch('/:id/music-skills', async (req, res) => {
     character.musicSkills = musicSkills;
     await character.save();
     
-    res.json(character);
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    const { applyModuleBonusesToCharacter, extractTraitsFromModules } = await import('../utils/characterUtils.js');
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error updating music skills:', error);
     res.status(500).json({ message: error.message });
@@ -106,7 +119,20 @@ router.patch('/:id/language-skills', async (req, res) => {
     character.languageSkills = new Map(Object.entries(languageSkills));
     await character.save();
     
-    res.json(character);
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    const { applyModuleBonusesToCharacter, extractTraitsFromModules } = await import('../utils/characterUtils.js');
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error updating language skills:', error);
     res.status(500).json({ message: error.message });
@@ -134,7 +160,20 @@ router.patch('/:id/resources', async (req, res) => {
     character.resources = resources;
     await character.save();
     
-    res.json(character);
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    const { applyModuleBonusesToCharacter, extractTraitsFromModules } = await import('../utils/characterUtils.js');
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error updating resources:', error);
     res.status(500).json({ message: error.message });

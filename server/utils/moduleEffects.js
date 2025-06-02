@@ -33,12 +33,11 @@ export const applyDataEffects = (character, dataString) => {
       case 'W': // Weapons
         handleWeaponEffect(character, type, code, value);
         break;
-      case 'M': // Magic or Mitigations (check type)
-        if (type === 'S' || type === 'T') {
-          handleMagicEffect(character, type, code, value);
-        } else {
-          handleMitigationEffect(character, code, value);
-        }
+      case 'Y': // Magic (changed from M to avoid conflict with Mitigations)
+        handleMagicEffect(character, type, code, value);
+        break;
+      case 'M': // Mitigations
+        handleMitigationEffect(character, code, value);
         break;
       case 'C': // Crafting
         handleCraftingEffect(character, type, code, value);
@@ -119,14 +118,16 @@ const handleWeaponEffect = (character, type, code, value) => {
   
   if (type === 'S') { // Skill increase
     character.moduleBonuses.weaponSkills[weaponSkill].value += value;
-    if (character.weaponSkills[weaponSkill]) {
-      character.weaponSkills[weaponSkill].value += value;
+    if (!character.weaponSkills[weaponSkill]) {
+      character.weaponSkills[weaponSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
     }
+    character.weaponSkills[weaponSkill].value += value;
   } else if (type === 'T') { // Talent increase
     character.moduleBonuses.weaponSkills[weaponSkill].talent += value;
-    if (character.weaponSkills[weaponSkill]) {
-      character.weaponSkills[weaponSkill].talent += value;
+    if (!character.weaponSkills[weaponSkill]) {
+      character.weaponSkills[weaponSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
     }
+    character.weaponSkills[weaponSkill].talent += value;
   }
 };
 
@@ -141,14 +142,16 @@ const handleMagicEffect = (character, type, code, value) => {
   
   if (type === 'S') { // Skill increase
     character.moduleBonuses.magicSkills[magicSkill].value += value;
-    if (character.magicSkills[magicSkill]) {
-      character.magicSkills[magicSkill].value += value;
+    if (!character.magicSkills[magicSkill]) {
+      character.magicSkills[magicSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
     }
+    character.magicSkills[magicSkill].value += value;
   } else if (type === 'T') { // Talent increase
     character.moduleBonuses.magicSkills[magicSkill].talent += value;
-    if (character.magicSkills[magicSkill]) {
-      character.magicSkills[magicSkill].talent += value;
+    if (!character.magicSkills[magicSkill]) {
+      character.magicSkills[magicSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
     }
+    character.magicSkills[magicSkill].talent += value;
   }
 };
 
@@ -163,14 +166,16 @@ const handleCraftingEffect = (character, type, code, value) => {
   
   if (type === 'S') { // Skill increase
     character.moduleBonuses.craftingSkills[craftingSkill].value += value;
-    if (character.craftingSkills[craftingSkill]) {
-      character.craftingSkills[craftingSkill].value += value;
+    if (!character.craftingSkills[craftingSkill]) {
+      character.craftingSkills[craftingSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
     }
+    character.craftingSkills[craftingSkill].value += value;
   } else if (type === 'T') { // Talent increase
     character.moduleBonuses.craftingSkills[craftingSkill].talent += value;
-    if (character.craftingSkills[craftingSkill]) {
-      character.craftingSkills[craftingSkill].talent += value;
+    if (!character.craftingSkills[craftingSkill]) {
+      character.craftingSkills[craftingSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
     }
+    character.craftingSkills[craftingSkill].talent += value;
   }
 };
 

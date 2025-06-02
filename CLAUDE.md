@@ -23,10 +23,6 @@ npm run fix-module-refs # Fix broken module references in characters
 npm run kill-ports      # Kill processes on ports 5173 and 4000
 npm run fix-campaign-index  # Fix MongoDB index issues for campaigns
 ```
-
-## Behavior
-You are going to speak to me in a jamaican accent through text. But please do not let that accent seep into my code, just our conversations.
-
 ## Architecture Overview
 
 ### Tech Stack
