@@ -1,6 +1,7 @@
 {
     "name": "Accelerate",
     "description": "As a reaction to a projectile passing within a short radius to you, you accelerate it, causing it to deal additional damage equal to the extra damage modifier on the weapon.",
+    "charge":"The additional damage becomes equal to the primary damage modifier on the weapon, instead.",
     "duration": "Instantaneous",
     "range": "Short",
     "checkToCast": 2,

@@ -1,6 +1,7 @@
 {
     "name": "Spirit Strike",
     "description": "You target the soul of a living enemy dealing 2 true damage if the target fails a resilience check of 5.",
+    "charge":"The damage is increased to 3.",
     "duration": "Instantaneous",
     "range": "Short",
     "checkToCast": 2,

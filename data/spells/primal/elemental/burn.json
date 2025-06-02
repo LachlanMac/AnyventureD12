@@ -1,0 +1,15 @@
+{
+    "name": "Burn",
+    "description": "You touch a creature, emmiting massive amounts of heat from your hand, dealing 5 heat damage if the target fails a deflection or evasion check of 5. Flammable objects can also be targeted by this ability, setting them on fire.",
+    "charge":"If you successfully deal damage to the target creature, they cannot benefit from their heat mitigation until the start of your next turn.",
+    "duration": "Instantaneous",
+    "range": "Adjacent",
+    "checkToCast": 3,
+    "components": ["1 Flint"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

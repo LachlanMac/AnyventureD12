@@ -1,6 +1,7 @@
 {
     "name": "Beast Speak",
     "description": "You infuse yourself with magic, allowing you to speak and understand beasts by communicating basic ideas and concepts.",
+    "charge":"You can also grant this ability to an ally within a very short (5 unit) range.",
     "duration": "Concentration",
     "range": "Adjacent",
     "checkToCast": 2,

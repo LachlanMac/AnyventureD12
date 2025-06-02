@@ -48,6 +48,7 @@ A: Improved Critical?
 B: Double Critical?
 C: Exploding Critical?
 
+
 ############ MAGIC ############
 KEY (Y)
 EX. YS1=1 SKILL  YT1=1 TALENT
