@@ -262,7 +262,7 @@ const generateInviteLink = async (req, res) => {
     const frontendHost = req.get('host').includes(':4000') 
       ? req.get('host').replace(':4000', ':5174')
       : req.get('host');
-    const inviteLink = `${req.protocol}://${frontendHost}/campaigns/join/${token}`;
+    const inviteLink = `https://${frontendHost}/campaigns/join/${token}`;
     
     res.json({ 
       inviteLink,
