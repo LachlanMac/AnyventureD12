@@ -20,7 +20,12 @@
       "Bash(npm run reset-modules:*)",
       "Bash(npm run dev:clean:*)",
       "Bash(curl:*)",
-      "Bash(node:*)"
+      "Bash(node:*)",
+      "Bash(rg:*)",
+      "Bash(sed:*)",
+      "Bash(tsc:*)",
+      "Bash(vite build)",
+      "Bash(npx vite:*)"
     ],
     "deny": []
   },

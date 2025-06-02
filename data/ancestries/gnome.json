@@ -11,10 +11,10 @@
   "home": "",
   "language": "Shimmerspeak",
   "options": [
-     {
+    {
       "name": "Small",
       "description": "Gnomes are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
-      "data": ""
+      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
     },
     {
       "name": "Dual Synapses",
@@ -27,9 +27,9 @@
       "data": "XD1"
     },
     {
-      "name": "",
-      "description": "",
-      "data": ""
+      "name": "Fractured Minds",
+      "description": "The gnomish mind is complex and intricate, causing you to be especially prone to mental anguish. You suffer a -3 penalty to psychic mitigation.",
+      "data": "M8=-3:TA"
     }
   ]
 }

@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Action : Phantom Throw",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Action : Silencing Strike",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Shadow Walker",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "SSO=1"
+      "data": "SSO=1:TO"
     },
     {
       "name": "Stalker",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SSP=1"
+      "data": "SSP=1:TG"
     },
     {
       "name": "Cold Blooded",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SSP=1"
+      "data": "SSI=1:TG"
     },
     {
       "name": "Action : Assassinate",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Poison Master",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": "SS3=1"
+      "data": "CS3=1:TO"
     },
     {
       "name": "Remote Kill",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": "SSG=1"
+      "data": "CS1=1:TO"
     },
     {
       "name": "Master Assassin",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "WS2=1"
+      "data": "WS3=1:WS2=1:TO"
     }
   ]
 }

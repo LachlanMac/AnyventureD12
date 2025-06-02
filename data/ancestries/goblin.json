@@ -1,7 +1,7 @@
 {
   "id": 9,
   "name": "Goblin",
-  "description": "Goblins are small, quick-witted humanoids that have built one of the most spectaculur and advanced societies on Atlah. Goblins are typically born with a more purple hue, but turn green in their later years due to their civilization being built on the dark side of the moon where the green glow of Viridus is always directly overhead. The goblin love of creating has created a culture of meritocracy where those in power are the best crafters.",
+  "description": "Goblins are small, quick-witted humanoids that have built one of the most spectacular and advanced societies on Atlah. Goblins are typically born with a more purple hue, but turn green in their later years due to their civilization being built on the dark side of the moon where the green glow of Viridus is always directly overhead. The goblin love of creating has created a culture of meritocracy where those in power are the best crafters.",
   "img": "img/ancestries/goblin.webp",
   "portrait": "img/ancestries/portraits/goblin.png",
   "homeworld": "Atlah",
@@ -11,6 +11,11 @@
   "home": "",
   "language": "Goblin",
   "options": [
+    {
+      "name": "Small",
+      "description": "Goblins are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
+      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
+    },
     {
       "name": "Quick Metabolism",
       "description": "Goblins must eat twice as much as their Size requires, but they gain an extra Dice worth of benefits from Food, Snacks and Potions.",

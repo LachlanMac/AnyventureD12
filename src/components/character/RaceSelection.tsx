@@ -1,6 +1,6 @@
 // src/components/character/RaceSelection.tsx (Modified)
 import React, { useState, useEffect } from 'react';
-import { Ancestry, Subchoice } from '../../types/character';
+import { Ancestry } from '../../types/character';
 
 interface RaceSelectionProps {
   selectedRace: string;
@@ -47,12 +47,21 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
       // Apply subchoice selections to the ancestry options
       const ancestryWithSubchoices = {
         ...selectedAncestry,
-        options: selectedAncestry.options.map(option => ({
-          ...option,
-          selectedSubchoice: subchoiceSelections[option.name] || undefined
-        }))
+        options: selectedAncestry.options.map(option => {
+          const subchoiceValue = subchoiceSelections[option.name];
+          console.log(`Mapping option ${option.name}:`, {
+            hasSubchoices: !!option.subchoices,
+            subchoiceValue: subchoiceValue,
+            subchoiceSelections: subchoiceSelections
+          });
+          return {
+            ...option,
+            selectedSubchoice: subchoiceValue || undefined
+          };
+        })
       };
       console.log('Selected ancestry with subchoices:', ancestryWithSubchoices);
+      console.log('Subchoice selections state:', subchoiceSelections);
       onSelectRace(raceName, ancestryWithSubchoices);
     } else {
       console.error(`Could not find ancestry for race: ${raceName}`);
@@ -61,14 +70,35 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
 
   // Handler for subchoice selection
   const handleSubchoiceSelect = (optionName: string, subchoiceId: string) => {
-    setSubchoiceSelections(prev => ({
-      ...prev,
-      [optionName]: subchoiceId
-    }));
-    // Re-trigger race selection to update parent
-    if (selectedRace) {
-      setTimeout(() => handleRaceSelect(selectedRace), 0);
-    }
+    console.log(`Subchoice selected: ${optionName} = ${subchoiceId}`);
+    setSubchoiceSelections(prev => {
+      const newSelections = {
+        ...prev,
+        [optionName]: subchoiceId
+      };
+      console.log('New subchoice selections state:', newSelections);
+      
+      // Re-trigger race selection to update parent with the new selections
+      if (selectedRace) {
+        const selectedAncestry = ancestries.find((ancestry) => ancestry.name === selectedRace);
+        if (selectedAncestry) {
+          const ancestryWithSubchoices = {
+            ...selectedAncestry,
+            options: selectedAncestry.options.map(option => {
+              const subchoiceValue = newSelections[option.name];
+              return {
+                ...option,
+                selectedSubchoice: subchoiceValue || undefined
+              };
+            })
+          };
+          console.log('Immediately sending ancestry with subchoices:', ancestryWithSubchoices);
+          onSelectRace(selectedRace, ancestryWithSubchoices);
+        }
+      }
+      
+      return newSelections;
+    });
   };
 
   // Get race portrait URL
@@ -325,11 +355,12 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                             <div
                               style={{
                                 marginTop: '0.25rem',
-                                padding: '0.375rem',
+                                padding: '0.5rem',
                                 backgroundColor: 'rgba(215, 183, 64, 0.1)',
                                 borderRadius: '0.25rem',
-                                fontSize: '0.75rem',
+                                fontSize: '0.875rem',
                                 color: 'var(--color-cloud)',
+                                lineHeight: '1.4',
                               }}
                             >
                               {option.subchoices.find(

@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "AE=1"
+      "data": "AE=1:TG"
     },
    
     {
@@ -19,7 +19,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Animal Companion",
@@ -27,7 +27,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Trailblazer",
@@ -35,7 +35,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "TD"
     },
     {
       "name": "Poacher",
@@ -43,7 +43,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Wildchild",
@@ -51,7 +51,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Naturalist",
@@ -59,7 +59,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Action : Heart-Piercer",
@@ -67,7 +67,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Reaction : Wild Defense",
@@ -75,7 +75,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TD"
     },
     {
       "name": "The Most Dangerous Game",
@@ -83,7 +83,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TO"
     }
   ]
 }

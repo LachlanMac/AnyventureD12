@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import Button from '../components/ui/Button';
 import { Character } from '../types/character';
 
@@ -50,12 +51,16 @@ const CharacterView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const location = useLocation();
+  const { user } = useAuth();
   const justCreated = new URLSearchParams(location.search).get('created') === 'true';
+  const campaignId = new URLSearchParams(location.search).get('campaign');
 
   const [character, setCharacter] = useState<CharacterWithAPI | null>(null);
+  const [campaign, setCampaign] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [activeTab, setActiveTab] = useState<TabType>('info');
+  const [canEdit, setCanEdit] = useState(false);
   const personalityModule = character?.modules.find(
     (m: any) => m.moduleId && typeof m.moduleId !== 'string' && m.moduleId.mtype === 'secondary'
   );
@@ -64,30 +69,69 @@ const CharacterView: React.FC = () => {
     personalityModule && typeof personalityModule.moduleId !== 'string'
       ? personalityModule.moduleId.name
       : undefined;
+      
+  // Handler to update character state
+  const handleUpdateCharacter = (updatedCharacter: CharacterWithAPI) => {
+    setCharacter(updatedCharacter);
+  };
   useEffect(() => {
-    const fetchCharacter = async () => {
+    const fetchData = async () => {
       try {
         setLoading(true);
 
-        // Use the actual API endpoint instead of mock data
-        const response = await fetch(`/api/characters/${id}`);
-        if (!response.ok) {
+        // Fetch character data
+        const characterResponse = await fetch(`/api/characters/${id}`, {
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          }
+        });
+        
+        if (!characterResponse.ok) {
+          if (characterResponse.status === 403) {
+            throw new Error('You do not have permission to view this character');
+          }
           throw new Error('Failed to fetch character data');
         }
 
-        const characterData = await response.json();
-        console.log('Character data from API:', characterData); // Log to check structure
-
+        const characterData = await characterResponse.json();
         setCharacter(characterData);
+
+        // Determine if user can edit this character
+        const isCharacterOwner = characterData.userId === user?.id;
+        let isCampaignOwner = false;
+
+        // If coming from a campaign, fetch campaign data to check ownership
+        if (campaignId) {
+          try {
+            const campaignResponse = await fetch(`/api/campaigns/${campaignId}`, {
+              headers: {
+                'Authorization': `Bearer ${localStorage.getItem('token')}`
+              }
+            });
+            if (campaignResponse.ok) {
+              const campaignData = await campaignResponse.json();
+              setCampaign(campaignData);
+              isCampaignOwner = campaignData.owner._id === user?.id;
+            }
+          } catch (err) {
+            console.warn('Could not fetch campaign data:', err);
+          }
+        }
+
+        // User can edit if they own the character OR own the campaign
+        setCanEdit(isCharacterOwner || isCampaignOwner);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching character:', err);
+        console.error('Error fetching data:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
     };
-    fetchCharacter();
-  }, [id]);
+    
+    if (user) {
+      fetchData();
+    }
+  }, [id, user, campaignId]);
 
   // Log the character data just before rendering
   useEffect(() => {
@@ -255,8 +299,46 @@ const CharacterView: React.FC = () => {
           </div>
         )}
 
+        {/* Campaign navigation */}
+        {campaign && (
+          <div style={{ marginBottom: '1rem' }}>
+            <Button
+              variant="secondary"
+              onClick={() => navigate(`/campaigns/${campaign._id}`)}
+              leftIcon={
+                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                </svg>
+              }
+            >
+              Back to {campaign.name}
+            </Button>
+            {!canEdit && (
+              <div 
+                style={{
+                  display: 'inline-block',
+                  marginLeft: '1rem',
+                  padding: '0.5rem 1rem',
+                  backgroundColor: 'rgba(255, 165, 0, 0.2)',
+                  border: '1px solid rgba(255, 165, 0, 0.5)',
+                  borderRadius: '0.25rem',
+                  color: '#ffa500',
+                  fontSize: '0.875rem',
+                  fontWeight: 'bold'
+                }}
+              >
+                View Only
+              </div>
+            )}
+          </div>
+        )}
+
         {/* Character header */}
-        <CharacterHeader character={character} onDelete={handleDelete} onResourceChange={handleResourceChange} />
+        <CharacterHeader 
+          character={character} 
+          onDelete={canEdit ? handleDelete : undefined} 
+          onResourceChange={canEdit ? handleResourceChange : undefined}
+        />
 
         {/* Tab navigation */}
         <div style={{ marginTop: '2rem' }}>
@@ -270,7 +352,12 @@ const CharacterView: React.FC = () => {
 
           {/* Modules Tab */}
           {activeTab === 'modules' && (
-            <ModulesTab characterId={character._id} modules={character.modules} />
+            <ModulesTab 
+              characterId={character._id} 
+              modules={character.modules} 
+              modulePoints={character.modulePoints}
+              onUpdateModulePoints={handleUpdateCharacter}
+            />
           )}
 
           {/* Actions Tab */}

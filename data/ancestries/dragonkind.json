@@ -12,14 +12,9 @@
   "language": "Draconic",
   "options": [
     {
-      "name": "Action : Dragon Breath",
-      "description": "You spew either Fire, Cold or Lightning in a 3 Unit Cone, dealing 1d4 Damage for each Level. Roll a 1d12 plus half of your Level for the Attack Check against a Contested Resilience Check. This ability can be used three times per day.",
-      "data": "XD3"
-    },
-    {
-      "name": "Draconic Horde",
-      "description": "Your lineage allows you to benefit from accumulating wealth in an static, enclosed area that you designate as your horde. For each 100 gold within your horde, you gain 1 temporary health at the end of a full rest to a maximum of 10. For each 1000 gold within your horde, you regenerate an additional resolve at the end of a favorable full rest.",
-      "data": "TYD"
+      "name": "Large",
+      "description": "Dragonkind are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
     },
     {
       "name": "Draconic Heritage",
@@ -29,24 +24,39 @@
         {
           "id": "red",
           "name": "Red Dragon Heritage",
-          "description": "Descended from red dragons, your breath weapon deals fire damage. Gain +2 Physical Mitigation and +4 Fire Mitigation.",
-          "data": "M1=2:M2=4"
-        },
-        {
-          "id": "white",
-          "name": "White Dragon Heritage",
-          "description": "Descended from white dragons, your breath weapon deals cold damage. Gain +2 Physical Mitigation and +4 Cold Mitigation.",
-          "data": "M1=2:M3=4"
+          "description": "Descended from red dragons, your Dragon Breath deals heat damage. Gain +1 physical mitigation and +3 heat mitigation.",
+          "data": "TA:M1=2:M2=4"
         },
         {
           "id": "blue",
           "name": "Blue Dragon Heritage",
-          "description": "Descended from blue dragons, your breath weapon deals lightning damage. Gain +2 Physical Mitigation and +4 Lightning Mitigation.",
-          "data": "M1=2:M4=4"
+          "description": "Descended from blue dragons, your Dragon Breath deals lightning damage. Gain +1 physical mitigation and +3 lightning mitigation.",
+          "data": "TA:M1=2:M4=4"
+        },
+        {
+          "id": "white",
+          "name": "White Dragon Heritage",
+          "description": "Descended from white dragons, your Dragon Breath deals cold damage. Gain +1 physical mitigation and +3 cold mitigation.",
+          "data": "TA:M1=2:M3=4"
         }
       ],
       "requiresChoice": true,
-      "choiceType": "dragon_type"
+      "choiceType": "Dragon Heritage Selection"
+    },
+    {
+      "name": "Action : Dragon Breath",
+      "description": "You spew damaging breath in a cone using your might as an attack check. The length of the cone is equal in units to the amount of talent dice of your check, dealing damage based on your draconic heritage.",
+      "data": "XD3"
+    },
+    {
+      "name": "Draconic Horde",
+      "description": "Your lineage allows you to benefit from accumulating wealth in a static, enclosed area that you designate as your horde. For each 100 gold within your horde, you gain 1 temporary health at the end of a full rest to a maximum of 10. For each 1000 gold within your horde, you regenerate an additional resolve at the end of a favorable full rest.",
+      "data": "TYD"
+    },
+    {
+      "name": "Ancient Hunger",
+      "description": "Dragonkind, like their ancestors, require a tremendous amount of upkeep. In order to benefit from a full rest, a dragonkind must sleep for 8 hours without interruption and must consume 6 meals. Failing either requirement causes a loss of 1 resolve each day.",
+      "data": "TYD"
     }
   ]
 }

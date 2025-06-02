@@ -14,7 +14,16 @@ export const getCharacters = async (req, res) => {
       return res.status(401).json({ message: 'Not authorized' });
     }
 
-    const characters = await Character.find({ userId });
+    console.log('Fetching characters for user:', userId.toString());
+    
+    // Find characters by userId (stored as string)
+    const characters = await Character.find({ 
+      userId: userId.toString() 
+    })
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    console.log('Found characters:', characters.length);
     res.json(characters);
   } catch (error) {
     console.error('Error fetching characters:', error);
@@ -27,6 +36,8 @@ export const getCharacters = async (req, res) => {
 // @access  Private
 export const getCharacter = async (req, res) => {
   try {
+    const userId = req.user ? req.user._id : null;
+    
     // Find character by ID and populate the modules with their data
     const character = await Character.findById(req.params.id)
       .populate('modules.moduleId')
@@ -37,6 +48,13 @@ export const getCharacter = async (req, res) => {
     
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check if character belongs to user
+    const isOwner = character.userId === userId?.toString();
+                    
+    if (!isOwner) {
+      return res.status(403).json({ message: 'Access denied' });
     }
     
     // Create a copy of the character
@@ -57,6 +75,12 @@ export const getCharacter = async (req, res) => {
 export const createCharacter = async (req, res) => {
   try {
     console.log('Creating character with data:', req.body);
+    console.log('Ancestry data received:', JSON.stringify(req.body.ancestry, null, 2));
+    if (req.body.ancestry && req.body.ancestry.selectedOptions) {
+      req.body.ancestry.selectedOptions.forEach((option, index) => {
+        console.log(`Option ${index} - ${option.name}:`, option.selectedSubchoice);
+      });
+    }
 
     // Get the user ID from the authenticated user
     const userId = req.user ? req.user._id : null;
@@ -66,12 +90,20 @@ export const createCharacter = async (req, res) => {
     }
     
     // Create a new character
-    const character = new Character({
+    const characterData = {
       ...req.body,
-      userId: userId // Set the user ID from the authenticated user
-    });
+      userId: userId.toString() // Set the user ID from the authenticated user as string
+    };
+    
+    console.log('Character data before creating model:', JSON.stringify(characterData.ancestry, null, 2));
+    
+    const character = new Character(characterData);
+    
+    console.log('Character ancestry after model creation:', JSON.stringify(character.ancestry, null, 2));
 
     const savedCharacter = await character.save();
+    
+    console.log('Character ancestry after save:', JSON.stringify(savedCharacter.ancestry, null, 2));
     
     res.status(201).json(savedCharacter);
   } catch (error) {
@@ -93,9 +125,26 @@ export const createCharacter = async (req, res) => {
 // @access  Private
 export const updateCharacter = async (req, res) => {
   try {
+    const userId = req.user ? req.user._id : null;
+    
+    console.log('Updating character with data:', req.body);
+    console.log('Ancestry data received for update:', JSON.stringify(req.body.ancestry, null, 2));
+    if (req.body.ancestry && req.body.ancestry.selectedOptions) {
+      req.body.ancestry.selectedOptions.forEach((option, index) => {
+        console.log(`Update - Option ${index} - ${option.name}:`, option.selectedSubchoice);
+      });
+    }
+    
     const character = await Character.findById(req.params.id);
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check ownership
+    const isOwner = character.userId === userId?.toString();
+                    
+    if (!isOwner) {
+      return res.status(403).json({ message: 'Access denied' });
     }
     const updatedCharacter = await Character.findByIdAndUpdate(
       req.params.id,
@@ -120,10 +169,18 @@ export const updateCharacter = async (req, res) => {
 // @access  Private
 export const deleteCharacter = async (req, res) => {
   try {
+    const userId = req.user ? req.user._id : null;
     const character = await Character.findById(req.params.id);
     
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check ownership
+    const isOwner = character.userId === userId?.toString();
+                    
+    if (!isOwner) {
+      return res.status(403).json({ message: 'Access denied' });
     }
   
     await Character.findByIdAndDelete(req.params.id);

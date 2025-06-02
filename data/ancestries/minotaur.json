@@ -1,7 +1,7 @@
 {
   "id": 15,
   "name": "Minotaur",
-  "description": "Minotaurs are powerful beings with bull-like heads and muscular humanoid bodies. Due to their frightening nature and inconvenient size, they rarely live outisde the underground society they have built for themselves on Kragfel. Their culture is typically divided between advancing their society or regressing into their historic service with dark entities who would have them serve another cause.",
+  "description": "Minotaurs are powerful beings with bull-like heads and muscular humanoid bodies. Due to their frightening nature and inconvenient size, they rarely live outside the underground society they have built for themselves on Kragfel. Their culture is typically divided between advancing their society or regressing into their historic service with dark entities who would have them serve another cause.",
   "homeworld": "Kragfel",
   "img": "img/ancestries/minotaur.webp",
   "portrait": "img/ancestries/portraits/minotaur.png",
@@ -14,7 +14,7 @@
     {
       "name": "Large",
       "description": "Minotaurs are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
-      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y"
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
     },
     {
       "name": "Action : Bullcharge",
@@ -24,12 +24,12 @@
     {
       "name": "Dark Blood of the Ancients",
       "description": "The blood of the first Minotaurs courses through your veins, tainting it with dark magic that makes you more vulnerable to celestials. You suffer a -3 penalty to your divine mitigation.",
-      "data": "AD8=5:TA"
+      "data": "M6=-3:TA"
     },
     {
       "name": "Primitive",
       "description": "Your logic, academics knowledge and magic knowledge skills are downgraded. Additionally, you can only learn languages at a basic level.",
-      "data": "SSL=Y:SSN=Y:SSO=Y"
+      "data": "SSL=Y:SSN=Y:SSO=Y:TA"
     }
   ]
 }

@@ -11,14 +11,14 @@
   "home": "",
   "language": "Vethan",
   "options": [
-     {
+    {
       "name": "Small",
       "description": "Gloxies are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
-      "data": ""
+      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
     },
-      {
+    {
       "name": "Vethi's Gift",
-      "description": "The awakening by the Vethi left a lasting magical imprint on all Gloxies making them retain information quite effectively. Gain +1 skill with academics and they have near-perfect memories, able to recall any information perfectly they encountered within the last month.",
+      "description": "The awakening by the Vethi left a lasting magical imprint on all Gloxies, making them retain information quite effectively. Gain +1 skill with academics and they have near-perfect memories, able to recall any information perfectly they encountered within the last month.",
       "data": "AS9=1:TA"
     },
     {
@@ -26,10 +26,10 @@
       "description": "You burrow into soft ground such as loose rocks, dirt, snow or sand and move up to 3 Units. While Burrowed in this way, you have a Burrow Speed equal to your Movement Speed and do not leave any noticeable marks on your entry point. This Action can be used again to Unburrow.",
       "data": "XX3"
     },
-      {
+    {
       "name": "Weakness for Compliments",
-      "description": "The magic that was used to awaken the Gloxy had the unintended consequence of making them very suscpetible to praise and compliments. You have a penalty dice when making insight checks against creatures who compliment or praise you as well as checks against being charmed.",
+      "description": "The magic that was used to awaken the Gloxy had the unintended consequence of making them very susceptible to praise and compliments. You have a penalty dice when making insight checks against creatures who compliment or praise you as well as checks against being charmed.",
       "data": "TA:AZ2=1"
-      }
+    }
   ]
 }

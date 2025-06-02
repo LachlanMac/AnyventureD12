@@ -2,7 +2,7 @@
   "id": 3,
   "name": "Lizardfolk",
   "homeworld": "Atlah",
-  "description": "Lizardfolk are bipedal humanoids with reptilian traits, including scaled skin, tails, and sharp teeth. They are pragmatic and resourceful, with even the color of their scales adapting to the the enviornment they find themselves in. Many embrace a survivalist mindset, using their keen senses and natural agility to thrive and seek the glory of bringing down prey that are many times larger in size than themselves.",
+  "description": "Lizardfolk are bipedal humanoids with reptilian traits, including scaled skin, tails, and sharp teeth. They are pragmatic and resourceful, with even the color of their scales adapting to the environment they find themselves in. Many embrace a survivalist mindset, using their keen senses and natural agility to thrive and seek the glory of bringing down prey that are many times larger in size than themselves.",
   "img": "img/ancestries/lizardman.webp",
   "portrait": "img/ancestries/portraits/lizardman.png",
   "lifespan": "average 40 years, mature at 10",
@@ -12,19 +12,46 @@
   "language": "Hssshek",
   "options": [
     {
+      "name": "Variable Size",
+      "description": "Lizardfolk come in a variety of sizes. Choose yours:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "small_size",
+          "name": "Small",
+          "description": "You are a small creature. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
+          "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
+        },
+        {
+          "id": "medium_size",
+          "name": "Medium",
+          "description": "You are a medium creature, suffering no penalty or bonus related to your size.",
+          "data": "TA"
+        },
+        {
+          "id": "large_size",
+          "name": "Large",
+          "description": "You are a large creature. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
+          "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Size Selection"
+    },
+    {
       "name": "Reptilian Anatomy",
-      "description": "Lizardmen have strong scales that protect against basic Attacks and eyes that allow them to hunt at night. Gain +2 Physical Mitigation while not wearing armor and Infravision.",
-      "data": "W0D4=2:DI"
+      "description": "Lizardfolk have several benefits. You have infravision up to a moderate (20 units) distance and regenerate any missing limbs if you complete a full rest at your maximum health.",
+      "data": "W0D4=2:TA"
     },
     {
       "name": "Action : Snapjaw",
-      "description": "You make an Unarmed Attack and bite a Creature, doubling your Damage Bonus Modifier. A Creature hit by this Attack must make a Resilience Check greater than or equal to Half the damage after Mitigations or they gain the Bleeding Condition.",
+      "description": "You make a modified unarmed attack against a creature with a bonus dice, dealing 3 physical damage for the primary dice and any extra dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
       "data": "XX3"
     },
     {
-      "name": "Cold-Blooded Survivor",
-      "description": "Your reptilian physiology allows you to go long periods without food and endure harsh conditions. You only need to eat once per week and gain +1 Wildcraft.",
-      "data": "AS8=1:TA"
+      "name": "Cold Blooded",
+      "description": "Lizardfolk cannot regulate their temperature as effectively as warm-blooded creatures. You suffer a -4 penalty to your cold mitigation.",
+      "data": "M3=-4:TA"
     }
   ]
 }

@@ -17,9 +17,11 @@ npm run lint            # Run ESLint
 npm run format          # Run Prettier
 
 # Data Management
-npm run reset-modules   # Reseed modules/spells from JSON files
+npm run reset-modules   # Reseed modules/spells from JSON files (preserves ObjectIds)
 npm run reset-items     # Reseed items from JSON files
+npm run fix-module-refs # Fix broken module references in characters
 npm run kill-ports      # Kill processes on ports 5173 and 4000
+npm run fix-campaign-index  # Fix MongoDB index issues for campaigns
 ```
 
 ## Behavior
@@ -68,6 +70,7 @@ Modules use a 7-tier structure (1-2-1-2-1-2-1 pattern). Each tier grants abiliti
 3. Frontend uses React Context for auth state
 4. All character modifications require authentication
 5. Module effects are calculated server-side in `moduleEffects.js`
+6. **Important**: `reset-modules` now preserves module ObjectIds to maintain character references. Use `fix-module-refs` if references are broken.
 
 ### GAME RULES
 Anyventure is a TTRPG where there are no classes. 

@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Life Siphon",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "CS1=1:TC"
+      "data": "CS1=1:TC:TO"
     },
     {
       "name": "Death Bond",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "SSJ=1:SSG=1"
+      "data": "SSJ=1:SSG=1:TO"
     },
     {
       "name": "Deadspeak",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "AE=1"
+      "data": "AE=1:TO"
     },
     {
       "name": "Daily Action : Death Touch",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Action : Harvest",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "The Dark Arts",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "WS1=3:WS4=1"
+      "data": "WS1=3:WS4=1:TO"
     },
     {
       "name": "Forbidden Science",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Enhanced Minions",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Expanded Control",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TO"
     }
   ]
 }

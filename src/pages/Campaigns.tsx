@@ -1,95 +1,86 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useAuth } from '../context/AuthContext';
 import Button from '../components/ui/Button';
+import CampaignCreator from '../components/campaign/CampaignCreator';
 
 // Define Campaign type
 interface Campaign {
   _id: string;
   name: string;
   description: string;
-  gamemaster: string;
-  playerCount: number;
-  maxPlayers: number;
-  theme: string;
+  owner: {
+    _id: string;
+    username: string;
+  };
+  startingTalents: number;
+  startingModulePoints: number;
+  picture?: string;
+  playerSlots: {
+    _id: string;
+    character?: {
+      _id: string;
+      name: string;
+      player: {
+        _id: string;
+        username: string;
+      };
+    };
+    inviteToken?: string;
+    isOpen: boolean;
+  }[];
   createdAt: string;
+  updatedAt: string;
 }
 
 const Campaigns: React.FC = () => {
+  const { user } = useAuth();
+  const navigate = useNavigate();
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+  const [showCreateModal, setShowCreateModal] = useState<boolean>(false);
+
+  const fetchCampaigns = async () => {
+    try {
+      setLoading(true);
+      const response = await fetch('/api/campaigns', {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
+        }
+      });
+      
+      if (!response.ok) {
+        throw new Error('Failed to fetch campaigns');
+      }
+      
+      const data = await response.json();
+      setCampaigns(data);
+    } catch (err) {
+      console.error('Error fetching campaigns:', err);
+      setError('Failed to load campaigns. Please try again later.');
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    const fetchCampaigns = async () => {
-      try {
-        setLoading(true);
-        // In a real app, this would call your API
-        // const response = await fetch('/api/campaigns');
-
-        // Mock data for development
-        const mockCampaigns: Campaign[] = [
-          {
-            _id: '1',
-            name: 'The Orion Conspiracy',
-            description:
-              'Unravel a conspiracy that threatens the very fabric of the Galactic Federation.',
-            gamemaster: 'Alex Chen',
-            playerCount: 3,
-            maxPlayers: 5,
-            theme: 'Political Intrigue',
-            createdAt: new Date().toISOString(),
-          },
-          {
-            _id: '2',
-            name: 'Lost Colony of Proxima',
-            description:
-              'Search for a colony that mysteriously vanished from the Proxima Centauri system.',
-            gamemaster: 'Sophia Rodriguez',
-            playerCount: 4,
-            maxPlayers: 6,
-            theme: 'Exploration',
-            createdAt: new Date().toISOString(),
-          },
-          {
-            _id: '3',
-            name: 'Shadows of Neptune',
-            description:
-              'Something lurks in the dark depths of Neptunes atmosphere. Will you discover its secrets?',
-            gamemaster: 'Marcus Johnson',
-            playerCount: 2,
-            maxPlayers: 4,
-            theme: 'Horror',
-            createdAt: new Date().toISOString(),
-          },
-        ];
-
-        setCampaigns(mockCampaigns);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching campaigns:', err);
-        setError('Failed to load campaigns. Please try again later.');
-        setLoading(false);
-      }
-    };
-
-    fetchCampaigns();
-  }, []);
-
-  // Function to generate a gradient based on campaign theme
-  const getThemeColor = (theme: string) => {
-    switch (theme.toLowerCase()) {
-      case 'political intrigue':
-        return 'linear-gradient(to right, rgba(152, 94, 109, 0.7), rgba(152, 94, 109, 0.2))';
-      case 'exploration':
-        return 'linear-gradient(to right, rgba(85, 65, 130, 0.7), rgba(85, 65, 130, 0.2))';
-      case 'horror':
-        return 'linear-gradient(to right, rgba(25, 34, 49, 0.9), rgba(25, 34, 49, 0.4))';
-      case 'combat':
-        return 'linear-gradient(to right, rgba(73, 78, 107, 0.7), rgba(73, 78, 107, 0.2))';
-      case 'mystery':
-        return 'linear-gradient(to right, rgba(73, 78, 107, 0.7), rgba(25, 34, 49, 0.4))';
-      default:
-        return 'linear-gradient(to right, rgba(215, 183, 64, 0.5), rgba(215, 183, 64, 0.1))';
+    if (user) {
+      fetchCampaigns();
     }
+  }, [user]);
+
+  // Function to generate a gradient for campaigns
+  const getThemeColor = () => {
+    return 'linear-gradient(to right, rgba(215, 183, 64, 0.5), rgba(215, 183, 64, 0.1))';
+  };
+
+  const handleCreateCampaign = () => {
+    setShowCreateModal(true);
+  };
+
+  const handleCampaignCreated = () => {
+    fetchCampaigns();
   };
 
   if (loading) {
@@ -145,6 +136,7 @@ const Campaigns: React.FC = () => {
         </h1>
         <Button
           variant="accent"
+          onClick={handleCreateCampaign}
           rightIcon={
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -214,7 +206,7 @@ const Campaigns: React.FC = () => {
             No campaigns are available at the moment. Create a new campaign to start a cosmic
             adventure!
           </p>
-          <Button variant="accent">Create First Campaign</Button>
+          <Button variant="accent" onClick={handleCreateCampaign}>Create First Campaign</Button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -232,10 +224,18 @@ const Campaigns: React.FC = () => {
             >
               <div
                 style={{
-                  background: getThemeColor(campaign.theme),
                   padding: '1.5rem',
+                  backgroundImage: campaign.picture 
+                    ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(/uploads/campaigns/${campaign.picture})`
+                    : getThemeColor(),
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center',
+                  backgroundRepeat: 'no-repeat',
+                  position: 'relative',
+                  minHeight: '150px',
                 }}
               >
+                <div>
                 <h3
                   style={{
                     color: 'var(--color-white)',
@@ -250,26 +250,17 @@ const Campaigns: React.FC = () => {
                 <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                   <span
                     style={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                      color: 'var(--color-white)',
+                      color: 'var(--color-metal-gold)',
                       fontSize: '0.75rem',
-                      padding: '0.125rem 0.5rem',
-                      borderRadius: '9999px',
+                      backgroundColor: 'rgba(215, 183, 64, 0.2)',
+                      padding: '0.25rem 0.75rem',
+                      borderRadius: '0.25rem',
+                      border: '1px solid rgba(215, 183, 64, 0.3)',
                     }}
                   >
-                    {campaign.theme}
+                    Players: {campaign.playerSlots.filter(slot => slot.character).length}/{campaign.playerSlots.length}
                   </span>
-                  <span
-                    style={{
-                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                      color: 'var(--color-white)',
-                      fontSize: '0.75rem',
-                      padding: '0.125rem 0.5rem',
-                      borderRadius: '9999px',
-                    }}
-                  >
-                    Players: {campaign.playerCount}/{campaign.maxPlayers}
-                  </span>
+                </div>
                 </div>
               </div>
               <div style={{ padding: '1rem 1.5rem' }}>
@@ -302,7 +293,7 @@ const Campaigns: React.FC = () => {
                         fontSize: '0.875rem',
                       }}
                     >
-                      GM: {campaign.gamemaster}
+                      GM: {campaign.owner.username}
                     </span>
                   </div>
                   <div style={{ display: 'flex', gap: '0.5rem' }}>
@@ -310,14 +301,13 @@ const Campaigns: React.FC = () => {
                       variant="secondary"
                       size="sm"
                       onClick={() => {
-                        // Handle view details action
-                        window.location.href = `/campaigns/${campaign._id}`;
+                        navigate(`/campaigns/${campaign._id}`);
                       }}
                     >
                       Details
                     </Button>
 
-                    {campaign.playerCount < campaign.maxPlayers && (
+                    {campaign.playerSlots.filter(slot => slot.character).length < campaign.playerSlots.length && (
                       <Button
                         variant="accent"
                         size="sm"
@@ -336,6 +326,12 @@ const Campaigns: React.FC = () => {
           ))}
         </div>
       )}
+
+      <CampaignCreator
+        isOpen={showCreateModal}
+        onClose={() => setShowCreateModal(false)}
+        onCampaignCreated={handleCampaignCreated}
+      />
     </div>
   );
 };

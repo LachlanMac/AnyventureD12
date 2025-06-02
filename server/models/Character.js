@@ -185,11 +185,15 @@ const CharacterSchema = new Schema({
       required: false
     },
     selectedOptions: [{
-      name: String,
+      name: {
+        type: String,
+        required: true
+      },
       selectedSubchoice: {
         type: String,
         default: null
-      }
+      },
+      _id: false  // Disable automatic _id for subdocuments
     }]
   },
   // New culture format  
@@ -940,6 +944,17 @@ CharacterSchema.methods.applyModuleEffects = async function() {
 };
 
 
+
+// Pre-save hook to debug ancestry data
+CharacterSchema.pre('save', function(next) {
+  console.log('Pre-save hook - ancestry data:', JSON.stringify(this.ancestry, null, 2));
+  if (this.ancestry && this.ancestry.selectedOptions) {
+    this.ancestry.selectedOptions.forEach((opt, index) => {
+      console.log(`Pre-save - Option ${index} (${opt.name}):`, opt.selectedSubchoice);
+    });
+  }
+  next();
+});
 
 const Character = mongoose.model('Character', CharacterSchema);
 

@@ -1,16 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
-import { CharacterModule, Module } from '../../../types/character';
+import { CharacterModule, Module, ModulePoints } from '../../../types/character';
 
 interface ModulesTabProps {
   characterId: string;
   modules: CharacterModule[]; // This represents the modules array in the character object
+  modulePoints?: ModulePoints;
+  onUpdateModulePoints?: (updatedCharacter: any) => void;
 }
 
-const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
+const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoints, onUpdateModulePoints }) => {
   const navigate = useNavigate();
+  const [isChangingPoints, setIsChangingPoints] = useState(false);
+  const [pointChange, setPointChange] = useState(0);
   
   // Helper function to get module type badge color
   const getModuleTypeColor = (type: string) => {
@@ -39,10 +43,118 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules }) => {
       <div
         style={{
           display: 'flex',
-          justifyContent: 'flex-end',
+          justifyContent: 'space-between',
+          alignItems: 'center',
           marginBottom: '1.5rem',
         }}
       >
+        {/* Module Points Display */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <div>
+            <span style={{ color: 'var(--color-cloud)', marginRight: '0.5rem' }}>Module Points:</span>
+            <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+              {modulePoints?.spent || 0} / {modulePoints?.total || 0}
+            </span>
+            {(modulePoints?.total || 0) > (modulePoints?.spent || 0) && (
+              <span style={{ color: 'var(--color-metal-gold)', marginLeft: '0.5rem' }}>
+                ({(modulePoints?.total || 0) - (modulePoints?.spent || 0)} available)
+              </span>
+            )}
+            {!isChangingPoints ? (
+              <Button
+                variant="outline"
+                size="sm"
+                onClick={() => {
+                  setIsChangingPoints(true);
+                  setPointChange(0);
+                }}
+                style={{ marginLeft: '0.5rem' }}
+              >
+                Change
+              </Button>
+            ) : (
+              <>
+                <span style={{ marginLeft: '0.5rem', marginRight: '0.25rem' }}>Change by:</span>
+                <input
+                  type="number"
+                  value={pointChange}
+                  onChange={(e) => {
+                    const value = parseInt(e.target.value) || 0;
+                    // Calculate the minimum allowed change (can't go below spent points)
+                    const currentTotal = modulePoints?.total || 0;
+                    const currentSpent = modulePoints?.spent || 0;
+                    const minChange = currentSpent - currentTotal;
+                    setPointChange(Math.max(minChange, value));
+                  }}
+                  style={{
+                    width: '80px',
+                    padding: '0.25rem 0.5rem',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: '1px solid var(--color-dark-border)',
+                    borderRadius: '0.25rem',
+                    marginRight: '0.5rem',
+                  }}
+                />
+                <Button
+                  variant="primary"
+                  size="sm"
+                  onClick={async () => {
+                    if (onUpdateModulePoints) {
+                      try {
+                        const newTotal = (modulePoints?.total || 0) + pointChange;
+                        const response = await fetch(`/api/characters/${characterId}`, {
+                          method: 'PUT',
+                          headers: {
+                            'Content-Type': 'application/json',
+                          },
+                          credentials: 'include',
+                          body: JSON.stringify({
+                            modulePoints: {
+                              total: newTotal,
+                              spent: modulePoints?.spent || 0
+                            }
+                          }),
+                        });
+                        
+                        if (response.ok) {
+                          const updatedCharacter = await response.json();
+                          onUpdateModulePoints(updatedCharacter);
+                          setIsChangingPoints(false);
+                          setPointChange(0);
+                        }
+                      } catch (error) {
+                        console.error('Error changing module points:', error);
+                      }
+                    }
+                  }}
+                  disabled={
+                    (modulePoints?.total || 0) + pointChange < (modulePoints?.spent || 0)
+                  }
+                >
+                  Apply
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    setIsChangingPoints(false);
+                    setPointChange(0);
+                  }}
+                  style={{ marginLeft: '0.25rem' }}
+                >
+                  Cancel
+                </Button>
+              </>
+            )}
+            {isChangingPoints && (modulePoints?.total || 0) + pointChange < (modulePoints?.spent || 0) && (
+              <div style={{ color: 'var(--color-stormy)', fontSize: '0.875rem', marginLeft: '0.5rem' }}>
+                Cannot reduce below spent points
+              </div>
+            )}
+          </div>
+        </div>
+        
         <Button 
           variant="accent" 
           onClick={() => navigate(`/characters/${characterId}/modules`)}

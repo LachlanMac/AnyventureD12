@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Relentless Pursuit",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "SSM=1"
+      "data": "SSM=1:TG"
     },
     {
       "name": "Urban Hunter",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "SSS=1"
+      "data": "SSS=1:TG"
     },
     {
       "name": "Prepared Hunter",
@@ -34,55 +34,55 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "A3=1"
-    },
-    {
-      "name": "Manhunter",
-      "description": "You specialize in hunting intelligent prey. Gain +1 skill with throwing weapons. When fighting humanoids or creatures with intelligence comparable to humans, you deal +1 damage with all attacks.",
-      "mtype": "core",
-      "location": "4a",
-      "cost": 2,
-      "data": "WS2=1"
-    },
-    {
-      "name": "Beast Hunter",
-      "description": "You specialize in hunting wild creatures. Gain +1 skill with medicine. You can harvest valuable materials from slain beasts, gaining resources worth 50 gold per creature tier (minion=50, thrall=100, etc.).",
-      "mtype": "core",
-      "location": "4b",
-      "cost": 2,
-      "data": "SSP=1"
-    },
-    {
-      "name": "Action : Capture Alive",
-      "description": "You make a specialized non-lethal attack designed to incapacitate rather than kill. Make a weapon attack. If it hits, instead of dealing damage, the target must make a resilience check with DC equal to your attack result. On failure, they are stunned until the end of their next turn.",
-      "mtype": "core",
-      "location": "5",
-      "cost": 2,
-      "data": ""
+      "data": "A3=1:TO"
     },
     {
       "name": "Reaction : Hunter's Reflexes",
       "description": "When your quarry moves away from you, you can immediately move up to your movement speed toward them without provoking reactions. You must end this movement closer to your quarry than when you started.",
       "mtype": "core",
-      "location": "6a",
+      "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
-      "name": "Trophy Collector",
-      "description": "You collect trophies from your successful hunts that enhance your reputation and abilities. Each time you capture or kill a quarry of thrall tier or higher, gain +1 temporary resolve that lasts until your next full rest.",
+      "name": "Action : Capture Alive",
+      "description": "You make a specialized non-lethal attack designed to incapacitate rather than kill. Make a weapon attack. If it hits, instead of dealing damage, the target must make a resilience check with DC equal to your attack result. On failure, they are stunned until the end of their next turn.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "name": "Beast Hunter",
+      "description": "You specialize in hunting wild creatures. Gain +1 skill with medicine. You can harvest valuable materials from slain beasts, gaining resources worth 50 gold per creature tier (minion=50, thrall=100, etc.).",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "SSP=1:TG"
+    },
+    {
+      "name": "Manhunter",
+      "description": "You specialize in hunting intelligent prey. Gain +1 skill with throwing weapons. When fighting humanoids or creatures with intelligence comparable to humans, you deal +1 damage with all attacks.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS2=1:TO"
+    },
+    {
+      "name": "Trapper",
+      "description": "Gain +1 skill with engineering. When you",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
-      "name": "Master Tracker",
-      "description": "You have achieved mastery in the art of the hunt. Gain +1 skill with complex ranged weapons. Your Mark Quarry ability now works at unlimited range, and you can sense if your quarry is still alive regardless of distance.",
+      "name": "Trophy Collector",
+      "description": "You wear trophies from your most dangerous kills, drawing strength from your victories. After each full rest, if you wear a trophy from a creature you've taken part in slaying, you gain temporary health based on its tier: foe (2), champion (5), elite (8), or legend (15). This benefit is lost if you reach 0 health or 0 resolve and you must seek out a new trophy. You can only wear one trophy at a time.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "WS6=1"
+      "data": "TD"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "id": 10,
   "name": "Elf",
-  "description": "Elves are wild humanoids, distinguisable by their long, pointed ears and skin tones which range from light blue to dark green. They typically live hard, long lives in small settlements in the most dangerous of the Fonteran jungles as a result of their displacement from their wars with the Orcs.",
+  "description": "Elves are wild humanoids, distinguishable by their long, pointed ears and skin tones which range from light blue to dark green. They typically live hard, long lives in small settlements in the most dangerous of the Fonteran jungles as a result of their displacement from their wars with the Orcs.",
   "img": "img/ancestries/elf.webp",
   "portrait": "img/ancestries/portraits/elf.png",
   "homeworld": "Fonteras",
@@ -11,10 +11,15 @@
   "home": "",
   "language": "Elven",
   "options": [
-     {
-    "name": "Keydaran Blood",
-    "description": "The blood of the first Keyadar runs through the Elves, granting them +1 skill with resilience. They are also immune to effects that would prematurely age them.",
-    "data": "AS4=1:TA"
+    {
+      "name": "Medium",
+      "description": "Elves are medium-sized creatures and suffer no penalty or benefits.",
+      "data": "TA"
+    },
+    {
+      "name": "Keydaran Blood",
+      "description": "The blood of the first Keyadar runs through the Elves, granting them +1 skill with resilience. They are also immune to effects that would prematurely age them.",
+      "data": "AS4=1:TA"
     },
     {
       "name": "Action : Nebulous Eyes",
@@ -23,8 +28,8 @@
     },
     {
       "name": "Born of Starlight",
-      "description": "The power of the celestials flows through your veins making elves especially susceptible to the dark forces of the world. You suffer a 3 penalty to dark mitigation.",
-      "data": "TA"
+      "description": "The power of the celestials flows through your veins, making you especially susceptible to the dark forces of the world. You suffer a -3 penalty to dark mitigation.",
+      "data": "M5=-3:TA"
     }
   ]
 }

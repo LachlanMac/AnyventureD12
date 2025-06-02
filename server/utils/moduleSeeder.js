@@ -259,21 +259,61 @@ export const initializeModules = async () => {
 // Function to manually purge and reseed all modules
 export const resetAndReseedModules = async () => {
   try {
-    // Force purge regardless of flag
-    console.log('Starting complete database reset...');
-    await purgeAllModules();
+    console.log('Starting module update process...');
     
-    // Then seed all modules
-    console.log('Reseeding all modules...');
-    const { modules: moduleData } = await readModulesFromFS();
-    console.log(`Found ${moduleData.length} modules to seed.`);
+    // Read modules from the filesystem
+    const { modules: moduleData, moduleNames } = await readModulesFromFS();
+    console.log(`Found ${moduleData.length} modules to process.`);
     
+    // Process each module - update existing or create new
     for (const data of moduleData) {
-       if (VERBOSE_LOGGING) {
-        console.log(`Created module: ${data.name}`, data);
+      // Look for existing module with the same name
+      const existingModule = await Module.findOne({ name: data.name });
+      
+      if (existingModule) {
+        // Update existing module without changing _id
+        if (VERBOSE_LOGGING) {
+          console.log(`Updating existing module: ${data.name}`);
+        }
+        
+        await Module.updateOne(
+          { _id: existingModule._id },
+          { 
+            $set: {
+              mtype: data.mtype,
+              ruleset: data.ruleset,
+              options: data.options,
+              description: data.description || existingModule.description,
+              stressors: data.stressors || existingModule.stressors
+            }
+          }
+        );
+      } else {
+        // Create new module only if it doesn't exist
+        if (VERBOSE_LOGGING) {
+          console.log(`Creating new module: ${data.name}`);
+        }
+        await Module.create(data);
       }
-      await Module.create(data);
-     
+    }
+    
+    // Find and delete modules that don't exist in JSON files
+    const allDbModules = await Module.find({});
+    const modulesToDelete = allDbModules.filter(
+      module => !moduleNames.includes(module.name.toLowerCase())
+    );
+    
+    if (modulesToDelete.length > 0) {
+      console.log(`Deleting ${modulesToDelete.length} modules that don't exist in JSON files...`);
+      
+      for (const module of modulesToDelete) {
+        if (VERBOSE_LOGGING) {
+          console.log(`Deleting module: ${module.name}`);
+        }
+        await Module.deleteOne({ _id: module._id });
+      }
+    } else {
+      console.log('No modules need to be deleted.');
     }
     
     console.log('Module reset and reseed completed successfully!');

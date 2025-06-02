@@ -1,7 +1,7 @@
 {
   "id": 8,
-  "name": "Half Giant",
-  "description": "Half Giants are towering humanoids with immense physical strength and endurance, which is required in the harsh, snowy wastes of Yyeshi. They are known to be unyielding and stubborn, but have a soft connection with domesticated larger beasts which are required to survive in their homeland. Half-Giants are protective of their families and lands, rarely venturing out to experience other civilizations.",
+  "name": "Half-Giant",
+  "description": "Half-Giants are towering humanoids with immense physical strength and endurance, which is required in the harsh, snowy wastes of Yyeshi. They are known to be unyielding and stubborn, but have a soft connection with domesticated larger beasts which are required to survive in their homeland. Half-Giants are protective of their families and lands, rarely venturing out to experience other civilizations.",
   "homeworld": "Yyeshi",
   "img": "img/ancestries/half-giant.webp",
   "portrait": "img/ancestries/portraits/half-giant.png",
@@ -12,9 +12,14 @@
   "language": "Giant",
   "options": [
     {
-      "name": "Unmovable",
-      "description": "Half Giants are a broad and solid people. You cannot be Grappled or Displaced by non-Magical means by Creatures that are Large or smaller.",
-      "data": "TA"
+      "name": "Large",
+      "description": "Half-Giants are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
+    },
+    {
+      "name": "Giant's Blood",
+      "description": "Half-Giants have the blood of their ancestors flowing through their veins. Gain +3 health and +2 cold mitigation.",
+      "data": "H=3:M3=2:TA"
     },
     {
       "name": "Action : Giant Toss",
@@ -22,9 +27,9 @@
       "data": "XX3"
     },
     {
-      "name": "Giant's Fortitude",
-      "description": "Your giant heritage grants you exceptional physical resilience and stamina. Gain +10 Health and +1 Might.",
-      "data": "AH=10:AS3=1:TA"
+      "name": "Primitive",
+      "description": "Your logic, academics knowledge and magic knowledge skills are downgraded. Additionally, you can only learn languages at a basic level.",
+      "data": "SSL=Y:SSN=Y:SSO=Y:TA"
     }
   ]
 }

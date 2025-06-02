@@ -7,13 +7,14 @@ interface BasicInfoTabProps {
   name: string;
   race: string;
   culture: string;
-  modulePoints: number;
+  modulePoints?: number;
   startingTalents: number;
   onNameChange: (name: string) => void;
   onRaceChange: (race: string, ancestry: Ancestry) => void;
   onCultureChange: (culture: string, cultureData: Culture) => void;
-  onModulePointsChange: (points: number) => void;
+  onModulePointsChange?: (points: number) => void;
   onStartingTalentsChange: (talents: number) => void;
+  hideModulePoints?: boolean;
 }
 
 const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
@@ -27,6 +28,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
   onCultureChange,
   onModulePointsChange,
   onStartingTalentsChange,
+  hideModulePoints = false,
 }) => {
   return (
     <div>
@@ -73,47 +75,49 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
       {/* Culture Selection Component */}
       <CultureSelection selectedCulture={culture} onSelectCulture={onCultureChange} />
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <label
-          style={{
-            display: 'block',
-            color: 'var(--color-cloud)',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Starting Module Points
-        </label>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <input
-            type="number"
-            min="10"
-            max="100"
-            step="10"
+      {!hideModulePoints && modulePoints !== undefined && onModulePointsChange && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label
             style={{
-              width: '100%',
-              backgroundColor: 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: '1px solid var(--color-dark-border)',
-              borderRadius: '0.375rem',
-              padding: '0.5rem 0.75rem',
+              display: 'block',
+              color: 'var(--color-cloud)',
+              marginBottom: '0.5rem',
             }}
-            value={modulePoints}
-            onChange={(e) => {
-              const value = parseInt(e.target.value);
-              onModulePointsChange(value);
+          >
+            Starting Module Points
+          </label>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <input
+              type="number"
+              min="10"
+              max="100"
+              step="10"
+              style={{
+                width: '100%',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '0.375rem',
+                padding: '0.5rem 0.75rem',
+              }}
+              value={modulePoints}
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                onModulePointsChange(value);
+              }}
+            />
+          </div>
+          <p
+            style={{
+              fontSize: '0.875rem',
+              color: 'var(--color-cloud)',
+              marginTop: '0.5rem',
             }}
-          />
+          >
+            Module points determine your starting power level.
+          </p>
         </div>
-        <p
-          style={{
-            fontSize: '0.875rem',
-            color: 'var(--color-cloud)',
-            marginTop: '0.5rem',
-          }}
-        >
-          Module points determine your starting power level.
-        </p>
-      </div>
+      )}
 
       <div style={{ marginBottom: '1.5rem' }}>
         <label

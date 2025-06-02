@@ -12,6 +12,8 @@
     "kill-ports": "node server/scripts/kill-ports.js",
     "reset-modules": "node server/scripts/resetModules.js",
     "reset-items": "node server/scripts/resetItems.js",
+    "fix-module-refs": "node server/scripts/fixBrokenModuleRefs.js",
+    "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",
     "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\"",
     "dev:clean": "npm run kill-ports && npm run reset-modules && npm run dev:full",
     "lint": "eslint --ext .ts,.tsx src/",

@@ -36,7 +36,7 @@ interface CharacterHeaderProps {
       toxic?: number;
     };
   };
-  onDelete: () => void;
+  onDelete?: () => void;
   onResourceChange?: (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => void;
 }
 
@@ -102,9 +102,11 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
                 Edit
               </Button>
             </Link>
-            <Button variant="outline" size="sm" onClick={onDelete}>
-              Delete
-            </Button>
+            {onDelete && (
+              <Button variant="outline" size="sm" onClick={onDelete}>
+                Delete
+              </Button>
+            )}
           </div>
         </div>
       </CardHeader>

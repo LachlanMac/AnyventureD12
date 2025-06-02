@@ -2,7 +2,7 @@
   "id": 16,
   "name": "Stout-Folk",
   "homeworld": "Kragfel",
-  "description": "Stout-Folk are smaller humanoids with sturdy builds and a strong connection to their homeworld of Kragfel, which they have long been forced to live beneath the surface. They are industrious, often excelling in mining, underground farming, and crafting. Stout-Folk communities are known for their hospitality and resilience, never turning away a stranger or outsider.",
+  "description": "Stout-Folk are smaller humanoids with sturdy builds and a strong connection to their homeworld of Kragfel, where they have long been forced to live beneath the surface. They are industrious, often excelling in mining, underground farming, and crafting. Stout-Folk communities are known for their hospitality and resilience, never turning away a stranger or outsider.",
   "img": "img/ancestries/stout-folk.webp",
   "portrait": "img/ancestries/portraits/stout-folk.png",
   "lifespan": "average 85 years, mature at 18",
@@ -12,14 +12,30 @@
   "language": "Underspeak",
   "options": [
     {
-      "name": "Small",
-      "description": "Stout-folk are small creatures, but do not suffer the physique penalty or gain a finesse bonus due to their broad and sturdy nature. You have a -1 penalty to movement speed.",
-      "data": ""
+      "name": "Variable Size",
+      "description": "Stout-Folk come in a variety of sizes. Choose yours:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "small_size",
+          "name": "Small",
+          "description": "You are a small creature. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
+          "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
+        },
+        {
+          "id": "medium_size",
+          "name": "Medium",
+          "description": "You are a medium creature, suffering no penalty or bonus related to your size.",
+          "data": "TA"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Size Selection"
     },
     {
       "name": "Stout-Folk Skin",
       "description": "The Stout-Folk have extremely resilient skin that offers protection from the elements and corrosive effects. Gain +1 toxic, lightning, cold and heat mitigation.",
-      "data": "TA:AD1=1:ADC=3"
+      "data": "M9=1:M4=1:M3=1:M2=1:TA"
     },
     {
       "name": "Reaction : Strong Chin",

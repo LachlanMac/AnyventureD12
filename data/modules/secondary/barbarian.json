@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "AE=1"
+      "data": "AE=1:TO"
     },
     {
       "name": "Fear Unburdened",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Pushing the Limit",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Reaction : Controlled Frenzy",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Massive Weaponry",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "The Old Way",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Action : Savage Strike",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Mind Over Matter",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Imposing",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Battle Shout",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TO"
     }
   ]
 }

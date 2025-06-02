@@ -26,11 +26,26 @@ export const applyModuleBonusesToCharacter = (character) => {
     initiative: 0
   };
   
+  // Helper function to process any ability for bonuses
+  const processAbilityForBonuses = (ability) => {
+    if (ability.data) {
+      const { bonuses: abilityBonuses } = parseDataCodes(ability.data);
+      // Merge bonuses into main bonuses object
+      Object.keys(abilityBonuses).forEach(key => {
+        if (typeof abilityBonuses[key] === 'object' && !Array.isArray(abilityBonuses[key])) {
+          if (!bonuses[key]) bonuses[key] = {};
+          Object.assign(bonuses[key], abilityBonuses[key]);
+        } else {
+          bonuses[key] = (bonuses[key] || 0) + abilityBonuses[key];
+        }
+      });
+    }
+  };
+
   // Apply ancestry bonuses if present
   if (character.ancestry && character.ancestry.ancestryId && character.ancestry.selectedOptions) {
     const ancestry = character.ancestry.ancestryId;
     if (ancestry.options) {
-      // Apply all ancestry options (since all 3 are always granted)
       ancestry.options.forEach(option => {
         // Find the corresponding selected option data
         const selectedOptionData = character.ancestry.selectedOptions.find(
@@ -43,12 +58,12 @@ export const applyModuleBonusesToCharacter = (character) => {
           const selectedSubchoice = option.subchoices.find(
             sc => sc.id === selectedOptionData.selectedSubchoice
           );
-          if (selectedSubchoice && selectedSubchoice.data) {
-            parseDataString(selectedSubchoice.data, bonuses);
+          if (selectedSubchoice) {
+            processAbilityForBonuses(selectedSubchoice);
           }
-        } else if (option.data) {
+        } else {
           // Regular option without subchoices
-          parseDataString(option.data, bonuses);
+          processAbilityForBonuses(option);
         }
       });
     }
@@ -58,11 +73,8 @@ export const applyModuleBonusesToCharacter = (character) => {
   if (character.characterCulture && character.characterCulture.cultureId && character.characterCulture.selectedOptions) {
     const culture = character.characterCulture.cultureId;
     if (culture.options) {
-      // Apply all culture options (since all 3 are always granted)
       culture.options.forEach(option => {
-        if (option.data) {
-          parseDataString(option.data, bonuses);
-        }
+        processAbilityForBonuses(option);
       });
     }
   }
@@ -98,9 +110,9 @@ export const applyModuleBonusesToCharacter = (character) => {
       // Find the option in the module
       const option = module.options.find(opt => opt.location === selected.location);
       
-      if (option && option.data) {
-        // Parse the data string
-        parseDataString(option.data, bonuses);
+      if (option) {
+        // Use centralized processing
+        processAbilityForBonuses(option);
       }
     }
   }
@@ -470,56 +482,122 @@ const applyBonusesToCharacter = (character, bonuses) => {
   }
 };
 
+// Centralized data parsing function that extracts both bonuses and trait information
+export const parseDataCodes = (dataString) => {
+  if (!dataString) return { bonuses: {}, traitCategory: null };
+  
+  const bonuses = {};
+  let traitCategory = null;
+  
+  // Check for trait codes
+  if (dataString.includes('TA')) traitCategory = 'Ancestry';
+  else if (dataString.includes('TG')) traitCategory = 'General';
+  else if (dataString.includes('TC')) traitCategory = 'Crafting';
+  else if (dataString.includes('TO')) traitCategory = 'Offensive';
+  else if (dataString.includes('TD')) traitCategory = 'Defensive';
+  
+  // Use existing parseDataString to handle all the bonus logic
+  parseDataString(dataString, bonuses);
+  
+  return { bonuses, traitCategory };
+};
+
 export const parseTraitCategory = (dataString) => {
   if (!dataString) return null;
   if (dataString.includes('TG')) return 'General';
   if (dataString.includes('TC')) return 'Crafting';
   if (dataString.includes('TA')) return 'Ancestry';
+  if (dataString.includes('TO')) return 'Offensive';
+  if (dataString.includes('TD')) return 'Defensive';
   
   return null;
 };
 
-// Extract and categorize traits from modules
+// Helper function to process a single ability/option and extract traits
+const processAbilityForTraits = (ability, sourceName, sourceType, traitCategories) => {
+  if (!ability.data) return;
+  
+  const { traitCategory } = parseDataCodes(ability.data);
+  
+  if (traitCategory) {
+    const trait = {
+      name: ability.name,
+      description: ability.description,
+      source: sourceName,
+      type: sourceType
+    };
+    
+    // Use Ancestry category for both ancestry and culture traits
+    const categoryKey = traitCategory === 'Ancestry' ? 'Ancestry' : traitCategory;
+    traitCategories[categoryKey].push(trait);
+  }
+};
+
+// Extract and categorize traits from all sources using unified parsing
 export const extractTraitsFromModules = (character) => {
   // Define our trait categories
   const traitCategories = {
     General: [],
     Crafting: [],
     Ancestry: [],
+    Offensive: [],
+    Defensive: [],
     Uncategorized: []
   };
   
-  // No modules, return empty categories
-  if (!character.modules || character.modules.length === 0) {
-    return traitCategories;
+  // Process ancestry traits
+  if (character.ancestry && character.ancestry.ancestryId && character.ancestry.selectedOptions) {
+    const ancestry = character.ancestry.ancestryId;
+    if (ancestry.options) {
+      ancestry.options.forEach(option => {
+        // Find the corresponding selected option data
+        const selectedOptionData = character.ancestry.selectedOptions.find(
+          so => so.name === option.name
+        );
+        
+        // Check if this option has subchoices and a selection was made
+        if (option.subchoices && selectedOptionData && selectedOptionData.selectedSubchoice) {
+          // Find the selected subchoice and add it as a trait
+          const selectedSubchoice = option.subchoices.find(
+            sc => sc.id === selectedOptionData.selectedSubchoice
+          );
+          if (selectedSubchoice) {
+            // Process subchoice as an ability
+            processAbilityForTraits(selectedSubchoice, ancestry.name, 'ancestry-derived', traitCategories);
+          }
+        } else {
+          // Process regular ancestry option
+          processAbilityForTraits(option, ancestry.name, 'ancestry-derived', traitCategories);
+        }
+      });
+    }
   }
   
-  // Process module options to extract traits
-  character.modules.forEach(module => {
-    // Skip if moduleId isn't populated
-    if (!module.moduleId || typeof module.moduleId === 'string') return;
-    
-    // Process each selected option
-    module.selectedOptions.forEach(selectedOption => {
-      const option = module.moduleId.options.find(opt => opt.location === selectedOption.location);
-      if (!option || !option.data) return;
+  // Process culture traits
+  if (character.characterCulture && character.characterCulture.cultureId && character.characterCulture.selectedOptions) {
+    const culture = character.characterCulture.cultureId;
+    if (culture.options) {
+      culture.options.forEach(option => {
+        processAbilityForTraits(option, culture.name, 'culture-derived', traitCategories);
+      });
+    }
+  }
+  
+  // Process module traits
+  if (character.modules && character.modules.length > 0) {
+    character.modules.forEach(module => {
+      // Skip if moduleId isn't populated
+      if (!module.moduleId || typeof module.moduleId === 'string') return;
       
-      // Determine the trait category
-      const category = parseTraitCategory(option.data);
-      if (category) {
-        // Create a trait object from the option
-        const trait = {
-          name: option.name,
-          description: option.description,
-          source: module.moduleId.name,
-          type: 'module-derived' // To differentiate from old system
-        };
-        
-        // Add to appropriate category
-        traitCategories[category].push(trait);
-      }
+      // Process each selected option
+      module.selectedOptions.forEach(selectedOption => {
+        const option = module.moduleId.options.find(opt => opt.location === selectedOption.location);
+        if (option) {
+          processAbilityForTraits(option, module.moduleId.name, 'module-derived', traitCategories);
+        }
+      });
     });
-  });
+  }
   
   return traitCategories;
 };

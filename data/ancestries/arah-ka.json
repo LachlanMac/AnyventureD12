@@ -1,30 +1,35 @@
 {
-        "id": 11,
-        "name": "Arah-ka",
-        "description": "The Arah-Ka reside in Arah-Aka, a desert nation aptly named Sun Blessed Sand in the common tongue, encompassing the Scarlet Dunes and the vicinity of Mount Akora, an active volcano. This inhospitable terrain demands resilience and adaptation, qualities embodied by the Arah-Ka who consider their very essence to be infused with fire. Anatomically akin to humans, they are distinguished by their spectrum of red skin tones and uniquely backward-tilted, pointed ears.",
-        "img": "img/ancestries/arah-ka.webp",
-        "portrait":"img/ancestries/portraits/arah-ka.png",
-        "homeworld":"Atlah",
-        "lifespan": "average 170 years, mature at 25",
-        "height": "",
-        "language":"Akan",
-        "size": "Medium",
-        "home": "",
-        "options":[ 
-            {
-            "name": "Raised in Flames",
-            "description": "The Arah-Ka have the fire of the sun within their blood as well as traces of Keydaran ancestry. Gain +3 heat mitigation and become immune to effects that would prematurely age you.",
-            "data": "AD6=3:TA"
-          },
-           {
-            "name": "Action : Sun-Blessed Fire",
-            "description": "You make a Melee Attack, but convert all Damage to Fire. On a True Hit, the Target also becomes Ignited.",
-            "data": "XX3"
-          },
-          {
-            "name": "Photosynthetic",
-            "description": "The Arah-ka require sunlight for many crucial bodily functions. If you go an entire day without being exposed to sunlight, you do not recover health during a full rest.",
-            "data": ""
-          }]
-       
+  "id": 11,
+  "name": "Arah-ka",
+  "description": "The Arah-Ka reside in Arah-Aka, a desert nation aptly named Sun-Blessed Sand in the common tongue, encompassing the Scarlet Dunes and the vicinity of Mount Akora, an active volcano. This inhospitable terrain demands resilience and adaptation, qualities embodied by the Arah-Ka who consider their very essence to be infused with fire. Anatomically akin to humans, they are distinguished by their spectrum of red skin tones and uniquely backward-tilted, pointed ears.",
+  "img": "img/ancestries/arah-ka.webp",
+  "portrait": "img/ancestries/portraits/arah-ka.png",
+  "homeworld": "Atlah",
+  "lifespan": "average 170 years, mature at 25",
+  "height": "",
+  "language": "Akan",
+  "size": "Medium",
+  "home": "",
+  "options": [
+    {
+      "name": "Medium",
+      "description": "Arah-Ka are medium-sized creatures and suffer no penalty or benefits.",
+      "data": "TA"
+    },
+    {
+      "name": "Raised in Flames",
+      "description": "Arah-Ka have the fire of the sun within their blood as well as traces of Keydaran ancestry. Gain +3 heat mitigation and become immune to effects that would prematurely age you.",
+      "data": "M2=3:TA"
+    },
+    {
+      "name": "Action : Sun-Blessed Fire",
+      "description": "You make a Melee Attack, but convert all Damage to Fire. On a True Hit, the Target also becomes Ignited.",
+      "data": "XX3"
+    },
+    {
+      "name": "Photosynthetic",
+      "description": "The Arah-ka require sunlight for many crucial bodily functions. If you go an entire day without being exposed to sunlight, you do not recover health during a full rest.",
+      "data": "TA"
     }
+  ]
+}

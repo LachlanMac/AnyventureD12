@@ -1,7 +1,7 @@
 {
   "id": 7,
   "name": "Human",
-  "description": "Humans are a diverse and adaptable species, having spread across the temperature moon of Atlah in great number. They are known for having many different types of cultures and beliefs, so much so that they often find themselves quarreling with each other.",
+  "description": "Humans are a diverse and adaptable species, having spread across the temperate moon of Atlah in great numbers. They are known for having many different types of cultures and beliefs, so much so that they often find themselves quarreling with each other.",
   "homeworld": "Atlah",
   "img": "img/ancestries/human.webp",
   "portrait": "img/ancestries/portraits/human.png",
@@ -12,19 +12,19 @@
   "language": "Lattus",
   "options": [
     {
-      "name": "Heart of the Party",
-      "description": "Social interaction is key to thriving in the various cultures of Humanity. Become Good at one Social Skill.",
+      "name": "Medium",
+      "description": "Humans are medium sized creatures and suffer no penalties or benefits.",
       "data": "TA"
     },
     {
-      "name": "Action : Human Destiny",
-      "description": "You immediately enter Lifeline but gain 12 Lifeline Points. If combat ends before you die, you gain Health equal to your Level.",
-      "data": "XX3"
+      "name": "Versatile",
+      "description": "Humans are incredibly adaptable to many types of environments and conditions. Gain +1 skill with resilience and +1 heat and cold mitigation.",
+      "data": "AS2=1:M2=1:M3=1:TA"
     },
     {
-      "name": "Adaptable Nature",
-      "description": "Human versatility allows them to excel in various endeavors. Gain +1 to any Attribute of your choice during character creation.",
-      "data": "AA=1"
+      "name": "Daily Reaction : Human Destiny",
+      "description": "The threads of destiny bend around humans, allowing them the opportunity to defy fate. Once per day, you can convert any amount of resolve into temporary health that lasts until the end of the day. If you use this reaction in response to taking damage that causes you to reach 0 health, you gain this as health instead.",
+      "data": "XX3"
     }
   ]
 }

@@ -2,7 +2,7 @@
   "id": 17,
   "name": "Tidewalker",
   "homeworld": "Atlah",
-  "description": "Tidewalkers are aquatic humanoids adapted to underwater life, with sharp teeth to aid their carnivorous diets and gils just above their brow ridge which allow them to breathe underwater. There are countless tribes of tidewalkers spread throughout the temperate waters of Atlah, living in unison with other creatures that dwell in the depths of the ocean. Their culture emphasizes survival and cooperation, often revolving around life in the deep seas and coastal areas.",
+  "description": "Tidewalkers are aquatic humanoids adapted to underwater life, with sharp teeth to aid their carnivorous diets and gills just above their brow ridge which allow them to breathe underwater. There are countless tribes of tidewalkers spread throughout the temperate waters of Atlah, living in unison with other creatures that dwell in the depths of the ocean. Their culture emphasizes survival and cooperation, often revolving around life in the deep seas and coastal areas.",
   "img": "img/ancestries/tidewalker.webp",
   "portrait": "img/ancestries/portraits/tidewalker.png",
   "lifespan": "average 110 years, mature at 16",
@@ -12,19 +12,24 @@
   "language": "Qualatiq",
   "options": [
     {
+      "name": "Medium",
+      "description": "Tidewalkers are medium sized creatures and suffer no penalties or benefits.",
+      "data": "TA"
+    },
+    {
       "name": "Tidewalking",
-      "description": "Your body is apdated to survive the perils of the deep ocean, with hardened scales covering parts of your skin and gills on your brow. You can breathe and speak normally while submerged in water and you gain +1 physical mitigation.",
-      "data": "TA:AD4=1:AD7=2"
+      "description": "Your body is adapted to survive the perils of the deep ocean, with hardened scales covering parts of your skin and gills on your brow. You can breathe and speak normally while submerged in water and you gain +1 physical mitigation.",
+      "data": "M1=1:TA"
     },
     {
       "name": "Action : Echolocate",
-      "description": "You emit an ultrasonic pulse that reveals hidden threats. Until the start of your next turn, you can sense the location of all creatures within a moderate (10 units) distnace that don't have full cover. The range on this ability is doubled if done while submerged in water.",
+      "description": "You emit an ultrasonic pulse that reveals hidden threats. Until the start of your next turn, you can sense the location of all creatures within a moderate (10 units) distance that don't have full cover. The range on this ability is doubled if done while submerged in water.",
       "data": "XX3"
     },
     {
       "name": "Carnivorous Diet",
       "description": "Your body is adapted to eating only completely unprocessed meat. You do not gain the benefits from eating prepared meals or snacks.",
-      "data": "AS1=1:TA"
+      "data": "TA"
     }
   ]
 }

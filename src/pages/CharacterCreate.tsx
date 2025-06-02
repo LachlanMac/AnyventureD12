@@ -79,9 +79,24 @@ const CharacterCreate: React.FC = () => {
     setStressors(personalityModule.stressors || []);
   };
 
+  // Monitor selectedAncestry changes
+  useEffect(() => {
+    if (selectedAncestry) {
+      console.log('selectedAncestry state updated:', selectedAncestry);
+      console.log('selectedAncestry options:', selectedAncestry.options.map(opt => ({
+        name: opt.name,
+        selectedSubchoice: opt.selectedSubchoice
+      })));
+    }
+  }, [selectedAncestry]);
+
   const handleRaceChange = (raceName: string, ancestry: Ancestry) => {
     console.log('handleRaceChange called with:', raceName);
     console.log('Received ancestry:', ancestry);
+    console.log('Ancestry options detail:', ancestry.options.map(opt => ({
+      name: opt.name,
+      selectedSubchoice: opt.selectedSubchoice
+    })));
 
     // Update the race in character state
     updateCharacter('race', raceName);
@@ -304,13 +319,20 @@ const CharacterCreate: React.FC = () => {
       const initialModules = [];
       
       // Prepare ancestry data (all 3 options are automatically selected)
+      console.log('Selected Ancestry before sending:', selectedAncestry);
       const ancestryData = selectedAncestry ? {
         ancestryId: selectedAncestry._id,
-        selectedOptions: selectedAncestry.options.map(option => ({
-          name: option.name,
-          selectedSubchoice: option.selectedSubchoice || null
-        }))
+        selectedOptions: selectedAncestry.options.map(option => {
+          console.log(`Option ${option.name} has selectedSubchoice:`, option.selectedSubchoice);
+          const subchoiceValue = option.selectedSubchoice;
+          console.log(`Subchoice value type: ${typeof subchoiceValue}, value:`, subchoiceValue);
+          return {
+            name: option.name,
+            selectedSubchoice: subchoiceValue !== undefined ? subchoiceValue : null
+          };
+        })
       } : null;
+      console.log('Ancestry data being sent:', ancestryData);
       
       // Prepare culture data (all 3 options are automatically selected)
       const cultureData = selectedCulture ? {
@@ -400,8 +422,15 @@ const CharacterCreate: React.FC = () => {
         }
       }
 
-      // Redirect to character sheet
-      navigate(`/characters/${data._id}`);
+      // Check for pending campaign invite
+      const pendingInvite = localStorage.getItem('pendingCampaignInvite');
+      if (pendingInvite) {
+        localStorage.removeItem('pendingCampaignInvite');
+        navigate(`/campaigns/join/${pendingInvite}`);
+      } else {
+        // Redirect to character sheet
+        navigate(`/characters/${data._id}`);
+      }
     } catch (err) {
       console.error('Error creating character:', err);
       setError(err instanceof Error ? err.message : 'An unknown error occurred');

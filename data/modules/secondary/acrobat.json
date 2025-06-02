@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "SSG=1"
+      "data": "SSG=1:TG"
     },
     {
       "name": "Light-footed",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "SSO=1"
+      "data": "SSO=1:TG"
     },
     {
       "name": "Graceful Discipline",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "SSQ=1"
+      "data": "SSQ=1:TG"
     },
     {
       "name": "Reaction : Rolling Dodge",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "TD"
     },
     {
       "name": "Swift Climber",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SS9=1"
+      "data": "SS9=1:TG"
     },
     {
       "name": "Safe Fall",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": ""
+      "data": "SSG=1:TD"
     },
     {
       "name": "Evasive Master",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "SSI=1"
+      "data": "SSI=1:TD"
     },
     {
       "name": "Daily Action : Escape Artist",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
      "name": "Reaction : Catch",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TD"
     },
     {
       "name": "Parkour Master",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "A4=1:TG"
     }
   ]
 }

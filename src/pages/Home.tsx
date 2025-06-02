@@ -144,19 +144,19 @@ const Home: React.FC = () => {
           />
           <FeatureCard
             title="Dynamic Combat"
-            description="Every weapon strike can deal extra damage. Defense isn't just dodging - use deflection, evasion, or shields to survive."
+            description="Use single-roll combat to determine your attack success and damage and roll defense checks against attacks."
             icon="⚔️"
             color="var(--color-sunset)"
           />
           <FeatureCard
             title="Five Schools of Magic"
-            description="Master Black, Primal, Alteration, Divine, or Mysticism magic. Each school has unique subschools and exotic branches to explore."
+            description="Master Black, Primal, Mysticism, Divine, or Meta Magic. Each school has unique subschools and exotic branches to explore."
             icon="✨"
             color="var(--color-old-gold)"
           />
           <FeatureCard
             title="Crafting System"
-            description="Create items through Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, or Bioshaping. Overcrafting can improve your creations."
+            description="Create items through Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, or Bioshaping. All items have a recipe and can be crafted by players."
             icon="🔨"
             color="var(--color-evening)"
           />

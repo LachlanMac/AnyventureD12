@@ -2,7 +2,7 @@
 KEY (S)
 EX. SS1=1 SKILL  ST1=1 TALENT
 EX. SS1=Y Means dice tier are downgraded by one
-EX. SS1=X Means dice tier are upgraded by one.
+EX. SS1=X Means dice tier are upgarded by one.
 ###############################
 1: Physique
 2: Finesse
@@ -34,6 +34,7 @@ T: Persuasion
 ########### WEAPONS ###########
 KEY (W)
 EX. WS1=1 SKILL  WT1=1 TALENT
+
 ###############################
 1: Unarmed
 2: Throwing

@@ -13,8 +13,11 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Characters from './pages/Characters';
 import CharacterCreate from './pages/CharacterCreate';
+import CharacterEdit from './pages/CharacterEdit';
 import CharacterView from './pages/CharacterView';
 import Campaigns from './pages/Campaigns';
+import CampaignView from './components/campaign/CampaignView';
+import CampaignJoin from './components/campaign/CampaignJoin';
 import ModulesPage from './pages/Modules';
 import ModuleCompendium from './pages/ModuleCompendium';
 import SpellsPage from './pages/SpellsPage';
@@ -77,14 +80,6 @@ const App: React.FC = () => {
                 }
               />
               <Route
-                path="/campaigns"
-                element={
-                  <MainLayout>
-                    <Campaigns />
-                  </MainLayout>
-                }
-              />
-              <Route
                 path="/characters"
                 element={
                   <MainLayout>
@@ -140,12 +135,38 @@ const App: React.FC = () => {
                   </MainLayout>
                 }
               />
+              
+              {/* Campaign invite join page (no auth required) */}
+              <Route
+                path="/campaigns/join/:token"
+                element={
+                  <MainLayout>
+                    <CampaignJoin />
+                  </MainLayout>
+                }
+              />
 
               {/* Login page (no layout) */}
               <Route path="/login" element={<Login />} />
 
               {/* Protected routes with layout */}
               <Route element={<ProtectedRoute />}>
+                <Route
+                  path="/campaigns"
+                  element={
+                    <MainLayout>
+                      <Campaigns />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/campaigns/:id"
+                  element={
+                    <MainLayout>
+                      <CampaignView />
+                    </MainLayout>
+                  }
+                />
                 <Route
                   path="/characters/create"
                   element={
@@ -159,6 +180,14 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <SpellsPage />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/characters/:id/edit"
+                  element={
+                    <MainLayout>
+                      <CharacterEdit />
                     </MainLayout>
                   }
                 />

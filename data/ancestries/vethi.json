@@ -12,6 +12,11 @@
   "language": "Vethan",
   "options": [
     {
+      "name": "Medium",
+      "description": "The Vethi are medium sized creatures and suffer no penalties or benefits.",
+      "data": "TA"
+    },
+    {
       "name": "Eye of the Veth",
       "description": "You can communicate telepathically to a Creature within a moderate (20 units) distance who shares a Language with you. They cannot communicate verbally, but can give a response of either affirmation, denial or indifference.",
       "data": "TA"
@@ -24,7 +29,7 @@
     {
       "name": "Intrinsic Guilt",
       "description": "The Vethi are burdened by the sins of their ancestors. You suffer a penalty of 3 to your maximum resolve.",
-      "data": "ASA=1:AD9=2:TA"
+      "data": "AR=-3:TA"
     }
   ]
 }

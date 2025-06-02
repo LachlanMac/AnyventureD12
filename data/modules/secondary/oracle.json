@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "SS5=1"
+      "data": "SS5=1:TG"
     },
     {
       "name": "Foritifed Soul",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TD"
     },
     {
       "name": "Threads of Fate",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Mystic Echoes",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "SS3=1"
+      "data": "SS3=1:TG"
     },
     {
       "name": "Signs",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SS5=1"
+      "data": "SS5=1:TG"
     },
     {
       "name": "First to Act",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SSN=1"
+      "data": "SSN=1:TG"
     },
     {
       "name": "Seer",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "SS8=1"
+      "data": "SS8=1:TG"
     },
     {
       "name": "Action : Trance of the Oracle",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": "SS2=1"
+      "data": "SS2=1:TG"
     },
     {
       "name": "Reaction : Bend Fate",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": "SS4=1"
+      "data": "SS4=1:TG"
     },
     {
       "name": "Portent",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TG"
     }
   ]
 }

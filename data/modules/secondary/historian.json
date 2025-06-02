@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "SSS=1"
+      "data": "SSS=1:TG"
     },
     {
       "name": "Art of War",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": "SSL=1"
+      "data": "SSL=1:TG"
     },
     {
       "name": "Arcane Studies",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": "SS3=1"
+      "data": "SS3=1:TG"
     },
     {
       "name": "Walking Library",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "SSQ=1"
+      "data": "SSQ=1:TG"
     },
     {
       "name": "Ancient Languages",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SSR=1"
+      "data": "SSR=1:TG"
     },
     {
       "name": "Lore of the Ancients",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SS2=1"
+      "data": "SS2=1:TG"
     },
     {
       "name": "Studious",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "SSN=1"
+      "data": "SSN=1:TG"
     },
     {
       "name": "Ancient Song",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Living Archive",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Action : Second Edition",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TG"
     }
   ]
 }

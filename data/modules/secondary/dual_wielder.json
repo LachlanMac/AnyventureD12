@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "SSG=1"
+      "data": "SSG=1:TO"
     },
     {
       "name": "Action : Disengaging Strike",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Action : Synchronized Strikes",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Stamina",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Weapon Finesse",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SSI=1"
+      "data": "SSI=1:TO"
     },
     {
       "name": "Inpenetrable Defense",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SSH=1"
+      "data": "SSH=1:TO"
     },
     {
       "name": "Weapon Master",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "WS2=1"
+      "data": "WS2=1:TO"
     },
     {
       "name": "Reaction : Cross Block",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Reaction : Dual Opportunity",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": ""
+      "data": "TO"
     },
     {
       "name": "Ambidextrous",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TO"
     }
   ]
 }

@@ -12,6 +12,11 @@
   "language": "Gnilbark",
   "options": [
     {
+      "name": "Large",
+      "description": "Gnolls are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
+    },
+    {
       "name": "Gnoll Honor Bond",
       "description": "You make an unbreakable bond with another Humanoid, allowing them to use your Resilience Modifier when making Resilience Checks. This bond ends upon the death of either Creature.",
       "data": "TA"
@@ -23,8 +28,8 @@
     },
     {
       "name": "Pack Hunter",
-      "description": "Your instincts as a pack hunter grant you bonuses when working with allies. Gain +1 Wildcraft and +1 die when flanking an enemy with an ally.",
-      "data": "AS8=1:TA"
+      "description": "Gnolls work best when hunting with their pack. When you have an ally within 5 units of your target, you gain +1 bonus dice on attack rolls.",
+      "data": "TA"
     }
   ]
 }

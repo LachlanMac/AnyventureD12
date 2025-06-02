@@ -5,12 +5,12 @@
  "ruleset": 1,
  "options": [
    {
-     "name": "SENT TIER 1",
-     "description": "SENT TIER 1 DESC",
+     "name": "Student of Combat",
+     "description": "On the first round of combat, you gain a bonus dice to all attack dice ",
      "mtype": "core",
      "location": "1",
      "cost": 2,
-     "data": ""
+     "data": "TD"
    },
    {
      "name": "Sharp Mind",
@@ -18,7 +18,7 @@
      "mtype": "core",
      "location": "2a",
      "cost": 2,
-     "data": "SSL=1"
+     "data": "SSL=1:TD"
    },
    {
      "name": "Focused Mind",
@@ -26,7 +26,7 @@
      "mtype": "core",
      "location": "2b",
      "cost": 2,
-     "data": "SS4=1"
+     "data": "SS4=1:TD"
    },
    {
      "name": "SENT TIER 3",
@@ -34,7 +34,7 @@
      "mtype": "core",
      "location": "3",
      "cost": 2,
-     "data": "SSN=1"
+     "data": "SSN=1:TD"
    },
    {
      "name": "Reaction : Know Thy Enemy",
@@ -42,7 +42,7 @@
      "mtype": "core",
      "location": "4a",
      "cost": 2,
-     "data": ""
+     "data": "TD"
    },
    {
      "name": "Action : Find Weakness",
@@ -50,7 +50,7 @@
      "mtype": "core",
      "location": "4b",
      "cost": 2,
-     "data": ""
+     "data": "TD"
    },
    {
      "name": "SENT TIER 5",
@@ -58,7 +58,7 @@
      "mtype": "core",
      "location": "5",
      "cost": 2,
-     "data": ""
+     "data": "TD"
    },
    {
      "name": "Ancient Defenses",
@@ -66,7 +66,7 @@
      "mtype": "core",
      "location": "6a",
      "cost": 2,
-     "data": ""
+     "data": "TD"
    },
    {
      "name": "Warrior-Scholar",
@@ -74,7 +74,7 @@
      "mtype": "core",
      "location": "6b",
      "cost": 2,
-     "data": ""
+     "data": "TD"
    },
    {
      "name": "Daily Action : Attack of Legends",
@@ -82,7 +82,7 @@
      "mtype": "core",
      "location": "7",
      "cost": 3,
-     "data": "SS1=1:SS3=1:SS6=1"
+     "data": "SS1=1:SS3=1:SS6=1:TD"
    }
  ]
 }

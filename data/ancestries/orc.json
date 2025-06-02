@@ -12,9 +12,14 @@
   "language": "Orcish",
   "options": [
     {
+      "name": "Medium",
+      "description": "Orcs are medium sized creatures and suffer no penalty or benefits.",
+      "data": "TA"
+    },
+    {
       "name": "Orcish Endurance",
       "description": "Orcs have evolved beyond their brutal past, but their bodies remain remarkably resilient. Gain +1 skill with resilience and heal 1 extra health per full rest.",
-      "data": "TA"
+      "data": "AS2=1:TA"
     },
     {
       "name": "Daily Action : Endure",
@@ -24,7 +29,7 @@
     {
       "name": "Innate Rage",
       "description": "The fury of your ancestors still burns in your blood, erupting under moments of stress or uncertainty. When you become confused, you become maddened instead.",
-      "data": ""
+      "data": "TA"
     }
   ]
 }

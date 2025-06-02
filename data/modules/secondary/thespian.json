@@ -10,7 +10,7 @@
       "mtype": "core",
       "location": "1",
       "cost": 2,
-      "data": "SSQ=1"
+      "data": "SSQ=1:TG"
     },
     {
       "name": "Reaction : Feign Death",
@@ -18,7 +18,7 @@
       "mtype": "core",
       "location": "2a",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Reaction : Mocking Taunt",
@@ -26,7 +26,7 @@
       "mtype": "core",
       "location": "2b",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Penchant for Dramatics",
@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Method Acting",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "SSS=1"
+      "data": "SSS=1:TG"
     },
     {
       "name": "Stage Presence",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "SSR=1"
+      "data": "SSR=1:TG"
     },
     {
       "name": "Master Performer",
@@ -58,7 +58,7 @@
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "SSQ=1"
+      "data": "SSQ=1:TG"
     },
     {
       "name": "Performing Arts",
@@ -66,7 +66,7 @@
       "mtype": "core",
       "location": "6a",
       "cost": 2,
-      "data": "SSG=1"
+      "data": "SSG=1:TG"
     },
     {
       "name": "Traveling Troupe",
@@ -74,7 +74,7 @@
       "mtype": "core",
       "location": "6b",
       "cost": 2,
-      "data": "SS6=1"
+      "data": "SS6=1:TG"
     },
     {
       "name": "Reaction : Improvise",
@@ -82,7 +82,7 @@
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "TG"
     }
   ]
 }
