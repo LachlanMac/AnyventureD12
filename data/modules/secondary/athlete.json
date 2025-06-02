@@ -34,7 +34,7 @@
       "mtype": "core",
       "location": "3",
       "cost": 2,
-      "data": "TG"
+      "data": "X"
     },
     {
       "name": "Action : Run and Jump",
@@ -42,7 +42,7 @@
       "mtype": "core",
       "location": "4a",
       "cost": 2,
-      "data": "TG"
+      "data": "X"
     },
     {
       "name": "Reaction : Athletic Reflexes",
@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "TG"
+      "data": "Z"
     },
     {
       "name": "Mind-Body Connection",
