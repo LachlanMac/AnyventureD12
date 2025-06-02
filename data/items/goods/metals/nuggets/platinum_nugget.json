@@ -1,0 +1,8 @@
+{
+  "name": "Platinum Nugget",
+  "description": "",
+  "type": "metal",
+  "weight": 1.0,
+  "value": 1000,
+  "rarity": "common"
+}

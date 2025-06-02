@@ -1,0 +1,8 @@
+{
+  "name": "Iron Nugget",
+  "description": "",
+  "type": "metal",
+  "weight": 0.35,
+  "value": 20,
+  "rarity": "common"
+}

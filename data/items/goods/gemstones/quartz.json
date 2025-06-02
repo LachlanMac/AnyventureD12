@@ -1,0 +1,8 @@
+{
+  "name": "Quartz",
+  "description": "A clear crystal with glassy luster and six-sided structure",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

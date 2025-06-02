@@ -1,0 +1,8 @@
+{
+  "name": "Hematite",
+  "description": "A metallic gray stone with heavy weight and mirror-like shine",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

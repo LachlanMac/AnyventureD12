@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": "Nearby",
     "checkToCast": 2,
-    "components": [""],
+    "components": ["copper shavings"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

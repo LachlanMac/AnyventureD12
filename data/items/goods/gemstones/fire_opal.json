@@ -1,0 +1,8 @@
+{
+  "name": "Fire Opal",
+  "description": "A translucent orange-red stone with internal flashes of light",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 200,
+  "rarity": "common"
+}

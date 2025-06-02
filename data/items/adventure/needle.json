@@ -1,0 +1,8 @@
+{
+  "name": "Needle",
+  "description": "A set of sewing needles for repairing cloth and leather",
+  "type": "adventure",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

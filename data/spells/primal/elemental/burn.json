@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": "Adjacent",
     "checkToCast": 3,
-    "components": ["1 Flint"],
+    "components": ["flint"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

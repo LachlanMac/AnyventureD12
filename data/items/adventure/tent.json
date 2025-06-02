@@ -1,0 +1,8 @@
+{
+  "name": "Tent",
+  "description": "A basic canvas shelter that sleeps two people",
+  "type": "adventure",
+  "weight": 10.0,
+  "value": 200,
+  "rarity": "common"
+}

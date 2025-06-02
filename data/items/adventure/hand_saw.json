@@ -1,0 +1,8 @@
+{
+  "name": "Hand Saw",
+  "description": "A portable saw with sharp teeth for cutting wood or bone",
+  "type": "adventure",
+  "weight": 2.0,
+  "value": 80,
+  "rarity": "common"
+}

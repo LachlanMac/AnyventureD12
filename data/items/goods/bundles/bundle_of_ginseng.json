@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Ginseng",
+  "description": "Prized roots known for revitalizing properties and use in longevity potions",
+  "type": "bundle",
+  "weight": 3.0,
+  "value": 500,
+  "rarity": "common"
+}

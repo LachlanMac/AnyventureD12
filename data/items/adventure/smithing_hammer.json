@@ -1,0 +1,8 @@
+{
+  "name": "Smithing Hammer",
+  "description": "A specialized hammer for shaping hot metal on an anvil",
+  "type": "adventure",
+  "weight": 4.0,
+  "value": 100,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Spyglass",
+  "description": "A collapsible telescope for viewing distant objects",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 500,
+  "rarity": "common"
+}

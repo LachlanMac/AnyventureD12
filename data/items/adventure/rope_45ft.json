@@ -1,0 +1,8 @@
+{
+  "name": "45 ft. Rope [15 Units]",
+  "description": "A 15 unit rope, versatile for a variety of situations from scaling walls to crossing gaps",
+  "type": "adventure",
+  "weight": 7.5,
+  "value": 200,
+  "rarity": "common"
+}

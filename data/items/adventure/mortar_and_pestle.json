@@ -1,0 +1,8 @@
+{
+  "name": "Mortar and Pestle",
+  "description": "Stone tools for grinding herbs, spices, or alchemical ingredients",
+  "type": "adventure",
+  "weight": 3.0,
+  "value": 60,
+  "rarity": "common"
+}

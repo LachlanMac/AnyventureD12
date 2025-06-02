@@ -1,0 +1,8 @@
+{
+  "name": "90 ft. Spool of Invisible String [30 Units]",
+  "description": "Magically transparent string that adds +1 to trap detection difficulty when used in trap triggers",
+  "type": "adventure",
+  "weight": 3.0,
+  "value": 400,
+  "rarity": "common"
+}

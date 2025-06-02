@@ -1,0 +1,8 @@
+{
+  "name": "Sharpening Stone",
+  "description": "A whetstone for maintaining blade edges",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 20,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Yarrow",
+  "description": "White flowering herb commonly used in traditional medicine for its healing properties",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 20,
+  "rarity": "common"
+}

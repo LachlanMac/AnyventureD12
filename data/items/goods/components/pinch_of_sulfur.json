@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Sulfur",
+  "description": "Yellow powder with a distinctive acrid smell that burns blue",
+  "type": "component",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "common"
+}

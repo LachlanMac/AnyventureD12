@@ -1,0 +1,8 @@
+{
+  "name": "Black Diamond",
+  "description": "A rare black crystal with intense sparkle and metallic luster",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 5000,
+  "rarity": "common"
+}

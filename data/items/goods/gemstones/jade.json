@@ -1,0 +1,8 @@
+{
+  "name": "Jade",
+  "description": "A smooth green stone with waxy luster and tough composition",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 60,
+  "rarity": "common"
+}

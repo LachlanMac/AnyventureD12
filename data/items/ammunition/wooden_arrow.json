@@ -1,0 +1,8 @@
+{
+  "name": "Wooden Arrow",
+  "description": "",
+  "type": "ammunition",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

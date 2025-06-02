@@ -1,0 +1,8 @@
+{
+  "name": "Cobalt Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 4,
+  "value": 10000,
+  "rarity": "common"
+}

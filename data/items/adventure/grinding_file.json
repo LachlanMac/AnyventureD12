@@ -1,0 +1,8 @@
+{
+  "name": "Grinding File",
+  "description": "A metal file for shaping metal or removing rust",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 40,
+  "rarity": "common"
+}

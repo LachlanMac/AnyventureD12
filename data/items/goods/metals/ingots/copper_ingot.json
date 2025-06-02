@@ -1,0 +1,8 @@
+{
+  "name": "Copper Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 4,
+  "value": 40,
+  "rarity": "common"
+}

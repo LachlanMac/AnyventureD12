@@ -1,0 +1,8 @@
+{
+  "name": "Ruby",
+  "description": "A deep red crystal with intense color and brilliant shine",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 800,
+  "rarity": "common"
+}

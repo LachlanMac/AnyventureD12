@@ -1,0 +1,8 @@
+{
+  "name": "60 ft. Rope [20 Units]",
+  "description": "A substantial 20 unit length of rope, ideal for challenging climbs or significant distances",
+  "type": "adventure",
+  "weight": 10.0,
+  "value": 300,
+  "rarity": "common"
+}

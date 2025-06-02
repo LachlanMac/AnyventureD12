@@ -1,0 +1,8 @@
+{
+  "name": "Dried Herbs",
+  "description": "A collection of dried culinary herbs like thyme, oregano, and basil",
+  "type": "ingredient",
+  "weight": 0.5,
+  "value": 50,
+  "rarity": "common"
+}

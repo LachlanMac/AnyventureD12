@@ -5,7 +5,7 @@
     "duration": "1 hour",
     "range": "Adjacent",
     "checkToCast": 2,
-    "components": ["a silver nugget"],
+    "components": ["silver nugget"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

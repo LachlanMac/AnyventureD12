@@ -1,0 +1,8 @@
+{
+  "name": "Simple Lock and Key",
+  "description": "A basic lock requiring a Thievery check of 9 or higher to pick without the key",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 150,
+  "rarity": "common"
+}

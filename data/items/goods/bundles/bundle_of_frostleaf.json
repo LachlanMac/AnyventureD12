@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Frostleaf",
+  "description": "Thin pale blue leaves that shimmer with frost even in warm climates",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 500,
+  "rarity": "common"
+}

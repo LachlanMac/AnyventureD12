@@ -1,0 +1,8 @@
+{
+  "name": "3 ft. Chain [1 Unit]",
+  "description": "A short length of chain ideal for manacles or securing small items",
+  "type": "adventure",
+  "weight": 4.0,
+  "value": 100,
+  "rarity": "common"
+}

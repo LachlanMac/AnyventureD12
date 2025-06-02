@@ -1,0 +1,8 @@
+{
+  "name": "Alexandrite",
+  "description": "A color-changing crystal that shifts from green to red in different light",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 400,
+  "rarity": "common"
+}

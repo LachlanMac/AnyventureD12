@@ -1,0 +1,8 @@
+{
+  "name": "Luxurious Tent",
+  "description": "A spacious silk tent with room dividers that comfortably sleeps four",
+  "type": "adventure",
+  "weight": 20.0,
+  "value": 800,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Spices",
+  "description": "A mixture of various spices used to enhance the flavor of numerous dishes",
+  "type": "ingredient",
+  "weight": 0.1,
+  "value": 40,
+  "rarity": "common"
+}

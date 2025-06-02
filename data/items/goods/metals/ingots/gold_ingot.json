@@ -1,0 +1,8 @@
+{
+  "name": "Gold Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 9,
+  "value": 5000,
+  "rarity": "common"
+}

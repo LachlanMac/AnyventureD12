@@ -1,0 +1,8 @@
+{
+  "name": "Platinum Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 10,
+  "value": 10000,
+  "rarity": "common"
+}

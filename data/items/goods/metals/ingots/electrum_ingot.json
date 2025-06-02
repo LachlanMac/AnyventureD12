@@ -1,0 +1,8 @@
+{
+  "name": "Electrum Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 7.5,
+  "value": 1000,
+  "rarity": "common"
+}

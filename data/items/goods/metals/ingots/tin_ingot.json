@@ -1,0 +1,8 @@
+{
+  "name": "Tin Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 2,
+  "value": 10,
+  "rarity": "common"
+}

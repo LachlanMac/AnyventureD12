@@ -1,0 +1,8 @@
+{
+  "name": "Lock Pick",
+  "description": "A set of specialized tools for opening locks without keys",
+  "type": "adventure",
+  "weight": 0.5,
+  "value": 150,
+  "rarity": "common"
+}

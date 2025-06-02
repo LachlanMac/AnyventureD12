@@ -1,0 +1,8 @@
+{
+  "name": "Shovel",
+  "description": "A sturdy digging tool with wooden handle and iron blade",
+  "type": "adventure",
+  "weight": 5.0,
+  "value": 40,
+  "rarity": "common"
+}

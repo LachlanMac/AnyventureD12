@@ -1,0 +1,8 @@
+{
+  "name": "Wheel of Cheese",
+  "description": "A round block of aged cheese with rich flavor and firm texture",
+  "type": "ingredient",
+  "weight": 3.0,
+  "value": 120,
+  "rarity": "common"
+}

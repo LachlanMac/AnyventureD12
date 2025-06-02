@@ -1,0 +1,8 @@
+{
+  "name": "Aquamarine",
+  "description": "A pale blue crystal with sea-like transparency and clarity",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 90,
+  "rarity": "common"
+}

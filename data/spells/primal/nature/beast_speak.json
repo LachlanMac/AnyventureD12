@@ -5,9 +5,7 @@
     "duration": "Concentration",
     "range": "Adjacent",
     "checkToCast": 2,
-    "components": [
-      ""
-    ],
+    "components": [""],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

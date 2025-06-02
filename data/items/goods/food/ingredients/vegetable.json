@@ -1,0 +1,8 @@
+{
+  "name": "Vegetable",
+  "description": "A fresh vegetable such as carrot, potato, or onion, essential for basic nutrition",
+  "type": "ingredient",
+  "weight": 1.0,
+  "value": 20,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Black Pearl",
+  "description": "A dark lustrous sphere with iridescent surface and metallic sheen",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 150,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Chalcedony",
+  "description": "A translucent stone with waxy luster and pale colors",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

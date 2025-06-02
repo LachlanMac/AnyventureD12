@@ -1,0 +1,8 @@
+{
+  "name": "Pickled Vegetables",
+  "description": "Vegetables preserved in brine that add tangy flavor to meals",
+  "type": "ingredient",
+  "weight": 1.5,
+  "value": 40,
+  "rarity": "common"
+}

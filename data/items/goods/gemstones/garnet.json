@@ -1,0 +1,8 @@
+{
+  "name": "Garnet",
+  "description": "A deep red crystal with wine-like color and vitreous shine",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 40,
+  "rarity": "common"
+}

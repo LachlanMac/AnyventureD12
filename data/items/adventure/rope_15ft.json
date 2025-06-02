@@ -1,0 +1,8 @@
+{
+  "name": "15 ft. Rope [5 Units]",
+  "description": "A sturdy 5 unit length of rope, useful for climbing, tying, or securing equipment",
+  "type": "adventure",
+  "weight": 2.5,
+  "value": 60,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Nuts",
+  "description": "A mixture of tree nuts like almonds, walnuts, and hazelnuts for snacking or cooking",
+  "type": "ingredient",
+  "weight": 0.5,
+  "value": 50,
+  "rarity": "common"
+}

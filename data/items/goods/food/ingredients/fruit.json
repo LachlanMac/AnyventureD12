@@ -1,0 +1,8 @@
+{
+  "name": "Fruit",
+  "description": "A piece of fresh fruit like apple, orange, or banana, perfect for snacks or meals",
+  "type": "ingredient",
+  "weight": 1.0,
+  "value": 20,
+  "rarity": "common"
+}

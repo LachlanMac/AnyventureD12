@@ -1,0 +1,8 @@
+{
+  "name": "Complex Lock and Key",
+  "description": "A sophisticated lock requiring a Thievery check of 12 or higher to pick without the key",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 400,
+  "rarity": "common"
+}

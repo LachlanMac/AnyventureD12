@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Salt",
+  "description": "A small quantity of salt, essential for seasoning and preserving food",
+  "type": "ingredient",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

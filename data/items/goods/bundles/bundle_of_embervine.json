@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Embervine",
+  "description": "A dark red vine with glowing orange veins that gives off faint warmth when touched",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 500,
+  "rarity": "common"
+}

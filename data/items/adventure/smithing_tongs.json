@@ -1,0 +1,8 @@
+{
+  "name": "Smithing Tongs",
+  "description": "Long-handled tongs for safely handling hot metal",
+  "type": "adventure",
+  "weight": 3.0,
+  "value": 80,
+  "rarity": "common"
+}

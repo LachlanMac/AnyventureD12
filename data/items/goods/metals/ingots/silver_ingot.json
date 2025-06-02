@@ -1,0 +1,8 @@
+{
+  "name": "Silver Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 5,
+  "value": 500,
+  "rarity": "common"
+}

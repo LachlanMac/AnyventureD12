@@ -1,0 +1,8 @@
+{
+  "name": "Agate",
+  "description": "A banded stone with layers of different colors and patterns",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

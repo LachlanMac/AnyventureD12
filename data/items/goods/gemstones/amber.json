@@ -1,0 +1,8 @@
+{
+  "name": "Amber",
+  "description": "A fossilized resin with golden color and transparent appearance",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Iron Pot",
+  "description": "A sturdy pot with lid for boiling water or cooking stews",
+  "type": "adventure",
+  "weight": 5.0,
+  "value": 50,
+  "rarity": "common"
+}

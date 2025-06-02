@@ -1,0 +1,8 @@
+{
+  "name": "Sack of Sugar",
+  "description": "A large sack of refined sugar crystals used for sweetening and preservation",
+  "type": "ingredient",
+  "weight": 5.0,
+  "value": 300,
+  "rarity": "common"
+}

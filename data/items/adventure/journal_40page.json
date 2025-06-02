@@ -1,0 +1,8 @@
+{
+  "name": "40-Page Journal",
+  "description": "A sturdy bound journal containing 40 blank pages, ideal for recording adventures or sketching",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 80,
+  "rarity": "common"
+}

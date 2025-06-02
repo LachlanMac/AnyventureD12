@@ -1,0 +1,8 @@
+{
+  "name": "Lead Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 5.5,
+  "value": 400,
+  "rarity": "common"
+}

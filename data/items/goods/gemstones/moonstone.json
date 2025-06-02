@@ -1,0 +1,8 @@
+{
+  "name": "Moonstone",
+  "description": "A milky white stone with blue flashes that shimmer like moonlight",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 30,
+  "rarity": "common"
+}

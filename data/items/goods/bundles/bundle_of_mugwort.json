@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Mugwort",
+  "description": "A silvery herb used in dream magic and various protective rituals",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 200,
+  "rarity": "common"
+}

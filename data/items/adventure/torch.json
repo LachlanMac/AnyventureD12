@@ -1,0 +1,8 @@
+{
+  "name": "Torch",
+  "description": "A wooden stick with cloth soaked in pitch, burns for 1 hour",
+  "type": "adventure",
+  "weight": 1.0,
+  "value": 10,
+  "rarity": "common"
+}

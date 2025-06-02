@@ -1,0 +1,8 @@
+{
+  "name": "Set of Manacles",
+  "description": "Iron restraints for wrists, requires DC 15 to escape or DC 12 to pick",
+  "type": "adventure",
+  "weight": 6.0,
+  "value": 200,
+  "rarity": "common"
+}

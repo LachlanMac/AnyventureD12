@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Guarana",
+  "description": "A plant with seeds known for stimulating properties and use in energy potions",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 200,
+  "rarity": "common"
+}

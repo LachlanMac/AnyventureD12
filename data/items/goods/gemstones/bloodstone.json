@@ -1,0 +1,8 @@
+{
+  "name": "Bloodstone",
+  "description": "A dark green stone with red spots resembling drops of blood",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Iron Shavings",
+  "description": "",
+  "type": "metal",
+  "weight": 0.175,
+  "value": 10,
+  "rarity": "common"
+}

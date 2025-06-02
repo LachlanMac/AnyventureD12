@@ -1,0 +1,8 @@
+{
+  "name": "Onyx",
+  "description": "A black stone with white bands and polished surface",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

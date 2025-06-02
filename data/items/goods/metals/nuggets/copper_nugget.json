@@ -1,0 +1,8 @@
+{
+  "name": "Copper Nugget",
+  "description": "",
+  "type": "metal",
+  "weight": 0.4,
+  "value": 4,
+  "rarity": "common"
+}

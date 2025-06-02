@@ -1,0 +1,8 @@
+{
+  "name": "Obsidian",
+  "description": "A volcanic glass with black color and mirror-like surface",
+  "type": "gemstone",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

@@ -14,7 +14,7 @@
     {
       "name": "Large",
       "description": "Gnolls are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
-      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y"
     },
     {
       "name": "Gnoll Honor Bond",
@@ -23,13 +23,13 @@
     },
     {
       "name": "Action : Gnoll Bite",
-      "description": "You make an Unarmed Attack by biting a Creature and tasting its blood, dealing 1d10 extra Damage on a hit. If the attack hits and the Creature has blood, you learn its Physical and Elemental Mitigations.",
+      "description": "You make a modified unarmed attack against a creature with a bonus dice, dealing 3 physical damage for the primary dice and any extra dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
       "data": "XX3"
     },
     {
-      "name": "Pack Hunter",
-      "description": "Gnolls work best when hunting with their pack. When you have an ally within 5 units of your target, you gain +1 bonus dice on attack rolls.",
-      "data": "TA"
+      "name": "Primitive",
+      "description": "Your logic, academics knowledge and magic knowledge skills are downgraded. Additionally, you can only learn languages at a basic level.",
+      "data": "SSL=Y:SSN=Y:SSO=Y"
     }
   ]
 }

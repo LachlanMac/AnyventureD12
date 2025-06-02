@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Peppermint",
+  "description": "Fresh mint leaves with a cooling sensation, known for refreshing scent and medicinal uses",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 50,
+  "rarity": "common"
+}

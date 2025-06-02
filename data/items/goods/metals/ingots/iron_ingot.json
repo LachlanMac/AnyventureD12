@@ -1,0 +1,8 @@
+{
+  "name": "Iron Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 3.5,
+  "value": 200,
+  "rarity": "common"
+}

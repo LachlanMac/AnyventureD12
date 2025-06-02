@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Sugar",
+  "description": "A pinch of sugar used to sweeten foods and beverages",
+  "type": "ingredient",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

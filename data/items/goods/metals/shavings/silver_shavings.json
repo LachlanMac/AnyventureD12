@@ -1,0 +1,8 @@
+{
+  "name": "Silver Shavings",
+  "description": "",
+  "type": "metal",
+  "weight": 0.25,
+  "value": 25,
+  "rarity": "common"
+}

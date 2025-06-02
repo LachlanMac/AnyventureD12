@@ -1,0 +1,8 @@
+{
+  "name": "Skinning Knife",
+  "description": "A curved blade designed for removing pelts from game animals",
+  "type": "adventure",
+  "weight": 0.5,
+  "value": 60,
+  "rarity": "common"
+}

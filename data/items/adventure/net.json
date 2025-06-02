@@ -1,0 +1,8 @@
+{
+  "name": "Net",
+  "description": "A 5-foot square net suitable for fishing or small game",
+  "type": "adventure",
+  "weight": 3.0,
+  "value": 60,
+  "rarity": "common"
+}

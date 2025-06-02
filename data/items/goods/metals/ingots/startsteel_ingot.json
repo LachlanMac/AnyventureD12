@@ -1,0 +1,8 @@
+{
+  "name": "Starsteel Ingot",
+  "description": "",
+  "type": "metal",
+  "weight": 2.5,
+  "value": 50000,
+  "rarity": "common"
+}

@@ -1,0 +1,8 @@
+{
+  "name": "Bundle of Rosemary",
+  "description": "Fragrant needle-like herbs with woody scent, used in both culinary and medicinal practices",
+  "type": "bundle",
+  "weight": 1.0,
+  "value": 40,
+  "rarity": "common"
+}

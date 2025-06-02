@@ -1,0 +1,8 @@
+{
+  "name": "Smoked Fish",
+  "description": "Fish preserved through smoking process, giving it rich flavor and long shelf life",
+  "type": "ingredient",
+  "weight": 1.0,
+  "value": 70,
+  "rarity": "common"
+}

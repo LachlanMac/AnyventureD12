@@ -1,0 +1,8 @@
+{
+  "name": "Lead Weight",
+  "description": "A heavy weight for fishing lines or measuring depths",
+  "type": "adventure",
+  "weight": 2.0,
+  "value": 20,
+  "rarity": "common"
+}

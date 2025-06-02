@@ -1,0 +1,8 @@
+{
+  "name": "Sack of Beans",
+  "description": "A large sack containing dried beans, a protein-rich staple food",
+  "type": "ingredient",
+  "weight": 5.0,
+  "value": 100,
+  "rarity": "common"
+}

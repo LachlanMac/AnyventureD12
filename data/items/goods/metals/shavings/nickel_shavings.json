@@ -1,0 +1,8 @@
+{
+  "name": "Nickel Shavings",
+  "description": "",
+  "type": "metal",
+  "weight": 0.2,
+  "value": 100,
+  "rarity": "common"
+}

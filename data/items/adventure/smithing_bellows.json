@@ -1,0 +1,8 @@
+{
+  "name": "Smithing Bellows",
+  "description": "Leather bellows for stoking forge fires to proper temperature",
+  "type": "adventure",
+  "weight": 5.0,
+  "value": 120,
+  "rarity": "common"
+}

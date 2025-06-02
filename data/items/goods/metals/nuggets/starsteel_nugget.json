@@ -1,0 +1,8 @@
+{
+  "name": "Starsteel Nugget",
+  "description": "",
+  "type": "metal",
+  "weight": 0.25,
+  "value": 5000,
+  "rarity": "common"
+}

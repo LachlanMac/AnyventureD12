@@ -1,7 +1,7 @@
 {
   "id": 9,
   "name": "Goblin",
-  "description": "Goblins are small, quick-witted humanoids that have built one of the most spectacular and advanced societies on Atlah. Goblins are typically born with a more purple hue, but turn green in their later years due to their civilization being built on the dark side of the moon where the green glow of Viridus is always directly overhead. The goblin love of creating has created a culture of meritocracy where those in power are the best crafters.",
+  "description": "Goblins are small, quick-witted humanoids that have built one of the most spectaculur and advanced societies on Atlah. Goblins are typically born with a more purple hue, but turn green in their later years due to their civilization being built on the dark side of the moon where the green glow of Viridus is always directly overhead. The goblin love of creating has created a culture of meritocracy where those in power are the best crafters.",
   "img": "img/ancestries/goblin.webp",
   "portrait": "img/ancestries/portraits/goblin.png",
   "homeworld": "Atlah",
@@ -17,19 +17,19 @@
       "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
     },
     {
-      "name": "Quick Metabolism",
-      "description": "Goblins must eat twice as much as their Size requires, but they gain an extra Dice worth of benefits from Food, Snacks and Potions.",
+      "name": "Nimble Hands",
+      "description": "Goblin fingers are incredibly nimble, capable of complex and accurate movements. Gain +1 skill with coordination and +1 skill with engineering.",
       "data": "TA"
     },
     {
-      "name": "Action : Squeeze By",
-      "description": "You take a modified version of the Move Action that allows you to pass through any Creature without provoking Reactions, as long as your Movement ends within an unoccupied space. Additionally, you can fit through tight spaces as if you were one size Smaller.",
+      "name": "Reaction : Flexible Bones",
+      "description": "Goblin bones are incredibly flexible and rarely break. In response to taking damage from being shoved or falling, halve the damage.",
       "data": "XX3"
     },
-    {
-      "name": "Goblin Ingenuity",
-      "description": "Your natural creativity and crafting prowess grants you an edge with tools and inventions. Gain +1 Engineering and +1 Logic.",
-      "data": "AT1=1:AS7=1:TA"
+      {
+      "name": "Quick Metabolism",
+      "description": "Goblins have a very active metabolism, causing them to process chemicals and food much faster than normal. Despite being small, you require as much food as a medium sized creature. Additionally, damage or healing effects from potions or poisons are doubled against you and the length of all potions and elixirs you drink is halved.",
+      "data": "TA"
     }
   ]
 }

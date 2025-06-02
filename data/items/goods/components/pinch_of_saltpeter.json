@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Saltpeter",
+  "description": "White crystalline powder that burns rapidly when ignited",
+  "type": "component",
+  "weight": 0.1,
+  "value": 30,
+  "rarity": "common"
+}
