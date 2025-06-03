@@ -14,6 +14,7 @@ interface Spell {
   _id: string;
   name: string;
   description: string;
+  charge?: string | null;
   duration: string;
   range: string;
   school: string;
@@ -241,6 +242,30 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
                     >
                       {spell.spellData.description}
                     </p>
+                    {spell.spellData.charge && (
+                      <div
+                        style={{
+                          backgroundColor: 'var(--color-dark-elevated)',
+                          borderLeft: '3px solid var(--color-metal-gold)',
+                          padding: '0.5rem',
+                          marginBottom: '0.75rem',
+                          borderRadius: '0.25rem',
+                        }}
+                      >
+                        <div style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold', fontSize: '0.75rem', marginBottom: '0.25rem' }}>
+                          Charge Effect:
+                        </div>
+                        <p
+                          style={{
+                            color: 'var(--color-cloud)',
+                            fontSize: '0.875rem',
+                            margin: 0,
+                          }}
+                        >
+                          {spell.spellData.charge}
+                        </p>
+                      </div>
+                    )}
                     <div
                       style={{
                         display: 'grid',

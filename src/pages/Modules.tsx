@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState, useEffect, useRef } from 'react';
+import { useParams, Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import { Module, CharacterModule } from '../types/character';
@@ -18,6 +18,9 @@ interface Character {
 
 const ModulesPage: React.FC = () => {
   const { id: characterId } = useParams<{ id: string }>();
+  const [searchParams] = useSearchParams();
+  const highlightModuleId = searchParams.get('highlight');
+  const moduleRefs = useRef<{ [key: string]: HTMLDivElement | null }>({});
 
   const [_loading, setLoading] = useState<boolean>(true);
   const [_error, setError] = useState<string | null>(null);
@@ -73,6 +76,24 @@ const ModulesPage: React.FC = () => {
 
     fetchData();
   }, [characterId]);
+
+  // Scroll to highlighted module when modules are loaded
+  useEffect(() => {
+    if (highlightModuleId && allModules.length > 0) {
+      // Give a small delay for DOM to render
+      setTimeout(() => {
+        const moduleElement = moduleRefs.current[highlightModuleId];
+        if (moduleElement) {
+          moduleElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
+          // Also select the module
+          const module = allModules.find(m => m._id === highlightModuleId);
+          if (module) {
+            setSelectedModule(module);
+          }
+        }
+      }, 100);
+    }
+  }, [highlightModuleId, allModules]);
 
   const isModuleSelected = (moduleId: string) => {
     return (
@@ -366,7 +387,7 @@ const ModulesPage: React.FC = () => {
       </div>
 
       <div style={{ marginBottom: '1.5rem' }}>
-        <Link to={`/characters/${characterId}`}>
+        <Link to={`/characters/${characterId}?tab=modules`}>
           <Button variant="secondary">&larr; Back to Character</Button>
         </Link>
       </div>
@@ -540,19 +561,25 @@ const ModulesPage: React.FC = () => {
                   {displayModules.map((module) => (
                     <div
                       key={module._id}
+                      ref={(el) => { moduleRefs.current[module._id] = el; }}
                       style={{
                         padding: '0.75rem 1rem',
                         borderRadius: '0.375rem',
                         backgroundColor: isModuleSelected(module._id)
                           ? 'var(--color-sat-purple-faded)'
-                          : 'var(--color-dark-elevated)',
+                          : highlightModuleId === module._id
+                            ? 'var(--color-metal-gold-faded)'
+                            : 'var(--color-dark-elevated)',
                         cursor: 'pointer',
                         border:
                           selectedModule?._id === module._id
                             ? '1px solid var(--color-metal-gold)'
-                            : isModuleSelected(module._id)
-                              ? '1px solid var(--color-sat-purple)'
-                              : '1px solid transparent',
+                            : highlightModuleId === module._id
+                              ? '2px solid var(--color-metal-gold)'
+                              : isModuleSelected(module._id)
+                                ? '1px solid var(--color-sat-purple)'
+                                : '1px solid transparent',
+                        transition: 'all 0.3s ease',
                       }}
                       onClick={() => handleViewModule(module)}
                     >

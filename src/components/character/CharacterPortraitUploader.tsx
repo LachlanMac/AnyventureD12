@@ -1,4 +1,5 @@
 import React, { useState, useRef } from 'react';
+import { useToast } from '../../context/ToastContext';
 import Button from '../ui/Button';
 
 interface CharacterPortraitUploaderProps {
@@ -15,6 +16,7 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
   const [preview, setPreview] = useState<string | null>(currentPortrait || null);
   const [isHovering, setIsHovering] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
+  const { showError } = useToast();
 
   // Determine dimensions based on size prop
   const getDimensions = () => {
@@ -39,13 +41,13 @@ const CharacterPortraitUploader: React.FC<CharacterPortraitUploaderProps> = ({
     // Check file type
     const validTypes = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
     if (!validTypes.includes(file.type)) {
-      alert('Please select a valid image file (JPEG, PNG, GIF, or WEBP)');
+      showError('Please select a valid image file (JPEG, PNG, GIF, or WEBP)');
       return;
     }
 
     // Check file size (max 2MB)
     if (file.size > 2 * 1024 * 1024) {
-      alert('Image size should be less than 2MB');
+      showError('Image size should be less than 2MB');
       return;
     }
 

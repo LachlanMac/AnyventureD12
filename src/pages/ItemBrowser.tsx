@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Item, Damage, ArmorData } from '../types/character';
+import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 
@@ -49,6 +50,7 @@ const getRangeDescription = (minRange: number, maxRange: number): string => {
 
 const ItemBrowser: React.FC = () => {
   const { characterId } = useParams<{ characterId: string }>();
+  const { showSuccess, showError } = useToast();
 
   const [items, setItems] = useState<APIItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<APIItem | null>(null);
@@ -99,13 +101,13 @@ const ItemBrowser: React.FC = () => {
 
       if (response.ok) {
         // Show success message
-        alert('Item added to inventory!');
+        showSuccess('Item added to inventory!');
       } else {
         throw new Error('Failed to add item to inventory');
       }
     } catch (error) {
       console.error('Error adding item:', error);
-      alert('Failed to add item to inventory');
+      showError('Failed to add item to inventory');
     } finally {
       setAddingItem(false);
     }

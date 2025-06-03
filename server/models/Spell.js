@@ -12,6 +12,11 @@ const SpellSchema = new Schema({
     type: String,
     required: true
   },
+  charge: {
+    type: String,
+    required: false,
+    default: null
+  },
   duration: {
     type: String,
     default: 'Instantaneous'
@@ -89,6 +94,71 @@ const SpellSchema = new Schema({
       'true'
     ]
   },
+  // Homebrew fields
+  isHomebrew: {
+    type: Boolean,
+    default: false
+  },
+  creatorId: {
+    type: String, // Discord ID
+    required: false
+  },
+  creatorName: {
+    type: String,
+    required: false
+  },
+  status: {
+    type: String,
+    enum: ['draft', 'private', 'published', 'approved', 'rejected'],
+    default: 'draft'
+  },
+  tags: {
+    type: [String],
+    default: []
+  },
+  source: {
+    type: String, // Campaign or source book
+    required: false
+  },
+  balanceNotes: {
+    type: String,
+    required: false
+  },
+  upvotes: {
+    type: Number,
+    default: 0
+  },
+  downvotes: {
+    type: Number,
+    default: 0
+  },
+  timesUsed: {
+    type: Number,
+    default: 0
+  },
+  votes: [{
+    userId: String,
+    vote: {
+      type: String,
+      enum: ['up', 'down']
+    }
+  }],
+  reports: [{
+    userId: String,
+    reason: String,
+    timestamp: {
+      type: Date,
+      default: Date.now
+    }
+  }],
+  publishedAt: {
+    type: Date,
+    default: null
+  },
+  forkedFrom: {
+    type: Schema.Types.ObjectId,
+    ref: 'Spell'
+  },
   // Meta data
   createdAt: {
     type: Date,
@@ -106,6 +176,8 @@ const SpellSchema = new Schema({
 SpellSchema.index({ school: 1, subschool: 1 });
 SpellSchema.index({ name: 1 });
 SpellSchema.index({ checkToCast: 1 });
+SpellSchema.index({ isHomebrew: 1, status: 1 });
+SpellSchema.index({ creatorId: 1 });
 
 const Spell = mongoose.model('Spell', SpellSchema);
 

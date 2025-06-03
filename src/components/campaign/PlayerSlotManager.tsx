@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useToast } from '../../context/ToastContext';
 import Button from '../ui/Button';
 
 interface Campaign {
@@ -35,6 +36,7 @@ interface PlayerSlotManagerProps {
 const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner, onSlotUpdated }) => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { showSuccess, showError, confirm } = useToast();
   const [loading, setLoading] = useState<{ [key: string]: boolean }>({});
   const [inviteLinks, setInviteLinks] = useState<{ [key: number]: string }>({});
   const [showInviteLink, setShowInviteLink] = useState<{ [key: number]: boolean }>({});
@@ -72,13 +74,14 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
       // Auto-copy to clipboard
       try {
         await navigator.clipboard.writeText(fullInviteLink);
-        alert('Invite link generated and copied to clipboard!');
+        showSuccess('Invite link generated and copied to clipboard!');
       } catch (err) {
+        // Silent fail, user can still use the copy button
       }
       
       onSlotUpdated();
     } catch (error) {
-      alert(`Failed to generate invite link: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      showError(`Failed to generate invite link: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setLoading(prev => ({ ...prev, [`invite-${slotIndex}`]: false }));
     }
@@ -116,14 +119,23 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       onSlotUpdated();
     } catch (error) {
-      alert('Failed to update slot');
+      showError('Failed to update slot');
     } finally {
       setLoading(prev => ({ ...prev, [`toggle-${slotIndex}`]: false }));
     }
   };
 
   const handleKickPlayer = async (characterId: string) => {
-    if (!isOwner || !confirm('Are you sure you want to kick this player?')) return;
+    if (!isOwner) return;
+    
+    const confirmed = await confirm({
+      title: 'Kick Player',
+      message: 'Are you sure you want to kick this player?',
+      confirmText: 'Kick',
+      cancelText: 'Cancel'
+    });
+    
+    if (!confirmed) return;
 
     setLoading(prev => ({ ...prev, [`kick-${characterId}`]: true }));
 
@@ -144,14 +156,21 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       onSlotUpdated();
     } catch (error) {
-      alert('Failed to kick player');
+      showError('Failed to kick player');
     } finally {
       setLoading(prev => ({ ...prev, [`kick-${characterId}`]: false }));
     }
   };
 
   const handleLeaveCampaign = async (characterId: string) => {
-    if (!confirm('Are you sure you want to leave this campaign?')) return;
+    const confirmed = await confirm({
+      title: 'Leave Campaign',
+      message: 'Are you sure you want to leave this campaign?',
+      confirmText: 'Leave',
+      cancelText: 'Cancel'
+    });
+    
+    if (!confirmed) return;
 
     setLoading(prev => ({ ...prev, [`leave-${characterId}`]: true }));
 
@@ -172,7 +191,7 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       onSlotUpdated();
     } catch (error) {
-      alert('Failed to leave campaign');
+      showError('Failed to leave campaign');
     } finally {
       setLoading(prev => ({ ...prev, [`leave-${characterId}`]: false }));
     }
@@ -181,7 +200,7 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
   const copyToClipboard = async (text: string) => {
     try {
       await navigator.clipboard.writeText(text);
-      alert('Invite link copied to clipboard!');
+      showSuccess('Invite link copied to clipboard!');
     } catch (error) {
       // Fallback for older browsers
       const textArea = document.createElement('textarea');
@@ -191,9 +210,9 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
       textArea.select();
       try {
         document.execCommand('copy');
-        alert('Invite link copied to clipboard!');
+        showSuccess('Invite link copied to clipboard!');
       } catch (fallbackError) {
-        alert('Failed to copy invite link');
+        showError('Failed to copy invite link');
       }
       document.body.removeChild(textArea);
     }

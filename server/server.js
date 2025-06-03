@@ -19,6 +19,8 @@ import itemRoutes from './routes/itemRoutes.js';
 import ancestryRoutes from './routes/ancestryRoutes.js';
 import cultureRoutes from './routes/cultureRoutes.js';
 import campaignRoutes from './routes/campaignRoutes.js';
+import homebrewRoutes from './routes/homebrewRoutes.js';
+import homebrewSpellRoutes from './routes/homebrewSpellRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -98,6 +100,8 @@ app.use('/api/portraits', portraitRoutes);
 app.use('/api/spells', spellRoutes);
 app.use('/api/items', itemRoutes);
 app.use('/api/campaigns', campaignRoutes);
+app.use('/api/homebrew', homebrewRoutes);
+app.use('/api/homebrew', homebrewSpellRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {

@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { AuthProvider } from './context/AuthContext';
+import { ToastProvider } from './context/ToastContext';
 import ProtectedRoute from './components/ProtectedRoute';
+import ToastContainer from './components/ui/ToastContainer';
 import { ReactNode } from 'react';
 
 // Layout Components
@@ -28,6 +30,11 @@ import SpellCompendium from './pages/SpellCompendium';
 import ConditionsCompendium from './pages/ConditionsCompendium';
 import ItemDetail from './pages/ItemDetail';
 import SpellDetail from './pages/SpellDetail';
+import HomebrewBrowser from './pages/HomebrewBrowser';
+import HomebrewItemBrowser from './pages/HomebrewItemBrowser';
+import HomebrewItemCreator from './pages/HomebrewItemCreator';
+import HomebrewSpellBrowser from './pages/HomebrewSpellBrowser';
+import HomebrewSpellCreator from './pages/HomebrewSpellCreator';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -47,28 +54,32 @@ const MainLayout: React.FC<MainLayoutProps> = ({ children }) => (
 const App: React.FC = () => {
   return (
     <AuthProvider>
-      <Router>
-        <div
-          style={{
-            display: 'flex',
-            flexDirection: 'column',
-            minHeight: '100vh',
-            backgroundColor: 'var(--color-dark-base)',
-          }}
-        >
-          {/* Background with stars effect */}
-          <div className="stars fixed inset-0" aria-hidden="true"></div>
-
-          {/* Main content */}
+      <ToastProvider>
+        <Router>
           <div
             style={{
-              position: 'relative',
-              zIndex: 10,
               display: 'flex',
               flexDirection: 'column',
               minHeight: '100vh',
+              backgroundColor: 'var(--color-dark-base)',
             }}
           >
+            {/* Background with stars effect */}
+            <div className="stars fixed inset-0" aria-hidden="true"></div>
+
+            {/* Toast notifications */}
+            <ToastContainer />
+
+            {/* Main content */}
+            <div
+              style={{
+                position: 'relative',
+                zIndex: 10,
+                display: 'flex',
+                flexDirection: 'column',
+                minHeight: '100vh',
+              }}
+            >
             <Routes>
               {/* Public routes with layout */}
               <Route
@@ -129,6 +140,46 @@ const App: React.FC = () => {
               />
               <Route
                 path="/spells/:id"
+                element={
+                  <MainLayout>
+                    <SpellDetail />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/homebrew"
+                element={
+                  <MainLayout>
+                    <HomebrewBrowser />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/homebrew/items"
+                element={
+                  <MainLayout>
+                    <HomebrewItemBrowser />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/homebrew/items/:id"
+                element={
+                  <MainLayout>
+                    <ItemDetail />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/homebrew/spells"
+                element={
+                  <MainLayout>
+                    <HomebrewSpellBrowser />
+                  </MainLayout>
+                }
+              />
+              <Route
+                path="/homebrew/spells/:id"
                 element={
                   <MainLayout>
                     <SpellDetail />
@@ -223,12 +274,29 @@ const App: React.FC = () => {
                     </MainLayout>
                   }
                 />
+                <Route
+                  path="/homebrew/items/create"
+                  element={
+                    <MainLayout>
+                      <HomebrewItemCreator />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/homebrew/spells/create"
+                  element={
+                    <MainLayout>
+                      <HomebrewSpellCreator />
+                    </MainLayout>
+                  }
+                />
                 {/* Add other protected routes here */}
               </Route>
             </Routes>
           </div>
         </div>
-      </Router>
+        </Router>
+      </ToastProvider>
     </AuthProvider>
   );
 };

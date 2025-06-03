@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import CampaignCreator from '../components/campaign/CampaignCreator';
 
@@ -36,6 +37,7 @@ interface Campaign {
 const Campaigns: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
+  const { showInfo } = useToast();
   const [campaigns, setCampaigns] = useState<Campaign[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -313,7 +315,7 @@ const Campaigns: React.FC = () => {
                         size="sm"
                         onClick={() => {
                           // Handle join action
-                          alert(`Joining campaign: ${campaign.name}`);
+                          showInfo(`Joining campaign: ${campaign.name}`);
                         }}
                       >
                         Join

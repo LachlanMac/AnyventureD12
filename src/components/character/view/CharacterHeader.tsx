@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useToast } from '../../../context/ToastContext';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
 import Button from '../../../components/ui/Button';
 import CharacterPortraitUploader from '../CharacterPortraitUploader';
@@ -43,6 +44,7 @@ interface CharacterHeaderProps {
 
 const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, onResourceChange }) => {
   const [portraitUrl, setPortraitUrl] = useState<string | null>(character.portraitUrl || null);
+  const { showError } = useToast();
 
   const handlePortraitChange = async (file: File) => {
     if (!file) return;
@@ -69,7 +71,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
       setPortraitUrl(data.portraitUrl);
     } catch (error) {
       console.error('Error uploading portrait:', error);
-      alert('Failed to upload portrait. Please try again.');
+      showError('Failed to upload portrait. Please try again.');
     }
   };
 

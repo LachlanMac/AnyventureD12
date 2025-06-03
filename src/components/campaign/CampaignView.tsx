@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+import { useToast } from '../../context/ToastContext';
 import Button from '../ui/Button';
 import PlayerSlotManager from './PlayerSlotManager';
 import CampaignEditor from './CampaignEditor';
@@ -38,6 +39,7 @@ const CampaignView: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { showError } = useToast();
   const [campaign, setCampaign] = useState<Campaign | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -109,7 +111,7 @@ const CampaignView: React.FC = () => {
       navigate('/campaigns');
     } catch (err) {
       console.error('Error deleting campaign:', err);
-      alert(err instanceof Error ? err.message : 'Failed to delete campaign');
+      showError(err instanceof Error ? err.message : 'Failed to delete campaign');
     } finally {
       setDeleting(false);
       setShowDeleteConfirm(false);

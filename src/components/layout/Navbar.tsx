@@ -48,6 +48,9 @@ const Navbar: React.FC = () => {
             <NavLink to="/modules" isActive={isActive('/modules')}>
               Modules
             </NavLink>
+            <NavLink to="/homebrew" isActive={isActive('/homebrew')}>
+              Homebrew
+            </NavLink>
 
             {/* Auth buttons */}
             {loading ? (
@@ -270,6 +273,14 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               Modules
+            </MobileNavLink>
+
+            <MobileNavLink
+              to="/homebrew"
+              isActive={isActive('/homebrew')}
+              onClick={() => setIsOpen(false)}
+            >
+              Homebrew
             </MobileNavLink>
 
             {isAuthenticated && (

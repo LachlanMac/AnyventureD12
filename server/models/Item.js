@@ -217,6 +217,41 @@ const ItemSchema = new Schema({
     unconscious: { type: Boolean, default: false }
   },
   
+  // Homebrew fields
+  isHomebrew: { type: Boolean, default: false },
+  creatorId: { type: String }, // Discord user ID
+  creatorName: { type: String }, // Display name
+  status: { 
+    type: String, 
+    enum: ['draft', 'private', 'published', 'approved', 'rejected'],
+    default: 'draft'
+  },
+  publishedAt: { type: Date },
+  approvedAt: { type: Date },
+  approvedBy: { type: String }, // Admin who approved
+  rejectionReason: { type: String },
+  
+  // Homebrew metadata
+  tags: [{ type: String }], // e.g., ['magic', 'weapon', 'cursed']
+  source: { type: String }, // e.g., "My Campaign Setting"
+  balanceNotes: { type: String }, // Creator's notes on balance
+  
+  // Community interaction
+  upvotes: { type: Number, default: 0 },
+  downvotes: { type: Number, default: 0 },
+  timesUsed: { type: Number, default: 0 },
+  reports: [{
+    userId: String,
+    reason: String,
+    details: String,
+    reportedAt: { type: Date, default: Date.now }
+  }],
+  
+  // Versioning
+  version: { type: Number, default: 1 },
+  parentItemId: { type: String }, // For forked items
+  changelog: { type: String },
+  
   // Metadata
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now }

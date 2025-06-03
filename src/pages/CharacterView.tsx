@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import { Character } from '../types/character';
 
@@ -52,6 +53,7 @@ const CharacterView: React.FC = () => {
   const navigate = useNavigate();
   const location = useLocation();
   const { user } = useAuth();
+  const { confirm } = useToast();
   const justCreated = new URLSearchParams(location.search).get('created') === 'true';
   const campaignId = new URLSearchParams(location.search).get('campaign');
   const tabFromUrl = new URLSearchParams(location.search).get('tab') as TabType;
@@ -136,7 +138,14 @@ const CharacterView: React.FC = () => {
 
 
   const handleDelete = async () => {
-    if (!window.confirm('Are you sure you want to delete this character?')) {
+    const confirmed = await confirm({
+      title: 'Delete Character',
+      message: 'Are you sure you want to delete this character? This action cannot be undone.',
+      confirmText: 'Delete',
+      cancelText: 'Cancel'
+    });
+    
+    if (!confirmed) {
       return;
     }
 

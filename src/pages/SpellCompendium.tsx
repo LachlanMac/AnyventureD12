@@ -6,6 +6,7 @@ interface Spell {
   _id: string;
   name: string;
   description: string;
+  charge?: string | null;
   duration: string;
   range: string;
   school: string;

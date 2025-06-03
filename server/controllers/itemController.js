@@ -6,7 +6,11 @@ import Item from '../models/Item.js';
 // @access  Public
 export const getItems = async (req, res) => {
   try {
-    const items = await Item.find({});
+    // By default, exclude homebrew items unless explicitly requested
+    const { includeHomebrew = 'false' } = req.query;
+    const query = includeHomebrew === 'true' ? {} : { $or: [{ isHomebrew: false }, { isHomebrew: { $exists: false } }] };
+    
+    const items = await Item.find(query);
     res.json(items);
   } catch (error) {
     console.error('Error fetching items:', error);

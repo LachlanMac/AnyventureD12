@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Item, Damage, ArmorData } from '../types/character';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { formatGoldDisplay } from '../utils/valueUtils';
 
 // Extended Item type that matches backend API response
 interface APIItem extends Item {
@@ -295,7 +296,7 @@ const ItemDetail: React.FC = () => {
                 <div>
                   <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>Value</div>
                   <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.125rem' }}>
-                    {item.value} coins
+                    {formatGoldDisplay(item.value)}
                   </div>
                 </div>
 

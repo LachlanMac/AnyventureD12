@@ -187,93 +187,85 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoi
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
           {/* Here we map through the character's modules array */}
-          {modules.map((module) => (
-            <Card key={getModuleData(module.moduleId)?._id || 'unknown'} variant="default" hoverEffect={true}>
-              <CardHeader
-                style={{
-                  backgroundColor: getModuleTypeColor(getModuleData(module.moduleId)?.mtype || ''),
-                  opacity: 0.8,
-                }}
+          {modules.map((module) => {
+            const moduleData = getModuleData(module.moduleId);
+            const moduleId = moduleData?._id || (typeof module.moduleId === 'string' ? module.moduleId : '');
+            const investedPoints = module.selectedOptions?.length || 0;
+            
+            return (
+              <Card 
+                key={moduleId || 'unknown'} 
+                variant="default" 
+                hoverEffect={true}
+                style={{ cursor: 'pointer' }}
+                onClick={() => navigate(`/characters/${characterId}/modules?highlight=${moduleId}`)}
               >
-                <div
+                <CardHeader
                   style={{
-                    display: 'flex',
-                    justifyContent: 'space-between',
-                    alignItems: 'center',
+                    backgroundColor: getModuleTypeColor(moduleData?.mtype || ''),
+                    opacity: 0.8,
                   }}
                 >
-                  <h3
+                  <div
                     style={{
-                      color: 'var(--color-white)',
-                      fontSize: '1.125rem',
-                      fontWeight: 'bold',
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
                     }}
                   >
-                    {getModuleData(module.moduleId)?.name || 'Module'}
-                  </h3>
-                  <span
+                    <h3
+                      style={{
+                        color: 'var(--color-white)',
+                        fontSize: '1.125rem',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      {moduleData?.name || 'Module'}
+                    </h3>
+                    <span
+                      style={{
+                        color: 'var(--color-white)',
+                        fontSize: '0.75rem',
+                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                        padding: '0.125rem 0.375rem',
+                        borderRadius: '9999px',
+                        textTransform: 'capitalize',
+                      }}
+                    >
+                      {moduleData?.mtype || 'Unknown'}
+                    </span>
+                  </div>
+                </CardHeader>
+                <CardBody>
+                  <div
                     style={{
-                      color: 'var(--color-white)',
-                      fontSize: '0.75rem',
-                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                      padding: '0.125rem 0.375rem',
-                      borderRadius: '9999px',
-                      textTransform: 'capitalize',
+                      textAlign: 'center',
+                      padding: '1rem 0',
                     }}
                   >
-                    {getModuleData(module.moduleId)?.mtype || 'Unknown'}
-                  </span>
-                </div>
-              </CardHeader>
-              <CardBody>
-                {module.selectedOptions && module.selectedOptions.length > 0 ? (
-                  <>
+                    <div
+                      style={{
+                        fontSize: '2rem',
+                        fontWeight: 'bold',
+                        color: 'var(--color-white)',
+                        marginBottom: '0.25rem',
+                      }}
+                    >
+                      {investedPoints}
+                    </div>
                     <div
                       style={{
                         color: 'var(--color-cloud)',
-                        marginBottom: '0.5rem',
                         fontSize: '0.875rem',
                       }}
                     >
-                      Selected Options:
+                      Module {investedPoints === 1 ? 'Point' : 'Points'} Invested
                     </div>
-                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                      {module.selectedOptions.map((option) => {
-                        const moduleData = getModuleData(module.moduleId);
-                        const optionDetails = moduleData?.options?.find(
-                          (o) => o.location === option.location
-                        );
-                        return (
-                          <div
-                            key={option.location}
-                            style={{
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              padding: '0.25rem 0.5rem',
-                              borderRadius: '0.25rem',
-                              fontSize: '0.75rem',
-                              color: 'var(--color-white)',
-                            }}
-                          >
-                            {optionDetails ? optionDetails.name : `Option ${option.location}`}
-                          </div>
-                        );
-                      })}
-                    </div>
-                  </>
-                ) : (
-                  <p
-                    style={{
-                      color: 'var(--color-cloud)',
-                      fontStyle: 'italic',
-                      fontSize: '0.875rem',
-                    }}
-                  >
-                    No options selected
-                  </p>
-                )}
-              </CardBody>
-            </Card>
-          ))}
+                  </div>
+                </CardBody>
+              </Card>
+            );
+          })}
         </div>
       )}
     </div>
