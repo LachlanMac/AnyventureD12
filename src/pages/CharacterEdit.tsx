@@ -561,7 +561,7 @@ const CharacterEdit: React.FC = () => {
         throw new Error('Failed to update character');
       }
 
-      const data = await response.json();
+      await response.json();
 
       // Now upload portrait if one was selected
       if (portraitFile) {

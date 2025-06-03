@@ -1,6 +1,6 @@
 import React, { useMemo } from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
-import { Action, Character, CharacterModule, CharacterAncestry, CharacterCulture } from '../../../types/character';
+import { Action, Character, Ancestry, Culture } from '../../../types/character';
 
 interface ActionsTabProps {
   character: Character;
@@ -55,9 +55,9 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     };
 
     // Parse from ancestry
-    const ancestryData = character.ancestry?.ancestryId;
+    const ancestryData = character.ancestry?.ancestryId as Ancestry | string | undefined;
     if (ancestryData && typeof ancestryData !== 'string' && ancestryData.options) {
-      ancestryData.options.forEach(option => {
+      ancestryData.options.forEach((option: any) => {
         if (option.data && isActionOrReaction(option.data)) {
           const actionType = getActionType(option.data, option.name);
           allActions.push({
@@ -74,9 +74,9 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     }
 
     // Parse from culture
-    const cultureData = character.characterCulture?.cultureId;
+    const cultureData = character.characterCulture?.cultureId as Culture | string | undefined;
     if (cultureData && typeof cultureData !== 'string' && cultureData.options) {
-      cultureData.options.forEach(option => {
+      cultureData.options.forEach((option: any) => {
         if (option.data && isActionOrReaction(option.data)) {
           const actionType = getActionType(option.data, option.name);
           allActions.push({
@@ -93,7 +93,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     }
 
     // Parse from modules
-    character.modules?.forEach((module, moduleIndex) => {
+    character.modules?.forEach((module) => {
       if (module.moduleId && typeof module.moduleId !== 'string') {
         const moduleData = module.moduleId;
         
