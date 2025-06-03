@@ -11,11 +11,16 @@ interface ModulesTabProps {
   onUpdateModulePoints?: (updatedCharacter: any) => void;
 }
 
-const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoints, onUpdateModulePoints }) => {
+const ModulesTab: React.FC<ModulesTabProps> = ({
+  characterId,
+  modules,
+  modulePoints,
+  onUpdateModulePoints,
+}) => {
   const navigate = useNavigate();
   const [isChangingPoints, setIsChangingPoints] = useState(false);
   const [pointChange, setPointChange] = useState(0);
-  
+
   // Helper function to get module type badge color
   const getModuleTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
@@ -51,7 +56,9 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoi
         {/* Module Points Display */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <div>
-            <span style={{ color: 'var(--color-cloud)', marginRight: '0.5rem' }}>Module Points:</span>
+            <span style={{ color: 'var(--color-cloud)', marginRight: '0.5rem' }}>
+              Module Points:
+            </span>
             <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
               {modulePoints?.spent || 0} / {modulePoints?.total || 0}
             </span>
@@ -112,11 +119,11 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoi
                           body: JSON.stringify({
                             modulePoints: {
                               total: newTotal,
-                              spent: modulePoints?.spent || 0
-                            }
+                              spent: modulePoints?.spent || 0,
+                            },
                           }),
                         });
-                        
+
                         if (response.ok) {
                           const updatedCharacter = await response.json();
                           onUpdateModulePoints(updatedCharacter);
@@ -128,9 +135,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoi
                       }
                     }
                   }}
-                  disabled={
-                    (modulePoints?.total || 0) + pointChange < (modulePoints?.spent || 0)
-                  }
+                  disabled={(modulePoints?.total || 0) + pointChange < (modulePoints?.spent || 0)}
                 >
                   Apply
                 </Button>
@@ -147,18 +152,22 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoi
                 </Button>
               </>
             )}
-            {isChangingPoints && (modulePoints?.total || 0) + pointChange < (modulePoints?.spent || 0) && (
-              <div style={{ color: 'var(--color-stormy)', fontSize: '0.875rem', marginLeft: '0.5rem' }}>
-                Cannot reduce below spent points
-              </div>
-            )}
+            {isChangingPoints &&
+              (modulePoints?.total || 0) + pointChange < (modulePoints?.spent || 0) && (
+                <div
+                  style={{
+                    color: 'var(--color-stormy)',
+                    fontSize: '0.875rem',
+                    marginLeft: '0.5rem',
+                  }}
+                >
+                  Cannot reduce below spent points
+                </div>
+              )}
           </div>
         </div>
-        
-        <Button 
-          variant="accent" 
-          onClick={() => navigate(`/characters/${characterId}/modules`)}
-        >
+
+        <Button variant="accent" onClick={() => navigate(`/characters/${characterId}/modules`)}>
           Manage Modules
         </Button>
       </div>
@@ -189,13 +198,14 @@ const ModulesTab: React.FC<ModulesTabProps> = ({ characterId, modules, modulePoi
           {/* Here we map through the character's modules array */}
           {modules.map((module) => {
             const moduleData = getModuleData(module.moduleId);
-            const moduleId = moduleData?._id || (typeof module.moduleId === 'string' ? module.moduleId : '');
+            const moduleId =
+              moduleData?._id || (typeof module.moduleId === 'string' ? module.moduleId : '');
             const investedPoints = module.selectedOptions?.length || 0;
-            
+
             return (
-              <Card 
-                key={moduleId || 'unknown'} 
-                variant="default" 
+              <Card
+                key={moduleId || 'unknown'}
+                variant="default"
                 hoverEffect={true}
                 style={{ cursor: 'pointer' }}
                 onClick={() => navigate(`/characters/${characterId}/modules?highlight=${moduleId}`)}

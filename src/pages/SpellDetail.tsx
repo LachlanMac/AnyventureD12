@@ -117,7 +117,7 @@ const SpellDetail: React.FC = () => {
             ← Back to Spells
           </Button>
         </div>
-        
+
         <div style={{ textAlign: 'center', marginBottom: '1.5rem' }}>
           <h1
             style={{
@@ -131,7 +131,9 @@ const SpellDetail: React.FC = () => {
           >
             {spell.name}
           </h1>
-          <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem' }}>
+          <div
+            style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '1rem' }}
+          >
             <span
               style={{
                 color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
@@ -154,8 +156,16 @@ const SpellDetail: React.FC = () => {
             </span>
           </div>
         </div>
-        
-        <div style={{ display: 'flex', justifyContent: 'center', gap: '0.75rem', alignItems: 'center', flexWrap: 'wrap' }}>
+
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '0.75rem',
+            alignItems: 'center',
+            flexWrap: 'wrap',
+          }}
+        >
           {spell.concentration && (
             <span
               style={{
@@ -171,7 +181,7 @@ const SpellDetail: React.FC = () => {
               Concentration
             </span>
           )}
-          
+
           {spell.reaction && (
             <span
               style={{
@@ -192,138 +202,246 @@ const SpellDetail: React.FC = () => {
 
       {/* Main Content */}
       <div className="max-w-4xl mx-auto">
-          <Card variant="default" style={{ marginBottom: '1.5rem' }}>
-            <CardHeader>
-              <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Description</h2>
-            </CardHeader>
-            <CardBody>
-              <p style={{ color: 'var(--color-cloud)', lineHeight: '1.6', margin: 0, fontSize: '1rem' }}>
-                {spell.description}
-              </p>
-              {spell.damage > 0 && (
-                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--color-dark-border)' }}>
-                  <h3 style={{ color: 'var(--color-metal-gold)', fontSize: '1rem', marginBottom: '0.5rem' }}>Damage</h3>
-                  <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
-                    <span style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                      {spell.damage}
-                    </span>
+        <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+          <CardHeader>
+            <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Description</h2>
+          </CardHeader>
+          <CardBody>
+            <p
+              style={{
+                color: 'var(--color-cloud)',
+                lineHeight: '1.6',
+                margin: 0,
+                fontSize: '1rem',
+              }}
+            >
+              {spell.description}
+            </p>
+            {spell.damage > 0 && (
+              <div
+                style={{
+                  marginTop: '1rem',
+                  paddingTop: '1rem',
+                  borderTop: '1px solid var(--color-dark-border)',
+                }}
+              >
+                <h3
+                  style={{
+                    color: 'var(--color-metal-gold)',
+                    fontSize: '1rem',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Damage
+                </h3>
+                <div style={{ display: 'flex', alignItems: 'baseline', gap: '0.75rem' }}>
+                  <span
+                    style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}
+                  >
+                    {spell.damage}
+                  </span>
+                  <span
+                    style={{
+                      color:
+                        damageTypeColors[spell.damageType.toLowerCase()] || 'var(--color-cloud)',
+                      fontWeight: 'bold',
+                      fontSize: '1rem',
+                      textTransform: 'capitalize',
+                    }}
+                  >
+                    {spell.damageType}
+                  </span>
+                </div>
+              </div>
+            )}
+            {spell.charge && (
+              <div
+                style={{
+                  marginTop: '1rem',
+                  paddingTop: '1rem',
+                  borderTop: '1px solid var(--color-dark-border)',
+                }}
+              >
+                <h3
+                  style={{
+                    color: 'var(--color-metal-gold)',
+                    fontSize: '1rem',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Charge Effect
+                </h3>
+                <p
+                  style={{
+                    color: 'var(--color-cloud)',
+                    lineHeight: '1.6',
+                    margin: 0,
+                    fontSize: '1rem',
+                  }}
+                >
+                  {spell.charge}
+                </p>
+              </div>
+            )}
+            {spell.components && spell.components.length > 0 && spell.components[0] !== '' && (
+              <div
+                style={{
+                  marginTop: '1rem',
+                  paddingTop: '1rem',
+                  borderTop: '1px solid var(--color-dark-border)',
+                }}
+              >
+                <h3
+                  style={{
+                    color: 'var(--color-metal-gold)',
+                    fontSize: '1rem',
+                    marginBottom: '0.5rem',
+                  }}
+                >
+                  Components
+                </h3>
+                <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                  {spell.components.map((component, index) => (
                     <span
+                      key={index}
                       style={{
-                        color: damageTypeColors[spell.damageType.toLowerCase()] || 'var(--color-cloud)',
-                        fontWeight: 'bold',
-                        fontSize: '1rem',
-                        textTransform: 'capitalize',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        color: 'var(--color-cloud)',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '0.25rem',
+                        fontSize: '0.875rem',
                       }}
                     >
-                      {spell.damageType}
+                      {component}
                     </span>
-                  </div>
+                  ))}
                 </div>
-              )}
-              {spell.charge && (
-                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--color-dark-border)' }}>
-                  <h3 style={{ color: 'var(--color-metal-gold)', fontSize: '1rem', marginBottom: '0.5rem' }}>Charge Effect</h3>
-                  <p style={{ color: 'var(--color-cloud)', lineHeight: '1.6', margin: 0, fontSize: '1rem' }}>
-                    {spell.charge}
-                  </p>
-                </div>
-              )}
-              {spell.components && spell.components.length > 0 && spell.components[0] !== '' && (
-                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--color-dark-border)' }}>
-                  <h3 style={{ color: 'var(--color-metal-gold)', fontSize: '1rem', marginBottom: '0.5rem' }}>Components</h3>
-                  <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                    {spell.components.map((component, index) => (
-                      <span
-                        key={index}
-                        style={{
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-cloud)',
-                          padding: '0.25rem 0.75rem',
-                          borderRadius: '0.25rem',
-                          fontSize: '0.875rem',
-                        }}
-                      >
-                        {component}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              )}
-            </CardBody>
-          </Card>
+              </div>
+            )}
+          </CardBody>
+        </Card>
 
-          {/* Casting Requirements */}
+        {/* Casting Requirements */}
+        <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+          <CardHeader>
+            <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Casting Requirements</h2>
+          </CardHeader>
+          <CardBody>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  style={{
+                    color: 'var(--color-muted)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Check to Cast
+                </div>
+                <div
+                  style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}
+                >
+                  {spell.checkToCast}
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  style={{
+                    color: 'var(--color-muted)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Energy Cost
+                </div>
+                <div
+                  style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}
+                >
+                  {spell.energy}
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  style={{
+                    color: 'var(--color-muted)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Range
+                </div>
+                <div
+                  style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}
+                >
+                  {spell.range}
+                </div>
+              </div>
+
+              <div style={{ textAlign: 'center' }}>
+                <div
+                  style={{
+                    color: 'var(--color-muted)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Duration
+                </div>
+                <div
+                  style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}
+                >
+                  {spell.duration}
+                </div>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
+
+        {/* Special Properties */}
+        {(spell.concentration || spell.reaction) && (
           <Card variant="default" style={{ marginBottom: '1.5rem' }}>
             <CardHeader>
-              <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Casting Requirements</h2>
+              <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Special Properties</h2>
             </CardHeader>
             <CardBody>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1.5rem' }}>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Check to Cast</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                    {spell.checkToCast}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                {spell.concentration && (
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '1rem' }}>
+                    <strong style={{ color: 'var(--color-metal-gold)' }}>Concentration:</strong>{' '}
+                    This spell requires concentration to maintain. You cannot concentrate on
+                    multiple spells at once.
                   </div>
-                </div>
-                
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Energy Cost</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                    {spell.energy}
+                )}
+                {spell.reaction && (
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '1rem' }}>
+                    <strong style={{ color: 'var(--color-metal-gold)' }}>Reaction:</strong> This
+                    spell can be cast as a reaction, allowing you to cast it in response to a
+                    trigger or event.
                   </div>
-                </div>
-                
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Range</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                    {spell.range}
-                  </div>
-                </div>
-                
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem', marginBottom: '0.25rem' }}>Duration</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}>
-                    {spell.duration}
-                  </div>
-                </div>
+                )}
               </div>
             </CardBody>
           </Card>
+        )}
 
-          {/* Special Properties */}
-          {(spell.concentration || spell.reaction) && (
-            <Card variant="default" style={{ marginBottom: '1.5rem' }}>
-              <CardHeader>
-                <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Special Properties</h2>
-              </CardHeader>
-              <CardBody>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  {spell.concentration && (
-                    <div style={{ color: 'var(--color-cloud)', fontSize: '1rem' }}>
-                      <strong style={{ color: 'var(--color-metal-gold)' }}>Concentration:</strong> This spell requires concentration to maintain. You cannot concentrate on multiple spells at once.
-                    </div>
-                  )}
-                  {spell.reaction && (
-                    <div style={{ color: 'var(--color-cloud)', fontSize: '1rem' }}>
-                      <strong style={{ color: 'var(--color-metal-gold)' }}>Reaction:</strong> This spell can be cast as a reaction, allowing you to cast it in response to a trigger or event.
-                    </div>
-                  )}
-                </div>
-              </CardBody>
-            </Card>
-          )}
-          
-          {/* Share Section */}
-          <Card variant="default" style={{ marginTop: '2rem', backgroundColor: 'var(--color-dark-elevated)' }}>
-            <CardBody>
-              <div style={{ textAlign: 'center' }}>
-                <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '1rem' }}>Share this Spell</h3>
-                <Button variant="primary" onClick={copySpellLink}>
-                  📋 Copy Link to Clipboard
-                </Button>
-              </div>
-            </CardBody>
-          </Card>
+        {/* Share Section */}
+        <Card
+          variant="default"
+          style={{ marginTop: '2rem', backgroundColor: 'var(--color-dark-elevated)' }}
+        >
+          <CardBody>
+            <div style={{ textAlign: 'center' }}>
+              <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '1rem' }}>
+                Share this Spell
+              </h3>
+              <Button variant="primary" onClick={copySpellLink}>
+                📋 Copy Link to Clipboard
+              </Button>
+            </div>
+          </CardBody>
+        </Card>
       </div>
     </div>
   );

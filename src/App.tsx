@@ -80,221 +80,221 @@ const App: React.FC = () => {
                 minHeight: '100vh',
               }}
             >
-            <Routes>
-              {/* Public routes with layout */}
-              <Route
-                path="/"
-                element={
-                  <MainLayout>
-                    <Home />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/characters"
-                element={
-                  <MainLayout>
-                    <Characters />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/modules"
-                element={
-                  <MainLayout>
-                    <ModuleCompendium />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/items"
-                element={
-                  <MainLayout>
-                    <ItemCompendium />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/spells"
-                element={
-                  <MainLayout>
-                    <SpellCompendium />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/conditions"
-                element={
-                  <MainLayout>
-                    <ConditionsCompendium />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/items/:id"
-                element={
-                  <MainLayout>
-                    <ItemDetail />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/spells/:id"
-                element={
-                  <MainLayout>
-                    <SpellDetail />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/homebrew"
-                element={
-                  <MainLayout>
-                    <HomebrewBrowser />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/homebrew/items"
-                element={
-                  <MainLayout>
-                    <HomebrewItemBrowser />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/homebrew/items/:id"
-                element={
-                  <MainLayout>
-                    <ItemDetail />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/homebrew/spells"
-                element={
-                  <MainLayout>
-                    <HomebrewSpellBrowser />
-                  </MainLayout>
-                }
-              />
-              <Route
-                path="/homebrew/spells/:id"
-                element={
-                  <MainLayout>
-                    <SpellDetail />
-                  </MainLayout>
-                }
-              />
-              
-              {/* Campaign invite join page (no auth required) */}
-              <Route
-                path="/campaigns/join/:token"
-                element={
-                  <MainLayout>
-                    <CampaignJoin />
-                  </MainLayout>
-                }
-              />
+              <Routes>
+                {/* Public routes with layout */}
+                <Route
+                  path="/"
+                  element={
+                    <MainLayout>
+                      <Home />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/characters"
+                  element={
+                    <MainLayout>
+                      <Characters />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/modules"
+                  element={
+                    <MainLayout>
+                      <ModuleCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/items"
+                  element={
+                    <MainLayout>
+                      <ItemCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/spells"
+                  element={
+                    <MainLayout>
+                      <SpellCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/conditions"
+                  element={
+                    <MainLayout>
+                      <ConditionsCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/items/:id"
+                  element={
+                    <MainLayout>
+                      <ItemDetail />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/spells/:id"
+                  element={
+                    <MainLayout>
+                      <SpellDetail />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/homebrew"
+                  element={
+                    <MainLayout>
+                      <HomebrewBrowser />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/homebrew/items"
+                  element={
+                    <MainLayout>
+                      <HomebrewItemBrowser />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/homebrew/items/:id"
+                  element={
+                    <MainLayout>
+                      <ItemDetail />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/homebrew/spells"
+                  element={
+                    <MainLayout>
+                      <HomebrewSpellBrowser />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/homebrew/spells/:id"
+                  element={
+                    <MainLayout>
+                      <SpellDetail />
+                    </MainLayout>
+                  }
+                />
 
-              {/* Login page (no layout) */}
-              <Route path="/login" element={<Login />} />
+                {/* Campaign invite join page (no auth required) */}
+                <Route
+                  path="/campaigns/join/:token"
+                  element={
+                    <MainLayout>
+                      <CampaignJoin />
+                    </MainLayout>
+                  }
+                />
 
-              {/* Protected routes with layout */}
-              <Route element={<ProtectedRoute />}>
-                <Route
-                  path="/campaigns"
-                  element={
-                    <MainLayout>
-                      <Campaigns />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/campaigns/:id"
-                  element={
-                    <MainLayout>
-                      <CampaignView />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/characters/create"
-                  element={
-                    <MainLayout>
-                      <CharacterCreate />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/characters/:id/spells"
-                  element={
-                    <MainLayout>
-                      <SpellsPage />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/characters/:id/edit"
-                  element={
-                    <MainLayout>
-                      <CharacterEdit />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/characters/:id"
-                  element={
-                    <MainLayout>
-                      <CharacterView />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/characters/:id/modules"
-                  element={
-                    <MainLayout>
-                      <ModulesPage />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/character/:characterId/items"
-                  element={
-                    <MainLayout>
-                      <ItemBrowser />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/items/manage"
-                  element={
-                    <MainLayout>
-                      <ItemManager />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/homebrew/items/create"
-                  element={
-                    <MainLayout>
-                      <HomebrewItemCreator />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/homebrew/spells/create"
-                  element={
-                    <MainLayout>
-                      <HomebrewSpellCreator />
-                    </MainLayout>
-                  }
-                />
-                {/* Add other protected routes here */}
-              </Route>
-            </Routes>
+                {/* Login page (no layout) */}
+                <Route path="/login" element={<Login />} />
+
+                {/* Protected routes with layout */}
+                <Route element={<ProtectedRoute />}>
+                  <Route
+                    path="/campaigns"
+                    element={
+                      <MainLayout>
+                        <Campaigns />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/campaigns/:id"
+                    element={
+                      <MainLayout>
+                        <CampaignView />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/characters/create"
+                    element={
+                      <MainLayout>
+                        <CharacterCreate />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/characters/:id/spells"
+                    element={
+                      <MainLayout>
+                        <SpellsPage />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/characters/:id/edit"
+                    element={
+                      <MainLayout>
+                        <CharacterEdit />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/characters/:id"
+                    element={
+                      <MainLayout>
+                        <CharacterView />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/characters/:id/modules"
+                    element={
+                      <MainLayout>
+                        <ModulesPage />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/character/:characterId/items"
+                    element={
+                      <MainLayout>
+                        <ItemBrowser />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/items/manage"
+                    element={
+                      <MainLayout>
+                        <ItemManager />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/homebrew/items/create"
+                    element={
+                      <MainLayout>
+                        <HomebrewItemCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/homebrew/spells/create"
+                    element={
+                      <MainLayout>
+                        <HomebrewSpellCreator />
+                      </MainLayout>
+                    }
+                  />
+                  {/* Add other protected routes here */}
+                </Route>
+              </Routes>
+            </div>
           </div>
-        </div>
         </Router>
       </ToastProvider>
     </AuthProvider>

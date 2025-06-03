@@ -9,7 +9,7 @@ const HomebrewSpellCreator: React.FC = () => {
   const { user } = useAuth();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
-  
+
   // Basic spell data
   const [spellData, setSpellData] = useState({
     name: '',
@@ -29,43 +29,43 @@ const HomebrewSpellCreator: React.FC = () => {
     damageType: null as string | null,
     tags: [] as string[],
     source: '',
-    balanceNotes: ''
+    balanceNotes: '',
   });
-  
+
   // Current step
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 3;
-  
+
   const handleSubmit = async () => {
     if (!user) {
       setError('You must be logged in to create homebrew spells');
       return;
     }
-    
+
     setSaving(true);
     setError(null);
-    
+
     try {
       // Prepare spell data
       const submitData = {
         ...spellData,
-        components: spellData.components.filter(c => c.trim() !== ''),
-        damageType: spellData.damage > 0 ? spellData.damageType : null
+        components: spellData.components.filter((c) => c.trim() !== ''),
+        damageType: spellData.damage > 0 ? spellData.damageType : null,
       };
-      
+
       const response = await fetch('/api/homebrew/spells', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         credentials: 'include',
-        body: JSON.stringify(submitData)
+        body: JSON.stringify(submitData),
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to create homebrew spell');
       }
-      
+
       const createdSpell = await response.json();
       navigate(`/homebrew/spells/${createdSpell._id}`);
     } catch (err) {
@@ -74,21 +74,25 @@ const HomebrewSpellCreator: React.FC = () => {
       setSaving(false);
     }
   };
-  
+
   const renderStep = () => {
     switch (currentStep) {
       case 1:
         return (
           <Card variant="default">
             <CardHeader>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>
-                Basic Information
-              </h2>
+              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>Basic Information</h2>
             </CardHeader>
             <CardBody>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Spell Name
                   </label>
                   <input
@@ -102,13 +106,19 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Description
                   </label>
                   <textarea
@@ -122,13 +132,19 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Charge Effect (Optional)
                   </label>
                   <textarea
@@ -142,14 +158,20 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                   <div>
-                    <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       School
                     </label>
                     <select
@@ -161,12 +183,12 @@ const HomebrewSpellCreator: React.FC = () => {
                           black: 'necromancy',
                           divine: 'radiant',
                           mysticism: 'divination',
-                          primal: 'elemental'
+                          primal: 'elemental',
                         };
-                        setSpellData({ 
-                          ...spellData, 
+                        setSpellData({
+                          ...spellData,
                           school: newSchool,
-                          subschool: subschoolMap[newSchool]
+                          subschool: subschoolMap[newSchool],
                         });
                       }}
                       style={{
@@ -175,7 +197,7 @@ const HomebrewSpellCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-elevated)',
                         color: 'var(--color-white)',
                         border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem'
+                        borderRadius: '0.375rem',
                       }}
                     >
                       <option value="alteration">Alteration</option>
@@ -185,9 +207,15 @@ const HomebrewSpellCreator: React.FC = () => {
                       <option value="primal">Primal</option>
                     </select>
                   </div>
-                  
+
                   <div>
-                    <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Subschool
                     </label>
                     <select
@@ -199,7 +227,7 @@ const HomebrewSpellCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-elevated)',
                         color: 'var(--color-white)',
                         border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem'
+                        borderRadius: '0.375rem',
                       }}
                     >
                       {spellData.school === 'alteration' && (
@@ -244,7 +272,7 @@ const HomebrewSpellCreator: React.FC = () => {
             </CardBody>
           </Card>
         );
-        
+
       case 2:
         return (
           <Card variant="default">
@@ -255,15 +283,25 @@ const HomebrewSpellCreator: React.FC = () => {
             </CardHeader>
             <CardBody>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                <div
+                  style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
+                >
                   <div>
-                    <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Check to Cast
                     </label>
                     <input
                       type="number"
                       value={spellData.checkToCast}
-                      onChange={(e) => setSpellData({ ...spellData, checkToCast: Number(e.target.value) })}
+                      onChange={(e) =>
+                        setSpellData({ ...spellData, checkToCast: Number(e.target.value) })
+                      }
                       min={1}
                       max={20}
                       style={{
@@ -272,19 +310,27 @@ const HomebrewSpellCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-elevated)',
                         color: 'var(--color-white)',
                         border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem'
+                        borderRadius: '0.375rem',
                       }}
                     />
                   </div>
-                  
+
                   <div>
-                    <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Energy Cost
                     </label>
                     <input
                       type="number"
                       value={spellData.energy}
-                      onChange={(e) => setSpellData({ ...spellData, energy: Number(e.target.value) })}
+                      onChange={(e) =>
+                        setSpellData({ ...spellData, energy: Number(e.target.value) })
+                      }
                       min={1}
                       max={10}
                       style={{
@@ -293,13 +339,19 @@ const HomebrewSpellCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-elevated)',
                         color: 'var(--color-white)',
                         border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem'
+                        borderRadius: '0.375rem',
                       }}
                     />
                   </div>
-                  
+
                   <div>
-                    <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Range
                     </label>
                     <select
@@ -311,7 +363,7 @@ const HomebrewSpellCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-elevated)',
                         color: 'var(--color-white)',
                         border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem'
+                        borderRadius: '0.375rem',
                       }}
                     >
                       <option value="Self">Self</option>
@@ -324,9 +376,15 @@ const HomebrewSpellCreator: React.FC = () => {
                       <option value="Remote">Remote</option>
                     </select>
                   </div>
-                  
+
                   <div>
-                    <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Duration
                     </label>
                     <input
@@ -340,23 +398,34 @@ const HomebrewSpellCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-elevated)',
                         color: 'var(--color-white)',
                         border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem'
+                        borderRadius: '0.375rem',
                       }}
                     />
                   </div>
                 </div>
-                
+
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Components (comma-separated)
                   </label>
                   <input
                     type="text"
                     value={spellData.components.join(', ')}
-                    onChange={(e) => setSpellData({
-                      ...spellData,
-                      components: e.target.value.split(',').map(c => c.trim()).filter(c => c)
-                    })}
+                    onChange={(e) =>
+                      setSpellData({
+                        ...spellData,
+                        components: e.target.value
+                          .split(',')
+                          .map((c) => c.trim())
+                          .filter((c) => c),
+                      })
+                    }
                     placeholder="e.g., pinch of sulfur, bat wing"
                     style={{
                       width: '100%',
@@ -364,13 +433,19 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Ritual Duration (Optional)
                   </label>
                   <input
@@ -384,23 +459,39 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div style={{ display: 'flex', gap: '2rem' }}>
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-cloud)' }}>
+                  <label
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: 'var(--color-cloud)',
+                    }}
+                  >
                     <input
                       type="checkbox"
                       checked={spellData.concentration}
-                      onChange={(e) => setSpellData({ ...spellData, concentration: e.target.checked })}
+                      onChange={(e) =>
+                        setSpellData({ ...spellData, concentration: e.target.checked })
+                      }
                       style={{ transform: 'scale(1.2)' }}
                     />
                     Requires Concentration
                   </label>
-                  
-                  <label style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', color: 'var(--color-cloud)' }}>
+
+                  <label
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      color: 'var(--color-cloud)',
+                    }}
+                  >
                     <input
                       type="checkbox"
                       checked={spellData.reaction}
@@ -410,18 +501,30 @@ const HomebrewSpellCreator: React.FC = () => {
                     Can be cast as Reaction
                   </label>
                 </div>
-                
+
                 <div>
-                  <h3 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>Damage (Optional)</h3>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}>
+                  <h3 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>
+                    Damage (Optional)
+                  </h3>
+                  <div
+                    style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
+                  >
                     <div>
-                      <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-cloud)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Damage Amount
                       </label>
                       <input
                         type="number"
                         value={spellData.damage}
-                        onChange={(e) => setSpellData({ ...spellData, damage: Number(e.target.value) })}
+                        onChange={(e) =>
+                          setSpellData({ ...spellData, damage: Number(e.target.value) })
+                        }
                         min={0}
                         style={{
                           width: '100%',
@@ -429,26 +532,34 @@ const HomebrewSpellCreator: React.FC = () => {
                           backgroundColor: 'var(--color-dark-elevated)',
                           color: 'var(--color-white)',
                           border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.375rem'
+                          borderRadius: '0.375rem',
                         }}
                       />
                     </div>
-                    
+
                     {spellData.damage > 0 && (
                       <div>
-                        <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-cloud)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Damage Type
                         </label>
                         <select
                           value={spellData.damageType || ''}
-                          onChange={(e) => setSpellData({ ...spellData, damageType: e.target.value })}
+                          onChange={(e) =>
+                            setSpellData({ ...spellData, damageType: e.target.value })
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-elevated)',
                             color: 'var(--color-white)',
                             border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem'
+                            borderRadius: '0.375rem',
                           }}
                         >
                           <option value="">Select type...</option>
@@ -471,28 +582,37 @@ const HomebrewSpellCreator: React.FC = () => {
             </CardBody>
           </Card>
         );
-        
+
       case 3:
         return (
           <Card variant="default">
             <CardHeader>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>
-                Meta Information
-              </h2>
+              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>Meta Information</h2>
             </CardHeader>
             <CardBody>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Tags (comma-separated)
                   </label>
                   <input
                     type="text"
                     value={spellData.tags.join(', ')}
-                    onChange={(e) => setSpellData({
-                      ...spellData,
-                      tags: e.target.value.split(',').map(tag => tag.trim()).filter(tag => tag)
-                    })}
+                    onChange={(e) =>
+                      setSpellData({
+                        ...spellData,
+                        tags: e.target.value
+                          .split(',')
+                          .map((tag) => tag.trim())
+                          .filter((tag) => tag),
+                      })
+                    }
                     placeholder="e.g., fire, combat, utility"
                     style={{
                       width: '100%',
@@ -500,13 +620,19 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Source/Campaign
                   </label>
                   <input
@@ -520,13 +646,19 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
-                
+
                 <div>
-                  <label style={{ color: 'var(--color-cloud)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-cloud)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Balance Notes
                   </label>
                   <textarea
@@ -540,7 +672,7 @@ const HomebrewSpellCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-elevated)',
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem'
+                      borderRadius: '0.375rem',
                     }}
                   />
                 </div>
@@ -548,35 +680,39 @@ const HomebrewSpellCreator: React.FC = () => {
             </CardBody>
           </Card>
         );
-        
+
       default:
         return null;
     }
   };
-  
+
   return (
     <div className="container mx-auto px-4 py-8">
-      <h1 style={{
-        color: 'var(--color-white)',
-        fontSize: '2.5rem',
-        fontWeight: 'bold',
-        marginBottom: '2rem'
-      }}>
+      <h1
+        style={{
+          color: 'var(--color-white)',
+          fontSize: '2.5rem',
+          fontWeight: 'bold',
+          marginBottom: '2rem',
+        }}
+      >
         Create Homebrew Spell
       </h1>
-      
+
       {error && (
-        <div style={{
-          backgroundColor: 'var(--color-stormy)',
-          color: 'var(--color-white)',
-          padding: '1rem',
-          borderRadius: '0.375rem',
-          marginBottom: '1rem'
-        }}>
+        <div
+          style={{
+            backgroundColor: 'var(--color-stormy)',
+            color: 'var(--color-white)',
+            padding: '1rem',
+            borderRadius: '0.375rem',
+            marginBottom: '1rem',
+          }}
+        >
           {error}
         </div>
       )}
-      
+
       {/* Progress indicator */}
       <div style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
@@ -586,9 +722,10 @@ const HomebrewSpellCreator: React.FC = () => {
               style={{
                 flex: 1,
                 height: '4px',
-                backgroundColor: i < currentStep ? 'var(--color-metal-gold)' : 'var(--color-dark-elevated)',
+                backgroundColor:
+                  i < currentStep ? 'var(--color-metal-gold)' : 'var(--color-dark-elevated)',
                 marginRight: i < totalSteps - 1 ? '0.5rem' : '0',
-                borderRadius: '2px'
+                borderRadius: '2px',
               }}
             />
           ))}
@@ -597,26 +734,32 @@ const HomebrewSpellCreator: React.FC = () => {
           Step {currentStep} of {totalSteps}
         </div>
       </div>
-      
+
       {renderStep()}
-      
+
       {/* Navigation buttons */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        marginTop: '2rem'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          marginTop: '2rem',
+        }}
+      >
         <Button
           variant="secondary"
-          onClick={() => currentStep > 1 ? setCurrentStep(currentStep - 1) : navigate('/homebrew')}
+          onClick={() =>
+            currentStep > 1 ? setCurrentStep(currentStep - 1) : navigate('/homebrew')
+          }
           disabled={saving}
         >
           {currentStep === 1 ? 'Cancel' : 'Previous'}
         </Button>
-        
+
         <Button
           variant="primary"
-          onClick={() => currentStep < totalSteps ? setCurrentStep(currentStep + 1) : handleSubmit()}
+          onClick={() =>
+            currentStep < totalSteps ? setCurrentStep(currentStep + 1) : handleSubmit()
+          }
           disabled={saving || !spellData.name || !spellData.description}
         >
           {currentStep === totalSteps ? (saving ? 'Creating...' : 'Create Spell') : 'Next'}

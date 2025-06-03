@@ -72,7 +72,7 @@ const CharacterView: React.FC = () => {
     personalityModule && typeof personalityModule.moduleId !== 'string'
       ? personalityModule.moduleId.name
       : undefined;
-      
+
   // Handler to update character state
   const handleUpdateCharacter = (updatedCharacter: CharacterWithAPI) => {
     setCharacter(updatedCharacter);
@@ -85,10 +85,10 @@ const CharacterView: React.FC = () => {
         // Fetch character data
         const characterResponse = await fetch(`/api/characters/${id}`, {
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
         });
-        
+
         if (!characterResponse.ok) {
           if (characterResponse.status === 403) {
             throw new Error('You do not have permission to view this character');
@@ -108,8 +108,8 @@ const CharacterView: React.FC = () => {
           try {
             const campaignResponse = await fetch(`/api/campaigns/${campaignId}`, {
               headers: {
-                'Authorization': `Bearer ${localStorage.getItem('token')}`
-              }
+                Authorization: `Bearer ${localStorage.getItem('token')}`,
+              },
             });
             if (campaignResponse.ok) {
               const campaignData = await campaignResponse.json();
@@ -130,21 +130,20 @@ const CharacterView: React.FC = () => {
         setLoading(false);
       }
     };
-    
+
     if (user) {
       fetchData();
     }
   }, [id, user, campaignId]);
-
 
   const handleDelete = async () => {
     const confirmed = await confirm({
       title: 'Delete Character',
       message: 'Are you sure you want to delete this character? This action cannot be undone.',
       confirmText: 'Delete',
-      cancelText: 'Cancel'
+      cancelText: 'Cancel',
     });
-    
+
     if (!confirmed) {
       return;
     }
@@ -167,7 +166,10 @@ const CharacterView: React.FC = () => {
     }
   };
 
-  const handleResourceChange = async (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => {
+  const handleResourceChange = async (
+    resource: 'health' | 'energy' | 'resolve',
+    newCurrent: number
+  ) => {
     if (!character) return;
 
     try {
@@ -178,9 +180,9 @@ const CharacterView: React.FC = () => {
           ...character.resources,
           [resource]: {
             ...character.resources[resource],
-            current: newCurrent
-          }
-        }
+            current: newCurrent,
+          },
+        },
       };
       setCharacter(updatedCharacter);
 
@@ -191,7 +193,7 @@ const CharacterView: React.FC = () => {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          resources: updatedCharacter.resources
+          resources: updatedCharacter.resources,
         }),
       });
 
@@ -311,14 +313,19 @@ const CharacterView: React.FC = () => {
               onClick={() => navigate(`/campaigns/${campaign._id}`)}
               leftIcon={
                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 19l-7-7m0 0l7-7m-7 7h18"
+                  />
                 </svg>
               }
             >
               Back to {campaign.name}
             </Button>
             {!canEdit && (
-              <div 
+              <div
                 style={{
                   display: 'inline-block',
                   marginLeft: '1rem',
@@ -328,7 +335,7 @@ const CharacterView: React.FC = () => {
                   borderRadius: '0.25rem',
                   color: '#ffa500',
                   fontSize: '0.875rem',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
                 }}
               >
                 View Only
@@ -338,9 +345,9 @@ const CharacterView: React.FC = () => {
         )}
 
         {/* Character header */}
-        <CharacterHeader 
-          character={character} 
-          onDelete={canEdit ? handleDelete : undefined} 
+        <CharacterHeader
+          character={character}
+          onDelete={canEdit ? handleDelete : undefined}
           onResourceChange={canEdit ? handleResourceChange : undefined}
         />
 
@@ -356,9 +363,9 @@ const CharacterView: React.FC = () => {
 
           {/* Modules Tab */}
           {activeTab === 'modules' && (
-            <ModulesTab 
-              characterId={character._id} 
-              modules={character.modules} 
+            <ModulesTab
+              characterId={character._id}
+              modules={character.modules}
               modulePoints={character.modulePoints}
               onUpdateModulePoints={handleUpdateCharacter}
             />
@@ -386,7 +393,10 @@ const CharacterView: React.FC = () => {
 
           {/* Inventory Tab */}
           {activeTab === 'inventory' && (
-            <InventoryTab character={character} onCharacterUpdate={(updatedChar) => setCharacter(updatedChar as CharacterWithAPI)} />
+            <InventoryTab
+              character={character}
+              onCharacterUpdate={(updatedChar) => setCharacter(updatedChar as CharacterWithAPI)}
+            />
           )}
 
           {/* Background Tab */}

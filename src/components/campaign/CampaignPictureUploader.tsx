@@ -225,7 +225,7 @@ const CampaignPictureUploader: React.FC<CampaignPictureUploaderProps> = ({
           )}
         </div>
       </div>
-      
+
       <p className="text-sm text-gray-400 mt-2 text-center">
         Max size: 5MB. Supported: JPG, PNG, GIF, WebP
       </p>

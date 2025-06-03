@@ -14,7 +14,6 @@ interface APIItem extends Item {
   armor_data?: ArmorData;
 }
 
-
 const ItemCompendium: React.FC = () => {
   const navigate = useNavigate();
   const [items, setItems] = useState<APIItem[]>([]);
@@ -379,107 +378,123 @@ const ItemCompendium: React.FC = () => {
         <CardBody style={{ padding: '0' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {filteredItems.map((item, index) => (
+              <div
+                key={item._id}
+                onClick={() => navigate(`/items/${item._id}`)}
+                style={{
+                  padding: '1rem',
+                  cursor: 'pointer',
+                  backgroundColor: 'transparent',
+                  borderLeft: '3px solid transparent',
+                  borderBottom:
+                    index < filteredItems.length - 1
+                      ? '1px solid var(--color-dark-border)'
+                      : 'none',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {/* Top section - Name and rarity */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <h3
+                      style={{
+                        color: 'var(--color-white)',
+                        fontSize: '1.125rem',
+                        fontWeight: 'bold',
+                        margin: 0,
+                        flex: 1,
+                      }}
+                    >
+                      {item.name}
+                    </h3>
+                    <span
+                      style={{
+                        color: rarityColors[item.rarity],
+                        fontSize: '0.875rem',
+                        fontWeight: 'bold',
+                        textTransform: 'capitalize',
+                      }}
+                    >
+                      {item.rarity}
+                    </span>
+                  </div>
+
+                  {/* Bottom section - Stats and info */}
                   <div
-                    key={item._id}
-                    onClick={() => navigate(`/items/${item._id}`)}
-                    style={{
-                      padding: '1rem',
-                      cursor: 'pointer',
-                      backgroundColor: 'transparent',
-                      borderLeft: '3px solid transparent',
-                      borderBottom:
-                        index < filteredItems.length - 1
-                          ? '1px solid var(--color-dark-border)'
-                          : 'none',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                      {/* Top section - Name and rarity */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <h3
-                          style={{
-                            color: 'var(--color-white)',
-                            fontSize: '1.125rem',
-                            fontWeight: 'bold',
-                            margin: 0,
-                            flex: 1,
-                          }}
-                        >
-                          {item.name}
-                        </h3>
-                        <span
-                          style={{
-                            color: rarityColors[item.rarity],
-                            fontSize: '0.875rem',
-                            fontWeight: 'bold',
-                            textTransform: 'capitalize',
-                          }}
-                        >
-                          {item.rarity}
-                        </span>
-                      </div>
+                    {/* Type badge */}
+                    <span
+                      style={{
+                        color: 'var(--color-cloud)',
+                        fontSize: '0.75rem',
+                        textTransform: 'capitalize',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '0.25rem',
+                      }}
+                    >
+                      {item.type}
+                    </span>
 
-                      {/* Bottom section - Stats and info */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                        {/* Type badge */}
-                        <span
-                          style={{
-                            color: 'var(--color-cloud)',
-                            fontSize: '0.75rem',
-                            textTransform: 'capitalize',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            padding: '0.25rem 0.75rem',
-                            borderRadius: '0.25rem',
-                          }}
-                        >
-                          {item.type}
-                        </span>
+                    {/* Weapon category if applicable */}
+                    {item.weapon_category && (
+                      <span
+                        style={{
+                          color: 'var(--color-muted)',
+                          fontSize: '0.75rem',
+                          backgroundColor: 'var(--color-dark-elevated)',
+                          padding: '0.25rem 0.5rem',
+                          borderRadius: '0.25rem',
+                        }}
+                      >
+                        {item.weapon_category
+                          .replace(/([A-Z])/g, ' $1')
+                          .trim()
+                          .toLowerCase()}
+                      </span>
+                    )}
 
-                        {/* Weapon category if applicable */}
-                        {item.weapon_category && (
-                          <span
-                            style={{
-                              color: 'var(--color-muted)',
-                              fontSize: '0.75rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              padding: '0.25rem 0.5rem',
-                              borderRadius: '0.25rem',
-                            }}
-                          >
-                            {item.weapon_category
-                              .replace(/([A-Z])/g, ' $1')
-                              .trim()
-                              .toLowerCase()}
-                          </span>
-                        )}
-
-                        {/* Quick stats */}
-                        <div style={{ display: 'flex', gap: '1rem', marginLeft: 'auto', fontSize: '0.75rem', color: 'var(--color-muted)' }}>
-                          <div style={{ textAlign: 'center' }}>
-                            <div>Weight</div>
-                            <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{item.weight}</div>
-                          </div>
-                          <div style={{ textAlign: 'center' }}>
-                            <div>Value</div>
-                            <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{item.value}</div>
-                          </div>
-                          {item.primary?.damage && item.primary.damage !== '0' && (
-                            <div style={{ textAlign: 'center' }}>
-                              <div>Damage</div>
-                              <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{item.primary.damage}</div>
-                            </div>
-                          )}
+                    {/* Quick stats */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        gap: '1rem',
+                        marginLeft: 'auto',
+                        fontSize: '0.75rem',
+                        color: 'var(--color-muted)',
+                      }}
+                    >
+                      <div style={{ textAlign: 'center' }}>
+                        <div>Weight</div>
+                        <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+                          {item.weight}
                         </div>
                       </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <div>Value</div>
+                        <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+                          {item.value}
+                        </div>
+                      </div>
+                      {item.primary?.damage && item.primary.damage !== '0' && (
+                        <div style={{ textAlign: 'center' }}>
+                          <div>Damage</div>
+                          <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+                            {item.primary.damage}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
+                </div>
+              </div>
             ))}
           </div>
         </CardBody>

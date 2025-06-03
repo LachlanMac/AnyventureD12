@@ -24,7 +24,7 @@ export const goldToValue = (gold: number): number => Math.round(gold * 10);
 export const formatGoldDisplay = (value: number): string => {
   const gold = Math.floor(value / 10);
   const silver = value % 10;
-  
+
   if (gold === 0 && silver === 0) return 'Free';
   if (gold === 0) return `${silver} silver`;
   if (silver === 0) return `${gold} gold`;

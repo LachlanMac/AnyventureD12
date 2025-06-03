@@ -63,10 +63,12 @@ const ItemBrowser: React.FC = () => {
 
   // Helper function to check if a skill bonus has any non-zero values
   const hasSkillBonus = (skill: any): boolean => {
-    return (skill?.add_bonus || 0) > 0 || 
-           (skill?.set_bonus || 0) > 0 || 
-           (skill?.add_talent || 0) > 0 || 
-           (skill?.set_talent || 0) > 0;
+    return (
+      (skill?.add_bonus || 0) > 0 ||
+      (skill?.set_bonus || 0) > 0 ||
+      (skill?.add_talent || 0) > 0 ||
+      (skill?.set_talent || 0) > 0
+    );
   };
 
   useEffect(() => {
@@ -318,13 +320,14 @@ const ItemBrowser: React.FC = () => {
                   )}
                   {(item.weapon_data.primary.min_range > 0 ||
                     item.weapon_data.primary.max_range > 0) && (
-                      <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                        <strong>Range:</strong> {getRangeDescription(
-                          item.weapon_data.primary.min_range,
-                          item.weapon_data.primary.max_range
-                        )}
-                      </div>
-                    )}
+                    <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                      <strong>Range:</strong>{' '}
+                      {getRangeDescription(
+                        item.weapon_data.primary.min_range,
+                        item.weapon_data.primary.max_range
+                      )}
+                    </div>
+                  )}
                   {item.weapon_data.secondary && item.weapon_data.secondary.damage !== '0' && (
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Secondary Damage:</strong> {item.weapon_data.secondary.damage}{' '}
@@ -402,44 +405,43 @@ const ItemBrowser: React.FC = () => {
               )}
 
             {/* Basic Skills */}
-            {item.basic &&
-              Object.values(item.basic).some(hasSkillBonus) && (
-                <div>
-                  <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-                    Basic Skill Bonuses
-                  </h3>
-                  <div
-                    style={{
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      padding: '1rem',
-                      borderRadius: '0.375rem',
-                    }}
-                  >
-                    {Object.entries(item.basic).map(([skillName, skill]) => {
-                      if (
-                        (skill?.add_bonus || 0) > 0 ||
-                        (skill?.set_bonus || 0) > 0 ||
-                        (skill?.add_talent || 0) > 0 ||
-                        (skill?.set_talent || 0) > 0
-                      ) {
-                        return (
-                          <div
-                            key={skillName}
-                            style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
-                          >
-                            <strong style={{ textTransform: 'capitalize' }}>{skillName}:</strong>
-                            {(skill?.add_bonus || 0) > 0 && ` +${skill.add_bonus} skill`}
-                            {(skill?.set_bonus || 0) > 0 && ` Set to ${skill.set_bonus} skill`}
-                            {(skill?.add_talent || 0) > 0 && ` +${skill.add_talent} talent`}
-                            {(skill?.set_talent || 0) > 0 && ` Set to ${skill.set_talent} talent`}
-                          </div>
-                        );
-                      }
-                      return null;
-                    })}
-                  </div>
+            {item.basic && Object.values(item.basic).some(hasSkillBonus) && (
+              <div>
+                <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
+                  Basic Skill Bonuses
+                </h3>
+                <div
+                  style={{
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    padding: '1rem',
+                    borderRadius: '0.375rem',
+                  }}
+                >
+                  {Object.entries(item.basic).map(([skillName, skill]) => {
+                    if (
+                      (skill?.add_bonus || 0) > 0 ||
+                      (skill?.set_bonus || 0) > 0 ||
+                      (skill?.add_talent || 0) > 0 ||
+                      (skill?.set_talent || 0) > 0
+                    ) {
+                      return (
+                        <div
+                          key={skillName}
+                          style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}
+                        >
+                          <strong style={{ textTransform: 'capitalize' }}>{skillName}:</strong>
+                          {(skill?.add_bonus || 0) > 0 && ` +${skill.add_bonus} skill`}
+                          {(skill?.set_bonus || 0) > 0 && ` Set to ${skill.set_bonus} skill`}
+                          {(skill?.add_talent || 0) > 0 && ` +${skill.add_talent} talent`}
+                          {(skill?.set_talent || 0) > 0 && ` Set to ${skill.set_talent} talent`}
+                        </div>
+                      );
+                    }
+                    return null;
+                  })}
                 </div>
-              )}
+              </div>
+            )}
 
             {/* Weapon Skill Bonuses */}
             {item.weapon &&

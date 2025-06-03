@@ -130,7 +130,7 @@ const ItemDetail: React.FC = () => {
             📋 Copy Link
           </Button>
         </div>
-        
+
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
           <h1
             style={{
@@ -154,7 +154,7 @@ const ItemDetail: React.FC = () => {
             {item.rarity}
           </span>
         </div>
-        
+
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
           <span
             style={{
@@ -198,18 +198,36 @@ const ItemDetail: React.FC = () => {
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Combat Statistics</h2>
               </CardHeader>
               <CardBody>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))', gap: '1.5rem' }}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+                    gap: '1.5rem',
+                  }}
+                >
                   {item.primary.damage !== '0' && (
                     <div>
-                      <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>Primary Attack</h3>
+                      <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+                        Primary Attack
+                      </h3>
                       <div style={{ color: 'var(--color-cloud)' }}>
-                        <div><strong>Damage:</strong> {item.primary.damage} {item.primary.damage_type}</div>
+                        <div>
+                          <strong>Damage:</strong> {item.primary.damage} {item.primary.damage_type}
+                        </div>
                         {item.primary.damage_extra !== '0' && (
-                          <div><strong>Extra Damage:</strong> +{item.primary.damage_extra} per extra hit</div>
+                          <div>
+                            <strong>Extra Damage:</strong> +{item.primary.damage_extra} per extra
+                            hit
+                          </div>
                         )}
-                        <div><strong>Category:</strong> {item.primary.category}</div>
+                        <div>
+                          <strong>Category:</strong> {item.primary.category}
+                        </div>
                         {(item.primary.min_range > 0 || item.primary.max_range > 0) && (
-                          <div><strong>Range:</strong> {getRangeDescription(item.primary.min_range, item.primary.max_range)}</div>
+                          <div>
+                            <strong>Range:</strong>{' '}
+                            {getRangeDescription(item.primary.min_range, item.primary.max_range)}
+                          </div>
                         )}
                       </div>
                     </div>
@@ -217,13 +235,23 @@ const ItemDetail: React.FC = () => {
 
                   {item.secondary && item.secondary.damage !== '0' && (
                     <div>
-                      <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>Secondary Attack</h3>
+                      <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+                        Secondary Attack
+                      </h3>
                       <div style={{ color: 'var(--color-cloud)' }}>
-                        <div><strong>Damage:</strong> {item.secondary.damage} {item.secondary.damage_type}</div>
+                        <div>
+                          <strong>Damage:</strong> {item.secondary.damage}{' '}
+                          {item.secondary.damage_type}
+                        </div>
                         {item.secondary.damage_extra !== '0' && (
-                          <div><strong>Extra Damage:</strong> +{item.secondary.damage_extra} per extra hit</div>
+                          <div>
+                            <strong>Extra Damage:</strong> +{item.secondary.damage_extra} per extra
+                            hit
+                          </div>
                         )}
-                        <div><strong>Category:</strong> {item.secondary.category}</div>
+                        <div>
+                          <strong>Category:</strong> {item.secondary.category}
+                        </div>
                       </div>
                     </div>
                   )}
@@ -233,20 +261,30 @@ const ItemDetail: React.FC = () => {
           )}
 
           {/* Bonuses and Effects */}
-          {((item.health?.max !== 0 || item.health?.recovery !== 0) ||
-            (item.energy?.max !== 0 || item.energy?.recovery !== 0) ||
-            (item.resolve?.max !== 0 || item.resolve?.recovery !== 0) ||
+          {(item.health?.max !== 0 ||
+            item.health?.recovery !== 0 ||
+            item.energy?.max !== 0 ||
+            item.energy?.recovery !== 0 ||
+            item.resolve?.max !== 0 ||
+            item.resolve?.recovery !== 0 ||
             item.movement !== 0) && (
             <Card variant="default">
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Bonuses & Effects</h2>
               </CardHeader>
               <CardBody>
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                <div
+                  style={{
+                    display: 'grid',
+                    gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                    gap: '1rem',
+                  }}
+                >
                   {(item.health?.max !== 0 || item.health?.recovery !== 0) && (
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Health:</strong>
-                      {item.health?.max !== 0 && ` ${item.health.max > 0 ? '+' : ''}${item.health.max} max`}
+                      {item.health?.max !== 0 &&
+                        ` ${item.health.max > 0 ? '+' : ''}${item.health.max} max`}
                       {item.health?.recovery !== 0 &&
                         ` ${item.health.recovery > 0 ? '+' : ''}${item.health.recovery} recovery`}
                     </div>
@@ -254,7 +292,8 @@ const ItemDetail: React.FC = () => {
                   {(item.energy?.max !== 0 || item.energy?.recovery !== 0) && (
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Energy:</strong>
-                      {item.energy?.max !== 0 && ` ${item.energy.max > 0 ? '+' : ''}${item.energy.max} max`}
+                      {item.energy?.max !== 0 &&
+                        ` ${item.energy.max > 0 ? '+' : ''}${item.energy.max} max`}
                       {item.energy?.recovery !== 0 &&
                         ` ${item.energy.recovery > 0 ? '+' : ''}${item.energy.recovery} recovery`}
                     </div>
@@ -262,14 +301,16 @@ const ItemDetail: React.FC = () => {
                   {(item.resolve?.max !== 0 || item.resolve?.recovery !== 0) && (
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Resolve:</strong>
-                      {item.resolve?.max !== 0 && ` ${item.resolve.max > 0 ? '+' : ''}${item.resolve.max} max`}
+                      {item.resolve?.max !== 0 &&
+                        ` ${item.resolve.max > 0 ? '+' : ''}${item.resolve.max} max`}
                       {item.resolve?.recovery !== 0 &&
                         ` ${item.resolve.recovery > 0 ? '+' : ''}${item.resolve.recovery} recovery`}
                     </div>
                   )}
                   {item.movement !== 0 && (
                     <div style={{ color: 'var(--color-cloud)' }}>
-                      <strong>Movement:</strong> {item.movement > 0 ? '+' : ''}{item.movement} speed
+                      <strong>Movement:</strong> {item.movement > 0 ? '+' : ''}
+                      {item.movement} speed
                     </div>
                   )}
                 </div>
@@ -288,14 +329,26 @@ const ItemDetail: React.FC = () => {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
                 <div>
                   <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>Weight</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.125rem' }}>
+                  <div
+                    style={{
+                      color: 'var(--color-white)',
+                      fontWeight: 'bold',
+                      fontSize: '1.125rem',
+                    }}
+                  >
                     {item.weight}
                   </div>
                 </div>
-                
+
                 <div>
                   <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>Value</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.125rem' }}>
+                  <div
+                    style={{
+                      color: 'var(--color-white)',
+                      fontWeight: 'bold',
+                      fontSize: '1.125rem',
+                    }}
+                  >
                     {formatGoldDisplay(item.value)}
                   </div>
                 </div>
@@ -303,14 +356,32 @@ const ItemDetail: React.FC = () => {
                 {item.primary?.damage && item.primary.damage !== '0' && (
                   <div>
                     <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>Damage</div>
-                    <div style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.125rem' }}>
+                    <div
+                      style={{
+                        color: 'var(--color-white)',
+                        fontWeight: 'bold',
+                        fontSize: '1.125rem',
+                      }}
+                    >
                       {item.primary.damage}
                     </div>
                   </div>
                 )}
 
-                <div style={{ marginTop: '1rem', paddingTop: '1rem', borderTop: '1px solid var(--color-dark-border)' }}>
-                  <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem', marginBottom: '0.5rem' }}>
+                <div
+                  style={{
+                    marginTop: '1rem',
+                    paddingTop: '1rem',
+                    borderTop: '1px solid var(--color-dark-border)',
+                  }}
+                >
+                  <div
+                    style={{
+                      color: 'var(--color-muted)',
+                      fontSize: '0.875rem',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Share this item
                   </div>
                   <Button variant="outline" onClick={copyItemLink} style={{ width: '100%' }}>

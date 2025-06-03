@@ -59,7 +59,7 @@ const CampaignJoin: React.FC = () => {
   const fetchCampaignInfo = async () => {
     try {
       const response = await fetch(`/api/campaigns/join/${token}`);
-      
+
       if (!response.ok) {
         if (response.status === 404) {
           throw new Error('Invalid or expired invite link');
@@ -82,16 +82,15 @@ const CampaignJoin: React.FC = () => {
     try {
       const response = await fetch('/api/characters', {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       });
 
       if (response.ok) {
         const data = await response.json();
         setCharacters(data);
       }
-    } catch (err) {
-    }
+    } catch (err) {}
   };
 
   useEffect(() => {
@@ -115,9 +114,9 @@ const CampaignJoin: React.FC = () => {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify({ characterId: selectedCharacterId })
+        body: JSON.stringify({ characterId: selectedCharacterId }),
       });
 
       if (!response.ok) {
@@ -186,7 +185,7 @@ const CampaignJoin: React.FC = () => {
           className="rounded-lg p-8 text-center"
           style={{
             backgroundColor: 'var(--color-dark-surface)',
-            border: '1px solid var(--color-dark-border)'
+            border: '1px solid var(--color-dark-border)',
           }}
         >
           <h1
@@ -195,13 +194,8 @@ const CampaignJoin: React.FC = () => {
           >
             Join Campaign
           </h1>
-          <p className="text-gray-300 mb-6">
-            You need to be logged in to join a campaign.
-          </p>
-          <Button
-            variant="accent"
-            onClick={() => navigate('/login')}
-          >
+          <p className="text-gray-300 mb-6">You need to be logged in to join a campaign.</p>
+          <Button variant="accent" onClick={() => navigate('/login')}>
             Login to Continue
           </Button>
         </div>
@@ -216,7 +210,9 @@ const CampaignJoin: React.FC = () => {
         className="rounded-lg mb-6 overflow-hidden"
         style={{
           background: getThemeColor(),
-          backgroundImage: campaign.picture ? `url(/uploads/campaigns/${campaign.picture})` : undefined,
+          backgroundImage: campaign.picture
+            ? `url(/uploads/campaigns/${campaign.picture})`
+            : undefined,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: campaign.picture ? 'overlay' : undefined,
@@ -229,10 +225,7 @@ const CampaignJoin: React.FC = () => {
           >
             {campaign.name}
           </h1>
-          <p className="text-lg text-gray-200 mb-4">
-            {campaign.description}
-          </p>
-
+          <p className="text-lg text-gray-200 mb-4">{campaign.description}</p>
 
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white">
             <div>
@@ -256,7 +249,7 @@ const CampaignJoin: React.FC = () => {
         className="rounded-lg p-6"
         style={{
           backgroundColor: 'var(--color-dark-surface)',
-          border: '1px solid var(--color-dark-border)'
+          border: '1px solid var(--color-dark-border)',
         }}
       >
         <h2
@@ -269,9 +262,7 @@ const CampaignJoin: React.FC = () => {
         {characters.length > 0 ? (
           <div className="space-y-6">
             <div>
-              <h3 className="text-lg font-semibold text-white mb-4">
-                Select a Character
-              </h3>
+              <h3 className="text-lg font-semibold text-white mb-4">Select a Character</h3>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {characters.map((character) => (
                   <div
@@ -282,9 +273,10 @@ const CampaignJoin: React.FC = () => {
                         : 'border-gray-600 hover:border-gray-500'
                     }`}
                     style={{
-                      backgroundColor: selectedCharacterId === character._id 
-                        ? 'rgba(59, 130, 246, 0.1)' 
-                        : 'var(--color-dark-base)'
+                      backgroundColor:
+                        selectedCharacterId === character._id
+                          ? 'rgba(59, 130, 246, 0.1)'
+                          : 'var(--color-dark-base)',
                     }}
                     onClick={() => {
                       setSelectedCharacterId(character._id);
@@ -292,11 +284,10 @@ const CampaignJoin: React.FC = () => {
                   >
                     <h4 className="text-white font-semibold">{character.name}</h4>
                     <p className="text-gray-400 text-sm">
-                      {character.ancestry.ancestryId.name} {character.characterCulture.cultureId.name}
+                      {character.ancestry.ancestryId.name}{' '}
+                      {character.characterCulture.cultureId.name}
                     </p>
-                    <p className="text-gray-400 text-sm">
-                      Level {character.level}
-                    </p>
+                    <p className="text-gray-400 text-sm">Level {character.level}</p>
                   </div>
                 ))}
               </div>
@@ -310,11 +301,8 @@ const CampaignJoin: React.FC = () => {
               >
                 {joining ? 'Joining...' : 'Join with Selected Character'}
               </Button>
-              
-              <Button
-                variant="secondary"
-                onClick={handleCreateCharacter}
-              >
+
+              <Button variant="secondary" onClick={handleCreateCharacter}>
                 Create New Character
               </Button>
             </div>
@@ -324,10 +312,7 @@ const CampaignJoin: React.FC = () => {
             <p className="text-gray-300 mb-6">
               You don't have any characters yet. Create a character to join this campaign.
             </p>
-            <Button
-              variant="accent"
-              onClick={handleCreateCharacter}
-            >
+            <Button variant="accent" onClick={handleCreateCharacter}>
               Create Character
             </Button>
           </div>

@@ -48,14 +48,14 @@ const Campaigns: React.FC = () => {
       setLoading(true);
       const response = await fetch('/api/campaigns', {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       });
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch campaigns');
       }
-      
+
       const data = await response.json();
       setCampaigns(data);
     } catch (err) {
@@ -208,7 +208,9 @@ const Campaigns: React.FC = () => {
             No campaigns are available at the moment. Create a new campaign to start a cosmic
             adventure!
           </p>
-          <Button variant="accent" onClick={handleCreateCampaign}>Create First Campaign</Button>
+          <Button variant="accent" onClick={handleCreateCampaign}>
+            Create First Campaign
+          </Button>
         </div>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -227,7 +229,7 @@ const Campaigns: React.FC = () => {
               <div
                 style={{
                   padding: '1.5rem',
-                  backgroundImage: campaign.picture 
+                  backgroundImage: campaign.picture
                     ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)), url(/uploads/campaigns/${campaign.picture})`
                     : getThemeColor(),
                   backgroundSize: 'cover',
@@ -238,31 +240,32 @@ const Campaigns: React.FC = () => {
                 }}
               >
                 <div>
-                <h3
-                  style={{
-                    color: 'var(--color-white)',
-                    fontFamily: 'var(--font-display)',
-                    fontSize: '1.5rem',
-                    fontWeight: 'bold',
-                    marginBottom: '0.5rem',
-                  }}
-                >
-                  {campaign.name}
-                </h3>
-                <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-                  <span
+                  <h3
                     style={{
-                      color: 'var(--color-metal-gold)',
-                      fontSize: '0.75rem',
-                      backgroundColor: 'rgba(215, 183, 64, 0.2)',
-                      padding: '0.25rem 0.75rem',
-                      borderRadius: '0.25rem',
-                      border: '1px solid rgba(215, 183, 64, 0.3)',
+                      color: 'var(--color-white)',
+                      fontFamily: 'var(--font-display)',
+                      fontSize: '1.5rem',
+                      fontWeight: 'bold',
+                      marginBottom: '0.5rem',
                     }}
                   >
-                    Players: {campaign.playerSlots.filter(slot => slot.character).length}/{campaign.playerSlots.length}
-                  </span>
-                </div>
+                    {campaign.name}
+                  </h3>
+                  <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+                    <span
+                      style={{
+                        color: 'var(--color-metal-gold)',
+                        fontSize: '0.75rem',
+                        backgroundColor: 'rgba(215, 183, 64, 0.2)',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '0.25rem',
+                        border: '1px solid rgba(215, 183, 64, 0.3)',
+                      }}
+                    >
+                      Players: {campaign.playerSlots.filter((slot) => slot.character).length}/
+                      {campaign.playerSlots.length}
+                    </span>
+                  </div>
                 </div>
               </div>
               <div style={{ padding: '1rem 1.5rem' }}>
@@ -309,7 +312,8 @@ const Campaigns: React.FC = () => {
                       Details
                     </Button>
 
-                    {campaign.playerSlots.filter(slot => slot.character).length < campaign.playerSlots.length && (
+                    {campaign.playerSlots.filter((slot) => slot.character).length <
+                      campaign.playerSlots.length && (
                       <Button
                         variant="accent"
                         size="sm"

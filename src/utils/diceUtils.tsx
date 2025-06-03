@@ -15,7 +15,7 @@ export const DICE_TYPES_DOWNGRADED = ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd16
 export const getModifiedDiceType = (baseValue: number, diceTierModifier: number = 0): string => {
   // For negative skill values, treat them as 0 for dice type calculation
   const clampedValue = Math.max(0, Math.min(baseValue, 6));
-  
+
   if (diceTierModifier > 0) {
     // Upgraded dice tier
     return DICE_TYPES_UPGRADED[clampedValue] || 'd30';
@@ -36,19 +36,19 @@ export const getModifiedDiceType = (baseValue: number, diceTierModifier: number 
  * @returns Formatted string like "3d12" or "No dice"
  */
 export const getSkillDiceString = (
-  talent: number, 
-  skillValue: number, 
+  talent: number,
+  skillValue: number,
   diceTierModifier: number = 0
 ): string => {
   if (talent <= 0) {
     return 'No dice';
   }
-  
+
   // If skill value is negative, you cannot roll dice - automatic failure (result of 1)
   if (skillValue < 0) {
     return '1';
   }
-  
+
   const diceType = getModifiedDiceType(skillValue, diceTierModifier);
   return `${talent}${diceType}`;
 };

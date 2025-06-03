@@ -1,6 +1,10 @@
 import React from 'react';
 import TalentDisplay from './TalentDisplay';
-import { getModifiedDiceType, getSkillDiceString, getDiceTierModifierDescription } from '../../utils/diceUtils';
+import {
+  getModifiedDiceType,
+  getSkillDiceString,
+  getDiceTierModifierDescription,
+} from '../../utils/diceUtils';
 
 interface SkillCardProps {
   name: string;
@@ -10,12 +14,12 @@ interface SkillCardProps {
   diceTierModifier?: number; // Dice tier modifier (-1, 0, +1)
 }
 
-const SkillCard: React.FC<SkillCardProps> = ({ 
-  name, 
-  value, 
-  talent, 
-  showDieType = true, 
-  diceTierModifier = 0 
+const SkillCard: React.FC<SkillCardProps> = ({
+  name,
+  value,
+  talent,
+  showDieType = true,
+  diceTierModifier = 0,
 }) => {
   const dieType = getModifiedDiceType(value, diceTierModifier);
   const diceString = getSkillDiceString(talent, value, diceTierModifier);
@@ -51,12 +55,22 @@ const SkillCard: React.FC<SkillCardProps> = ({
           <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
             <span
               style={{
-                color: diceTierModifier > 0 ? '#10b981' : diceTierModifier < 0 ? 'var(--color-sunset)' : 'var(--color-cloud)',
+                color:
+                  diceTierModifier > 0
+                    ? '#10b981'
+                    : diceTierModifier < 0
+                      ? 'var(--color-sunset)'
+                      : 'var(--color-cloud)',
                 fontSize: '0.75rem',
                 padding: '0.125rem 0.375rem',
                 backgroundColor: 'var(--color-dark-surface)',
                 borderRadius: '9999px',
-                border: diceTierModifier > 0 ? '1px solid #10b981' : diceTierModifier < 0 ? '1px solid var(--color-sunset)' : 'none',
+                border:
+                  diceTierModifier > 0
+                    ? '1px solid #10b981'
+                    : diceTierModifier < 0
+                      ? '1px solid var(--color-sunset)'
+                      : 'none',
               }}
             >
               {dieType}
@@ -89,7 +103,7 @@ const SkillCard: React.FC<SkillCardProps> = ({
           </span>
           <TalentDisplay talent={talent} />
         </div>
-        
+
         <div style={{ display: 'flex', alignItems: 'center' }}>
           <span
             style={{

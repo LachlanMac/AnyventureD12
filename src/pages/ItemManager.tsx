@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Item } from '../types/character';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import { useToast } from '../context/ToastContext';
 
 interface CollapsibleSectionProps {
   title: string;
@@ -70,6 +71,7 @@ const CollapsibleSection: React.FC<CollapsibleSectionProps> = ({
 };
 
 const ItemManager: React.FC = () => {
+  const { showSuccess, showError, confirm } = useToast();
   const [items, setItems] = useState<Item[]>([]);
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
   const [editedItem, setEditedItem] = useState<Item | null>(null);
@@ -286,17 +288,26 @@ const ItemManager: React.FC = () => {
         setSelectedItem(savedItem);
       }
 
-      alert('Item saved successfully!');
+      showSuccess('Item saved successfully!');
     } catch (error) {
       console.error('Error saving item:', error);
-      alert('Failed to save item');
+      showError('Failed to save item');
     } finally {
       setSaving(false);
     }
   };
 
   const handleDelete = async () => {
-    if (!selectedItem || !confirm('Are you sure you want to delete this item?')) return;
+    if (!selectedItem) return;
+
+    const confirmed = await confirm({
+      title: 'Delete Item',
+      message: 'Are you sure you want to delete this item? This action cannot be undone.',
+      confirmText: 'Delete',
+      cancelText: 'Cancel',
+    });
+
+    if (!confirmed) return;
 
     try {
       const response = await fetch(`/api/items/${selectedItem._id}`, {
@@ -309,10 +320,10 @@ const ItemManager: React.FC = () => {
       setItems(items.filter((item) => item._id !== selectedItem._id));
       setSelectedItem(null);
       setEditedItem(null);
-      alert('Item deleted successfully!');
+      showSuccess('Item deleted successfully!');
     } catch (error) {
       console.error('Error deleting item:', error);
-      alert('Failed to delete item');
+      showError('Failed to delete item');
     }
   };
 

@@ -52,8 +52,8 @@ const CampaignView: React.FC = () => {
       setLoading(true);
       const response = await fetch(`/api/campaigns/${id}`, {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       });
 
       if (!response.ok) {
@@ -98,8 +98,8 @@ const CampaignView: React.FC = () => {
       const response = await fetch(`/api/campaigns/${campaign._id}`, {
         method: 'DELETE',
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
-        }
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
       });
 
       if (!response.ok) {
@@ -154,8 +154,8 @@ const CampaignView: React.FC = () => {
   }
 
   const isOwner = campaign.owner._id === user?.id;
-  const userCharacter = campaign.playerSlots.find(slot => 
-    slot.character?.userId === user?.id
+  const userCharacter = campaign.playerSlots.find(
+    (slot) => slot.character?.userId === user?.id
   )?.character;
 
   const getThemeColor = () => {
@@ -169,7 +169,9 @@ const CampaignView: React.FC = () => {
         className="rounded-lg mb-6 overflow-hidden"
         style={{
           background: getThemeColor(),
-          backgroundImage: campaign.picture ? `url(/uploads/campaigns/${campaign.picture})` : undefined,
+          backgroundImage: campaign.picture
+            ? `url(/uploads/campaigns/${campaign.picture})`
+            : undefined,
           backgroundSize: 'cover',
           backgroundPosition: 'center',
           backgroundBlendMode: campaign.picture ? 'overlay' : undefined,
@@ -184,9 +186,7 @@ const CampaignView: React.FC = () => {
               >
                 {campaign.name}
               </h1>
-              <p className="text-lg text-gray-200 mb-4">
-                {campaign.description}
-              </p>
+              <p className="text-lg text-gray-200 mb-4">{campaign.description}</p>
             </div>
             {isOwner && (
               <div className="flex gap-2">
@@ -195,7 +195,12 @@ const CampaignView: React.FC = () => {
                   onClick={() => setShowEditor(true)}
                   leftIcon={
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
+                      />
                     </svg>
                   }
                 >
@@ -206,13 +211,18 @@ const CampaignView: React.FC = () => {
                   onClick={() => setShowDeleteConfirm(true)}
                   leftIcon={
                     <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
+                      />
                     </svg>
                   }
                   style={{
                     backgroundColor: 'rgba(239, 68, 68, 0.1)',
                     borderColor: 'rgba(239, 68, 68, 0.5)',
-                    color: '#ef4444'
+                    color: '#ef4444',
                   }}
                 >
                   Delete Campaign
@@ -222,7 +232,7 @@ const CampaignView: React.FC = () => {
           </div>
 
           <div className="flex flex-wrap gap-2 mb-4">
-            <span 
+            <span
               style={{
                 color: 'var(--color-metal-gold)',
                 fontSize: '0.75rem',
@@ -232,7 +242,8 @@ const CampaignView: React.FC = () => {
                 border: '1px solid rgba(215, 183, 64, 0.3)',
               }}
             >
-              Players: {campaign.playerSlots.filter(slot => slot.character).length}/{campaign.playerSlots.length}
+              Players: {campaign.playerSlots.filter((slot) => slot.character).length}/
+              {campaign.playerSlots.length}
             </span>
           </div>
 
@@ -260,18 +271,20 @@ const CampaignView: React.FC = () => {
           onClick={() => navigate('/campaigns')}
           leftIcon={
             <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M10 19l-7-7m0 0l7-7m-7 7h18"
+              />
             </svg>
           }
         >
           Back to Campaigns
         </Button>
-        
+
         {userCharacter && !isOwner && (
-          <Button
-            variant="secondary"
-            onClick={() => navigate(`/characters/${userCharacter._id}`)}
-          >
+          <Button variant="secondary" onClick={() => navigate(`/characters/${userCharacter._id}`)}>
             View My Character
           </Button>
         )}
@@ -282,7 +295,7 @@ const CampaignView: React.FC = () => {
         className="rounded-lg p-6"
         style={{
           backgroundColor: 'var(--color-dark-surface)',
-          border: '1px solid var(--color-dark-border)'
+          border: '1px solid var(--color-dark-border)',
         }}
       >
         <h2
@@ -291,7 +304,7 @@ const CampaignView: React.FC = () => {
         >
           Player Slots
         </h2>
-        
+
         <PlayerSlotManager
           campaign={campaign}
           isOwner={isOwner}
@@ -354,12 +367,7 @@ const CampaignView: React.FC = () => {
                   border: '2px solid rgba(239, 68, 68, 0.5)',
                 }}
               >
-                <svg
-                  className="w-8 h-8"
-                  fill="none"
-                  stroke="#ef4444"
-                  viewBox="0 0 24 24"
-                >
+                <svg className="w-8 h-8" fill="none" stroke="#ef4444" viewBox="0 0 24 24">
                   <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -380,7 +388,8 @@ const CampaignView: React.FC = () => {
                 Delete Campaign
               </h3>
               <p style={{ color: 'var(--color-cloud)' }}>
-                Are you sure you want to delete "{campaign?.name}"? This action cannot be undone and will remove all campaign data permanently.
+                Are you sure you want to delete "{campaign?.name}"? This action cannot be undone and
+                will remove all campaign data permanently.
               </p>
             </div>
             <div style={{ display: 'flex', gap: '0.75rem', justifyContent: 'flex-end' }}>

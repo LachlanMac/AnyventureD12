@@ -74,7 +74,6 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
     setHasChanges(true);
   };
 
-
   const handleQuantityChange = (value: string) => {
     const newQuantity = parseInt(value) || 1;
     setQuantity(Math.max(1, newQuantity));

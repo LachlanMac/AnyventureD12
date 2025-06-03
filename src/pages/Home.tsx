@@ -9,7 +9,8 @@ const Home: React.FC = () => {
       {/* Hero Section */}
       <div
         style={{
-          background: 'linear-gradient(180deg, var(--color-dark-surface) 0%, var(--color-dark-base) 100%)',
+          background:
+            'linear-gradient(180deg, var(--color-dark-surface) 0%, var(--color-dark-base) 100%)',
           paddingBottom: '4rem',
         }}
       >
@@ -29,7 +30,8 @@ const Home: React.FC = () => {
             >
               <span
                 style={{
-                  background: 'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
+                  background:
+                    'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
                   WebkitBackgroundClip: 'text',
                   WebkitTextFillColor: 'transparent',
                   backgroundClip: 'text',
@@ -51,7 +53,8 @@ const Home: React.FC = () => {
               style={{
                 width: '100%',
                 height: '4px',
-                background: 'linear-gradient(90deg, transparent 0%, var(--color-metal-gold) 50%, transparent 100%)',
+                background:
+                  'linear-gradient(90deg, transparent 0%, var(--color-metal-gold) 50%, transparent 100%)',
                 marginTop: '1rem',
                 borderRadius: '2px',
               }}

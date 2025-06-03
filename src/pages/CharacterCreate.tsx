@@ -11,13 +11,7 @@ import PersonalityCreatorTab from '../components/character/creator/PersonalityCr
 
 // Import utility functions and types from the shared files
 import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
-import {
-  Character,
-  Ancestry,
-  Culture,
-  Attributes,
-  Module,
-} from '../types/character';
+import { Character, Ancestry, Culture, Attributes, Module } from '../types/character';
 
 const CharacterCreate: React.FC = () => {
   const navigate = useNavigate();
@@ -60,13 +54,11 @@ const CharacterCreate: React.FC = () => {
         }
         const cultureData = await cultureResponse.json();
         setCultures(cultureData);
-      } catch (err) {
-      }
+      } catch (err) {}
     };
 
     fetchData();
   }, []);
-
 
   const handleCultureChange = (cultureName: string, culture: Culture) => {
     updateCharacter('culture', cultureName);
@@ -85,7 +77,6 @@ const CharacterCreate: React.FC = () => {
   }, [selectedAncestry]);
 
   const handleRaceChange = (raceName: string, ancestry: Ancestry) => {
-
     // Update the race in character state
     updateCharacter('race', raceName);
 
@@ -283,7 +274,6 @@ const CharacterCreate: React.FC = () => {
     setTalentStarsRemaining(newStartingTalents - currentSpentTalents);
   };
 
-
   // Handle next step
   const handleNextStep = () => {
     if (validateStep()) {
@@ -304,24 +294,28 @@ const CharacterCreate: React.FC = () => {
     setIsLoading(true);
     try {
       const initialModules = [];
-      
+
       // Prepare ancestry data (all 3 options are automatically selected)
-      const ancestryData = selectedAncestry ? {
-        ancestryId: selectedAncestry._id,
-        selectedOptions: selectedAncestry.options.map(option => {
-          const subchoiceValue = option.selectedSubchoice;
-          return {
-            name: option.name,
-            selectedSubchoice: subchoiceValue !== undefined ? subchoiceValue : null
-          };
-        })
-      } : null;
-      
+      const ancestryData = selectedAncestry
+        ? {
+            ancestryId: selectedAncestry._id,
+            selectedOptions: selectedAncestry.options.map((option) => {
+              const subchoiceValue = option.selectedSubchoice;
+              return {
+                name: option.name,
+                selectedSubchoice: subchoiceValue !== undefined ? subchoiceValue : null,
+              };
+            }),
+          }
+        : null;
+
       // Prepare culture data (all 3 options are automatically selected)
-      const cultureData = selectedCulture ? {
-        cultureId: selectedCulture._id,
-        selectedOptions: selectedCulture.options.map(option => option.name)
-      } : null;
+      const cultureData = selectedCulture
+        ? {
+            cultureId: selectedCulture._id,
+            selectedOptions: selectedCulture.options.map((option) => option.name),
+          }
+        : null;
 
       if (selectedPersonalityModule) {
         const tier1Option = selectedPersonalityModule.options.find(

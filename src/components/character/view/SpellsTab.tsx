@@ -252,7 +252,14 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
                           borderRadius: '0.25rem',
                         }}
                       >
-                        <div style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold', fontSize: '0.75rem', marginBottom: '0.25rem' }}>
+                        <div
+                          style={{
+                            color: 'var(--color-metal-gold)',
+                            fontWeight: 'bold',
+                            fontSize: '0.75rem',
+                            marginBottom: '0.25rem',
+                          }}
+                        >
                           Charge Effect:
                         </div>
                         <p

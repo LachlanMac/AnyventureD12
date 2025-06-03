@@ -26,7 +26,7 @@ interface CharacterSelectorProps {
 const CharacterSelector: React.FC<CharacterSelectorProps> = ({
   onCharacterSelected,
   onCreateCharacter,
-  selectedCharacterId
+  selectedCharacterId,
 }) => {
   const [characters, setCharacters] = useState<Character[]>([]);
   const [loading, setLoading] = useState(true);
@@ -36,8 +36,8 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
       try {
         const response = await fetch('/api/characters', {
           headers: {
-            'Authorization': `Bearer ${localStorage.getItem('token')}`
-          }
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
         });
 
         if (response.ok) {
@@ -65,12 +65,8 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
   if (characters.length === 0) {
     return (
       <div className="text-center p-8">
-        <h3 className="text-lg font-semibold text-white mb-4">
-          No Characters Found
-        </h3>
-        <p className="text-gray-400 mb-6">
-          You need to create a character to join this campaign.
-        </p>
+        <h3 className="text-lg font-semibold text-white mb-4">No Characters Found</h3>
+        <p className="text-gray-400 mb-6">You need to create a character to join this campaign.</p>
         <Button variant="accent" onClick={onCreateCharacter}>
           Create Character
         </Button>
@@ -80,9 +76,7 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
 
   return (
     <div>
-      <h3 className="text-lg font-semibold text-white mb-4">
-        Select a Character
-      </h3>
+      <h3 className="text-lg font-semibold text-white mb-4">Select a Character</h3>
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-6">
         {characters.map((character) => (
           <div
@@ -93,9 +87,10 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
                 : 'border-gray-600 hover:border-gray-500'
             }`}
             style={{
-              backgroundColor: selectedCharacterId === character._id 
-                ? 'rgba(59, 130, 246, 0.1)' 
-                : 'var(--color-dark-base)'
+              backgroundColor:
+                selectedCharacterId === character._id
+                  ? 'rgba(59, 130, 246, 0.1)'
+                  : 'var(--color-dark-base)',
             }}
             onClick={() => onCharacterSelected(character._id)}
           >
@@ -103,13 +98,11 @@ const CharacterSelector: React.FC<CharacterSelectorProps> = ({
             <p className="text-gray-400 text-sm">
               {character.ancestry.ancestryId.name} {character.characterCulture.cultureId.name}
             </p>
-            <p className="text-gray-400 text-sm">
-              Level {character.level}
-            </p>
+            <p className="text-gray-400 text-sm">Level {character.level}</p>
           </div>
         ))}
       </div>
-      
+
       <Button variant="secondary" onClick={onCreateCharacter}>
         Create New Character Instead
       </Button>

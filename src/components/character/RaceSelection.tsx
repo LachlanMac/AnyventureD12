@@ -37,7 +37,6 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
     fetchAncestries();
   }, []);
 
-
   // Handler for race selection
   const handleRaceSelect = (raceName: string) => {
     const selectedAncestry = ancestries.find((ancestry) => ancestry.name === raceName);
@@ -45,13 +44,13 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
       // Apply subchoice selections to the ancestry options
       const ancestryWithSubchoices = {
         ...selectedAncestry,
-        options: selectedAncestry.options.map(option => {
+        options: selectedAncestry.options.map((option) => {
           const subchoiceValue = subchoiceSelections[option.name];
           return {
             ...option,
-            selectedSubchoice: subchoiceValue || undefined
+            selectedSubchoice: subchoiceValue || undefined,
           };
-        })
+        }),
       };
       onSelectRace(raceName, ancestryWithSubchoices);
     }
@@ -59,30 +58,30 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
 
   // Handler for subchoice selection
   const handleSubchoiceSelect = (optionName: string, subchoiceId: string) => {
-    setSubchoiceSelections(prev => {
+    setSubchoiceSelections((prev) => {
       const newSelections = {
         ...prev,
-        [optionName]: subchoiceId
+        [optionName]: subchoiceId,
       };
-      
+
       // Re-trigger race selection to update parent with the new selections
       if (selectedRace) {
         const selectedAncestry = ancestries.find((ancestry) => ancestry.name === selectedRace);
         if (selectedAncestry) {
           const ancestryWithSubchoices = {
             ...selectedAncestry,
-            options: selectedAncestry.options.map(option => {
+            options: selectedAncestry.options.map((option) => {
               const subchoiceValue = newSelections[option.name];
               return {
                 ...option,
-                selectedSubchoice: subchoiceValue || undefined
+                selectedSubchoice: subchoiceValue || undefined,
               };
-            })
+            }),
           };
           onSelectRace(selectedRace, ancestryWithSubchoices);
         }
       }
-      
+
       return newSelections;
     });
   };
@@ -349,9 +348,11 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
                                 lineHeight: '1.4',
                               }}
                             >
-                              {option.subchoices.find(
-                                (sc) => sc.id === subchoiceSelections[option.name]
-                              )?.description}
+                              {
+                                option.subchoices.find(
+                                  (sc) => sc.id === subchoiceSelections[option.name]
+                                )?.description
+                              }
                             </div>
                           )}
                         </div>

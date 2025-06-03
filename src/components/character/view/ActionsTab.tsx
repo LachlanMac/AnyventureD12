@@ -9,9 +9,8 @@ interface ActionsTabProps {
 const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
   // Parse actions and reactions from all sources
   const { actions, reactions } = useMemo(() => {
-    
     const allActions: Action[] = [];
-    
+
     // Helper function to determine energy cost from data string
     const getEnergyCost = (data: string, actionType: string): number => {
       // Basic energy costs - can be refined based on data encoding
@@ -41,11 +40,11 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
         if (data.startsWith('X')) return 'Daily Action';
         if (data.startsWith('Z')) return 'Daily Reaction';
       }
-      
+
       // Standard action/reaction based on data
       if (data.startsWith('X')) return 'Action';
       if (data.startsWith('Z')) return 'Reaction';
-      
+
       return 'Free Action';
     };
 
@@ -67,7 +66,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
             energyCost: getEnergyCost(option.data, option.name),
             source: ancestryData.name || 'Unknown Ancestry',
             sourceType: 'ancestry',
-            data: option.data
+            data: option.data,
           });
         }
       });
@@ -86,7 +85,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
             energyCost: getEnergyCost(option.data, option.name),
             source: cultureData.name || 'Unknown Culture',
             sourceType: 'culture',
-            data: option.data
+            data: option.data,
           });
         }
       });
@@ -96,11 +95,12 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     character.modules?.forEach((module) => {
       if (module.moduleId && typeof module.moduleId !== 'string') {
         const moduleData = module.moduleId;
-        
+
         // Check selected options for actions/reactions
-        module.selectedOptions?.forEach(selectedOption => {
-          const optionLocation = typeof selectedOption === 'string' ? selectedOption : selectedOption.location;
-          const option = moduleData.options?.find(opt => opt.location === optionLocation);
+        module.selectedOptions?.forEach((selectedOption) => {
+          const optionLocation =
+            typeof selectedOption === 'string' ? selectedOption : selectedOption.location;
+          const option = moduleData.options?.find((opt) => opt.location === optionLocation);
           if (option) {
             if (option.data && isActionOrReaction(option.data)) {
               const actionType = getActionType(option.data, option.name);
@@ -111,7 +111,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
                 energyCost: getEnergyCost(option.data, option.name),
                 source: moduleData.name,
                 sourceType: 'module',
-                data: option.data
+                data: option.data,
               });
             }
           } else {
@@ -121,13 +121,13 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     });
 
     // Split into actions and reactions
-    const actions = allActions.filter(action => 
-      action.type === 'Action' || action.type === 'Daily Action' || action.type === 'Free Action'
+    const actions = allActions.filter(
+      (action) =>
+        action.type === 'Action' || action.type === 'Daily Action' || action.type === 'Free Action'
     );
-    const reactions = allActions.filter(action => 
-      action.type === 'Reaction' || action.type === 'Daily Reaction'
+    const reactions = allActions.filter(
+      (action) => action.type === 'Reaction' || action.type === 'Daily Reaction'
     );
-
 
     return { actions, reactions };
   }, [character]);

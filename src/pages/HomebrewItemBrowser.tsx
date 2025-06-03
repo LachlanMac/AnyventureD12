@@ -30,7 +30,7 @@ const HomebrewItemBrowser: React.FC = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { showSuccess, showError, prompt } = useToast();
-  
+
   const [items, setItems] = useState<HomebrewItem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -48,15 +48,15 @@ const HomebrewItemBrowser: React.FC = () => {
         status: statusFilter,
         sort: sortBy,
         page: page.toString(),
-        limit: '12'
+        limit: '12',
       });
-      
+
       if (typeFilter !== 'all') params.append('type', typeFilter);
       if (searchTerm) params.append('search', searchTerm);
-      
+
       const response = await fetch(`/api/homebrew/items?${params}`);
       if (!response.ok) throw new Error('Failed to fetch homebrew items');
-      
+
       const data = await response.json();
       setItems(data.items);
       setTotalPages(data.pagination.pages);
@@ -85,20 +85,20 @@ const HomebrewItemBrowser: React.FC = () => {
 
   const handleVote = async (itemId: string, voteType: 'up' | 'down') => {
     if (!user) return;
-    
+
     try {
       const response = await fetch(`/api/homebrew/items/${itemId}/vote`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ vote: voteType })
+        body: JSON.stringify({ vote: voteType }),
       });
-      
+
       if (response.ok) {
         const { upvotes, downvotes } = await response.json();
-        setItems(items.map(item => 
-          item._id === itemId ? { ...item, upvotes, downvotes } : item
-        ));
+        setItems(
+          items.map((item) => (item._id === itemId ? { ...item, upvotes, downvotes } : item))
+        );
         showSuccess(`Vote ${voteType === 'up' ? 'up' : 'down'} recorded!`);
       }
     } catch (err) {
@@ -109,15 +109,15 @@ const HomebrewItemBrowser: React.FC = () => {
 
   const handleReport = async (itemId: string, reason: string) => {
     if (!user) return;
-    
+
     try {
       const response = await fetch(`/api/homebrew/items/${itemId}/report`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
-        body: JSON.stringify({ reason })
+        body: JSON.stringify({ reason }),
       });
-      
+
       if (response.ok) {
         showSuccess('Item reported successfully. Thank you for helping keep the community safe!');
       }
@@ -129,13 +129,20 @@ const HomebrewItemBrowser: React.FC = () => {
 
   const getRarityColor = (rarity: string) => {
     switch (rarity.toLowerCase()) {
-      case 'common': return 'var(--color-cloud)';
-      case 'uncommon': return 'var(--color-forest)';
-      case 'rare': return 'var(--color-stormy)';
-      case 'epic': return 'var(--color-sat-purple)';
-      case 'legendary': return 'var(--color-sunset)';
-      case 'artifact': return 'var(--color-metal-gold)';
-      default: return 'var(--color-cloud)';
+      case 'common':
+        return 'var(--color-cloud)';
+      case 'uncommon':
+        return 'var(--color-forest)';
+      case 'rare':
+        return 'var(--color-stormy)';
+      case 'epic':
+        return 'var(--color-sat-purple)';
+      case 'legendary':
+        return 'var(--color-sunset)';
+      case 'artifact':
+        return 'var(--color-metal-gold)';
+      default:
+        return 'var(--color-cloud)';
     }
   };
 
@@ -143,21 +150,23 @@ const HomebrewItemBrowser: React.FC = () => {
     const colors = {
       draft: 'var(--color-cloud)',
       private: 'var(--color-stormy)',
-      published: 'var(--color-forest)', 
+      published: 'var(--color-forest)',
       approved: 'var(--color-metal-gold)',
-      rejected: 'var(--color-stormy)'
+      rejected: 'var(--color-stormy)',
     };
-    
+
     return (
-      <span style={{
-        backgroundColor: colors[status as keyof typeof colors] || 'var(--color-cloud)',
-        color: 'var(--color-white)',
-        padding: '0.125rem 0.375rem',
-        borderRadius: '9999px',
-        fontSize: '0.75rem',
-        fontWeight: 'bold',
-        textTransform: 'capitalize'
-      }}>
+      <span
+        style={{
+          backgroundColor: colors[status as keyof typeof colors] || 'var(--color-cloud)',
+          color: 'var(--color-white)',
+          padding: '0.125rem 0.375rem',
+          borderRadius: '9999px',
+          fontSize: '0.75rem',
+          fontWeight: 'bold',
+          textTransform: 'capitalize',
+        }}
+      >
         {status}
       </span>
     );
@@ -176,38 +185,41 @@ const HomebrewItemBrowser: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
-      <div style={{
-        display: 'flex',
-        justifyContent: 'space-between',
-        alignItems: 'center',
-        marginBottom: '2rem'
-      }}>
-        <h1 style={{
-          color: 'var(--color-white)',
-          fontSize: '2.5rem',
-          fontWeight: 'bold'
-        }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '2rem',
+        }}
+      >
+        <h1
+          style={{
+            color: 'var(--color-white)',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+          }}
+        >
           Homebrew Items
         </h1>
-        
+
         {user && (
-          <Button 
-            variant="accent"
-            onClick={() => navigate('/homebrew/items/create')}
-          >
+          <Button variant="accent" onClick={() => navigate('/homebrew/items/create')}>
             Create Item
           </Button>
         )}
       </div>
 
       {error && (
-        <div style={{
-          backgroundColor: 'var(--color-stormy)',
-          color: 'var(--color-white)',
-          padding: '1rem',
-          borderRadius: '0.375rem',
-          marginBottom: '1rem'
-        }}>
+        <div
+          style={{
+            backgroundColor: 'var(--color-stormy)',
+            color: 'var(--color-white)',
+            padding: '1rem',
+            borderRadius: '0.375rem',
+            marginBottom: '1rem',
+          }}
+        >
           {error}
         </div>
       )}
@@ -229,16 +241,23 @@ const HomebrewItemBrowser: React.FC = () => {
                   backgroundColor: 'var(--color-dark-elevated)',
                   color: 'var(--color-white)',
                   border: '1px solid var(--color-dark-border)',
-                  borderRadius: '0.375rem'
+                  borderRadius: '0.375rem',
                 }}
               />
             </div>
-            
+
             {/* Filter row */}
             <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
               {/* Status filter */}
               <div>
-                <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', marginBottom: '0.25rem', display: 'block' }}>
+                <label
+                  style={{
+                    color: 'var(--color-cloud)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                    display: 'block',
+                  }}
+                >
                   Status
                 </label>
                 <select
@@ -249,7 +268,7 @@ const HomebrewItemBrowser: React.FC = () => {
                     backgroundColor: 'var(--color-dark-elevated)',
                     color: 'var(--color-white)',
                     border: '1px solid var(--color-dark-border)',
-                    borderRadius: '0.375rem'
+                    borderRadius: '0.375rem',
                   }}
                 >
                   <option value="published">Published</option>
@@ -258,10 +277,17 @@ const HomebrewItemBrowser: React.FC = () => {
                   {user && <option value="mine">My Items</option>}
                 </select>
               </div>
-              
+
               {/* Type filter */}
               <div>
-                <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', marginBottom: '0.25rem', display: 'block' }}>
+                <label
+                  style={{
+                    color: 'var(--color-cloud)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                    display: 'block',
+                  }}
+                >
                   Type
                 </label>
                 <select
@@ -272,7 +298,7 @@ const HomebrewItemBrowser: React.FC = () => {
                     backgroundColor: 'var(--color-dark-elevated)',
                     color: 'var(--color-white)',
                     border: '1px solid var(--color-dark-border)',
-                    borderRadius: '0.375rem'
+                    borderRadius: '0.375rem',
                   }}
                 >
                   <option value="all">All Types</option>
@@ -283,10 +309,17 @@ const HomebrewItemBrowser: React.FC = () => {
                   <option value="tool">Tools</option>
                 </select>
               </div>
-              
+
               {/* Sort */}
               <div>
-                <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', marginBottom: '0.25rem', display: 'block' }}>
+                <label
+                  style={{
+                    color: 'var(--color-cloud)',
+                    fontSize: '0.875rem',
+                    marginBottom: '0.25rem',
+                    display: 'block',
+                  }}
+                >
                   Sort By
                 </label>
                 <select
@@ -297,7 +330,7 @@ const HomebrewItemBrowser: React.FC = () => {
                     backgroundColor: 'var(--color-dark-elevated)',
                     color: 'var(--color-white)',
                     border: '1px solid var(--color-dark-border)',
-                    borderRadius: '0.375rem'
+                    borderRadius: '0.375rem',
                   }}
                 >
                   <option value="-publishedAt">Newest</option>
@@ -317,81 +350,98 @@ const HomebrewItemBrowser: React.FC = () => {
         <Card variant="default">
           <CardBody>
             <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--color-cloud)' }}>
-              No homebrew items found. {user && statusFilter === 'mine' ? (
+              No homebrew items found.{' '}
+              {user && statusFilter === 'mine' ? (
                 <>
                   <Link to="/homebrew/items/create" style={{ color: 'var(--color-metal-gold)' }}>
                     Create your first item!
                   </Link>
                 </>
-              ) : 'Try adjusting your filters.'}
+              ) : (
+                'Try adjusting your filters.'
+              )}
             </div>
           </CardBody>
         </Card>
       ) : (
-        <div style={{
-          display: 'grid',
-          gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
-          gap: '1.5rem',
-          marginBottom: '2rem'
-        }}>
+        <div
+          style={{
+            display: 'grid',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gap: '1.5rem',
+            marginBottom: '2rem',
+          }}
+        >
           {items.map((item) => (
             <Card key={item._id} variant="default" hoverEffect>
-              <CardHeader style={{
-                backgroundColor: getRarityColor(item.rarity),
-                opacity: 0.8
-              }}>
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'flex-start'
-                }}>
+              <CardHeader
+                style={{
+                  backgroundColor: getRarityColor(item.rarity),
+                  opacity: 0.8,
+                }}
+              >
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'flex-start',
+                  }}
+                >
                   <div>
-                    <h3 style={{
-                      color: 'var(--color-white)',
-                      fontSize: '1.125rem',
-                      fontWeight: 'bold',
-                      marginBottom: '0.25rem'
-                    }}>
+                    <h3
+                      style={{
+                        color: 'var(--color-white)',
+                        fontSize: '1.125rem',
+                        fontWeight: 'bold',
+                        marginBottom: '0.25rem',
+                      }}
+                    >
                       {item.name}
                     </h3>
                     <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
-                      <span style={{
-                        color: 'rgba(255, 255, 255, 0.8)',
-                        fontSize: '0.75rem',
-                        textTransform: 'capitalize'
-                      }}>
+                      <span
+                        style={{
+                          color: 'rgba(255, 255, 255, 0.8)',
+                          fontSize: '0.75rem',
+                          textTransform: 'capitalize',
+                        }}
+                      >
                         {item.type} • {item.rarity}
                       </span>
                       {getStatusBadge(item.status)}
                     </div>
                   </div>
-                  
-                  <span style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                    color: 'var(--color-white)',
-                    padding: '0.125rem 0.375rem',
-                    borderRadius: '9999px',
-                    fontSize: '0.75rem',
-                    fontWeight: 'bold'
-                  }}>
+
+                  <span
+                    style={{
+                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                      color: 'var(--color-white)',
+                      padding: '0.125rem 0.375rem',
+                      borderRadius: '9999px',
+                      fontSize: '0.75rem',
+                      fontWeight: 'bold',
+                    }}
+                  >
                     HOMEBREW
                   </span>
                 </div>
               </CardHeader>
-              
+
               <CardBody>
-                <p style={{
-                  color: 'var(--color-cloud)',
-                  fontSize: '0.875rem',
-                  marginBottom: '1rem',
-                  display: '-webkit-box',
-                  WebkitLineClamp: 3,
-                  WebkitBoxOrient: 'vertical',
-                  overflow: 'hidden'
-                }}>
+                <p
+                  style={{
+                    color: 'var(--color-cloud)',
+                    fontSize: '0.875rem',
+                    marginBottom: '1rem',
+                    display: '-webkit-box',
+                    WebkitLineClamp: 3,
+                    WebkitBoxOrient: 'vertical',
+                    overflow: 'hidden',
+                  }}
+                >
                   {item.description}
                 </p>
-                
+
                 {item.tags.length > 0 && (
                   <div style={{ marginBottom: '1rem' }}>
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.25rem' }}>
@@ -403,57 +453,63 @@ const HomebrewItemBrowser: React.FC = () => {
                             color: 'var(--color-cloud)',
                             padding: '0.125rem 0.375rem',
                             borderRadius: '0.25rem',
-                            fontSize: '0.625rem'
+                            fontSize: '0.625rem',
                           }}
                         >
                           {tag}
                         </span>
                       ))}
                       {item.tags.length > 3 && (
-                        <span style={{
-                          color: 'var(--color-cloud)',
-                          fontSize: '0.625rem',
-                          padding: '0.125rem 0.375rem'
-                        }}>
+                        <span
+                          style={{
+                            color: 'var(--color-cloud)',
+                            fontSize: '0.625rem',
+                            padding: '0.125rem 0.375rem',
+                          }}
+                        >
                           +{item.tags.length - 3} more
                         </span>
                       )}
                     </div>
                   </div>
                 )}
-                
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '0.5rem',
-                  fontSize: '0.75rem',
-                  color: 'var(--color-cloud)'
-                }}>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '0.5rem',
+                    fontSize: '0.75rem',
+                    color: 'var(--color-cloud)',
+                  }}
+                >
                   <span>by {item.creatorName}</span>
                   <span>{item.timesUsed} uses</span>
                 </div>
-                
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center',
-                  marginBottom: '1rem',
-                  fontSize: '0.75rem'
-                }}>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1rem',
+                    fontSize: '0.75rem',
+                  }}
+                >
                   <span style={{ color: 'var(--color-metal-gold)' }}>
                     {formatGoldDisplay(item.value)}
                   </span>
-                  <span style={{ color: 'var(--color-cloud)' }}>
-                    {item.weight} lbs
-                  </span>
+                  <span style={{ color: 'var(--color-cloud)' }}>{item.weight} lbs</span>
                 </div>
-                
-                <div style={{
-                  display: 'flex',
-                  justifyContent: 'space-between',
-                  alignItems: 'center'
-                }}>
+
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                  }}
+                >
                   {/* Voting */}
                   <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                     {user && (
@@ -465,7 +521,7 @@ const HomebrewItemBrowser: React.FC = () => {
                             border: 'none',
                             color: 'var(--color-forest)',
                             cursor: 'pointer',
-                            fontSize: '0.875rem'
+                            fontSize: '0.875rem',
                           }}
                         >
                           ▲ {item.upvotes}
@@ -477,7 +533,7 @@ const HomebrewItemBrowser: React.FC = () => {
                             border: 'none',
                             color: 'var(--color-stormy)',
                             cursor: 'pointer',
-                            fontSize: '0.875rem'
+                            fontSize: '0.875rem',
                           }}
                         >
                           ▼ {item.downvotes}
@@ -490,7 +546,7 @@ const HomebrewItemBrowser: React.FC = () => {
                       </span>
                     )}
                   </div>
-                  
+
                   {/* Actions */}
                   <div style={{ display: 'flex', gap: '0.5rem' }}>
                     <Button
@@ -500,14 +556,17 @@ const HomebrewItemBrowser: React.FC = () => {
                     >
                       View
                     </Button>
-                    
+
                     {user && (
                       <div style={{ position: 'relative' }}>
                         <Button
                           variant="outline"
                           size="sm"
                           onClick={async () => {
-                            const reason = await prompt('Why are you reporting this item?', 'Enter reason...');
+                            const reason = await prompt(
+                              'Why are you reporting this item?',
+                              'Enter reason...'
+                            );
                             if (reason) handleReport(item._id, reason);
                           }}
                         >
@@ -525,28 +584,28 @@ const HomebrewItemBrowser: React.FC = () => {
 
       {/* Pagination */}
       {totalPages > 1 && (
-        <div style={{
-          display: 'flex',
-          justifyContent: 'center',
-          gap: '0.5rem',
-          marginTop: '2rem'
-        }}>
-          <Button
-            variant="outline"
-            onClick={() => setPage(page - 1)}
-            disabled={page === 1}
-          >
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'center',
+            gap: '0.5rem',
+            marginTop: '2rem',
+          }}
+        >
+          <Button variant="outline" onClick={() => setPage(page - 1)} disabled={page === 1}>
             Previous
           </Button>
-          
-          <span style={{
-            color: 'var(--color-cloud)',
-            padding: '0.5rem 1rem',
-            alignSelf: 'center'
-          }}>
+
+          <span
+            style={{
+              color: 'var(--color-cloud)',
+              padding: '0.5rem 1rem',
+              alignSelf: 'center',
+            }}
+          >
             Page {page} of {totalPages}
           </span>
-          
+
           <Button
             variant="outline"
             onClick={() => setPage(page + 1)}

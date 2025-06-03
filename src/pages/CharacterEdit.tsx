@@ -11,13 +11,7 @@ import PersonalityCreatorTab from '../components/character/creator/PersonalityCr
 
 // Import utility functions and types from the shared files
 import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
-import {
-  Character,
-  Ancestry,
-  Culture,
-  Attributes,
-  Module,
-} from '../types/character';
+import { Character, Ancestry, Culture, Attributes, Module } from '../types/character';
 
 const CharacterEdit: React.FC = () => {
   const navigate = useNavigate();
@@ -39,10 +33,10 @@ const CharacterEdit: React.FC = () => {
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
   const [stressors, setStressors] = useState<string[]>([]);
-  
+
   // Track invested points to prevent going negative
   const [investedTalentStars, setInvestedTalentStars] = useState<number>(0);
-  
+
   // Define steps
   const steps = ['Basic Info', 'Attributes', 'Talents', 'Personality', 'Background'];
 
@@ -54,50 +48,51 @@ const CharacterEdit: React.FC = () => {
     const loadCharacterData = async () => {
       try {
         setInitialLoading(true);
-        
+
         // Fetch the character data
         const charResponse = await fetch(`/api/characters/${id}`);
         if (!charResponse.ok) {
           throw new Error('Failed to fetch character');
         }
         const charData = await charResponse.json();
-        
+
         // Set the character state with the loaded data
         setCharacter(charData);
-        
+
         // Calculate attribute points remaining
         const totalAttributePoints = 6 + (charData.additionalAttributePoints || 0);
         const spentAttributePoints = Object.values(charData.attributes as Attributes).reduce(
-          (sum: number, val: number) => sum + (val - 1), 0
+          (sum: number, val: number) => sum + (val - 1),
+          0
         );
         setAttributePointsRemaining(totalAttributePoints - spentAttributePoints);
-        
+
         // Calculate talent stars remaining
         const baseTalentPoints = 8;
         const bonusTalentPoints = charData.additionalTalentPoints || 0;
         const totalTalentPoints = baseTalentPoints + bonusTalentPoints;
         let spentTalentPoints = 0;
-        
+
         // Count spent talent points from weapon skills (excluding free talents)
         const freeWeaponTalents: { [key: string]: number } = {
-          'unarmed': 1,
-          'throwing': 1,
-          'simpleRangedWeapons': 1,
-          'simpleMeleeWeapons': 1
+          unarmed: 1,
+          throwing: 1,
+          simpleRangedWeapons: 1,
+          simpleMeleeWeapons: 1,
         };
-        
+
         if (charData.weaponSkills) {
           Object.entries(charData.weaponSkills).forEach(([skillId, skill]: [string, any]) => {
             if (skill && typeof skill.talent === 'number' && skill.talent > 0) {
               // Only count talents that exceed the free amount
               const freeTalents = freeWeaponTalents[skillId] || 0;
               if (skill.talent > freeTalents) {
-                spentTalentPoints += (skill.talent - freeTalents);
+                spentTalentPoints += skill.talent - freeTalents;
               }
             }
           });
         }
-        
+
         // Count spent talent points from magic skills
         if (charData.magicSkills) {
           Object.values(charData.magicSkills).forEach((skill: any) => {
@@ -106,7 +101,7 @@ const CharacterEdit: React.FC = () => {
             }
           });
         }
-        
+
         // Count spent talent points from crafting skills
         if (charData.craftingSkills) {
           Object.values(charData.craftingSkills).forEach((skill: any) => {
@@ -115,13 +110,11 @@ const CharacterEdit: React.FC = () => {
             }
           });
         }
-        
-        
+
         setInvestedTalentStars(spentTalentPoints);
         setStartingTalents(totalTalentPoints);
         setTalentStarsRemaining(totalTalentPoints - spentTalentPoints);
-        
-        
+
         // Set selected race/culture/personality
         if (charData.culture) {
           setSelectedCulture(charData.culture);
@@ -129,7 +122,7 @@ const CharacterEdit: React.FC = () => {
         if (charData.stressors) {
           setStressors(charData.stressors);
         }
-        
+
         // Find and set personality module from character's modules
         if (charData.modules && Array.isArray(charData.modules)) {
           // Fetch personality modules to find which one the character has
@@ -137,13 +130,13 @@ const CharacterEdit: React.FC = () => {
             const personalityModulesResponse = await fetch('/api/modules?type=personality');
             if (personalityModulesResponse.ok) {
               const personalityModules = await personalityModulesResponse.json();
-              
+
               // Find which personality module the character has
               for (const charModule of charData.modules) {
-                const personalityModule = personalityModules.find((pm: any) => 
-                  pm._id === charModule.moduleId || pm._id === charModule.moduleId._id
+                const personalityModule = personalityModules.find(
+                  (pm: any) => pm._id === charModule.moduleId || pm._id === charModule.moduleId._id
                 );
-                
+
                 if (personalityModule) {
                   setSelectedPersonality(personalityModule.name);
                   setSelectedPersonalityModule(personalityModule);
@@ -155,7 +148,7 @@ const CharacterEdit: React.FC = () => {
             console.error('Error fetching personality modules:', err);
           }
         }
-        
+
         // Fetch ancestries and cultures for dropdowns
         const ancestryResponse = await fetch('/api/ancestries');
         if (!ancestryResponse.ok) {
@@ -163,7 +156,7 @@ const CharacterEdit: React.FC = () => {
         }
         const ancestryData = await ancestryResponse.json();
         setAncestries(ancestryData);
-        
+
         // Find and set the selected ancestry with subchoice selections
         if (charData.race) {
           const ancestry = ancestryData.find((a: Ancestry) => a.name === charData.race);
@@ -178,9 +171,9 @@ const CharacterEdit: React.FC = () => {
                   );
                   return {
                     ...option,
-                    selectedSubchoice: savedOption?.selectedSubchoice || undefined
+                    selectedSubchoice: savedOption?.selectedSubchoice || undefined,
                   };
-                })
+                }),
               };
               setSelectedAncestry(ancestryWithSubchoices);
             } else {
@@ -195,7 +188,7 @@ const CharacterEdit: React.FC = () => {
         }
         const cultureData = await cultureResponse.json();
         setCultures(cultureData);
-        
+
         // Find and set the selected culture
         if (charData.culture) {
           const culture = cultureData.find((c: Culture) => c.name === charData.culture);
@@ -203,7 +196,7 @@ const CharacterEdit: React.FC = () => {
             setSelectedCulture(culture);
           }
         }
-        
+
         setInitialLoading(false);
       } catch (err) {
         console.error('Error loading character data:', err);
@@ -221,7 +214,7 @@ const CharacterEdit: React.FC = () => {
     updateCharacter('culture', cultureName);
     setSelectedCulture(culture);
   };
-  
+
   const handlePersonalitySelect = (personalityName: string, personalityModule: Module) => {
     setSelectedPersonality(personalityName);
     setSelectedPersonalityModule(personalityModule);
@@ -434,24 +427,28 @@ const CharacterEdit: React.FC = () => {
     setIsLoading(true);
     try {
       // Prepare ancestry data (all 3 options are automatically selected)
-      const ancestryData = selectedAncestry ? {
-        ancestryId: selectedAncestry._id,
-        selectedOptions: selectedAncestry.options.map(option => ({
-          name: option.name,
-          selectedSubchoice: option.selectedSubchoice || null
-        }))
-      } : null;
-      
+      const ancestryData = selectedAncestry
+        ? {
+            ancestryId: selectedAncestry._id,
+            selectedOptions: selectedAncestry.options.map((option) => ({
+              name: option.name,
+              selectedSubchoice: option.selectedSubchoice || null,
+            })),
+          }
+        : null;
+
       // Prepare culture data (all 3 options are automatically selected)
-      const cultureData = selectedCulture ? {
-        cultureId: selectedCulture._id,
-        selectedOptions: selectedCulture.options.map(option => option.name)
-      } : null;
+      const cultureData = selectedCulture
+        ? {
+            cultureId: selectedCulture._id,
+            selectedOptions: selectedCulture.options.map((option) => option.name),
+          }
+        : null;
 
       // Handle module updates - keep all existing modules except personality
       let updatedModules = [];
       let modulePointRefund = 0;
-      
+
       // First, get all personality module IDs and their data to filter them out
       const personalityModulesMap = new Map();
       try {
@@ -465,15 +462,15 @@ const CharacterEdit: React.FC = () => {
       } catch (err) {
         console.error('Error fetching personality modules:', err);
       }
-      
+
       // Keep all non-personality modules from the character and calculate refund
-      
+
       if (character.modules && Array.isArray(character.modules)) {
         character.modules.forEach((module: any) => {
           // Handle nested module structure - the actual module data might be in module.moduleId
           const moduleData = module.moduleId || module;
           const moduleId = moduleData._id || moduleData;
-          
+
           // Check if this is a personality module
           const personalityModule = personalityModulesMap.get(moduleId);
           if (personalityModule) {
@@ -499,8 +496,7 @@ const CharacterEdit: React.FC = () => {
           }
         });
       }
-      
-      
+
       // Add the newly selected personality module
       if (selectedPersonalityModule) {
         const tier1Option = selectedPersonalityModule.options.find(
@@ -534,7 +530,7 @@ const CharacterEdit: React.FC = () => {
         craftingSkills: character.craftingSkills,
         modulePoints: {
           total: character.modulePoints.total,
-          spent: Math.max(0, (character.modulePoints.spent || 0) - modulePointRefund)
+          spent: Math.max(0, (character.modulePoints.spent || 0) - modulePointRefund),
         },
         level: character.level,
         biography: character.biography,
@@ -719,7 +715,7 @@ const CharacterEdit: React.FC = () => {
               onUpdatePhysicalTrait={(trait, value) => {
                 updateCharacter('physicalTraits', {
                   ...character.physicalTraits,
-                  [trait]: value
+                  [trait]: value,
                 });
               }}
               onUpdateAppearance={(value) => updateCharacter('appearance', value)}
@@ -751,11 +747,7 @@ const CharacterEdit: React.FC = () => {
               Next
             </Button>
           ) : (
-            <Button
-              variant="accent"
-              onClick={handleSubmit}
-              disabled={isLoading}
-            >
+            <Button variant="accent" onClick={handleSubmit} disabled={isLoading}>
               {isLoading ? 'Updating...' : 'Update Character'}
             </Button>
           )}

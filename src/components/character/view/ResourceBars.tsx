@@ -10,9 +10,13 @@ interface ResourceBarProps {
   readOnly?: boolean;
 }
 
-const ResourceBars: React.FC<ResourceBarProps> = ({ resources, onResourceChange, readOnly = false }) => {
+const ResourceBars: React.FC<ResourceBarProps> = ({
+  resources,
+  onResourceChange,
+  readOnly = false,
+}) => {
   const [editingResource, setEditingResource] = useState<string | null>(null);
-  
+
   // Helper function to render stat bars
   const renderStatBar = (value: number, max: number, color: string = 'var(--color-sat-purple)') => {
     const percentage = Math.min((value / max) * 100, 100);
@@ -123,7 +127,14 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources, onResourceChange,
             }}
           >
             {isEditing && !readOnly ? (
-              <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: '0.25rem' }}>
+              <div
+                style={{
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  gap: '0.25rem',
+                }}
+              >
                 <input
                   type="number"
                   min="0"
@@ -203,10 +214,10 @@ const ResourceBars: React.FC<ResourceBarProps> = ({ resources, onResourceChange,
     >
       {/* Health */}
       {renderEditableResource('Health', 'health', 'var(--color-sunset)')}
-      
+
       {/* Resolve */}
       {renderEditableResource('Resolve', 'resolve', 'var(--color-sat-purple)')}
-      
+
       {/* Energy */}
       {renderEditableResource('Energy', 'energy', 'var(--color-metal-gold)')}
     </div>

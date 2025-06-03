@@ -33,7 +33,11 @@ interface PlayerSlotManagerProps {
   onSlotUpdated: () => void;
 }
 
-const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner, onSlotUpdated }) => {
+const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({
+  campaign,
+  isOwner,
+  onSlotUpdated,
+}) => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const { showSuccess, showError, confirm } = useToast();
@@ -44,16 +48,16 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
   const handleGenerateInvite = async (slotIndex: number) => {
     if (!isOwner) return;
 
-    setLoading(prev => ({ ...prev, [`invite-${slotIndex}`]: true }));
+    setLoading((prev) => ({ ...prev, [`invite-${slotIndex}`]: true }));
 
     try {
       const response = await fetch(`/api/campaigns/${campaign._id}/invite`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify({ slotIndex })
+        body: JSON.stringify({ slotIndex }),
       });
 
       if (!response.ok) {
@@ -62,15 +66,15 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
       }
 
       const data = await response.json();
-      
+
       // Store the full invite link
-      const fullInviteLink = data.inviteLink.startsWith('http') 
-        ? data.inviteLink 
+      const fullInviteLink = data.inviteLink.startsWith('http')
+        ? data.inviteLink
         : `${window.location.origin}${data.inviteLink}`;
-        
-      setInviteLinks(prev => ({ ...prev, [slotIndex]: fullInviteLink }));
-      setShowInviteLink(prev => ({ ...prev, [slotIndex]: true }));
-      
+
+      setInviteLinks((prev) => ({ ...prev, [slotIndex]: fullInviteLink }));
+      setShowInviteLink((prev) => ({ ...prev, [slotIndex]: true }));
+
       // Auto-copy to clipboard
       try {
         await navigator.clipboard.writeText(fullInviteLink);
@@ -78,28 +82,30 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
       } catch (err) {
         // Silent fail, user can still use the copy button
       }
-      
+
       onSlotUpdated();
     } catch (error) {
-      showError(`Failed to generate invite link: ${error instanceof Error ? error.message : 'Unknown error'}`);
+      showError(
+        `Failed to generate invite link: ${error instanceof Error ? error.message : 'Unknown error'}`
+      );
     } finally {
-      setLoading(prev => ({ ...prev, [`invite-${slotIndex}`]: false }));
+      setLoading((prev) => ({ ...prev, [`invite-${slotIndex}`]: false }));
     }
   };
 
   const handleToggleSlot = async (slotIndex: number, isOpen: boolean) => {
     if (!isOwner) return;
 
-    setLoading(prev => ({ ...prev, [`toggle-${slotIndex}`]: true }));
+    setLoading((prev) => ({ ...prev, [`toggle-${slotIndex}`]: true }));
 
     try {
       const response = await fetch(`/api/campaigns/${campaign._id}/slots`, {
         method: 'PATCH',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify({ slotIndex, isOpen })
+        body: JSON.stringify({ slotIndex, isOpen }),
       });
 
       if (!response.ok) {
@@ -109,44 +115,44 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       // Clear invite link if closing slot
       if (!isOpen) {
-        setInviteLinks(prev => {
+        setInviteLinks((prev) => {
           const newLinks = { ...prev };
           delete newLinks[slotIndex];
           return newLinks;
         });
-        setShowInviteLink(prev => ({ ...prev, [slotIndex]: false }));
+        setShowInviteLink((prev) => ({ ...prev, [slotIndex]: false }));
       }
 
       onSlotUpdated();
     } catch (error) {
       showError('Failed to update slot');
     } finally {
-      setLoading(prev => ({ ...prev, [`toggle-${slotIndex}`]: false }));
+      setLoading((prev) => ({ ...prev, [`toggle-${slotIndex}`]: false }));
     }
   };
 
   const handleKickPlayer = async (characterId: string) => {
     if (!isOwner) return;
-    
+
     const confirmed = await confirm({
       title: 'Kick Player',
       message: 'Are you sure you want to kick this player?',
       confirmText: 'Kick',
-      cancelText: 'Cancel'
+      cancelText: 'Cancel',
     });
-    
+
     if (!confirmed) return;
 
-    setLoading(prev => ({ ...prev, [`kick-${characterId}`]: true }));
+    setLoading((prev) => ({ ...prev, [`kick-${characterId}`]: true }));
 
     try {
       const response = await fetch(`/api/campaigns/${campaign._id}/players`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify({ characterId })
+        body: JSON.stringify({ characterId }),
       });
 
       if (!response.ok) {
@@ -158,7 +164,7 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
     } catch (error) {
       showError('Failed to kick player');
     } finally {
-      setLoading(prev => ({ ...prev, [`kick-${characterId}`]: false }));
+      setLoading((prev) => ({ ...prev, [`kick-${characterId}`]: false }));
     }
   };
 
@@ -167,21 +173,21 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
       title: 'Leave Campaign',
       message: 'Are you sure you want to leave this campaign?',
       confirmText: 'Leave',
-      cancelText: 'Cancel'
+      cancelText: 'Cancel',
     });
-    
+
     if (!confirmed) return;
 
-    setLoading(prev => ({ ...prev, [`leave-${characterId}`]: true }));
+    setLoading((prev) => ({ ...prev, [`leave-${characterId}`]: true }));
 
     try {
       const response = await fetch(`/api/campaigns/${campaign._id}/leave`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${localStorage.getItem('token')}`
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
-        body: JSON.stringify({ characterId })
+        body: JSON.stringify({ characterId }),
       });
 
       if (!response.ok) {
@@ -193,7 +199,7 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
     } catch (error) {
       showError('Failed to leave campaign');
     } finally {
-      setLoading(prev => ({ ...prev, [`leave-${characterId}`]: false }));
+      setLoading((prev) => ({ ...prev, [`leave-${characterId}`]: false }));
     }
   };
 
@@ -226,21 +232,26 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
           className="p-4 border rounded-lg"
           style={{
             backgroundColor: 'var(--color-dark-base)',
-            border: '1px solid var(--color-dark-border)'
+            border: '1px solid var(--color-dark-border)',
           }}
         >
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-4">
-              <div 
+              <div
                 className="w-12 h-12 rounded-full overflow-hidden flex items-center justify-center cursor-pointer hover:ring-2 hover:ring-yellow-400 transition-all"
                 style={{
-                  backgroundColor: slot.character?.portraitUrl ? 'transparent' : 'var(--color-stormy)',
+                  backgroundColor: slot.character?.portraitUrl
+                    ? 'transparent'
+                    : 'var(--color-stormy)',
                 }}
-                onClick={() => slot.character && navigate(`/characters/${slot.character._id}?campaign=${campaign._id}`)}
+                onClick={() =>
+                  slot.character &&
+                  navigate(`/characters/${slot.character._id}?campaign=${campaign._id}`)
+                }
               >
                 {slot.character?.portraitUrl ? (
-                  <img 
-                    src={slot.character.portraitUrl} 
+                  <img
+                    src={slot.character.portraitUrl}
                     alt={slot.character.name}
                     className="w-full h-full object-cover"
                   />
@@ -248,10 +259,13 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
                   <span className="text-white font-bold">#{index + 1}</span>
                 )}
               </div>
-              
-              <div 
+
+              <div
                 className={slot.character ? 'cursor-pointer' : ''}
-                onClick={() => slot.character && navigate(`/characters/${slot.character._id}?campaign=${campaign._id}`)}
+                onClick={() =>
+                  slot.character &&
+                  navigate(`/characters/${slot.character._id}?campaign=${campaign._id}`)
+                }
               >
                 {slot.character ? (
                   <div>
@@ -312,7 +326,11 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
                         onClick={() => handleGenerateInvite(index)}
                         disabled={loading[`invite-${index}`] || !!inviteLinks[index]}
                       >
-                        {loading[`invite-${index}`] ? 'Generating...' : inviteLinks[index] ? 'Invite Generated' : 'Generate Invite'}
+                        {loading[`invite-${index}`]
+                          ? 'Generating...'
+                          : inviteLinks[index]
+                            ? 'Invite Generated'
+                            : 'Generate Invite'}
                       </Button>
                       <Button
                         variant="secondary"
@@ -336,17 +354,15 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
                 </div>
               ) : (
                 // Non-owner view
-                slot.isOpen && (
-                  <span className="text-yellow-400 text-sm">Accepting Players</span>
-                )
+                slot.isOpen && <span className="text-yellow-400 text-sm">Accepting Players</span>
               )}
             </div>
           </div>
 
           {/* Invite Link Display */}
           {isOwner && showInviteLink[index] && inviteLinks[index] && (
-            <div 
-              className="mt-4 p-3 rounded" 
+            <div
+              className="mt-4 p-3 rounded"
               style={{
                 backgroundColor: 'rgba(215, 183, 64, 0.1)',
                 border: '1px solid rgba(215, 183, 64, 0.3)',
@@ -355,7 +371,10 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
             >
               <div className="flex items-center justify-between">
                 <div className="flex-1 mr-4">
-                  <label className="block text-sm font-medium mb-1" style={{ color: 'var(--color-metal-gold)' }}>
+                  <label
+                    className="block text-sm font-medium mb-1"
+                    style={{ color: 'var(--color-metal-gold)' }}
+                  >
                     Invite Link Generated!
                   </label>
                   <input
@@ -378,7 +397,8 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
                 </Button>
               </div>
               <p className="text-xs mt-2" style={{ color: 'var(--color-cloud)' }}>
-                Share this link with the player you want to invite. The link will expire once used or if the slot is closed.
+                Share this link with the player you want to invite. The link will expire once used
+                or if the slot is closed.
               </p>
             </div>
           )}

@@ -50,12 +50,14 @@ const ModulesPage: React.FC = () => {
           throw new Error('Failed to fetch character data');
         }
         const characterData = await characterResponse.json();
-        
+
         // Filter out any modules with null moduleId
         if (characterData.modules) {
-          characterData.modules = characterData.modules.filter((m: CharacterModule) => m.moduleId !== null);
+          characterData.modules = characterData.modules.filter(
+            (m: CharacterModule) => m.moduleId !== null
+          );
         }
-        
+
         setCharacter(characterData);
 
         // Fetch all modules
@@ -86,7 +88,7 @@ const ModulesPage: React.FC = () => {
         if (moduleElement) {
           moduleElement.scrollIntoView({ behavior: 'smooth', block: 'center' });
           // Also select the module
-          const module = allModules.find(m => m._id === highlightModuleId);
+          const module = allModules.find((m) => m._id === highlightModuleId);
           if (module) {
             setSelectedModule(module);
           }
@@ -296,24 +298,29 @@ const ModulesPage: React.FC = () => {
     let filteredModules = [...allModules];
 
     // Exclude racial and planar modules
-    filteredModules = filteredModules.filter((module) => module.mtype !== 'racial' && module.mtype !== 'planar');
-    
+    filteredModules = filteredModules.filter(
+      (module) => module.mtype !== 'racial' && module.mtype !== 'planar'
+    );
+
     filteredModules = filteredModules.filter((module) => {
       // Always show cultural and personality modules if they're selected
-      if ((module.mtype === 'cultural' || module.mtype === 'personality') && isModuleSelected(module._id)) {
+      if (
+        (module.mtype === 'cultural' || module.mtype === 'personality') &&
+        isModuleSelected(module._id)
+      ) {
         return true;
       }
-      
+
       // Don't show unselected cultural/personality modules
       if (module.mtype === 'cultural' || module.mtype === 'personality') {
         return false;
       }
-      
+
       // Apply type filters
       if (module.mtype === 'core' && !typeFilters.core) return false;
       if (module.mtype === 'secondary' && !typeFilters.secondary) return false;
       if (module.mtype === 'alteration' && !typeFilters.alteration) return false;
-      
+
       return true;
     });
 
@@ -470,21 +477,25 @@ const ModulesPage: React.FC = () => {
 
       {/* Module type filters */}
       <div style={{ marginBottom: '2rem' }}>
-        <div style={{ 
-          color: 'var(--color-cloud)', 
-          fontSize: '0.875rem', 
-          marginBottom: '0.5rem',
-          fontWeight: '600'
-        }}>
+        <div
+          style={{
+            color: 'var(--color-cloud)',
+            fontSize: '0.875rem',
+            marginBottom: '0.5rem',
+            fontWeight: '600',
+          }}
+        >
           Filter by Type:
         </div>
         <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
           <button
-            onClick={() => setTypeFilters(prev => ({ ...prev, core: !prev.core }))}
+            onClick={() => setTypeFilters((prev) => ({ ...prev, core: !prev.core }))}
             style={{
               padding: '0.5rem 1rem',
               borderRadius: '0.375rem',
-              backgroundColor: typeFilters.core ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+              backgroundColor: typeFilters.core
+                ? 'var(--color-sat-purple)'
+                : 'var(--color-dark-elevated)',
               color: 'var(--color-white)',
               border: '1px solid var(--color-dark-border)',
               cursor: 'pointer',
@@ -495,11 +506,13 @@ const ModulesPage: React.FC = () => {
             Core
           </button>
           <button
-            onClick={() => setTypeFilters(prev => ({ ...prev, secondary: !prev.secondary }))}
+            onClick={() => setTypeFilters((prev) => ({ ...prev, secondary: !prev.secondary }))}
             style={{
               padding: '0.5rem 1rem',
               borderRadius: '0.375rem',
-              backgroundColor: typeFilters.secondary ? 'var(--color-stormy)' : 'var(--color-dark-elevated)',
+              backgroundColor: typeFilters.secondary
+                ? 'var(--color-stormy)'
+                : 'var(--color-dark-elevated)',
               color: 'var(--color-white)',
               border: '1px solid var(--color-dark-border)',
               cursor: 'pointer',
@@ -510,11 +523,13 @@ const ModulesPage: React.FC = () => {
             Secondary
           </button>
           <button
-            onClick={() => setTypeFilters(prev => ({ ...prev, alteration: !prev.alteration }))}
+            onClick={() => setTypeFilters((prev) => ({ ...prev, alteration: !prev.alteration }))}
             style={{
               padding: '0.5rem 1rem',
               borderRadius: '0.375rem',
-              backgroundColor: typeFilters.alteration ? 'var(--color-sunset)' : 'var(--color-dark-elevated)',
+              backgroundColor: typeFilters.alteration
+                ? 'var(--color-sunset)'
+                : 'var(--color-dark-elevated)',
               color: 'var(--color-white)',
               border: '1px solid var(--color-dark-border)',
               cursor: 'pointer',
@@ -561,7 +576,9 @@ const ModulesPage: React.FC = () => {
                   {displayModules.map((module) => (
                     <div
                       key={module._id}
-                      ref={(el) => { moduleRefs.current[module._id] = el; }}
+                      ref={(el) => {
+                        moduleRefs.current[module._id] = el;
+                      }}
                       style={{
                         padding: '0.75rem 1rem',
                         borderRadius: '0.375rem',

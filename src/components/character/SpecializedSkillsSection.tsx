@@ -56,11 +56,11 @@ const SpecializedSkillsSection: React.FC<SpecializedSkillsSectionProps> = ({
           }}
         >
           {skills.map((skill) => (
-            <SkillCard 
-              key={skill.id} 
-              name={skill.name} 
-              value={skill.value} 
-              talent={skill.talent} 
+            <SkillCard
+              key={skill.id}
+              name={skill.name}
+              value={skill.value}
+              talent={skill.talent}
               diceTierModifier={skill.diceTierModifier || 0}
             />
           ))}

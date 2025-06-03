@@ -42,7 +42,11 @@ interface CharacterHeaderProps {
   onResourceChange?: (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => void;
 }
 
-const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, onResourceChange }) => {
+const CharacterHeader: React.FC<CharacterHeaderProps> = ({
+  character,
+  onDelete,
+  onResourceChange,
+}) => {
   const [portraitUrl, setPortraitUrl] = useState<string | null>(character.portraitUrl || null);
   const { showError } = useToast();
 
@@ -74,7 +78,6 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
       showError('Failed to upload portrait. Please try again.');
     }
   };
-
 
   return (
     <Card variant="default">
@@ -179,8 +182,8 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
         <div className="flex flex-col md:flex-row gap-6 mt-6">
           {/* Resource bars and Movement - left column */}
           <div className="flex-1">
-            <ResourceBars 
-              resources={character.resources} 
+            <ResourceBars
+              resources={character.resources}
               onResourceChange={onResourceChange}
               readOnly={!onResourceChange}
             />
@@ -189,28 +192,30 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
             <div className="mt-4">
               <div className="grid grid-cols-2 gap-3">
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Movement Speed</div>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
+                    Movement Speed
+                  </div>
                   <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
                     {character.movement} Units
                   </div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Sprint Speed</div>
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
+                    Sprint Speed
+                  </div>
                   <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    {character.sprintSpeed || (character.movement * 2)} Units
+                    {character.sprintSpeed || character.movement * 2} Units
                   </div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Climb Speed</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    3 Units
+                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
+                    Climb Speed
                   </div>
+                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>3 Units</div>
                 </div>
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Swim Speed</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    3 Units
-                  </div>
+                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>3 Units</div>
                 </div>
               </div>
             </div>
@@ -284,51 +289,52 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
                     </tr>
                   </thead>
                   <tbody>
-                    {character.mitigation && Object.entries(character.mitigation).map(([type, value], index) => (
-                      <tr
-                        key={type}
-                        style={{
-                          borderBottom:
-                            index < Object.entries(character.mitigation || {}).length - 1
-                              ? '1px solid var(--color-dark-border)'
-                              : 'none',
-                        }}
-                      >
-                        <td
+                    {character.mitigation &&
+                      Object.entries(character.mitigation).map(([type, value], index) => (
+                        <tr
+                          key={type}
                           style={{
-                            color: 'var(--color-white)',
-                            padding: '0.25rem 0.5rem',
-                            textTransform: 'capitalize',
-                            fontWeight: '500',
-                            fontSize: '1rem',
+                            borderBottom:
+                              index < Object.entries(character.mitigation || {}).length - 1
+                                ? '1px solid var(--color-dark-border)'
+                                : 'none',
                           }}
                         >
-                          {type}
-                        </td>
-                        <td
-                          style={{
-                            color: 'var(--color-metal-gold)',
-                            padding: '0.25rem 0.5rem',
-                            textAlign: 'center',
-                            fontWeight: '600',
-                            fontSize: '1rem',
-                          }}
-                        >
-                          {value}
-                        </td>
-                        <td
-                          style={{
-                            color: 'var(--color-sat-purple)',
-                            padding: '0.25rem 0.5rem',
-                            textAlign: 'center',
-                            fontWeight: '600',
-                            fontSize: '1rem',
-                          }}
-                        >
-                          {value * 2}
-                        </td>
-                      </tr>
-                    ))}
+                          <td
+                            style={{
+                              color: 'var(--color-white)',
+                              padding: '0.25rem 0.5rem',
+                              textTransform: 'capitalize',
+                              fontWeight: '500',
+                              fontSize: '1rem',
+                            }}
+                          >
+                            {type}
+                          </td>
+                          <td
+                            style={{
+                              color: 'var(--color-metal-gold)',
+                              padding: '0.25rem 0.5rem',
+                              textAlign: 'center',
+                              fontWeight: '600',
+                              fontSize: '1rem',
+                            }}
+                          >
+                            {value}
+                          </td>
+                          <td
+                            style={{
+                              color: 'var(--color-sat-purple)',
+                              padding: '0.25rem 0.5rem',
+                              textAlign: 'center',
+                              fontWeight: '600',
+                              fontSize: '1rem',
+                            }}
+                          >
+                            {value * 2}
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </table>
               </div>

@@ -96,7 +96,11 @@ interface CardBodyProps {
 }
 
 export const CardBody: React.FC<CardBodyProps> = ({ className = '', children, style }) => {
-  return <div className={`p-5 ${className}`} style={style}>{children}</div>;
+  return (
+    <div className={`p-5 ${className}`} style={style}>
+      {children}
+    </div>
+  );
 };
 
 interface CardFooterProps {

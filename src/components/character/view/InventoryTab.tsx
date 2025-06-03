@@ -8,7 +8,6 @@ interface InventoryTabProps {
   onCharacterUpdate: (character: Character) => void;
 }
 
-
 interface InventoryItemProps {
   item: Item;
   inventoryItem: CharacterItem;
@@ -93,8 +92,8 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       style={{
         padding: '0.5rem',
         backgroundColor: isEquipped ? 'var(--color-sat-purple-faded)' : 'var(--color-dark-bg)',
-        border: isEquipped 
-          ? '2px solid var(--color-metal-gold)' 
+        border: isEquipped
+          ? '2px solid var(--color-metal-gold)'
           : '1px solid var(--color-dark-border)',
         borderRadius: '6px',
         margin: '0.25rem 0',
@@ -103,7 +102,9 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
         alignItems: 'center',
       }}
     >
-      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+      <div
+        style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+      >
         {/* Left: Name and Quantity */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           <span style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{item.name}</span>
@@ -113,7 +114,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
             </span>
           )}
         </div>
-        
+
         {/* Right: Status Badges */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           {isCustomized && (
@@ -198,9 +199,13 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
             <button
               onClick={isEquipped ? handleUnequip : handleEquip}
               style={{
-                backgroundColor: isEquipped ? 'var(--color-destructive)' : 'var(--color-metal-gold)',
+                backgroundColor: isEquipped
+                  ? 'var(--color-destructive)'
+                  : 'var(--color-metal-gold)',
                 color: 'white',
-                border: isEquipped ? '2px solid var(--color-destructive)' : '2px solid var(--color-metal-gold)',
+                border: isEquipped
+                  ? '2px solid var(--color-destructive)'
+                  : '2px solid var(--color-metal-gold)',
                 borderRadius: '4px',
                 padding: '0.25rem 0.5rem',
                 cursor: 'pointer',
@@ -213,7 +218,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
             </button>
           ) : null}
         </div>
-        
+
         {/* Standard Action Buttons */}
         <button
           onClick={() => onEdit(inventoryIndex)}
@@ -392,7 +397,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   // Helper function to check if an item is equipped
   const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
     if (!character.equipment) return { equipped: false };
-    
+
     for (const [slotName, slot] of Object.entries(character.equipment)) {
       if (slot.itemId === item._id) {
         return { equipped: true, slot: slotName };
@@ -404,7 +409,14 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   // Helper function to check if an item can be equipped
   const canItemBeEquipped = (item: Item): boolean => {
     const equipableTypes = [
-      'weapon', 'headwear', 'body', 'cloak', 'boots', 'gloves', 'shield', 'accessory'
+      'weapon',
+      'headwear',
+      'body',
+      'cloak',
+      'boots',
+      'gloves',
+      'shield',
+      'accessory',
     ];
     return equipableTypes.includes(item.type);
   };
@@ -417,9 +429,10 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       const matchesName = item.name.toLowerCase().includes(filter.toLowerCase());
       const matchesType = typeFilter === 'all' || item.type === typeFilter;
-      
+
       const isEquipped = isItemEquipped(item).equipped;
-      const matchesEquipped = equippedFilter === 'all' || 
+      const matchesEquipped =
+        equippedFilter === 'all' ||
         (equippedFilter === 'equipped' && isEquipped) ||
         (equippedFilter === 'unequipped' && !isEquipped);
 
@@ -546,9 +559,10 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                 if (!item) return null;
 
                 // Find the original index in the character's inventory
-                const originalIndex = character.inventory?.findIndex(
-                  (originalInvItem) => originalInvItem === invItem
-                ) ?? -1;
+                const originalIndex =
+                  character.inventory?.findIndex(
+                    (originalInvItem) => originalInvItem === invItem
+                  ) ?? -1;
 
                 if (originalIndex === -1) {
                   console.warn('Could not find original index for inventory item');

@@ -65,7 +65,7 @@ const ConditionsCompendium: React.FC = () => {
     }
   };
 
-  const categories = ['all', ...Array.from(new Set(conditions.map(c => c.category)))];
+  const categories = ['all', ...Array.from(new Set(conditions.map((c) => c.category)))];
 
   if (loading) {
     return (

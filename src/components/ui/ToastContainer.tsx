@@ -10,26 +10,26 @@ const ToastItem: React.FC<{ toast: Toast }> = ({ toast }) => {
         return {
           background: 'var(--color-forest)',
           borderColor: 'var(--color-forest)',
-          icon: '✓'
+          icon: '✓',
         };
       case 'error':
         return {
           background: 'var(--color-sunset)',
           borderColor: 'var(--color-sunset)',
-          icon: '✕'
+          icon: '✕',
         };
       case 'warning':
         return {
           background: 'var(--color-old-gold)',
           borderColor: 'var(--color-old-gold)',
-          icon: '⚠'
+          icon: '⚠',
         };
       case 'info':
       default:
         return {
           background: 'var(--color-stormy)',
           borderColor: 'var(--color-stormy)',
-          icon: 'ℹ'
+          icon: 'ℹ',
         };
     }
   };
@@ -52,7 +52,7 @@ const ToastItem: React.FC<{ toast: Toast }> = ({ toast }) => {
         maxWidth: '500px',
         boxShadow: '0 10px 15px -3px rgba(0, 0, 0, 0.3), 0 4px 6px -2px rgba(0, 0, 0, 0.15)',
         animation: 'slideInRight 0.3s ease-out',
-        position: 'relative'
+        position: 'relative',
       }}
     >
       <span
@@ -60,16 +60,14 @@ const ToastItem: React.FC<{ toast: Toast }> = ({ toast }) => {
           fontSize: '1.25rem',
           fontWeight: 'bold',
           minWidth: '24px',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         {styles.icon}
       </span>
-      
-      <span style={{ flex: 1, fontSize: '0.875rem', lineHeight: '1.4' }}>
-        {toast.message}
-      </span>
-      
+
+      <span style={{ flex: 1, fontSize: '0.875rem', lineHeight: '1.4' }}>{toast.message}</span>
+
       <button
         onClick={() => removeToast(toast.id)}
         style={{
@@ -84,7 +82,7 @@ const ToastItem: React.FC<{ toast: Toast }> = ({ toast }) => {
           height: '24px',
           display: 'flex',
           alignItems: 'center',
-          justifyContent: 'center'
+          justifyContent: 'center',
         }}
         onMouseEnter={(e) => {
           e.currentTarget.style.background = 'rgba(255, 255, 255, 0.2)';
@@ -126,7 +124,7 @@ const ToastContainer: React.FC = () => {
           top: '1rem',
           right: '1rem',
           zIndex: 9999,
-          pointerEvents: 'none'
+          pointerEvents: 'none',
         }}
       >
         <div style={{ pointerEvents: 'auto' }}>

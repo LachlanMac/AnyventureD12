@@ -407,130 +407,146 @@ const SpellCompendium: React.FC = () => {
         <CardBody style={{ padding: '0' }}>
           <div style={{ display: 'flex', flexDirection: 'column' }}>
             {filteredSpells.map((spell, index) => (
+              <div
+                key={spell._id}
+                onClick={() => navigate(`/spells/${spell._id}`)}
+                style={{
+                  padding: '1rem',
+                  cursor: 'pointer',
+                  backgroundColor: 'transparent',
+                  borderLeft: '3px solid transparent',
+                  borderBottom:
+                    index < filteredSpells.length - 1
+                      ? '1px solid var(--color-dark-border)'
+                      : 'none',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.backgroundColor = 'transparent';
+                }}
+              >
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {/* Top section - Name and school */}
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                    <h3
+                      style={{
+                        color: 'var(--color-white)',
+                        fontSize: '1.125rem',
+                        fontWeight: 'bold',
+                        margin: 0,
+                        flex: 1,
+                      }}
+                    >
+                      {spell.name}
+                    </h3>
+                    <span
+                      style={{
+                        color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
+                        fontSize: '0.875rem',
+                        fontWeight: 'bold',
+                        textTransform: 'capitalize',
+                      }}
+                    >
+                      {spell.school}
+                    </span>
+                  </div>
+
+                  {/* Bottom section - Stats and info */}
                   <div
-                    key={spell._id}
-                    onClick={() => navigate(`/spells/${spell._id}`)}
-                    style={{
-                      padding: '1rem',
-                      cursor: 'pointer',
-                      backgroundColor: 'transparent',
-                      borderLeft: '3px solid transparent',
-                      borderBottom:
-                        index < filteredSpells.length - 1
-                          ? '1px solid var(--color-dark-border)'
-                          : 'none',
-                      transition: 'all 0.2s ease',
-                    }}
-                    onMouseEnter={(e) => {
-                      e.currentTarget.style.backgroundColor = 'rgba(255, 255, 255, 0.02)';
-                    }}
-                    onMouseLeave={(e) => {
-                      e.currentTarget.style.backgroundColor = 'transparent';
-                    }}
+                    style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}
                   >
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                      {/* Top section - Name and school */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                        <h3
-                          style={{
-                            color: 'var(--color-white)',
-                            fontSize: '1.125rem',
-                            fontWeight: 'bold',
-                            margin: 0,
-                            flex: 1,
-                          }}
-                        >
-                          {spell.name}
-                        </h3>
-                        <span
-                          style={{
-                            color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
-                            fontSize: '0.875rem',
-                            fontWeight: 'bold',
-                            textTransform: 'capitalize',
-                          }}
-                        >
-                          {spell.school}
-                        </span>
-                      </div>
+                    {/* Subschool badge */}
+                    <span
+                      style={{
+                        color: 'var(--color-cloud)',
+                        fontSize: '0.75rem',
+                        textTransform: 'capitalize',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '0.25rem',
+                      }}
+                    >
+                      {spell.subschool}
+                    </span>
 
-                      {/* Bottom section - Stats and info */}
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', flexWrap: 'wrap' }}>
-                        {/* Subschool badge */}
-                        <span
-                          style={{
-                            color: 'var(--color-cloud)',
-                            fontSize: '0.75rem',
-                            textTransform: 'capitalize',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            padding: '0.25rem 0.75rem',
-                            borderRadius: '0.25rem',
-                          }}
-                        >
-                          {spell.subschool}
-                        </span>
+                    {/* Range */}
+                    <span
+                      style={{
+                        fontSize: '0.75rem',
+                        color: 'var(--color-cloud)',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        padding: '0.25rem 0.75rem',
+                        borderRadius: '0.25rem',
+                      }}
+                    >
+                      {spell.range}
+                    </span>
 
-                        {/* Range */}
-                        <span
-                          style={{
-                            fontSize: '0.75rem',
-                            color: 'var(--color-cloud)',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            padding: '0.25rem 0.75rem',
-                            borderRadius: '0.25rem',
-                          }}
-                        >
-                          {spell.range}
-                        </span>
+                    {/* Tags */}
+                    {spell.concentration && (
+                      <span
+                        style={{
+                          color: 'var(--color-metal-gold)',
+                          fontSize: '0.75rem',
+                          backgroundColor: 'rgba(215, 183, 64, 0.2)',
+                          padding: '0.125rem 0.375rem',
+                          borderRadius: '0.25rem',
+                        }}
+                      >
+                        Concentration
+                      </span>
+                    )}
+                    {spell.reaction && (
+                      <span
+                        style={{
+                          fontSize: '0.75rem',
+                          color: 'var(--color-white)',
+                          backgroundColor: 'var(--color-dark-elevated)',
+                          padding: '0.125rem 0.375rem',
+                          borderRadius: '0.25rem',
+                        }}
+                      >
+                        Reaction
+                      </span>
+                    )}
 
-                        {/* Tags */}
-                        {spell.concentration && (
-                          <span
-                            style={{
-                              color: 'var(--color-metal-gold)',
-                              fontSize: '0.75rem',
-                              backgroundColor: 'rgba(215, 183, 64, 0.2)',
-                              padding: '0.125rem 0.375rem',
-                              borderRadius: '0.25rem',
-                            }}
-                          >
-                            Concentration
-                          </span>
-                        )}
-                        {spell.reaction && (
-                          <span
-                            style={{
-                              fontSize: '0.75rem',
-                              color: 'var(--color-white)',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              padding: '0.125rem 0.375rem',
-                              borderRadius: '0.25rem',
-                            }}
-                          >
-                            Reaction
-                          </span>
-                        )}
-
-                        {/* Quick stats */}
-                        <div style={{ display: 'flex', gap: '1rem', marginLeft: 'auto', fontSize: '0.75rem', color: 'var(--color-muted)' }}>
-                          <div style={{ textAlign: 'center' }}>
-                            <div>Cast DC</div>
-                            <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{spell.checkToCast}</div>
-                          </div>
-                          <div style={{ textAlign: 'center' }}>
-                            <div>Energy</div>
-                            <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{spell.energy}</div>
-                          </div>
-                          {spell.damage > 0 && (
-                            <div style={{ textAlign: 'center' }}>
-                              <div>Damage</div>
-                              <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{spell.damage}</div>
-                            </div>
-                          )}
+                    {/* Quick stats */}
+                    <div
+                      style={{
+                        display: 'flex',
+                        gap: '1rem',
+                        marginLeft: 'auto',
+                        fontSize: '0.75rem',
+                        color: 'var(--color-muted)',
+                      }}
+                    >
+                      <div style={{ textAlign: 'center' }}>
+                        <div>Cast DC</div>
+                        <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+                          {spell.checkToCast}
                         </div>
                       </div>
+                      <div style={{ textAlign: 'center' }}>
+                        <div>Energy</div>
+                        <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+                          {spell.energy}
+                        </div>
+                      </div>
+                      {spell.damage > 0 && (
+                        <div style={{ textAlign: 'center' }}>
+                          <div>Damage</div>
+                          <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+                            {spell.damage}
+                          </div>
+                        </div>
+                      )}
                     </div>
                   </div>
+                </div>
+              </div>
             ))}
           </div>
         </CardBody>

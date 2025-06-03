@@ -85,7 +85,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
           >
             Physical Traits
           </label>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
             <div>
               <label
