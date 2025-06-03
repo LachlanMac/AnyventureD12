@@ -1,0 +1,20 @@
+{
+  "name": "Chainmail",
+  "description": "Armor made from interlocking metal rings. Excellent protection against slashing attacks but heavy and noisy.",
+  "type": "body",
+  "weight": 12,
+  "value": 100,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 4
+  },
+  "armor_penalties": {
+    "movement": 0,
+    "energy": 0,
+    "stealth": -1,
+    "evasion": 0,
+    "coordination": -1,
+    "swim":-1,
+    "sprint": -1
+  }
+}

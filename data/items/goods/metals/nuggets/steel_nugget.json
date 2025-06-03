@@ -1,7 +1,8 @@
 {
   "name": "Steel Nugget",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.35,
   "value": 30,
   "rarity": "common"

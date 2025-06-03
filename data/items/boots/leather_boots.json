@@ -1,0 +1,11 @@
+{
+  "name": "Leather Boots",
+  "description": "Sturdy boots made from thick leather with reinforced soles. Perfect for long journeys and rough terrain.",
+  "type": "boots",
+  "weight": 1,
+  "value": 15,
+  "rarity": "common",
+  "movement": 1,
+  "basic": {
+  }
+}

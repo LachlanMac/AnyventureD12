@@ -6,6 +6,7 @@
   "weight": 4,
   "value": 15000,
   "rarity": "legendary",
+  "bonus_attack":2,
   "primary": {
     "damage": "5",
     "damage_extra": "4",

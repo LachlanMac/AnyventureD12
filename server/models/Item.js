@@ -51,17 +51,20 @@ const ItemSchema = new Schema({
     enum: ["common", "uncommon", "rare", "epic", "legendary", "artifact"],
     default: "common"
   },
-  
   // Item type information
   type: { 
     type: String, 
-    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "trade_good", "consumable", "tool", "instrument", "ammunition" ],
+    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition" ],
     required: true 
   },
 
   weapon_category: { 
       type: String, 
       enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
+    },
+  shield_category: { 
+      type: String, 
+      enum: ["light", "heavy"],
     },
   bonus_attack: {
     type: Number,
@@ -81,6 +84,8 @@ const ItemSchema = new Schema({
     evasion: {type:Number, default:0},
     deflection: {type:Number, default:0},
     senses: {type:Number, default:0},
+    sprint: {type:Number, default:0},
+    swim: {type:Number, default:0},
  },
  
 

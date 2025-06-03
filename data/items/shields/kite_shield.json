@@ -1,0 +1,16 @@
+{
+  "name": "Kite Shield",
+  "description": "A large, almond-shaped shield that covers most of the torso. Excellent protection but requires significant strength to wield effectively.",
+  "type": "shield",
+  "shield_category": "heavy",
+  "weight": 6,
+  "value": 50,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 1
+  },
+  "armor_penalties": {
+    "sprint": -1,
+    "coordination": -1
+  }
+}

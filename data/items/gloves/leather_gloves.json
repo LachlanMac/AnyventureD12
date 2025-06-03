@@ -1,0 +1,13 @@
+{
+  "name": "Leather Gloves",
+  "description": "Well-fitted gloves made from supple leather. They offer protection from basic elements.",
+  "type": "gloves",
+  "weight": 0.5,
+  "value": 10,
+  "rarity": "common",  
+  "mitigation": {
+    "heat": 1,
+    "cold": 1
+  }
+  
+}

@@ -1,0 +1,20 @@
+{
+  "name": "Scale Mail",
+  "description": "Armor made from overlapping metal scales sewn onto a leather backing. Offers better protection than chain with slightly less flexibility.",
+  "type": "body",
+  "weight": 15,
+  "value": 150,
+  "rarity": "uncommon",
+  "mitigation": {
+    "physical": 5
+  },
+  "armor_penalties": {
+    "movement": -1,
+    "energy": 0,
+    "stealth": -1,
+    "evasion": -1,
+    "coordination": -1,
+    "swim":-2,
+    "sprint": -1
+  }
+}

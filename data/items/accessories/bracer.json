@@ -1,0 +1,8 @@
+{
+  "name": "Bracer",
+  "description": "A protective band worn around the forearm.",
+  "type": "accessory",
+  "weight": 0.5,
+  "value": 8,
+  "rarity": "common"
+}

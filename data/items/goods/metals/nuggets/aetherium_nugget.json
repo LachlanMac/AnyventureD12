@@ -1,7 +1,8 @@
 {
   "name": "Aetherium Nugget",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.1,
   "value": 2000,
   "rarity": "common"

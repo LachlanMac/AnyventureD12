@@ -25,7 +25,13 @@
       "Bash(sed:*)",
       "Bash(tsc:*)",
       "Bash(vite build)",
-      "Bash(npx vite:*)"
+      "Bash(npx vite:*)",
+      "Bash(for:*)",
+      "Bash(do grep -q '\"\"description\"\"' \"$file\")",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(npm run reset-items:*)",
+      "Bash(git add:*)"
     ],
     "deny": []
   },

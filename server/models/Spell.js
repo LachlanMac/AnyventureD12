@@ -33,9 +33,9 @@ const SpellSchema = new Schema({
         const validSubschools = {
           alteration: ['fey', 'illusion', 'transmutation'],
           black: ['fiend', 'necromancy', 'witchcraft'],
-          divine: ['draconic', 'radiant', 'protection'],
-          mysticism: ['spirit', 'divination', 'astral'],
-          primal: ['cosmic', 'elemental', 'nature']
+          divine: ['celestial', 'radiant', 'protection'],
+          mysticism: ['spirit', 'divination', 'cosmic'],
+          primal: ['draconic', 'elemental', 'nature']
         };
         return validSubschools[this.school] && validSubschools[this.school].includes(v);
       },

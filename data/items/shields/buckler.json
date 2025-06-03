@@ -1,0 +1,9 @@
+{
+  "name": "Buckler",
+  "description": "A small round shield strapped to the forearm. Provides modest protection while maintaining mobility and weapon use.",
+  "type": "shield",
+  "shield_category": "light",
+  "weight": 2,
+  "value": 15,
+  "rarity": "common"
+}

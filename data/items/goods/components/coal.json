@@ -1,7 +1,8 @@
 {
   "name": "Coal",
   "description": "A black combustible rock that burns with intense heat and flame",
-  "type": "component",
+  "type": "goods",
+"tags":["component"],
   "weight": 0.5,
   "value": 5,
   "rarity": "common"

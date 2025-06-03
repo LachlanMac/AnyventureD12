@@ -1,0 +1,11 @@
+{
+  "name": "Fur Cloak",
+  "description": "A heavy cloak lined with thick wolf fur. While somewhat cumbersome, it provides excellent protection against the harshest winter conditions.",
+  "type": "cloak",
+  "weight": 4,
+  "value": 50,
+  "rarity": "common",
+  "mitigation": {
+    "cold": 2
+  }
+}

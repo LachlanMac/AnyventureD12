@@ -1,0 +1,8 @@
+{
+  "name": "Ring",
+  "description": "A simple band of metal worn on the finger.",
+  "type": "accessory",
+  "weight": 0.1,
+  "value": 5,
+  "rarity": "common"
+}

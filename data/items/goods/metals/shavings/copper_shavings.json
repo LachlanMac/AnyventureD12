@@ -1,7 +1,8 @@
 {
   "name": "Copper Shavings",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.2,
   "value": 2,
   "rarity": "common"

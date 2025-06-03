@@ -300,7 +300,6 @@ const joinCampaign = async (req, res) => {
     const { characterId } = req.body;
     const userId = req.user._id;
 
-    console.log('Join campaign request:', { token, characterId, userId: userId.toString() });
 
     // Validate characterId format
     if (!characterId || !mongoose.Types.ObjectId.isValid(characterId)) {
@@ -319,18 +318,12 @@ const joinCampaign = async (req, res) => {
       _id: characterId, 
       userId: userId.toString()
     });
-    console.log('Character lookup result:', { 
-      found: !!character, 
-      characterId, 
-      userId: userId.toString() 
-    });
     
     // Additional debug: List user's characters
     if (!character) {
       const userCharacters = await Character.find({ 
         userId: userId.toString()
       }).select('_id name userId');
-      console.log('User\'s characters:', userCharacters);
     }
     
     if (!character) {

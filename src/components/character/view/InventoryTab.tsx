@@ -17,6 +17,7 @@ interface InventoryItemProps {
   onEquip: (itemId: string, slotName: string) => void;
   onUnequip: (slotName: string) => void;
   onEdit: (index: number) => void;
+  onQuantityChange: (index: number, quantity: number) => void;
   isCustomized: boolean;
   isEquipped: boolean;
   equippedSlot?: string;
@@ -31,6 +32,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   onEquip,
   onUnequip,
   onEdit,
+  onQuantityChange,
   isCustomized,
   isEquipped,
   equippedSlot,
@@ -77,29 +79,43 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     }
   };
 
+  // Check if item type allows quantity changes
+  const allowsQuantityChange = ['adventure', 'goods', 'consumable'].includes(item.type);
+
+  const handleQuantityChange = (newQuantity: number) => {
+    if (newQuantity >= 1) {
+      onQuantityChange(inventoryIndex, newQuantity);
+    }
+  };
+
   return (
     <div
       style={{
-        padding: '0.75rem',
+        padding: '0.5rem',
         backgroundColor: isEquipped ? 'var(--color-sat-purple-faded)' : 'var(--color-dark-bg)',
         border: isEquipped 
           ? '2px solid var(--color-metal-gold)' 
           : '1px solid var(--color-dark-border)',
-        borderRadius: '8px',
-        margin: '0.5rem 0',
+        borderRadius: '6px',
+        margin: '0.25rem 0',
         display: 'flex',
         justifyContent: 'space-between',
         alignItems: 'center',
       }}
     >
-      <div style={{ flex: 1 }}>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+      <div style={{ flex: 1, display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        {/* Left: Name and Quantity */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           <span style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{item.name}</span>
           {inventoryItem.quantity > 1 && (
             <span style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold' }}>
               x{inventoryItem.quantity}
             </span>
           )}
+        </div>
+        
+        {/* Right: Status Badges */}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           {isCustomized && (
             <span
               style={{
@@ -113,43 +129,92 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
               Customized
             </span>
           )}
-          {isEquipped && (
-            <span
-              style={{
-                color: 'var(--color-metal-gold)',
-                fontSize: '0.75rem',
-                backgroundColor: 'var(--color-dark-bg)',
-                padding: '0.125rem 0.5rem',
-                borderRadius: '4px',
-                fontWeight: 'bold',
-              }}
-            >
-              Equipped
-            </span>
-          )}
-        </div>
-        <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>
-          {item.type} - {item.rarity}
         </div>
       </div>
-      <div style={{ display: 'flex', gap: '0.5rem' }}>
-        {canEquip && (
-          <button
-            onClick={isEquipped ? handleUnequip : handleEquip}
-            style={{
-              backgroundColor: isEquipped ? 'var(--color-destructive)' : 'var(--color-metal-gold)',
-              color: 'white',
-              border: 'none',
-              borderRadius: '4px',
-              padding: '0.25rem 0.5rem',
-              cursor: 'pointer',
-              fontSize: '0.75rem',
-              fontWeight: 'bold',
-            }}
-          >
-            {isEquipped ? 'Unequip' : 'Equip'}
-          </button>
-        )}
+      <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+        {/* Quantity Controls or Equip/Unequip - Same space allocation */}
+        <div style={{ width: '120px', display: 'flex', justifyContent: 'flex-end' }}>
+          {allowsQuantityChange ? (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              <button
+                onClick={() => handleQuantityChange(inventoryItem.quantity - 1)}
+                disabled={inventoryItem.quantity <= 1}
+                style={{
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '4px',
+                  color: 'var(--color-cloud)',
+                  width: '24px',
+                  height: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: inventoryItem.quantity > 1 ? 'pointer' : 'not-allowed',
+                  fontSize: '0.75rem',
+                  opacity: inventoryItem.quantity <= 1 ? 0.5 : 1,
+                }}
+              >
+                -
+              </button>
+              <input
+                type="number"
+                value={inventoryItem.quantity}
+                onChange={(e) => {
+                  const newQuantity = parseInt(e.target.value) || 1;
+                  handleQuantityChange(newQuantity);
+                }}
+                min="1"
+                style={{
+                  width: '50px',
+                  padding: '0.25rem',
+                  textAlign: 'center',
+                  backgroundColor: 'var(--color-dark-bg)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '4px',
+                  color: 'var(--color-cloud)',
+                  fontSize: '0.75rem',
+                }}
+              />
+              <button
+                onClick={() => handleQuantityChange(inventoryItem.quantity + 1)}
+                style={{
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '4px',
+                  color: 'var(--color-cloud)',
+                  width: '24px',
+                  height: '24px',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                  cursor: 'pointer',
+                  fontSize: '0.75rem',
+                }}
+              >
+                +
+              </button>
+            </div>
+          ) : canEquip ? (
+            <button
+              onClick={isEquipped ? handleUnequip : handleEquip}
+              style={{
+                backgroundColor: isEquipped ? 'var(--color-destructive)' : 'var(--color-metal-gold)',
+                color: 'white',
+                border: isEquipped ? '2px solid var(--color-destructive)' : '2px solid var(--color-metal-gold)',
+                borderRadius: '4px',
+                padding: '0.25rem 0.5rem',
+                cursor: 'pointer',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                minWidth: '70px',
+              }}
+            >
+              {isEquipped ? 'Unequip' : 'Equip'}
+            </button>
+          ) : null}
+        </div>
+        
+        {/* Standard Action Buttons */}
         <button
           onClick={() => onEdit(inventoryIndex)}
           style={{
@@ -187,6 +252,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   const navigate = useNavigate();
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
+  const [equippedFilter, setEquippedFilter] = useState('all');
   const [editingItem, setEditingItem] = useState<{ index: number; item: CharacterItem } | null>(
     null
   );
@@ -319,6 +385,10 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     }
   };
 
+  const handleQuantityChange = (index: number, quantity: number) => {
+    handleUpdateQuantity(index, quantity);
+  };
+
   // Helper function to check if an item is equipped
   const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
     if (!character.equipment) return { equipped: false };
@@ -347,8 +417,13 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       const matchesName = item.name.toLowerCase().includes(filter.toLowerCase());
       const matchesType = typeFilter === 'all' || item.type === typeFilter;
+      
+      const isEquipped = isItemEquipped(item).equipped;
+      const matchesEquipped = equippedFilter === 'all' || 
+        (equippedFilter === 'equipped' && isEquipped) ||
+        (equippedFilter === 'unequipped' && !isEquipped);
 
-      return matchesName && matchesType;
+      return matchesName && matchesType && matchesEquipped;
     }) || [];
 
   // Sort inventory: equipped items first, then by name
@@ -428,9 +503,34 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
             >
               <option value="all">All Types</option>
               <option value="weapon">Weapons</option>
-              <option value="gear">Gear</option>
+              <option value="boots">Boots</option>
+              <option value="body">Body</option>
+              <option value="gloves">Gloves</option>
+              <option value="headwear">Headwear</option>
+              <option value="cloak">Cloaks</option>
+              <option value="accessory">Accessories</option>
               <option value="shield">Shields</option>
+              <option value="goods">Goods</option>
+              <option value="adventure">Adventure</option>
               <option value="consumable">Consumables</option>
+              <option value="tool">Tools</option>
+              <option value="instrument">Instruments</option>
+              <option value="ammunition">Ammunition</option>
+            </select>
+            <select
+              value={equippedFilter}
+              onChange={(e) => setEquippedFilter(e.target.value)}
+              style={{
+                padding: '0.5rem',
+                backgroundColor: 'var(--color-dark-bg)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '6px',
+                color: 'var(--color-cloud)',
+              }}
+            >
+              <option value="all">All Items</option>
+              <option value="equipped">Equipped</option>
+              <option value="unequipped">Unequipped</option>
             </select>
           </div>
 
@@ -468,6 +568,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                     onEquip={handleEquipItem}
                     onUnequip={handleUnequipItem}
                     onEdit={handleEditItem}
+                    onQuantityChange={handleQuantityChange}
                     isCustomized={invItem.isCustomized}
                     isEquipped={equipmentStatus.equipped}
                     equippedSlot={equipmentStatus.slot}

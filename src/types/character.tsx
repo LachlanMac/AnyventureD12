@@ -47,9 +47,11 @@ export interface PhysicalTraits {
 export interface Action {
   name: string;
   description: string;
-  type: 'Action' | 'Reaction' | 'Free Action';
-  sourceModule: string;
-  sourceModuleOption: string;
+  type: 'Action' | 'Reaction' | 'Daily Action' | 'Daily Reaction' | 'Free Action';
+  energyCost?: number;
+  source: string;
+  sourceType: 'ancestry' | 'culture' | 'module';
+  data?: string;
 }
 
 // Trait structure

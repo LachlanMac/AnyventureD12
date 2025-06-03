@@ -1,7 +1,8 @@
 {
   "name": "Electrum Shavings",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.375,
   "value": 50,
   "rarity": "common"

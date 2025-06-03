@@ -1,0 +1,9 @@
+{
+  "name": "Wooden Flute",
+  "description": "A simple woodwind instrument carved from a single piece of hardwood. Its sweet, melodic tones are favored by traveling minstrels.",
+  "type": "instrument",
+  "tags": ["wind"],
+  "weight": 0.2,
+  "value": 10,
+  "rarity": "common"
+}

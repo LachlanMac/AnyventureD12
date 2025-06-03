@@ -40,7 +40,6 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
   const [showInviteLink, setShowInviteLink] = useState<{ [key: number]: boolean }>({});
 
   const handleGenerateInvite = async (slotIndex: number) => {
-    console.log('Generating invite for slot', slotIndex, 'isOwner:', isOwner);
     if (!isOwner) return;
 
     setLoading(prev => ({ ...prev, [`invite-${slotIndex}`]: true }));
@@ -55,16 +54,12 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
         body: JSON.stringify({ slotIndex })
       });
 
-      console.log('Response status:', response.status);
-      
       if (!response.ok) {
         const errorData = await response.json();
-        console.error('Error response:', errorData);
         throw new Error(errorData.message || 'Failed to generate invite link');
       }
 
       const data = await response.json();
-      console.log('Invite data received:', data);
       
       // Store the full invite link
       const fullInviteLink = data.inviteLink.startsWith('http') 
@@ -79,12 +74,10 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
         await navigator.clipboard.writeText(fullInviteLink);
         alert('Invite link generated and copied to clipboard!');
       } catch (err) {
-        console.error('Failed to auto-copy:', err);
       }
       
       onSlotUpdated();
     } catch (error) {
-      console.error('Error generating invite:', error);
       alert(`Failed to generate invite link: ${error instanceof Error ? error.message : 'Unknown error'}`);
     } finally {
       setLoading(prev => ({ ...prev, [`invite-${slotIndex}`]: false }));
@@ -123,7 +116,6 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       onSlotUpdated();
     } catch (error) {
-      console.error('Error toggling slot:', error);
       alert('Failed to update slot');
     } finally {
       setLoading(prev => ({ ...prev, [`toggle-${slotIndex}`]: false }));
@@ -152,7 +144,6 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       onSlotUpdated();
     } catch (error) {
-      console.error('Error kicking player:', error);
       alert('Failed to kick player');
     } finally {
       setLoading(prev => ({ ...prev, [`kick-${characterId}`]: false }));
@@ -181,7 +172,6 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
 
       onSlotUpdated();
     } catch (error) {
-      console.error('Error leaving campaign:', error);
       alert('Failed to leave campaign');
     } finally {
       setLoading(prev => ({ ...prev, [`leave-${characterId}`]: false }));
@@ -193,7 +183,6 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({ campaign, isOwner
       await navigator.clipboard.writeText(text);
       alert('Invite link copied to clipboard!');
     } catch (error) {
-      console.error('Failed to copy:', error);
       // Fallback for older browsers
       const textArea = document.createElement('textarea');
       textArea.value = text;

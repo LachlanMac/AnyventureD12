@@ -1,0 +1,11 @@
+{
+  "name": "Cloth Gloves",
+  "description": "Simple cotton gloves that provide basic protection from cold and rough surfaces. Favored by merchants and scribes.",
+  "type": "gloves",
+  "weight": 0.2,
+  "value": 2,
+  "rarity": "common",
+  "mitigation": {
+    "cold": 1
+  }
+}

@@ -1,7 +1,8 @@
 {
   "name": "Aetherium Ingot",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.5,
   "value": 20000,
   "rarity": "common"

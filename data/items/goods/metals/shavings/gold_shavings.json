@@ -1,7 +1,8 @@
 {
   "name": "Gold Shavings",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.45,
   "value": 250,
   "rarity": "common"

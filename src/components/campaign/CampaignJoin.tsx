@@ -70,7 +70,6 @@ const CampaignJoin: React.FC = () => {
       const data = await response.json();
       setCampaign(data);
     } catch (err) {
-      console.error('Error fetching campaign:', err);
       setError(err instanceof Error ? err.message : 'Failed to load campaign');
     } finally {
       setLoading(false);
@@ -89,11 +88,9 @@ const CampaignJoin: React.FC = () => {
 
       if (response.ok) {
         const data = await response.json();
-        console.log('Fetched characters:', data);
         setCharacters(data);
       }
     } catch (err) {
-      console.error('Error fetching characters:', err);
     }
   };
 
@@ -111,9 +108,6 @@ const CampaignJoin: React.FC = () => {
 
   const handleJoinWithCharacter = async () => {
     if (!selectedCharacterId || !token) return;
-
-    console.log('Joining with character:', { selectedCharacterId, token });
-    console.log('Available characters:', characters);
 
     setJoining(true);
     try {
@@ -134,7 +128,6 @@ const CampaignJoin: React.FC = () => {
       const data = await response.json();
       navigate(`/campaigns/${data.campaign._id}`);
     } catch (err) {
-      console.error('Error joining campaign:', err);
       setError(err instanceof Error ? err.message : 'Failed to join campaign');
     } finally {
       setJoining(false);
@@ -294,7 +287,6 @@ const CampaignJoin: React.FC = () => {
                         : 'var(--color-dark-base)'
                     }}
                     onClick={() => {
-                      console.log('Selecting character:', character._id);
                       setSelectedCharacterId(character._id);
                     }}
                   >

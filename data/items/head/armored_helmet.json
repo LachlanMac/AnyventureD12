@@ -1,0 +1,14 @@
+{
+  "name": "Armored Helmet",
+  "description": "A metal helmet with reinforced crown and cheek guards that slightly obstructs your senses. While wearing this helmet, you cannot become dazed from a melee attack.",
+  "type": "headwear",
+  "weight": 3,
+  "value": 40,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 1
+  },
+  "armor_penalties": {
+    "senses": -1
+  }
+}

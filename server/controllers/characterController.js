@@ -14,7 +14,6 @@ export const getCharacters = async (req, res) => {
       return res.status(401).json({ message: 'Not authorized' });
     }
 
-    console.log('Fetching characters for user:', userId.toString());
     
     // Find characters by userId (stored as string)
     const characters = await Character.find({ 
@@ -23,7 +22,6 @@ export const getCharacters = async (req, res) => {
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId');
     
-    console.log('Found characters:', characters.length);
     res.json(characters);
   } catch (error) {
     console.error('Error fetching characters:', error);
@@ -64,6 +62,7 @@ export const getCharacter = async (req, res) => {
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
     
+    
     res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error fetching character:', error);
@@ -75,13 +74,6 @@ export const getCharacter = async (req, res) => {
 // @access  Private
 export const createCharacter = async (req, res) => {
   try {
-    console.log('Creating character with data:', req.body);
-    console.log('Ancestry data received:', JSON.stringify(req.body.ancestry, null, 2));
-    if (req.body.ancestry && req.body.ancestry.selectedOptions) {
-      req.body.ancestry.selectedOptions.forEach((option, index) => {
-        console.log(`Option ${index} - ${option.name}:`, option.selectedSubchoice);
-      });
-    }
 
     // Get the user ID from the authenticated user
     const userId = req.user ? req.user._id : null;
@@ -96,15 +88,12 @@ export const createCharacter = async (req, res) => {
       userId: userId.toString() // Set the user ID from the authenticated user as string
     };
     
-    console.log('Character data before creating model:', JSON.stringify(characterData.ancestry, null, 2));
     
     const character = new Character(characterData);
     
-    console.log('Character ancestry after model creation:', JSON.stringify(character.ancestry, null, 2));
 
     const savedCharacter = await character.save();
     
-    console.log('Character ancestry after save:', JSON.stringify(savedCharacter.ancestry, null, 2));
     
     res.status(201).json(savedCharacter);
   } catch (error) {
@@ -128,13 +117,6 @@ export const updateCharacter = async (req, res) => {
   try {
     const userId = req.user ? req.user._id : null;
     
-    console.log('Updating character with data:', req.body);
-    console.log('Ancestry data received for update:', JSON.stringify(req.body.ancestry, null, 2));
-    if (req.body.ancestry && req.body.ancestry.selectedOptions) {
-      req.body.ancestry.selectedOptions.forEach((option, index) => {
-        console.log(`Update - Option ${index} - ${option.name}:`, option.selectedSubchoice);
-      });
-    }
     
     const character = await Character.findById(req.params.id);
     if (!character) {
@@ -271,9 +253,19 @@ export const equipItem = async (req, res) => {
     const result = await character.equipItem(itemId, slotName);
     
     if (result.success) {
-      // Populate inventory items before sending response
-      await character.populate('inventory.itemId');
-      res.json(character);
+      // Re-fetch the character with proper population, like in getCharacter
+      const updatedCharacter = await Character.findById(req.params.id)
+        .populate('modules.moduleId')
+        .populate('inventory.itemId')
+        .populate('ancestry.ancestryId')
+        .populate('characterCulture.cultureId');
+      
+      // Apply module bonuses and equipment effects
+      const characterWithBonuses = updatedCharacter.toObject();
+      applyModuleBonusesToCharacter(characterWithBonuses);
+      characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+      
+      res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
     }
@@ -298,9 +290,19 @@ export const unequipItem = async (req, res) => {
     const result = await character.unequipItem(slotName);
     
     if (result.success) {
-      // Populate inventory items before sending response
-      await character.populate('inventory.itemId');
-      res.json(character);
+      // Re-fetch the character with proper population, like in getCharacter
+      const updatedCharacter = await Character.findById(req.params.id)
+        .populate('modules.moduleId')
+        .populate('inventory.itemId')
+        .populate('ancestry.ancestryId')
+        .populate('characterCulture.cultureId');
+      
+      // Apply module bonuses and equipment effects
+      const characterWithBonuses = updatedCharacter.toObject();
+      applyModuleBonusesToCharacter(characterWithBonuses);
+      characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+      
+      res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
     }
@@ -326,12 +328,19 @@ export const customizeItem = async (req, res) => {
     const result = await character.customizeItem(parseInt(index), modifications);
     
     if (result.success) {
-      // Re-fetch with proper population
+      // Re-fetch the character with proper population, like in getCharacter
       const updatedCharacter = await Character.findById(req.params.id)
+        .populate('modules.moduleId')
         .populate('inventory.itemId')
-        .populate('modules.moduleId');
+        .populate('ancestry.ancestryId')
+        .populate('characterCulture.cultureId');
       
-      res.json(updatedCharacter);
+      // Apply module bonuses and equipment effects
+      const characterWithBonuses = updatedCharacter.toObject();
+      applyModuleBonusesToCharacter(characterWithBonuses);
+      characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+      
+      res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
     }
@@ -357,12 +366,19 @@ export const updateItemQuantity = async (req, res) => {
     const result = await character.updateItemQuantity(parseInt(index), parseInt(quantity));
     
     if (result.success) {
-      // Re-fetch with proper population
+      // Re-fetch the character with proper population, like in getCharacter
       const updatedCharacter = await Character.findById(req.params.id)
+        .populate('modules.moduleId')
         .populate('inventory.itemId')
-        .populate('modules.moduleId');
+        .populate('ancestry.ancestryId')
+        .populate('characterCulture.cultureId');
       
-      res.json(updatedCharacter);
+      // Apply module bonuses and equipment effects
+      const characterWithBonuses = updatedCharacter.toObject();
+      applyModuleBonusesToCharacter(characterWithBonuses);
+      characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+      
+      res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
     }

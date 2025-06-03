@@ -1,7 +1,7 @@
 {
   "name": "Flint",
   "description": "",
-  "type": "good",
+  "type": "goods",
   "weight": 0.5,
   "value": 100,
   "rarity": "common"

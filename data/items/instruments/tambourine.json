@@ -1,0 +1,9 @@
+{
+  "name": "Tambourine",
+  "description": "A circular frame drum with metal jingles around the edge. Popular at festivals and taverns for its bright, rhythmic sound.",
+  "type": "instrument",
+  "tags": ["percussion"],
+  "weight": 0.5,
+  "value": 8,
+  "rarity": "common"
+}

@@ -1,13 +1,14 @@
 {
   "name": "Dagger",
-  "description": "A small, easily concealed blade perfect for quick strikes.",
+  "description": "A small, simple blade.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
   "weight": 0.5,
   "value": 5,
+  "bonus_attack":0,
   "rarity": "common",
   "primary": {
-    "damage": "2",
+    "damage": "3",
     "damage_extra": "2",
     "damage_type": "physical",
     "category": "pierce",
@@ -16,17 +17,6 @@
     "secondary_damage_type": "none",
     "min_range": 0,
     "max_range": 1
-  },
-  "secondary": {
-    "damage": "0",
-    "damage_extra": "0",
-    "damage_type": "none",
-    "category": "extra",
-    "secondary_damage": 0,
-    "secondary_damage_extra": 0,
-    "secondary_damage_type": "none",
-    "min_range": 0,
-    "max_range": 0
   },
   "health": {
     "max": 0,
@@ -42,22 +32,8 @@
   },
   "movement": 0,
   "attributes": {},
-  "basic": {
-    "stealth": {
-      "add_bonus": 1,
-      "set_bonus": 0,
-      "add_talent": 0,
-      "set_talent": 0
-    }
-  },
-  "weapon": {
-    "simpleMeleeWeapons": {
-      "add_bonus": 1,
-      "set_bonus": 0,
-      "add_talent": 0,
-      "set_talent": 0
-    }
-  },
+  "basic": {},
+  "weapon": {},
   "magic": {},
   "craft": {},
   "mitigation": {},

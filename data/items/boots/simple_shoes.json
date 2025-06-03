@@ -1,0 +1,8 @@
+{
+  "name": "Simple Shoes",
+  "description": "Basic cloth or soft leather shoes suitable for everyday wear in towns and cities. Not ideal for rough terrain.",
+  "type": "boots",
+  "weight": 0.5,
+  "value": 3,
+  "rarity": "common"
+}

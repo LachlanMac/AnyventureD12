@@ -1,5 +1,6 @@
 // server/routes/characterRoutes.js
 import express from 'express';
+import { applyModuleBonusesToCharacter, extractTraitsFromModules } from '../utils/characterUtils.js';
 import {
   getCharacters,
   getCharacter,
@@ -86,7 +87,6 @@ router.patch('/:id/music-skills', async (req, res) => {
     
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
-    const { applyModuleBonusesToCharacter, extractTraitsFromModules } = await import('../utils/characterUtils.js');
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
     
@@ -128,7 +128,6 @@ router.patch('/:id/language-skills', async (req, res) => {
     
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
-    const { applyModuleBonusesToCharacter, extractTraitsFromModules } = await import('../utils/characterUtils.js');
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
     
@@ -144,8 +143,12 @@ router.patch('/:id/resources', async (req, res) => {
   try {
     const { resources } = req.body;
     
-    // First find the character to verify ownership
-    const character = await Character.findById(req.params.id);
+    // First find the character to verify ownership and get effective max values
+    const character = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
     
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
@@ -156,8 +159,37 @@ router.patch('/:id/resources', async (req, res) => {
       return res.status(403).json({ message: 'Not authorized to update this character' });
     }
     
-    // Update the resources
-    character.resources = resources;
+    // Apply bonuses to get effective max values
+    const characterCopy = character.toObject();
+    applyModuleBonusesToCharacter(characterCopy);
+    
+    // Validate that current resources don't exceed effective max
+    const effectiveMaxHealth = characterCopy.resources.health.max;
+    const effectiveMaxEnergy = characterCopy.resources.energy.max;
+    const effectiveMaxResolve = characterCopy.resources.resolve.max;
+    
+    // Validate and cap resources at effective max
+    const validatedResources = {
+      health: {
+        current: Math.max(0, Math.min(resources.health.current, effectiveMaxHealth)),
+        max: resources.health.max // Keep the base max as is
+      },
+      energy: {
+        current: Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy)),
+        max: resources.energy.max
+      },
+      resolve: {
+        current: Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve)),
+        max: resources.resolve.max
+      }
+    };
+    
+    console.log(`Resource validation: Health ${resources.health.current} -> ${validatedResources.health.current} (max: ${effectiveMaxHealth})`);
+    console.log(`Resource validation: Energy ${resources.energy.current} -> ${validatedResources.energy.current} (max: ${effectiveMaxEnergy})`);
+    console.log(`Resource validation: Resolve ${resources.resolve.current} -> ${validatedResources.resolve.current} (max: ${effectiveMaxResolve})`);
+    
+    // Update the resources with validated values
+    character.resources = validatedResources;
     await character.save();
     
     // Re-fetch the character with proper population, like in getCharacter
@@ -169,7 +201,6 @@ router.patch('/:id/resources', async (req, res) => {
     
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
-    const { applyModuleBonusesToCharacter, extractTraitsFromModules } = await import('../utils/characterUtils.js');
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
     

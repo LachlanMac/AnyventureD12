@@ -1,0 +1,14 @@
+{
+  "name": "Plate Helmet",
+  "description": "A full helm of articulated steel plates with a narrow visor. While obscuring senses, the plate helmet provides benefits against concussive forces. When you become stunned due to a melee attack, you become dazed instead and you cannot be dazed by melee attacks.",
+  "type": "headwear",
+  "weight": 5,
+  "value": 100,
+  "rarity": "uncommon",
+  "mitigation": {
+    "physical": 1
+  },
+  "armor_penalties": {
+    "senses": -2
+  }
+}

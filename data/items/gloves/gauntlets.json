@@ -1,0 +1,15 @@
+{
+  "name": "Steel Gauntlets",
+  "description": "Heavy metal gauntlets with articulated fingers. While they provide excellent protection, they make delicate tasks nearly impossible.",
+  "type": "gloves",
+  "weight": 2,
+  "value": 35,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 1
+  },
+  "armor_penalties": {
+    "thievery": -1,
+    "coordination": -1
+  }
+}

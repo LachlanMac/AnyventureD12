@@ -1,7 +1,8 @@
 {
   "name": "Lead Shavings",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.275,
   "value": 20,
   "rarity": "common"

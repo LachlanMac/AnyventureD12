@@ -1,0 +1,43 @@
+{
+  "name": "Hand Crossbow",
+  "description": "A small one-handed crossbow, typically attached to the wrist which can fire bolts at close range without requiring a second hand.",
+  "type": "weapon",
+  "weapon_category": "simpleRanged",
+  "weight": 2,
+  "value": 30,
+  "bonus_attack":0,
+  "rarity": "common",
+  "primary": {
+    "damage": "3",
+    "damage_extra": "2",
+    "damage_type": "physical",
+    "category": "ranged",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 0,
+    "max_range": 3
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {}
+}

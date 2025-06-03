@@ -25,12 +25,10 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
         }
 
         const data = await response.json();
-        console.log('Fetched ancestries in RaceSelection:', data);
 
         setAncestries(data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching ancestries:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
@@ -49,34 +47,23 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
         ...selectedAncestry,
         options: selectedAncestry.options.map(option => {
           const subchoiceValue = subchoiceSelections[option.name];
-          console.log(`Mapping option ${option.name}:`, {
-            hasSubchoices: !!option.subchoices,
-            subchoiceValue: subchoiceValue,
-            subchoiceSelections: subchoiceSelections
-          });
           return {
             ...option,
             selectedSubchoice: subchoiceValue || undefined
           };
         })
       };
-      console.log('Selected ancestry with subchoices:', ancestryWithSubchoices);
-      console.log('Subchoice selections state:', subchoiceSelections);
       onSelectRace(raceName, ancestryWithSubchoices);
-    } else {
-      console.error(`Could not find ancestry for race: ${raceName}`);
     }
   };
 
   // Handler for subchoice selection
   const handleSubchoiceSelect = (optionName: string, subchoiceId: string) => {
-    console.log(`Subchoice selected: ${optionName} = ${subchoiceId}`);
     setSubchoiceSelections(prev => {
       const newSelections = {
         ...prev,
         [optionName]: subchoiceId
       };
-      console.log('New subchoice selections state:', newSelections);
       
       // Re-trigger race selection to update parent with the new selections
       if (selectedRace) {
@@ -92,7 +79,6 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
               };
             })
           };
-          console.log('Immediately sending ancestry with subchoices:', ancestryWithSubchoices);
           onSelectRace(selectedRace, ancestryWithSubchoices);
         }
       }

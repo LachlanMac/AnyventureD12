@@ -1,0 +1,11 @@
+{
+  "name": "Fur Hat",
+  "description": "A warm cap made from thick fur with ear flaps. Provides excellent protection against cold but can muffle sounds.",
+  "type": "headwear",
+  "weight": 0.5,
+  "value": 15,
+  "rarity": "common",
+  "mitigation": {
+    "cold": 1
+  }
+}

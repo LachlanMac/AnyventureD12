@@ -1,0 +1,11 @@
+{
+  "name": "Leather Helmet",
+  "description": "A simple leather cap reinforced with hardened leather strips.",
+  "type": "headwear",
+  "weight": 1,
+  "value": 10,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 1
+  }
+}

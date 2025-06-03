@@ -1,0 +1,13 @@
+{
+  "name": "Leather Armor",
+  "description": "Armor made from thick, boiled leather. Provides decent protection while maintaining flexibility.",
+  "type": "body",
+  "weight": 5,
+  "value": 25,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 2
+  },
+  "armor_penalties": {
+  }
+}

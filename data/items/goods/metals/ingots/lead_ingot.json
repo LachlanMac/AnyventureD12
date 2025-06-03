@@ -1,7 +1,8 @@
 {
   "name": "Lead Ingot",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 5.5,
   "value": 400,
   "rarity": "common"

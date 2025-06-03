@@ -1,0 +1,16 @@
+{
+  "name": "Armored Boots",
+  "description": "Heavy boots reinforced with steel plates. While they offer superior protection, their weight and noise make stealth difficult.",
+  "type": "boots",
+  "weight": 3,
+  "value": 40,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 1
+  },
+  "armor_penalties": {
+    "stealth": -2,
+    "sprint": -1,
+    "swim":-1
+  }
+}

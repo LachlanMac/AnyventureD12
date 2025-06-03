@@ -1,7 +1,8 @@
 {
   "name": "Copper Nugget",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.4,
   "value": 4,
   "rarity": "common"

@@ -303,7 +303,7 @@ const mapMitigationCode = (code) => {
     '4': 'lightning',
     '5': 'dark',
     '6': 'divine',
-    '7': 'aetheric',
+    '7': 'aether',
     '8': 'psychic',
     '9': 'toxic',
   };

@@ -1,5 +1,10 @@
 
 export const applyModuleBonusesToCharacter = (character) => {
+  // Initialize mitigation if it doesn't exist
+  if (!character.mitigation) {
+    character.mitigation = {};
+  }
+  
   // Store original values to track changes
   const originalValues = {
     skills: JSON.parse(JSON.stringify(character.skills)),
@@ -135,8 +140,13 @@ export const applyModuleBonusesToCharacter = (character) => {
       }
     }
   }
-  // Apply collected bonuses directly to character
+  
+  // Apply collected bonuses directly to character (modules/ancestry/culture first)
   applyBonusesToCharacter(character, bonuses);
+  
+  // Parse and apply equipment effects AFTER module bonuses
+  const equipmentEffects = parseEquipmentEffects(character);
+  applyEquipmentEffects(character, equipmentEffects);
   
   // Store the module effects for reference
   character.moduleEffects = {
@@ -220,7 +230,6 @@ const parseDataString = (dataString, bonuses) => {
         }
       } else if (type === 'T') { // Talent value
         if (/^[1-5]$/.test(code)) {
-          console.log(code);
           // Attribute talent (e.g. ST1=1 for Physique)
           const attributeMappings = {
             '1': 'physique',
@@ -352,7 +361,7 @@ const parseDataString = (dataString, bonuses) => {
         '4': 'lightning',
         '5': 'dark',
         '6': 'divine',
-        '7': 'aetheric',
+        '7': 'aether',
         '8': 'psychic',
         '9': 'toxic'
       };
@@ -554,6 +563,386 @@ const processAbilityForTraits = (ability, sourceName, sourceType, traitCategorie
 };
 
 // Extract and categorize traits from all sources using unified parsing
+// Parse equipment bonuses and penalties from equipped items
+export const parseEquipmentEffects = (character) => {
+
+  const equipmentEffects = {
+    bonuses: {
+      skills: {},
+      weaponSkills: {},
+      magicSkills: {},
+      craftingSkills: {},
+      attributes: {},
+      mitigation: {},
+      health: { max: 0, recovery: 0 },
+      energy: { max: 0, recovery: 0 },
+      resolve: { max: 0, recovery: 0 },
+      movement: 0,
+      bonusAttack: 0,
+      detections: {},
+      immunities: []
+    },
+    penalties: {
+      skills: {},
+      movement: 0,
+      energy: 0
+    },
+    appliedItems: []
+  };
+
+  if (!character.equipment || !character.inventory) {
+    return equipmentEffects;
+  }
+
+  // Helper function to get item data from inventory
+  const getItemFromInventory = (itemId) => {
+    
+    const inventoryItem = character.inventory.find(item => {
+      // Convert both sides to strings for comparison
+      const itemIdStr = itemId.toString();
+      
+      if (item.itemId && typeof item.itemId === 'object') {
+        // Populated item - compare _id
+        return item.itemId._id.toString() === itemIdStr;
+      } else if (item.itemId && typeof item.itemId === 'string') {
+        // String reference
+        return item.itemId === itemIdStr;
+      } else if (item.itemData && item.itemData._id) {
+        // Customized item
+        return item.itemData._id.toString() === itemIdStr;
+      }
+      
+      return false;
+    });
+    
+    
+    if (!inventoryItem) return null;
+    
+    // Return the actual item data
+    if (inventoryItem.itemData) {
+      return inventoryItem.itemData; // Customized item
+    } else if (typeof inventoryItem.itemId === 'object') {
+      return inventoryItem.itemId; // Populated item
+    }
+    
+    return null;
+  };
+
+  // Process each equipment slot
+  Object.entries(character.equipment).forEach(([slotName, slot]) => {
+    if (!slot.itemId) {
+      return;
+    }
+
+    const item = getItemFromInventory(slot.itemId);
+    if (!item) {
+      return;
+    }
+
+    equipmentEffects.appliedItems.push({
+      name: item.name,
+      slot: slotName,
+      type: item.type
+    });
+
+    // Apply positive bonuses from item
+    
+    // Weapon bonuses
+    if (item.bonus_attack) {
+      equipmentEffects.bonuses.bonusAttack += item.bonus_attack;
+    }
+
+    // Resource bonuses
+    if (item.health) {
+      equipmentEffects.bonuses.health.max += item.health.max || 0;
+      equipmentEffects.bonuses.health.recovery += item.health.recovery || 0;
+    }
+    if (item.energy) {
+      equipmentEffects.bonuses.energy.max += item.energy.max || 0;
+      equipmentEffects.bonuses.energy.recovery += item.energy.recovery || 0;
+    }
+    if (item.resolve) {
+      equipmentEffects.bonuses.resolve.max += item.resolve.max || 0;
+      equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
+    }
+
+    // Movement bonus
+    if (item.movement) {
+      equipmentEffects.bonuses.movement += item.movement;
+    }
+
+    // Attribute bonuses
+    if (item.attributes) {
+      Object.entries(item.attributes).forEach(([attr, bonus]) => {
+        if (bonus.add_talent) {
+          if (!equipmentEffects.bonuses.attributes[attr]) {
+            equipmentEffects.bonuses.attributes[attr] = 0;
+          }
+          equipmentEffects.bonuses.attributes[attr] += bonus.add_talent;
+        }
+        if (bonus.set_talent) {
+          equipmentEffects.bonuses.attributes[attr] = Math.max(
+            equipmentEffects.bonuses.attributes[attr] || 0, 
+            bonus.set_talent
+          );
+        }
+      });
+    }
+
+    // Skill bonuses
+    if (item.basic) {
+      Object.entries(item.basic).forEach(([skill, bonus]) => {
+        if (!equipmentEffects.bonuses.skills[skill]) {
+          equipmentEffects.bonuses.skills[skill] = { value: 0, talent: 0 };
+        }
+        if (bonus.add_bonus) {
+          equipmentEffects.bonuses.skills[skill].value += bonus.add_bonus;
+        }
+        if (bonus.set_bonus) {
+          equipmentEffects.bonuses.skills[skill].value = Math.max(
+            equipmentEffects.bonuses.skills[skill].value, 
+            bonus.set_bonus
+          );
+        }
+        if (bonus.add_talent) {
+          equipmentEffects.bonuses.skills[skill].talent += bonus.add_talent;
+        }
+        if (bonus.set_talent) {
+          equipmentEffects.bonuses.skills[skill].talent = Math.max(
+            equipmentEffects.bonuses.skills[skill].talent, 
+            bonus.set_talent
+          );
+        }
+      });
+    }
+
+    // Weapon skill bonuses
+    if (item.weapon) {
+      Object.entries(item.weapon).forEach(([weaponType, bonus]) => {
+        if (!equipmentEffects.bonuses.weaponSkills[weaponType]) {
+          equipmentEffects.bonuses.weaponSkills[weaponType] = { value: 0, talent: 0 };
+        }
+        if (bonus.add_bonus) {
+          equipmentEffects.bonuses.weaponSkills[weaponType].value += bonus.add_bonus;
+        }
+        if (bonus.add_talent) {
+          equipmentEffects.bonuses.weaponSkills[weaponType].talent += bonus.add_talent;
+        }
+      });
+    }
+
+    // Magic skill bonuses
+    if (item.magic) {
+      Object.entries(item.magic).forEach(([magicType, bonus]) => {
+        if (!equipmentEffects.bonuses.magicSkills[magicType]) {
+          equipmentEffects.bonuses.magicSkills[magicType] = { value: 0, talent: 0 };
+        }
+        if (bonus.add_bonus) {
+          equipmentEffects.bonuses.magicSkills[magicType].value += bonus.add_bonus;
+        }
+        if (bonus.add_talent) {
+          equipmentEffects.bonuses.magicSkills[magicType].talent += bonus.add_talent;
+        }
+      });
+    }
+
+    // Crafting skill bonuses
+    if (item.craft) {
+      Object.entries(item.craft).forEach(([craftType, bonus]) => {
+        if (!equipmentEffects.bonuses.craftingSkills[craftType]) {
+          equipmentEffects.bonuses.craftingSkills[craftType] = { value: 0, talent: 0 };
+        }
+        if (bonus.add_bonus) {
+          equipmentEffects.bonuses.craftingSkills[craftType].value += bonus.add_bonus;
+        }
+        if (bonus.add_talent) {
+          equipmentEffects.bonuses.craftingSkills[craftType].talent += bonus.add_talent;
+        }
+      });
+    }
+
+    // Mitigation bonuses
+    if (item.mitigation) {
+      Object.entries(item.mitigation).forEach(([damageType, value]) => {
+        if (!equipmentEffects.bonuses.mitigation[damageType]) {
+          equipmentEffects.bonuses.mitigation[damageType] = 0;
+        }
+        equipmentEffects.bonuses.mitigation[damageType] += value;
+      });
+    }
+
+    // Detection bonuses
+    if (item.detections) {
+      Object.entries(item.detections).forEach(([detectionType, value]) => {
+        if (!equipmentEffects.bonuses.detections[detectionType]) {
+          equipmentEffects.bonuses.detections[detectionType] = 0;
+        }
+        equipmentEffects.bonuses.detections[detectionType] += value;
+      });
+    }
+
+    // Immunities
+    if (item.immunities) {
+      Object.entries(item.immunities).forEach(([immunityType, hasImmunity]) => {
+        if (hasImmunity && !equipmentEffects.bonuses.immunities.includes(immunityType)) {
+          equipmentEffects.bonuses.immunities.push(immunityType);
+        }
+      });
+    }
+
+    // Apply penalties (typically from armor)
+    if (item.armor_penalties) {
+      Object.entries(item.armor_penalties).forEach(([penaltyType, value]) => {
+        // Handle movement penalty
+        if (penaltyType === 'movement') {
+          equipmentEffects.penalties.movement += Math.abs(value); // Convert to positive for penalty
+        }
+        // Handle energy penalty
+        else if (penaltyType === 'energy') {
+          equipmentEffects.penalties.energy += Math.abs(value);
+        }
+        // Handle skill penalties
+        else {
+          if (!equipmentEffects.penalties.skills[penaltyType]) {
+            equipmentEffects.penalties.skills[penaltyType] = 0;
+          }
+          const penaltyAmount = Math.abs(value);
+          equipmentEffects.penalties.skills[penaltyType] += penaltyAmount; // Convert to positive for penalty
+        }
+      });
+    }
+  });
+
+  return equipmentEffects;
+};
+
+// Apply equipment effects to character
+export const applyEquipmentEffects = (character, equipmentEffects) => {
+  // Apply attribute bonuses
+  if (equipmentEffects.bonuses.attributes) {
+    Object.entries(equipmentEffects.bonuses.attributes).forEach(([attr, bonus]) => {
+      if (character.attributes && character.attributes[attr] !== undefined) {
+        character.attributes[attr] += bonus;
+      }
+    });
+  }
+
+  // Apply skill bonuses
+  if (equipmentEffects.bonuses.skills) {
+    Object.entries(equipmentEffects.bonuses.skills).forEach(([skill, bonusData]) => {
+      if (character.skills[skill]) {
+        if (bonusData.value) character.skills[skill].value += bonusData.value;
+        if (bonusData.talent) character.skills[skill].talent += bonusData.talent;
+        // Equipment never applies diceTierModifier - only racial size bonuses do that
+      }
+    });
+  }
+
+  // Apply weapon skill bonuses
+  if (equipmentEffects.bonuses.weaponSkills) {
+    Object.entries(equipmentEffects.bonuses.weaponSkills).forEach(([weaponType, bonusData]) => {
+      if (character.weaponSkills[weaponType]) {
+        if (bonusData.value) character.weaponSkills[weaponType].value += bonusData.value;
+        if (bonusData.talent) character.weaponSkills[weaponType].talent += bonusData.talent;
+        // Equipment never applies diceTierModifier - only racial size bonuses do that
+      }
+    });
+  }
+
+  // Apply magic skill bonuses
+  if (equipmentEffects.bonuses.magicSkills) {
+    Object.entries(equipmentEffects.bonuses.magicSkills).forEach(([magicType, bonusData]) => {
+      if (character.magicSkills[magicType]) {
+        if (bonusData.value) character.magicSkills[magicType].value += bonusData.value;
+        if (bonusData.talent) character.magicSkills[magicType].talent += bonusData.talent;
+        // Equipment never applies diceTierModifier - only racial size bonuses do that
+      }
+    });
+  }
+
+  // Apply crafting skill bonuses
+  if (equipmentEffects.bonuses.craftingSkills) {
+    Object.entries(equipmentEffects.bonuses.craftingSkills).forEach(([craftType, bonusData]) => {
+      if (character.craftingSkills[craftType]) {
+        if (bonusData.value) character.craftingSkills[craftType].value += bonusData.value;
+        if (bonusData.talent) character.craftingSkills[craftType].talent += bonusData.talent;
+        // Equipment never applies diceTierModifier - only racial size bonuses do that
+      }
+    });
+  }
+
+  // Apply resource bonuses
+  if (equipmentEffects.bonuses.health.max) {
+    const oldHealthMax = character.resources.health.max;
+    character.resources.health.max += equipmentEffects.bonuses.health.max;
+    // If current health was at old max, raise it to new max
+    if (character.resources.health.current === oldHealthMax) {
+      character.resources.health.current = character.resources.health.max;
+    }
+  }
+  if (equipmentEffects.bonuses.energy.max) {
+    const oldEnergyMax = character.resources.energy.max;
+    character.resources.energy.max += equipmentEffects.bonuses.energy.max;
+    // If current energy was at old max, raise it to new max
+    if (character.resources.energy.current === oldEnergyMax) {
+      character.resources.energy.current = character.resources.energy.max;
+    }
+  }
+  if (equipmentEffects.bonuses.resolve.max) {
+    const oldResolveMax = character.resources.resolve.max;
+    character.resources.resolve.max += equipmentEffects.bonuses.resolve.max;
+    // If current resolve was at old max, raise it to new max
+    if (character.resources.resolve.current === oldResolveMax) {
+      character.resources.resolve.current = character.resources.resolve.max;
+    }
+  }
+
+  // Apply movement bonuses
+  if (equipmentEffects.bonuses.movement) {
+    character.movement += equipmentEffects.bonuses.movement;
+  }
+
+  // Apply mitigation bonuses
+  if (equipmentEffects.bonuses.mitigation) {
+    if (!character.mitigation) character.mitigation = {};
+    Object.entries(equipmentEffects.bonuses.mitigation).forEach(([damageType, value]) => {
+      character.mitigation[damageType] = (character.mitigation[damageType] || 0) + value;
+    });
+  }
+
+  // Apply penalties
+  
+  // Movement penalties
+  if (equipmentEffects.penalties.movement) {
+    const oldMovement = character.movement;
+    character.movement = Math.max(0, character.movement - equipmentEffects.penalties.movement);
+  }
+
+  // Energy penalties
+  if (equipmentEffects.penalties.energy) {
+    const oldEnergy = character.resources.energy.max;
+    character.resources.energy.max = Math.max(1, character.resources.energy.max - equipmentEffects.penalties.energy);
+  }
+
+  // Skill penalties
+  if (equipmentEffects.penalties.skills) {
+    Object.entries(equipmentEffects.penalties.skills).forEach(([skill, penalty]) => {
+      if (character.skills[skill]) {
+        const oldValue = character.skills[skill].value;
+        // Apply penalty directly to skill value (can go below 0)
+        character.skills[skill].value -= penalty;
+      }
+    });
+  }
+
+  // Calculate sprint speed: (movement * 2) - sprint penalties
+  const sprintPenalty = equipmentEffects.penalties.skills['sprint'] || 0;
+  character.sprintSpeed = Math.max(1, (character.movement * 2) - sprintPenalty);
+  
+  // Store equipment effects for reference
+  character.equipmentEffects = equipmentEffects;
+};
+
 export const extractTraitsFromModules = (character) => {
   // Define our trait categories
   const traitCategories = {

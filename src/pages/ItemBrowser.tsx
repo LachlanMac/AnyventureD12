@@ -765,7 +765,7 @@ const ItemBrowser: React.FC = () => {
       </div>
 
       <div style={{ marginBottom: '1.5rem' }}>
-        <Link to={`/character/${characterId}?tab=inventory`}>
+        <Link to={`/characters/${characterId}?tab=inventory`}>
           <Button variant="secondary">&larr; Back to Inventory</Button>
         </Link>
       </div>
@@ -859,9 +859,19 @@ const ItemBrowser: React.FC = () => {
           >
             <option value="all">All Types</option>
             <option value="weapon">Weapons</option>
-            <option value="gear">Gear</option>
+            <option value="boots">Boots</option>
+            <option value="body">Body</option>
+            <option value="gloves">Gloves</option>
+            <option value="headwear">Headwear</option>
+            <option value="cloak">Cloaks</option>
+            <option value="accessory">Accessories</option>
             <option value="shield">Shields</option>
+            <option value="goods">Goods</option>
+            <option value="adventure">Adventure</option>
             <option value="consumable">Consumables</option>
+            <option value="tool">Tools</option>
+            <option value="instrument">Instruments</option>
+            <option value="ammunition">Ammunition</option>
           </select>
 
           <select

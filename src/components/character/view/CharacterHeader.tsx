@@ -21,6 +21,7 @@ interface CharacterHeaderProps {
       resolve: { current: number; max: number };
     };
     movement: number;
+    sprintSpeed?: number;
     languages?: string[];
     stances?: string[];
     portraitUrl?: string | null;
@@ -31,7 +32,7 @@ interface CharacterHeaderProps {
       lightning?: number;
       dark?: number;
       divine?: number;
-      aetheric?: number;
+      aether?: number;
       psychic?: number;
       toxic?: number;
     };
@@ -194,7 +195,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({ character, onDelete, 
                 <div style={{ textAlign: 'center' }}>
                   <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Sprint Speed</div>
                   <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    {character.movement * 2} Units
+                    {character.sprintSpeed || (character.movement * 2)} Units
                   </div>
                 </div>
                 <div style={{ textAlign: 'center' }}>

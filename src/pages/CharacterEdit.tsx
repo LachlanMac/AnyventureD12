@@ -116,17 +116,6 @@ const CharacterEdit: React.FC = () => {
           });
         }
         
-        console.log('Talent calculation:', {
-          baseTalentPoints,
-          bonusTalentPoints,
-          totalTalentPoints,
-          spentTalentPoints,
-          remaining: totalTalentPoints - spentTalentPoints,
-          freeWeaponTalents,
-          weaponSkills: charData.weaponSkills,
-          magicSkills: charData.magicSkills,
-          craftingSkills: charData.craftingSkills
-        });
         
         setInvestedTalentStars(spentTalentPoints);
         setStartingTalents(totalTalentPoints);
@@ -158,7 +147,6 @@ const CharacterEdit: React.FC = () => {
                 if (personalityModule) {
                   setSelectedPersonality(personalityModule.name);
                   setSelectedPersonalityModule(personalityModule);
-                  console.log('Found personality module:', personalityModule.name);
                   break;
                 }
               }
@@ -195,7 +183,6 @@ const CharacterEdit: React.FC = () => {
                 })
               };
               setSelectedAncestry(ancestryWithSubchoices);
-              console.log('Loaded ancestry with subchoices:', ancestryWithSubchoices);
             } else {
               setSelectedAncestry(ancestry);
             }
@@ -480,20 +467,16 @@ const CharacterEdit: React.FC = () => {
       }
       
       // Keep all non-personality modules from the character and calculate refund
-      console.log('Processing character modules:', character.modules);
-      console.log('Personality modules map:', Array.from(personalityModulesMap.keys()));
       
       if (character.modules && Array.isArray(character.modules)) {
         character.modules.forEach((module: any) => {
           // Handle nested module structure - the actual module data might be in module.moduleId
           const moduleData = module.moduleId || module;
           const moduleId = moduleData._id || moduleData;
-          console.log('Checking module:', { moduleId, module });
           
           // Check if this is a personality module
           const personalityModule = personalityModulesMap.get(moduleId);
           if (personalityModule) {
-            console.log('Found personality module to refund:', personalityModule.name);
             // Calculate refund for the old personality module
             if (module.selectedOptions && Array.isArray(module.selectedOptions)) {
               module.selectedOptions.forEach((selectedOption: any) => {
@@ -506,7 +489,6 @@ const CharacterEdit: React.FC = () => {
                   const cost = selectedOption.location === '1' ? 0 : 1;
                   if (cost > 0) {
                     modulePointRefund += cost;
-                    console.log(`Refunding ${cost} point from ${moduleOption.name} (location: ${selectedOption.location})`);
                   }
                 }
               });
@@ -518,7 +500,6 @@ const CharacterEdit: React.FC = () => {
         });
       }
       
-      console.log('Total module point refund:', modulePointRefund);
       
       // Add the newly selected personality module
       if (selectedPersonalityModule) {
@@ -581,7 +562,6 @@ const CharacterEdit: React.FC = () => {
       }
 
       const data = await response.json();
-      console.log('Character updated:', data);
 
       // Now upload portrait if one was selected
       if (portraitFile) {

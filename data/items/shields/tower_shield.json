@@ -1,0 +1,23 @@
+{
+  "name": "Tower Shield",
+  "description": "A massive rectangular shield that covers the entire body. Provides maximum protection but severely limits mobility and requires both hands to use effectively.",
+  "type": "shield",
+  "shield_category": "heavy",
+  "weight": 10,
+  "value": 100,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 1
+  },
+  "basic": {
+    "deflection": {
+      "add_bonus": 1
+    }
+  },
+  "armor_penalties": {
+    "movement": -1,
+    "sprint":-2,
+    "coordination": -1,
+    "evasion": -1
+  }
+}

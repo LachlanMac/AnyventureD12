@@ -1,7 +1,8 @@
 {
   "name": "Flint",
   "description": "A hard stone that produces sparks when struck against metal",
-  "type": "component",
+  "type": "goods",
+"tags":["component"],,
   "weight": 0.2,
   "value": 5,
   "rarity": "common"

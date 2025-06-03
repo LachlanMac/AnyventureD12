@@ -1,0 +1,43 @@
+{
+  "name": "Arbalest",
+  "description": "A heavy crossbow that is capable at a variety of ranges and relatively easy to operate compared to a drawn bow.",
+  "type": "weapon",
+  "weapon_category": "complexRanged",
+  "weight": 2,
+  "value": 30,
+  "bonus_attack":0,
+  "rarity": "common",
+  "primary": {
+    "damage": "6",
+    "damage_extra": "3",
+    "damage_type": "physical",
+    "category": "ranged",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 2,
+    "max_range": 6
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {}
+}

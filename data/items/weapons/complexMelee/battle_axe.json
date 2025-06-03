@@ -5,6 +5,7 @@
   "weapon_category": "complexMelee",
   "weight": 4,
   "value": 75,
+  "bonus_attack":0,
   "rarity": "common",
   "primary": {
     "damage": "4",
@@ -28,6 +29,7 @@
     "min_range": 0,
     "max_range": 1
   },
+ 
   "health": {
     "max": 0,
     "recovery": 0
@@ -42,22 +44,8 @@
   },
   "movement": -1,
   "attributes": {},
-  "basic": {
-    "might": {
-      "add_bonus": 0,
-      "set_bonus": 0,
-      "add_talent": 1,
-      "set_talent": 0
-    }
-  },
-  "weapon": {
-    "complexMeleeWeapons": {
-      "add_bonus": 2,
-      "set_bonus": 0,
-      "add_talent": 0,
-      "set_talent": 0
-    }
-  },
+  "basic": {},
+  "weapon": {},
   "magic": {},
   "craft": {},
   "mitigation": {},

@@ -1,0 +1,15 @@
+{
+  "name": "Studded Leather",
+  "description": "Leather armor reinforced with metal rivets that provides mild protection.",
+  "type": "body",
+  "weight": 7,
+  "value": 45,
+  "rarity": "common",
+  "mitigation": {
+    "physical": 3
+  },
+  "armor_penalties": {
+    "stealth": 0,
+    "evasion": 0
+  }
+}

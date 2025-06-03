@@ -76,29 +76,53 @@ const SkillCard: React.FC<SkillCardProps> = ({
         )}
       </div>
 
-      <div style={{ display: 'flex', alignItems: 'center' }}>
-        <span
-          style={{
-            color: 'var(--color-cloud)',
-            fontSize: '0.75rem',
-            marginRight: '0.5rem',
-          }}
-        >
-          Talent:
-        </span>
-        <TalentDisplay talent={talent} />
+      <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span
+            style={{
+              color: 'var(--color-cloud)',
+              fontSize: '0.75rem',
+              marginRight: '0.5rem',
+            }}
+          >
+            Talent:
+          </span>
+          <TalentDisplay talent={talent} />
+        </div>
+        
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          <span
+            style={{
+              color: 'var(--color-cloud)',
+              fontSize: '0.75rem',
+              marginRight: '0.5rem',
+            }}
+          >
+            Skill:
+          </span>
+          <span
+            style={{
+              color: value < 0 ? 'var(--color-sunset)' : 'var(--color-white)',
+              fontSize: '0.75rem',
+              fontWeight: 'bold',
+            }}
+          >
+            {value < 0 ? value : `+${value}`}
+          </span>
+        </div>
       </div>
 
       {/* Display dice description */}
       <div
         style={{
           fontSize: '0.75rem',
-          color: 'var(--color-cloud)',
+          color: value < 0 ? 'var(--color-sunset)' : 'var(--color-cloud)',
           marginTop: '0.5rem',
           fontStyle: 'italic',
+          fontWeight: value < 0 ? 'bold' : 'normal',
         }}
       >
-        Roll {diceString}
+        {value < 0 ? 'Roll 1' : `Roll ${diceString}`}
       </div>
     </div>
   );

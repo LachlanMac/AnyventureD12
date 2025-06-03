@@ -1,7 +1,8 @@
 {
   "name": "Cobalt Ingot",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 4,
   "value": 10000,
   "rarity": "common"

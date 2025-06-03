@@ -1,0 +1,8 @@
+{
+  "name": "Robes",
+  "description": "Simple cloth robes that offer minimal protection but allow complete freedom of movement. Common attire for scholars and mages.",
+  "type": "body",
+  "weight": 2,
+  "value": 5,
+  "rarity": "common"
+}

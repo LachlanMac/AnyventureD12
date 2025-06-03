@@ -516,11 +516,19 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                       }}
                     >
                       <option value="weapon">Weapon</option>
-                      <option value="gear">Gear</option>
+                      <option value="boots">Boots</option>
+                      <option value="body">Body</option>
+                      <option value="gloves">Gloves</option>
+                      <option value="headwear">Headwear</option>
+                      <option value="cloak">Cloak</option>
+                      <option value="accessory">Accessory</option>
                       <option value="shield">Shield</option>
+                      <option value="goods">Goods</option>
+                      <option value="adventure">Adventure</option>
                       <option value="consumable">Consumable</option>
-                      <option value="container">Container</option>
-                      <option value="currency">Currency</option>
+                      <option value="tool">Tool</option>
+                      <option value="instrument">Instrument</option>
+                      <option value="ammunition">Ammunition</option>
                     </select>
                   </div>
 
@@ -875,7 +883,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                             <option value="lightning">Lightning</option>
                             <option value="dark">Dark</option>
                             <option value="divine">Divine</option>
-                            <option value="aetheric">Aetheric</option>
+                            <option value="aether">Aether</option>
                             <option value="psychic">Psychic</option>
                             <option value="toxic">Toxic</option>
                           </select>
@@ -1068,7 +1076,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                               <option value="lightning">Lightning</option>
                               <option value="dark">Dark</option>
                               <option value="divine">Divine</option>
-                              <option value="aetheric">Aetheric</option>
+                              <option value="aether">Aether</option>
                               <option value="psychic">Psychic</option>
                               <option value="toxic">Toxic</option>
                             </select>
@@ -1201,7 +1209,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                             <option value="lightning">Lightning</option>
                             <option value="dark">Dark</option>
                             <option value="divine">Divine</option>
-                            <option value="aetheric">Aetheric</option>
+                            <option value="aether">Aether</option>
                             <option value="psychic">Psychic</option>
                             <option value="toxic">Toxic</option>
                           </select>
@@ -1394,7 +1402,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                               <option value="lightning">Lightning</option>
                               <option value="dark">Dark</option>
                               <option value="divine">Divine</option>
-                              <option value="aetheric">Aetheric</option>
+                              <option value="aether">Aether</option>
                               <option value="psychic">Psychic</option>
                               <option value="toxic">Toxic</option>
                             </select>

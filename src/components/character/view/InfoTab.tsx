@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
 import MusicTalentDisplay from '../MusicTalentDisplay';
+import EquipmentEffectsPanel from './EquipmentEffectsPanel';
 import { Character, Language } from '../../../types/character';
 import { getModifiedDiceType, getDiceTierModifierIndicator } from '../../../utils/diceUtils';
 
@@ -188,9 +189,12 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                     const attributeValue =
                       character.attributes[attributeKey as keyof typeof character.attributes];
                     const diceTierModifier = skillData.diceTierModifier || 0;
-                    const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
-                    const dieDisplay = attributeValue + diceType;
-                    const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
+                    
+                    // If skill value is negative, show automatic failure
+                    const effectiveTalent = skillData.value < 0 ? 0 : attributeValue;
+                    const diceType = skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
+                    const dieDisplay = skillData.value < 0 ? '1' : effectiveTalent + diceType;
+                    const modifierIndicator = skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
 
                     return (
                       <div key={skill.id} className="flex justify-between items-center">
@@ -198,11 +202,11 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                         <div className="flex items-center gap-2">
                           <span
                             style={{
-                              color: 'var(--color-metal-gold)',
+                              color: skillData.value < 0 ? 'var(--color-sunset)' : 'var(--color-metal-gold)',
                               fontWeight: 'bold',
                             }}
                           >
-                            {skillData.value >= 0 ? `+${skillData.value}` : '-'}
+                            {skillData.value >= 0 ? `+${skillData.value}` : skillData.value}
                             {modifierIndicator && (
                               <span
                                 style={{
@@ -218,8 +222,9 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                           </span>
                           <span
                             style={{
-                              color: 'var(--color-cloud)',
+                              color: skillData.value < 0 ? 'var(--color-sunset)' : 'var(--color-cloud)',
                               fontSize: '0.875rem',
+                              fontWeight: skillData.value < 0 ? 'bold' : 'normal',
                             }}
                           >
                             ({dieDisplay})
@@ -254,8 +259,10 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
               .filter(([_, data]) => data.talent > 0) // Only show skills with talent
               .map(([skillId, skillData]) => {
                 const diceTierModifier = skillData.diceTierModifier || 0;
-                const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
-                const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
+                // If skill value is negative, show automatic failure
+                const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
+                const diceType = skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
+                const modifierIndicator = skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
 
                 return (
                   <div
@@ -281,7 +288,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                         )}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.talent > 0 ? `${skillData.talent}${diceType}` : 'No dice'}
+                        {skillData.value < 0 ? '1' : skillData.talent > 0 ? `${effectiveTalent}${diceType}` : 'No dice'}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -318,8 +325,10 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
               .filter(([_, data]) => data.talent > 0) // Only show skills with talent
               .map(([skillId, skillData]) => {
                 const diceTierModifier = skillData.diceTierModifier || 0;
-                const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
-                const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
+                // If skill value is negative, show automatic failure
+                const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
+                const diceType = skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
+                const modifierIndicator = skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
 
                 return (
                   <div
@@ -343,7 +352,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                         )}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.talent > 0 ? `${skillData.talent}${diceType}` : 'No dice'}
+                        {skillData.value < 0 ? '1' : skillData.talent > 0 ? `${effectiveTalent}${diceType}` : 'No dice'}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -380,8 +389,10 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
               .filter(([_, data]) => data.talent > 0) // Only show skills with talent
               .map(([skillId, skillData]) => {
                 const diceTierModifier = skillData.diceTierModifier || 0;
-                const diceType = getModifiedDiceType(skillData.value, diceTierModifier);
-                const modifierIndicator = getDiceTierModifierIndicator(diceTierModifier);
+                // If skill value is negative, show automatic failure
+                const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
+                const diceType = skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
+                const modifierIndicator = skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
                 
                 return (
                   <div
@@ -405,7 +416,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                         )}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.talent > 0 ? `${skillData.talent}${diceType}` : 'No dice'}
+                        {skillData.value < 0 ? '1' : skillData.talent > 0 ? `${effectiveTalent}${diceType}` : 'No dice'}
                       </div>
                     </div>
                     <div className="flex items-center gap-2">
@@ -555,6 +566,9 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
           </div>
         </CardBody>
       </Card>
+
+      {/* Equipment Effects */}
+      <EquipmentEffectsPanel character={character} />
     </div>
   );
 };

@@ -428,7 +428,7 @@ const CharacterSchema = new Schema({
     psychic: { type: Number, default: 0 },
     dark: { type: Number, default: 0 },
     divine: { type: Number, default: 0 },
-    aetheric: { type: Number, default: 0 },
+    aether: { type: Number, default: 0 },
     toxic: { type: Number, default: 0 },
   },
   moduleBonuses: Schema.Types.Mixed
@@ -475,14 +475,14 @@ CharacterSchema.pre('save', function(next) {
   this.resources.energy.max = 5;
   this.resources.resolve.max = 20;
 
-  // Ensure current resources don't exceed max
-  if (!this.resources.health.current || this.resources.health.current > this.resources.health.max) {
+  // Initialize current resources if not set (but don't cap them here - equipment may increase max)
+  if (!this.resources.health.current) {
     this.resources.health.current = this.resources.health.max;
   }
-  if (!this.resources.energy.current || this.resources.energy.current > this.resources.energy.max) {
+  if (!this.resources.energy.current) {
     this.resources.energy.current = this.resources.energy.max;
   }
-  if (!this.resources.resolve.current || this.resources.resolve.current > this.resources.resolve.max) {
+  if (!this.resources.resolve.current) {
     this.resources.resolve.current = this.resources.resolve.max;
   }
   

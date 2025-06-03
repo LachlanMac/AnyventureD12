@@ -1,0 +1,44 @@
+{
+  "name": "War Mace",
+  "description": "A metal rod with a heavy head designed to deliver crushing blows.",
+  "type": "weapon",
+  "weapon_category": "simpleMelee",
+  "weight": 0.5,
+  "value": 5,
+  "bonus_attack":0,
+  "rarity": "common",
+  "primary": {
+    "damage": "4",
+    "damage_extra": "3",
+    "damage_type": "physical",
+    "category": "blunt",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 0,
+    "max_range": 1
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {}
+}
+  

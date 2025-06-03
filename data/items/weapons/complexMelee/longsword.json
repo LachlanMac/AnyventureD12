@@ -1,13 +1,14 @@
 {
   "name": "Longsword",
-  "description": "A versatile blade equally capable of delivering devastating slashes or precise thrusts. Its balanced design allows skilled warriors to adapt their fighting style to any opponent.",
+  "description": "A versatile blade equally capable of delivering devastating slashes or precise thrusts.",
   "type": "weapon",
   "weapon_category": "complexMelee",
   "weight": 3,
   "value": 50,
+  "bonus_attack":0,
   "rarity": "common",
   "primary": {
-    "damage": "4",
+    "damage": "5",
     "damage_extra": "3",
     "damage_type": "physical",
     "category": "slash",
@@ -18,8 +19,8 @@
     "max_range": 1
   },
   "secondary": {
-    "damage": "3",
-    "damage_extra": "2",
+    "damage": "5",
+    "damage_extra": "3",
     "damage_type": "physical",
     "category": "pierce",
     "secondary_damage": 0,

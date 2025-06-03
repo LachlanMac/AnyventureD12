@@ -54,12 +54,13 @@ const CharacterView: React.FC = () => {
   const { user } = useAuth();
   const justCreated = new URLSearchParams(location.search).get('created') === 'true';
   const campaignId = new URLSearchParams(location.search).get('campaign');
+  const tabFromUrl = new URLSearchParams(location.search).get('tab') as TabType;
 
   const [character, setCharacter] = useState<CharacterWithAPI | null>(null);
   const [campaign, setCampaign] = useState<any>(null);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
-  const [activeTab, setActiveTab] = useState<TabType>('info');
+  const [activeTab, setActiveTab] = useState<TabType>(tabFromUrl || 'info');
   const [canEdit, setCanEdit] = useState(false);
   const personalityModule = character?.modules.find(
     (m: any) => m.moduleId && typeof m.moduleId !== 'string' && m.moduleId.mtype === 'secondary'
@@ -133,12 +134,6 @@ const CharacterView: React.FC = () => {
     }
   }, [id, user, campaignId]);
 
-  // Log the character data just before rendering
-  useEffect(() => {
-    if (character) {
-      console.log('Character before rendering:', character);
-    }
-  }, [character]);
 
   const handleDelete = async () => {
     if (!window.confirm('Are you sure you want to delete this character?')) {
@@ -361,7 +356,7 @@ const CharacterView: React.FC = () => {
           )}
 
           {/* Actions Tab */}
-          {activeTab === 'actions' && <ActionsTab actions={character.actions} />}
+          {activeTab === 'actions' && <ActionsTab character={character} />}
 
           {/* Traits Tab */}
           {character && activeTab === 'traits' && (

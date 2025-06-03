@@ -1,0 +1,43 @@
+{
+  "name": "Warbow",
+  "description": "A powerful recurved bow that provides power at medium distance.",
+  "type": "weapon",
+  "weapon_category": "complexRanged",
+  "weight": 2,
+  "value": 30,
+  "bonus_attack":0,
+  "rarity": "common",
+  "primary": {
+    "damage": "5",
+    "damage_extra": "4",
+    "damage_type": "physical",
+    "category": "ranged",
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 3,
+    "max_range": 5
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {}
+}

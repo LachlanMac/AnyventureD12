@@ -1,0 +1,9 @@
+{
+  "name": "War Drum",
+  "description": "A large drum carried into battle to maintain marching tempo and boost morale. Its deep, resonant beat can be heard across the battlefield.",
+  "type": "instrument",
+  "tags": ["percussion"],
+  "weight": 3,
+  "value": 25,
+  "rarity": "uncommon"
+}

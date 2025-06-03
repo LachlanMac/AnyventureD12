@@ -26,12 +26,10 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
         }
 
         const data = await response.json();
-        console.log('Fetched cultures in CultureSelection:', data);
 
         setCultures(data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching cultures:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
@@ -44,10 +42,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
   const handleCultureSelect = (cultureName: string) => {
     const selectedCulture = cultures.find((culture) => culture.name === cultureName);
     if (selectedCulture) {
-      console.log('Selected culture in CultureSelection:', selectedCulture);
       onSelectCulture(cultureName, selectedCulture);
-    } else {
-      console.error(`Could not find culture for: ${cultureName}`);
     }
   };
 

@@ -26,11 +26,9 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
         }
 
         const data = await response.json();
-        console.log('Fetched personality modules:', data);
         setPersonalityModules(data);
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching personality modules:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
@@ -43,10 +41,7 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
   const handlePersonalitySelect = (personalityName: string) => {
     const selectedModule = personalityModules.find((module) => module.name === personalityName);
     if (selectedModule) {
-      console.log('Selected personality module:', selectedModule);
       onSelectPersonality(personalityName, selectedModule);
-    } else {
-      console.error(`Could not find personality module for: ${personalityName}`);
     }
   };
 

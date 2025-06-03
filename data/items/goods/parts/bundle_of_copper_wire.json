@@ -2,7 +2,7 @@
   "name": "Bundle of Copper Wire",
   "description": "Flexible copper strands useful in crafting jewelry and electrical conduits for magical devices",
   "type": "goods",
-"tags":["ingredient"],
+  "tags":["parts"],
   "weight": 2.0,
   "value": 20,
   "rarity": "common"

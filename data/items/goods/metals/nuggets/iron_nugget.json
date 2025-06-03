@@ -1,7 +1,8 @@
 {
   "name": "Iron Nugget",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.35,
   "value": 20,
   "rarity": "common"

@@ -1,0 +1,8 @@
+{
+  "name": "Belt",
+  "description": "A sturdy leather belt worn around the waist.",
+  "type": "accessory",
+  "weight": 0.3,
+  "value": 6,
+  "rarity": "common"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Round Shield",
+  "description": "A traditional circular shield with a metal boss in the center. Favored by warriors for its balanced protection and versatility.",
+  "type": "shield",
+  "shield_category": "light",
+  "weight": 3,
+  "value": 25,
+  "rarity": "common"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Lute",
+  "description": "A pear-shaped, string instrument with a curved back, fretted fingerboard and head with tuning pegs.",
+  "type": "instrument",
+  "tags":["strings"],
+  "weight": 0.5,
+  "value": 5,
+  "rarity": "common"
+}

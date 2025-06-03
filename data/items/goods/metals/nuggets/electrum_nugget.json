@@ -1,7 +1,8 @@
 {
   "name": "Electrum Nugget",
   "description": "",
-  "type": "metal",
+  "type": "goods",
+"tags":"metal",,
   "weight": 0.75,
   "value": 100,
   "rarity": "common"

@@ -1,0 +1,9 @@
+{
+  "name": "Lyre",
+  "description": "An ancient stringed instrument with a U-shaped frame. Its delicate, harp-like tones are perfect for accompanying poetry and ballads.",
+  "type": "instrument",
+  "tags": ["strings"],
+  "weight": 1,
+  "value": 20,
+  "rarity": "common"
+}
