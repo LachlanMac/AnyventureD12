@@ -1,0 +1,172 @@
+{
+  "name": "Acolyte",
+  "description": "A devout follower of a divine order, trained in basic healing and protective magic. Acolytes serve in temples and shrines, tending to the faithful and providing spiritual guidance. While not powerful spellcasters, they possess enough divine magic to aid their allies and ward off minor threats.",
+  "tactics": "Acolytes prefer to stay behind allies, providing healing and support. They will cast protective spells early in combat and use their healing abilities to keep allies fighting. If cornered, they will defend themselves with their staff while calling upon divine protection.",
+  "tier": "thrall",
+  "type": "humanoid",
+  "size": "medium",
+  "health": {
+    "max": 18,
+    "current": 18
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 2
+  },
+  "resolve": {
+    "max": 12,
+    "current": 12,
+    "recovery": 2
+  },
+  "movement": 4,
+  "attributes": {
+    "physique": {
+      "talent": 1
+    },
+    "finesse": {
+      "talent": 1
+    },
+    "mind": {
+      "talent": 2
+    },
+    "knowledge": {
+      "talent": 3
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": 0,
+    "deflection": 1,
+    "might": 0,
+    "endurance": 1,
+    "evasion": 1,
+    "stealth": 0,
+    "coordination": 1,
+    "thievery": 0,
+    "resilience": 2,
+    "concentration": 2,
+    "senses": 1,
+    "logic": 1,
+    "wildcraft": 0,
+    "academics": 2,
+    "magic": 3,
+    "medicine": 2,
+    "expression": 2,
+    "presence": 2,
+    "insight": 2,
+    "persuasion": 1
+  },
+  "mitigation": {
+    "physical": 0,
+    "cold": 0,
+    "heat": 0,
+    "lightning": 0,
+    "psychic": 1,
+    "dark": 2,
+    "divine": 0,
+    "aether": 0,
+    "toxic": 0
+  },
+  "immunities": {},
+  "detections": {
+    "normal": 5
+  },
+  "actions": [
+    {
+      "name": "Staff Strike",
+      "cost": 0,
+      "type": "attack",
+      "description": "The acolyte strikes with their wooden staff.",
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 0,
+        "max_range": 0
+      }
+    },
+    {
+      "name": "Healing Light",
+      "cost": 2,
+      "type": "spell",
+      "magic": true,
+      "description": "The acolyte channels divine energy to heal wounds on themselves or an ally within range.",
+      "spell": {
+        "roll": "3d10",
+        "damage": "8",
+        "damage_extra": "0",
+        "damage_type": "divine",
+        "target_defense": "none",
+        "defense_difficulty": 0,
+        "min_range": 0,
+        "max_range": 5
+      }
+    },
+    {
+      "name": "Sacred Ward",
+      "cost": 3,
+      "type": "spell",
+      "magic": true,
+      "description": "The acolyte creates a protective barrier around an ally, granting them +2 mitigation to all damage types for 3 rounds.",
+      "spell": {
+        "roll": "2d10",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "divine",
+        "target_defense": "none",
+        "defense_difficulty": 7,
+        "min_range": 0,
+        "max_range": 5
+      }
+    },
+    {
+      "name": "Divine Blast",
+      "cost": 4,
+      "type": "spell",
+      "magic": true,
+      "description": "The acolyte unleashes a powerful blast of divine energy that can reach distant targets.",
+      "spell": {
+        "roll": "2d8",
+        "damage": "12",
+        "damage_extra": "3",
+        "damage_type": "divine",
+        "target_defense": "evasion",
+        "defense_difficulty": 8,
+        "min_range": 5,
+        "max_range": 40
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Divine Protection",
+      "cost": 2,
+      "trigger": "When the acolyte or an adjacent ally would take damage",
+      "description": "The acolyte calls upon divine power to reduce the incoming damage by 3."
+    }
+  ],
+  "traits": [
+    {
+      "name": "Divine Favor",
+      "description": "The acolyte has +1 die to all magic rolls when casting divine spells."
+    },
+    {
+      "name": "Healing Hands",
+      "description": "Once per combat, the acolyte can spend 1 energy to heal themselves or an adjacent ally for 5 health without rolling."
+    }
+  ],
+  "loot": [
+    "Wooden staff",
+    "Holy symbol",
+    "Prayer book",
+    "Healing herbs",
+    "1d6 silver coins"
+  ],
+  "languages": ["Common", "Celestial"],
+  "challenge_rating": 2
+}

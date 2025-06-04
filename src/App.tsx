@@ -35,6 +35,8 @@ import HomebrewItemBrowser from './pages/HomebrewItemBrowser';
 import HomebrewItemCreator from './pages/HomebrewItemCreator';
 import HomebrewSpellBrowser from './pages/HomebrewSpellBrowser';
 import HomebrewSpellCreator from './pages/HomebrewSpellCreator';
+import Bestiary from './pages/Bestiary';
+import CreatureDetail from './pages/CreatureDetail';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -127,6 +129,22 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <ConditionsCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/bestiary"
+                  element={
+                    <MainLayout>
+                      <Bestiary />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/bestiary/:id"
+                  element={
+                    <MainLayout>
+                      <CreatureDetail />
                     </MainLayout>
                   }
                 />

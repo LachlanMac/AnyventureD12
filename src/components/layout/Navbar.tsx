@@ -48,6 +48,9 @@ const Navbar: React.FC = () => {
             <NavLink to="/modules" isActive={isActive('/modules')}>
               Modules
             </NavLink>
+            <NavLink to="/bestiary" isActive={isActive('/bestiary')}>
+              Bestiary
+            </NavLink>
             <NavLink to="/homebrew" isActive={isActive('/homebrew')}>
               Homebrew
             </NavLink>
@@ -273,6 +276,14 @@ const Navbar: React.FC = () => {
               onClick={() => setIsOpen(false)}
             >
               Modules
+            </MobileNavLink>
+
+            <MobileNavLink
+              to="/bestiary"
+              isActive={isActive('/bestiary')}
+              onClick={() => setIsOpen(false)}
+            >
+              Bestiary
             </MobileNavLink>
 
             <MobileNavLink

@@ -1,0 +1,142 @@
+{
+  "name": "Commoner",
+  "description": "An ordinary person going about their daily life. Commoners are farmers, shopkeepers, laborers, and other working folk who form the backbone of civilization. They possess no special training in combat or magic, but their determination and numbers can make them formidable when defending their homes and families.",
+  "tactics": "Commoners avoid direct confrontation whenever possible. If forced to fight, they'll try to work together, using improvised weapons and calling for help. They often flee when reduced to half health unless protecting something dear to them.",
+  "tier": "thrall",
+  "type": "humanoid",
+  "size": "medium",
+  "health": {
+    "max": 15,
+    "current": 15
+  },
+  "energy": {
+    "max": 3,
+    "current": 3,
+    "recovery": 1
+  },
+  "resolve": {
+    "max": 8,
+    "current": 8,
+    "recovery": 1
+  },
+  "movement": 5,
+  "attributes": {
+    "physique": {
+      "talent": 1
+    },
+    "finesse": {
+      "talent": 1
+    },
+    "mind": {
+      "talent": 1
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": 1,
+    "deflection": 0,
+    "might": 1,
+    "endurance": 1,
+    "evasion": 1,
+    "stealth": 0,
+    "coordination": 1,
+    "thievery": 0,
+    "resilience": 1,
+    "concentration": 0,
+    "senses": 1,
+    "logic": 0,
+    "wildcraft": 1,
+    "academics": 0,
+    "magic": 0,
+    "medicine": 0,
+    "expression": 1,
+    "presence": 1,
+    "insight": 1,
+    "persuasion": 1
+  },
+  "mitigation": {
+    "physical": 0,
+    "cold": 0,
+    "heat": 0,
+    "lightning": 0,
+    "psychic": 0,
+    "dark": 0,
+    "divine": 0,
+    "aether": 0,
+    "toxic": 0
+  },
+  "immunities": {},
+  "detections": {
+    "normal": 5
+  },
+  "actions": [
+    {
+      "name": "Club Strike",
+      "cost": 0,
+      "type": "attack",
+      "description": "The commoner swings an improvised club or tool at an adjacent target.",
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 0,
+        "max_range": 0
+      }
+    },
+    {
+      "name": "Thrown Rock",
+      "cost": 1,
+      "type": "attack",
+      "description": "The commoner hurls a rock or other improvised projectile.",
+      "attack": {
+        "roll": "1d6",
+        "damage": "1",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 1,
+        "max_range": 3
+      }
+    },
+    {
+      "name": "Call for Help",
+      "cost": 1,
+      "type": "utility",
+      "description": "The commoner shouts for assistance. If other commoners are within hearing range, they may come to aid (GM discretion)."
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Desperate Defense",
+      "cost": 1,
+      "trigger": "When the commoner would take damage",
+      "description": "The commoner raises their arms or improvised shield, gaining +1 die to deflection against the triggering attack."
+    }
+  ],
+  "traits": [
+    {
+      "name": "Pack Mentality",
+      "description": "When fighting alongside other commoners, this creature gains +1 die to all attack rolls for each allied commoner within adjacent range (maximum +3 dice)."
+    },
+    {
+      "name": "Survival Instinct",
+      "description": "When reduced to 5 health or below, the commoner gains +1 die to evasion and movement increases by 1."
+    }
+  ],
+  "loot": [
+    "1d4 copper coins",
+    "Simple clothes",
+    "Belt pouch",
+    "Small knife or tool",
+    "Personal trinket"
+  ],
+  "languages": ["Common"],
+  "challenge_rating": 1
+}

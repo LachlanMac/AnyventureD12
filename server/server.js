@@ -21,6 +21,7 @@ import cultureRoutes from './routes/cultureRoutes.js';
 import campaignRoutes from './routes/campaignRoutes.js';
 import homebrewRoutes from './routes/homebrewRoutes.js';
 import homebrewSpellRoutes from './routes/homebrewSpellRoutes.js';
+import creatureRoutes from './routes/creatureRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -31,6 +32,7 @@ import { initializeModules } from './utils/moduleSeeder.js';
 import { initializeSpells } from './utils/spellSeeder.js';
 import { initializeAncestries } from './utils/ancestrySeeder.js';
 import { initializeCultures } from './utils/cultureSeeder.js';
+import { loadCreaturesFromJson } from './utils/creatureSeeder.js';
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -84,6 +86,8 @@ const connectDB = async () => {
     await initializeAncestries();
     console.log('Initializing cultures...');
     await initializeCultures();
+    console.log('Initializing creatures...');
+    await loadCreaturesFromJson();
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
     process.exit(1);
@@ -102,6 +106,7 @@ app.use('/api/items', itemRoutes);
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/homebrew', homebrewRoutes);
 app.use('/api/homebrew', homebrewSpellRoutes);
+app.use('/api/creatures', creatureRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {
