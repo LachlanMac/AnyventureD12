@@ -2,7 +2,7 @@
     "name": "Clumsy",
     "description": "You target a creature and make them clumsy for the next minute if they fail a resilience check of 6. While clumsy, the target rolls finesse checks with a penalty dice.",
     "duration": "Concentration",
-    "range": "Short",
+    "range": 4,
     "checkToCast": 2,
     "components": [""],
     "ritualDuration": "1 hour",

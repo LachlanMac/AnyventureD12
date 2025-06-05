@@ -1,6 +1,7 @@
 import express from 'express';
 import passport from 'passport';
 import jwt from 'jsonwebtoken';
+import User from '../models/User.js';
 
 const router = express.Router();
 
@@ -68,6 +69,78 @@ router.get('/me', async (req, res) => {
     });
   } catch (err) {
     res.status(401).json({ authenticated: false });
+  }
+});
+
+// Update user profile
+router.put('/profile', async (req, res) => {
+  try {
+    // Get token from cookies
+    const token = req.cookies.token;
+    
+    if (!token) {
+      return res.status(401).json({ message: 'Not authenticated' });
+    }
+    
+    // Verify token
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const { username } = req.body;
+    
+    // Validate username
+    if (!username || typeof username !== 'string') {
+      return res.status(400).json({ message: 'Username is required' });
+    }
+    
+    if (username.length < 1 || username.length > 32) {
+      return res.status(400).json({ message: 'Username must be between 1 and 32 characters' });
+    }
+    
+    // Update user in database
+    const updatedUser = await User.findByIdAndUpdate(
+      decoded.id,
+      { 
+        username: username.trim(),
+        usernameCustomized: true
+      },
+      { new: true, runValidators: true }
+    );
+    
+    if (!updatedUser) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+    
+    // Generate new JWT with updated username
+    const newToken = jwt.sign(
+      { 
+        id: updatedUser._id,
+        discordId: updatedUser.discordId,
+        username: updatedUser.username
+      }, 
+      process.env.JWT_SECRET,
+      { expiresIn: '7d' }
+    );
+    
+    // Set new JWT as HttpOnly cookie
+    res.cookie('token', newToken, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+    });
+    
+    // Return updated user info
+    res.status(200).json({
+      id: updatedUser._id,
+      discordId: updatedUser.discordId,
+      username: updatedUser.username
+    });
+  } catch (err) {
+    console.error('Profile update error:', err);
+    if (err.name === 'JsonWebTokenError') {
+      res.status(401).json({ message: 'Invalid token' });
+    } else {
+      res.status(500).json({ message: 'Failed to update profile' });
+    }
   }
 });
 

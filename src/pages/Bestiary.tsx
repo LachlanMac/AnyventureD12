@@ -48,7 +48,7 @@ const Bestiary: React.FC = () => {
     minCR: '',
     maxCR: '',
     search: '',
-    isHomebrew: ''
+    isHomebrew: 'false'
   });
 
   const creatureTypes = ['fiend', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental'];
@@ -146,7 +146,7 @@ const Bestiary: React.FC = () => {
             Bestiary
           </h1>
           <p style={{ color: 'var(--color-cloud)', marginTop: '0.5rem' }}>
-            Explore the creatures that inhabit the world of Anyventure
+            Explore the official creatures that inhabit the world of Anyventure
           </p>
         </div>
       </div>
@@ -163,21 +163,9 @@ const Bestiary: React.FC = () => {
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
               <div style={{ textAlign: 'center' }}>
                 <div style={{ color: 'var(--color-metal-gold)', fontSize: '2rem', fontWeight: 'bold' }}>
-                  {stats.totalCreatures}
-                </div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Total Creatures</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ color: 'var(--color-stormy)', fontSize: '2rem', fontWeight: 'bold' }}>
                   {stats.officialCreatures}
                 </div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Official</div>
-              </div>
-              <div style={{ textAlign: 'center' }}>
-                <div style={{ color: 'var(--color-sunset)', fontSize: '2rem', fontWeight: 'bold' }}>
-                  {stats.homebrewCreatures}
-                </div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Homebrew</div>
+                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Official Creatures</div>
               </div>
             </div>
           </CardBody>
@@ -415,18 +403,6 @@ const Bestiary: React.FC = () => {
                           <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{creature.movement}</span>
                         </div>
                       </div>
-                      {creature.isHomebrew && (
-                        <span style={{
-                          color: 'var(--color-sunset)',
-                          fontSize: '0.75rem',
-                          fontWeight: 'bold',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          padding: '0.125rem 0.5rem',
-                          borderRadius: '0.25rem'
-                        }}>
-                          HOMEBREW
-                        </span>
-                      )}
                     </div>
                   </CardBody>
                 </Card>

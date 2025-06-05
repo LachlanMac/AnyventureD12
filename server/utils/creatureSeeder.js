@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Creature from '../models/Creature.js';
+import Spell from '../models/Spell.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,6 +37,21 @@ const loadCreaturesFromJson = async () => {
           creatureData.type = type;
           creatureData.isHomebrew = false;
           creatureData.source = 'Official';
+          
+          // Handle spell references if they exist
+          if (creatureData.spellNames && Array.isArray(creatureData.spellNames)) {
+            const spellIds = [];
+            for (const spellName of creatureData.spellNames) {
+              const spell = await Spell.findOne({ name: spellName, isHomebrew: false });
+              if (spell) {
+                spellIds.push(spell._id);
+              } else {
+                console.log(`⚠️  Spell not found: ${spellName} for creature ${creatureData.name}`);
+              }
+            }
+            creatureData.spells = spellIds;
+            delete creatureData.spellNames; // Remove the temporary field
+          }
           
           // Check if creature already exists (by name and type)
           const existingCreature = await Creature.findOne({ 

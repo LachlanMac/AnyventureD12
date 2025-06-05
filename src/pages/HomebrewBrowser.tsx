@@ -35,7 +35,7 @@ const HomebrewBrowser: React.FC = () => {
             margin: '0 auto',
           }}
         >
-          Discover, create, and share custom items and spells with the community
+          Discover, create, and share custom items, spells, and creatures with the community
         </p>
       </div>
 
@@ -45,7 +45,7 @@ const HomebrewBrowser: React.FC = () => {
           display: 'grid',
           gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))',
           gap: '2rem',
-          maxWidth: '1000px',
+          maxWidth: '1200px',
           margin: '0 auto',
         }}
       >
@@ -238,6 +238,104 @@ const HomebrewBrowser: React.FC = () => {
                       Sign in
                     </Link>{' '}
                     to create your own spells
+                  </p>
+                </div>
+              )}
+            </div>
+          </CardBody>
+        </Card>
+
+        {/* Creatures Section */}
+        <Card variant="default" hoverEffect>
+          <CardHeader
+            style={{
+              backgroundColor: 'var(--color-stormy)',
+              opacity: 0.8,
+            }}
+          >
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+              }}
+            >
+              <h2
+                style={{
+                  color: 'var(--color-white)',
+                  fontSize: '1.75rem',
+                  fontWeight: 'bold',
+                  margin: 0,
+                }}
+              >
+                Homebrew Creatures
+              </h2>
+              <span
+                style={{
+                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                  color: 'var(--color-white)',
+                  padding: '0.25rem 0.75rem',
+                  borderRadius: '9999px',
+                  fontSize: '0.875rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                🐲 CREATURES
+              </span>
+            </div>
+          </CardHeader>
+          <CardBody>
+            <p
+              style={{
+                color: 'var(--color-cloud)',
+                fontSize: '1rem',
+                lineHeight: '1.6',
+                marginBottom: '2rem',
+              }}
+            >
+              Browse and create custom monsters, beasts, and legendary creatures. Design unique
+              stat blocks, abilities, and challenge encounters for your campaigns.
+            </p>
+
+            <div
+              style={{
+                display: 'flex',
+                flexDirection: 'column',
+                gap: '1rem',
+              }}
+            >
+              <Button
+                variant="primary"
+                onClick={() => navigate('/homebrew/creatures')}
+                style={{ width: '100%' }}
+              >
+                Browse Creatures
+              </Button>
+
+              {user && (
+                <Button
+                  variant="accent"
+                  onClick={() => navigate('/homebrew/creatures/create')}
+                  style={{ width: '100%' }}
+                >
+                  Create New Creature
+                </Button>
+              )}
+
+              {!user && (
+                <div
+                  style={{
+                    textAlign: 'center',
+                    padding: '1rem',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    borderRadius: '0.375rem',
+                  }}
+                >
+                  <p style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', margin: 0 }}>
+                    <Link to="/login" style={{ color: 'var(--color-metal-gold)' }}>
+                      Sign in
+                    </Link>{' '}
+                    to create your own creatures
                   </p>
                 </div>
               )}

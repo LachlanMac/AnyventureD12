@@ -35,8 +35,11 @@ import HomebrewItemBrowser from './pages/HomebrewItemBrowser';
 import HomebrewItemCreator from './pages/HomebrewItemCreator';
 import HomebrewSpellBrowser from './pages/HomebrewSpellBrowser';
 import HomebrewSpellCreator from './pages/HomebrewSpellCreator';
+import HomebrewCreatureBrowser from './pages/HomebrewCreatureBrowser';
+import HomebrewCreatureCreator from './pages/HomebrewCreatureCreator';
 import Bestiary from './pages/Bestiary';
 import CreatureDetail from './pages/CreatureDetail';
+import Profile from './pages/Profile';
 
 interface MainLayoutProps {
   children: ReactNode;
@@ -204,6 +207,14 @@ const App: React.FC = () => {
                     </MainLayout>
                   }
                 />
+                <Route
+                  path="/homebrew/creatures"
+                  element={
+                    <MainLayout>
+                      <HomebrewCreatureBrowser />
+                    </MainLayout>
+                  }
+                />
 
                 {/* Campaign invite join page (no auth required) */}
                 <Route
@@ -301,10 +312,50 @@ const App: React.FC = () => {
                     }
                   />
                   <Route
+                    path="/homebrew/items/:id/edit"
+                    element={
+                      <MainLayout>
+                        <HomebrewItemCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
                     path="/homebrew/spells/create"
                     element={
                       <MainLayout>
                         <HomebrewSpellCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/homebrew/spells/:id/edit"
+                    element={
+                      <MainLayout>
+                        <HomebrewSpellCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/homebrew/creatures/create"
+                    element={
+                      <MainLayout>
+                        <HomebrewCreatureCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/homebrew/creatures/:id/edit"
+                    element={
+                      <MainLayout>
+                        <HomebrewCreatureCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/profile"
+                    element={
+                      <MainLayout>
+                        <Profile />
                       </MainLayout>
                     }
                   />

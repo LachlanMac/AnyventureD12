@@ -11,6 +11,10 @@ const UserSchema = new Schema({
     type: String,
     required: true
   },
+  usernameCustomized: {
+    type: Boolean,
+    default: false
+  },
   avatar: {
     type: String
   },

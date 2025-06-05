@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 
 const HomebrewSpellCreator: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { showSuccess, showError } = useToast();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(!!id);
 
   // Basic spell data
   const [spellData, setSpellData] = useState({
@@ -36,6 +40,49 @@ const HomebrewSpellCreator: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = 3;
 
+  useEffect(() => {
+    if (id) {
+      fetchSpell();
+    }
+  }, [id]);
+
+  const fetchSpell = async () => {
+    try {
+      const response = await fetch(`/api/homebrew/spells/${id}`);
+      if (!response.ok) throw new Error('Failed to fetch spell');
+      
+      const spell = await response.json();
+      
+      // Populate form with existing data
+      setSpellData({
+        name: spell.name,
+        description: spell.description,
+        charge: spell.charge || '',
+        duration: spell.duration || 'Instantaneous',
+        range: spell.range || 'Self',
+        school: spell.school || 'primal',
+        subschool: spell.subschool || 'elemental',
+        checkToCast: spell.checkToCast || 1,
+        components: spell.components || [],
+        ritualDuration: spell.ritualDuration || '',
+        concentration: spell.concentration || false,
+        reaction: spell.reaction || false,
+        energy: spell.energy || 1,
+        damage: spell.damage || 0,
+        damageType: spell.damageType || null,
+        tags: spell.tags || [],
+        source: spell.source || '',
+        balanceNotes: spell.balanceNotes || ''
+      });
+      
+    } catch (err) {
+      showError('Failed to load spell for editing');
+      navigate('/homebrew/spells');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = async () => {
     if (!user) {
       setError('You must be logged in to create homebrew spells');
@@ -53,8 +100,11 @@ const HomebrewSpellCreator: React.FC = () => {
         damageType: spellData.damage > 0 ? spellData.damageType : null,
       };
 
-      const response = await fetch('/api/homebrew/spells', {
-        method: 'POST',
+      const url = id ? `/api/homebrew/spells/${id}` : '/api/homebrew/spells';
+      const method = id ? 'PUT' : 'POST';
+
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -63,17 +113,30 @@ const HomebrewSpellCreator: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create homebrew spell');
+        throw new Error(`Failed to ${id ? 'update' : 'create'} homebrew spell`);
       }
 
-      const createdSpell = await response.json();
-      navigate(`/homebrew/spells/${createdSpell._id}`);
+      const savedSpell = await response.json();
+      showSuccess(`Spell ${id ? 'updated' : 'created'} successfully!`);
+      navigate(`/homebrew/spells/${savedSpell._id}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create spell');
+      const errorMessage = err instanceof Error ? err.message : `Failed to ${id ? 'update' : 'create'} spell`;
+      setError(errorMessage);
+      showError(errorMessage);
     } finally {
       setSaving(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <div className="loading-spinner"></div>
+        </div>
+      </div>
+    );
+  }
 
   const renderStep = () => {
     switch (currentStep) {
@@ -696,7 +759,7 @@ const HomebrewSpellCreator: React.FC = () => {
           marginBottom: '2rem',
         }}
       >
-        Create Homebrew Spell
+        {id ? 'Edit' : 'Create'} Homebrew Spell
       </h1>
 
       {error && (
@@ -762,7 +825,7 @@ const HomebrewSpellCreator: React.FC = () => {
           }
           disabled={saving || !spellData.name || !spellData.description}
         >
-          {currentStep === totalSteps ? (saving ? 'Creating...' : 'Create Spell') : 'Next'}
+          {currentStep === totalSteps ? (saving ? `${id ? 'Updating' : 'Creating'}...` : `${id ? 'Update' : 'Create'} Spell`) : 'Next'}
         </Button>
       </div>
     </div>

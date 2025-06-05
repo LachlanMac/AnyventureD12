@@ -3,7 +3,7 @@
     "description": "You touch a humanoid or beast and attempt to close their wounds, restoring their health by 2. A creature cannot be brought above half their maximum health by this spell.",
     "charge":"any bleeding condition the target has is also removed.",
     "duration": "Instantaneous",
-    "range": "Adjacent",
+    "range": 0,
     "checkToCast": 2,
     "components": [
       "pinch of powdered silver"

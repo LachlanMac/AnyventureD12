@@ -18,6 +18,12 @@ const actionSchema = new mongoose.Schema({
       type: String,
       enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
     },
+    secondary_damage: String,
+    secondary_damage_extra: String,
+    secondary_damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+    },
     category: {
       type: String,
       enum: ['pierce', 'slash', 'blunt', 'ranged']
@@ -30,6 +36,12 @@ const actionSchema = new mongoose.Schema({
     damage: String,
     damage_extra: String,
     damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+    },
+    secondary_damage: String,
+    secondary_damage_extra: String,
+    secondary_damage_type: {
       type: String,
       enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
     },
@@ -93,19 +105,19 @@ const creatureSchema = new mongoose.Schema({
   // Attributes
   attributes: {
     physique: {
-      talent: { type: Number, min: 0, max: 6, required: true }
+      talent: { type: Number, min: -1, max: 6, required: true }
     },
     finesse: {
-      talent: { type: Number, min: 0, max: 6, required: true }
+      talent: { type: Number, min: -1, max: 6, required: true }
     },
     mind: {
-      talent: { type: Number, min: 0, max: 6, required: true }
+      talent: { type: Number, min: -1, max: 6, required: true }
     },
     knowledge: {
-      talent: { type: Number, min: 0, max: 6, required: true }
+      talent: { type: Number, min: -1, max: 6, required: true }
     },
     social: {
-      talent: { type: Number, min: 0, max: 6, required: true }
+      talent: { type: Number, min: -1, max: 6, required: true }
     }
   },
 
@@ -168,11 +180,56 @@ const creatureSchema = new mongoose.Schema({
   loot: [{ type: String }],
   languages: [{ type: String }],
   challenge_rating: { type: Number, min: 1, required: true },
+  
+  // Spells - references to actual spell documents
+  spells: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Spell'
+  }],
+  
+  // Custom spells defined inline for homebrew creatures
+  customSpells: [{
+    name: { type: String, required: true },
+    energy_cost: { type: Number, min: 0, default: 1 },
+    roll: { type: String },
+    damage: { type: String },
+    damage_extra: { type: String },
+    damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic'],
+      default: 'aether'
+    },
+    target_defense: {
+      type: String,
+      enum: ['evasion', 'deflection', 'resilience', 'none'],
+      default: 'evasion'
+    },
+    defense_difficulty: { type: Number, min: 1, max: 20, default: 6 },
+    min_range: { type: Number, min: 0, default: 1 },
+    max_range: { type: Number, min: 0, default: 5 },
+    description: { type: String }
+  }],
 
   // Metadata
   source: { type: String, default: 'Official' },
   creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  isHomebrew: { type: Boolean, default: false }
+  isHomebrew: { type: Boolean, default: false },
+  
+  // Homebrew fields
+  creatorName: { type: String },
+  status: {
+    type: String,
+    enum: ['draft', 'private', 'published', 'approved', 'rejected'],
+    default: 'draft'
+  },
+  tags: [{ type: String }],
+  balanceNotes: { type: String },
+  upvotes: { type: Number, default: 0 },
+  downvotes: { type: Number, default: 0 },
+  timesUsed: { type: Number, default: 0 },
+  publishedAt: { type: Date },
+  approvedAt: { type: Date },
+  rejectionReason: { type: String }
 }, {
   timestamps: true
 });

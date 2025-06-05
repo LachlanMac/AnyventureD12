@@ -2,7 +2,7 @@
     "name": "Repair",
     "description": "You touch an object that has been damaged, such as something that has been broken into no mor ethan 4 pieces, ripped or cracked and magically repair it.",
     "duration": "Instantaneous",
-    "range": "Adjacent",
+    "range": 0,
     "checkToCast": 2,
     "components": ["a scrap of material of the same type as the target object"],
     "ritualDuration": "1 hour",

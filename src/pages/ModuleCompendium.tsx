@@ -13,7 +13,7 @@ interface ModuleOption {
 interface Module {
   _id: string;
   name: string;
-  mtype: 'racial' | 'core' | 'secondary';
+  mtype: 'core' | 'secondary' | 'alteration' | 'planar' | 'personality';
   ruleset: number;
   options: ModuleOption[];
 }
@@ -27,7 +27,7 @@ const ModuleCompendium: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   // Filter states
-  const [activeFilter, setActiveFilter] = useState<'all' | 'racial' | 'core' | 'secondary'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'core' | 'secondary' | 'alteration' | 'planar' | 'personality'>('all');
 
   useEffect(() => {
     const fetchModules = async () => {
@@ -151,10 +151,22 @@ const ModuleCompendium: React.FC = () => {
               All
             </Button>
             <Button
-              variant={activeFilter === 'racial' ? 'accent' : 'secondary'}
-              onClick={() => setActiveFilter('racial')}
+              variant={activeFilter === 'alteration' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('alteration')}
             >
-              Racial
+              Alteration
+            </Button>
+            <Button
+              variant={activeFilter === 'planar' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('planar')}
+            >
+              Planar
+            </Button>
+            <Button
+              variant={activeFilter === 'personality' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('personality')}
+            >
+              Personality
             </Button>
             <Button
               variant={activeFilter === 'core' ? 'accent' : 'secondary'}

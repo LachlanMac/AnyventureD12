@@ -107,6 +107,29 @@ const HomebrewItemBrowser: React.FC = () => {
     }
   };
 
+  const handleDelete = async (itemId: string) => {
+    if (!user || !window.confirm('Are you sure you want to delete this item? This action cannot be undone.')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/homebrew/items/${itemId}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        setItems(items.filter(item => item._id !== itemId));
+        showSuccess('Item deleted successfully');
+      } else {
+        showError('Failed to delete item');
+      }
+    } catch (err) {
+      console.error('Failed to delete item:', err);
+      showError('Failed to delete item. Please try again.');
+    }
+  };
+
   const handleReport = async (itemId: string, reason: string) => {
     if (!user) return;
 
@@ -557,7 +580,26 @@ const HomebrewItemBrowser: React.FC = () => {
                       View
                     </Button>
 
-                    {user && (
+                    {user && user.id === item.creatorId && (
+                      <>
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => navigate(`/homebrew/items/${item._id}/edit`)}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="danger"
+                          size="sm"
+                          onClick={() => handleDelete(item._id)}
+                        >
+                          Delete
+                        </Button>
+                      </>
+                    )}
+
+                    {user && user.id !== item.creatorId && (
                       <div style={{ position: 'relative' }}>
                         <Button
                           variant="outline"

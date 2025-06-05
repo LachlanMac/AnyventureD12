@@ -2,7 +2,7 @@
     "name": "Illusion",
     "description": "You create an illusory object no larger than a 1-unit cube which has no form or mass but appears to be real. A creature can determine this object is fake by making a senses or logic check of 6 or higher.",
     "duration": "Concentration",
-    "range": "Adjacent",
+    "range": 0,
     "tags":["illusion"],
     "checkToCast": 2,
     "components": [""],

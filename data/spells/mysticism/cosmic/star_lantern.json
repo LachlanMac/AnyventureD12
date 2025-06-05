@@ -3,7 +3,7 @@
     "description": "You touch an object and cause it to emit a soft light in a very short (5 unit) radius. If you channel this spell on another object, any previous lantern that you created with this spell ends.",
     "charge":"Any silver or gold this light touches gives off a faint glow, even if it is obscured by less than an inch of material.",
     "duration": "Instantaneous",
-    "range": "Adjacent",
+    "range": 0,
     "checkToCast": 2,
     "components": [""],
     "ritualDuration": "1 hour",

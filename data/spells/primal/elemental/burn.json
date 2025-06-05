@@ -3,7 +3,7 @@
     "description": "You touch a creature, emmiting massive amounts of heat from your hand, dealing 5 heat damage if the target fails a deflection or evasion check of 5. Flammable objects can also be targeted by this ability, setting them on fire.",
     "charge":"If you successfully deal damage to the target creature, they cannot benefit from their heat mitigation until the start of your next turn.",
     "duration": "Instantaneous",
-    "range": "Adjacent",
+    "range": 0,
     "checkToCast": 3,
     "components": ["flint"],
     "ritualDuration": "1 hour",

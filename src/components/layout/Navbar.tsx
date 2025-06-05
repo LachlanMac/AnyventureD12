@@ -128,7 +128,7 @@ const Navbar: React.FC = () => {
                       {user?.username || 'User'}
                     </div>
                     <Link
-                      to="/items/manage"
+                      to="/profile"
                       style={{
                         display: 'block',
                         width: '100%',
@@ -148,7 +148,7 @@ const Navbar: React.FC = () => {
                       }}
                       onClick={() => setUserMenuOpen(false)}
                     >
-                      Manage Items
+                      Profile
                     </Link>
                     <button
                       onClick={logout}
@@ -304,11 +304,11 @@ const Navbar: React.FC = () => {
                   Create Character
                 </MobileNavLink>
                 <MobileNavLink
-                  to="/items/manage"
-                  isActive={isActive('/items/manage')}
+                  to="/profile"
+                  isActive={isActive('/profile')}
                   onClick={() => setIsOpen(false)}
                 >
-                  Manage Items
+                  Profile
                 </MobileNavLink>
               </>
             )}

@@ -69,7 +69,8 @@ const getCreatures = async (req, res) => {
 // Get a single creature by ID
 const getCreatureById = async (req, res) => {
   try {
-    const creature = await Creature.findById(req.params.id);
+    const creature = await Creature.findById(req.params.id)
+      .populate('spells'); // Populate the spell references
     
     if (!creature) {
       return res.status(404).json({ message: 'Creature not found' });

@@ -3,7 +3,7 @@
     "description": "You touch a creature and rid them of any fear they may be experiencing, removing the afraid condition.",
     "charge":"The spell also prevents grants them immunity to the afraid condition for the next minute",
     "duration": "1 minute",
-    "range": "Adjacent",
+    "range": 0,
     "checkToCast": 2,
     "components": [
       ""

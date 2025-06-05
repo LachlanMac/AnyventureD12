@@ -1,5 +1,7 @@
 // server/controllers/homebrewController.js
 import Item from '../models/Item.js';
+import Creature from '../models/Creature.js';
+import Spell from '../models/Spell.js';
 
 // @desc    Create a new homebrew item
 // @route   POST /api/homebrew/items
@@ -45,11 +47,24 @@ export const getHomebrewItems = async (req, res) => {
     // Build query
     const query = { isHomebrew: true };
     
-    // Status filter - allow viewing own drafts
-    if (status === 'mine' && req.user) {
-      query.creatorId = req.user._id.toString();
-    } else if (status !== 'all') {
-      query.status = status;
+    // Status filter - only show public content to non-authenticated users
+    if (req.user) {
+      // Authenticated users can see their own content or published content
+      if (status === 'mine') {
+        query.creatorId = req.user._id.toString();
+      } else if (status === 'draft') {
+        query.creatorId = req.user._id.toString();
+        query.status = 'draft';
+      } else if (status === 'private') {
+        query.creatorId = req.user._id.toString();
+        query.status = 'private';
+      } else {
+        // For 'published' or other status, show only published content
+        query.status = 'published';
+      }
+    } else {
+      // Non-authenticated users can only see published content
+      query.status = 'published';
     }
     
     if (type) query.type = type;
@@ -382,6 +397,238 @@ export const rejectHomebrewItem = async (req, res) => {
     res.json(item);
   } catch (error) {
     console.error('Error rejecting homebrew item:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// HOMEBREW CREATURES
+
+// @desc    Create a new homebrew creature
+// @route   POST /api/homebrew/creatures
+// @access  Private
+export const createHomebrewCreature = async (req, res) => {
+  try {
+    const userId = req.user._id.toString();
+    const userName = req.user.username || 'Anonymous';
+    
+    // Handle spell references
+    let spells = [];
+    if (req.body.spellNames && Array.isArray(req.body.spellNames)) {
+      const spellDocs = await Spell.find({ 
+        name: { $in: req.body.spellNames },
+        isHomebrew: false 
+      });
+      spells = spellDocs.map(spell => spell._id);
+    }
+    
+    const creatureData = {
+      ...req.body,
+      spells,
+      isHomebrew: true,
+      creator: userId,
+      creatorName: userName,
+      status: req.body.status || 'draft'
+    };
+    
+    // Remove spellNames from final data
+    delete creatureData.spellNames;
+    
+    const creature = new Creature(creatureData);
+    const savedCreature = await creature.save();
+    
+    res.status(201).json(savedCreature);
+  } catch (error) {
+    console.error('Error creating homebrew creature:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Get all homebrew creatures (with filters)
+// @route   GET /api/homebrew/creatures
+// @access  Public
+export const getHomebrewCreatures = async (req, res) => {
+  try {
+    const { 
+      status = 'published', 
+      type, 
+      tier,
+      creatorId,
+      sort = '-publishedAt',
+      page = 1,
+      limit = 20 
+    } = req.query;
+    
+    // Build query
+    const query = { isHomebrew: true };
+    
+    // Status filter - only show public content to non-authenticated users
+    if (req.user) {
+      // Authenticated users can see their own content or published content
+      if (status === 'mine') {
+        query.creator = req.user._id;
+      } else if (status === 'draft') {
+        query.creator = req.user._id;
+        query.status = 'draft';
+      } else if (status === 'private') {
+        query.creator = req.user._id;
+        query.status = 'private';
+      } else {
+        // For 'published' or other status, show only published content
+        query.status = 'published';
+      }
+    } else {
+      // Non-authenticated users can only see published content
+      query.status = 'published';
+    }
+    
+    if (type) query.type = type;
+    if (tier) query.tier = tier;
+    if (creatorId) query.creator = creatorId;
+    
+    // Pagination
+    const pageNum = parseInt(page);
+    const limitNum = parseInt(limit);
+    const skip = (pageNum - 1) * limitNum;
+    
+    const creatures = await Creature.find(query)
+      .sort(sort)
+      .skip(skip)
+      .limit(limitNum)
+      .select('name description type tier size challenge_rating creator creatorName status upvotes downvotes timesUsed publishedAt createdAt')
+      .lean();
+    
+    const total = await Creature.countDocuments(query);
+    const totalPages = Math.ceil(total / limitNum);
+    
+    res.json({
+      creatures,
+      pagination: {
+        currentPage: pageNum,
+        totalPages,
+        totalItems: total,
+        itemsPerPage: limitNum,
+        hasNext: pageNum < totalPages,
+        hasPrev: pageNum > 1
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching homebrew creatures:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Update homebrew creature
+// @route   PUT /api/homebrew/creatures/:id
+// @access  Private
+export const updateHomebrewCreature = async (req, res) => {
+  try {
+    const creature = await Creature.findById(req.params.id);
+    
+    if (!creature || !creature.isHomebrew) {
+      return res.status(404).json({ message: 'Homebrew creature not found' });
+    }
+    
+    if (creature.creator.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized' });
+    }
+    
+    // Handle spell references
+    let spells = creature.spells || [];
+    if (req.body.spellNames && Array.isArray(req.body.spellNames)) {
+      const spellDocs = await Spell.find({ 
+        name: { $in: req.body.spellNames },
+        isHomebrew: false 
+      });
+      spells = spellDocs.map(spell => spell._id);
+    }
+    
+    const updateData = {
+      ...req.body,
+      spells
+    };
+    
+    // Remove spellNames from final data
+    delete updateData.spellNames;
+    
+    const updatedCreature = await Creature.findByIdAndUpdate(
+      req.params.id,
+      updateData,
+      { new: true, runValidators: true }
+    );
+    
+    res.json(updatedCreature);
+  } catch (error) {
+    console.error('Error updating homebrew creature:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Delete homebrew creature
+// @route   DELETE /api/homebrew/creatures/:id
+// @access  Private
+export const deleteHomebrewCreature = async (req, res) => {
+  try {
+    const creature = await Creature.findById(req.params.id);
+    
+    if (!creature || !creature.isHomebrew) {
+      return res.status(404).json({ message: 'Homebrew creature not found' });
+    }
+    
+    if (creature.creator.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized' });
+    }
+    
+    await Creature.findByIdAndDelete(req.params.id);
+    
+    res.json({ message: 'Creature deleted successfully' });
+  } catch (error) {
+    console.error('Error deleting homebrew creature:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Vote on a homebrew creature
+// @route   POST /api/homebrew/creatures/:id/vote
+// @access  Private
+export const voteHomebrewCreature = async (req, res) => {
+  try {
+    const { vote } = req.body; // 'up' or 'down'
+    const userId = req.user._id.toString();
+    
+    if (!['up', 'down'].includes(vote)) {
+      return res.status(400).json({ message: 'Invalid vote type' });
+    }
+    
+    const creature = await Creature.findById(req.params.id);
+    
+    if (!creature || !creature.isHomebrew) {
+      return res.status(404).json({ message: 'Homebrew creature not found' });
+    }
+    
+    if (creature.status !== 'published' && creature.status !== 'approved') {
+      return res.status(400).json({ message: 'Can only vote on published creatures' });
+    }
+    
+    // Initialize vote counts if they don't exist
+    if (typeof creature.upvotes !== 'number') creature.upvotes = 0;
+    if (typeof creature.downvotes !== 'number') creature.downvotes = 0;
+    
+    // In a real app, you'd track who voted to prevent duplicates
+    // For now, just update the count
+    if (vote === 'up') {
+      creature.upvotes += 1;
+    } else {
+      creature.downvotes += 1;
+    }
+    
+    await creature.save();
+    
+    res.json({ 
+      upvotes: creature.upvotes, 
+      downvotes: creature.downvotes 
+    });
+  } catch (error) {
+    console.error('Error voting on homebrew creature:', error);
     res.status(500).json({ message: error.message });
   }
 };

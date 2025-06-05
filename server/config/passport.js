@@ -44,8 +44,10 @@ const setupPassport = () => {
           guilds: profile.guilds
         });
       } else {
-        // Update existing user
-        user.username = profile.username;
+        // Update existing user (but preserve custom username)
+        if (!user.usernameCustomized) {
+          user.username = profile.username;
+        }
         user.avatar = profile.avatar;
         user.email = profile.email;
         user.discriminator = profile.discriminator;

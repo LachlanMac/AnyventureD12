@@ -33,7 +33,7 @@ const ModuleSchema = new Schema({
   mtype: { 
     type: String, 
     required: true,
-    enum: ['racial', 'core', 'secondary', 'alteration','cultural', 'planar', 'personality']
+    enum: ['core', 'secondary', 'alteration', 'planar', 'personality']
   },
   ruleset: { 
     type: Number, 

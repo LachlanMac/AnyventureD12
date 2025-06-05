@@ -1,0 +1,142 @@
+{
+  "name": "Flame Knight",
+  "description": "A warrior imbued with elemental fire, wielding a blade that burns with eternal flames.",
+  "tactics": "The Flame Knight charges into melee combat, using their flaming sword to deal both physical and fire damage. They use Flame Shield when surrounded by enemies.",
+  "tier": "champion",
+  "type": "humanoid",
+  "size": "medium",
+  "health": {
+    "max": 45,
+    "current": 45
+  },
+  "energy": {
+    "max": 6,
+    "current": 6,
+    "recovery": 2
+  },
+  "resolve": {
+    "max": 15,
+    "current": 15,
+    "recovery": 1
+  },
+  "movement": 6,
+  "attributes": {
+    "physique": {
+      "talent": 3
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 2
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": 3,
+    "deflection": 3,
+    "might": 2,
+    "endurance": 3,
+    "evasion": 2,
+    "stealth": 0,
+    "coordination": 2,
+    "thievery": 0,
+    "resilience": 3,
+    "concentration": 2,
+    "senses": 2,
+    "logic": 1,
+    "wildcraft": 0,
+    "academics": 1,
+    "magic": 2,
+    "medicine": 0,
+    "expression": 1,
+    "presence": 3,
+    "insight": 2,
+    "persuasion": 1
+  },
+  "mitigation": {
+    "physical": 4,
+    "cold": 0,
+    "heat": 8,
+    "lightning": 2,
+    "psychic": 2,
+    "dark": 0,
+    "divine": 0,
+    "aether": 0,
+    "toxic": 0
+  },
+  "immunities": {},
+  "detections": {
+    "normal": 5,
+    "infravision": 5
+  },
+  "actions": [
+    {
+      "name": "Flaming Sword Strike",
+      "cost": 0,
+      "type": "attack",
+      "magic": false,
+      "description": "The knight strikes with their enchanted blade, dealing both slashing and fire damage.",
+      "attack": {
+        "roll": "3d10",
+        "damage": "4",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "secondary_damage": "2",
+        "secondary_damage_extra": "2",
+        "secondary_damage_type": "heat",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Flame Shield",
+      "cost": 2,
+      "type": "spell",
+      "magic": true,
+      "description": "The knight surrounds themselves with a shield of fire. Any creature that hits them with a melee attack takes fire damage.",
+      "spell": {
+        "roll": "2d12",
+        "damage": "3",
+        "damage_extra": "1",
+        "damage_type": "heat",
+        "target_defense": "none",
+        "defense_difficulty": 0,
+        "min_range": 0,
+        "max_range": 0
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Fiery Riposte",
+      "cost": 1,
+      "trigger": "When an enemy misses the knight with a melee attack",
+      "description": "The knight immediately makes a Flaming Sword Strike against the attacker."
+    }
+  ],
+  "traits": [
+    {
+      "name": "Fire Immunity",
+      "description": "The Flame Knight takes no damage from heat sources."
+    },
+    {
+      "name": "Burning Aura",
+      "description": "At the start of each turn, all creatures within 1 unit take 1 heat damage."
+    }
+  ],
+  "loot": [
+    "Flame Knight armor (enchanted)",
+    "Flaming sword (requires attunement)",
+    "3d20 gold coins"
+  ],
+  "languages": ["Common", "Ignan"],
+  "challenge_rating": 5,
+  "spellNames": ["Burn", "Shock"]
+}

@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { useNavigate, useParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import { Item } from '../types/character';
 import { valueToGold, goldToValue, formatGoldDisplay } from '../utils/valueUtils';
 
 const HomebrewItemCreator: React.FC = () => {
+  const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
   const { user } = useAuth();
+  const { showSuccess, showError } = useToast();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
+  const [loading, setLoading] = useState(!!id);
 
   // Basic item data
   const [itemData, setItemData] = useState({
@@ -92,6 +96,67 @@ const HomebrewItemCreator: React.FC = () => {
   const [currentStep, setCurrentStep] = useState(1);
   const totalSteps = itemData.type === 'weapon' ? 5 : 4;
 
+  useEffect(() => {
+    if (id) {
+      fetchItem();
+    }
+  }, [id]);
+
+  const fetchItem = async () => {
+    try {
+      const response = await fetch(`/api/homebrew/items/${id}`);
+      if (!response.ok) throw new Error('Failed to fetch item');
+      
+      const item = await response.json();
+      
+      // Populate form with existing data
+      setItemData({
+        name: item.name,
+        description: item.description,
+        type: item.type,
+        weapon_category: item.weapon_category || '',
+        rarity: item.rarity,
+        weight: item.weight,
+        value: item.value,
+        tags: item.tags || [],
+        source: item.source || '',
+        balanceNotes: item.balanceNotes || ''
+      });
+      
+      if (item.type === 'weapon') {
+        setWeaponData({
+          bonus_attack: item.bonus_attack || 0,
+          primary: item.primary || { damage: '', damage_extra: '', damage_type: 'physical' },
+          secondary: item.secondary || { damage: '', damage_extra: '', damage_type: 'physical' }
+        });
+        setHasSecondaryDamage(!!item.secondary);
+      }
+      
+      if (item.armor_penalties) {
+        setArmorPenalties(item.armor_penalties);
+      }
+      
+      if (item.health || item.energy || item.resolve || item.movement) {
+        setResourceBonuses({
+          health: item.health || { max: 0, recovery: 0 },
+          energy: item.energy || { max: 0, recovery: 0 },
+          resolve: item.resolve || { max: 0, recovery: 0 },
+          movement: item.movement || 0
+        });
+      }
+      
+      if (item.mitigation) {
+        setMitigation(item.mitigation);
+      }
+      
+    } catch (err) {
+      showError('Failed to load item for editing');
+      navigate('/homebrew/items');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleSubmit = async () => {
     if (!user) {
       setError('You must be logged in to create homebrew items');
@@ -118,8 +183,11 @@ const HomebrewItemCreator: React.FC = () => {
         mitigation,
       };
 
-      const response = await fetch('/api/homebrew/items', {
-        method: 'POST',
+      const url = id ? `/api/homebrew/items/${id}` : '/api/homebrew/items';
+      const method = id ? 'PUT' : 'POST';
+
+      const response = await fetch(url, {
+        method,
         headers: {
           'Content-Type': 'application/json',
         },
@@ -128,17 +196,30 @@ const HomebrewItemCreator: React.FC = () => {
       });
 
       if (!response.ok) {
-        throw new Error('Failed to create homebrew item');
+        throw new Error(`Failed to ${id ? 'update' : 'create'} homebrew item`);
       }
 
-      const createdItem = await response.json();
-      navigate(`/homebrew/items/${createdItem._id}`);
+      const savedItem = await response.json();
+      showSuccess(`Item ${id ? 'updated' : 'created'} successfully!`);
+      navigate(`/homebrew/items/${savedItem._id}`);
     } catch (err) {
-      setError(err instanceof Error ? err.message : 'Failed to create item');
+      const errorMessage = err instanceof Error ? err.message : `Failed to ${id ? 'update' : 'create'} item`;
+      setError(errorMessage);
+      showError(errorMessage);
     } finally {
       setSaving(false);
     }
   };
+
+  if (loading) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <div className="flex justify-center items-center min-h-[400px]">
+          <div className="loading-spinner"></div>
+        </div>
+      </div>
+    );
+  }
 
   const renderStep = () => {
     switch (currentStep) {
@@ -1367,7 +1448,7 @@ const HomebrewItemCreator: React.FC = () => {
           marginBottom: '2rem',
         }}
       >
-        Create Homebrew Item
+        {id ? 'Edit' : 'Create'} Homebrew Item
       </h1>
 
       {error && (
@@ -1433,7 +1514,7 @@ const HomebrewItemCreator: React.FC = () => {
           }
           disabled={saving || !itemData.name || !itemData.description}
         >
-          {currentStep === totalSteps ? (saving ? 'Creating...' : 'Create Item') : 'Next'}
+          {currentStep === totalSteps ? (saving ? `${id ? 'Updating' : 'Creating'}...` : `${id ? 'Update' : 'Create'} Item`) : 'Next'}
         </Button>
       </div>
     </div>

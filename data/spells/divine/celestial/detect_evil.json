@@ -3,7 +3,7 @@
     "description": "You expand your senses with divine magic, allowing you to detect if there are any dark creatures within a moderate (20 unit) radius.",
     "charge":"The spell also detects any creature who has channeled a dark spell within the last day.",
     "duration": "Instantaneous",
-    "range": "Moderate",
+    "range": 5,
     "checkToCast": 2,
     "components": [
       ""

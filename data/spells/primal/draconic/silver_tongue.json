@@ -3,7 +3,7 @@
     "description": "You place a piece of silver into your mouth, causing your persuasion checks to be rolled with a 3d8 for the next hour.",
     "charge":"The perusasion checks are rolled with a 3d10 instead.",
     "duration": "1 hour",
-    "range": "Adjacent",
+    "range": 0,
     "checkToCast": 2,
     "components": ["silver nugget"],
     "ritualDuration": "1 hour",

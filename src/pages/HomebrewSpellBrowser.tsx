@@ -115,6 +115,29 @@ const HomebrewSpellBrowser: React.FC = () => {
     }
   };
 
+  const handleDelete = async (spellId: string) => {
+    if (!user || !window.confirm('Are you sure you want to delete this spell? This action cannot be undone.')) {
+      return;
+    }
+
+    try {
+      const response = await fetch(`/api/homebrew/spells/${spellId}`, {
+        method: 'DELETE',
+        credentials: 'include'
+      });
+
+      if (response.ok) {
+        setSpells(spells.filter(spell => spell._id !== spellId));
+        showSuccess('Spell deleted successfully');
+      } else {
+        showError('Failed to delete spell');
+      }
+    } catch (err) {
+      console.error('Failed to delete spell:', err);
+      showError('Failed to delete spell. Please try again.');
+    }
+  };
+
   const handleReport = async (spellId: string, reason: string) => {
     if (!user) return;
 
@@ -617,7 +640,26 @@ const HomebrewSpellBrowser: React.FC = () => {
                       View
                     </Button>
 
-                    {user && (
+                    {user && user.id === spell.creatorId && (
+                      <>
+                        <Button
+                          variant="secondary"
+                          size="sm"
+                          onClick={() => navigate(`/homebrew/spells/${spell._id}/edit`)}
+                        >
+                          Edit
+                        </Button>
+                        <Button
+                          variant="danger"
+                          size="sm"
+                          onClick={() => handleDelete(spell._id)}
+                        >
+                          Delete
+                        </Button>
+                      </>
+                    )}
+
+                    {user && user.id !== spell.creatorId && (
                       <Button
                         variant="outline"
                         size="sm"
