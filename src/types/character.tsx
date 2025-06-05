@@ -335,6 +335,13 @@ export interface CharacterCulture {
 }
 
 // Complete character structure
+export interface CharacterSpell {
+  spellId: string | any;
+  dateAdded: string;
+  favorite: boolean;
+  notes: string;
+}
+
 export interface Character {
   _id?: string;
   userId: string;
@@ -367,6 +374,8 @@ export interface Character {
   movement: number;
   inventory: CharacterItem[];
   equipment: Equipment;
+  spells: CharacterSpell[];
+  spellSlots: number;
   characterCreation?: {
     attributePointsRemaining: number;
     talentStarsRemaining: number;

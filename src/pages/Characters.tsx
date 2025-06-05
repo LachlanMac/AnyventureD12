@@ -1,42 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
-import { Character } from '../types/character';
-// Define Character type
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+import { useCharacters } from '../hooks/useCharacters';
 
 const Characters: React.FC = () => {
-  const [characters, setCharacters] = useState<Character[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-
-  useEffect(() => {
-    const fetchCharacters = async () => {
-      try {
-        setLoading(true);
-
-        // Make API call to fetch characters for the authenticated user
-        const response = await fetch('/api/characters', {
-          credentials: 'include', // Include cookies for authentication
-        });
-
-        if (!response.ok) {
-          throw new Error('Failed to load characters');
-        }
-
-        const data = await response.json();
-        setCharacters(data);
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching characters:', err);
-        setError(
-          err instanceof Error ? err.message : 'Failed to load characters. Please try again later.'
-        );
-        setLoading(false);
-      }
-    };
-
-    fetchCharacters();
-  }, []);
+  const { data: characters, loading, error, refetch } = useCharacters();
 
   // Function to generate a gradient based on race
   const getRaceColor = (race: string) => {
@@ -70,11 +39,7 @@ const Characters: React.FC = () => {
   };
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-[50vh]">
-        <div className="loading-spinner"></div>
-      </div>
-    );
+    return <LoadingSpinner size="lg" message="Loading your characters..." />;
   }
 
   if (error) {
@@ -92,7 +57,7 @@ const Characters: React.FC = () => {
         <h2 style={{ marginBottom: '1rem' }}>Error</h2>
         <p>{error}</p>
         <div style={{ marginTop: '1rem' }}>
-          <Button variant="accent" onClick={() => window.location.reload()}>
+          <Button variant="accent" onClick={refetch}>
             Try Again
           </Button>
         </div>
@@ -139,7 +104,7 @@ const Characters: React.FC = () => {
         </Link>
       </div>
 
-      {characters.length === 0 ? (
+      {!characters || characters.length === 0 ? (
         <div
           style={{
             backgroundColor: 'var(--color-dark-surface)',

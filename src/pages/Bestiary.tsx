@@ -1,46 +1,14 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+import ErrorState from '../components/ui/ErrorState';
+import EmptyState from '../components/ui/EmptyState';
 import TalentDisplay from '../components/character/TalentDisplay';
-
-interface Creature {
-  _id: string;
-  name: string;
-  description: string;
-  type: string;
-  tier: string;
-  size: string;
-  challenge_rating: number;
-  health: {
-    max: number;
-    current: number;
-  };
-  movement: number;
-  isHomebrew: boolean;
-  source: string;
-}
-
-interface CreatureStats {
-  totalCreatures: number;
-  homebrewCreatures: number;
-  officialCreatures: number;
-  typeStats: Array<{
-    _id: string;
-    count: number;
-    avgCR: number;
-  }>;
-  tierStats: Array<{
-    _id: string;
-    count: number;
-  }>;
-}
+import { useCreatures, useCreatureStats } from '../hooks/useCreatures';
 
 const Bestiary: React.FC = () => {
-  const [creatures, setCreatures] = useState<Creature[]>([]);
-  const [stats, setStats] = useState<CreatureStats | null>(null);
-  const [loading, setLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
-  const [totalPages, setTotalPages] = useState(1);
   const [filters, setFilters] = useState({
     type: '',
     tier: '',
@@ -51,47 +19,17 @@ const Bestiary: React.FC = () => {
     isHomebrew: 'false'
   });
 
+  const { data: creaturesData, loading, error, refetch } = useCreatures({
+    page: currentPage,
+    limit: 20,
+    ...Object.fromEntries(Object.entries(filters).filter(([_, value]) => value !== ''))
+  });
+
+  const { data: stats } = useCreatureStats();
+
   const creatureTypes = ['fiend', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental'];
   const tiers = ['minion', 'thrall', 'foe', 'champion', 'elite', 'legend', 'mythic'];
   const sizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
-
-  useEffect(() => {
-    fetchCreatures();
-    fetchStats();
-  }, [currentPage, filters]);
-
-  const fetchCreatures = async () => {
-    try {
-      const params = new URLSearchParams({
-        page: currentPage.toString(),
-        limit: '20',
-        ...Object.fromEntries(Object.entries(filters).filter(([_, value]) => value !== ''))
-      });
-
-      const response = await fetch(`/api/creatures?${params}`);
-      if (!response.ok) throw new Error('Failed to fetch creatures');
-      
-      const data = await response.json();
-      setCreatures(data.creatures);
-      setTotalPages(data.pagination.totalPages);
-    } catch (error) {
-      console.error('Error fetching creatures:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  const fetchStats = async () => {
-    try {
-      const response = await fetch('/api/creatures/stats');
-      if (!response.ok) throw new Error('Failed to fetch stats');
-      
-      const data = await response.json();
-      setStats(data);
-    } catch (error) {
-      console.error('Error fetching creature stats:', error);
-    }
-  };
 
   const getTierColor = (tier: string) => {
     const colors = {
@@ -124,12 +62,26 @@ const Bestiary: React.FC = () => {
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div className="flex justify-center items-center min-h-[400px]">
-          <div className="loading-spinner"></div>
-        </div>
+        <LoadingSpinner size="lg" message="Loading creatures..." />
       </div>
     );
   }
+
+  if (error) {
+    return (
+      <div className="container mx-auto px-4 py-8">
+        <ErrorState
+          title="Failed to Load Bestiary"
+          message={error}
+          onRetry={refetch}
+          size="lg"
+        />
+      </div>
+    );
+  }
+
+  const creatures = creaturesData?.creatures || [];
+  const totalPages = creaturesData?.pagination?.totalPages || 1;
 
   return (
     <div className="container mx-auto px-4 py-8">
@@ -323,135 +275,146 @@ const Bestiary: React.FC = () => {
 
         {/* Creatures List */}
         <div>
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1rem' }}>
-            {creatures.map(creature => (
-              <Link
-                key={creature._id}
-                to={`/bestiary/${creature._id}`}
-                style={{ textDecoration: 'none', color: 'inherit' }}
-              >
-                <Card 
-                  variant="default" 
-                  style={{
-                    transition: 'all 0.2s',
-                    cursor: 'pointer',
-                    height: '100%'
-                  }}
-                  className="hover-lift"
-                >
-                  <CardBody>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
-                      <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                        <span style={{ fontSize: '1.5rem' }}>{getTypeIcon(creature.type)}</span>
-                        <div>
-                          <h3 style={{ color: 'var(--color-white)', fontSize: '1.125rem', fontWeight: 'bold', margin: 0 }}>
-                            {creature.name}
-                          </h3>
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
-                            <span 
-                              style={{ 
-                                color: getTierColor(creature.tier),
-                                fontSize: '0.75rem',
-                                fontWeight: 'bold',
-                                textTransform: 'uppercase',
-                                backgroundColor: 'var(--color-dark-elevated)',
-                                padding: '0.125rem 0.5rem',
-                                borderRadius: '0.25rem'
-                              }}
-                            >
-                              {creature.tier}
-                            </span>
-                            <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem', textTransform: 'capitalize' }}>
-                              {creature.size} {creature.type}
-                            </span>
+          {creatures.length === 0 ? (
+            <EmptyState
+              icon="🐲"
+              title="No Creatures Found"
+              description="No creatures match your current filters. Try adjusting your search criteria."
+              size="md"
+            />
+          ) : (
+            <>
+              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', gap: '1rem' }}>
+                {creatures.map(creature => (
+                  <Link
+                    key={creature._id}
+                    to={`/bestiary/${creature._id}`}
+                    style={{ textDecoration: 'none', color: 'inherit' }}
+                  >
+                    <Card 
+                      variant="default" 
+                      style={{
+                        transition: 'all 0.2s',
+                        cursor: 'pointer',
+                        height: '100%'
+                      }}
+                      className="hover-lift"
+                    >
+                      <CardBody>
+                        <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', marginBottom: '0.75rem' }}>
+                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                            <span style={{ fontSize: '1.5rem' }}>{getTypeIcon(creature.type)}</span>
+                            <div>
+                              <h3 style={{ color: 'var(--color-white)', fontSize: '1.125rem', fontWeight: 'bold', margin: 0 }}>
+                                {creature.name}
+                              </h3>
+                              <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
+                                <span 
+                                  style={{ 
+                                    color: getTierColor(creature.tier),
+                                    fontSize: '0.75rem',
+                                    fontWeight: 'bold',
+                                    textTransform: 'uppercase',
+                                    backgroundColor: 'var(--color-dark-elevated)',
+                                    padding: '0.125rem 0.5rem',
+                                    borderRadius: '0.25rem'
+                                  }}
+                                >
+                                  {creature.tier}
+                                </span>
+                                <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem', textTransform: 'capitalize' }}>
+                                  {creature.size} {creature.type}
+                                </span>
+                              </div>
+                            </div>
+                          </div>
+                          <div style={{ textAlign: 'right' }}>
+                            <TalentDisplay talent={creature.challenge_rating} size="sm" />
                           </div>
                         </div>
-                      </div>
-                      <div style={{ textAlign: 'right' }}>
-                        <TalentDisplay talent={creature.challenge_rating} size="sm" />
-                      </div>
-                    </div>
 
-                    <p style={{ 
-                      color: 'var(--color-cloud)', 
-                      fontSize: '0.875rem', 
-                      lineHeight: '1.4',
-                      margin: 0,
-                      display: '-webkit-box',
-                      WebkitLineClamp: 3,
-                      WebkitBoxOrient: 'vertical',
-                      overflow: 'hidden'
-                    }}>
-                      {creature.description}
-                    </p>
+                        <p style={{ 
+                          color: 'var(--color-cloud)', 
+                          fontSize: '0.875rem', 
+                          lineHeight: '1.4',
+                          margin: 0,
+                          display: '-webkit-box',
+                          WebkitLineClamp: 3,
+                          WebkitBoxOrient: 'vertical',
+                          overflow: 'hidden'
+                        }}>
+                          {creature.description}
+                        </p>
 
-                    <div style={{ 
-                      display: 'flex', 
-                      justifyContent: 'space-between', 
-                      alignItems: 'center',
-                      marginTop: '0.75rem',
-                      paddingTop: '0.75rem',
-                      borderTop: '1px solid var(--color-dark-border)'
-                    }}>
-                      <div style={{ display: 'flex', gap: '1rem' }}>
-                        <div>
-                          <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Health: </span>
-                          <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{creature.health.max}</span>
+                        <div style={{ 
+                          display: 'flex', 
+                          justifyContent: 'space-between', 
+                          alignItems: 'center',
+                          marginTop: '0.75rem',
+                          paddingTop: '0.75rem',
+                          borderTop: '1px solid var(--color-dark-border)'
+                        }}>
+                          <div style={{ display: 'flex', gap: '1rem' }}>
+                            <div>
+                              <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Health: </span>
+                              <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{creature.health.max}</span>
+                            </div>
+                            <div>
+                              <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Move: </span>
+                              <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{creature.movement}</span>
+                            </div>
+                          </div>
                         </div>
-                        <div>
-                          <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Move: </span>
-                          <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{creature.movement}</span>
-                        </div>
-                      </div>
-                    </div>
-                  </CardBody>
-                </Card>
-              </Link>
-            ))}
-          </div>
+                      </CardBody>
+                    </Card>
+                  </Link>
+                ))}
+              </div>
 
-          {/* Pagination */}
-          {totalPages > 1 && (
-            <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '2rem' }}>
-              <button
-                onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
-                disabled={currentPage === 1}
-                style={{
-                  padding: '0.5rem 1rem',
-                  backgroundColor: currentPage === 1 ? 'var(--color-dark-border)' : 'var(--color-stormy)',
-                  color: 'var(--color-white)',
-                  border: 'none',
-                  borderRadius: '0.375rem',
-                  cursor: currentPage === 1 ? 'not-allowed' : 'pointer'
-                }}
-              >
-                Previous
-              </button>
-              
-              <span style={{ 
-                color: 'var(--color-cloud)', 
-                padding: '0.5rem 1rem',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
-                Page {currentPage} of {totalPages}
-              </span>
-              
-              <button
-                onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
-                disabled={currentPage === totalPages}
-                style={{
-                  padding: '0.5rem 1rem',
-                  backgroundColor: currentPage === totalPages ? 'var(--color-dark-border)' : 'var(--color-stormy)',
-                  color: 'var(--color-white)',
-                  border: 'none',
-                  borderRadius: '0.375rem',
-                  cursor: currentPage === totalPages ? 'not-allowed' : 'pointer'
-                }}
-              >
-                Next
-              </button>
-            </div>
+              {/* Pagination */}
+              {totalPages > 1 && (
+                <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem', marginTop: '2rem' }}>
+                  <button
+                    onClick={() => setCurrentPage(Math.max(1, currentPage - 1))}
+                    disabled={currentPage === 1}
+                    style={{
+                      padding: '0.5rem 1rem',
+                      backgroundColor: currentPage === 1 ? 'var(--color-dark-border)' : 'var(--color-stormy)',
+                      color: 'var(--color-white)',
+                      border: 'none',
+                      borderRadius: '0.375rem',
+                      cursor: currentPage === 1 ? 'not-allowed' : 'pointer'
+                    }}
+                  >
+                    Previous
+                  </button>
+                  
+                  <span style={{ 
+                    color: 'var(--color-cloud)', 
+                    padding: '0.5rem 1rem',
+                    display: 'flex',
+                    alignItems: 'center'
+                  }}>
+                    Page {currentPage} of {totalPages}
+                  </span>
+                  
+                  <button
+                    onClick={() => setCurrentPage(Math.min(totalPages, currentPage + 1))}
+                    disabled={currentPage === totalPages}
+                    style={{
+                      padding: '0.5rem 1rem',
+                      backgroundColor: currentPage === totalPages ? 'var(--color-dark-border)' : 'var(--color-stormy)',
+                      color: 'var(--color-white)',
+                      border: 'none',
+                      borderRadius: '0.375rem',
+                      cursor: currentPage === totalPages ? 'not-allowed' : 'pointer'
+                    }}
+                  >
+                    Next
+                  </button>
+                </div>
+              )}
+            </>
           )}
         </div>
       </div>

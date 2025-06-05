@@ -10,12 +10,12 @@ import CreatureReactionCard from '../components/creature/CreatureReactionCard';
 import CreatureSpellCard from '../components/creature/CreatureSpellCard';
 import CreatureTraitCard from '../components/creature/CreatureTraitCard';
 import CreatureSidebar from '../components/creature/CreatureSidebar';
-import { useCreature } from '../hooks/useCreature';
+import { useCreature } from '../hooks/useCreatures';
 import { hasSpells, getAllSpells } from '../utils/creatureUtils';
 
 const CreatureDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
-  const { creature, loading, error } = useCreature(id);
+  const { data: creature, loading, error } = useCreature(id);
 
   if (loading) {
     return (

@@ -1,50 +1,24 @@
-// src/pages/SpellsPage.tsx
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
-
-// Type definitions
-interface Spell {
-  _id: string;
-  name: string;
-  description: string;
-  duration: string;
-  range: string;
-  school: string;
-  subschool: string;
-  checkToCast: number;
-  components: string[];
-  energy: number;
-  damage: number;
-  damageType: string;
-  concentration: boolean;
-  reaction: boolean;
-}
-
-interface CharacterSpell {
-  spellId: string | Spell;
-  dateAdded: string;
-  favorite: boolean;
-  notes: string;
-}
-
-interface Character {
-  _id: string;
-  name: string;
-  spellSlots: number;
-  spells: CharacterSpell[];
-}
+import LoadingSpinner from '../components/ui/LoadingSpinner';
+import ErrorState from '../components/ui/ErrorState';
+import EmptyState from '../components/ui/EmptyState';
+import { useCharacter } from '../hooks/useCharacters';
+import { useSpells } from '../hooks/useSpells';
+import { spellApi } from '../api/spells';
+import type { CharacterSpell } from '../types/character';
 
 const SpellsPage: React.FC = () => {
   const { id: characterId } = useParams<{ id: string }>();
 
-  const [loading, setLoading] = useState<boolean>(true);
-  const [error, setError] = useState<string | null>(null);
-  const [character, setCharacter] = useState<Character | null>(null);
-  const [allSpells, setAllSpells] = useState<Spell[]>([]);
-  const [selectedSpell, setSelectedSpell] = useState<Spell | null>(null);
+  const { data: character, loading: characterLoading, error: characterError } = useCharacter(characterId);
+  const { data: allSpells, loading: spellsLoading, error: spellsError } = useSpells();
+
+  const [selectedSpell, setSelectedSpell] = useState<any | null>(null);
   const [spellNote, setSpellNote] = useState<string>('');
+  const [actionLoading, setActionLoading] = useState<boolean>(false);
 
   // Filters
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -56,50 +30,18 @@ const SpellsPage: React.FC = () => {
   const [subschools, setSubschools] = useState<string[]>([]);
 
   useEffect(() => {
-    const fetchData = async () => {
-      try {
-        setLoading(true);
-
-        // Fetch character data
-        const characterResponse = await fetch(`/api/characters/${characterId}`);
-        if (!characterResponse.ok) {
-          throw new Error('Failed to fetch character data');
-        }
-        const characterData = await characterResponse.json();
-        setCharacter(characterData);
-
-        // Fetch all spells
-        const spellsResponse = await fetch('/api/spells');
-        if (!spellsResponse.ok) {
-          throw new Error('Failed to fetch spells');
-        }
-        const spellsData = await spellsResponse.json();
-        setAllSpells(spellsData);
-
-        const uniqueSchools = [
-          ...new Set(spellsData.map((spell: Spell) => spell.school as string)),
-        ] as string[];
-        setSchools(uniqueSchools);
-        const uniqueSubschools = [
-          ...new Set(spellsData.map((spell: Spell) => spell.subschool as string)),
-        ] as string[];
-        setSubschools(uniqueSubschools);
-
-        setLoading(false);
-      } catch (err) {
-        console.error('Error fetching data:', err);
-        setError(err instanceof Error ? err.message : 'An unknown error occurred');
-        setLoading(false);
-      }
-    };
-
-    fetchData();
-  }, [characterId]);
+    if (allSpells) {
+      const uniqueSchools = [...new Set(allSpells.map((spell: any) => spell.school as string))] as string[];
+      setSchools(uniqueSchools);
+      const uniqueSubschools = [...new Set(allSpells.map((spell: any) => spell.subschool as string))] as string[];
+      setSubschools(uniqueSubschools);
+    }
+  }, [allSpells]);
 
   // Check if a spell is already learned by the character
   const isSpellLearned = (spellId: string) => {
     return (
-      character?.spells.some((s) => {
+      character?.spells.some((s: CharacterSpell) => {
         if (typeof s.spellId === 'string') {
           return s.spellId === spellId;
         } else {
@@ -111,7 +53,7 @@ const SpellsPage: React.FC = () => {
 
   // Get the character's spell data for a specific spell
   const getCharacterSpell = (spellId: string) => {
-    return character?.spells.find((s) => {
+    return character?.spells.find((s: CharacterSpell) => {
       if (typeof s.spellId === 'string') {
         return s.spellId === spellId;
       } else {
@@ -129,48 +71,27 @@ const SpellsPage: React.FC = () => {
   // Handle learning a new spell
   const handleLearnSpell = async (spellId: string) => {
     try {
-      const response = await fetch(`/api/characters/${characterId}/spells/${spellId}`, {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-        body: JSON.stringify({ notes: spellNote }),
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to learn spell');
-      }
-
-      const updatedCharacter = await response.json();
-      setCharacter(updatedCharacter);
+      setActionLoading(true);
+      await spellApi.learnSpell(characterId!, spellId, spellNote);
+      // The character data will be refetched automatically by the hook
       setSpellNote('');
     } catch (err) {
       console.error('Error learning spell:', err);
-      setError(err instanceof Error ? err.message : 'Failed to learn spell');
+    } finally {
+      setActionLoading(false);
     }
   };
 
   // Handle forgetting a spell
   const handleForgetSpell = async (spellId: string) => {
     try {
-      const response = await fetch(`/api/characters/${characterId}/spells/${spellId}`, {
-        method: 'DELETE',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        credentials: 'include',
-      });
-
-      if (!response.ok) {
-        throw new Error('Failed to forget spell');
-      }
-
-      const updatedCharacter = await response.json();
-      setCharacter(updatedCharacter);
+      setActionLoading(true);
+      await spellApi.forgetSpell(characterId!, spellId);
+      // The character data will be refetched automatically by the hook
     } catch (err) {
       console.error('Error forgetting spell:', err);
-      setError(err instanceof Error ? err.message : 'Failed to forget spell');
+    } finally {
+      setActionLoading(false);
     }
   };
 
@@ -194,7 +115,7 @@ const SpellsPage: React.FC = () => {
 
   // Get filtered and sorted spells
   const getFilteredSpells = () => {
-    if (!allSpells.length) return [];
+    if (!allSpells?.length) return [];
 
     let filteredSpells = [...allSpells];
 
@@ -242,44 +163,23 @@ const SpellsPage: React.FC = () => {
   };
 
   const filteredSpells = getFilteredSpells();
+  const loading = characterLoading || spellsLoading;
+  const error = characterError || spellsError;
 
   if (loading) {
-    return (
-      <div className="flex justify-center items-center min-h-screen">
-        <div className="loading-spinner"></div>
-      </div>
-    );
+    return <LoadingSpinner size="lg" message="Loading spells..." />;
   }
 
-  if (error) {
+  if (error || !character) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <div
-          style={{
-            backgroundColor: 'rgba(152, 94, 109, 0.2)',
-            border: '1px solid var(--color-sunset)',
-            borderRadius: '0.5rem',
-            padding: '1.5rem',
-            textAlign: 'center',
-          }}
-        >
-          <h2
-            style={{
-              color: 'var(--color-white)',
-              fontSize: '1.5rem',
-              fontWeight: 'bold',
-              marginBottom: '1rem',
-            }}
-          >
-            Error
-          </h2>
-          <p style={{ color: 'var(--color-white)' }}>{error}</p>
-          <div style={{ marginTop: '1.5rem' }}>
-            <Link to={`/characters/${characterId}`}>
-              <Button variant="accent">Return to Character</Button>
-            </Link>
-          </div>
-        </div>
+        <ErrorState
+          title="Failed to Load Character Spells"
+          message={error || 'Character not found'}
+          onRetry={() => window.location.href = `/characters/${characterId}`}
+          retryText="Return to Character"
+          size="lg"
+        />
       </div>
     );
   }
@@ -315,7 +215,7 @@ const SpellsPage: React.FC = () => {
         >
           Spell Slots:{' '}
           <span style={{ fontWeight: 'bold' }}>
-            {character?.spells.length || 0} / {character?.spellSlots || 0}
+            {character.spells.length} / {character.spellSlots}
           </span>
         </div>
       </div>
@@ -435,7 +335,7 @@ const SpellsPage: React.FC = () => {
                     .filter(
                       (subschool) =>
                         schoolFilter === 'all' ||
-                        allSpells.some(
+                        allSpells?.some(
                           (spell) => spell.school === schoolFilter && spell.subschool === subschool
                         )
                     )
@@ -471,9 +371,12 @@ const SpellsPage: React.FC = () => {
             </CardHeader>
             <CardBody>
               {filteredSpells.length === 0 ? (
-                <div style={{ color: 'var(--color-cloud)', padding: '1rem' }}>
-                  No spells match your search criteria.
-                </div>
+                <EmptyState
+                  icon="🔮"
+                  title="No Spells Found"
+                  description="No spells match your search criteria. Try adjusting your filters."
+                  size="sm"
+                />
               ) : (
                 <div
                   style={{
@@ -912,44 +815,36 @@ const SpellsPage: React.FC = () => {
                     <Button
                       variant="outline"
                       onClick={() => handleForgetSpell(selectedSpell._id)}
+                      disabled={actionLoading}
                       style={{ flex: 1 }}
                     >
-                      Forget Spell
+                      {actionLoading ? 'Processing...' : 'Forget Spell'}
                     </Button>
                   ) : (
                     <Button
                       variant="accent"
                       onClick={() => handleLearnSpell(selectedSpell._id)}
-                      disabled={!hasAvailableSpellSlots()}
+                      disabled={!hasAvailableSpellSlots() || actionLoading}
                       style={{ flex: 1 }}
                     >
-                      {hasAvailableSpellSlots() ? 'Learn Spell' : 'No Spell Slots Available'}
+                      {actionLoading 
+                        ? 'Processing...' 
+                        : hasAvailableSpellSlots() 
+                        ? 'Learn Spell' 
+                        : 'No Spell Slots Available'
+                      }
                     </Button>
                   )}
                 </div>
               </CardBody>
             </Card>
           ) : (
-            <div
-              style={{
-                display: 'flex',
-                alignItems: 'center',
-                justifyContent: 'center',
-                backgroundColor: 'var(--color-dark-surface)',
-                borderRadius: '0.5rem',
-                padding: '3rem',
-                height: '100%',
-              }}
-            >
-              <div style={{ color: 'var(--color-cloud)', textAlign: 'center' }}>
-                <div style={{ marginBottom: '1rem' }}>
-                  Select a spell from the list to view details
-                </div>
-                <div style={{ fontSize: '0.875rem' }}>
-                  Spells allow your character to harness magical energies and abilities
-                </div>
-              </div>
-            </div>
+            <EmptyState
+              icon="🔮"
+              title="Select a Spell"
+              description="Choose a spell from the list to view details and manage your character's spell repertoire."
+              size="lg"
+            />
           )}
         </div>
       </div>

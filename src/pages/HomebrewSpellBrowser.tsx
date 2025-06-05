@@ -21,6 +21,7 @@ interface HomebrewSpell {
   concentration: boolean;
   reaction: boolean;
   creatorName: string;
+  creatorId: string;
   status: 'draft' | 'private' | 'published' | 'approved' | 'rejected';
   tags: string[];
   source?: string;

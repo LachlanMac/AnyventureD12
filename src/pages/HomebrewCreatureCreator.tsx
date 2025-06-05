@@ -3,7 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
-import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import Card, { CardBody } from '../components/ui/Card';
 
 interface CreatureAction {
   name: string;

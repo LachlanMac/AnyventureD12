@@ -141,6 +141,8 @@ export const createDefaultCharacter = (userId: string): Character => {
       brass: 0,
     },
     languageSkills: {},
+    spells: [],
+    spellSlots: 10,
     characterCreation: {
       attributePointsRemaining: 6,
       talentStarsRemaining: 8,

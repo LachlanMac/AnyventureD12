@@ -15,6 +15,7 @@ interface HomebrewItem {
   weight: number;
   value: number;
   creatorName: string;
+  creatorId: string;
   status: 'draft' | 'private' | 'published' | 'approved' | 'rejected';
   tags: string[];
   source?: string;
