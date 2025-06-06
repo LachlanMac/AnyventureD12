@@ -1,0 +1,12 @@
+{
+  "id": 11,
+  "name": "Exiled",
+  "description": "Cast Out but Not Broken\nExiled cultures are formed from those rejected by mainstream society. They value acceptance, redemption, and creating new families from the broken. Every member understands loss, making their bonds all the stronger.",
+  "options": [
+    {
+      "name": "Cast Out, Standing Strong",
+      "description": "Rejection has taught you to find strength in solitude and bonds with fellow outcasts. You regain 1 Resolve whenever you help another outcast or marginalized person, or when you prove wrong those who rejected you. However, being reminded of your exile or facing rejection from a group you hoped to join causes you to lose 1 Resolve and feel the old wounds reopen (1 Stress). When you reach your breaking point (0 Resolve), instead of becoming Broken, you can enter a desperate fury - gain +2 dice to all actions for one scene, but gain 2 Stress afterward. You understand that sometimes you only have yourself to rely on.",
+      "data": "XX11"
+    }
+  ]
+}

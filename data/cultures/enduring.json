@@ -1,0 +1,12 @@
+{
+  "id": 15,
+  "name": "Enduring",
+  "description": "What Doesn't Kill You\nEnduring cultures are forged by hardship and catastrophe. They value resilience, resourcefulness, and making the most of what little they have. Every day survived is a victory, and they waste nothing.",
+  "options": [
+    {
+      "name": "Forged by Hardship",
+      "description": "You have learned to find strength in suffering and meaning in survival. You regain 1 Resolve whenever you endure significant hardship without breaking, help others survive difficult circumstances, or make something useful from nothing. However, when faced with waste, luxury, or people who've never struggled, you feel disconnected and lose 1 Resolve while gaining resentment (1 Stress). If you live comfortably for more than a month without any real challenges, you become restless and gain 1 Stress weekly until you find meaningful hardship again. You can spend 1 Resolve to push through any physical pain or exhaustion for one scene, drawing on memories of worse times you've survived.",
+      "data": "XX15"
+    }
+  ]
+}

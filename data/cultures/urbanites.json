@@ -1,0 +1,12 @@
+{
+  "id": 14,
+  "name": "Urbanites",
+  "description": "City Born and Bred\nUrbanite cultures are cosmopolitan societies adapted to dense population and complex social structures. They value connections, adaptability, and cultural sophistication. The city's pulse is their heartbeat.",
+  "options": [
+    {
+      "name": "City's Pulse",
+      "description": "You are energized by the rhythm and connections of urban life. You regain 1 Resolve whenever you successfully navigate complex social situations, make valuable new contacts, or use city connections to solve problems. However, being isolated from urban civilization for more than a week causes you to lose 1 Resolve and develop anxiety about being cut off (1 Stress). In the wilderness or rural areas, you gain 1 Stress every three days from feeling disconnected from your urban support network. When surrounded by the bustle of city life, you can spend 10 minutes networking to convert 1 Stress into useful contacts or information, but this only works in places with significant population.",
+      "data": "XX14"
+    }
+  ]
+}

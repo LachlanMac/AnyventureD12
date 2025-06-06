@@ -1,0 +1,12 @@
+{
+  "id": 4,
+  "name": "Clannish",
+  "description": "Blood is Everything\nClannish cultures are tight-knit family or tribal groups where kinship defines everything. Loyalty to family comes above all else, with strong codes of honor and vengeance. An insult to one is an insult to all, and family debts can last generations.",
+  "options": [
+    {
+      "name": "Blood and Honor",
+      "description": "Your clan's honor is your mental foundation. You gain 2 Resolve whenever you avenge a wrong done to your family or fulfill a clan obligation. Conversely, if you fail to act when your family is threatened or dishonored, you immediately lose 2 Resolve and gain a Stress. Your maximum Resolve increases by 1 for each living family member you're actively protecting, but decreases by 2 for each family member whose death you feel responsible for.",
+      "data": "XX4"
+    }
+  ]
+}

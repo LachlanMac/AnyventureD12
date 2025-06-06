@@ -1,0 +1,12 @@
+{
+  "id": 3,
+  "name": "Wild Folk",
+  "description": "One with Nature\nWild Folk cultures live in harmony with nature, understanding its rhythms and secrets. They prioritize sustainability, tradition, and spiritual connection to the earth. To them, the natural world is not a resource to exploit but a partner to respect.",
+  "options": [
+    {
+      "name": "Natural Harmony",
+      "description": "Your connection to nature provides spiritual balance. You regain 1 Resolve at the end of each day spent primarily in natural environments (forests, mountains, etc.). However, being confined in artificial structures (cities, dungeons, etc.) for more than three days causes you to gain 1 Stress per day. During full moons or seasonal changes, you may enter a meditative state to remove 1 Stress, but you become vulnerable to mental effects during this process.",
+      "data": "XX3"
+    }
+  ]
+}

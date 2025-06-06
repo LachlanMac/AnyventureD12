@@ -1,0 +1,12 @@
+{
+  "id": 12,
+  "name": "Artisans",
+  "description": "Creation is Purpose\nArtisan cultures are centered around creation and skill. They value expertise, innovation, and the pursuit of perfection in chosen fields. A masterwork is immortality, and true artists are revered above warriors or nobles.",
+  "options": [
+    {
+      "name": "The Creator's Drive",
+      "description": "Your purpose is found in creation and the pursuit of perfection. You regain 1 Resolve whenever you complete a significant work, teach someone your craft, or see your creations being appreciated by others. However, having your work destroyed, criticized harshly, or seeing inferior craftsmanship praised above yours causes you to lose 1 Resolve and develop bitter frustration (1 Stress). If you go more than a week without working on a meaningful project or practicing your craft, you become restless and gain 1 Stress. When you enter a creative flow state (spending 4+ hours focused on creation), you can ignore all Stress for the duration as your mind finds peace in the work.",
+      "data": "XX12"
+    }
+  ]
+}

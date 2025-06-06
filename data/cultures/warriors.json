@@ -1,0 +1,12 @@
+{
+  "id": 8,
+  "name": "Warriors",
+  "description": "Strength and Honor\nWarrior cultures are martial societies shaped by conflict and struggle. They value strength, courage, and proving oneself through combat or challenge. Every scar tells a story, and a warrior's reputation is their most valuable possession.",
+  "options": [
+    {
+      "name": "Battle-Forged Spirit",
+      "description": "Combat and challenge strengthen your resolve rather than break it. You regain 1 Resolve whenever you face a worthy opponent in single combat, overcome a significant physical challenge, or defend others from danger. However, backing down from a fight, fleeing from battle, or showing cowardice causes you to lose 2 Resolve and gain a Stress from shame. If you go more than a week without facing some form of meaningful conflict or challenge, you become restless and gain 1 Stress. You can spend 1 Resolve to ignore pain and continue fighting for one round, even when critically wounded.",
+      "data": "XX8"
+    }
+  ]
+}

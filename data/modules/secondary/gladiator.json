@@ -1,0 +1,88 @@
+{
+ "id": 107,
+ "name": "Gladiator",
+ "mtype": "secondary",
+ "ruleset": 1,
+ "options": [
+   {
+     "name": "Crowd's Favor",
+     "description": "You know how to work a crowd and feed off their energy. When you defeat an enemy or perform a dramatic combat maneuver, gain 2 temporary health. This can trigger once per round.",
+     "mtype": "core",
+     "location": "1",
+     "cost": 2,
+     "data": ""
+   },
+   {
+     "name": "Showmanship",
+     "description": "Combat is your stage and violence your art. Gain +1 skill with expression. When you score a critical hit, all allies who can see you gain +1 resolve.",
+     "mtype": "core",
+     "location": "2a",
+     "cost": 2,
+     "data": "SSQ=1"
+   },
+   {
+     "name": "Arena Veteran",
+     "description": "Years of fighting for survival have honed your instincts. Gain +1 skill with coordination. You cannot be surprised during the first round of combat.",
+     "mtype": "core",
+     "location": "2b",
+     "cost": 2,
+     "data": "SSG=1"
+   },
+   {
+     "name": "Glory Seeker",
+     "description": "The roar of the crowd drives you forward. Gain +1 skill with presence. For each enemy you've personally defeated in this combat, gain +1 damage on your attacks (maximum +3).",
+     "mtype": "core",
+     "location": "3",
+     "cost": 2,
+     "data": "SSR=1"
+   },
+   {
+     "name": "Action : Brutal Sweep",
+     "description": "You make a wide slashing attack designed to wow the crowd. Make a melee attack with a weapon that has the slashing property against all adjacent enemies. Each enemy hit grants you 1 temporary health.",
+     "mtype": "core",
+     "location": "4a",
+     "cost": 2,
+     "data": ""
+   },
+   {
+     "name": "Action : Piercing Thrust",
+     "description": "You drive your weapon deep with theatrical precision. Make a melee attack with a weapon that has the piercing property. If it hits, the target bleeds for an additional 1d4 damage and you gain temporary health equal to the bleed damage rolled.",
+     "mtype": "core",
+     "location": "4b",
+     "cost": 2,
+     "data": ""
+   },
+   {
+     "name": "Arena Weapons",
+     "description": "You've mastered the tools of the gladiatorial trade. Gain +1 skill with simple melee weapons. When fighting with a simple weapon, you can reroll any damage die that shows a 1.",
+     "mtype": "core",
+     "location": "5",
+     "cost": 2,
+     "data": "WS2=1"
+   },
+   {
+     "name": "Reaction : Dramatic Parry",
+     "description": "In response to being hit by a melee attack, you can make a deflection check with a bonus die. If successful, you take no damage and immediately make an expression check - allies who can see you gain temporary health equal to half your result.",
+     "mtype": "core",
+     "location": "6a",
+     "cost": 2,
+     "data": ""
+   },
+   {
+     "name": "Action : Execute",
+     "description": "You deliver a theatrical killing blow to a prone, stunned, or unconscious enemy adjacent to you. The target must make an endurance check equal to your presence skill plus 10 or die instantly. If they die, all allies gain resolve equal to the creature's tier.",
+     "mtype": "core",
+     "location": "6b",
+     "cost": 2,
+     "data": ""
+   },
+   {
+     "name": "Champion of the Arena",
+     "description": "You are a legend of the fighting pits. Gain +2 maximum resolve. Once per combat, when you reduce an elite tier or higher enemy to 0 health, immediately recover all your energy and remove any mental conditions affecting you as the crowd goes wild.",
+     "mtype": "core",
+     "location": "7",
+     "cost": 3,
+     "data": ""
+   }
+ ]
+}
