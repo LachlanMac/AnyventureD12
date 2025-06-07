@@ -5,80 +5,80 @@
  "ruleset": 1,
  "options": [
    {
-     "name": "Crowd's Favor",
-     "description": "You know how to work a crowd and feed off their energy. When you defeat an enemy or perform a dramatic combat maneuver, gain 2 temporary health. This can trigger once per round.",
+     "name": "Pit Fighter",
+     "description": "You have the aura of a combatant. Gain +1 skill with presence. When you are in a settlement, you can spend a few hours to determine if there are any sanctioned or illegal fighting leagues, clubs or competitions.",
      "mtype": "core",
      "location": "1",
      "cost": 2,
      "data": ""
    },
    {
-     "name": "Showmanship",
-     "description": "Combat is your stage and violence your art. Gain +1 skill with expression. When you score a critical hit, all allies who can see you gain +1 resolve.",
+     "name": "Battle Conditioning",
+     "description": "You have the body of a fighter, lean from battle. Gain +1 skill with fitness. When you start your turn winded, roll a fitness check; if the result is higher than a 7, the condition is removed automatically.",
      "mtype": "core",
      "location": "2a",
      "cost": 2,
      "data": "SSQ=1"
    },
    {
-     "name": "Arena Veteran",
-     "description": "Years of fighting for survival have honed your instincts. Gain +1 skill with coordination. You cannot be surprised during the first round of combat.",
+     "name": "Javelin Master",
+     "description": "Taking down opponents before they get to you is a cherished skill in the arena. Gain +1 skill with throwing weapons.",
      "mtype": "core",
      "location": "2b",
      "cost": 2,
      "data": "SSG=1"
    },
    {
-     "name": "Glory Seeker",
-     "description": "The roar of the crowd drives you forward. Gain +1 skill with presence. For each enemy you've personally defeated in this combat, gain +1 damage on your attacks (maximum +3).",
+     "name": "Thick Skin",
+     "description": "Jeering crowds do not affect you. Gain +2 maximum resolve. Additionally, you are immune from effects that would mock, provoke or taunt you.",
      "mtype": "core",
      "location": "3",
      "cost": 2,
      "data": "SSR=1"
    },
    {
-     "name": "Action : Brutal Sweep",
-     "description": "You make a wide slashing attack designed to wow the crowd. Make a melee attack with a weapon that has the slashing property against all adjacent enemies. Each enemy hit grants you 1 temporary health.",
+     "name": "Action : Make Space",
+     "description": "You strike and fade away in one fluid motion. Make a single attack against up to 2 adjacent creatures with a slashing melee weapon, then move 1 unit. Targets damaged by this attack cannot make attacks of opportunity against you.",
      "mtype": "core",
      "location": "4a",
      "cost": 2,
-     "data": ""
+     "data": "X"
    },
    {
-     "name": "Action : Piercing Thrust",
-     "description": "You drive your weapon deep with theatrical precision. Make a melee attack with a weapon that has the piercing property. If it hits, the target bleeds for an additional 1d4 damage and you gain temporary health equal to the bleed damage rolled.",
+     "name": "Action : Leaping Thrust",
+     "description": "You leap through the air and drive your weapon downward with devastating force. Take the Jump action toward a creature, then make a melee attack with a piercing weapon. Deal additional damage equal to the distance jumped in units.",
      "mtype": "core",
      "location": "4b",
      "cost": 2,
-     "data": ""
+     "data": "X"
    },
    {
-     "name": "Arena Weapons",
-     "description": "You've mastered the tools of the gladiatorial trade. Gain +1 skill with simple melee weapons. When fighting with a simple weapon, you can reroll any damage die that shows a 1.",
+     "name": "Weapons of the Arena",
+     "description": "You've mastered the tools of the gladiatorial trade. Gain +1 skill with simple melee weapons.",
      "mtype": "core",
      "location": "5",
      "cost": 2,
      "data": "WS2=1"
    },
    {
-     "name": "Reaction : Dramatic Parry",
-     "description": "In response to being hit by a melee attack, you can make a deflection check with a bonus die. If successful, you take no damage and immediately make an expression check - allies who can see you gain temporary health equal to half your result.",
+     "name": "Reaction : Combat Improv",
+     "description": "In response to rolling a 1 on an attack or defense dice, make an expression check and replace the 1 with the the result of your check.",
      "mtype": "core",
      "location": "6a",
      "cost": 2,
-     "data": ""
+     "data": "Z"
    },
    {
-     "name": "Action : Execute",
-     "description": "You deliver a theatrical killing blow to a prone, stunned, or unconscious enemy adjacent to you. The target must make an endurance check equal to your presence skill plus 10 or die instantly. If they die, all allies gain resolve equal to the creature's tier.",
+     "name": "Action : Called Shot",
+     "description": "You target a limb on a large or smaller creature with a melee weapon attack, dealing damage. If 3 or more dice hit, you can target a limb to disable. At the end of each turn, the target must roll an endurance check of 7 or higher to regain function of the limb. If 3 or more dice crit, this attack amputates the chosen limb instead. This attack can be used against huge creatures, but the dice requirements are raised to 4.",
      "mtype": "core",
      "location": "6b",
      "cost": 2,
-     "data": ""
+     "data": "X"
    },
    {
-     "name": "Champion of the Arena",
-     "description": "You are a legend of the fighting pits. Gain +2 maximum resolve. Once per combat, when you reduce an elite tier or higher enemy to 0 health, immediately recover all your energy and remove any mental conditions affecting you as the crowd goes wild.",
+     "name": "Glory Strikes",
+     "description": "When you land a killing blow against creature of a foe tier or higher with a melee or throwing attack, you gain 2 temporary health. If the attack was a critical hit, you gain 4 instead.",
      "mtype": "core",
      "location": "7",
      "cost": 3,
