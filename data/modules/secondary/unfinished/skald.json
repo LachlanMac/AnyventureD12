@@ -1,0 +1,88 @@
+{
+  "id": 208,
+  "name": "Skald",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Oral Tradition",
+      "description": "You have memorized countless stories and songs. Gain +1 skill with expression. You can recall historical events, legends, and cultural tales with perfect accuracy.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSQ=1:TO"
+    },
+    {
+      "name": "Action : Battle Hymn",
+      "description": "Begin singing an inspiring battle song. While you maintain this song (requires concentration), allies within 15 units gain +1 die on their next attack roll each round.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Mocking Verse",
+      "description": "When an enemy misses an attack, mock them with a cutting verse. They must make a resilience check (DC 8) or suffer -1 die on social defense rolls for the next minute.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Thunderous Voice",
+      "description": "Your trained voice carries great power. Gain +1 skill with endurance. Your voice can be heard up to 100 units away. You can use expression to make sonic attacks dealing 2 psychic damage to all enemies within 5 units (once per combat).",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSD=1:TO"
+    },
+    {
+      "name": "Saga Keeper",
+      "description": "You preserve the deeds of heroes in song. Gain +1 skill with academics and learn one ancient language. When you witness an ally perform a great deed, compose a saga during rest. They gain +1 resolve and advantage on social checks where your saga has spread.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SSN=1:LG"
+    },
+    {
+      "name": "Instruments of War",
+      "description": "Your instruments serve as weapons. Gain +1 skill with coordination. Your musical instruments can be used as weapons (1d6 physical damage) and you can maintain performances while fighting.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSG=1:TO"
+    },
+    {
+      "name": "Action : Song of Valor",
+      "description": "Sing an epic tale of heroism. All allies within 20 units gain +5 temporary health and immunity to fear effects for the next minute. Once the song ends, they gain +1 die on their next attack.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Loremaster",
+      "description": "Your stories carry supernatural power. Gain +1 skill with presence. Once per day, tell a story that becomes temporarily true - describe a minor historical event involving the current location (GM discretion).",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "SSR=1:TO"
+    },
+    {
+      "name": "Echo of Glory",
+      "description": "You amplify the glory of victory. Gain +1 skill with resilience. When an ally within 30 units defeats an enemy, you can immediately perform a victory chant. All other allies gain +1 resolve and +1 energy.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "SSI=1:TO"
+    },
+    {
+      "name": "Legendary Performance",
+      "description": "Your performances achieve legendary status. Gain +1 skill with expression and +1 skill with presence. Once per day, perform a saga with one effect: all allies gain +2 dice on all checks for 3 rounds; OR all enemies must make resilience check (DC 12) or flee for 1 minute; OR one ally recovers all health, energy, and resolve.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "SSQ=1:SSR=1:X"
+    }
+  ]
+}

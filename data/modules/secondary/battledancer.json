@@ -1,0 +1,88 @@
+{
+  "id": 209,
+  "name": "BattleDancer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Flowing Strikes",
+      "description": "Your attacks are woven together in a masterclass performance. Gain +1 skill with expression. When you score a critical hit on an unarmed attack, roll an additional expression dice as if it were part of the same attack.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSG=1:TO"
+    },
+    {
+      "name": "Action : Sweeping Kick",
+      "description": "You make a modified shove attack against a large or smaller creature, using your expression instead of might for your check. On a success, your target is knocked prone and takes 2 fall damage.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Kip-Up Strike",
+      "description": "While prone, you acrobatically get to your feet while simultaneously making an attack with a simple melee or unarmed strike against an adjacent creature using your expression skill as the attack roll.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Battle Dancer",
+      "description": "The battle dance lets you weave together devastating strikes with your hands, feet, and head. Gain +1 skill with unarmed strikes.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSE=1:TO"
+    },
+    {
+      "name": "Graceful Movements",
+      "description": "Your graceful movements and well-timed gestures allow you to slip beyond an opponent's reach. Gain +1 skill with fitness. When you provoke an attack of opportunity by moving outside of a creature's melee range, you can use your expression skill instead of a normal defensive roll against the attack.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SSA=1:TO"
+    },
+    {
+      "name": "Rhythm Master",
+      "description": "Battled dancing demands perfect timing. Gain +1 skill with coordination. After all combatants have rolled initiative, you can move your position to anywhere lower in the order at the start of combat.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSB=1:TO"
+    },
+    {
+      "name": "Action : Spinning Strikes",
+      "description": "You make an attack with either a melee weapon or unarmed strike at an adjacent target, and then an attack using your expression skill as the attack roll. These two attacks can be directed at seperate targets.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Blade Dancer",
+      "description": "Gain +1 skill with simple weapons. Your flowing strikes trait applies to attacks with simple weapons.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS3=1:TO"
+    },
+    {
+      "name": "Shadow Dancer",
+      "description": "Gain +1 skill with throwing weapons. Your flowing strikes trait applies to attacks with throwing weapons.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "SSF=1:TO"
+    },
+    {
+      "name": "Dance of Defense",
+      "description": "Your movements are so coordinated and precise that they make you difficult to hit. Gain +1 skill with evasion and deflection.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "SSG=1:SSE=1:TO"
+    }
+  ]
+}

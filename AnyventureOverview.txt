@@ -81,19 +81,19 @@ Heavy can completely mitigate anything if successful.
 
 Ranged weapons and spells will have an optimal range. 
 Descriptor	Units	Notes
-
-0: No Min
-1: Adjacent	0	Literally touching
-2: Nearby	1	Just out of arm’s reach
-3: Very Short 2-5  Close AF
-4: Short	6–10	Easily reached with effort
-5: Moderate	11–20	Noticeable gap; needs focus
-6: Distant	21–40	Clearly far; limited detail
-7: Remote	41–100	Hard to perceive clearly
-8: Unlimited
+ID 
+0: No Min for weapons (self for casting) : 0 Units
+1: Adjacent: 0 Units
+2: Nearby	:1 Units
+3: Very Short: 2-5  Units 
+4: Short	:6–10   Units
+5: Moderate	:11–20	Units
+6: Distant	:21–40	Units
+7: Remote	:41–100	Units
+8: Unlimited:101+ Units
 
 A longbow may have a Distant range, giving a penalty for anything outside of it. 
-Spells work in a similar way.  here are the types of magic:
+Spells work in a similar way.  herethe are the types of magic:
 Magic Types: Black, Primal, Metamagic, Divine, Mysticism
 Each magic has 2 subschools, and 1 exotic spellschool
 Black -> Necromancy, Witchcraft, (ex) Fiend
@@ -231,5 +231,31 @@ Mythic
 
 Cultural Ideas
 Bonus social dice with different groups, like merchants, nobles, soldiers, etc.
+
+
+Possible other conditions (poisoned, diseased, panic?, 
+
+```
+You fail a crucial check
+You fail to craft an item
+You fail a ritual severely
+You fail a social check severely
+Your actions cause an ally harm
+You face public mockery or accusation
+Your plan fails
+You witness an ally break
+You witness an ally fall unconscious
+You witness an ally die
+You experience betrayal from an ally
+You discover someone has lied to you
+You lie to someone
+You break a promise
+You become imprisoned against your will
+You witness injustice
+You witness suffering of the vulnerable
+Your core beliefs face challenge
+You violate your oath or personal code
+You lose a competition
+You abandon an ally
 
 When helping another character, you can use either the same skill or a different skill. If using the same skill, you must have equal or higher skill level than the person you're helping - they gain a bonus die to their check. If using a different skill, roll a single die (or with penalty if the skill isn't clearly relevant); if your roll meets or beats the DC, the main actor rolls an additional die after seeing their initial result. Only one character can assist per check.

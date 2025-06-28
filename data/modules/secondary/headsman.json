@@ -1,0 +1,88 @@
+{
+  "id": 202,
+  "name": "Headsman",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Longevity Training",
+      "description": "You have put in extensive training to not tire as easily on the battlefield. Gain +1 skill with endurance and +1 maximum energy.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSD=1:TO"
+    },
+    {
+      "name": "Reaction : Counter Cut",
+      "description": "In response to being targeted by a melee attack, you attempt to turn your defense into damage. In addition to your defense check, roll a single attack dice with a slashing weapon. Regardless of the result of your defense check, the attacker must make a resilience check against your single attack dice, or gain the bleeding condition.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Action : Hamstring",
+      "description": "You make an attack with a slashing weapon, aiming to hinder a creature's movement. If at least 2 of your attack dice hit and the attack deals damage, the target of this ability must make an endurance check at the start of each turn until they succeed. On a failure, the creature cannot take their free movement on their turn and their sprint speed is halved.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Strength of Arms",
+      "description": "Your training with large and complex blades has resulted in changes to your physique. Gain +1 skill with might and +2 maximum health.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSG=1:TO"
+    },
+    {
+      "name": "Executioner",
+      "description": "You are both ruthless and efficient. Gain +2 psychic mitigation. When you kill a creature that is a champion tier or higher with a slashing weapon, you can choose to decapitate them. Any minions or thralls within 10 units must make a resilience check of 7 or higher or become afraid of you.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Sense Weakness",
+      "description": "You have a natural sense for those who are physically impaired. Your Gain +1 skill with senses. When you make an attack against a creature with at least two physical conditions, gain a bonus dice.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SMG=1:TO"
+    },
+    {
+      "name": "Master of Blades",
+      "description": "Your skill with execution weapons is legendary. Gain +1 skill with complex melee weapons.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "WS5=1:TO"
+    },
+    {
+      "name": "Action : Gusher",
+      "description": "You make an attack with a weapon that has the slashing property and force the target to make a resilience check against the total physical damage dealt. On a failure, they gain the bleeding condition but it deals an extra 1 damage.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS5=1:WA"
+    },
+    {
+      "name": "Action : Guillotine",
+      "description": "You make an attack against a prone creature with a slashing weapon that deals an additional 10 damage if it hits.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "WS3=1:TO"
+    },
+    {
+      "name": "The Final Cut",
+      "description": "When you hit a minion or a thrall with a slashing weapon, you execute them if you deal at least 1 damage. A foe is executed if you have 3 critical hits in one attack roll.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "SSC=1:SSG=1:TO"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": 203,
+  "name": "Bonebreaker",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Calculated Trauma",
+      "description": "You understand how to apply the right amount of force with your weapon. Gain +1 skill with medicine. When you reduce a creature to 0 health with a bludgeoning weapon, you can choose to knock them unconscious instead of killing them.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSG=1:TO"
+    },
+    {
+      "name": "Reaction: Batter Aside",
+      "description": "In response to being targeted by a melee attack, you attempt to defend yourself by striking first. Make a weapon attack instead and use your highest result as your defense check.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Action: Shatter Guard",
+      "description": "Make an attack with a bludgeoning weapon against an enemy in an attempt to batter down their defenses. Instead of dealing damage, each success forces the enemy to have a penalty dice on their deflection checks until the start of their next turn, up to a maximum of 3 penalty dice.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Staggering Blows",
+      "description": "Gain +1 skill with might. When you score at least one critical hit, you can also displace your target by a number of units equal to how many critical hits you scored. This trait only works on large or smaller creatures.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSD=1:TO"
+    },
+    {
+      "name": "Empowered Leap",
+      "description": "You have mastered art of using your momentum to make staggering hits. Gain +1 skill with fitness. When you take the jump action, your next attack with a weapon that has the bludgeoning property gains 2 bonus dice until the end of your turn.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SKW=1:TO"
+    },
+    {
+      "name": "Shaft-Guard",
+      "description": "You are skilled using the shaft of a weapon to block incoming blows. Gain +1 skill with deflection.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SMG=1:TO"
+    },
+    {
+      "name": "Master of Hammers",
+      "description": "Your skill with bludgeoning weapons is legendary. Gain +1 skill with complex melee weapons.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "WS5=1:TO"
+    },
+    {
+      "name": "Action: Seismic Slam",
+      "description": "You strike the ground with tremendous force using a complex melee weapon with the bludgeoning property. All creatures within 2 units must make a fitness or coordination against your might check or fall prone.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS5=1:WA"
+    },
+    {
+      "name": "Action: Double Crush",
+      "description": "Make a single attack with a weapon that has the bludgeoning property against two seperate targets within range. Foe tier or lower creatures become automatically dazed by this attack if they take damage. Higher tiered creatures must make a concentration check higher than the total damage taken or become dazed.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "WS3=1:TO"
+    },
+    {
+      "name": "Brain Scrambler",
+      "description": "When you land two or more critical hits on a target that is dazed they must make a resilience check of 7 or the become stunned. If the target is already stunned, they fall unconscious with a failed check.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "SSG=1:SSD=1:TO"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": 111,
+  "name": "Arcane Artisan",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Aesthetic Magic",
+      "description": "Your spells are works of art, each uniquely crafted. Gain +1 skill with expression. When you cast a spell, it takes on a unique visual signature you design - shimmering colors, geometric patterns, or ethereal wisps that make your magic instantly recognizable.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSQ=1"
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Action : Spell Art",
+      "description": "When you channel a spell, make an expression check to artistically reshape it. 6-8: Change the spell's shape (cone to line, sphere to cube, etc.). 9-11: Alter the spell's damage type or extend its range by 10 units. 12-14: Split the spell to hit two targets at half effectiveness. 15+: Apply any two modifications.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Colors of the Wind",
+      "description": "You paint with nature's palette. Gain +1 skill with primal magic. When using your Spell Art action on elemental spells, you can freely substitute any element (fire becomes ice, lightning becomes earth, etc.) without requiring an expression check.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "MS2=1"
+    },
+    {
+      "name": "Master of Illusions",
+      "description": "Reality bends to your artistic vision. Gain +1 skill with alteration magic. Your Spell Art action can now create illusory duplicates of spells - they appear real but deal psychic damage instead of their normal type.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "MS3=1"
+    },
+    {
+      "name": "",
+      "description": "",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

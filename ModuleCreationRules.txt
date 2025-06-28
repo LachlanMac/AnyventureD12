@@ -1,20 +1,35 @@
 When creating a module, here are the instructions:
-If it is a secondary module, we need to make sure we don't have overlap between any other module (especically core modules)
-We need to make sure there are at least 2-3 actions/reactions mixed in.
+
+Modules are made of up 11 options in 7 tiers following this pattern 1/2a-2b/3/4a-4b/5/6a-6b/7.
+The first module should always be pretty general but try to be themed in a way that discourages players from dipping into a module without intention to invest in the further tiers.
+The final capstone module should generally be strong. All the other modules should be relatively equal in strength.
+
+If it is a secondary module, we need to make sure we don't have overlap between other modules (core or secondary).
+For instance, we don't want a module that gives the same action or passive trait as another module. For things like +1 increases to skill, we obviously will have overlap here.
+
 We should only give the big skill bonuses (weapon/magic skills) at either tier 5 if the module is very specific, or as a choice in tier 6.
-For instance, a shaman module may get a choice at tier 6 to go primal spell path or mysticism spell path because either could work.
-When we give +1 to a skill that isn't one of the wepaons/magic/crafts, we should generally try to give a passive effect with it that is creative
+These skills are the weapon skills: Complex Melee, Simple Melee, Simple Ranged, Complex Ranged, Unarmed, Throwing, Black Magic, Primal Magic, Divine Magic, Meta Magic, Mysticism Magic.
+For example, the Monk module gives Unarmed at tier 5. Another module, like BattleDancer may have more than one theme, where you can choose between taking Throwing or Simple Melee skills. 
+Another example: The shaman module may get a choice at tier 6 to go primal spell path or mysticism spell path because either could work with the theme.
 
-Actions for weapons can have type themes as well between Slashing, Bludgeoning or Piercing.  If an action does require one of those, it should be noted. "This action requires a weapon with the Slashing property"
+When we give +1 to a skill (not a big skill referenced earlier), we should include a passive effect with it. These include the skills:
+Fitness,Might,Endurance,Stealth,Coordination,Thievery,Concentration,Senses,Logic,Wildcraft,Academics,Magic,Medicine,Expression,Presence,Insight,Persuasion. Deflection, Evasion and Resilience are more powerful skills that should not be referenced before tier 4
+as players should invest in a module to get those.
+For example, in BattleDancer: Battled dancing demands perfect timing. Gain +1 skill with coordination. After all combatants have rolled initiative, you can move your position to anywhere lower in the order at the start of combat.
+The passive should be creative and avoid adding "damage" or referencing rules that don't exist in my system.
 
-Besides that, we can do things like:
+We should try to have at least 3 Actions/Reactions per module that are combat based. If an action is chosen for 4a, we must have another action or reaction in 4b. A action or reaction can be in the odd tiers as well, but this point is to make sure you know
+not to allow an action in an even tier without a mirrored action/reaction near it.
+
+We can also have module options that include a mix or one of the following:
 
 Add max health, resolve, energy (rarely)
-Add mitigations if it makes sense
-Add immunities to conditions
-Add senses
-Add languages
-Things that grant temproary health or resolve
-and more...Refer to the rules document to really expand creativity.
+Add mitigations if they make sense (Physical, Cold, Heat, Lightning, Psychic, Dark, Divine, Aetheric, Toxic)
+Add immunities to conditions 
+Add senses like vision types (echolocation, tremorsense, infravision, ultravision etc)
+Add language (Magic languages are more valuable)
+Things that grant Temporary Health
 
-Dont' EVER give the same skill twice. For example. Do not give +1 endurance in 2a, then +1 endurance in 6b.
+Dont EVER give the same skill twice. For example. Do not give +1 endurance in 2a, then +1 endurance in 6b.
+
+Refer to the Secondary Modules in data/modules/secondary to get an idea of how things are laid out.

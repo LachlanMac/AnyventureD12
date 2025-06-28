@@ -46,7 +46,7 @@
     },
     {
       "name": "The Old Way",
-      "description": "You gain +1 skill with simple melee weapons and +1 skill with throwing.",
+      "description": "You gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,

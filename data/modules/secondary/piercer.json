@@ -1,0 +1,88 @@
+{
+  "id": 204,
+  "name": "Impaler",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Action : Reaching Stab",
+      "description": "You make an attack with a complex melee weapon with an additional +1 range that is not obstructed by other creatures or objects at the risk of exposing yourself. If you miss this attack or it deals no damage, you suffer a penalty dice to defense checks until the start of your next turn.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Boar Skewer",
+      "description": "Gain +1 skill with wilderness. When you make an attack or defense check against a beast while wielding a weapon with the piercing property, add a wilderness dice into your pool.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "SKU=1"
+    },
+    {
+      "name": "Pole Vaulter",
+      "description": "You regularly use your weapons as leverage to increase your jumping distance. Gain +1 skill with fitness. When taking the jump action with a complex piercing weapon equipped, you can add a complex weapon attack dice to your jump check.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "SSA=1"
+    },
+    {
+      "name": "Precision Striker",
+      "description": "Your thrusts find the gaps in any defense. Gain +1 skill with coordination. When you deal over 10 damage after calculating mitigation to an enemy using a weapon that has the piercing property, they gain the bleeding condition.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSE=1"
+    },
+    {
+     "name": "Action: Impale",
+      "description": "Make an attack with a weapon that has the piercing property, dealing damage. If you score at least 3 successes and the creature is at most one size larger than you, roll a might check against the enemies endurance. On a success, you impale the enemy on your weapon. While impaled, they are considered impaired, with the condition ending if you make another attack with your weapon or they successfully use an action to force another contest between your might and their endurance.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Reaction: Brace",
+      "description": "When an enemy moves within your weapon's reach, you can brace a weapon with the piercing property, using their momentum against them. Make an attack with your weapon, rolling a bonus dice if the creature is larger than you or mounted. This attack also deals an extra damage for each unit the attacker moved as part of their last action or free movement.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "name": "Master of Spears",
+      "description": "Your skill with thrusting weapons is legendary. Gain +1 skill with complex melee weapons.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "WS5=1"
+    },
+    {
+      "name": "Long-Distance Piercing",
+      "description": "Gain +1 skill with throwing weapons. Additionally, you can throw any weapon with a piercing property with a 1 dice penalty and deal damage as if it were a melee strike.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS2=1"
+    },
+    {
+      "name": "Through and Through",
+      "description": "Your piercing strikes can hit multiple foes. When you make an attack against a creature with a complex piercing weapon, the attack is also made against an enemy that is within the reach of your weapon and in a line with your target.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "WS3=1"
+    },
+    {
+      "name": "Action: Find the Gap",
+      "description": "Make an attack with a weapon that has the piercing property. Additionally, make a coordination check against the enemies defense check. If the attack hits and your coordination check succeeds, the target cannot benefit from physical mitigation.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "SSE=1:SMF=1"
+    }
+  ]
+}

@@ -1,0 +1,88 @@
+{
+  "id": 210,
+  "name": "Skirmisher",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Light Step",
+      "description": "You move quietly and efficiently. Gain +1 skill with stealth. You can move at full speed while sneaking without penalty, and difficult terrain costs only 1 extra movement instead of double.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSF=1:TO"
+    },
+    {
+      "name": "Action : Hit and Run",
+      "description": "Make a ranged attack, then immediately move up to half your movement. This movement doesn't provoke attacks of opportunity from your target.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Vanish",
+      "description": "When you take damage, immediately attempt a stealth check to become obscured. You must have cover or concealment available. If successful, move up to 3 units.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Ambush Tactics",
+      "description": "You excel at finding the perfect ambush spot. Gain +1 skill with senses. When attacking from obscured, your attacks deal +2 damage and you remain hidden if you move immediately after attacking.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "SSK=1:TO"
+    },
+    {
+      "name": "Guerrilla Fighter",
+      "description": "You excel at wilderness warfare. Gain +1 skill with wildcraft. In natural terrain, gain +1 die on stealth checks and can set simple traps during short rest. Traps deal 1d6 damage and alert you when triggered.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "SSM=1:TO"
+    },
+    {
+      "name": "Mobile Archer",
+      "description": "You maintain accuracy while moving. Gain +1 skill with fitness. You can make ranged attacks after running without penalty and your movement speed increases by 1 when not wearing heavy armor.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "SSA=1:A4=1"
+    },
+    {
+      "name": "Action : Harrying Fire",
+      "description": "Make a ranged attack against up to 3 different targets within range. Each target hit is impaired (cannot move) until the start of your next turn as they take cover from your barrage.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Master Sniper",
+      "description": "Your precision with complex ranged weapons is legendary. Gain +1 skill with complex ranged weapons. Your first attack each combat from obscured automatically gains maximum damage if it hits. Your optimal range increases by one category.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS6=1:TO"
+    },
+    {
+      "name": "Master Ambusher",
+      "description": "You are a ghost on the battlefield. Gain +1 skill with simple ranged weapons. When you attack from obscured, all other enemies must make a senses check (DC 10) or be unable to determine your location, even after you attack.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "WS4=1:TO"
+    },
+    {
+      "name": "Ghost of the Battlefield",
+      "description": "You become a phantom warrior. Gain +1 skill with stealth and +1 skill with evasion. Once per combat, for 1 minute: become obscured as a free action after moving 10+ units, ranged attacks don't break obscured if you move after, and enemies have -2 dice on attacks against you.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "SSF=1:SSE=1:X"
+    }
+  ]
+}

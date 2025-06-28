@@ -12,18 +12,6 @@
 5. **Reaction**: Counter-Verse (1 Energy) - When an ally fails a Mind check, give them a reroll with your Expression dice
 6. **Passive**: Inspiring Presence - Allies gain +1 Resolve at the start of combat if you're conscious
 
-## Curseblade (Weapon Curse Specialist)
-### Ideas:
-1. **Stat Increases**:
-   - +1 Complex Melee Weapons skill
-   - +1 Black Magic skill
-   - +1 Concentration skill
-2. **Passive**: Cursed Weapon - Your weapon attacks can inflict Weakened on a critical hit
-3. **Action**: Malediction Strike (2 Energy) - Next weapon attack also rolls Black Magic, if both hit, target is Cursed (custom condition)
-4. **Reaction**: Spite Counter (2 Energy) - When hit in melee, curse attacker's weapon to deal -1 damage for 3 rounds
-5. **Passive**: Dark Resonance - Gain +1 die when attacking Cursed, Weakened, or Afraid enemies
-6. **Action**: Hex Transfer (1 Energy) - Move a curse effect from one enemy to another within moderate range
-
 ## Reaver (Berserker/Blood Fighter)
 ### Ideas:
 1. **Stat Increases**:

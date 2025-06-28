@@ -17,6 +17,7 @@
     "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",
     "migrate-aether": "node server/scripts/migrate-aether.js",
     "migrate-username": "node server/scripts/migrate-username-customized.js",
+    "create-master-modulelist": "node server/scripts/createMasterModuleList.js",
     "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\"",
     "dev:clean": "npm run kill-ports && npm run reset-modules && npm run dev:full",
     "lint": "eslint --ext .ts,.tsx src/",
