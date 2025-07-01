@@ -1,0 +1,15 @@
+{
+    "name": "Break Enchantment",
+    "description": "You touch an object or creature that is affected by magic and attempt to remove it. Most magics, like effects from spells are removed.",
+    "charge":"",
+    "duration": "Instantaneous",
+    "range": 1,
+    "checkToCast": 9,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 2,
+    "damage": 0,
+    "damageType": null
+}

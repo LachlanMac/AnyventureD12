@@ -1,0 +1,15 @@
+{
+    "name": "Magical Disguise",
+    "description": "You target an adjacent creature and magically disguise them, causing them to appear to be a creature that is the same size as the target for the next hour. Equipped items cannot be concealed in this way, but their shape can change to match the illusion.",
+    "charge":"",
+    "duration": "1 Hour",
+    "range": 1,
+    "checkToCast": 9,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

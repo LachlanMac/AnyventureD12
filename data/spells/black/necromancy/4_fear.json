@@ -1,0 +1,15 @@
+{
+    "name": "Fear",
+    "description": "You attempt to scare a creature within a very short (5 unit) range, with you making a presence check with a bonus dice against a contested resilience check. On a failure, the target takes 4 psychic damage and becomes afraid of you.",
+    "charge":"The target takes an additional 4 psychic damage.",
+    "duration": "Instantaneous",
+    "range": 3,
+    "checkToCast": 4,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 2,
+    "damage": 4,
+    "damageType": "Psychic"
+}

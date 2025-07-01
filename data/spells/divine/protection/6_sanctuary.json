@@ -1,0 +1,15 @@
+{
+    "name": "Sanctuary",
+    "description": "You turn an enclosed area such as a small house, chapel or tent into a sanctuary against your choice of either dark, divine or elemental creatures. Thralls and minions of the specified type will refuse to enter the sanctuary. Any creature of the specified type that does enter the sanctuary, forcibly or willingly takes 20 true damage.",
+    "charge":"Choose a secondary creature type to protect against",
+    "duration": "1 day",
+    "range": 0,
+    "checkToCast": 6,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

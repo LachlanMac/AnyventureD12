@@ -1,0 +1,15 @@
+{
+    "name": "Repulsing Ray",
+    "description": "You target a large or smaller creature within a short (10 unit) distance and attempt to push them backwards with a beam of raw energy. If the target fails a fitness check of 7, they are pushed backwards 2 units. Additionally, if they collide with a large object, they take 3 physical damage for each unit traversed.",
+    "charge":"The creature is pushed back an additional unit.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 3,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 3,
+    "damageType": "Physical"
+}

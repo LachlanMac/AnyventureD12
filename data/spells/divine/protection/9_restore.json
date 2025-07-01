@@ -1,0 +1,15 @@
+{
+    "name": "Restore",
+    "description": "You target an adjacent creature that has had their form temporarily or permanently altered by magic, such as aged, transformed, transmuted to become slower or faster and return them to their natural state.",
+    "charge":"The creature also becomes immutable for until the end of their next full rest.",
+    "duration": "Instantaneous",
+    "range": 1,
+    "checkToCast": 9,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 4,
+    "damage": 0,
+    "damageType": null
+}

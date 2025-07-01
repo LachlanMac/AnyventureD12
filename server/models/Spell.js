@@ -82,16 +82,16 @@ const SpellSchema = new Schema({
     type: String,
     required: false,
     enum: [
-      'dark',
-      'divine',
-      'psychic',
-      'heat',
-      'cold',
-      'lightning',
-      'aether',
-      'toxic',
-      'physical',
-      'true'
+      'Dark',
+      'Divine',
+      'Psychic',
+      'Heat',
+      'Cold',
+      'Lightning',
+      'Aetheric',
+      'Toxic',
+      'Physical',
+      'True'
     ]
   },
   // Homebrew fields

@@ -1,0 +1,15 @@
+{
+    "name": "Doom Ray",
+    "description": "You target a creature within a short (10 unit) distance and launch a ray of tainted energy at them. If the target fails a defense check of 9, they take 15 dark damage. Humanoids and plants that fail this check take an additional 5 damage.",
+    "charge":"The ray also deals 8 psychic damage.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 10,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 4,
+    "damage": 15,
+    "damageType": "Dark"
+}

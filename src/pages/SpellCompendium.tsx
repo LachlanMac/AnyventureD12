@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Card, { CardBody } from '../components/ui/Card';
+import { formatRange } from '../utils/rangeUtils';
 
 interface Spell {
   _id: string;
@@ -8,7 +9,7 @@ interface Spell {
   description: string;
   charge?: string | null;
   duration: string;
-  range: string;
+  range: number | string;
   school: string;
   subschool: string;
   checkToCast: number;
@@ -122,11 +123,11 @@ const SpellCompendium: React.FC = () => {
   });
 
   const schoolColors: Record<string, string> = {
-    black: 'var(--color-sunset)',
-    primal: 'var(--color-old-gold)',
-    alteration: 'var(--color-sat-purple)',
-    divine: 'var(--color-stormy)',
-    mysticism: 'var(--color-evening)',
+    black: '#ff6b6b',        // Bright red for black magic
+    primal: '#4ecdc4',       // Bright teal for primal magic  
+    alteration: '#a855f7',   // Bright purple for alteration magic
+    divine: '#fbbf24',       // Bright gold for divine magic
+    mysticism: '#06b6d4',    // Bright cyan for mysticism magic
   };
 
   if (loading) {
@@ -428,9 +429,19 @@ const SpellCompendium: React.FC = () => {
                   e.currentTarget.style.backgroundColor = 'transparent';
                 }}
               >
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {/* Top section - Name and school */}
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+                <div style={{ display: 'flex', flexDirection: 'column' }}>
+                  {/* Top section - Header with darker background */}
+                  <div 
+                    style={{ 
+                      display: 'flex', 
+                      alignItems: 'center', 
+                      gap: '0.75rem',
+                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                      padding: '0.75rem',
+                      margin: '-1rem -1rem 0.75rem -1rem',
+                      borderRadius: '0.5rem 0.5rem 0 0'
+                    }}
+                  >
                     <h3
                       style={{
                         color: 'var(--color-white)',
@@ -444,10 +455,11 @@ const SpellCompendium: React.FC = () => {
                     </h3>
                     <span
                       style={{
-                        color: schoolColors[spell.school.toLowerCase()] || 'var(--color-cloud)',
+                        color: schoolColors[spell.school.toLowerCase()] || '#9ca3af',
                         fontSize: '0.875rem',
                         fontWeight: 'bold',
                         textTransform: 'capitalize',
+                        textShadow: '0 1px 2px rgba(0, 0, 0, 0.5)',
                       }}
                     >
                       {spell.school}
@@ -461,12 +473,13 @@ const SpellCompendium: React.FC = () => {
                     {/* Subschool badge */}
                     <span
                       style={{
-                        color: 'var(--color-cloud)',
+                        color: schoolColors[spell.school.toLowerCase()] || '#9ca3af',
                         fontSize: '0.75rem',
                         textTransform: 'capitalize',
-                        backgroundColor: 'var(--color-dark-elevated)',
+                        backgroundColor: `${schoolColors[spell.school.toLowerCase()] || '#9ca3af'}20`,
                         padding: '0.25rem 0.75rem',
                         borderRadius: '0.25rem',
+                        border: `1px solid ${schoolColors[spell.school.toLowerCase()] || '#9ca3af'}40`,
                       }}
                     >
                       {spell.subschool}
@@ -482,7 +495,7 @@ const SpellCompendium: React.FC = () => {
                         borderRadius: '0.25rem',
                       }}
                     >
-                      {spell.range}
+                      {formatRange(spell.range, 'spell')}
                     </span>
 
                     {/* Tags */}
@@ -524,7 +537,7 @@ const SpellCompendium: React.FC = () => {
                       }}
                     >
                       <div style={{ textAlign: 'center' }}>
-                        <div>Cast DC</div>
+                        <div>Required Check</div>
                         <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
                           {spell.checkToCast}
                         </div>

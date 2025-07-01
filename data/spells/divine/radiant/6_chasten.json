@@ -1,0 +1,15 @@
+{
+    "name": "Chasten",
+    "description": "You target a creature within a short (10 unit) distance and remove any mental condition affecting them. For each condition removed in this way, the target takes 5 divine damage.",
+    "charge":"The damage per removed condition is reduced to 3.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 6,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 3,
+    "damage": 3,
+    "damageType": "Divine"
+}

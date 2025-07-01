@@ -1,0 +1,15 @@
+{
+    "name": "Sunflare",
+    "description": "You call down 3 fiery strands of sunlight around you, targeting one or more creatures within a short (10 unit) distance. For each strand that they are attacked by, a creature must make a defense check of 10 or higher or take 8 heat damage. This damage is increased to 12 when the sun is visible in the sky.",
+    "charge":"Create an additional 2 strands.",
+    "duration": "Instantaneous",
+    "range":4,
+    "checkToCast": 10,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 4,
+    "damage": 8,
+    "damageType": "Heat"
+}

@@ -54,6 +54,9 @@ const Navbar: React.FC = () => {
             <NavLink to="/homebrew" isActive={isActive('/homebrew')}>
               Homebrew
             </NavLink>
+            <NavLink to="/wiki" isActive={isActive('/wiki')}>
+              Wiki
+            </NavLink>
 
             {/* Auth buttons */}
             {loading ? (

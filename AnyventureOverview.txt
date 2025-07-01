@@ -105,11 +105,15 @@ Mysticism -> Spirit, Divination, (ex) Astral
 When a person wants to channel a spell, they must know the spell. All spells will have a "minimum" number of complexity to be able to channel successfully. Say I have a firebolt, a fairly simple spell, that requires a "4" in primal magic to channel. 
 I have 3 talents in primal magic and a +3 skill for a 3d10. I take the highest dice and compare it to the "4". If I succeed, i channel the spell. My roll on the spell doesnt' have an effect for how hard the spell is to avoid. It is hardcoded into the spell. So firebolt may require a 6 in evasion to dodge. The enemy would have to make a check against that, or it hits. The damage is likewise hardcoded into the spell.  This deals 5 damage. 
 
+You have a penalty dice if you channel a spell without speaking.
+
 There are two options to reduce the difficulty of a spell: Channeling it as a ritual, and having a component. A ritual takes 1 hour and a component may be expensive. Every spell will have a component to make it easier to channel at the cost of financial contribution. Obviously, it makes no sense to channel a firebolt as a ritual in combat.
 
 However, learning spells will require that a player use both the ritual and component (while not getting their benefits to make it easier).  So if a player wants to learn firebolt, they have to successfully roll a 4 while doing a ritual and using the component.  This is designed to simulate research and not to be done in combat, obviously.  This would be much more interesting for harder spells.  Think about a resurrection spell that requires a body and a diamond. A player would have to practice on corpses that meet the requirements of the spell over long periods. It may take several tries for them to learn it. 
 
 A player is limited by spell slots, or how many spells they can know at a time. A player can trade out an old spell for a new one as they learn it.
+RITUAL SYSTEM ()
+during a rituatial, other creatures can contribute to the spell if they roll half of the required spell. giving it a +1.
 
 
 Player Resources:
@@ -210,7 +214,7 @@ Prone	You are on the ground. Movement is halved. Melee attackers gain +1 die aga
 Bleeding	Take 1 damage at the end of your turn. Can be stopped with a successful Medicine check or magical healing.
 Blinded	-1 die on all Attack rolls and Defense rolls (Evasion or Deflection). Cannot make visual checks.
 Incapacitated	You cannot take Actions, Reactions, or Movement. Automatically fail physical defense checks. Affects sleeping, paralyzed, frozen, or unconscious states.
-Impaired	You cannot move. -1 die on both Attack rolls and Defense checks. Cannot use 2-handed weapons effectively. Applies to being Grappled, tangled, hobbled, etc.
+Impaired	You cannot move. -1 die on both Attack rolls and Defense checks. Applies to being Grappled, tangled, hobbled, etc.
 Weakened	You deal -1 damage with all attacks and abilities. Optional: also take -1 die on Might or Endurance checks.
 Energized	Regenerate +1 extra energy per round. Optional: +1 movement speed. Ends after 2 rounds or upon becoming Winded.
 

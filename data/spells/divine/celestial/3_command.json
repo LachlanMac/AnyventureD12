@@ -1,0 +1,15 @@
+{
+    "name": "Command",
+    "description": "You command a minion or thrall within a short (10 unit) distance to take an action by making a presence check against their resilience. The command becomes invalid at the start of your next turn. You can force them to fall (go prone), halt (0 movement speed), drop (unequip a piece of equipment or drop an object) or any other command that does not directly cause them to harm themselves or an ally.",
+    "charge":"This spell can be used against foe tiered creatures.",
+    "duration": "Instantaneous",
+    "range": 5,
+    "checkToCast": 3,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

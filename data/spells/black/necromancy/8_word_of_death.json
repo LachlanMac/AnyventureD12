@@ -1,0 +1,15 @@
+{
+    "name": "Word of Death",
+    "description": "You speak the word of death, targeting a creature within a short (10 unit) distance that can hear you. If they fail a resilience check of 8, they take 15 dark damage. If a creature dies from this damage, the word echoes to any creature within a very short (5 unit) radius of the initial target, dealing 10 dark damage.",
+    "charge":"The spell targets an additional creature.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast":8,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 2,
+    "damage": 15,
+    "damageType": "Dark"
+}

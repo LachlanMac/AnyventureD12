@@ -1,0 +1,17 @@
+{
+    "name": "Resolution",
+    "description": "You touch a creature instill them with resolve, preventing the next time they would be affected by a mental condition until their next full rest. While under the effects of this spell, the target always benefits from at least half mitigation against psychic damage.",
+    "charge":"The spell protects against an additional mental condition before ending.",
+    "duration": "1 minute",
+    "range": 1,
+    "checkToCast": 10,
+    "components": [
+      ""
+    ],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

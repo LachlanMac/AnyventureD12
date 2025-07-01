@@ -1,0 +1,15 @@
+{
+    "name": "Walking Corpse",
+    "description": "You raise a humanoid corpse into an undead creature that is of the thrall tier by placing two malachite in the eye sockets. The undead creature that you choose must have a physical form and be the same size as the corpse. This effect is permanent with the target of this spell being in a constant maddened state unless controlled by the Command Undead action.",
+    "charge":"You can raise the humanoid into a foe level creature instead.",
+    "duration": "Permanent",
+    "range": 4,
+    "checkToCast": 6,
+    "components": ["2 malachite"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 5,
+    "damage": 0,
+    "damageType": null
+}

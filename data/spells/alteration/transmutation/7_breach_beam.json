@@ -1,0 +1,15 @@
+{
+    "name": "Breach Beam",
+    "description": "You target a creature within a moderate (20 unit) distance and deal 10 aetheric damage to them if they fail a defense check of 8. Additionally, after dealing damage to a creature with this spell, that creature cannot benefit from half mitigation to your choice of lightning, heat or cold damage until the end of their next turn.",
+    "charge":"",
+    "duration": "Instantaneous",
+    "range": 5,
+    "checkToCast": 7,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 10,
+    "damageType": "Aethericic"
+}

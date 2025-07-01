@@ -1,0 +1,201 @@
+{
+  "title": "Anyventure Wiki",
+  "pages": [
+    {
+      "id": "overview",
+      "title": "Overview",
+      "path": "getting-started/overview.md",
+      "category": "Getting Started",
+      "order": 1
+    },
+    {
+      "id": "core-concepts",
+      "title": "Core Concepts",
+      "path": "getting-started/core-concepts.md",
+      "category": "Getting Started",
+      "order": 2
+    },
+    {
+      "id": "races",
+      "title": "Races",
+      "path": "character-creation/races.md",
+      "category": "Character Creation",
+      "order": 1
+    },
+    {
+      "id": "cultures",
+      "title": "Cultures",
+      "path": "character-creation/cultures.md",
+      "category": "Character Creation",
+      "order": 2
+    },
+    {
+      "id": "attributes",
+      "title": "Attributes & Talents",
+      "path": "character-creation/attributes.md",
+      "category": "Character Creation",
+      "order": 3
+    },
+    {
+      "id": "dice-system",
+      "title": "Dice System",
+      "path": "core-mechanics/dice-system.md",
+      "category": "Core Mechanics",
+      "order": 1
+    },
+    {
+      "id": "skills",
+      "title": "Skills",
+      "path": "core-mechanics/skills.md",
+      "category": "Core Mechanics",
+      "order": 2
+    },
+    {
+      "id": "checks",
+      "title": "Skill Checks",
+      "path": "core-mechanics/checks.md",
+      "category": "Core Mechanics",
+      "order": 3
+    },
+    {
+      "id": "combat-basics",
+      "title": "Combat Basics",
+      "path": "combat/basics.md",
+      "category": "Combat",
+      "order": 1
+    },
+    {
+      "id": "weapons",
+      "title": "Weapons & Damage",
+      "path": "combat/weapons.md",
+      "category": "Combat",
+      "order": 2
+    },
+    {
+      "id": "defense",
+      "title": "Defense & Mitigation",
+      "path": "combat/defense.md",
+      "category": "Combat",
+      "order": 3
+    },
+    {
+      "id": "actions-reactions",
+      "title": "Actions & Reactions",
+      "path": "combat/actions-reactions.md",
+      "category": "Combat",
+      "order": 4
+    },
+    {
+      "id": "magic-types",
+      "title": "Magic Types & Schools",
+      "path": "magic/spell-schools.md",
+      "category": "Magic",
+      "order": 1
+    },
+    {
+      "id": "spellcasting",
+      "title": "Spellcasting",
+      "path": "magic/spellcasting.md",
+      "category": "Magic",
+      "order": 2
+    },
+    {
+      "id": "learning-spells",
+      "title": "Learning Spells",
+      "path": "magic/learning.md",
+      "category": "Magic",
+      "order": 3
+    },
+    {
+      "id": "crafting-basics",
+      "title": "Crafting Basics",
+      "path": "crafting/basics.md",
+      "category": "Crafting",
+      "order": 1
+    },
+    {
+      "id": "modules",
+      "title": "Modules",
+      "path": "progression/modules.md",
+      "category": "Modules & Progression",
+      "order": 1
+    },
+    {
+      "id": "progression",
+      "title": "Character Progression",
+      "path": "modules/progression.md",
+      "category": "Modules & Progression",
+      "order": 2
+    },
+    {
+      "id": "health-resolve-energy",
+      "title": "Health, Resolve & Energy",
+      "path": "resources/health-resolve-energy.md",
+      "category": "Resources",
+      "order": 1
+    },
+    {
+      "id": "conditions",
+      "title": "Conditions",
+      "path": "combat/conditions.md",
+      "category": "Combat",
+      "order": 5
+    },
+    {
+      "id": "ranges",
+      "title": "Ranges & Distance",
+      "path": "reference/ranges.md",
+      "category": "Reference",
+      "order": 2
+    },
+    {
+      "id": "languages",
+      "title": "Languages",
+      "path": "reference/languages.md",
+      "category": "Reference",
+      "order": 3
+    },
+    {
+      "id": "creature-tiers",
+      "title": "Creature Tiers",
+      "path": "reference/creature-tiers.md",
+      "category": "Reference",
+      "order": 4
+    },
+    {
+      "id": "songs-overview",
+      "title": "Songs Overview",
+      "path": "songs/overview.md",
+      "category": "Songs & Music",
+      "order": 1
+    },
+    {
+      "id": "instruments",
+      "title": "Instruments",
+      "path": "songs/instruments.md",
+      "category": "Songs & Music",
+      "order": 2
+    },
+    {
+      "id": "magical-effects",
+      "title": "Magical Effects",
+      "path": "effects/magical-effects.md",
+      "category": "Effects",
+      "order": 1
+    },
+    {
+      "id": "hazards",
+      "title": "Environmental Hazards",
+      "path": "effects/hazards.md",
+      "category": "Effects",
+      "order": 2
+    },
+    {
+      "id": "vision",
+      "title": "Vision & Sight",
+      "path": "core-mechanics/vision.md",
+      "category": "Core Mechanics",
+      "order": 4
+    }
+  ]
+}

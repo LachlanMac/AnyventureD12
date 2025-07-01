@@ -1,0 +1,16 @@
+{
+   "name": "Illusify",
+   "description": "You create minor sensory illusions within range that can affect sight, sound, or smell. You can produce one of the following effects: Create a small visual effect no larger than your hand (colored lights, sparks, moving images); Generate a quiet sound that lasts for the duration (whispers, music, animal noises); Create or alter a scent in a small area; Clean or soil a small object or area; Chill, warm, or flavor up to 1 pound of nonliving material for 1 hour; Make a small mark, symbol, or word appear on a surface. The effects are purely sensory and cannot cause damage, provide light bright enough to illuminate beyond a few feet, or create sounds loud enough to be heard beyond a moderate distance. Multiple effects can be maintained simultaneously, but each requires a separate casting.",
+   "charge":"",
+   "duration": "10 minutes",
+   "range": 4,
+   "tags": ["illusion"],
+   "checkToCast": 2,
+   "components": ["A pinch of colored sand or dust"],
+   "ritualDuration": "1 hour",
+   "concentration": true,
+   "reaction": false,
+   "energy": 1,
+   "damage": 0,
+   "damageType": null
+}

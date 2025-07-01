@@ -1,0 +1,15 @@
+{
+    "name": "Possess Object",
+    "description": "You transfer your mind into an adjacent object, putting your body into a stasis. While possessing the object, you have an awareness and vision of 2 units. If the object has limbs or appendages that could constitute as limbs, it gains a movement speed of 1 unit, otherwise you can only move parts of the object. If the object is destroyed, or you lose concentration, your awareness returns to your body.",
+    "charge":"The spell can be cast at an object within a moderate (20 unit) distance.",
+    "duration": "Concentration",
+    "range": 1,
+    "checkToCast": 10,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 3,
+    "damage": 0,
+    "damageType": null
+}

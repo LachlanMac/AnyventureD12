@@ -3,6 +3,7 @@ import { useParams, useNavigate, Link } from 'react-router-dom';
 import { useToast } from '../context/ToastContext';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { formatRange } from '../utils/rangeUtils';
 
 interface Spell {
   _id: string;
@@ -10,7 +11,7 @@ interface Spell {
   description: string;
   charge?: string | null;
   duration: string;
-  range: string;
+  range: number | string;
   school: string;
   subschool: string;
   checkToCast: number;
@@ -375,7 +376,7 @@ const SpellDetail: React.FC = () => {
                 <div
                   style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '1.25rem' }}
                 >
-                  {spell.range}
+                  {formatRange(spell.range, 'spell')}
                 </div>
               </div>
 

@@ -1,0 +1,15 @@
+{
+    "name": "Omen",
+    "description": "You can send a feeling, like a warning or emotion, to someone on the same plane whom you know by name or have seen in person. The receiver is aware that the omen is from you if they have met you.",
+    "charge":"",
+    "duration": "Instantaneous",
+    "range": 8,
+    "checkToCast": 3,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

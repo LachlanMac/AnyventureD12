@@ -1,0 +1,15 @@
+{
+    "name": "Orbit",
+    "description": "You summon 3 glowing orbs that spin harmlessly around you that each emit light in a very short (5 unit) radius. As an action on your turn, you can command a single orb to move anywhere within a short (10 unit) distance including making an attack against a creature using a mysticism spell check with each success dealing 3 aetheric damage.",
+    "charge":"You summon 2 additional orbs.",
+    "duration": "10 minutes",
+    "range": 0,
+    "checkToCast": 5,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

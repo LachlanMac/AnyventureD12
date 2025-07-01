@@ -1,0 +1,15 @@
+{
+    "name": "Glitteray",
+    "description": "You target a creature within a short (10 unit) distance and fire three quick bursts of colorful energy at them. If the target fails a defense check of 6, they take 3 aether damage three times.",
+    "charge":"",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 2,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 3,
+    "damageType": "Aetheric"
+}

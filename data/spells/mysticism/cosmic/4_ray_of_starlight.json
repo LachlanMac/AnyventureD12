@@ -1,0 +1,15 @@
+{
+    "name": "Ray of Starlight",
+    "description": "You shoot a ray of pure starlight at a creature within a short (10 unit) distance dealing 6 aetheric damage if they fail a defense check of 7. This spell deals 8 aetheric damage when channeled under the night sky when stars are visible.",
+    "charge":"You shoot three rays instead, all requiring a different target.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 4,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

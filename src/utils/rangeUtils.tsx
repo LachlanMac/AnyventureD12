@@ -18,7 +18,7 @@ export const RANGE_DEFINITIONS: RangeDefinition[] = [
   { id: 5, name: 'Moderate', units: '11-20 Units', minUnits: 11, maxUnits: 20 },
   { id: 6, name: 'Distant', units: '21-40 Units', minUnits: 21, maxUnits: 40 },
   { id: 7, name: 'Remote', units: '41-100 Units', minUnits: 41, maxUnits: 100 },
-  { id: 8, name: 'Unlimited', units: '101+ Units', minUnits: 101, maxUnits: Infinity }
+  { id: 8, name: 'Planar', units: '101+ Units', minUnits: 101, maxUnits: Infinity }
 ];
 
 /**
@@ -45,23 +45,43 @@ export function unitToRangeId(units: number): number {
 /**
  * Format a single range for display
  */
-export function formatRange(rangeId: number, context: 'spell' | 'weapon' | 'general' = 'general'): string {
-  const range = getRangeById(rangeId);
-  if (!range) return 'Unknown Range';
+export function formatRange(rangeId: number | string, context: 'spell' | 'weapon' | 'general' = 'general'): string {
+  // Handle string values that might come from the API
+  if (typeof rangeId === 'string') {
+    // If it's already a string like "Self", "Moderate", etc., return it
+    if (rangeId === 'Self' || rangeId === 'Adjacent' || rangeId === 'Nearby' || 
+        rangeId === 'Very Short' || rangeId === 'Short' || rangeId === 'Moderate' || 
+        rangeId === 'Distant' || rangeId === 'Remote' || rangeId === 'Planar') {
+      return rangeId;
+    }
+    // Try to parse as number
+    const parsed = parseInt(rangeId);
+    if (!isNaN(parsed)) {
+      rangeId = parsed;
+    } else {
+      console.warn(`Cannot parse range value: ${rangeId}`);
+      return rangeId; // Return as-is if we can't parse it
+    }
+  }
+  
+  // Convert to number for lookup
+  const numericId = Number(rangeId);
+  const range = getRangeById(numericId);
+  
+  if (!range) {
+    console.warn(`Unknown range ID: ${rangeId} (numeric: ${numericId})`);
+    return 'Unknown Range';
+  }
   
   // Special handling for range 0 based on context
-  if (rangeId === 0) {
+  if (numericId === 0) {
     if (context === 'spell') return 'Self';
     if (context === 'weapon') return 'No Min';
     return 'No Min/Self';
   }
   
-  // Special handling for adjacent - no need to show (0 Units)
-  if (rangeId === 1) {
-    return 'Adjacent';
-  }
-  
-  return `${range.name} (${range.units})`;
+  // Return just the name without units
+  return range.name;
 }
 
 /**

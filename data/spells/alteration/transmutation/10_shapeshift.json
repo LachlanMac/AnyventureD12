@@ -1,0 +1,15 @@
+{
+    "name": "Shapeshift",
+    "description": "You alter your form, perfectly replicating a humananoid you have made physical contact with within the last day. Until the end of your next full rest, you take on all the physical features of this creature, using their physique and finesse skills when making skill checks.",
+    "charge":"",
+    "duration": "1 day",
+    "range": 0,
+    "checkToCast": 10,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Throw Presence",
+    "description": "You choose a point that you can see within a short (10 unit) distance and transfer your senses there for as long as you maintain concentration. This allows you to see, hear and smell from that location as if you were there. For the duration of this spell, your body is unresponsive and considered deafened and blinded.",
+    "charge":"You gain a bonus dice when making senses checks involving seeing, hearing or smelling.",
+    "duration": "Concentration",
+    "range": 5,
+    "checkToCast": 3,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

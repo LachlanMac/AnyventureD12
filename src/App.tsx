@@ -41,6 +41,11 @@ import Bestiary from './pages/Bestiary';
 import CreatureDetail from './pages/CreatureDetail';
 import Profile from './pages/Profile';
 
+// Wiki Components
+import WikiLayout from './components/wiki/WikiLayout';
+import WikiHome from './components/wiki/WikiHome';
+import WikiPage from './components/wiki/WikiPage';
+
 interface MainLayoutProps {
   children: ReactNode;
 }
@@ -215,6 +220,12 @@ const App: React.FC = () => {
                     </MainLayout>
                   }
                 />
+
+                {/* Wiki routes */}
+                <Route path="/wiki" element={<WikiLayout />}>
+                  <Route index element={<WikiHome />} />
+                  <Route path=":pageId" element={<WikiPage />} />
+                </Route>
 
                 {/* Campaign invite join page (no auth required) */}
                 <Route
