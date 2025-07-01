@@ -1,0 +1,104 @@
+[
+  {
+    "id": 1,
+    "name": "Afraid",
+    "category": "Mental",
+    "description": "Cannot take Reactions. Must roll DC 12 Resilience to use an Action. On failure, you move away from the source of fear a number of units equal to half the difference. On success, the condition ends. Each failure lowers the DC by 1."
+  },
+  {
+    "id": 2,
+    "name": "Bleeding",
+    "category": "Physical",
+    "description": "Take 1 damage at the end of your turn. Can be stopped with a successful Medicine check or magical healing."
+  },
+  {
+    "id": 3,
+    "name": "Blinded",
+    "category": "Physical",
+    "description": "-1 die on all Attack rolls and Defense rolls (Evasion or Deflection). Cannot make visual checks."
+  },
+  {
+    "id": 4,
+    "name": "Broken",
+    "category": "Mental",
+    "description": "Resolve is 0. Cannot regain Resolve. All Mind checks (Resilience, Concentration, Logic, Senses) suffer a -1 die penalty. Must make a DC 10 check during a Favorable Rest (Resilience or Concentration) to recover."
+  },
+  {
+    "id": 5,
+    "name": "Charmed",
+    "category": "Mental",
+    "description": "You are under the influence of another creature. Cannot target them with hostile actions. May obey commands."
+  },
+  {
+    "id": 6,
+    "name": "Confused",
+    "category": "Mental",
+    "description": "Each turn, roll 1d4: (1) attack random target, (2) move in a random direction, (3) lose your Action, (4) act normally."
+  },
+  {
+    "id": 7,
+    "name": "Dazed",
+    "category": "Mental",
+    "description": "Cannot use Concentration. Cannot take reactions. Ends at the end of your next turn automatically."
+  },
+  {
+    "id": 8,
+    "name": "Energized",
+    "category": "Physical",
+    "description": "Regenerate +1 extra energy per round. Optional: +1 movement speed. Ends after 2 rounds or upon becoming Winded."
+  },
+  {
+    "id": 9,
+    "name": "Impaired",
+    "category": "Physical",
+    "description": "You cannot move. -1 die on both Attack rolls and Defense checks. Cannot use 2-handed weapons effectively. Applies to being Grappled, tangled, hobbled, etc."
+  },
+  {
+    "id": 10,
+    "name": "Incapacitated",
+    "category": "Physical",
+    "description": "You cannot take Actions, Reactions, or Movement. Automatically fail physical defense checks. Affects sleeping, paralyzed, frozen, or unconscious states."
+  },
+  {
+    "id": 11,
+    "name": "Maddened",
+    "category": "Mental",
+    "description": "You attack allies and cannot distinguish friend from foe. All targets are treated as hostile."
+  },
+  {
+    "id": 12,
+    "name": "Numbed",
+    "category": "Mental",
+    "description": "Cannot gain or lose Resolve. Cannot use Resolve to stay up at 0 Health."
+  },
+  {
+    "id": 13,
+    "name": "Obscured",
+    "category": "Stealth",
+    "description": "You are undetected by normal senses. Encompasses being invisible, hidden, or obscured by terrain or magic. You cannot be directly targeted unless a creature succeeds on a relevant detection check (Senses, Magic, etc.). Attackers have Disadvantage; your attacks gain +1 die if undetected."
+  },
+  {
+    "id": 14,
+    "name": "Prone",
+    "category": "Physical",
+    "description": "You are on the ground. Movement is halved. Melee attackers gain +1 die against you. Ranged attackers have Disadvantage."
+  },
+  {
+    "id": 15,
+    "name": "Stunned",
+    "category": "Mental",
+    "description": "Cannot take Actions or Reactions. Requires a DC 10 Resilience, Concentration, or Endurance check to recover. The DC is reduced by 1 after each failed attempt."
+  },
+  {
+    "id": 16,
+    "name": "Weakened",
+    "category": "Physical",
+    "description": "You deal -1 damage with all attacks and abilities. Optional: also take -1 die on Might or Endurance checks."
+  },
+  {
+    "id": 17,
+    "name": "Winded",
+    "category": "Physical",
+    "description": "Cannot regenerate energy. Ends after taking a Rest Action."
+  }
+]
