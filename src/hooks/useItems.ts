@@ -2,10 +2,7 @@ import { useAsyncState } from './useAsyncState';
 import { itemsApi, type ItemFilters } from '../api/items';
 
 export function useItems(filters?: ItemFilters) {
-  return useAsyncState(
-    () => itemsApi.getAll(filters),
-    [JSON.stringify(filters)]
-  );
+  return useAsyncState(() => itemsApi.getAll(filters), [JSON.stringify(filters)]);
 }
 
 export function useItem(id: string | undefined) {
@@ -20,10 +17,7 @@ export function useItem(id: string | undefined) {
 }
 
 export function useHomebrewItems(filters?: ItemFilters) {
-  return useAsyncState(
-    () => itemsApi.homebrew.getAll(filters),
-    [JSON.stringify(filters)]
-  );
+  return useAsyncState(() => itemsApi.homebrew.getAll(filters), [JSON.stringify(filters)]);
 }
 
 export function useHomebrewItem(id: string | undefined) {

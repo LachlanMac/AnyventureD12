@@ -39,10 +39,8 @@ export const modulesApi = {
   },
 
   // Get module by ID
-  getById: (id: string) =>
-    apiClient.get<Module>(`/modules/${id}`),
+  getById: (id: string) => apiClient.get<Module>(`/modules/${id}`),
 
   // Get modules by type
-  getByType: (mtype: string) =>
-    apiClient.get<Module[]>(`/modules?mtype=${mtype}`),
+  getByType: (mtype: string) => apiClient.get<Module[]>(`/modules?mtype=${mtype}`),
 };

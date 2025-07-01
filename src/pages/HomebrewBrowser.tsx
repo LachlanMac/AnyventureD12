@@ -293,8 +293,8 @@ const HomebrewBrowser: React.FC = () => {
                 marginBottom: '2rem',
               }}
             >
-              Browse and create custom monsters, beasts, and legendary creatures. Design unique
-              stat blocks, abilities, and challenge encounters for your campaigns.
+              Browse and create custom monsters, beasts, and legendary creatures. Design unique stat
+              blocks, abilities, and challenge encounters for your campaigns.
             </p>
 
             <div

@@ -32,30 +32,30 @@
     {
       "id": "attributes",
       "title": "Attributes & Talents",
-      "path": "character-creation/attributes.md",
-      "category": "Character Creation",
-      "order": 3
+      "path": "core-mechanics/attributes.md",
+      "category": "Core Mechanics",
+      "order": 1
     },
     {
       "id": "dice-system",
       "title": "Dice System",
       "path": "core-mechanics/dice-system.md",
       "category": "Core Mechanics",
-      "order": 1
+      "order": 3
     },
     {
       "id": "skills",
-      "title": "Skills",
+      "title": "Skills & Checks",
       "path": "core-mechanics/skills.md",
       "category": "Core Mechanics",
       "order": 2
     },
     {
-      "id": "checks",
-      "title": "Skill Checks",
-      "path": "core-mechanics/checks.md",
+      "id": "resources",
+      "title": "Resources",
+      "path": "core-mechanics/resources.md",
       "category": "Core Mechanics",
-      "order": 3
+      "order": 4
     },
     {
       "id": "combat-basics",
@@ -107,9 +107,9 @@
       "order": 3
     },
     {
-      "id": "crafting-basics",
+      "id": "crafting",
       "title": "Crafting Basics",
-      "path": "crafting/basics.md",
+      "path": "crafting/crafting.md",
       "category": "Crafting",
       "order": 1
     },

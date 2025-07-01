@@ -36,16 +36,19 @@ export function useAsyncState<T>(
 
     abortControllerRef.current = new AbortController();
 
-    setState(prev => ({ ...prev, loading: true, error: null }));
+    setState((prev) => ({ ...prev, loading: true, error: null }));
 
     try {
       // Add timeout to prevent infinite loading
       const timeoutPromise = new Promise((_, reject) => {
-        setTimeout(() => reject(new Error('Request timeout - check if backend server is running')), 10000);
+        setTimeout(
+          () => reject(new Error('Request timeout - check if backend server is running')),
+          10000
+        );
       });
 
       const data = await Promise.race([asyncFunction(), timeoutPromise]);
-      
+
       if (mountedRef.current) {
         setState({ data: data as T, loading: false, error: null });
         onSuccess?.(data);
@@ -53,18 +56,19 @@ export function useAsyncState<T>(
     } catch (error) {
       if (mountedRef.current && (error as any)?.name !== 'AbortError') {
         let errorMessage = 'An unknown error occurred';
-        
+
         if (error instanceof ApiError) {
           errorMessage = error.message;
         } else if (error instanceof Error) {
           if (error.message.includes('timeout') || error.message.includes('fetch')) {
-            errorMessage = 'Connection failed - is the backend server running? Try: npm run dev:full';
+            errorMessage =
+              'Connection failed - is the backend server running? Try: npm run dev:full';
           } else {
             errorMessage = error.message;
           }
         }
-        
-        setState(prev => ({ ...prev, loading: false, error: errorMessage }));
+
+        setState((prev) => ({ ...prev, loading: false, error: errorMessage }));
         onError?.(errorMessage);
       }
     }
@@ -80,7 +84,7 @@ export function useAsyncState<T>(
 
   useEffect(() => {
     mountedRef.current = true; // Reset mounted state on each effect run
-    
+
     if (immediate) {
       execute();
     }

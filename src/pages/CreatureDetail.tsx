@@ -51,12 +51,12 @@ const CreatureDetail: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div className="mb-6">
-        <Link 
-          to="/bestiary" 
-          style={{ 
-            color: 'var(--color-old-gold)', 
+        <Link
+          to="/bestiary"
+          style={{
+            color: 'var(--color-old-gold)',
             textDecoration: 'none',
-            fontSize: '0.875rem'
+            fontSize: '0.875rem',
           }}
         >
           ← Back to Bestiary
@@ -79,7 +79,14 @@ const CreatureDetail: React.FC = () => {
           {creature.actions.length > 0 && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-                <h2 style={{ color: 'var(--color-white)', fontSize: '1rem', fontWeight: 'bold', margin: 0 }}>
+                <h2
+                  style={{
+                    color: 'var(--color-white)',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    margin: 0,
+                  }}
+                >
                   Actions
                 </h2>
               </CardHeader>
@@ -97,7 +104,14 @@ const CreatureDetail: React.FC = () => {
           {creature.reactions.length > 0 && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-                <h2 style={{ color: 'var(--color-white)', fontSize: '1rem', fontWeight: 'bold', margin: 0 }}>
+                <h2
+                  style={{
+                    color: 'var(--color-white)',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    margin: 0,
+                  }}
+                >
                   Reactions
                 </h2>
               </CardHeader>
@@ -115,7 +129,14 @@ const CreatureDetail: React.FC = () => {
           {hasSpells(creature) && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-                <h2 style={{ color: 'var(--color-white)', fontSize: '1rem', fontWeight: 'bold', margin: 0 }}>
+                <h2
+                  style={{
+                    color: 'var(--color-white)',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    margin: 0,
+                  }}
+                >
                   Spells
                 </h2>
               </CardHeader>
@@ -125,7 +146,7 @@ const CreatureDetail: React.FC = () => {
                   {regularSpells.map((spell) => (
                     <CreatureSpellCard key={spell._id} spell={spell} />
                   ))}
-                  
+
                   {/* Custom Spells */}
                   {customSpells.map((spell, index) => (
                     <CreatureSpellCard key={`custom-${index}`} spell={spell} isCustom />
@@ -139,7 +160,14 @@ const CreatureDetail: React.FC = () => {
           {creature.traits.length > 0 && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-                <h2 style={{ color: 'var(--color-white)', fontSize: '1rem', fontWeight: 'bold', margin: 0 }}>
+                <h2
+                  style={{
+                    color: 'var(--color-white)',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    margin: 0,
+                  }}
+                >
                   Traits
                 </h2>
               </CardHeader>

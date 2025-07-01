@@ -2,10 +2,7 @@ import { useAsyncState } from './useAsyncState';
 import { modulesApi, type ModuleFilters } from '../api/modules';
 
 export function useModules(filters?: ModuleFilters) {
-  return useAsyncState(
-    () => modulesApi.getAll(filters),
-    [JSON.stringify(filters)]
-  );
+  return useAsyncState(() => modulesApi.getAll(filters), [JSON.stringify(filters)]);
 }
 
 export function useModule(id: string | undefined) {

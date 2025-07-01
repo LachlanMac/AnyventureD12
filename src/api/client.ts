@@ -28,7 +28,7 @@ class ApiClient {
     options: RequestInit & ApiRequestOptions = {}
   ): Promise<T> {
     const url = `${this.baseUrl}${endpoint}`;
-    
+
     const defaultHeaders = {
       'Content-Type': 'application/json',
       ...options.headers,
@@ -45,7 +45,7 @@ class ApiClient {
 
       if (!response.ok) {
         let errorMessage = `Request failed: ${response.status} ${response.statusText}`;
-        
+
         try {
           const errorData = await response.json();
           if (errorData.message) {
@@ -69,12 +69,9 @@ class ApiClient {
       if (error instanceof ApiError) {
         throw error;
       }
-      
+
       // Network errors, timeout, etc.
-      throw new ApiError(
-        error instanceof Error ? error.message : 'Network error occurred',
-        0
-      );
+      throw new ApiError(error instanceof Error ? error.message : 'Network error occurred', 0);
     }
   }
 
@@ -82,11 +79,7 @@ class ApiClient {
     return this.request<T>(endpoint, { ...options, method: 'GET' });
   }
 
-  async post<T>(
-    endpoint: string,
-    data?: any,
-    options?: ApiRequestOptions
-  ): Promise<T> {
+  async post<T>(endpoint: string, data?: any, options?: ApiRequestOptions): Promise<T> {
     return this.request<T>(endpoint, {
       ...options,
       method: 'POST',
@@ -94,11 +87,7 @@ class ApiClient {
     });
   }
 
-  async put<T>(
-    endpoint: string,
-    data?: any,
-    options?: ApiRequestOptions
-  ): Promise<T> {
+  async put<T>(endpoint: string, data?: any, options?: ApiRequestOptions): Promise<T> {
     return this.request<T>(endpoint, {
       ...options,
       method: 'PUT',
@@ -106,11 +95,7 @@ class ApiClient {
     });
   }
 
-  async patch<T>(
-    endpoint: string,
-    data?: any,
-    options?: ApiRequestOptions
-  ): Promise<T> {
+  async patch<T>(endpoint: string, data?: any, options?: ApiRequestOptions): Promise<T> {
     return this.request<T>(endpoint, {
       ...options,
       method: 'PATCH',

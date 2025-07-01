@@ -18,14 +18,14 @@ export const RANGE_DEFINITIONS: RangeDefinition[] = [
   { id: 5, name: 'Moderate', units: '11-20 Units', minUnits: 11, maxUnits: 20 },
   { id: 6, name: 'Distant', units: '21-40 Units', minUnits: 21, maxUnits: 40 },
   { id: 7, name: 'Remote', units: '41-100 Units', minUnits: 41, maxUnits: 100 },
-  { id: 8, name: 'Planar', units: '101+ Units', minUnits: 101, maxUnits: Infinity }
+  { id: 8, name: 'Planar', units: '101+ Units', minUnits: 101, maxUnits: Infinity },
 ];
 
 /**
  * Get range definition by ID
  */
 export function getRangeById(id: number): RangeDefinition | undefined {
-  return RANGE_DEFINITIONS.find(range => range.id === id);
+  return RANGE_DEFINITIONS.find((range) => range.id === id);
 }
 
 /**
@@ -45,13 +45,24 @@ export function unitToRangeId(units: number): number {
 /**
  * Format a single range for display
  */
-export function formatRange(rangeId: number | string, context: 'spell' | 'weapon' | 'general' = 'general'): string {
+export function formatRange(
+  rangeId: number | string,
+  context: 'spell' | 'weapon' | 'general' = 'general'
+): string {
   // Handle string values that might come from the API
   if (typeof rangeId === 'string') {
     // If it's already a string like "Self", "Moderate", etc., return it
-    if (rangeId === 'Self' || rangeId === 'Adjacent' || rangeId === 'Nearby' || 
-        rangeId === 'Very Short' || rangeId === 'Short' || rangeId === 'Moderate' || 
-        rangeId === 'Distant' || rangeId === 'Remote' || rangeId === 'Planar') {
+    if (
+      rangeId === 'Self' ||
+      rangeId === 'Adjacent' ||
+      rangeId === 'Nearby' ||
+      rangeId === 'Very Short' ||
+      rangeId === 'Short' ||
+      rangeId === 'Moderate' ||
+      rangeId === 'Distant' ||
+      rangeId === 'Remote' ||
+      rangeId === 'Planar'
+    ) {
       return rangeId;
     }
     // Try to parse as number
@@ -63,23 +74,23 @@ export function formatRange(rangeId: number | string, context: 'spell' | 'weapon
       return rangeId; // Return as-is if we can't parse it
     }
   }
-  
+
   // Convert to number for lookup
   const numericId = Number(rangeId);
   const range = getRangeById(numericId);
-  
+
   if (!range) {
     console.warn(`Unknown range ID: ${rangeId} (numeric: ${numericId})`);
     return 'Unknown Range';
   }
-  
+
   // Special handling for range 0 based on context
   if (numericId === 0) {
     if (context === 'spell') return 'Self';
     if (context === 'weapon') return 'No Min';
     return 'No Min/Self';
   }
-  
+
   // Return just the name without units
   return range.name;
 }
@@ -87,46 +98,52 @@ export function formatRange(rangeId: number | string, context: 'spell' | 'weapon
 /**
  * Format a range span (min to max) for display
  */
-export function formatRangeSpan(minRangeId: number, maxRangeId: number, context: 'spell' | 'weapon' | 'general' = 'general'): string {
+export function formatRangeSpan(
+  minRangeId: number,
+  maxRangeId: number,
+  context: 'spell' | 'weapon' | 'general' = 'general'
+): string {
   if (minRangeId === maxRangeId) {
     return formatRange(minRangeId, context);
   }
-  
+
   // Special rule: If minimum range is 0 (No Min), only show the max range
   if (minRangeId === 0) {
     return formatRange(maxRangeId, context);
   }
-  
+
   // Special rule: If minimum range is 1 (Adjacent) and max is nearby, just show nearby
   // since adjacent attacks can also hit nearby targets
   if (minRangeId === 1 && maxRangeId === 2) {
     return formatRange(maxRangeId, context);
   }
-  
+
   const minRange = getRangeById(minRangeId);
   const maxRange = getRangeById(maxRangeId);
-  
+
   if (!minRange || !maxRange) return 'Unknown Range';
-  
+
   // Calculate total unit span
   const minUnits = minRange.minUnits;
   const maxUnits = maxRange.maxUnits === Infinity ? '101+' : maxRange.maxUnits.toString();
-  
+
   // Special handling when range includes adjacent (don't show units for adjacent-only spans)
   if (minRangeId === 1 && maxRangeId === 1) {
     return 'Adjacent';
   }
-  
+
   return `${minRange.name} to ${maxRange.name} (${minUnits}-${maxUnits} Units)`;
 }
 
 /**
  * Get all range options for dropdowns
  */
-export function getRangeOptions(context: 'spell' | 'weapon' | 'general' = 'general'): Array<{value: number, label: string}> {
-  return RANGE_DEFINITIONS.map(range => ({
+export function getRangeOptions(
+  context: 'spell' | 'weapon' | 'general' = 'general'
+): Array<{ value: number; label: string }> {
+  return RANGE_DEFINITIONS.map((range) => ({
     value: range.id,
-    label: formatRange(range.id, context)
+    label: formatRange(range.id, context),
   }));
 }
 
@@ -136,8 +153,8 @@ export function getRangeOptions(context: 'spell' | 'weapon' | 'general' = 'gener
 export function isInRange(targetUnits: number, minRangeId: number, maxRangeId: number): boolean {
   const minRange = getRangeById(minRangeId);
   const maxRange = getRangeById(maxRangeId);
-  
+
   if (!minRange || !maxRange) return false;
-  
+
   return targetUnits >= minRange.minUnits && targetUnits <= maxRange.maxUnits;
 }

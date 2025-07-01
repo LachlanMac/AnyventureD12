@@ -21,8 +21,8 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
         { name: 'Fitness', value: skills.fitness },
         { name: 'Deflection', value: skills.deflection },
         { name: 'Might', value: skills.might },
-        { name: 'Endurance', value: skills.endurance }
-      ]
+        { name: 'Endurance', value: skills.endurance },
+      ],
     },
     {
       title: 'FINESSE',
@@ -31,8 +31,8 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
         { name: 'Evasion', value: skills.evasion },
         { name: 'Stealth', value: skills.stealth },
         { name: 'Coordination', value: skills.coordination },
-        { name: 'Thievery', value: skills.thievery }
-      ]
+        { name: 'Thievery', value: skills.thievery },
+      ],
     },
     {
       title: 'MIND',
@@ -41,8 +41,8 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
         { name: 'Resilience', value: skills.resilience },
         { name: 'Concentration', value: skills.concentration },
         { name: 'Senses', value: skills.senses },
-        { name: 'Logic', value: skills.logic }
-      ]
+        { name: 'Logic', value: skills.logic },
+      ],
     },
     {
       title: 'KNOWLEDGE',
@@ -51,8 +51,8 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
         { name: 'Wildcraft', value: skills.wildcraft },
         { name: 'Academics', value: skills.academics },
         { name: 'Magic', value: skills.magic },
-        { name: 'Medicine', value: skills.medicine }
-      ]
+        { name: 'Medicine', value: skills.medicine },
+      ],
     },
     {
       title: 'SOCIAL',
@@ -61,29 +61,53 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
         { name: 'Expression', value: skills.expression },
         { name: 'Presence', value: skills.presence },
         { name: 'Insight', value: skills.insight },
-        { name: 'Persuasion', value: skills.persuasion }
-      ]
-    }
+        { name: 'Persuasion', value: skills.persuasion },
+      ],
+    },
   ];
 
   return (
-    <div style={{ borderTop: '1px solid var(--color-dark-border)', paddingTop: '0.75rem', marginBottom: '0.75rem' }}>
-      <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '0.5rem', textAlign: 'center' }}>
+    <div
+      style={{
+        borderTop: '1px solid var(--color-dark-border)',
+        paddingTop: '0.75rem',
+        marginBottom: '0.75rem',
+      }}
+    >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(5, 1fr)',
+          gap: '0.5rem',
+          textAlign: 'center',
+        }}
+      >
         {skillColumns.map((column, index) => (
-          <div 
+          <div
             key={column.title}
-            style={{ 
-              backgroundColor: index % 2 === 0 ? 'var(--color-dark-elevated)' : 'var(--color-dark-surface)', 
-              padding: '0.5rem', 
-              borderRadius: '0.25rem' 
+            style={{
+              backgroundColor:
+                index % 2 === 0 ? 'var(--color-dark-elevated)' : 'var(--color-dark-surface)',
+              padding: '0.5rem',
+              borderRadius: '0.25rem',
             }}
           >
-            <div style={{ color: 'var(--color-old-gold)', fontSize: '0.625rem', fontWeight: 'bold', marginBottom: '0.375rem' }}>
+            <div
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                fontWeight: 'bold',
+                marginBottom: '0.375rem',
+              }}
+            >
               {column.title}
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '0.25rem' }}>
               {column.skills.map((skill) => (
-                <div key={skill.name} style={{ fontSize: '0.625rem', display: 'flex', justifyContent: 'space-between' }}>
+                <div
+                  key={skill.name}
+                  style={{ fontSize: '0.625rem', display: 'flex', justifyContent: 'space-between' }}
+                >
                   <span style={{ color: 'var(--color-cloud)' }}>{skill.name}</span>
                   <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
                     {renderSkillValue(column.attribute, skill.value)}

@@ -70,16 +70,16 @@ export const creaturesApi = {
       });
     }
     const queryString = params.toString();
-    return apiClient.get<{ creatures: Creature[]; pagination: any }>(`/creatures${queryString ? `?${queryString}` : ''}`);
+    return apiClient.get<{ creatures: Creature[]; pagination: any }>(
+      `/creatures${queryString ? `?${queryString}` : ''}`
+    );
   },
 
   // Get creature by ID
-  getById: (id: string) =>
-    apiClient.get<Creature>(`/creatures/${id}`),
+  getById: (id: string) => apiClient.get<Creature>(`/creatures/${id}`),
 
   // Get creature statistics
-  getStats: () =>
-    apiClient.get<CreatureStats>(`/creatures/stats`),
+  getStats: () => apiClient.get<CreatureStats>(`/creatures/stats`),
 
   // Homebrew creatures
   homebrew: {
@@ -94,27 +94,25 @@ export const creaturesApi = {
         });
       }
       const queryString = params.toString();
-      return apiClient.get<Creature[]>(`/homebrew/creatures${queryString ? `?${queryString}` : ''}`);
+      return apiClient.get<Creature[]>(
+        `/homebrew/creatures${queryString ? `?${queryString}` : ''}`
+      );
     },
 
     // Get homebrew creature by ID
-    getById: (id: string) =>
-      apiClient.get<Creature>(`/homebrew/creatures/${id}`),
+    getById: (id: string) => apiClient.get<Creature>(`/homebrew/creatures/${id}`),
 
     // Create homebrew creature
-    create: (data: CreateCreatureData) =>
-      apiClient.post<Creature>('/homebrew/creatures', data),
+    create: (data: CreateCreatureData) => apiClient.post<Creature>('/homebrew/creatures', data),
 
     // Update homebrew creature
     update: (id: string, data: Partial<CreateCreatureData>) =>
       apiClient.put<Creature>(`/homebrew/creatures/${id}`, data),
 
     // Delete homebrew creature
-    delete: (id: string) =>
-      apiClient.delete(`/homebrew/creatures/${id}`),
+    delete: (id: string) => apiClient.delete(`/homebrew/creatures/${id}`),
 
     // Publish homebrew creature
-    publish: (id: string) =>
-      apiClient.patch<Creature>(`/homebrew/creatures/${id}/publish`, {}),
-  }
+    publish: (id: string) => apiClient.patch<Creature>(`/homebrew/creatures/${id}/publish`, {}),
+  },
 };

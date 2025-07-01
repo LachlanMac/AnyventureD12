@@ -12,12 +12,13 @@ const __dirname = path.dirname(__filename);
 // Path to spells data directory
 const spellsDir = path.resolve(__dirname, '../../data/spells');
 
-// @desc    Get all spells
+// @desc    Get all spells (excluding homebrew)
 // @route   GET /api/spells
 // @access  Public
 export const getSpells = async (req, res) => {
   try {
-    const spells = await Spell.find({});
+    // Only fetch official spells (not homebrew)
+    const spells = await Spell.find({ isHomebrew: { $ne: true } });
     res.json(spells);
   } catch (error) {
     console.error('Error fetching spells:', error);
@@ -25,7 +26,7 @@ export const getSpells = async (req, res) => {
   }
 };
 
-// @desc    Get a single spell
+// @desc    Get a single spell (excluding homebrew)
 // @route   GET /api/spells/:id
 // @access  Public
 export const getSpell = async (req, res) => {
@@ -33,6 +34,11 @@ export const getSpell = async (req, res) => {
     const spell = await Spell.findById(req.params.id);
     
     if (!spell) {
+      return res.status(404).json({ message: 'Spell not found' });
+    }
+    
+    // Don't return homebrew spells through this endpoint
+    if (spell.isHomebrew) {
       return res.status(404).json({ message: 'Spell not found' });
     }
     
@@ -56,7 +62,7 @@ export const getSpellsBySchool = async (req, res) => {
       return res.status(400).json({ message: 'Invalid spell school' });
     }
     
-    const spells = await Spell.find({ school });
+    const spells = await Spell.find({ school, isHomebrew: { $ne: true } });
     res.json(spells);
   } catch (error) {
     console.error('Error fetching spells by school:', error);
@@ -71,7 +77,7 @@ export const getSpellsBySubschool = async (req, res) => {
   try {
     const { subschool } = req.params;
     
-    const spells = await Spell.find({ subschool });
+    const spells = await Spell.find({ subschool, isHomebrew: { $ne: true } });
     res.json(spells);
   } catch (error) {
     console.error('Error fetching spells by subschool:', error);

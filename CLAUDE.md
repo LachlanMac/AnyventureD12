@@ -22,6 +22,7 @@ npm run reset-items     # Reseed items from JSON files
 npm run fix-module-refs # Fix broken module references in characters
 npm run kill-ports      # Kill processes on ports 5173 and 4000
 npm run fix-campaign-index  # Fix MongoDB index issues for campaigns
+npm run cleanup-homebrew-spells  # Fix floating homebrew spells in compendium
 ```
 ## Architecture Overview
 

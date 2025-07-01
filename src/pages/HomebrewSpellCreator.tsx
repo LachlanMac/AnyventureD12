@@ -50,9 +50,9 @@ const HomebrewSpellCreator: React.FC = () => {
     try {
       const response = await fetch(`/api/homebrew/spells/${id}`);
       if (!response.ok) throw new Error('Failed to fetch spell');
-      
+
       const spell = await response.json();
-      
+
       // Populate form with existing data
       setSpellData({
         name: spell.name,
@@ -72,9 +72,8 @@ const HomebrewSpellCreator: React.FC = () => {
         damageType: spell.damageType || null,
         tags: spell.tags || [],
         source: spell.source || '',
-        balanceNotes: spell.balanceNotes || ''
+        balanceNotes: spell.balanceNotes || '',
       });
-      
     } catch (err) {
       showError('Failed to load spell for editing');
       navigate('/homebrew/spells');
@@ -120,7 +119,8 @@ const HomebrewSpellCreator: React.FC = () => {
       showSuccess(`Spell ${id ? 'updated' : 'created'} successfully!`);
       navigate(`/homebrew/spells/${savedSpell._id}`);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : `Failed to ${id ? 'update' : 'create'} spell`;
+      const errorMessage =
+        err instanceof Error ? err.message : `Failed to ${id ? 'update' : 'create'} spell`;
       setError(errorMessage);
       showError(errorMessage);
     } finally {
@@ -825,7 +825,11 @@ const HomebrewSpellCreator: React.FC = () => {
           }
           disabled={saving || !spellData.name || !spellData.description}
         >
-          {currentStep === totalSteps ? (saving ? `${id ? 'Updating' : 'Creating'}...` : `${id ? 'Update' : 'Create'} Spell`) : 'Next'}
+          {currentStep === totalSteps
+            ? saving
+              ? `${id ? 'Updating' : 'Creating'}...`
+              : `${id ? 'Update' : 'Create'} Spell`
+            : 'Next'}
         </Button>
       </div>
     </div>

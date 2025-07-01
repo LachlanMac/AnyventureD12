@@ -12,7 +12,7 @@ export function getDiceForSkill(skillLevel: number): string {
  * Format damage display with extra damage
  */
 export function formatDamage(damage: string, extraDamage: string, damageType: string): string {
-  const extraDisplay = extraDamage !== "0" ? ` [${extraDamage}]` : '';
+  const extraDisplay = extraDamage !== '0' ? ` [${extraDamage}]` : '';
   return `${damage}${extraDisplay} ${damageType}`;
 }
 
@@ -20,12 +20,12 @@ export function formatDamage(damage: string, extraDamage: string, damageType: st
  * Format secondary damage display
  */
 export function formatSecondaryDamage(
-  damage?: string, 
-  extraDamage?: string, 
+  damage?: string,
+  extraDamage?: string,
   damageType?: string
 ): string | null {
   if (!damage || !damageType) return null;
-  const extraDisplay = extraDamage && extraDamage !== "0" ? ` [${extraDamage}]` : '';
+  const extraDisplay = extraDamage && extraDamage !== '0' ? ` [${extraDamage}]` : '';
   return `+ ${damage}${extraDisplay} ${damageType}`;
 }
 

@@ -23,18 +23,18 @@ const WikiSidebar = () => {
   useEffect(() => {
     // Load wiki structure
     fetch('/wiki/structure.json')
-      .then(res => res.json())
-      .then(data => {
+      .then((res) => res.json())
+      .then((data) => {
         setStructure(data);
         // Expand all categories by default
         const categories = new Set<string>(data.pages.map((p: WikiPage) => p.category));
         setExpandedCategories(categories);
       })
-      .catch(err => console.error('Failed to load wiki structure:', err));
+      .catch((err) => console.error('Failed to load wiki structure:', err));
   }, []);
 
   const toggleCategory = (category: string) => {
-    setExpandedCategories(prev => {
+    setExpandedCategories((prev) => {
       const newSet = new Set(prev);
       if (newSet.has(category)) {
         newSet.delete(category);
@@ -48,35 +48,52 @@ const WikiSidebar = () => {
   if (!structure) return null;
 
   // Group pages by category
-  const pagesByCategory = structure.pages.reduce((acc, page) => {
-    if (!acc[page.category]) {
-      acc[page.category] = [];
-    }
-    acc[page.category].push(page);
-    return acc;
-  }, {} as Record<string, WikiPage[]>);
+  const pagesByCategory = structure.pages.reduce(
+    (acc, page) => {
+      if (!acc[page.category]) {
+        acc[page.category] = [];
+      }
+      acc[page.category].push(page);
+      return acc;
+    },
+    {} as Record<string, WikiPage[]>
+  );
 
   // Sort pages within each category
-  Object.values(pagesByCategory).forEach(pages => {
+  Object.values(pagesByCategory).forEach((pages) => {
     pages.sort((a, b) => a.order - b.order);
   });
 
-  // Get category order based on first page in each category
-  const categoryOrder = Object.keys(pagesByCategory).sort((a, b) => {
-    const aFirst = pagesByCategory[a][0];
-    const bFirst = pagesByCategory[b][0];
-    return (aFirst?.order || 0) - (bFirst?.order || 0);
-  });
+  // Define category order manually to match intended structure
+  const desiredCategoryOrder = [
+    'Getting Started',
+    'Core Mechanics',
+    'Character Creation',
+    'Combat',
+    'Magic',
+    'Modules & Progression',
+    'Crafting',
+    'Resources',
+    'Effects',
+    'Songs & Music',
+    'Reference'
+  ];
+
+  // Get category order, prioritizing our desired order, then any remaining categories alphabetically
+  const categoryOrder = [
+    ...desiredCategoryOrder.filter(cat => pagesByCategory[cat]),
+    ...Object.keys(pagesByCategory).filter(cat => !desiredCategoryOrder.includes(cat)).sort()
+  ];
 
   return (
     <div className="bg-gray-800/50 backdrop-blur-sm rounded-lg shadow-xl border border-purple-900/20 p-4">
       <h2 className="text-xl font-bold text-purple-300 mb-4">Wiki Navigation</h2>
-      
+
       <nav className="space-y-2">
-        {categoryOrder.map(category => {
+        {categoryOrder.map((category) => {
           const isExpanded = expandedCategories.has(category);
           const pages = pagesByCategory[category];
-          
+
           return (
             <div key={category}>
               <button
@@ -90,13 +107,13 @@ const WikiSidebar = () => {
                   <ChevronRightIcon className="w-4 h-4 text-gray-400" />
                 )}
               </button>
-              
+
               {isExpanded && (
                 <div className="ml-2 mt-1 space-y-1">
-                  {pages.map(page => {
+                  {pages.map((page) => {
                     const pagePath = `/wiki/${page.id}`;
                     const isActive = location.pathname === pagePath;
-                    
+
                     return (
                       <Link
                         key={page.id}
@@ -117,7 +134,7 @@ const WikiSidebar = () => {
           );
         })}
       </nav>
-      
+
       <div className="mt-6 pt-6 border-t border-gray-700">
         <Link
           to="/wiki"

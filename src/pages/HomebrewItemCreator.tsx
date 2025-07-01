@@ -106,9 +106,9 @@ const HomebrewItemCreator: React.FC = () => {
     try {
       const response = await fetch(`/api/homebrew/items/${id}`);
       if (!response.ok) throw new Error('Failed to fetch item');
-      
+
       const item = await response.json();
-      
+
       // Populate form with existing data
       setItemData({
         name: item.name,
@@ -120,35 +120,34 @@ const HomebrewItemCreator: React.FC = () => {
         value: item.value,
         tags: item.tags || [],
         source: item.source || '',
-        balanceNotes: item.balanceNotes || ''
+        balanceNotes: item.balanceNotes || '',
       });
-      
+
       if (item.type === 'weapon') {
         setWeaponData({
           bonus_attack: item.bonus_attack || 0,
           primary: item.primary || { damage: '', damage_extra: '', damage_type: 'physical' },
-          secondary: item.secondary || { damage: '', damage_extra: '', damage_type: 'physical' }
+          secondary: item.secondary || { damage: '', damage_extra: '', damage_type: 'physical' },
         });
         setHasSecondaryDamage(!!item.secondary);
       }
-      
+
       if (item.armor_penalties) {
         setArmorPenalties(item.armor_penalties);
       }
-      
+
       if (item.health || item.energy || item.resolve || item.movement) {
         setResourceBonuses({
           health: item.health || { max: 0, recovery: 0 },
           energy: item.energy || { max: 0, recovery: 0 },
           resolve: item.resolve || { max: 0, recovery: 0 },
-          movement: item.movement || 0
+          movement: item.movement || 0,
         });
       }
-      
+
       if (item.mitigation) {
         setMitigation(item.mitigation);
       }
-      
     } catch (err) {
       showError('Failed to load item for editing');
       navigate('/homebrew/items');
@@ -203,7 +202,8 @@ const HomebrewItemCreator: React.FC = () => {
       showSuccess(`Item ${id ? 'updated' : 'created'} successfully!`);
       navigate(`/homebrew/items/${savedItem._id}`);
     } catch (err) {
-      const errorMessage = err instanceof Error ? err.message : `Failed to ${id ? 'update' : 'create'} item`;
+      const errorMessage =
+        err instanceof Error ? err.message : `Failed to ${id ? 'update' : 'create'} item`;
       setError(errorMessage);
       showError(errorMessage);
     } finally {
@@ -1514,7 +1514,11 @@ const HomebrewItemCreator: React.FC = () => {
           }
           disabled={saving || !itemData.name || !itemData.description}
         >
-          {currentStep === totalSteps ? (saving ? `${id ? 'Updating' : 'Creating'}...` : `${id ? 'Update' : 'Create'} Item`) : 'Next'}
+          {currentStep === totalSteps
+            ? saving
+              ? `${id ? 'Updating' : 'Creating'}...`
+              : `${id ? 'Update' : 'Create'} Item`
+            : 'Next'}
         </Button>
       </div>
     </div>

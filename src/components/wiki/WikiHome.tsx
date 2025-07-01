@@ -1,6 +1,11 @@
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
-import { BookOpenIcon, AcademicCapIcon, SparklesIcon, ShieldCheckIcon } from '@heroicons/react/24/outline';
+import {
+  BookOpenIcon,
+  AcademicCapIcon,
+  SparklesIcon,
+  ShieldCheckIcon,
+} from '@heroicons/react/24/outline';
 
 interface WikiPage {
   id: string;
@@ -19,7 +24,7 @@ const categoryIcons: Record<string, React.ReactNode> = {
   'Getting Started': <BookOpenIcon className="w-6 h-6" />,
   'Character Creation': <AcademicCapIcon className="w-6 h-6" />,
   'Core Mechanics': <SparklesIcon className="w-6 h-6" />,
-  'Combat': <ShieldCheckIcon className="w-6 h-6" />,
+  Combat: <ShieldCheckIcon className="w-6 h-6" />,
 };
 
 const WikiHome = () => {
@@ -27,9 +32,9 @@ const WikiHome = () => {
 
   useEffect(() => {
     fetch('/wiki/structure.json')
-      .then(res => res.json())
-      .then(data => setStructure(data))
-      .catch(err => console.error('Failed to load wiki structure:', err));
+      .then((res) => res.json())
+      .then((data) => setStructure(data))
+      .catch((err) => console.error('Failed to load wiki structure:', err));
   }, []);
 
   if (!structure) {
@@ -41,16 +46,19 @@ const WikiHome = () => {
   }
 
   // Group pages by category
-  const pagesByCategory = structure.pages.reduce((acc, page) => {
-    if (!acc[page.category]) {
-      acc[page.category] = [];
-    }
-    acc[page.category].push(page);
-    return acc;
-  }, {} as Record<string, WikiPage[]>);
+  const pagesByCategory = structure.pages.reduce(
+    (acc, page) => {
+      if (!acc[page.category]) {
+        acc[page.category] = [];
+      }
+      acc[page.category].push(page);
+      return acc;
+    },
+    {} as Record<string, WikiPage[]>
+  );
 
   // Sort pages within each category
-  Object.values(pagesByCategory).forEach(pages => {
+  Object.values(pagesByCategory).forEach((pages) => {
     pages.sort((a, b) => a.order - b.order);
   });
 
@@ -75,9 +83,9 @@ const WikiHome = () => {
               </div>
               <h2 className="text-2xl font-bold text-purple-300">{category}</h2>
             </div>
-            
+
             <ul className="space-y-2">
-              {pages.map(page => (
+              {pages.map((page) => (
                 <li key={page.id}>
                   <Link
                     to={`/wiki/${page.id}`}
@@ -95,10 +103,15 @@ const WikiHome = () => {
       <div className="mt-12 p-6 bg-purple-900/20 rounded-lg border border-purple-600/30">
         <h3 className="text-xl font-bold text-purple-300 mb-3">New to Anyventure?</h3>
         <p className="text-gray-300 mb-4">
-          Start with the <Link to="/wiki/overview" className="text-purple-400 hover:text-purple-300">Overview</Link> to
-          understand what makes Anyventure unique, then move on to{' '}
-          <Link to="/wiki/core-concepts" className="text-purple-400 hover:text-purple-300">Core Concepts</Link> to
-          learn the fundamental mechanics.
+          Start with the{' '}
+          <Link to="/wiki/overview" className="text-purple-400 hover:text-purple-300">
+            Overview
+          </Link>{' '}
+          to understand what makes Anyventure unique, then move on to{' '}
+          <Link to="/wiki/core-concepts" className="text-purple-400 hover:text-purple-300">
+            Core Concepts
+          </Link>{' '}
+          to learn the fundamental mechanics.
         </p>
         <Link
           to="/wiki/overview"

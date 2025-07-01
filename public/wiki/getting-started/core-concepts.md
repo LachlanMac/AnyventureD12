@@ -5,7 +5,7 @@
 In Anyventure, there's an important distinction between **Talents** and **Skills**:
 
 ### Talents
-- Represent natural ability (0-4 scale)
+- Represent natural ability
 - Determine **how many dice** you roll
 - Set during character creation
 - Rarely change during play

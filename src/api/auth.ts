@@ -18,16 +18,13 @@ export interface UpdateProfileData {
 
 export const authApi = {
   // Check authentication status
-  me: () =>
-    apiClient.get<AuthResponse>('/auth/me'),
+  me: () => apiClient.get<AuthResponse>('/auth/me'),
 
   // Update user profile
-  updateProfile: (data: UpdateProfileData) =>
-    apiClient.put<User>('/auth/profile', data),
+  updateProfile: (data: UpdateProfileData) => apiClient.put<User>('/auth/profile', data),
 
   // Logout
-  logout: () =>
-    apiClient.get('/auth/logout'),
+  logout: () => apiClient.get('/auth/logout'),
 
   // Discord OAuth login (redirect)
   loginUrl: '/api/auth/discord',

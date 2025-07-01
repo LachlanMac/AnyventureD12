@@ -20,12 +20,12 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   description,
   action,
   className = '',
-  size = 'md'
+  size = 'md',
 }) => {
   const sizeClasses = {
     sm: 'min-h-[200px] p-4',
     md: 'min-h-[300px] p-8',
-    lg: 'min-h-[400px] p-12'
+    lg: 'min-h-[400px] p-12',
   };
 
   const defaultIcon = (
@@ -46,7 +46,9 @@ const EmptyState: React.FC<EmptyStateProps> = ({
   );
 
   return (
-    <div className={`flex flex-col justify-center items-center text-center ${sizeClasses[size]} ${className}`}>
+    <div
+      className={`flex flex-col justify-center items-center text-center ${sizeClasses[size]} ${className}`}
+    >
       <div
         style={{
           backgroundColor: 'var(--color-dark-surface)',
@@ -57,7 +59,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
           justifyContent: 'center',
           gap: '1.5rem',
           maxWidth: '500px',
-          width: '100%'
+          width: '100%',
         }}
       >
         <div
@@ -69,7 +71,7 @@ const EmptyState: React.FC<EmptyStateProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'center',
-            color: 'var(--color-cloud)'
+            color: 'var(--color-cloud)',
           }}
         >
           {icon || defaultIcon}
@@ -80,17 +82,17 @@ const EmptyState: React.FC<EmptyStateProps> = ({
             fontFamily: 'var(--font-display)',
             fontSize: size === 'lg' ? '1.75rem' : size === 'sm' ? '1.25rem' : '1.5rem',
             fontWeight: 'bold',
-            margin: 0
+            margin: 0,
           }}
         >
           {title}
         </h2>
-        <p 
-          style={{ 
-            color: 'var(--color-cloud)', 
-            maxWidth: '400px', 
+        <p
+          style={{
+            color: 'var(--color-cloud)',
+            maxWidth: '400px',
             margin: '0 auto',
-            lineHeight: '1.5'
+            lineHeight: '1.5',
           }}
         >
           {description}

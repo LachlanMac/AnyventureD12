@@ -63,8 +63,7 @@ export const itemsApi = {
   },
 
   // Get item by ID
-  getById: (id: string) =>
-    apiClient.get<Item>(`/items/${id}`),
+  getById: (id: string) => apiClient.get<Item>(`/items/${id}`),
 
   // Homebrew items
   homebrew: {
@@ -83,23 +82,19 @@ export const itemsApi = {
     },
 
     // Get homebrew item by ID
-    getById: (id: string) =>
-      apiClient.get<Item>(`/homebrew/items/${id}`),
+    getById: (id: string) => apiClient.get<Item>(`/homebrew/items/${id}`),
 
     // Create homebrew item
-    create: (data: CreateItemData) =>
-      apiClient.post<Item>('/homebrew/items', data),
+    create: (data: CreateItemData) => apiClient.post<Item>('/homebrew/items', data),
 
     // Update homebrew item
     update: (id: string, data: Partial<CreateItemData>) =>
       apiClient.put<Item>(`/homebrew/items/${id}`, data),
 
     // Delete homebrew item
-    delete: (id: string) =>
-      apiClient.delete(`/homebrew/items/${id}`),
+    delete: (id: string) => apiClient.delete(`/homebrew/items/${id}`),
 
     // Publish homebrew item
-    publish: (id: string) =>
-      apiClient.patch<Item>(`/homebrew/items/${id}/publish`, {}),
-  }
+    publish: (id: string) => apiClient.patch<Item>(`/homebrew/items/${id}/publish`, {}),
+  },
 };

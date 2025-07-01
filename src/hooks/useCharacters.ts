@@ -2,10 +2,7 @@ import { useAsyncState } from './useAsyncState';
 import { charactersApi, type CharacterFilters } from '../api/characters';
 
 export function useCharacters(filters?: CharacterFilters) {
-  return useAsyncState(
-    () => charactersApi.getAll(filters),
-    [JSON.stringify(filters)]
-  );
+  return useAsyncState(() => charactersApi.getAll(filters), [JSON.stringify(filters)]);
 }
 
 export function useCharacter(id: string | undefined) {

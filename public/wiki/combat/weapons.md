@@ -80,7 +80,15 @@ Attacking outside optimal range:
 With the right modules:
 - Attack with both weapons as one action
 - Each weapon rolls separately
-- Requires specific training/modules
+- Requires specific training/modul
+
+
+## Critical Hits
+
+Critical hits become possible with higher dice:
+- **d12**: Critical on 12
+- **d16**: Critical on 15-16
+- **d20**: Critical on 18-20
 
 ## Next Steps
 

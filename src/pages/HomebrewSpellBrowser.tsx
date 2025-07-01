@@ -117,18 +117,21 @@ const HomebrewSpellBrowser: React.FC = () => {
   };
 
   const handleDelete = async (spellId: string) => {
-    if (!user || !window.confirm('Are you sure you want to delete this spell? This action cannot be undone.')) {
+    if (
+      !user ||
+      !window.confirm('Are you sure you want to delete this spell? This action cannot be undone.')
+    ) {
       return;
     }
 
     try {
       const response = await fetch(`/api/homebrew/spells/${spellId}`, {
         method: 'DELETE',
-        credentials: 'include'
+        credentials: 'include',
       });
 
       if (response.ok) {
-        setSpells(spells.filter(spell => spell._id !== spellId));
+        setSpells(spells.filter((spell) => spell._id !== spellId));
         showSuccess('Spell deleted successfully');
       } else {
         showError('Failed to delete spell');
@@ -650,11 +653,7 @@ const HomebrewSpellBrowser: React.FC = () => {
                         >
                           Edit
                         </Button>
-                        <Button
-                          variant="danger"
-                          size="sm"
-                          onClick={() => handleDelete(spell._id)}
-                        >
+                        <Button variant="danger" size="sm" onClick={() => handleDelete(spell._id)}>
                           Delete
                         </Button>
                       </>

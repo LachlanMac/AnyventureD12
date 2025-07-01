@@ -27,7 +27,9 @@ const ModuleCompendium: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   // Filter states
-  const [activeFilter, setActiveFilter] = useState<'all' | 'core' | 'secondary' | 'alteration' | 'planar' | 'personality'>('all');
+  const [activeFilter, setActiveFilter] = useState<
+    'all' | 'core' | 'secondary' | 'alteration' | 'planar' | 'personality'
+  >('all');
 
   useEffect(() => {
     const fetchModules = async () => {

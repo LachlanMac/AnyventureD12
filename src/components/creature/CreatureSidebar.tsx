@@ -12,12 +12,26 @@ const CreatureSidebar: React.FC<CreatureSidebarProps> = ({ creature }) => {
       {/* Description */}
       <Card variant="default">
         <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-          <h2 style={{ color: 'var(--color-white)', fontSize: '0.875rem', fontWeight: 'bold', margin: 0 }}>
+          <h2
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              fontWeight: 'bold',
+              margin: 0,
+            }}
+          >
             Description
           </h2>
         </CardHeader>
         <CardBody style={{ padding: '0.75rem 1.25rem' }}>
-          <p style={{ color: 'var(--color-cloud)', lineHeight: '1.4', margin: 0, fontSize: '0.75rem' }}>
+          <p
+            style={{
+              color: 'var(--color-cloud)',
+              lineHeight: '1.4',
+              margin: 0,
+              fontSize: '0.75rem',
+            }}
+          >
             {creature.description}
           </p>
         </CardBody>
@@ -26,12 +40,26 @@ const CreatureSidebar: React.FC<CreatureSidebarProps> = ({ creature }) => {
       {/* Tactics */}
       <Card variant="default">
         <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-          <h2 style={{ color: 'var(--color-white)', fontSize: '0.875rem', fontWeight: 'bold', margin: 0 }}>
+          <h2
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              fontWeight: 'bold',
+              margin: 0,
+            }}
+          >
             Tactics
           </h2>
         </CardHeader>
         <CardBody style={{ padding: '0.75rem 1.25rem' }}>
-          <p style={{ color: 'var(--color-cloud)', lineHeight: '1.4', margin: 0, fontSize: '0.75rem' }}>
+          <p
+            style={{
+              color: 'var(--color-cloud)',
+              lineHeight: '1.4',
+              margin: 0,
+              fontSize: '0.75rem',
+            }}
+          >
             {creature.tactics}
           </p>
         </CardBody>
@@ -41,14 +69,30 @@ const CreatureSidebar: React.FC<CreatureSidebarProps> = ({ creature }) => {
       {creature.loot.length > 0 && (
         <Card variant="default">
           <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-            <h2 style={{ color: 'var(--color-white)', fontSize: '0.875rem', fontWeight: 'bold', margin: 0 }}>
+            <h2
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '0.875rem',
+                fontWeight: 'bold',
+                margin: 0,
+              }}
+            >
               Loot
             </h2>
           </CardHeader>
           <CardBody style={{ padding: '0.75rem 1.25rem' }}>
-            <ul style={{ color: 'var(--color-cloud)', margin: 0, paddingLeft: '1rem', fontSize: '0.75rem' }}>
+            <ul
+              style={{
+                color: 'var(--color-cloud)',
+                margin: 0,
+                paddingLeft: '1rem',
+                fontSize: '0.75rem',
+              }}
+            >
               {creature.loot.map((item, index) => (
-                <li key={index} style={{ marginBottom: '0.125rem' }}>{item}</li>
+                <li key={index} style={{ marginBottom: '0.125rem' }}>
+                  {item}
+                </li>
               ))}
             </ul>
           </CardBody>
@@ -59,7 +103,14 @@ const CreatureSidebar: React.FC<CreatureSidebarProps> = ({ creature }) => {
       {creature.languages.length > 0 && (
         <Card variant="default">
           <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-            <h2 style={{ color: 'var(--color-white)', fontSize: '0.875rem', fontWeight: 'bold', margin: 0 }}>
+            <h2
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '0.875rem',
+                fontWeight: 'bold',
+                margin: 0,
+              }}
+            >
               Languages
             </h2>
           </CardHeader>

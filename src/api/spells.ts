@@ -67,8 +67,7 @@ export const spellsApi = {
   },
 
   // Get spell by ID
-  getById: (id: string) =>
-    apiClient.get<Spell>(`/spells/${id}`),
+  getById: (id: string) => apiClient.get<Spell>(`/spells/${id}`),
 
   // Get spells by school
   getBySchool: (school: string, subschool?: string) => {
@@ -101,25 +100,21 @@ export const spellsApi = {
     },
 
     // Get homebrew spell by ID
-    getById: (id: string) =>
-      apiClient.get<Spell>(`/homebrew/spells/${id}`),
+    getById: (id: string) => apiClient.get<Spell>(`/homebrew/spells/${id}`),
 
     // Create homebrew spell
-    create: (data: CreateSpellData) =>
-      apiClient.post<Spell>('/homebrew/spells', data),
+    create: (data: CreateSpellData) => apiClient.post<Spell>('/homebrew/spells', data),
 
     // Update homebrew spell
     update: (id: string, data: Partial<CreateSpellData>) =>
       apiClient.put<Spell>(`/homebrew/spells/${id}`, data),
 
     // Delete homebrew spell
-    delete: (id: string) =>
-      apiClient.delete(`/homebrew/spells/${id}`),
+    delete: (id: string) => apiClient.delete(`/homebrew/spells/${id}`),
 
     // Publish homebrew spell
-    publish: (id: string) =>
-      apiClient.patch<Spell>(`/homebrew/spells/${id}/publish`, {}),
-  }
+    publish: (id: string) => apiClient.patch<Spell>(`/homebrew/spells/${id}/publish`, {}),
+  },
 };
 
 // Export as spellApi for backward compatibility

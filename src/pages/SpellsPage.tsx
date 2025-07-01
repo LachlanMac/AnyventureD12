@@ -13,7 +13,11 @@ import type { CharacterSpell } from '../types/character';
 const SpellsPage: React.FC = () => {
   const { id: characterId } = useParams<{ id: string }>();
 
-  const { data: character, loading: characterLoading, error: characterError } = useCharacter(characterId);
+  const {
+    data: character,
+    loading: characterLoading,
+    error: characterError,
+  } = useCharacter(characterId);
   const { data: allSpells, loading: spellsLoading, error: spellsError } = useSpells();
 
   const [selectedSpell, setSelectedSpell] = useState<any | null>(null);
@@ -31,9 +35,13 @@ const SpellsPage: React.FC = () => {
 
   useEffect(() => {
     if (allSpells) {
-      const uniqueSchools = [...new Set(allSpells.map((spell: any) => spell.school as string))] as string[];
+      const uniqueSchools = [
+        ...new Set(allSpells.map((spell: any) => spell.school as string)),
+      ] as string[];
       setSchools(uniqueSchools);
-      const uniqueSubschools = [...new Set(allSpells.map((spell: any) => spell.subschool as string))] as string[];
+      const uniqueSubschools = [
+        ...new Set(allSpells.map((spell: any) => spell.subschool as string)),
+      ] as string[];
       setSubschools(uniqueSubschools);
     }
   }, [allSpells]);
@@ -176,7 +184,7 @@ const SpellsPage: React.FC = () => {
         <ErrorState
           title="Failed to Load Character Spells"
           message={error || 'Character not found'}
-          onRetry={() => window.location.href = `/characters/${characterId}`}
+          onRetry={() => (window.location.href = `/characters/${characterId}`)}
           retryText="Return to Character"
           size="lg"
         />
@@ -827,12 +835,11 @@ const SpellsPage: React.FC = () => {
                       disabled={!hasAvailableSpellSlots() || actionLoading}
                       style={{ flex: 1 }}
                     >
-                      {actionLoading 
-                        ? 'Processing...' 
-                        : hasAvailableSpellSlots() 
-                        ? 'Learn Spell' 
-                        : 'No Spell Slots Available'
-                      }
+                      {actionLoading
+                        ? 'Processing...'
+                        : hasAvailableSpellSlots()
+                          ? 'Learn Spell'
+                          : 'No Spell Slots Available'}
                     </Button>
                   )}
                 </div>

@@ -23,12 +23,12 @@ export function useCreature(id: string | undefined): UseCreatureResult {
       try {
         setLoading(true);
         setError(null);
-        
+
         const response = await fetch(`/api/creatures/${id}`);
         if (!response.ok) {
           throw new Error('Failed to fetch creature');
         }
-        
+
         const data = await response.json();
         setCreature(data);
       } catch (err) {

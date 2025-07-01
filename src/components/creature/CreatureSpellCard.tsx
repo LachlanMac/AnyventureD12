@@ -12,60 +12,98 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
   const isCustomSpell = isCustom && 'energy_cost' in spell;
 
   return (
-    <div style={{ 
-      padding: '0.75rem',
-      backgroundColor: 'rgba(85, 65, 130, 0.15)',
-      borderRadius: '0.25rem',
-      border: '1px solid var(--color-sat-purple)'
-    }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.375rem' }}>
-        <h3 style={{ color: 'var(--color-white)', fontWeight: 'bold', margin: 0, fontSize: '0.875rem', display: 'flex', alignItems: 'center', gap: '0.375rem' }}>
+    <div
+      style={{
+        padding: '0.75rem',
+        backgroundColor: 'rgba(85, 65, 130, 0.15)',
+        borderRadius: '0.25rem',
+        border: '1px solid var(--color-sat-purple)',
+      }}
+    >
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'space-between',
+          alignItems: 'center',
+          marginBottom: '0.375rem',
+        }}
+      >
+        <h3
+          style={{
+            color: 'var(--color-white)',
+            fontWeight: 'bold',
+            margin: 0,
+            fontSize: '0.875rem',
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.375rem',
+          }}
+        >
           {spell.name}
           <span style={{ color: 'var(--color-sat-purple)', fontSize: '0.75rem' }}>✨</span>
           {isCustom && (
-            <span style={{ 
-              color: 'var(--color-old-gold)', 
-              fontSize: '0.625rem',
-              backgroundColor: 'var(--color-dark-surface)',
-              padding: '0.125rem 0.25rem',
-              borderRadius: '0.25rem'
-            }}>
+            <span
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                backgroundColor: 'var(--color-dark-surface)',
+                padding: '0.125rem 0.25rem',
+                borderRadius: '0.25rem',
+              }}
+            >
               Custom
             </span>
           )}
         </h3>
         <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
           {isRegularSpell && (
-            <span style={{ 
-              color: 'var(--color-cloud)', 
-              fontSize: '0.625rem',
-              textTransform: 'capitalize'
-            }}>
+            <span
+              style={{
+                color: 'var(--color-cloud)',
+                fontSize: '0.625rem',
+                textTransform: 'capitalize',
+              }}
+            >
               {(spell as CreatureSpell).school} • {(spell as CreatureSpell).subschool}
             </span>
           )}
-          <span style={{ 
-            color: 'var(--color-old-gold)', 
-            fontSize: '0.75rem',
-            backgroundColor: 'var(--color-dark-surface)',
-            padding: '0.125rem 0.375rem',
-            borderRadius: '0.25rem'
-          }}>
-            {isRegularSpell ? (spell as CreatureSpell).energy : (spell as CreatureCustomSpell).energy_cost} Energy
+          <span
+            style={{
+              color: 'var(--color-old-gold)',
+              fontSize: '0.75rem',
+              backgroundColor: 'var(--color-dark-surface)',
+              padding: '0.125rem 0.375rem',
+              borderRadius: '0.25rem',
+            }}
+          >
+            {isRegularSpell
+              ? (spell as CreatureSpell).energy
+              : (spell as CreatureCustomSpell).energy_cost}{' '}
+            Energy
           </span>
         </div>
       </div>
-      
-      <p style={{ color: 'var(--color-cloud)', margin: 0, lineHeight: '1.3', fontSize: '0.75rem', marginBottom: '0.375rem' }}>
+
+      <p
+        style={{
+          color: 'var(--color-cloud)',
+          margin: 0,
+          lineHeight: '1.3',
+          fontSize: '0.75rem',
+          marginBottom: '0.375rem',
+        }}
+      >
         {spell.description}
       </p>
-      
-      <div style={{ 
-        display: 'flex',
-        gap: '0.75rem',
-        fontSize: '0.75rem',
-        flexWrap: 'wrap'
-      }}>
+
+      <div
+        style={{
+          display: 'flex',
+          gap: '0.75rem',
+          fontSize: '0.75rem',
+          flexWrap: 'wrap',
+        }}
+      >
         {isRegularSpell && (
           <>
             <span style={{ color: 'var(--color-white)' }}>
@@ -73,7 +111,8 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
             </span>
             {(spell as CreatureSpell).damage > 0 && (
               <span style={{ color: 'var(--color-white)' }}>
-                <strong>Damage:</strong> {(spell as CreatureSpell).damage} {(spell as CreatureSpell).damageType}
+                <strong>Damage:</strong> {(spell as CreatureSpell).damage}{' '}
+                {(spell as CreatureSpell).damageType}
               </span>
             )}
             <span style={{ color: 'var(--color-cloud)' }}>
@@ -85,18 +124,14 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
               </span>
             )}
             {(spell as CreatureSpell).concentration && (
-              <span style={{ color: 'var(--color-stormy)' }}>
-                Concentration
-              </span>
+              <span style={{ color: 'var(--color-stormy)' }}>Concentration</span>
             )}
             {(spell as CreatureSpell).reaction && (
-              <span style={{ color: 'var(--color-stormy)' }}>
-                Reaction
-              </span>
+              <span style={{ color: 'var(--color-stormy)' }}>Reaction</span>
             )}
           </>
         )}
-        
+
         {isCustomSpell && (
           <>
             {(spell as CreatureCustomSpell).roll && (
@@ -107,21 +142,31 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
             {(spell as CreatureCustomSpell).damage && (
               <span style={{ color: 'var(--color-white)' }}>
                 <strong>Damage:</strong> {(spell as CreatureCustomSpell).damage}
-                {(spell as CreatureCustomSpell).damage_extra && (spell as CreatureCustomSpell).damage_extra !== "0" && ` [${(spell as CreatureCustomSpell).damage_extra}]`} {(spell as CreatureCustomSpell).damage_type}
+                {(spell as CreatureCustomSpell).damage_extra &&
+                  (spell as CreatureCustomSpell).damage_extra !== '0' &&
+                  ` [${(spell as CreatureCustomSpell).damage_extra}]`}{' '}
+                {(spell as CreatureCustomSpell).damage_type}
               </span>
             )}
-            {(spell as CreatureCustomSpell).target_defense && (spell as CreatureCustomSpell).target_defense !== 'none' && (
-              <span style={{ color: 'var(--color-cloud)' }}>
-                Target: {(spell as CreatureCustomSpell).target_defense} {(spell as CreatureCustomSpell).defense_difficulty}+
-              </span>
-            )}
+            {(spell as CreatureCustomSpell).target_defense &&
+              (spell as CreatureCustomSpell).target_defense !== 'none' && (
+                <span style={{ color: 'var(--color-cloud)' }}>
+                  Target: {(spell as CreatureCustomSpell).target_defense}{' '}
+                  {(spell as CreatureCustomSpell).defense_difficulty}+
+                </span>
+              )}
             <span style={{ color: 'var(--color-cloud)' }}>
-              Range: {formatRangeSpan((spell as CreatureCustomSpell).min_range, (spell as CreatureCustomSpell).max_range, 'spell')}
+              Range:{' '}
+              {formatRangeSpan(
+                (spell as CreatureCustomSpell).min_range,
+                (spell as CreatureCustomSpell).max_range,
+                'spell'
+              )}
             </span>
           </>
         )}
       </div>
-      
+
       {isRegularSpell && (spell as CreatureSpell).components.length > 0 && (
         <div style={{ marginTop: '0.25rem', fontSize: '0.625rem', color: 'var(--color-cloud)' }}>
           <strong>Components:</strong> {(spell as CreatureSpell).components.join(', ')}

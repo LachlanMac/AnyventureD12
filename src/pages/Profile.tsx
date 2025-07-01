@@ -78,7 +78,7 @@ const Profile: React.FC = () => {
           fontSize: '2.5rem',
           fontWeight: 'bold',
           marginBottom: '2rem',
-          textAlign: 'center'
+          textAlign: 'center',
         }}
       >
         Profile
@@ -105,16 +105,29 @@ const Profile: React.FC = () => {
                   justifyContent: 'center',
                   fontSize: '1.5rem',
                   fontWeight: 'bold',
-                  color: 'var(--color-white)'
+                  color: 'var(--color-white)',
                 }}
               >
                 {user.username?.charAt(0).toUpperCase() || 'U'}
               </div>
               <div>
-                <h3 style={{ color: 'var(--color-white)', fontSize: '1.125rem', fontWeight: 'bold', margin: 0 }}>
+                <h3
+                  style={{
+                    color: 'var(--color-white)',
+                    fontSize: '1.125rem',
+                    fontWeight: 'bold',
+                    margin: 0,
+                  }}
+                >
                   {user.username}
                 </h3>
-                <p style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', margin: '0.25rem 0 0 0' }}>
+                <p
+                  style={{
+                    color: 'var(--color-cloud)',
+                    fontSize: '0.875rem',
+                    margin: '0.25rem 0 0 0',
+                  }}
+                >
                   Logged in via Discord
                 </p>
               </div>
@@ -128,12 +141,12 @@ const Profile: React.FC = () => {
                   fontSize: '0.875rem',
                   display: 'block',
                   marginBottom: '0.5rem',
-                  fontWeight: 'bold'
+                  fontWeight: 'bold',
                 }}
               >
                 Display Name
               </label>
-              
+
               {isEditing ? (
                 <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
                   <input
@@ -149,7 +162,7 @@ const Profile: React.FC = () => {
                       color: 'var(--color-white)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      fontSize: '1rem'
+                      fontSize: '1rem',
                     }}
                   />
                   <Button
@@ -170,25 +183,24 @@ const Profile: React.FC = () => {
                   </Button>
                 </div>
               ) : (
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <div
+                  style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}
+                >
                   <span
                     style={{
                       color: 'var(--color-white)',
                       fontSize: '1rem',
-                      padding: '0.75rem 0'
+                      padding: '0.75rem 0',
                     }}
                   >
                     {user.username}
                   </span>
-                  <Button
-                    variant="outline"
-                    onClick={() => setIsEditing(true)}
-                  >
+                  <Button variant="outline" onClick={() => setIsEditing(true)}>
                     Edit
                   </Button>
                 </div>
               )}
-              
+
               <p style={{ color: 'var(--color-cloud)', fontSize: '0.75rem', marginTop: '0.5rem' }}>
                 This is the name that will be displayed on your homebrew content and in campaigns.
               </p>
@@ -196,12 +208,32 @@ const Profile: React.FC = () => {
 
             {/* Account Details */}
             <div style={{ borderTop: '1px solid var(--color-dark-border)', paddingTop: '1.5rem' }}>
-              <h3 style={{ color: 'var(--color-white)', fontSize: '1rem', fontWeight: 'bold', marginBottom: '1rem' }}>
+              <h3
+                style={{
+                  color: 'var(--color-white)',
+                  fontSize: '1rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1rem',
+                }}
+              >
                 Account Details
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 2fr', gap: '0.5rem', fontSize: '0.875rem' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 2fr',
+                  gap: '0.5rem',
+                  fontSize: '0.875rem',
+                }}
+              >
                 <span style={{ color: 'var(--color-cloud)' }}>User ID:</span>
-                <span style={{ color: 'var(--color-white)', fontFamily: 'monospace', fontSize: '0.75rem' }}>
+                <span
+                  style={{
+                    color: 'var(--color-white)',
+                    fontFamily: 'monospace',
+                    fontSize: '0.75rem',
+                  }}
+                >
                   {user.id}
                 </span>
               </div>

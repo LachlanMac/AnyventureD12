@@ -47,6 +47,9 @@ export const seedSpells = async () => {
             spellData.school = school;
             spellData.subschool = subschool;
             
+            // Ensure official spells are marked as not homebrew
+            spellData.isHomebrew = false;
+            
             // Check if spell already exists
             const existingSpell = await Spell.findOne({ name: spellData.name });
             

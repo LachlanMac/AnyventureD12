@@ -55,7 +55,7 @@ const HomebrewCreatureCreator: React.FC = () => {
   const navigate = useNavigate();
   const { user } = useAuth();
   const { showSuccess, showError } = useToast();
-  
+
   const [saving, setSaving] = useState(false);
   const [loading, setLoading] = useState(!!id);
   const [currentStep, setCurrentStep] = useState(1);
@@ -67,7 +67,16 @@ const HomebrewCreatureCreator: React.FC = () => {
     description: '',
     tactics: '',
     tier: 'foe' as 'minion' | 'thrall' | 'foe' | 'champion' | 'elite' | 'legend' | 'mythic',
-    type: 'humanoid' as 'fiend' | 'undead' | 'divine' | 'monster' | 'humanoid' | 'construct' | 'plantoid' | 'fey' | 'elemental',
+    type: 'humanoid' as
+      | 'fiend'
+      | 'undead'
+      | 'divine'
+      | 'monster'
+      | 'humanoid'
+      | 'construct'
+      | 'plantoid'
+      | 'fey'
+      | 'elemental',
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
     languages: [] as string[],
@@ -75,7 +84,7 @@ const HomebrewCreatureCreator: React.FC = () => {
     status: 'private' as 'draft' | 'private' | 'published',
     tags: [] as string[],
     source: '',
-    balanceNotes: ''
+    balanceNotes: '',
   });
 
   // Resources
@@ -83,7 +92,7 @@ const HomebrewCreatureCreator: React.FC = () => {
     health: { max: 15, current: 15 },
     energy: { max: 5, current: 5, recovery: 2 },
     resolve: { max: 10, current: 10, recovery: 1 },
-    movement: 5
+    movement: 5,
   });
 
   // Attributes
@@ -92,27 +101,55 @@ const HomebrewCreatureCreator: React.FC = () => {
     finesse: { talent: 1 },
     mind: { talent: 1 },
     knowledge: { talent: 1 },
-    social: { talent: 1 }
+    social: { talent: 1 },
   });
 
   // Skills
   const [skills, setSkills] = useState({
-    fitness: 0, deflection: 0, might: 0, endurance: 0,
-    evasion: 0, stealth: 0, coordination: 0, thievery: 0,
-    resilience: 0, concentration: 0, senses: 0, logic: 0,
-    wildcraft: 0, academics: 0, magic: 0, medicine: 0,
-    expression: 0, presence: 0, insight: 0, persuasion: 0
+    fitness: 0,
+    deflection: 0,
+    might: 0,
+    endurance: 0,
+    evasion: 0,
+    stealth: 0,
+    coordination: 0,
+    thievery: 0,
+    resilience: 0,
+    concentration: 0,
+    senses: 0,
+    logic: 0,
+    wildcraft: 0,
+    academics: 0,
+    magic: 0,
+    medicine: 0,
+    expression: 0,
+    presence: 0,
+    insight: 0,
+    persuasion: 0,
   });
 
   // Defenses
   const [mitigation, setMitigation] = useState({
-    physical: 0, cold: 0, heat: 0, lightning: 0,
-    psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+    physical: 0,
+    cold: 0,
+    heat: 0,
+    lightning: 0,
+    psychic: 0,
+    dark: 0,
+    divine: 0,
+    aether: 0,
+    toxic: 0,
   });
 
   const [detections, setDetections] = useState({
-    normal: 5, darksight: 0, infravision: 0, deadsight: 0,
-    echolocation: 0, tremorsense: 0, truesight: 0, aethersight: 0
+    normal: 5,
+    darksight: 0,
+    infravision: 0,
+    deadsight: 0,
+    echolocation: 0,
+    tremorsense: 0,
+    truesight: 0,
+    aethersight: 0,
   });
 
   // Combat abilities
@@ -120,16 +157,16 @@ const HomebrewCreatureCreator: React.FC = () => {
   const [reactions, setReactions] = useState<CreatureReaction[]>([]);
   const [traits, setTraits] = useState<CreatureTrait[]>([]);
   const [spellNames, setSpellNames] = useState<string[]>([]);
-  
+
   // Custom spells for creatures
   const [customSpells, setCustomSpells] = useState<any[]>([]);
   const [availableSpells, setAvailableSpells] = useState<any[]>([]);
-  
+
   // Spell filtering
   const [spellFilters, setSpellFilters] = useState({
     school: '',
     subschool: '',
-    maxCastRC: 20
+    maxCastRC: 20,
   });
 
   // Form helpers
@@ -161,9 +198,9 @@ const HomebrewCreatureCreator: React.FC = () => {
     try {
       const response = await fetch(`/api/creatures/${id}`);
       if (!response.ok) throw new Error('Failed to fetch creature');
-      
+
       const creature = await response.json();
-      
+
       // Populate form with existing data
       setCreatureData({
         name: creature.name,
@@ -178,9 +215,9 @@ const HomebrewCreatureCreator: React.FC = () => {
         status: creature.status || 'draft',
         tags: creature.tags || [],
         source: creature.source || '',
-        balanceNotes: creature.balanceNotes || ''
+        balanceNotes: creature.balanceNotes || '',
       });
-      
+
       setResources(creature.resources || resources);
       setAttributes(creature.attributes || attributes);
       setSkills(creature.skills || skills);
@@ -189,13 +226,12 @@ const HomebrewCreatureCreator: React.FC = () => {
       setActions(creature.actions || []);
       setReactions(creature.reactions || []);
       setTraits(creature.traits || []);
-      
+
       // Handle spell names for editing
       if (creature.spells && creature.spells.length > 0) {
         const spellNames = creature.spells.map((spell: any) => spell.name || spell);
         setSpellNames(spellNames);
       }
-      
     } catch (err) {
       showError('Failed to load creature for editing');
       navigate('/homebrew/creatures');
@@ -216,7 +252,7 @@ const HomebrewCreatureCreator: React.FC = () => {
     }
 
     setSaving(true);
-    
+
     try {
       const submitData = {
         ...creatureData,
@@ -233,7 +269,7 @@ const HomebrewCreatureCreator: React.FC = () => {
         traits,
         spellNames: spellNames.length > 0 ? spellNames : undefined,
         customSpells: customSpells.length > 0 ? customSpells : undefined,
-        isHomebrew: true
+        isHomebrew: true,
       };
 
       const url = id ? `/api/homebrew/creatures/${id}` : '/api/homebrew/creatures';
@@ -242,7 +278,7 @@ const HomebrewCreatureCreator: React.FC = () => {
       const response = await fetch(url, {
         method,
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(submitData)
+        body: JSON.stringify(submitData),
       });
 
       if (!response.ok) {
@@ -253,7 +289,6 @@ const HomebrewCreatureCreator: React.FC = () => {
       const savedCreature = await response.json();
       showSuccess(`Creature ${id ? 'updated' : 'created'} successfully!`);
       navigate(`/bestiary/${savedCreature._id}`);
-      
     } catch (err) {
       showError(err instanceof Error ? err.message : 'Failed to save creature');
     } finally {
@@ -262,13 +297,16 @@ const HomebrewCreatureCreator: React.FC = () => {
   };
 
   const addAction = () => {
-    setActions([...actions, {
-      name: '',
-      cost: 0,
-      type: 'attack',
-      magic: false,
-      description: ''
-    }]);
+    setActions([
+      ...actions,
+      {
+        name: '',
+        cost: 0,
+        type: 'attack',
+        magic: false,
+        description: '',
+      },
+    ]);
   };
 
   const removeAction = (index: number) => {
@@ -319,52 +357,52 @@ const HomebrewCreatureCreator: React.FC = () => {
 
   const addLanguage = () => {
     if (newLanguage.trim() && !creatureData.languages.includes(newLanguage.trim())) {
-      setCreatureData(prev => ({
+      setCreatureData((prev) => ({
         ...prev,
-        languages: [...prev.languages, newLanguage.trim()]
+        languages: [...prev.languages, newLanguage.trim()],
       }));
       setNewLanguage('');
     }
   };
 
   const removeLanguage = (language: string) => {
-    setCreatureData(prev => ({
+    setCreatureData((prev) => ({
       ...prev,
-      languages: prev.languages.filter(l => l !== language)
+      languages: prev.languages.filter((l) => l !== language),
     }));
   };
 
   const addLootItem = () => {
     if (newLootItem.trim()) {
-      setCreatureData(prev => ({
+      setCreatureData((prev) => ({
         ...prev,
-        loot: [...prev.loot, newLootItem.trim()]
+        loot: [...prev.loot, newLootItem.trim()],
       }));
       setNewLootItem('');
     }
   };
 
   const removeLootItem = (index: number) => {
-    setCreatureData(prev => ({
+    setCreatureData((prev) => ({
       ...prev,
-      loot: prev.loot.filter((_, i) => i !== index)
+      loot: prev.loot.filter((_, i) => i !== index),
     }));
   };
 
   const addTag = () => {
     if (newTag.trim() && !creatureData.tags.includes(newTag.trim())) {
-      setCreatureData(prev => ({
+      setCreatureData((prev) => ({
         ...prev,
-        tags: [...prev.tags, newTag.trim()]
+        tags: [...prev.tags, newTag.trim()],
       }));
       setNewTag('');
     }
   };
 
   const removeTag = (tag: string) => {
-    setCreatureData(prev => ({
+    setCreatureData((prev) => ({
       ...prev,
-      tags: prev.tags.filter(t => t !== tag)
+      tags: prev.tags.filter((t) => t !== tag),
     }));
   };
 
@@ -376,23 +414,26 @@ const HomebrewCreatureCreator: React.FC = () => {
   };
 
   const removeSpell = (spellName: string) => {
-    setSpellNames(spellNames.filter(name => name !== spellName));
+    setSpellNames(spellNames.filter((name) => name !== spellName));
   };
 
   const addCustomSpell = () => {
-    setCustomSpells([...customSpells, {
-      name: '',
-      energy_cost: 1,
-      roll: '',
-      damage: '',
-      damage_extra: '',
-      damage_type: 'aether',
-      target_defense: 'evasion',
-      defense_difficulty: 6,
-      min_range: 1,
-      max_range: 5,
-      description: ''
-    }]);
+    setCustomSpells([
+      ...customSpells,
+      {
+        name: '',
+        energy_cost: 1,
+        roll: '',
+        damage: '',
+        damage_extra: '',
+        damage_type: 'aether',
+        target_defense: 'evasion',
+        defense_difficulty: 6,
+        min_range: 1,
+        max_range: 5,
+        description: '',
+      },
+    ]);
   };
 
   const removeCustomSpell = (index: number) => {
@@ -406,7 +447,7 @@ const HomebrewCreatureCreator: React.FC = () => {
   };
 
   const addExistingSpell = (spellId: string) => {
-    const spell = availableSpells.find(s => s._id === spellId);
+    const spell = availableSpells.find((s) => s._id === spellId);
     if (spell && !spellNames.includes(spell.name)) {
       setSpellNames([...spellNames, spell.name]);
     }
@@ -414,27 +455,27 @@ const HomebrewCreatureCreator: React.FC = () => {
 
   // Get filtered spells based on current filters
   const getFilteredSpells = () => {
-    return availableSpells.filter(spell => {
+    return availableSpells.filter((spell) => {
       const schoolMatch = !spellFilters.school || spell.school === spellFilters.school;
       const subschoolMatch = !spellFilters.subschool || spell.subschool === spellFilters.subschool;
       const castRCMatch = !spell.cast_rc || spell.cast_rc <= spellFilters.maxCastRC;
-      
+
       return schoolMatch && subschoolMatch && castRCMatch;
     });
   };
 
   // Get unique schools from available spells
   const getUniqueSchools = () => {
-    const schools = [...new Set(availableSpells.map(spell => spell.school))].filter(Boolean);
+    const schools = [...new Set(availableSpells.map((spell) => spell.school))].filter(Boolean);
     return schools.sort();
   };
 
   // Get unique subschools from available spells (filtered by school if selected)
   const getUniqueSubschools = () => {
-    const spellsToCheck = spellFilters.school 
-      ? availableSpells.filter(spell => spell.school === spellFilters.school)
+    const spellsToCheck = spellFilters.school
+      ? availableSpells.filter((spell) => spell.school === spellFilters.school)
       : availableSpells;
-    const subschools = [...new Set(spellsToCheck.map(spell => spell.subschool))].filter(Boolean);
+    const subschools = [...new Set(spellsToCheck.map((spell) => spell.subschool))].filter(Boolean);
     return subschools.sort();
   };
 
@@ -450,23 +491,25 @@ const HomebrewCreatureCreator: React.FC = () => {
 
   const stepTitles = [
     'Basic Information',
-    'Resources & Stats', 
+    'Resources & Stats',
     'Skills & Attributes',
     'Defenses',
     'Actions & Abilities',
-    'Review & Publish'
+    'Review & Publish',
   ];
 
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ 
-          color: 'var(--color-white)', 
-          fontSize: '2.5rem', 
-          fontWeight: 'bold',
-          marginBottom: '0.5rem'
-        }}>
+        <h1
+          style={{
+            color: 'var(--color-white)',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '0.5rem',
+          }}
+        >
           {id ? 'Edit' : 'Create'} Homebrew Creature
         </h1>
         <p style={{ color: 'var(--color-cloud)', fontSize: '1.125rem' }}>
@@ -475,12 +518,14 @@ const HomebrewCreatureCreator: React.FC = () => {
       </div>
 
       {/* Step Indicator */}
-      <div style={{ 
-        display: 'flex', 
-        justifyContent: 'center', 
-        marginBottom: '2rem',
-        gap: '1rem'
-      }}>
+      <div
+        style={{
+          display: 'flex',
+          justifyContent: 'center',
+          marginBottom: '2rem',
+          gap: '1rem',
+        }}
+      >
         {stepTitles.map((title, index) => (
           <div
             key={index}
@@ -488,7 +533,7 @@ const HomebrewCreatureCreator: React.FC = () => {
               display: 'flex',
               flexDirection: 'column',
               alignItems: 'center',
-              cursor: 'pointer'
+              cursor: 'pointer',
             }}
             onClick={() => setCurrentStep(index + 1)}
           >
@@ -497,25 +542,31 @@ const HomebrewCreatureCreator: React.FC = () => {
                 width: '2rem',
                 height: '2rem',
                 borderRadius: '50%',
-                backgroundColor: currentStep > index ? 'var(--color-old-gold)' : 
-                                currentStep === index + 1 ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                backgroundColor:
+                  currentStep > index
+                    ? 'var(--color-old-gold)'
+                    : currentStep === index + 1
+                      ? 'var(--color-sat-purple)'
+                      : 'var(--color-dark-elevated)',
                 color: 'var(--color-white)',
                 display: 'flex',
                 alignItems: 'center',
                 justifyContent: 'center',
                 fontWeight: 'bold',
                 fontSize: '0.875rem',
-                marginBottom: '0.5rem'
+                marginBottom: '0.5rem',
               }}
             >
               {index + 1}
             </div>
-            <span style={{ 
-              color: currentStep === index + 1 ? 'var(--color-white)' : 'var(--color-cloud)',
-              fontSize: '0.75rem',
-              textAlign: 'center',
-              maxWidth: '80px'
-            }}>
+            <span
+              style={{
+                color: currentStep === index + 1 ? 'var(--color-white)' : 'var(--color-cloud)',
+                fontSize: '0.75rem',
+                textAlign: 'center',
+                maxWidth: '80px',
+              }}
+            >
               {title}
             </span>
           </div>
@@ -527,32 +578,53 @@ const HomebrewCreatureCreator: React.FC = () => {
           {/* Step 1: Basic Information */}
           {currentStep === 1 && (
             <div>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h2
+                style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}
+              >
                 Basic Information
               </h2>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr',
+                  gap: '1rem',
+                  marginBottom: '1rem',
+                }}
+              >
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Creature Name *
                   </label>
                   <input
                     type="text"
                     value={creatureData.name}
-                    onChange={(e) => setCreatureData(prev => ({ ...prev, name: e.target.value }))}
+                    onChange={(e) => setCreatureData((prev) => ({ ...prev, name: e.target.value }))}
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Challenge Rating
                   </label>
                   <input
@@ -560,34 +632,54 @@ const HomebrewCreatureCreator: React.FC = () => {
                     min="1"
                     max="10"
                     value={creatureData.challenge_rating}
-                    onChange={(e) => setCreatureData(prev => ({ ...prev, challenge_rating: parseInt(e.target.value) || 1 }))}
+                    onChange={(e) =>
+                      setCreatureData((prev) => ({
+                        ...prev,
+                        challenge_rating: parseInt(e.target.value) || 1,
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
               </div>
 
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr 1fr',
+                  gap: '1rem',
+                  marginBottom: '1rem',
+                }}
+              >
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Type
                   </label>
                   <select
                     value={creatureData.type}
-                    onChange={(e) => setCreatureData(prev => ({ ...prev, type: e.target.value as any }))}
+                    onChange={(e) =>
+                      setCreatureData((prev) => ({ ...prev, type: e.target.value as any }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   >
                     <option value="humanoid">Humanoid</option>
@@ -603,19 +695,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Tier
                   </label>
                   <select
                     value={creatureData.tier}
-                    onChange={(e) => setCreatureData(prev => ({ ...prev, tier: e.target.value as any }))}
+                    onChange={(e) =>
+                      setCreatureData((prev) => ({ ...prev, tier: e.target.value as any }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   >
                     <option value="minion">Minion</option>
@@ -629,19 +729,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Size
                   </label>
                   <select
                     value={creatureData.size}
-                    onChange={(e) => setCreatureData(prev => ({ ...prev, size: e.target.value as any }))}
+                    onChange={(e) =>
+                      setCreatureData((prev) => ({ ...prev, size: e.target.value as any }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   >
                     <option value="tiny">Tiny</option>
@@ -655,12 +763,16 @@ const HomebrewCreatureCreator: React.FC = () => {
               </div>
 
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                <label
+                  style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}
+                >
                   Description *
                 </label>
                 <textarea
                   value={creatureData.description}
-                  onChange={(e) => setCreatureData(prev => ({ ...prev, description: e.target.value }))}
+                  onChange={(e) =>
+                    setCreatureData((prev) => ({ ...prev, description: e.target.value }))
+                  }
                   rows={4}
                   style={{
                     width: '100%',
@@ -669,18 +781,22 @@ const HomebrewCreatureCreator: React.FC = () => {
                     border: '1px solid var(--color-dark-border)',
                     borderRadius: '0.375rem',
                     color: 'var(--color-white)',
-                    resize: 'vertical'
+                    resize: 'vertical',
                   }}
                 />
               </div>
 
               <div style={{ marginBottom: '1rem' }}>
-                <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                <label
+                  style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}
+                >
                   Tactics
                 </label>
                 <textarea
                   value={creatureData.tactics}
-                  onChange={(e) => setCreatureData(prev => ({ ...prev, tactics: e.target.value }))}
+                  onChange={(e) =>
+                    setCreatureData((prev) => ({ ...prev, tactics: e.target.value }))
+                  }
                   rows={3}
                   placeholder="How does this creature fight? What are its strategies?"
                   style={{
@@ -690,7 +806,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                     border: '1px solid var(--color-dark-border)',
                     borderRadius: '0.375rem',
                     color: 'var(--color-white)',
-                    resize: 'vertical'
+                    resize: 'vertical',
                   }}
                 />
               </div>
@@ -700,111 +816,152 @@ const HomebrewCreatureCreator: React.FC = () => {
           {/* Step 2: Resources & Stats */}
           {currentStep === 2 && (
             <div>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h2
+                style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}
+              >
                 Resources & Stats
               </h2>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '1rem', marginBottom: '1.5rem' }}>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: '1fr 1fr 1fr 1fr',
+                  gap: '1rem',
+                  marginBottom: '1.5rem',
+                }}
+              >
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Max Health
                   </label>
                   <input
                     type="number"
                     min="1"
                     value={resources.health.max}
-                    onChange={(e) => setResources(prev => ({ 
-                      ...prev, 
-                      health: { 
-                        ...prev.health, 
-                        max: parseInt(e.target.value) || 1,
-                        current: parseInt(e.target.value) || 1
-                      }
-                    }))}
+                    onChange={(e) =>
+                      setResources((prev) => ({
+                        ...prev,
+                        health: {
+                          ...prev.health,
+                          max: parseInt(e.target.value) || 1,
+                          current: parseInt(e.target.value) || 1,
+                        },
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Max Energy
                   </label>
                   <input
                     type="number"
                     min="1"
                     value={resources.energy.max}
-                    onChange={(e) => setResources(prev => ({ 
-                      ...prev, 
-                      energy: { 
-                        ...prev.energy, 
-                        max: parseInt(e.target.value) || 1,
-                        current: parseInt(e.target.value) || 1
-                      }
-                    }))}
+                    onChange={(e) =>
+                      setResources((prev) => ({
+                        ...prev,
+                        energy: {
+                          ...prev.energy,
+                          max: parseInt(e.target.value) || 1,
+                          current: parseInt(e.target.value) || 1,
+                        },
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Max Resolve
                   </label>
                   <input
                     type="number"
                     min="1"
                     value={resources.resolve.max}
-                    onChange={(e) => setResources(prev => ({ 
-                      ...prev, 
-                      resolve: { 
-                        ...prev.resolve, 
-                        max: parseInt(e.target.value) || 1,
-                        current: parseInt(e.target.value) || 1
-                      }
-                    }))}
+                    onChange={(e) =>
+                      setResources((prev) => ({
+                        ...prev,
+                        resolve: {
+                          ...prev.resolve,
+                          max: parseInt(e.target.value) || 1,
+                          current: parseInt(e.target.value) || 1,
+                        },
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Movement
                   </label>
                   <input
                     type="number"
                     min="0"
                     value={resources.movement}
-                    onChange={(e) => setResources(prev => ({ 
-                      ...prev, 
-                      movement: parseInt(e.target.value) || 0
-                    }))}
+                    onChange={(e) =>
+                      setResources((prev) => ({
+                        ...prev,
+                        movement: parseInt(e.target.value) || 0,
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
@@ -812,53 +969,69 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Energy Recovery
                   </label>
                   <input
                     type="number"
                     min="0"
                     value={resources.energy.recovery}
-                    onChange={(e) => setResources(prev => ({ 
-                      ...prev, 
-                      energy: { 
-                        ...prev.energy, 
-                        recovery: parseInt(e.target.value) || 0
-                      }
-                    }))}
+                    onChange={(e) =>
+                      setResources((prev) => ({
+                        ...prev,
+                        energy: {
+                          ...prev.energy,
+                          recovery: parseInt(e.target.value) || 0,
+                        },
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
 
                 <div>
-                  <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                  <label
+                    style={{
+                      color: 'var(--color-white)',
+                      display: 'block',
+                      marginBottom: '0.5rem',
+                    }}
+                  >
                     Resolve Recovery
                   </label>
                   <input
                     type="number"
                     min="0"
                     value={resources.resolve.recovery}
-                    onChange={(e) => setResources(prev => ({ 
-                      ...prev, 
-                      resolve: { 
-                        ...prev.resolve, 
-                        recovery: parseInt(e.target.value) || 0
-                      }
-                    }))}
+                    onChange={(e) =>
+                      setResources((prev) => ({
+                        ...prev,
+                        resolve: {
+                          ...prev.resolve,
+                          recovery: parseInt(e.target.value) || 0,
+                        },
+                      }))
+                    }
                     style={{
                       width: '100%',
                       padding: '0.75rem',
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                 </div>
@@ -869,14 +1042,31 @@ const HomebrewCreatureCreator: React.FC = () => {
           {/* Step 3: Skills & Attributes */}
           {currentStep === 3 && (
             <div>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h2
+                style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}
+              >
                 Attributes & Skills
               </h2>
-              
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(5, 1fr)',
+                  gap: '1rem',
+                  marginBottom: '2rem',
+                }}
+              >
                 {Object.entries(attributes).map(([attr, value]) => (
                   <div key={attr} style={{ textAlign: 'center' }}>
-                    <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem', textTransform: 'capitalize', fontWeight: 'bold' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-white)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                        textTransform: 'capitalize',
+                        fontWeight: 'bold',
+                      }}
+                    >
                       {attr}
                     </label>
                     <div style={{ display: 'flex', justifyContent: 'center', gap: '0.25rem' }}>
@@ -884,7 +1074,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                         const isFilled = value.talent >= talentPosition;
                         const canToggleOn = !isFilled && value.talent === talentPosition - 1;
                         const canToggleOff = isFilled && talentPosition === value.talent;
-                        
+
                         return (
                           <button
                             key={talentPosition}
@@ -892,15 +1082,15 @@ const HomebrewCreatureCreator: React.FC = () => {
                             onClick={() => {
                               if (isFilled && canToggleOff) {
                                 // Turn off the star (but not below 1)
-                                setAttributes(prev => ({
+                                setAttributes((prev) => ({
                                   ...prev,
-                                  [attr]: { talent: Math.max(1, talentPosition - 1) }
+                                  [attr]: { talent: Math.max(1, talentPosition - 1) },
                                 }));
                               } else if (!isFilled && canToggleOn) {
                                 // Turn on the star
-                                setAttributes(prev => ({
+                                setAttributes((prev) => ({
                                   ...prev,
-                                  [attr]: { talent: talentPosition }
+                                  [attr]: { talent: talentPosition },
                                 }));
                               }
                             }}
@@ -915,8 +1105,10 @@ const HomebrewCreatureCreator: React.FC = () => {
                               border: 'none',
                               cursor: canToggleOn || canToggleOff ? 'pointer' : 'default',
                               opacity: canToggleOn || canToggleOff || isFilled ? 1 : 1,
-                              color: isFilled ? 'var(--color-metal-gold)' : 'var(--color-dark-surface)',
-                              fontSize: '1.25rem'
+                              color: isFilled
+                                ? 'var(--color-metal-gold)'
+                                : 'var(--color-dark-surface)',
+                              fontSize: '1.25rem',
                             }}
                             aria-label={`Set talent to ${talentPosition}`}
                           >
@@ -946,17 +1138,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 {/* Physique Skills */}
                 <div>
                   <div style={{ marginBottom: '0.75rem' }}></div>
-                  {['fitness', 'deflection', 'might', 'endurance'].map(skill => (
+                  {['fitness', 'deflection', 'might', 'endurance'].map((skill) => (
                     <div key={skill} style={{ marginBottom: '0.75rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', textTransform: 'capitalize', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          textTransform: 'capitalize',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         {skill}
                       </label>
                       <select
                         value={skills[skill as keyof typeof skills]}
-                        onChange={(e) => setSkills(prev => ({
-                          ...prev,
-                          [skill]: parseInt(e.target.value)
-                        }))}
+                        onChange={(e) =>
+                          setSkills((prev) => ({
+                            ...prev,
+                            [skill]: parseInt(e.target.value),
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -964,7 +1166,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value={-1}>None</option>
@@ -985,17 +1187,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 {/* Finesse Skills */}
                 <div>
                   <div style={{ marginBottom: '0.75rem' }}></div>
-                  {['evasion', 'stealth', 'coordination', 'thievery'].map(skill => (
+                  {['evasion', 'stealth', 'coordination', 'thievery'].map((skill) => (
                     <div key={skill} style={{ marginBottom: '0.75rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', textTransform: 'capitalize', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          textTransform: 'capitalize',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         {skill}
                       </label>
                       <select
                         value={skills[skill as keyof typeof skills]}
-                        onChange={(e) => setSkills(prev => ({
-                          ...prev,
-                          [skill]: parseInt(e.target.value)
-                        }))}
+                        onChange={(e) =>
+                          setSkills((prev) => ({
+                            ...prev,
+                            [skill]: parseInt(e.target.value),
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1003,7 +1215,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value={-1}>None</option>
@@ -1024,17 +1236,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 {/* Mind Skills */}
                 <div>
                   <div style={{ marginBottom: '0.75rem' }}></div>
-                  {['resilience', 'concentration', 'senses', 'logic'].map(skill => (
+                  {['resilience', 'concentration', 'senses', 'logic'].map((skill) => (
                     <div key={skill} style={{ marginBottom: '0.75rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', textTransform: 'capitalize', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          textTransform: 'capitalize',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         {skill}
                       </label>
                       <select
                         value={skills[skill as keyof typeof skills]}
-                        onChange={(e) => setSkills(prev => ({
-                          ...prev,
-                          [skill]: parseInt(e.target.value)
-                        }))}
+                        onChange={(e) =>
+                          setSkills((prev) => ({
+                            ...prev,
+                            [skill]: parseInt(e.target.value),
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1042,7 +1264,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value={-1}>None</option>
@@ -1063,17 +1285,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 {/* Knowledge Skills */}
                 <div>
                   <div style={{ marginBottom: '0.75rem' }}></div>
-                  {['wildcraft', 'academics', 'magic', 'medicine'].map(skill => (
+                  {['wildcraft', 'academics', 'magic', 'medicine'].map((skill) => (
                     <div key={skill} style={{ marginBottom: '0.75rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', textTransform: 'capitalize', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          textTransform: 'capitalize',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         {skill}
                       </label>
                       <select
                         value={skills[skill as keyof typeof skills]}
-                        onChange={(e) => setSkills(prev => ({
-                          ...prev,
-                          [skill]: parseInt(e.target.value)
-                        }))}
+                        onChange={(e) =>
+                          setSkills((prev) => ({
+                            ...prev,
+                            [skill]: parseInt(e.target.value),
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1081,7 +1313,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value={-1}>None</option>
@@ -1102,17 +1334,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                 {/* Social Skills */}
                 <div>
                   <div style={{ marginBottom: '0.75rem' }}></div>
-                  {['expression', 'presence', 'insight', 'persuasion'].map(skill => (
+                  {['expression', 'presence', 'insight', 'persuasion'].map((skill) => (
                     <div key={skill} style={{ marginBottom: '0.75rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', textTransform: 'capitalize', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          textTransform: 'capitalize',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         {skill}
                       </label>
                       <select
                         value={skills[skill as keyof typeof skills]}
-                        onChange={(e) => setSkills(prev => ({
-                          ...prev,
-                          [skill]: parseInt(e.target.value)
-                        }))}
+                        onChange={(e) =>
+                          setSkills((prev) => ({
+                            ...prev,
+                            [skill]: parseInt(e.target.value),
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1120,7 +1362,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value={-1}>None</option>
@@ -1144,47 +1386,84 @@ const HomebrewCreatureCreator: React.FC = () => {
           {/* Step 4: Defenses */}
           {currentStep === 4 && (
             <div>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h2
+                style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}
+              >
                 Defenses & Detection
               </h2>
-              
-              <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+
+              <h3
+                style={{
+                  color: 'var(--color-old-gold)',
+                  fontSize: '1.25rem',
+                  marginBottom: '1rem',
+                }}
+              >
                 Damage Mitigation
               </h3>
-              <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: '1rem', marginBottom: '2rem' }}>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(3, 1fr)',
+                  gap: '1rem',
+                  marginBottom: '2rem',
+                }}
+              >
                 {Object.entries(mitigation).map(([damageType, value]) => (
                   <div key={damageType}>
-                    <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem', textTransform: 'capitalize' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-white)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                        textTransform: 'capitalize',
+                      }}
+                    >
                       {damageType}
                     </label>
                     <input
                       type="number"
                       min="0"
                       value={value}
-                      onChange={(e) => setMitigation(prev => ({
-                        ...prev,
-                        [damageType]: parseInt(e.target.value) || 0
-                      }))}
+                      onChange={(e) =>
+                        setMitigation((prev) => ({
+                          ...prev,
+                          [damageType]: parseInt(e.target.value) || 0,
+                        }))
+                      }
                       style={{
                         width: '100%',
                         padding: '0.5rem',
                         backgroundColor: 'var(--color-dark-surface)',
                         border: '1px solid var(--color-dark-border)',
                         borderRadius: '0.375rem',
-                        color: 'var(--color-white)'
+                        color: 'var(--color-white)',
                       }}
                     />
                   </div>
                 ))}
               </div>
 
-              <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+              <h3
+                style={{
+                  color: 'var(--color-old-gold)',
+                  fontSize: '1.25rem',
+                  marginBottom: '1rem',
+                }}
+              >
                 Detection Abilities
               </h3>
               <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '1rem' }}>
                 {Object.entries(detections).map(([detectionType, value]) => (
                   <div key={detectionType}>
-                    <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem', textTransform: 'capitalize' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-white)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                        textTransform: 'capitalize',
+                      }}
+                    >
                       {detectionType.replace(/([A-Z])/g, ' $1').trim()}
                     </label>
                     <input
@@ -1192,17 +1471,19 @@ const HomebrewCreatureCreator: React.FC = () => {
                       min="0"
                       max="8"
                       value={value}
-                      onChange={(e) => setDetections(prev => ({
-                        ...prev,
-                        [detectionType]: parseInt(e.target.value) || 0
-                      }))}
+                      onChange={(e) =>
+                        setDetections((prev) => ({
+                          ...prev,
+                          [detectionType]: parseInt(e.target.value) || 0,
+                        }))
+                      }
                       style={{
                         width: '100%',
                         padding: '0.5rem',
                         backgroundColor: 'var(--color-dark-surface)',
                         border: '1px solid var(--color-dark-border)',
                         borderRadius: '0.375rem',
-                        color: 'var(--color-white)'
+                        color: 'var(--color-white)',
                       }}
                     />
                   </div>
@@ -1214,13 +1495,22 @@ const HomebrewCreatureCreator: React.FC = () => {
           {/* Step 5: Actions & Abilities */}
           {currentStep === 5 && (
             <div>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h2
+                style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}
+              >
                 Actions & Abilities
               </h2>
-              
+
               {/* Actions */}
               <div style={{ marginBottom: '2rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1rem',
+                  }}
+                >
                   <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', margin: 0 }}>
                     Actions
                   </h3>
@@ -1228,25 +1518,48 @@ const HomebrewCreatureCreator: React.FC = () => {
                     + Add Action
                   </Button>
                 </div>
-                
+
                 {actions.map((action, index) => (
-                  <div key={index} style={{ 
-                    padding: '1rem', 
-                    backgroundColor: 'var(--color-dark-elevated)', 
-                    borderRadius: '0.5rem', 
-                    marginBottom: '1rem',
-                    border: '1px solid var(--color-dark-border)'
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div
+                    key={index}
+                    style={{
+                      padding: '1rem',
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      borderRadius: '0.5rem',
+                      marginBottom: '1rem',
+                      border: '1px solid var(--color-dark-border)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <h4 style={{ color: 'var(--color-white)', margin: 0 }}>Action {index + 1}</h4>
                       <Button variant="danger" onClick={() => removeAction(index)}>
                         Remove
                       </Button>
                     </div>
-                    
-                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: '2fr 1fr 1fr',
+                        gap: '1rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Name
                         </label>
                         <input
@@ -1259,31 +1572,45 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Energy Cost
                         </label>
                         <input
                           type="number"
                           min="0"
                           value={action.cost}
-                          onChange={(e) => updateAction(index, 'cost', parseInt(e.target.value) || 0)}
+                          onChange={(e) =>
+                            updateAction(index, 'cost', parseInt(e.target.value) || 0)
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Type
                         </label>
                         <select
@@ -1295,7 +1622,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         >
                           <option value="attack">Attack</option>
@@ -1307,7 +1634,13 @@ const HomebrewCreatureCreator: React.FC = () => {
                     </div>
 
                     <div style={{ marginBottom: '1rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Description
                       </label>
                       <textarea
@@ -1321,13 +1654,20 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          resize: 'vertical'
+                          resize: 'vertical',
                         }}
                       />
                     </div>
 
                     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'flex',
+                          alignItems: 'center',
+                          gap: '0.5rem',
+                        }}
+                      >
                         <input
                           type="checkbox"
                           checked={action.magic}
@@ -1342,7 +1682,14 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Reactions */}
               <div style={{ marginBottom: '2rem' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1rem',
+                  }}
+                >
                   <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', margin: 0 }}>
                     Reactions
                   </h3>
@@ -1350,25 +1697,50 @@ const HomebrewCreatureCreator: React.FC = () => {
                     + Add Reaction
                   </Button>
                 </div>
-                
+
                 {reactions.map((reaction, index) => (
-                  <div key={index} style={{ 
-                    padding: '1rem', 
-                    backgroundColor: 'var(--color-dark-elevated)', 
-                    borderRadius: '0.5rem', 
-                    marginBottom: '1rem',
-                    border: '1px solid var(--color-dark-border)'
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                      <h4 style={{ color: 'var(--color-white)', margin: 0 }}>Reaction {index + 1}</h4>
+                  <div
+                    key={index}
+                    style={{
+                      padding: '1rem',
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      borderRadius: '0.5rem',
+                      marginBottom: '1rem',
+                      border: '1px solid var(--color-dark-border)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '1rem',
+                      }}
+                    >
+                      <h4 style={{ color: 'var(--color-white)', margin: 0 }}>
+                        Reaction {index + 1}
+                      </h4>
                       <Button variant="danger" onClick={() => removeReaction(index)}>
                         Remove
                       </Button>
                     </div>
-                    
-                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: '2fr 1fr',
+                        gap: '1rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Name
                         </label>
                         <input
@@ -1381,33 +1753,47 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Energy Cost
                         </label>
                         <input
                           type="number"
                           min="0"
                           value={reaction.cost}
-                          onChange={(e) => updateReaction(index, 'cost', parseInt(e.target.value) || 0)}
+                          onChange={(e) =>
+                            updateReaction(index, 'cost', parseInt(e.target.value) || 0)
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                     </div>
 
                     <div style={{ marginBottom: '1rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Trigger
                       </label>
                       <input
@@ -1421,13 +1807,19 @@ const HomebrewCreatureCreator: React.FC = () => {
                           backgroundColor: 'var(--color-dark-surface)',
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
-                          color: 'var(--color-white)'
+                          color: 'var(--color-white)',
                         }}
                       />
                     </div>
 
                     <div>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Description
                       </label>
                       <textarea
@@ -1441,7 +1833,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          resize: 'vertical'
+                          resize: 'vertical',
                         }}
                       />
                     </div>
@@ -1451,7 +1843,14 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Traits */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1rem',
+                  }}
+                >
                   <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', margin: 0 }}>
                     Traits
                   </h3>
@@ -1459,24 +1858,40 @@ const HomebrewCreatureCreator: React.FC = () => {
                     + Add Trait
                   </Button>
                 </div>
-                
+
                 {traits.map((trait, index) => (
-                  <div key={index} style={{ 
-                    padding: '1rem', 
-                    backgroundColor: 'var(--color-dark-elevated)', 
-                    borderRadius: '0.5rem', 
-                    marginBottom: '1rem',
-                    border: '1px solid var(--color-dark-border)'
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                  <div
+                    key={index}
+                    style={{
+                      padding: '1rem',
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      borderRadius: '0.5rem',
+                      marginBottom: '1rem',
+                      border: '1px solid var(--color-dark-border)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <h4 style={{ color: 'var(--color-white)', margin: 0 }}>Trait {index + 1}</h4>
                       <Button variant="danger" onClick={() => removeTrait(index)}>
                         Remove
                       </Button>
                     </div>
-                    
+
                     <div style={{ marginBottom: '1rem' }}>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Name
                       </label>
                       <input
@@ -1489,13 +1904,19 @@ const HomebrewCreatureCreator: React.FC = () => {
                           backgroundColor: 'var(--color-dark-surface)',
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
-                          color: 'var(--color-white)'
+                          color: 'var(--color-white)',
                         }}
                       />
                     </div>
 
                     <div>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Description
                       </label>
                       <textarea
@@ -1509,7 +1930,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          resize: 'vertical'
+                          resize: 'vertical',
                         }}
                       />
                     </div>
@@ -1519,7 +1940,14 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Spells */}
               <div>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
+                <div
+                  style={{
+                    display: 'flex',
+                    justifyContent: 'space-between',
+                    alignItems: 'center',
+                    marginBottom: '1rem',
+                  }}
+                >
                   <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', margin: 0 }}>
                     Spells
                   </h3>
@@ -1531,28 +1959,48 @@ const HomebrewCreatureCreator: React.FC = () => {
                 </div>
 
                 {/* Existing Spells Selection */}
-                <div style={{ 
-                  padding: '1rem', 
-                  backgroundColor: 'var(--color-dark-elevated)', 
-                  borderRadius: '0.5rem', 
-                  marginBottom: '1rem',
-                  border: '1px solid var(--color-dark-border)'
-                }}>
-                  <h4 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>Add Existing Spell</h4>
-                  
+                <div
+                  style={{
+                    padding: '1rem',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    borderRadius: '0.5rem',
+                    marginBottom: '1rem',
+                    border: '1px solid var(--color-dark-border)',
+                  }}
+                >
+                  <h4 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>
+                    Add Existing Spell
+                  </h4>
+
                   {/* Spell Filters */}
-                  <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '0.5rem', marginBottom: '1rem' }}>
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: '1fr 1fr 1fr',
+                      gap: '0.5rem',
+                      marginBottom: '1rem',
+                    }}
+                  >
                     <div>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         School
                       </label>
                       <select
                         value={spellFilters.school}
-                        onChange={(e) => setSpellFilters(prev => ({ 
-                          ...prev, 
-                          school: e.target.value,
-                          subschool: '' // Reset subschool when school changes
-                        }))}
+                        onChange={(e) =>
+                          setSpellFilters((prev) => ({
+                            ...prev,
+                            school: e.target.value,
+                            subschool: '', // Reset subschool when school changes
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1560,23 +2008,34 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value="">All Schools</option>
-                        {getUniqueSchools().map(school => (
-                          <option key={school} value={school}>{school}</option>
+                        {getUniqueSchools().map((school) => (
+                          <option key={school} value={school}>
+                            {school}
+                          </option>
                         ))}
                       </select>
                     </div>
-                    
+
                     <div>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         Subschool
                       </label>
                       <select
                         value={spellFilters.subschool}
-                        onChange={(e) => setSpellFilters(prev => ({ ...prev, subschool: e.target.value }))}
+                        onChange={(e) =>
+                          setSpellFilters((prev) => ({ ...prev, subschool: e.target.value }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1584,18 +2043,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       >
                         <option value="">All Subschools</option>
-                        {getUniqueSubschools().map(subschool => (
-                          <option key={subschool} value={subschool}>{subschool}</option>
+                        {getUniqueSubschools().map((subschool) => (
+                          <option key={subschool} value={subschool}>
+                            {subschool}
+                          </option>
                         ))}
                       </select>
                     </div>
-                    
+
                     <div>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.25rem', fontSize: '0.875rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.875rem',
+                        }}
+                      >
                         Max Cast RC
                       </label>
                       <input
@@ -1603,7 +2071,12 @@ const HomebrewCreatureCreator: React.FC = () => {
                         min="1"
                         max="20"
                         value={spellFilters.maxCastRC}
-                        onChange={(e) => setSpellFilters(prev => ({ ...prev, maxCastRC: parseInt(e.target.value) || 20 }))}
+                        onChange={(e) =>
+                          setSpellFilters((prev) => ({
+                            ...prev,
+                            maxCastRC: parseInt(e.target.value) || 20,
+                          }))
+                        }
                         style={{
                           width: '100%',
                           padding: '0.5rem',
@@ -1611,7 +2084,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          fontSize: '0.875rem'
+                          fontSize: '0.875rem',
                         }}
                       />
                     </div>
@@ -1632,25 +2105,30 @@ const HomebrewCreatureCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-surface)',
                         border: '1px solid var(--color-dark-border)',
                         borderRadius: '0.375rem',
-                        color: 'var(--color-white)'
+                        color: 'var(--color-white)',
                       }}
                     >
                       <option value="">
                         Select a spell... ({getFilteredSpells().length} available)
                       </option>
-                      {getFilteredSpells().map(spell => (
+                      {getFilteredSpells().map((spell) => (
                         <option key={spell._id} value={spell._id}>
-                          {spell.name} ({spell.subschool || spell.school}) - RC:{spell.cast_rc || 'N/A'} - {spell.energy_cost}⚡
+                          {spell.name} ({spell.subschool || spell.school}) - RC:
+                          {spell.cast_rc || 'N/A'} - {spell.energy_cost}⚡
                         </option>
                       ))}
                     </select>
                   </div>
 
                   {/* Clear Filters Button */}
-                  {(spellFilters.school || spellFilters.subschool || spellFilters.maxCastRC < 20) && (
+                  {(spellFilters.school ||
+                    spellFilters.subschool ||
+                    spellFilters.maxCastRC < 20) && (
                     <div style={{ marginTop: '0.5rem' }}>
                       <button
-                        onClick={() => setSpellFilters({ school: '', subschool: '', maxCastRC: 20 })}
+                        onClick={() =>
+                          setSpellFilters({ school: '', subschool: '', maxCastRC: 20 })
+                        }
                         style={{
                           padding: '0.25rem 0.5rem',
                           backgroundColor: 'var(--color-dark-surface)',
@@ -1658,18 +2136,20 @@ const HomebrewCreatureCreator: React.FC = () => {
                           borderRadius: '0.25rem',
                           color: 'var(--color-cloud)',
                           fontSize: '0.75rem',
-                          cursor: 'pointer'
+                          cursor: 'pointer',
                         }}
                       >
                         Clear Filters
                       </button>
                     </div>
                   )}
-                  
+
                   {/* Known Spells Display */}
                   {spellNames.length > 0 && (
                     <div style={{ marginTop: '1rem' }}>
-                      <h5 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>Known Spells:</h5>
+                      <h5 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+                        Known Spells:
+                      </h5>
                       <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
                         {spellNames.map((spellName, index) => (
                           <span
@@ -1682,7 +2162,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                               fontSize: '0.875rem',
                               display: 'flex',
                               alignItems: 'center',
-                              gap: '0.5rem'
+                              gap: '0.5rem',
                             }}
                           >
                             ✨ {spellName}
@@ -1693,7 +2173,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                                 border: 'none',
                                 color: 'var(--color-sunset)',
                                 cursor: 'pointer',
-                                fontSize: '0.75rem'
+                                fontSize: '0.75rem',
                               }}
                             >
                               ×
@@ -1707,23 +2187,48 @@ const HomebrewCreatureCreator: React.FC = () => {
 
                 {/* Custom Spells */}
                 {customSpells.map((spell, index) => (
-                  <div key={index} style={{ 
-                    padding: '1rem', 
-                    backgroundColor: 'var(--color-dark-elevated)', 
-                    borderRadius: '0.5rem', 
-                    marginBottom: '1rem',
-                    border: '1px solid var(--color-dark-border)'
-                  }}>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '1rem' }}>
-                      <h4 style={{ color: 'var(--color-white)', margin: 0 }}>Custom Spell {index + 1}</h4>
+                  <div
+                    key={index}
+                    style={{
+                      padding: '1rem',
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      borderRadius: '0.5rem',
+                      marginBottom: '1rem',
+                      border: '1px solid var(--color-dark-border)',
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: 'flex',
+                        justifyContent: 'space-between',
+                        alignItems: 'center',
+                        marginBottom: '1rem',
+                      }}
+                    >
+                      <h4 style={{ color: 'var(--color-white)', margin: 0 }}>
+                        Custom Spell {index + 1}
+                      </h4>
                       <Button variant="danger" onClick={() => removeCustomSpell(index)}>
                         Remove
                       </Button>
                     </div>
-                    
-                    <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: '2fr 1fr 1fr',
+                        gap: '1rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Name
                         </label>
                         <input
@@ -1736,31 +2241,45 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Energy Cost
                         </label>
                         <input
                           type="number"
                           min="0"
                           value={spell.energy_cost}
-                          onChange={(e) => updateCustomSpell(index, 'energy_cost', parseInt(e.target.value) || 0)}
+                          onChange={(e) =>
+                            updateCustomSpell(index, 'energy_cost', parseInt(e.target.value) || 0)
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Roll Required
                         </label>
                         <input
@@ -1774,15 +2293,28 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr 1fr 1fr',
+                        gap: '1rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Damage
                         </label>
                         <input
@@ -1796,12 +2328,18 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Extra Damage
                         </label>
                         <input
@@ -1815,12 +2353,18 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Damage Type
                         </label>
                         <select
@@ -1832,7 +2376,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         >
                           <option value="physical">Physical</option>
@@ -1847,19 +2391,27 @@ const HomebrewCreatureCreator: React.FC = () => {
                         </select>
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Target Defense
                         </label>
                         <select
                           value={spell.target_defense}
-                          onChange={(e) => updateCustomSpell(index, 'target_defense', e.target.value)}
+                          onChange={(e) =>
+                            updateCustomSpell(index, 'target_defense', e.target.value)
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         >
                           <option value="evasion">Evasion</option>
@@ -1870,9 +2422,22 @@ const HomebrewCreatureCreator: React.FC = () => {
                       </div>
                     </div>
 
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '1rem', marginBottom: '1rem' }}>
+                    <div
+                      style={{
+                        display: 'grid',
+                        gridTemplateColumns: '1fr 1fr 1fr',
+                        gap: '1rem',
+                        marginBottom: '1rem',
+                      }}
+                    >
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Defense Difficulty
                         </label>
                         <input
@@ -1880,59 +2445,87 @@ const HomebrewCreatureCreator: React.FC = () => {
                           min="1"
                           max="20"
                           value={spell.defense_difficulty}
-                          onChange={(e) => updateCustomSpell(index, 'defense_difficulty', parseInt(e.target.value) || 6)}
+                          onChange={(e) =>
+                            updateCustomSpell(
+                              index,
+                              'defense_difficulty',
+                              parseInt(e.target.value) || 6
+                            )
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Min Range
                         </label>
                         <input
                           type="number"
                           min="0"
                           value={spell.min_range}
-                          onChange={(e) => updateCustomSpell(index, 'min_range', parseInt(e.target.value) || 0)}
+                          onChange={(e) =>
+                            updateCustomSpell(index, 'min_range', parseInt(e.target.value) || 0)
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                       <div>
-                        <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
                           Max Range
                         </label>
                         <input
                           type="number"
                           min="0"
                           value={spell.max_range}
-                          onChange={(e) => updateCustomSpell(index, 'max_range', parseInt(e.target.value) || 1)}
+                          onChange={(e) =>
+                            updateCustomSpell(index, 'max_range', parseInt(e.target.value) || 1)
+                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
                             backgroundColor: 'var(--color-dark-surface)',
                             border: '1px solid var(--color-dark-border)',
                             borderRadius: '0.375rem',
-                            color: 'var(--color-white)'
+                            color: 'var(--color-white)',
                           }}
                         />
                       </div>
                     </div>
 
                     <div>
-                      <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                      <label
+                        style={{
+                          color: 'var(--color-white)',
+                          display: 'block',
+                          marginBottom: '0.5rem',
+                        }}
+                      >
                         Description
                       </label>
                       <textarea
@@ -1946,7 +2539,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: '1px solid var(--color-dark-border)',
                           borderRadius: '0.375rem',
                           color: 'var(--color-white)',
-                          resize: 'vertical'
+                          resize: 'vertical',
                         }}
                       />
                     </div>
@@ -1959,16 +2552,26 @@ const HomebrewCreatureCreator: React.FC = () => {
           {/* Step 6: Review & Publish */}
           {currentStep === 6 && (
             <div>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}>
+              <h2
+                style={{ color: 'var(--color-white)', fontSize: '1.5rem', marginBottom: '1.5rem' }}
+              >
                 Review & Publish
               </h2>
-              
+
               {/* Languages */}
               <div style={{ marginBottom: '2rem' }}>
-                <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+                <h3
+                  style={{
+                    color: 'var(--color-old-gold)',
+                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                  }}
+                >
                   Languages
                 </h3>
-                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                <div
+                  style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}
+                >
                   {creatureData.languages.map((language, index) => (
                     <span
                       key={index}
@@ -1980,7 +2583,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                         fontSize: '0.875rem',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '0.5rem'
+                        gap: '0.5rem',
                       }}
                     >
                       {language}
@@ -1991,7 +2594,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: 'none',
                           color: 'var(--color-sunset)',
                           cursor: 'pointer',
-                          fontSize: '0.75rem'
+                          fontSize: '0.75rem',
                         }}
                       >
                         ×
@@ -2011,7 +2614,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                   <Button variant="secondary" onClick={addLanguage}>
@@ -2022,7 +2625,13 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Loot */}
               <div style={{ marginBottom: '2rem' }}>
-                <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+                <h3
+                  style={{
+                    color: 'var(--color-old-gold)',
+                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                  }}
+                >
                   Loot
                 </h3>
                 <div style={{ marginBottom: '1rem' }}>
@@ -2036,17 +2645,19 @@ const HomebrewCreatureCreator: React.FC = () => {
                         padding: '0.5rem',
                         backgroundColor: 'var(--color-dark-elevated)',
                         borderRadius: '0.25rem',
-                        marginBottom: '0.5rem'
+                        marginBottom: '0.5rem',
                       }}
                     >
-                      <span style={{ color: 'var(--color-white)', fontSize: '0.875rem' }}>{item}</span>
+                      <span style={{ color: 'var(--color-white)', fontSize: '0.875rem' }}>
+                        {item}
+                      </span>
                       <button
                         onClick={() => removeLootItem(index)}
                         style={{
                           background: 'none',
                           border: 'none',
                           color: 'var(--color-sunset)',
-                          cursor: 'pointer'
+                          cursor: 'pointer',
                         }}
                       >
                         Remove
@@ -2066,7 +2677,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                   <Button variant="secondary" onClick={addLootItem}>
@@ -2077,10 +2688,18 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Spells */}
               <div style={{ marginBottom: '2rem' }}>
-                <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+                <h3
+                  style={{
+                    color: 'var(--color-old-gold)',
+                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                  }}
+                >
                   Known Spells
                 </h3>
-                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                <div
+                  style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}
+                >
                   {spellNames.map((spellName, index) => (
                     <span
                       key={index}
@@ -2092,7 +2711,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                         fontSize: '0.875rem',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '0.5rem'
+                        gap: '0.5rem',
                       }}
                     >
                       ✨ {spellName}
@@ -2103,7 +2722,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: 'none',
                           color: 'var(--color-sunset)',
                           cursor: 'pointer',
-                          fontSize: '0.75rem'
+                          fontSize: '0.75rem',
                         }}
                       >
                         ×
@@ -2123,7 +2742,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                   <Button variant="secondary" onClick={addSpell}>
@@ -2134,24 +2753,38 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Publishing Options */}
               <div style={{ marginBottom: '2rem' }}>
-                <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+                <h3
+                  style={{
+                    color: 'var(--color-old-gold)',
+                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                  }}
+                >
                   Publishing Options
                 </h3>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
                   <div>
-                    <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-white)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Status
                     </label>
                     <select
                       value={creatureData.status}
-                      onChange={(e) => setCreatureData(prev => ({ ...prev, status: e.target.value as any }))}
+                      onChange={(e) =>
+                        setCreatureData((prev) => ({ ...prev, status: e.target.value as any }))
+                      }
                       style={{
                         width: '100%',
                         padding: '0.75rem',
                         backgroundColor: 'var(--color-dark-surface)',
                         border: '1px solid var(--color-dark-border)',
                         borderRadius: '0.375rem',
-                        color: 'var(--color-white)'
+                        color: 'var(--color-white)',
                       }}
                     >
                       <option value="draft">Draft (Only you can see)</option>
@@ -2160,13 +2793,21 @@ const HomebrewCreatureCreator: React.FC = () => {
                     </select>
                   </div>
                   <div>
-                    <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                    <label
+                      style={{
+                        color: 'var(--color-white)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
                       Source/Campaign
                     </label>
                     <input
                       type="text"
                       value={creatureData.source}
-                      onChange={(e) => setCreatureData(prev => ({ ...prev, source: e.target.value }))}
+                      onChange={(e) =>
+                        setCreatureData((prev) => ({ ...prev, source: e.target.value }))
+                      }
                       placeholder="Optional source or campaign name"
                       style={{
                         width: '100%',
@@ -2174,7 +2815,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                         backgroundColor: 'var(--color-dark-surface)',
                         border: '1px solid var(--color-dark-border)',
                         borderRadius: '0.375rem',
-                        color: 'var(--color-white)'
+                        color: 'var(--color-white)',
                       }}
                     />
                   </div>
@@ -2183,10 +2824,18 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Tags */}
               <div style={{ marginBottom: '2rem' }}>
-                <h3 style={{ color: 'var(--color-old-gold)', fontSize: '1.25rem', marginBottom: '1rem' }}>
+                <h3
+                  style={{
+                    color: 'var(--color-old-gold)',
+                    fontSize: '1.25rem',
+                    marginBottom: '1rem',
+                  }}
+                >
                   Tags
                 </h3>
-                <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}>
+                <div
+                  style={{ display: 'flex', gap: '0.5rem', marginBottom: '1rem', flexWrap: 'wrap' }}
+                >
                   {creatureData.tags.map((tag, index) => (
                     <span
                       key={index}
@@ -2198,7 +2847,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                         fontSize: '0.875rem',
                         display: 'flex',
                         alignItems: 'center',
-                        gap: '0.5rem'
+                        gap: '0.5rem',
                       }}
                     >
                       {tag}
@@ -2209,7 +2858,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           border: 'none',
                           color: 'var(--color-sunset)',
                           cursor: 'pointer',
-                          fontSize: '0.75rem'
+                          fontSize: '0.75rem',
                         }}
                       >
                         ×
@@ -2229,7 +2878,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                       backgroundColor: 'var(--color-dark-surface)',
                       border: '1px solid var(--color-dark-border)',
                       borderRadius: '0.375rem',
-                      color: 'var(--color-white)'
+                      color: 'var(--color-white)',
                     }}
                   />
                   <Button variant="secondary" onClick={addTag}>
@@ -2240,12 +2889,16 @@ const HomebrewCreatureCreator: React.FC = () => {
 
               {/* Balance Notes */}
               <div>
-                <label style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}>
+                <label
+                  style={{ color: 'var(--color-white)', display: 'block', marginBottom: '0.5rem' }}
+                >
                   Balance Notes (Optional)
                 </label>
                 <textarea
                   value={creatureData.balanceNotes}
-                  onChange={(e) => setCreatureData(prev => ({ ...prev, balanceNotes: e.target.value }))}
+                  onChange={(e) =>
+                    setCreatureData((prev) => ({ ...prev, balanceNotes: e.target.value }))
+                  }
                   rows={3}
                   placeholder="Any notes about balance considerations or design choices..."
                   style={{
@@ -2255,7 +2908,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                     border: '1px solid var(--color-dark-border)',
                     borderRadius: '0.375rem',
                     color: 'var(--color-white)',
-                    resize: 'vertical'
+                    resize: 'vertical',
                   }}
                 />
               </div>
@@ -2263,16 +2916,18 @@ const HomebrewCreatureCreator: React.FC = () => {
           )}
 
           {/* Navigation */}
-          <div style={{ 
-            display: 'flex', 
-            justifyContent: 'space-between', 
-            marginTop: '2rem',
-            paddingTop: '1rem',
-            borderTop: '1px solid var(--color-dark-border)'
-          }}>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              marginTop: '2rem',
+              paddingTop: '1rem',
+              borderTop: '1px solid var(--color-dark-border)',
+            }}
+          >
             <Button
               variant="secondary"
-              onClick={() => setCurrentStep(prev => Math.max(1, prev - 1))}
+              onClick={() => setCurrentStep((prev) => Math.max(1, prev - 1))}
               disabled={currentStep === 1}
             >
               Previous
@@ -2281,17 +2936,13 @@ const HomebrewCreatureCreator: React.FC = () => {
             {currentStep < totalSteps ? (
               <Button
                 variant="primary"
-                onClick={() => setCurrentStep(prev => Math.min(totalSteps, prev + 1))}
+                onClick={() => setCurrentStep((prev) => Math.min(totalSteps, prev + 1))}
               >
                 Next
               </Button>
             ) : (
-              <Button
-                variant="accent"
-                onClick={handleSubmit}
-                disabled={saving}
-              >
-                {saving ? 'Saving...' : (id ? 'Update Creature' : 'Create Creature')}
+              <Button variant="accent" onClick={handleSubmit} disabled={saving}>
+                {saving ? 'Saving...' : id ? 'Update Creature' : 'Create Creature'}
               </Button>
             )}
           </div>

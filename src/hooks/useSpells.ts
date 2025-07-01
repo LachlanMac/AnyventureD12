@@ -2,10 +2,7 @@ import { useAsyncState } from './useAsyncState';
 import { spellsApi, type SpellFilters } from '../api/spells';
 
 export function useSpells(filters?: SpellFilters) {
-  return useAsyncState(
-    () => spellsApi.getAll(filters),
-    [JSON.stringify(filters)]
-  );
+  return useAsyncState(() => spellsApi.getAll(filters), [JSON.stringify(filters)]);
 }
 
 export function useSpell(id: string | undefined) {
@@ -31,10 +28,7 @@ export function useSpellsBySchool(school: string | undefined, subschool?: string
 }
 
 export function useHomebrewSpells(filters?: SpellFilters) {
-  return useAsyncState(
-    () => spellsApi.homebrew.getAll(filters),
-    [JSON.stringify(filters)]
-  );
+  return useAsyncState(() => spellsApi.homebrew.getAll(filters), [JSON.stringify(filters)]);
 }
 
 export function useHomebrewSpell(id: string | undefined) {

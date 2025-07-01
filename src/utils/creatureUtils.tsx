@@ -7,7 +7,7 @@ export const CREATURE_TIERS = {
   champion: 'var(--color-stormy)',
   elite: 'var(--color-sat-purple)',
   legend: 'var(--color-metal-gold)',
-  mythic: '#ff6b35'
+  mythic: '#ff6b35',
 } as const;
 
 export const CREATURE_TYPE_ICONS = {
@@ -19,11 +19,19 @@ export const CREATURE_TYPE_ICONS = {
   construct: '🤖',
   plantoid: '🌿',
   fey: '🧚',
-  elemental: '🔥'
+  elemental: '🔥',
 } as const;
 
 export const DAMAGE_TYPES = [
-  'physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic'
+  'physical',
+  'heat',
+  'cold',
+  'lightning',
+  'dark',
+  'divine',
+  'aether',
+  'psychic',
+  'toxic',
 ] as const;
 
 /**
@@ -53,16 +61,18 @@ export function getMitigationFormat(value: number): { half: string; full: string
  * Check if creature has any spells
  */
 export function hasSpells(creature: any): boolean {
-  return (creature.spells && creature.spells.length > 0) || 
-         (creature.customSpells && creature.customSpells.length > 0);
+  return (
+    (creature.spells && creature.spells.length > 0) ||
+    (creature.customSpells && creature.customSpells.length > 0)
+  );
 }
 
 /**
  * Get all spells for a creature (regular + custom)
  */
-export function getAllSpells(creature: any): { regular: any[], custom: any[] } {
+export function getAllSpells(creature: any): { regular: any[]; custom: any[] } {
   return {
     regular: creature.spells || [],
-    custom: creature.customSpells || []
+    custom: creature.customSpells || [],
   };
 }

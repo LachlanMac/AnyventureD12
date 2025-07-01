@@ -49,7 +49,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
         status: statusFilter,
         sort: sortBy,
         page: page.toString(),
-        limit: '12'
+        limit: '12',
       });
 
       if (searchTerm) params.append('search', searchTerm);
@@ -57,7 +57,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
       if (tierFilter !== 'all') params.append('tier', tierFilter);
 
       const response = await fetch(`/api/homebrew/creatures?${params}`);
-      
+
       if (!response.ok) {
         throw new Error('Failed to fetch creatures');
       }
@@ -104,7 +104,9 @@ const HomebrewCreatureBrowser: React.FC = () => {
   };
 
   const handleDelete = async (creatureId: string) => {
-    const confirmed = await prompt('Are you sure you want to delete this creature? This action cannot be undone.');
+    const confirmed = await prompt(
+      'Are you sure you want to delete this creature? This action cannot be undone.'
+    );
     if (!confirmed) return;
 
     try {
@@ -133,7 +135,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
       construct: '🤖',
       plantoid: '🌿',
       fey: '🧚',
-      elemental: '🔥'
+      elemental: '🔥',
     };
     return icons[type as keyof typeof icons] || '❓';
   };
@@ -146,12 +148,23 @@ const HomebrewCreatureBrowser: React.FC = () => {
       champion: 'var(--color-stormy)',
       elite: 'var(--color-sat-purple)',
       legend: 'var(--color-metal-gold)',
-      mythic: '#ff6b35'
+      mythic: '#ff6b35',
     };
     return colors[tier as keyof typeof colors] || 'var(--color-cloud)';
   };
 
-  const creatureTypes = ['all', 'fiend', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental'];
+  const creatureTypes = [
+    'all',
+    'fiend',
+    'undead',
+    'divine',
+    'monster',
+    'humanoid',
+    'construct',
+    'plantoid',
+    'fey',
+    'elemental',
+  ];
   const creatureTiers = ['all', 'minion', 'thrall', 'foe', 'champion', 'elite', 'legend', 'mythic'];
 
   if (loading && creatures.length === 0) {
@@ -168,22 +181,24 @@ const HomebrewCreatureBrowser: React.FC = () => {
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
-        <Link 
-          to="/homebrew" 
-          style={{ 
-            color: 'var(--color-old-gold)', 
+        <Link
+          to="/homebrew"
+          style={{
+            color: 'var(--color-old-gold)',
             textDecoration: 'none',
-            fontSize: '0.875rem'
+            fontSize: '0.875rem',
           }}
         >
           ← Back to Homebrew
         </Link>
-        <h1 style={{ 
-          color: 'var(--color-white)', 
-          fontSize: '2.5rem', 
-          fontWeight: 'bold',
-          margin: '1rem 0'
-        }}>
+        <h1
+          style={{
+            color: 'var(--color-white)',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            margin: '1rem 0',
+          }}
+        >
           Homebrew Creatures
         </h1>
         <p style={{ color: 'var(--color-cloud)', fontSize: '1.125rem' }}>
@@ -192,17 +207,26 @@ const HomebrewCreatureBrowser: React.FC = () => {
       </div>
 
       {/* Controls */}
-      <div style={{ 
-        display: 'grid', 
-        gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', 
-        gap: '1rem', 
-        marginBottom: '2rem',
-        padding: '1.5rem',
-        backgroundColor: 'var(--color-dark-elevated)',
-        borderRadius: '0.5rem'
-      }}>
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+          gap: '1rem',
+          marginBottom: '2rem',
+          padding: '1.5rem',
+          backgroundColor: 'var(--color-dark-elevated)',
+          borderRadius: '0.5rem',
+        }}
+      >
         <div>
-          <label style={{ color: 'var(--color-white)', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
+          <label
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              display: 'block',
+              marginBottom: '0.5rem',
+            }}
+          >
             Search Creatures
           </label>
           <input
@@ -217,13 +241,20 @@ const HomebrewCreatureBrowser: React.FC = () => {
               border: '1px solid var(--color-dark-border)',
               borderRadius: '0.25rem',
               color: 'var(--color-white)',
-              fontSize: '0.875rem'
+              fontSize: '0.875rem',
             }}
           />
         </div>
 
         <div>
-          <label style={{ color: 'var(--color-white)', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
+          <label
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              display: 'block',
+              marginBottom: '0.5rem',
+            }}
+          >
             Type
           </label>
           <select
@@ -236,17 +267,26 @@ const HomebrewCreatureBrowser: React.FC = () => {
               border: '1px solid var(--color-dark-border)',
               borderRadius: '0.25rem',
               color: 'var(--color-white)',
-              fontSize: '0.875rem'
+              fontSize: '0.875rem',
             }}
           >
-            {creatureTypes.map(type => (
-              <option key={type} value={type}>{type === 'all' ? 'All Types' : type.charAt(0).toUpperCase() + type.slice(1)}</option>
+            {creatureTypes.map((type) => (
+              <option key={type} value={type}>
+                {type === 'all' ? 'All Types' : type.charAt(0).toUpperCase() + type.slice(1)}
+              </option>
             ))}
           </select>
         </div>
 
         <div>
-          <label style={{ color: 'var(--color-white)', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
+          <label
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              display: 'block',
+              marginBottom: '0.5rem',
+            }}
+          >
             Tier
           </label>
           <select
@@ -259,18 +299,27 @@ const HomebrewCreatureBrowser: React.FC = () => {
               border: '1px solid var(--color-dark-border)',
               borderRadius: '0.25rem',
               color: 'var(--color-white)',
-              fontSize: '0.875rem'
+              fontSize: '0.875rem',
             }}
           >
-            {creatureTiers.map(tier => (
-              <option key={tier} value={tier}>{tier === 'all' ? 'All Tiers' : tier.charAt(0).toUpperCase() + tier.slice(1)}</option>
+            {creatureTiers.map((tier) => (
+              <option key={tier} value={tier}>
+                {tier === 'all' ? 'All Tiers' : tier.charAt(0).toUpperCase() + tier.slice(1)}
+              </option>
             ))}
           </select>
         </div>
 
         {user && (
           <div>
-            <label style={{ color: 'var(--color-white)', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
+            <label
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '0.875rem',
+                display: 'block',
+                marginBottom: '0.5rem',
+              }}
+            >
               Status
             </label>
             <select
@@ -283,7 +332,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
                 border: '1px solid var(--color-dark-border)',
                 borderRadius: '0.25rem',
                 color: 'var(--color-white)',
-                fontSize: '0.875rem'
+                fontSize: '0.875rem',
               }}
             >
               <option value="published">Published</option>
@@ -295,7 +344,14 @@ const HomebrewCreatureBrowser: React.FC = () => {
         )}
 
         <div>
-          <label style={{ color: 'var(--color-white)', fontSize: '0.875rem', display: 'block', marginBottom: '0.5rem' }}>
+          <label
+            style={{
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              display: 'block',
+              marginBottom: '0.5rem',
+            }}
+          >
             Sort By
           </label>
           <select
@@ -308,7 +364,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
               border: '1px solid var(--color-dark-border)',
               borderRadius: '0.25rem',
               color: 'var(--color-white)',
-              fontSize: '0.875rem'
+              fontSize: '0.875rem',
             }}
           >
             <option value="-publishedAt">Newest</option>
@@ -336,58 +392,79 @@ const HomebrewCreatureBrowser: React.FC = () => {
 
       {/* Results */}
       {error && (
-        <div style={{ 
-          color: 'var(--color-sunset)', 
-          textAlign: 'center', 
-          marginBottom: '2rem',
-          padding: '1rem',
-          backgroundColor: 'var(--color-dark-elevated)',
-          borderRadius: '0.5rem'
-        }}>
+        <div
+          style={{
+            color: 'var(--color-sunset)',
+            textAlign: 'center',
+            marginBottom: '2rem',
+            padding: '1rem',
+            backgroundColor: 'var(--color-dark-elevated)',
+            borderRadius: '0.5rem',
+          }}
+        >
           {error}
         </div>
       )}
 
       {creatures.length === 0 && !loading ? (
-        <div style={{ 
-          textAlign: 'center', 
-          padding: '3rem',
-          color: 'var(--color-cloud)'
-        }}>
+        <div
+          style={{
+            textAlign: 'center',
+            padding: '3rem',
+            color: 'var(--color-cloud)',
+          }}
+        >
           <h3 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>No creatures found</h3>
           <p>Try adjusting your search terms or filters.</p>
         </div>
       ) : (
         <>
           {/* Creatures Grid */}
-          <div style={{ 
-            display: 'grid', 
-            gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))', 
-            gap: '1.5rem',
-            marginBottom: '2rem'
-          }}>
+          <div
+            style={{
+              display: 'grid',
+              gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+              gap: '1.5rem',
+              marginBottom: '2rem',
+            }}
+          >
             {creatures.map((creature) => (
               <Card key={creature._id} variant="default" hoverEffect>
                 <CardHeader style={{ padding: '1rem' }}>
-                  <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                    }}
+                  >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
                       <span style={{ fontSize: '1.5rem' }}>{getTypeIcon(creature.type)}</span>
                       <div>
-                        <h3 style={{ 
-                          color: 'var(--color-white)', 
-                          fontWeight: 'bold', 
-                          margin: 0,
-                          fontSize: '1.125rem'
-                        }}>
+                        <h3
+                          style={{
+                            color: 'var(--color-white)',
+                            fontWeight: 'bold',
+                            margin: 0,
+                            fontSize: '1.125rem',
+                          }}
+                        >
                           {creature.name}
                         </h3>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginTop: '0.25rem' }}>
-                          <span 
-                            style={{ 
+                        <div
+                          style={{
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                            marginTop: '0.25rem',
+                          }}
+                        >
+                          <span
+                            style={{
                               color: getTierColor(creature.tier),
                               fontSize: '0.75rem',
                               fontWeight: 'bold',
-                              textTransform: 'capitalize'
+                              textTransform: 'capitalize',
                             }}
                           >
                             {creature.tier}
@@ -398,8 +475,15 @@ const HomebrewCreatureBrowser: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    
-                    <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '0.25rem' }}>
+
+                    <div
+                      style={{
+                        display: 'flex',
+                        flexDirection: 'column',
+                        alignItems: 'center',
+                        gap: '0.25rem',
+                      }}
+                    >
                       <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <button
                           onClick={() => handleVote(creature._id, 'up')}
@@ -409,7 +493,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
                             border: 'none',
                             color: 'var(--color-cloud)',
                             cursor: user ? 'pointer' : 'not-allowed',
-                            fontSize: '0.875rem'
+                            fontSize: '0.875rem',
                           }}
                         >
                           ▲ {creature.upvotes}
@@ -422,7 +506,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
                             border: 'none',
                             color: 'var(--color-cloud)',
                             cursor: user ? 'pointer' : 'not-allowed',
-                            fontSize: '0.875rem'
+                            fontSize: '0.875rem',
                           }}
                         >
                           ▼ {creature.downvotes}
@@ -431,27 +515,31 @@ const HomebrewCreatureBrowser: React.FC = () => {
                     </div>
                   </div>
                 </CardHeader>
-                
+
                 <CardBody style={{ padding: '0 1rem 1rem' }}>
-                  <p style={{ 
-                    color: 'var(--color-cloud)', 
-                    fontSize: '0.875rem', 
-                    lineHeight: '1.4',
-                    marginBottom: '1rem',
-                    display: '-webkit-box',
-                    WebkitLineClamp: 3,
-                    WebkitBoxOrient: 'vertical',
-                    overflow: 'hidden'
-                  }}>
+                  <p
+                    style={{
+                      color: 'var(--color-cloud)',
+                      fontSize: '0.875rem',
+                      lineHeight: '1.4',
+                      marginBottom: '1rem',
+                      display: '-webkit-box',
+                      WebkitLineClamp: 3,
+                      WebkitBoxOrient: 'vertical',
+                      overflow: 'hidden',
+                    }}
+                  >
                     {creature.description}
                   </p>
-                  
-                  <div style={{ 
-                    display: 'flex', 
-                    justifyContent: 'space-between', 
-                    alignItems: 'center',
-                    marginBottom: '1rem'
-                  }}>
+
+                  <div
+                    style={{
+                      display: 'flex',
+                      justifyContent: 'space-between',
+                      alignItems: 'center',
+                      marginBottom: '1rem',
+                    }}
+                  >
                     <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
                       by {creature.creatorName}
                     </span>
@@ -459,7 +547,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
                       Used {creature.timesUsed} times
                     </span>
                   </div>
-                  
+
                   <div style={{ display: 'flex', gap: '0.5rem' }}>
                     <Button
                       variant="primary"
@@ -468,7 +556,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
                     >
                       View Details
                     </Button>
-                    
+
                     {user && user.id === creature.creator && (
                       <>
                         <Button
@@ -498,24 +586,26 @@ const HomebrewCreatureBrowser: React.FC = () => {
             <div style={{ display: 'flex', justifyContent: 'center', gap: '0.5rem' }}>
               <Button
                 variant="secondary"
-                onClick={() => setPage(p => Math.max(1, p - 1))}
+                onClick={() => setPage((p) => Math.max(1, p - 1))}
                 disabled={page <= 1}
               >
                 Previous
               </Button>
-              
-              <span style={{ 
-                color: 'var(--color-white)', 
-                padding: '0.5rem 1rem',
-                display: 'flex',
-                alignItems: 'center'
-              }}>
+
+              <span
+                style={{
+                  color: 'var(--color-white)',
+                  padding: '0.5rem 1rem',
+                  display: 'flex',
+                  alignItems: 'center',
+                }}
+              >
                 Page {page} of {totalPages}
               </span>
-              
+
               <Button
                 variant="secondary"
-                onClick={() => setPage(p => Math.min(totalPages, p + 1))}
+                onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
                 disabled={page >= totalPages}
               >
                 Next

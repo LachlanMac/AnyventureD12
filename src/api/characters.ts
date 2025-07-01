@@ -49,12 +49,10 @@ export const charactersApi = {
   },
 
   // Get character by ID
-  getById: (id: string) =>
-    apiClient.get<Character>(`/characters/${id}`),
+  getById: (id: string) => apiClient.get<Character>(`/characters/${id}`),
 
   // Create new character
-  create: (data: CreateCharacterData) =>
-    apiClient.post<Character>('/characters', data),
+  create: (data: CreateCharacterData) => apiClient.post<Character>('/characters', data),
 
   // Update character
   update: (id: string, data: UpdateCharacterData) =>
@@ -65,12 +63,10 @@ export const charactersApi = {
     apiClient.patch<Character>(`/characters/${id}/resources`, { resources }),
 
   // Delete character
-  delete: (id: string) =>
-    apiClient.delete(`/characters/${id}`),
+  delete: (id: string) => apiClient.delete(`/characters/${id}`),
 
   // Character modules
-  getModules: (characterId: string) =>
-    apiClient.get<any[]>(`/characters/${characterId}/modules`),
+  getModules: (characterId: string) => apiClient.get<any[]>(`/characters/${characterId}/modules`),
 
   addModule: (characterId: string, moduleId: string, selections: Record<string, string>) =>
     apiClient.post(`/characters/${characterId}/modules`, { moduleId, selections }),
@@ -82,8 +78,7 @@ export const charactersApi = {
     apiClient.delete(`/characters/${characterId}/modules/${moduleId}`),
 
   // Character spells
-  getSpells: (characterId: string) =>
-    apiClient.get<any[]>(`/characters/${characterId}/spells`),
+  getSpells: (characterId: string) => apiClient.get<any[]>(`/characters/${characterId}/spells`),
 
   addSpell: (characterId: string, spellId: string) =>
     apiClient.post(`/characters/${characterId}/spells`, { spellId }),
@@ -93,5 +88,9 @@ export const charactersApi = {
 
   // Upload character portrait
   uploadPortrait: (characterId: string, file: File) =>
-    apiClient.uploadFile<{ portraitUrl: string }>(`/characters/${characterId}/portrait`, file, 'portrait'),
+    apiClient.uploadFile<{ portraitUrl: string }>(
+      `/characters/${characterId}/portrait`,
+      file,
+      'portrait'
+    ),
 };

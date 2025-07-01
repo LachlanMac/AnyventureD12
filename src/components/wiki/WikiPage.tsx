@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
+import rehypeRaw from 'rehype-raw';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 
 interface WikiPage {
@@ -29,22 +30,22 @@ const WikiPage = () => {
     const loadPage = async () => {
       setLoading(true);
       setError(null);
-      
+
       try {
         // Load structure if not already loaded
         const structureRes = await fetch('/wiki/structure.json');
         const structureData = await structureRes.json();
         setStructure(structureData);
-        
+
         // Find page info
         const page = structureData.pages.find((p: WikiPage) => p.id === pageId);
         if (!page) {
           setError('Page not found');
           return;
         }
-        
+
         setPageInfo(page);
-        
+
         // Load page content
         const contentRes = await fetch(`/wiki/${page.path}`);
         if (!contentRes.ok) {
@@ -58,7 +59,7 @@ const WikiPage = () => {
         setLoading(false);
       }
     };
-    
+
     if (pageId) {
       loadPage();
     }
@@ -67,11 +68,12 @@ const WikiPage = () => {
   // Find previous and next pages
   const findAdjacentPages = () => {
     if (!structure || !pageInfo) return { prev: null, next: null };
-    
-    const currentIndex = structure.pages.findIndex(p => p.id === pageInfo.id);
+
+    const currentIndex = structure.pages.findIndex((p) => p.id === pageInfo.id);
     const prev = currentIndex > 0 ? structure.pages[currentIndex - 1] : null;
-    const next = currentIndex < structure.pages.length - 1 ? structure.pages[currentIndex + 1] : null;
-    
+    const next =
+      currentIndex < structure.pages.length - 1 ? structure.pages[currentIndex + 1] : null;
+
     return { prev, next };
   };
 
@@ -101,25 +103,36 @@ const WikiPage = () => {
     <article className="prose prose-invert prose-purple max-w-none">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
+        rehypePlugins={[rehypeRaw]}
         components={{
           // Custom link renderer for internal wiki links
           a: ({ href, children }) => {
             if (href?.startsWith('/wiki/')) {
               return (
-                <Link to={href} className="text-purple-400 hover:text-purple-300 no-underline hover:underline">
+                <Link
+                  to={href}
+                  className="text-purple-400 hover:text-purple-300 no-underline hover:underline"
+                >
                   {children}
                 </Link>
               );
             }
             return (
-              <a href={href} target="_blank" rel="noopener noreferrer" className="text-purple-400 hover:text-purple-300">
+              <a
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-purple-400 hover:text-purple-300"
+              >
                 {children}
               </a>
             );
           },
           // Style code blocks
           pre: ({ children }) => (
-            <pre className="bg-gray-900/50 border border-gray-700 rounded-lg overflow-x-auto">{children}</pre>
+            <pre className="bg-gray-900/50 border border-gray-700 rounded-lg overflow-x-auto">
+              {children}
+            </pre>
           ),
           code: ({ children }) => (
             <code className="bg-gray-900/50 px-1 py-0.5 rounded text-purple-300">{children}</code>
@@ -131,11 +144,11 @@ const WikiPage = () => {
             </div>
           ),
           th: ({ children }) => (
-            <th className="border border-gray-700 bg-gray-800/50 px-4 py-2 text-left">{children}</th>
+            <th className="border border-gray-700 bg-gray-800/50 px-4 py-2 text-left">
+              {children}
+            </th>
           ),
-          td: ({ children }) => (
-            <td className="border border-gray-700 px-4 py-2">{children}</td>
-          ),
+          td: ({ children }) => <td className="border border-gray-700 px-4 py-2">{children}</td>,
           // Style headings
           h1: ({ children }) => (
             <h1 className="text-3xl font-bold text-purple-300 mb-6 mt-8 first:mt-0">{children}</h1>
@@ -155,13 +168,15 @@ const WikiPage = () => {
           ),
           // Style blockquotes
           blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-purple-600 pl-4 italic text-gray-400">{children}</blockquote>
+            <blockquote className="border-l-4 border-purple-600 pl-4 italic text-gray-400">
+              {children}
+            </blockquote>
           ),
         }}
       >
         {content}
       </ReactMarkdown>
-      
+
       {/* Navigation */}
       <div className="mt-12 pt-8 border-t border-gray-700 flex justify-between items-center">
         {prev ? (
@@ -175,7 +190,7 @@ const WikiPage = () => {
         ) : (
           <div />
         )}
-        
+
         {next ? (
           <Link
             to={`/wiki/${next.id}`}

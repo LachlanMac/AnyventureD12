@@ -261,6 +261,53 @@
 }
 
 @layer utilities {
+  /* Decorative dividers */
+  .triangle-line {
+    height: 2px;
+    background: linear-gradient(to right, var(--color-sat-purple) 0%, transparent 100%);
+    margin: 1.5rem 0;
+    width: 100%;
+    border: none;
+  }
+
+  .triangle-line-gold {
+    background: linear-gradient(to right, var(--color-metal-gold) 0%, transparent 100%);
+  }
+
+  .triangle-line-sunset {
+    background: linear-gradient(to right, var(--color-sunset) 0%, transparent 100%);
+  }
+
+  .ornate-divider {
+    text-align: center;
+    margin: 2rem 0;
+    color: var(--color-sat-purple);
+    font-size: 1.5rem;
+    letter-spacing: 0.5rem;
+    opacity: 0.7;
+  }
+
+  .section-break {
+    display: flex;
+    align-items: center;
+    margin: 3rem 0;
+    opacity: 0.6;
+  }
+
+  .section-break::before,
+  .section-break::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: linear-gradient(to right, transparent, var(--color-stormy), transparent);
+  }
+
+  .section-break-center {
+    margin: 0 1rem;
+    color: var(--color-sat-purple);
+    font-size: 1.2rem;
+  }
+
   /* Glow effects */
   .text-glow {
     text-shadow: 0 0 8px rgba(215, 183, 64, 0.5);
@@ -431,3 +478,4 @@
     transform: translateY(0);
   }
 }
+
