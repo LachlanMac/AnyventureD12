@@ -27,7 +27,7 @@ const WikiSidebar = () => {
       .then(data => {
         setStructure(data);
         // Expand all categories by default
-        const categories = new Set(data.pages.map((p: WikiPage) => p.category));
+        const categories = new Set<string>(data.pages.map((p: WikiPage) => p.category));
         setExpandedCategories(categories);
       })
       .catch(err => console.error('Failed to load wiki structure:', err));
