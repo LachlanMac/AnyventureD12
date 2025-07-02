@@ -16,7 +16,9 @@ Talents are one half of the dice rolling system. All skills in AnyventureDX have
 
 <br> 
 
-**Example**: A character has 2 talents in black magic, and 0 talents in divine magic. This character can never channel a spell from divine magic because they do not have the innate ability to do so. However, when making a black magic check, the roll 2 dice.
+<div class="example-box">
+A character has 2 talents in black magic, and 0 talents in divine magic. This character can never channel a spell from divine magic because they do not have the innate ability to do so. However, when making a black magic check, the roll 2 dice.
+</div>
 
 
 ## The Five Attributes
@@ -37,8 +39,9 @@ Every character has five core attributes that define their natural capabilities.
 <div class="triangle-line"></div>
 Unlike skills, attributes are a category rather than an actual game mechanic. You will never roll a physique or social check to resolve something. Attributes exist only to define your talents and how they affect the skills within the same cateogry.
 Attributes do not directly affect the tier of your dice, but only affect *how many* dice you roll for all skills under that umbrella.
-###
-Example: a character with 3 talents in Finesse will roll 3 dice for any evasion, stealth, coordination or thievery check. The type of dice rolled is determined by the **skill**.
+<div class="example-box">
+A character with 3 talents in Finesse will roll 3 dice for any evasion, stealth, coordination or thievery check. The type of dice rolled is determined by the **skill**.
+</div>
 
 ## Character Creation
 Assigning talents to attributes only happens during character creation as they are a representation of innate ability. Pick carefully!

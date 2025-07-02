@@ -308,6 +308,101 @@
     font-size: 1.2rem;
   }
 
+  /* Example boxes for wiki content */
+  .example-box {
+    background-color: var(--color-dark-elevated);
+    border: 1px solid var(--color-dark-border);
+    border-left: 4px solid var(--color-metal-gold);
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  .example-box::before {
+    content: "Example";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    background-color: var(--color-dark-elevated);
+    color: var(--color-metal-gold);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-dark-border);
+  }
+
+  .example-box-purple {
+    border-left-color: var(--color-sat-purple);
+  }
+
+  .example-box-purple::before {
+    color: var(--color-sat-purple);
+  }
+
+  .example-box-sunset {
+    border-left-color: var(--color-sunset);
+  }
+
+  .example-box-sunset::before {
+    color: var(--color-sunset);
+  }
+
+  /* Note boxes */
+  .note-box {
+    background-color: rgba(85, 65, 130, 0.1);
+    border: 1px solid var(--color-sat-purple-faded);
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  .note-box::before {
+    content: "Note";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    background-color: var(--color-dark-elevated);
+    color: var(--color-sat-purple);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-sat-purple-faded);
+  }
+
+  /* Warning boxes */
+  .warning-box {
+    background-color: rgba(152, 94, 109, 0.1);
+    border: 1px solid var(--color-sunset);
+    border-radius: 0.5rem;
+    padding: 1rem 1.25rem;
+    margin: 1.5rem 0;
+    position: relative;
+  }
+
+  .warning-box::before {
+    content: "Important";
+    position: absolute;
+    top: -0.5rem;
+    left: 1rem;
+    background-color: var(--color-dark-elevated);
+    color: var(--color-sunset);
+    font-size: 0.75rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    border: 1px solid var(--color-sunset);
+  }
+
   /* Glow effects */
   .text-glow {
     text-shadow: 0 0 8px rgba(215, 183, 64, 0.5);

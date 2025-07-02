@@ -41,7 +41,9 @@ A character's skill can range from 0 to 6 for a total of 7 levels, with each lev
 
 <br> 
 
-***Example: A character that wants help care of their allies with medicine takes the medic module. They spend their module points investing into traits in that module. The first tier of that module is Field : Medicine, granting +1 skill with medicine.*** 
+<div class="example-box">
+A character that wants help care of their allies with medicine takes the medic module. They spend their module points investing into traits in that module. The first tier of that module is Field : Medicine, granting +1 skill with medicine.
+</div> 
 
 <br> 
 
@@ -91,8 +93,17 @@ Skill checks don't have to be done alone. When assisting someone else, a charact
 <br> 
 
 - **Help with Same skill**: In order to assist with the same skill, a character must have the same or higher skill. This automatically grants the player you are helping a bonus dice on their skill check.
-- **Help wtih a Different skill**: Pick another skill to assist with and roll a single dice if the GM decides the check is relevant. Otherwise, roll two dice for the skill and take the lowest value. If the result of the check meets the R.C., you grant the player you are helping a bonus dice.
+- **Help with a Different skill**: Pick another skill to assist with and roll a single dice if the GM decides the check is relevant. Otherwise, roll two dice for the skill and take the lowest value. If the result of the check meets the R.C., you grant the player you are helping a bonus dice.
 
+<br>
+
+<div class="example-box">
+The party encounters a locked ancient door with a complex magical lock. The rogue (Thievery d12, 3 talents) attempts to pick it with an R.C. of 10.
+
+**Scenario 1 - Same Skill Help**: The party's second rogue (Thievery d12, 2 talents) who is just as skilled, but not quite as talented as the main rogue wants to help pick a lock. Since they have an equal thievery skill, they automatically grant the main rogue a bonus die. The main rogue now rolls 4d12 instead of 3d12.
+
+**Scenario 2 - Different Skill Help**: The wizard doesn't have thievery but offers to help by examining the magical components (Magic d16, 2 talents). The GM agrees this is relevant, so the wizard rolls a single d16. They roll a 12, beating the R.C. of 10, granting the rogue a bonus die. The rogue now rolls 4d12 for their attempt.
+</div>
 
 ## Special Checks
 <div class="triangle-line"></div>
@@ -104,7 +115,7 @@ There are different types of special checks that have specific rules or are refe
 - **Defense Check** - Making an evasion or deflection check
 - **Crafting Check** - Attempting to create a new item based on a recipe
 - **Magic Check** - Attempting to channel a spell
-
+- **Death Check** - A completely random roll not affected by any abilities
 <br> 
 
 

@@ -5,41 +5,38 @@ Conditions represent temporary states that affect characters during play. They c
 ## Mental Conditions
 
 ### Broken
-- **Trigger**: Resolve reaches 0
-- **Effect**: Cannot regain Resolve. All Mind checks suffer -1 die penalty
-- **Recovery**: DC 10 Resilience or Concentration check during Favorable Rest
+The broken condition happens when a character reaches 0 resolve. While broken, a character rolls with 1 penalty dice on knowledge, social and mind checks and automatically fail checks against the afraid, confused, maddened or charmed conditions. They also cannot recover resolve until the condition is removed. In order to lose the broken condition, a character must make a resilience check of 12 at the end of a full rest. For each full rest taken, this check is lowered by 1.
 
 ### Numbed
-- **Effect**: Cannot gain or lose Resolve. Cannot use Resolve to stay conscious
-- **Duration**: Varies by source
+A numbed character cannot lose or gain resolve. 
 
 ### Dazed
-- **Effect**: Cannot use Concentration skill
-- **Duration**: Ends automatically at the end of your next turn
+A dazed character loses their concentration and cannot concentrate on anything new until the condition is removed. When you are dazed, the first defense check you make has a penalty dice. This condition is shortlived, and automatically ends at the end of your next turn.
 
 ### Stunned
-- **Effect**: Cannot take Actions or Reactions
-- **Recovery**: DC 10 Resilience, Concentration, or Endurance check (DC -1 per failed attempt)
+A stunned character cannot take any actions, reactions or movement. Instead, they must use their action to attempt to recover by making a concentration check of 10. Each time this check is made, it is lowered by 1. 
 
 ### Afraid
-- **Effect**: Cannot take Reactions. DC 12 Resilience to use Actions
-- **Failure**: Move away from fear source (units = half the difference)
-- **Success**: Condition ends (DC -1 per failure)
+An afraid character cannot take reactions and must roll a resilience check of 10 whenever they attempt to use an action. On a failure, the afraid character instead moves a number of units equal to their movement speed away from the source of their fear. On a success, the condition ends. Each time this check is made, it is lowered by 1.
 
 ### Maddened
-- **Effect**: Attack allies, cannot distinguish friend from foe
-- **Duration**: Varies by source
+A character who is maddened cannot properly identify friend from foe but is not affected from other mind alterting conditions such as being charmed, confused or afraid. At the end of each turn, they can attempt to recover by making a resilience check of 10. This check is lowered by 1 each turn.
 
 ### Charmed
-- **Effect**: Under another's influence. Cannot target charmer with hostile actions
-- **Additional**: May obey commands
+A charmed character views the person who charmed them as a trusted ally and cannot take aggressive actions towards them. The charmer can issue commands as an action by succeeding on a contested persuasion check against the charmed creature's insight. The charmer also gains a bonus dice to all social checks against the charmed creature.
+
+There are several types of charms with different durations and ways to end the condition. If the charmed person asks the charmed creature to do anything that would cause self-harm or danger to an ally, the next check to break out of the charm is doubled.
 
 ### Confused
-- **Effect**: Roll 1d4 each turn:
-  1. Attack random target
-  2. Move in random direction
-  3. Lose your Action
-  4. Act normally
+A character who is confused must roll a 1d4 every time they attempt to take an action or reaction. At the end of each turn, the character can roll a concentration check of 10 to end the condition. This check is lowered by 1 each turn. The confused player states which action they are going to take and then rolls on the following table:
+
+| Roll | Effect |
+|------|--------|
+| 1 | You make an attack at the closest character if any are in range. If multiple characters are in range the GM will roll randomly to decide the target. |
+| 2 | Your action or reaction does not get used and instead you do nothing. |
+| 3 | You use your full walk speed to move in a random direction. |
+| 4 | You act normally. |
+
 
 ## Physical Conditions
 

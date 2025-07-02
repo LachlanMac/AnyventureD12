@@ -100,13 +100,6 @@
       "order": 2
     },
     {
-      "id": "learning-spells",
-      "title": "Learning Spells",
-      "path": "magic/learning.md",
-      "category": "Magic",
-      "order": 3
-    },
-    {
       "id": "crafting",
       "title": "Crafting Basics",
       "path": "crafting/crafting.md",
@@ -126,13 +119,6 @@
       "path": "modules/progression.md",
       "category": "Modules & Progression",
       "order": 2
-    },
-    {
-      "id": "health-resolve-energy",
-      "title": "Health, Resolve & Energy",
-      "path": "resources/health-resolve-energy.md",
-      "category": "Resources",
-      "order": 1
     },
     {
       "id": "conditions",

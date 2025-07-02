@@ -21,11 +21,13 @@ Unlike traditional RPGs, Anyventure doesn't use separate damage rolls:
    - First hit = Base damage
    - Each extra hit = Extra damage
 
-### Example: Longsword
+<div class="example-box">
+### Longsword
 - **Base Damage**: 3 Physical
 - **Extra Damage**: 2 Physical per extra hit
 
 If you hit with 3 dice: 3 + 2 + 2 = **7 total damage**
+</div>
 
 ## Weapon Examples
 
