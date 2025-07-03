@@ -4,6 +4,7 @@ import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
+import '../../styles/wiki.css';
 
 interface WikiPage {
   id: string;
@@ -100,7 +101,7 @@ const WikiPage = () => {
   }
 
   return (
-    <article className="prose prose-invert prose-purple max-w-none">
+    <article className="wiki-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
         rehypePlugins={[rehypeRaw]}
@@ -111,7 +112,7 @@ const WikiPage = () => {
               return (
                 <Link
                   to={href}
-                  className="text-purple-400 hover:text-purple-300 no-underline hover:underline"
+                  className="internal-link"
                 >
                   {children}
                 </Link>
@@ -122,55 +123,16 @@ const WikiPage = () => {
                 href={href}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-purple-400 hover:text-purple-300"
               >
                 {children}
               </a>
             );
           },
-          // Style code blocks
-          pre: ({ children }) => (
-            <pre className="bg-gray-900/50 border border-gray-700 rounded-lg overflow-x-auto">
-              {children}
-            </pre>
-          ),
-          code: ({ children }) => (
-            <code className="bg-gray-900/50 px-1 py-0.5 rounded text-purple-300">{children}</code>
-          ),
-          // Style tables
+          // Override table wrapper to add overflow handling
           table: ({ children }) => (
             <div className="overflow-x-auto">
-              <table className="min-w-full border-collapse">{children}</table>
+              <table>{children}</table>
             </div>
-          ),
-          th: ({ children }) => (
-            <th className="border border-gray-700 bg-gray-800/50 px-4 py-2 text-left">
-              {children}
-            </th>
-          ),
-          td: ({ children }) => <td className="border border-gray-700 px-4 py-2">{children}</td>,
-          // Style headings
-          h1: ({ children }) => (
-            <h1 className="text-3xl font-bold text-purple-300 mb-6 mt-8 first:mt-0">{children}</h1>
-          ),
-          h2: ({ children }) => (
-            <h2 className="text-2xl font-bold text-purple-300 mb-4 mt-6">{children}</h2>
-          ),
-          h3: ({ children }) => (
-            <h3 className="text-xl font-bold text-purple-300 mb-3 mt-4">{children}</h3>
-          ),
-          // Style lists
-          ul: ({ children }) => (
-            <ul className="list-disc list-inside space-y-1 text-gray-300">{children}</ul>
-          ),
-          ol: ({ children }) => (
-            <ol className="list-decimal list-inside space-y-1 text-gray-300">{children}</ol>
-          ),
-          // Style blockquotes
-          blockquote: ({ children }) => (
-            <blockquote className="border-l-4 border-purple-600 pl-4 italic text-gray-400">
-              {children}
-            </blockquote>
           ),
         }}
       >
@@ -178,11 +140,11 @@ const WikiPage = () => {
       </ReactMarkdown>
 
       {/* Navigation */}
-      <div className="mt-12 pt-8 border-t border-gray-700 flex justify-between items-center">
+      <div className="wiki-nav">
         {prev ? (
           <Link
             to={`/wiki/${prev.id}`}
-            className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+            className="wiki-nav-link"
           >
             <ArrowLeftIcon className="w-4 h-4" />
             <span>{prev.title}</span>
@@ -194,7 +156,7 @@ const WikiPage = () => {
         {next ? (
           <Link
             to={`/wiki/${next.id}`}
-            className="flex items-center gap-2 text-purple-400 hover:text-purple-300 transition-colors"
+            className="wiki-nav-link"
           >
             <span>{next.title}</span>
             <ArrowRightIcon className="w-4 h-4" />

@@ -1,0 +1,223 @@
+.wiki-content {
+  max-width: none;
+  color: var(--color-white);
+}
+
+/* Headings */
+.wiki-content h1 {
+  font-size: 1.875rem; /* 30px */
+  line-height: 2.25rem; /* 36px */
+  font-weight: 700;
+  margin-bottom: 1.5rem;
+  margin-top: 2rem;
+  color: #c299ff; /* Light purple */
+  background-color: rgba(0, 0, 0, 0.398);
+  padding:2rem 1rem 2rem 1rem;
+  border-radius: 20px;
+}
+
+.wiki-content h1:first-child {
+  margin-top: 0;
+}
+
+.wiki-content h2 {
+  font-size: 1.5rem; /* 24px */
+  line-height: 2rem; /* 32px */
+  font-weight: 700;
+  margin-bottom: 1rem;
+  margin-top: 1.5rem;
+  color: #c299ff; /* Light purple */
+}
+
+.wiki-content h3 {
+  font-size: 1.25rem; /* 20px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 700;
+  margin-bottom: 0.75rem;
+  margin-top: 1rem;
+  color: #c299ff; /* Light purple */
+}
+
+.wiki-content h4 {
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.75rem; /* 28px */
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  margin-top: 0.75rem;
+  color: #c299ff; /* Light purple */
+}
+
+/* Paragraphs */
+.wiki-content p {
+  margin-bottom: 1rem;
+  line-height: 1.625;
+  color: var(--color-white);
+}
+
+/* Links */
+.wiki-content a {
+  transition: color 0.15s ease-in-out;
+  color: #c299ff; /* Light purple */
+}
+
+.wiki-content a:hover {
+  color: var(--color-metal-gold);
+}
+
+.wiki-content a.internal-link {
+  text-decoration: none;
+}
+
+.wiki-content a.internal-link:hover {
+  text-decoration: underline;
+}
+
+/* Lists */
+.wiki-content ul {
+  list-style-type: disc;
+  list-style-position: inside;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.wiki-content ol {
+  list-style-type: decimal;
+  list-style-position: inside;
+  margin-bottom: 1rem;
+  color: var(--color-white);
+}
+
+.wiki-content li {
+  margin-bottom: 0.25rem;
+}
+
+/* Code */
+.wiki-content pre {
+  border-radius: 0.5rem;
+  overflow-x: auto;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background-color: var(--color-black);
+  border: 1px solid var(--color-stormy);
+}
+
+.wiki-content code {
+  padding: 0.125rem 0.25rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  background-color: var(--color-black);
+  color: #c299ff; /* Light purple */
+}
+
+.wiki-content pre code {
+  background-color: transparent;
+  padding: 0;
+}
+
+/* Tables */
+.wiki-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 1rem;
+}
+
+.wiki-content th {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  font-weight: 700;
+  background-color: var(--color-stormy);
+  border: 1px solid var(--color-stormy);
+  color: #c299ff; /* Light purple */
+}
+
+.wiki-content td {
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-stormy);
+  color: var(--color-white);
+}
+
+/* Blockquotes */
+.wiki-content blockquote {
+  border-left-width: 4px;
+  border-left-style: solid;
+  padding-left: 1rem;
+  font-style: italic;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  border-color: #c299ff; /* Light purple */
+  color: var(--color-white);
+  opacity: 0.9;
+}
+
+/* Horizontal Rules */
+.wiki-content hr {
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+  border-color: var(--color-stormy);
+}
+
+/* Images */
+.wiki-content img {
+  border-radius: 0.5rem;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  max-width: 100%;
+  height: auto;
+}
+
+/* Strong/Bold */
+.wiki-content strong {
+  font-weight: 700;
+  color: #d9b3ff; /* Extra light purple for emphasis */
+}
+
+/* Emphasis/Italic */
+.wiki-content em {
+  font-style: italic;
+  color: var(--color-white);
+  opacity: 0.95;
+}
+
+/* Navigation */
+.wiki-nav {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-color: var(--color-stormy);
+}
+
+.wiki-nav-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.15s ease-in-out;
+  color: #c299ff; /* Light purple */
+}
+
+.wiki-nav-link:hover {
+  color: var(--color-metal-gold);
+}
+
+/* Note Boxes */
+.wiki-content .note-box {
+  background-color: rgba(194, 153, 255, 0.15); /* Light purple background with transparency */
+  border: 1px solid #c299ff;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin: 1rem 0;
+  color: #e6d9ff; /* Very light purple/white text */
+}
+
+.wiki-content .note-box strong {
+  color: #f0e6ff; /* Even lighter purple for emphasis */
+}
+
+
+/* Triangle Line Dividers */
+.wiki-content .triangle-line {
+  border-bottom: 2px solid #c299ff;
+  margin: 1rem 0;
+  position: relative;
+}

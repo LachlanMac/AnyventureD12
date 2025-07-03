@@ -14,7 +14,7 @@ As with other skill checks, the player rolls a number of dice equal to their tal
 The player takes their highest dice from that pool, and that becomes the value of the spell check. **All spells have a required check to channel**. If the spell check is greater than the required check, the spell is cast.
 
 <div class="example-box">
-A character with 3 talent and 2 skill in Primal Magic would roll **3d8** to cast elemental spells.
+A character with 3 talent and 2 skill in Primal Magic would roll <b>3d8</b> to cast elemental spells.
 </div>
 
 ### Energy Cost
@@ -80,7 +80,7 @@ When a character wants to channel a spell, they must <i>know</i> the spell. By d
 
 ### Learning New Spells
 
-Learning spells is relatively easy and not that different from channeling a spell normally. In order to learn a new spell, the character must complete the spell's ritual but with an required check that is +2 higher than the spell usually requires. This naturally restricts spells based on the channeler's skill. Naturally, this only applies to the normal **subschools*. Unless a player has a module or trait that specifically allows them to learn spells from an **exotic school*, they cannot learn from it.
+Learning spells is relatively easy and not that different from channeling a spell normally. In order to learn a new spell, the character must complete the spell's ritual but with an required check that is +2 higher than the spell usually requires. This naturally restricts spells based on the channeler's skill. Naturally, this only applies to the normal <b>subschools</b>. Unless a player has a module or trait that specifically allows them to learn spells from an <b>exotic school</b>, they cannot learn from it.
 
 <div class="example-box">
 If a character has a +3 skill in Dark Magic with 2 talents, their maximum possible roll is an 8. This ensures, that without help from an outside source, the character could never learn a spell with a required check higher than 8.

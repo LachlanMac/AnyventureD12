@@ -18,11 +18,17 @@ Rounds are further broken down into **phases**:
 
 The preperation phase only happens on the first round of any given combat and allows especially quick characters a chance to act before the fight even starts. This can allow the character to reposition themselves, consume an item, or make a skill check to gain more information that may help them during the combat. A character cannot use the preperation phase to make an attack or channel a spell. Not everyone gets to participate in the preperation phase: [Enemies](/wiki/enemies) such as minions and thralls do not roll initiative, and instead always go in the late phase. 
 
+<br>
+
+When all participants have taken their turns, the round is over and the next begins, returning to the **Early Phase**. 
 
 ### Initiative
-At the start of combat, all involved parties roll an **initiative check** to determine what phase they are allowed to act in during the round. An initiative check is most often done by rolling a coordination check and using that value. The purpose of initiatve is decide the order the characters act in.
+
+At the start of combat, all involved parties roll an **initiative check** to determine what phase they are allowed to act in during the round. An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiatve is decide the order the characters act in.
 
 After rolling an initiative check, compare the result to this table to decide where the characters act.
+
+<br>
 
 | Roll | Phase | Preperation Phase|
 |------|--------|--------|
@@ -31,28 +37,48 @@ After rolling an initiative check, compare the result to this table to decide wh
 | 8-10 | Early | No|
 | > 10 | Early | Yes|
 
-After rolling initiative, it is likely that multiple characters will be in the same phases. There are simple rules that help determine who goes first within a phase:
+<div class="note-box">
+   There are certain scenarios where a player can change what phase they act in. The most common is a player deferring to a later stage after their character rolls into one of the earlier phases. This must be decided on the first round of combat immediately after the preperation phase and cannot be reversed.
+</div>
 
--Player characters **always** go first
--Enemies go immediately after
--Neutral or allied non-player characters go last
+<br>
 
-To break ties within those groups, it is most simple for the players to simply decide in what order they want to act. If it suits the table, it is perfectly fine to all act at the same time with staggered turns, but this may not suit the group of players and could potentially bog down play. As a fallback, players can act in order of their initiative.
+When the initiative order is decided, it is likely that multiple characters will be in the same phases. There are simple rules that help determine who goes first within a phase:
+
+- Player characters **always** go first
+- Enemies go immediately after
+- Neutral or allied non-player characters go last
+
+<br>
+
+When multiple characters share the same initiative phase, players can choose their turn order among themselves to
+coordinate tactics and combos. For faster play, characters in the same phase may declare and resolve actions
+simultaneously, though this approach requires clear communication to avoid confusion. If needed, use exact
+initiative values as a tiebreaker, with higher rolls acting first within the shared phase.
 
 
 ## Turns
 
 Most characters, including player characters, have one standard turn in a round.
-A turn includes
+A turn includes:
 - 2 Actions
 - Movement
 
+<div class="note-box">
+    Non-player characters have different rules on what they can do in a single round. 
+    Minions and Thralls only get 1 action and movement on their turn.
+    Elite, Legendary and Mythic creatures on the other hand, get 1 action during each phase of combat for a total of 3 actions.
+</div>
+
+
 ### Actions
-Actions are the main driver of resolving combat. 
+Actions represent the primary ways characters interact with the world during combat, from attacking enemies tochanneling spells. Each character can perform 2 actions per round, limited by their available Energy, with most
+actions requiring skill checks to determine success. Default actions like Rest, Sprint, and Attack are available
+to all characters, while modules unlock specialized actions that define a character's unique combat style.
 
 
 ### Movement
-All characters have the option to use travel a number of units up to their movement speed during their turn. This doesn't have to all be done in one movement.
+All characters can move up to their movement speed during their turn without spending resources. This movement can be split before, between or after actions, allowing characters to tactically position themselves.
 
 <div class="example-box">
 A character has a movement speed of 5. They move 2 units and use an action to attack an enemy. They then decide to retreat to safety to pull back from the front line and move back the rest of their movement speed, 3 units. The character then uses their second action to drink a potion.
@@ -68,12 +94,13 @@ Reactions are very similar to actions, except that they have triggers that can h
 A character uses a powerful action to make a specialized attack with their weapon, costing 3 energy. They have other actions available, but they only have 2 energy left. They are currently surrounded but have several reactions that are defensive in nature, so they elect to save energy for them. They use their second action to make a melee attack with a simple weapon, which does not cost energy. Now, when the enemies make attacks against them, they will be able to react and potentially mitigate the damage.
 </div>
 
+
 <div class="note-box">
-    Non-player characters have different rules on what they can do on a single turn. 
-    Minions and Thralls only get 1 action and movement on a turn and a single reaction each round.
-    Elite, Legendary and Mythic creatures on the other hand, get 1 action during each phase of combat for a total of 3 actions.
+    On the first round of combat, a character cannot use a reaction until they have taken their first turn.
 </div>
 
+
+<div class="triangle-line"></div>
 
 For a list of the default actions and reactions all characters have, refer to the [Actions & Reactions](/wiki/actions_and_reactions) section.
 
