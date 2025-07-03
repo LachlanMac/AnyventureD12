@@ -1,12 +1,12 @@
 # Spellcasting
 
-Magic in Anyventure follows a talent and skill-based system similar to weapons and other abilities. To cast spells, or **channel**, characters must have both the magical knowledge and the specific spell in their repertoire. The difference is that how successful on you are while casting a spell does not change the outcome of that spell. Instead, casting spells is simply a pass/fail. 
+Magic in Anyventure follows a talent and skill-based system similar to weapons and other abilities. The major difference is channeling spells is the effectiveness of a spell is not influenced by the skill check; it is simply pass or fail. To cast spells, or **channel**, characters must have both the magical knowledge and the specific spell in their repertoire. 
 
 
 ## Casting Mechanics
 <div class="triangle-line"></div>
 
-If a player knows the spell, they attempt to channel it by rolling a **spell check**. This is the same as a normal skill check, but using one of the 5 magical skills; Black Magic, Meta Magic, Primal Magic, Divine Magic or Mysticism Magic.
+If a player knows the spell, they attempt to channel it by rolling a **spell check**. This is the same as a normal skill check, but using one of the 5 magical skills that represent the [Schools of Magic](/wiki/magic-types).
 As with other skill checks, the player rolls a number of dice equal to their talents, and the dice type is equal to their skill.
 
 <br>
@@ -21,7 +21,7 @@ A character with 3 talent and 2 skill in Primal Magic would roll **3d8** to cast
 Channeling spells costs **Energy**. In order to attempt to cast a spell, a player must first spend the energy to do it.
 
 ### Components
-All spells have **components** which are used in the challening process and are used to focus magic to make the process more safe. Components are consumed when the spell is channeled, on success or failure.
+All spells have **components** which are used in the channeling process and are used to focus magic to make the process more safe. Components are consumed when the spell is channeled, on success or failure.
 
 
 <div class="example-box">
@@ -41,18 +41,18 @@ There are a few rules to remember when channeling a spell:
 
 - You must declare that you are charging a spell before channeling it
 - It is not possible to attempt to charge a spell without using the component
-- Charing a spell increases the required check by +2
-- Charing a spell with a focus consumes the focus as if it were the component
+- Charging a spell increases the required check by +2
+- Charging a spell with a focus consumes the focus as if it were the component
 
 ## Rituals
 <div class="triangle-line"></div>
 Rituals allow a character to channel a spell over a long duration. Casting a spell as a ritual has some differences:
 
 - Rituals cannot be channeled without components
-- A successful ritual results in the spell being automatically charged without requiring a difficulty increased
+- A successful ritual results in the spell being automatically charged without requiring an increased required check
 - Other characters can assist in the ritual, improving the chance of success
 
-### Assiting Rituals
+### Assisting Rituals
 
 One of the major benefits of rituals is having other characters be able to help and contribute towards the success of a spell. When taking part in a ritual, there are two options:
 
@@ -64,13 +64,14 @@ One of the major benefits of rituals is having other characters be able to help 
 
 **Roll a magic check**: The character rolls a magic knowledge check. If the helper rolls equal to or higher than the original required check, they add +1 to the final check. Otherwise, they apply a -1 penalty.
 
-Assissting in rituals makes channeling spells possible that would normally not be so for a single character.
+Assisting in rituals makes channeling spells possible that would normally be impossible to complete alone.
 
 <br>
 
 <div class="example-box">
- A Lich Lord wants to raise an army of dead to bring destruction to the world. This spell requires a check of 22; an impossible feat alone because, while his skill check for channeling a necromancy spell like this is 4d20, his maximum score he can achieve is a 20. To aid in his success, the Lich gathers his 10 strongest generals who don't excel as much at him as necromancy, but still can contribute with their serviceable Dark Magic 3d16 checks. For each check 11 or higher they roll, they add a +1 to the Lich Lord's final check. Each general has about a 2/3 chance of succeeding, and a 1/3 chance of hurting the ritual. The Lich Lord rolls a 19, so he needs at least 3 more success than failures which is going to be a close call!
+  A Lich Lord wants to raise an army of the dead to bring destruction to the world. This spell requires a check of 22—an impossible feat alone, because although his skill check for channeling a necromancy spell is 4d20, his maximum possible score is only 20. To aid in his success, the Lich gathers his ten strongest generals. They may not excel at necromancy as he does, but they can still contribute with their serviceable Dark Magic checks (3d16). For each check of 11 or higher, they add +1 to the Lich Lord’s final total. Each general has about a two-thirds chance of succeeding and a one-third chance of hindering the ritual. The Lich Lord rolls a 19, so he needs at least three more successes than failures—which is going to be a close call!
 </div>
+
 
 ## Managing Spells
 <div class="triangle-line"></div>

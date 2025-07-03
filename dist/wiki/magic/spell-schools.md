@@ -1,7 +1,7 @@
-# Spell Schools
+# Schools of Magic
 
 
-## Schools
+## Primary Schools
 <div class="triangle-line"></div>
 
 There are 5 spell schools in AnyventureD12, each requiring their own skill to channel spells from.

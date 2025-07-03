@@ -85,6 +85,33 @@ When making a skill check:
 |Extreme     |13-16     |Beating a minotaur in arm wrestling           |
 |Legendary   |17+       |Deceiving a dragon           |
 
+## Contested Checks
+<div class="triangle-line"></div>
+Instead of having a required check, some skills are contested when they are done in direct oppositon to another character. This is called a contested check.
+
+Some common examples of contested checks:
+- Persuasion against Insight when attempting to lie to someone
+- Presence against Resilience when attempting to intimidate someone
+- Coordination against Coordination when attempting to both grab the same item
+- Endurance against Might when attempting to tire out an opponent in arm wrestling.
+
+<br>
+
+Contested checks are resolved easily; the higher value succeeds and the lower value fails. Ties can be resolved as they occur, but the general strategy should be there is "no change" if the checks are equal.
+
+<div class="example-box">
+  <strong>Example 1 — Bluffing the Guard</strong><br>
+  <em>Situation:</em> Nyla tries to talk her way past a fortress guard by claiming she is an official courier.<br>
+  <em>Check:</em> Nyla rolls <strong>Persuasion 11</strong> vs. the Guard’s <strong>Insight 9</strong>.<br>
+  <em>Outcome:</em> Nyla’s higher result convinces the guard, who lets her through.
+</div>
+
+<div class="example-box">
+  <strong>Example 2 — The Falling Gem</strong><br>
+  <em>Situation:</em> Two adventurers, Kellan and Mira, dive to snatch a gem that slips from a pedestal.<br>
+  <em>Check:</em> Both roll <strong>Coordination</strong>. Kellan scores <strong>7</strong>; Mira scores <strong>7</strong>.<br>
+  <em>Outcome:</em> It’s a tie, so per the rule there is “no change.” The gem clatters to the floor, unclaimed—for now.
+</div>
 
 ## Helping Others
 <div class="triangle-line"></div>
@@ -98,11 +125,17 @@ Skill checks don't have to be done alone. When assisting someone else, a charact
 <br>
 
 <div class="example-box">
-The party encounters a locked ancient door with a complex magical lock. The rogue (Thievery d12, 3 talents) attempts to pick it with an R.C. of 10.
+  <strong>Example 1 — Same-Skill Help</strong><br>
+  <em>Situation:</em> The rogue (Thievery d12, 3 talents) tackles an ancient door’s intricate lock (R.C. 10).<br>
+  <em>Assist:</em> A second rogue (Thievery d12, 2 talents) joins in. Because their Thievery skill dice match, they automatically grant a bonus die.<br>
+  <em>Result:</em> The primary rogue rolls <strong>4d12</strong> instead of 3d12.
+</div>
 
-**Scenario 1 - Same Skill Help**: The party's second rogue (Thievery d12, 2 talents) who is just as skilled, but not quite as talented as the main rogue wants to help pick a lock. Since they have an equal thievery skill, they automatically grant the main rogue a bonus die. The main rogue now rolls 4d12 instead of 3d12.
-
-**Scenario 2 - Different Skill Help**: The wizard doesn't have thievery but offers to help by examining the magical components (Magic d16, 2 talents). The GM agrees this is relevant, so the wizard rolls a single d16. They roll a 12, beating the R.C. of 10, granting the rogue a bonus die. The rogue now rolls 4d12 for their attempt.
+<div class="example-box">
+  <strong>Example 2 — Different-Skill Help</strong><br>
+  <em>Situation:</em> The same lock contains arcane wards. The wizard (Magic d16, 2 talents) offers insight.<br>
+  <em>Assist:</em> Lacking Thievery, the wizard rolls a single d16. A roll of <strong>12</strong> beats the R.C. 10, so the rogue gains a bonus die.<br>
+  <em>Result:</em> The rogue again rolls <strong>4d12</strong> on the lock-picking attempt.
 </div>
 
 ## Special Checks

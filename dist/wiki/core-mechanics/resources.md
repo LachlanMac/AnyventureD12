@@ -49,12 +49,18 @@ see resolve being tested much more often. Likewise, a game with lots of combats 
 Recovering resolve is not always cut or dry. Unlike health, players do not recover resolve over time and instead must actively see out activities or consumables that help them mentally recover. Consumables are the easiest way to recover resolve; anything from a homecooked meal to dangerous, addictive substances. 
 
 ### Reaching 0 Resolve
-When a character reaches 0 resolve, they must roll on the break table to see what happens to them. However, if a character reaches 0 health and 0 resolve, they die.
+When a character reaches 0 resolve, they become vulnerable to several mental breaks after gaining the Broken [Condition](/wiki/conditions). 
+
+
 
 ## Morale
 <div class="triangle-line"></div>
-Morale is a buffer that sits between Health and Resolve. If there is ever a situation where a character would take damage to either resource, the damage would be first done to morale. A player by default has 0 morale, but can store a maximum of 20.
+Morale is a buffer that sits between Health and Resolve. If there is ever a situation where a character would take damage to either resource, the damage would be first done to morale. A player character by default has 0 morale, but can store a maximum of 20.
+
+
 
 ## Energy
 <div class="triangle-line"></div>
 Energy is a short term resource that determines how much a character can exert on a single round of combat. By default, a character has 5 energy and regenerates 3 per turn.
+
+A character can use more action than they have at the risk of becoming winded. When a character has negative energy, they must immediately make an endurance check of 10 or become winded. The winded condition and it's effects are described in [Condition](/wiki/conditions). 

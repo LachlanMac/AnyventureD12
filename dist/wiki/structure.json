@@ -30,6 +30,13 @@
       "order": 2
     },
     {
+      "id": "character-overview",
+      "title": "Character Creation Overview",
+      "path": "character-creation/overview.md",
+      "category": "Character Creation",
+      "order": 3
+    },
+    {
       "id": "attributes",
       "title": "Attributes & Talents",
       "path": "core-mechanics/attributes.md",
@@ -58,32 +65,25 @@
       "order": 4
     },
     {
-      "id": "combat-basics",
-      "title": "Combat Basics",
-      "path": "combat/basics.md",
+      "id": "tracking-combat",
+      "title": "Tracking Combat",
+      "path": "combat/tracking-combat.md",
       "category": "Combat",
       "order": 1
     },
     {
-      "id": "weapons",
-      "title": "Weapons & Damage",
-      "path": "combat/weapons.md",
+      "id": "actions-reactions",
+      "title": "Actions & Reactions",
+      "path": "combat/actions_and_reactions.md",
       "category": "Combat",
       "order": 2
     },
     {
-      "id": "defense",
-      "title": "Defense & Mitigation",
-      "path": "combat/defense.md",
+      "id": "attacks-damage",
+      "title": "Attacks & Damage",
+      "path": "combat/attacks_and_damage.md",
       "category": "Combat",
       "order": 3
-    },
-    {
-      "id": "actions-reactions",
-      "title": "Actions & Reactions",
-      "path": "combat/actions-reactions.md",
-      "category": "Combat",
-      "order": 4
     },
     {
       "id": "magic-types",
@@ -114,39 +114,25 @@
       "order": 1
     },
     {
-      "id": "progression",
-      "title": "Character Progression",
-      "path": "modules/progression.md",
-      "category": "Modules & Progression",
-      "order": 2
-    },
-    {
       "id": "conditions",
       "title": "Conditions",
       "path": "combat/conditions.md",
       "category": "Combat",
+      "order": 4
+    },
+        {
+      "id": "enemies",
+      "title": "Enemy Types",
+      "path": "combat/enemies.md",
+      "category": "Combat",
       "order": 5
     },
     {
-      "id": "ranges",
-      "title": "Ranges & Distance",
-      "path": "reference/ranges.md",
-      "category": "Reference",
-      "order": 2
-    },
-    {
-      "id": "languages",
-      "title": "Languages",
-      "path": "reference/languages.md",
-      "category": "Reference",
-      "order": 3
-    },
-    {
-      "id": "creature-tiers",
-      "title": "Creature Tiers",
-      "path": "reference/creature-tiers.md",
-      "category": "Reference",
-      "order": 4
+      "id": "items",
+      "title": "Items & Equipment",
+      "path": "equipment/items.md",
+      "category": "Equipment",
+      "order": 1
     },
     {
       "id": "songs-overview",

@@ -3,7 +3,7 @@
 Conditions represent temporary states that affect characters during play. They can result from combat, environmental hazards, magic, or narrative events.
 
 ## Mental Conditions
-
+<div class="triangle-line"></div>
 ### Broken
 The broken condition happens when a character reaches 0 resolve. While broken, a character rolls with 1 penalty dice on knowledge, social and mind checks and automatically fail checks against the afraid, confused, maddened or charmed conditions. They also cannot recover resolve until the condition is removed. In order to lose the broken condition, a character must make a resilience check of 12 at the end of a full rest. For each full rest taken, this check is lowered by 1.
 
@@ -39,6 +39,7 @@ A character who is confused must roll a 1d4 every time they attempt to take an a
 
 
 ## Physical Conditions
+<div class="triangle-line"></div>
 
 ### Winded
 - **Effect**: Cannot regenerate Energy

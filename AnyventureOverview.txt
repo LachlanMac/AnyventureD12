@@ -90,7 +90,7 @@ ID
 5: Moderate	:11–20	Units
 6: Distant	:21–40	Units
 7: Remote	:41–100	Units
-8: Unlimited:101+ Units
+8: Planar:101+ Units
 
 A longbow may have a Distant range, giving a penalty for anything outside of it. 
 Spells work in a similar way.  herethe are the types of magic:
