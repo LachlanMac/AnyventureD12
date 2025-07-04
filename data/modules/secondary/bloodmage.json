@@ -78,7 +78,7 @@
     },
     {
       "name": "Daily Action : Exsanguinate",
-      "description": "You target a humanoid or beast corpse within a short (10 units) distance that has died within the last minute and drain their blood to heal yourself. The amount of health restored depends on the creature's tier: minion tier restores 2 health, thrall tier restores 5 health, foe tier restores 10 health, and champion tier or higher restores you to full health.",
+      "description": "You target a humanoid or beast corpse within a short (10 units) distance that has died within the last minute and drain their blood to heal yourself. The amount of health restored depends on the creature's tier: minion tier restores 2 health, grunt tier restores 5 health, standard tier restores 10 health, and champion tier or higher restores you to full health.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

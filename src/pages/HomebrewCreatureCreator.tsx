@@ -66,7 +66,7 @@ const HomebrewCreatureCreator: React.FC = () => {
     name: '',
     description: '',
     tactics: '',
-    tier: 'foe' as 'minion' | 'thrall' | 'foe' | 'champion' | 'elite' | 'legend' | 'mythic',
+    tier: 'standard' as 'minion' | 'grunt' | 'standard' | 'champion' | 'elite' | 'legend' | 'mythic',
     type: 'humanoid' as
       | 'fiend'
       | 'undead'
@@ -719,8 +719,8 @@ const HomebrewCreatureCreator: React.FC = () => {
                     }}
                   >
                     <option value="minion">Minion</option>
-                    <option value="thrall">Thrall</option>
-                    <option value="foe">Foe</option>
+                    <option value="grunt">Thrall</option>
+                    <option value="standard">Foe</option>
                     <option value="champion">Champion</option>
                     <option value="elite">Elite</option>
                     <option value="legend">Legend</option>

@@ -2,7 +2,7 @@
   "name": "Acolyte",
   "description": "A devout follower of a divine order, trained in basic healing and protective magic. Acolytes serve in temples and shrines, tending to the faithful and providing spiritual guidance. While not powerful spellcasters, they possess enough divine magic to aid their allies and ward off minor threats.",
   "tactics": "Acolytes prefer to stay behind allies, providing healing and support. They will cast protective spells early in combat and use their healing abilities to keep allies fighting. If cornered, they will defend themselves with their staff while calling upon divine protection.",
-  "tier": "thrall",
+  "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
   "health": {

@@ -2,7 +2,7 @@
   "name": "Anaconda",
   "description": "The anaconda is a large snake that primarily resides in aquatic environments, where it uses its powerful body to constrict and overpower prey, often lurking just beneath the water's surface before striking.",
   "tactics": "The anaconda waits patiently beneath murky water for prey to approach. It strikes swiftly to grapple victims, then either constricts them to death or swallows smaller prey whole. It uses its Grapple of Opportunity to prevent escape attempts.",
-  "tier": "foe",
+  "tier": "standard",
   "type": "monster",
   "size": "large",
   "health": {

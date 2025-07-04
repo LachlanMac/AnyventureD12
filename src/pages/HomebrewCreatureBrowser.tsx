@@ -143,8 +143,8 @@ const HomebrewCreatureBrowser: React.FC = () => {
   const getTierColor = (tier: string) => {
     const colors = {
       minion: 'var(--color-cloud)',
-      thrall: 'var(--color-old-gold)',
-      foe: 'var(--color-sunset)',
+      grunt: 'var(--color-old-gold)',
+      standard: 'var(--color-sunset)',
       champion: 'var(--color-stormy)',
       elite: 'var(--color-sat-purple)',
       legend: 'var(--color-metal-gold)',
@@ -165,7 +165,7 @@ const HomebrewCreatureBrowser: React.FC = () => {
     'fey',
     'elemental',
   ];
-  const creatureTiers = ['all', 'minion', 'thrall', 'foe', 'champion', 'elite', 'legend', 'mythic'];
+  const creatureTiers = ['all', 'minion', 'grunt', 'standard', 'champion', 'elite', 'legend', 'mythic'];
 
   if (loading && creatures.length === 0) {
     return (

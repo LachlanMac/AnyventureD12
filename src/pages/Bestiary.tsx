@@ -43,14 +43,14 @@ const Bestiary: React.FC = () => {
     'fey',
     'elemental',
   ];
-  const tiers = ['minion', 'thrall', 'foe', 'champion', 'elite', 'legend', 'mythic'];
+  const tiers = ['minion', 'grunt', 'standard', 'champion', 'elite', 'legend', 'mythic'];
   const sizes = ['tiny', 'small', 'medium', 'large', 'huge', 'gargantuan'];
 
   const getTierColor = (tier: string) => {
     const colors = {
       minion: 'var(--color-cloud)',
-      thrall: 'var(--color-old-gold)',
-      foe: 'var(--color-sunset)',
+      grunt: 'var(--color-old-gold)',
+      standard: 'var(--color-sunset)',
       champion: 'var(--color-stormy)',
       elite: 'var(--color-sat-purple)',
       legend: 'var(--color-metal-gold)',

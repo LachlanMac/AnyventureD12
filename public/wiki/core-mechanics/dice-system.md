@@ -6,7 +6,7 @@ Anyventure uses a unique dice system where:
 
 <br>
 
-- **Talent** (from attributes) determines **how many dice** you roll
+- **Talent** (from attributes and character creation) determines **how many dice** you roll
 - **Skill** level determines **what type of dice** you roll
 - **Pool** is the term for the total dice you rolled for a skill check
 

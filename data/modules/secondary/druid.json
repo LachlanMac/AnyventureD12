@@ -31,7 +31,7 @@
     },
     {
       "name": "Action : Shapeshift",
-      "description": "You transform into a beast that you have encountered before that is of the minion or thrall tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shapeshifted, you return to your usual form with 0 health.",
+      "description": "You transform into a beast that you have encountered before that is of the minion or grunt tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shapeshifted, you return to your usual form with 0 health.",
       "mtype": "core",
       "location": "3",
       "cost": 2,

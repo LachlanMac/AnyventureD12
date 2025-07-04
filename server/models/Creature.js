@@ -74,7 +74,7 @@ const creatureSchema = new mongoose.Schema({
   tier: {
     type: String,
     required: true,
-    enum: ['minion', 'thrall', 'foe', 'champion', 'elite', 'legend', 'mythic']
+    enum: ['minion', 'grunt', 'standard', 'champion', 'elite', 'legend', 'mythic']
   },
   type: {
     type: String,

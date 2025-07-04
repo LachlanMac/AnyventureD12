@@ -364,7 +364,7 @@
   .note-box::before {
     content: "Note";
     position: absolute;
-    top: -0.5rem;
+    top: -0.75rem; /* Moved up slightly to create more space */
     left: 1rem;
     background-color: var(--color-dark-elevated);
     color: #f0e6ff; /* Very light purple/white for better visibility */
@@ -375,6 +375,7 @@
     padding: 0.25rem 0.5rem;
     border-radius: 0.25rem;
     border: 1px solid #c299ff; /* Lighter border */
+    margin-bottom: 0.25rem; /* Added margin for spacing */
   }
 
   /* Warning boxes */

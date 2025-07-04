@@ -2,7 +2,7 @@
   "name": "Commoner",
   "description": "An ordinary person going about their daily life. Commoners are farmers, shopkeepers, laborers, and other working folk who form the backbone of civilization. They possess no special training in combat or magic, but their determination and numbers can make them formidable when defending their homes and families.",
   "tactics": "Commoners avoid direct confrontation whenever possible. If forced to fight, they'll try to work together, using improvised weapons and calling for help. They often flee when reduced to half health unless protecting something dear to them.",
-  "tier": "thrall",
+  "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
   "health": {

@@ -9,32 +9,32 @@
       "order": 1
     },
     {
-      "id": "core-concepts",
-      "title": "Core Concepts",
-      "path": "getting-started/core-concepts.md",
-      "category": "Getting Started",
-      "order": 2
+      "id": "character-creation",
+      "title": "Character Creation",
+      "path": "characters/character-creation.md",
+      "category": "Characters",
+      "order": 1
     },
     {
       "id": "races",
       "title": "Races",
-      "path": "character-creation/races.md",
-      "category": "Character Creation",
-      "order": 1
+      "path": "characters/races.md",
+      "category": "Characters",
+      "order": 2
     },
     {
       "id": "cultures",
       "title": "Cultures",
-      "path": "character-creation/cultures.md",
-      "category": "Character Creation",
-      "order": 2
+      "path": "characters/cultures.md",
+      "category": "Characters",
+      "order": 3
     },
     {
-      "id": "character-overview",
-      "title": "Character Creation Overview",
-      "path": "character-creation/overview.md",
-      "category": "Character Creation",
-      "order": 3
+      "id": "modules",
+      "title": "Modules",
+      "path": "characters/modules.md",
+      "category": "Characters",
+      "order": 4
     },
     {
       "id": "attributes",
@@ -44,13 +44,6 @@
       "order": 1
     },
     {
-      "id": "dice-system",
-      "title": "Dice System",
-      "path": "core-mechanics/dice-system.md",
-      "category": "Core Mechanics",
-      "order": 3
-    },
-    {
       "id": "skills",
       "title": "Skills & Checks",
       "path": "core-mechanics/skills.md",
@@ -58,11 +51,39 @@
       "order": 2
     },
     {
+      "id": "dice-system",
+      "title": "Dice System",
+      "path": "core-mechanics/dice-system.md",
+      "category": "Core Mechanics",
+      "order": 3
+    },
+    {
       "id": "resources",
       "title": "Resources",
       "path": "core-mechanics/resources.md",
       "category": "Core Mechanics",
       "order": 4
+    },
+    {
+      "id": "vision",
+      "title": "Vision & Sight",
+      "path": "core-mechanics/vision.md",
+      "category": "Core Mechanics",
+      "order": 5
+    },
+    {
+      "id": "ranges-distances",
+      "title": "Ranges & Distances",
+      "path": "core-mechanics/ranges_and_distances.md",
+      "category": "Core Mechanics",
+      "order": 6
+    },
+    {
+      "id": "hazards",
+      "title": "Environmental Hazards",
+      "path": "core-mechanics/hazards.md",
+      "category": "Core Mechanics",
+      "order": 7
     },
     {
       "id": "tracking-combat",
@@ -86,6 +107,27 @@
       "order": 3
     },
     {
+      "id": "damage-mitigation",
+      "title": "Damage & Mitigation",
+      "path": "combat/mitigation.md",
+      "category": "Combat",
+      "order": 4
+    },
+    {
+      "id": "conditions",
+      "title": "Conditions",
+      "path": "combat/conditions.md",
+      "category": "Combat",
+      "order": 5
+    },
+    {
+      "id": "enemies",
+      "title": "Enemy Types",
+      "path": "combat/enemies.md",
+      "category": "Combat",
+      "order": 6
+    },
+    {
       "id": "magic-types",
       "title": "Magic Types & Schools",
       "path": "magic/spell-schools.md",
@@ -100,38 +142,24 @@
       "order": 2
     },
     {
-      "id": "crafting",
-      "title": "Crafting Basics",
-      "path": "crafting/crafting.md",
-      "category": "Crafting",
-      "order": 1
-    },
-    {
-      "id": "modules",
-      "title": "Modules",
-      "path": "progression/modules.md",
-      "category": "Modules & Progression",
-      "order": 1
-    },
-    {
-      "id": "conditions",
-      "title": "Conditions",
-      "path": "combat/conditions.md",
-      "category": "Combat",
-      "order": 4
-    },
-        {
-      "id": "enemies",
-      "title": "Enemy Types",
-      "path": "combat/enemies.md",
-      "category": "Combat",
-      "order": 5
+      "id": "magical-effects",
+      "title": "Magical Effects",
+      "path": "magic/magical-effects.md",
+      "category": "Magic",
+      "order": 3
     },
     {
       "id": "items",
       "title": "Items & Equipment",
       "path": "equipment/items.md",
       "category": "Equipment",
+      "order": 1
+    },
+    {
+      "id": "crafting",
+      "title": "Crafting Basics",
+      "path": "crafting/crafting.md",
+      "category": "Crafting",
       "order": 1
     },
     {
@@ -147,27 +175,6 @@
       "path": "songs/instruments.md",
       "category": "Songs & Music",
       "order": 2
-    },
-    {
-      "id": "magical-effects",
-      "title": "Magical Effects",
-      "path": "effects/magical-effects.md",
-      "category": "Effects",
-      "order": 1
-    },
-    {
-      "id": "hazards",
-      "title": "Environmental Hazards",
-      "path": "effects/hazards.md",
-      "category": "Effects",
-      "order": 2
-    },
-    {
-      "id": "vision",
-      "title": "Vision & Sight",
-      "path": "core-mechanics/vision.md",
-      "category": "Core Mechanics",
-      "order": 4
     }
   ]
 }

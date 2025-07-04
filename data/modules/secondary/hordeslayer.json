@@ -22,7 +22,7 @@
    },
    {
      "name": "Reaction : Quick Strike",
-     "description": "In response to a thrall or minion making an attack with a melee weapon against you, first make an attack against them with a simple melee weapon.",
+     "description": "In response to a grunt or minion making an attack with a melee weapon against you, first make an attack against them with a simple melee weapon.",
      "mtype": "core",
      "location": "2b",
      "cost": 2,

@@ -63,7 +63,7 @@
     "id": 11,
     "name": "Maddened",
     "category": "Mental",
-    "description": "You attack allies and cannot distinguish friend from foe. All targets are treated as hostile."
+    "description": "You attack allies and cannot distinguish friend from standard. All targets are treated as hostile."
   },
   {
     "id": 12,

@@ -54,7 +54,7 @@
     },
     {
       "name": "Beast Hunter",
-      "description": "You specialize in hunting wild creatures. Gain +1 skill with medicine. You can harvest valuable materials from slain beasts, gaining resources worth 50 gold per creature tier (minion=50, thrall=100, etc.).",
+      "description": "You specialize in hunting wild creatures. Gain +1 skill with medicine. You can harvest valuable materials from slain beasts, gaining resources worth 50 gold per creature tier (minion=50, grunt=100, etc.).",
       "mtype": "core",
       "location": "5",
       "cost": 2,
@@ -78,7 +78,7 @@
     },
     {
       "name": "Trophy Collector",
-      "description": "You wear trophies from your most dangerous kills, drawing strength from your victories. After each full rest, if you wear a trophy from a creature you've taken part in slaying, you gain temporary health based on its tier: foe (2), champion (5), elite (8), or legend (15). This benefit is lost if you reach 0 health or 0 resolve and you must seek out a new trophy. You can only wear one trophy at a time.",
+      "description": "You wear trophies from your most dangerous kills, drawing strength from your victories. After each full rest, if you wear a trophy from a creature you've taken part in slaying, you gain temporary health based on its tier: standard (2), champion (5), elite (8), or legend (15). This benefit is lost if you reach 0 health or 0 resolve and you must seek out a new trophy. You can only wear one trophy at a time.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

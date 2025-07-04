@@ -219,7 +219,7 @@ Numbed	Cannot gain or lose Resolve. Cannot use Resolve to stay up at 0 Health.
 Dazed	Cannot use Concentration. Ends at the end of your next turn automatically.
 Stunned	Cannot take Actions or Reactions. Requires a DC 10 Resilience, Concentration, or Endurance check to recover. The DC is reduced by 1 after each failed attempt.
 Afraid	Cannot take Reactions. Must roll DC 12 Resilience to use an Action. On failure, you move away from the source of fear a number of units equal to half the difference. On success, the condition ends. Each failure lowers the DC by 1.
-Maddened	You attack allies and cannot distinguish friend from foe. All targets are treated as hostile.
+Maddened	You attack allies and cannot distinguish friend from standard. All targets are treated as hostile.
 Charmed	You are under the influence of another creature. Cannot target them with hostile actions. May obey commands.
 Confused	Each turn, roll 1d4: (1) attack random target, (2) move in a random direction, (3) lose your Action, (4) act normally.
 Physical Conditions

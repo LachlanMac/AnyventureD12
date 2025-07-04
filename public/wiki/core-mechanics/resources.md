@@ -63,4 +63,4 @@ Morale is a buffer that sits between Health and Resolve. If there is ever a situ
 <div class="triangle-line"></div>
 Energy is a short term resource that determines how much a character can exert on a single round of combat. By default, a character has 5 energy and regenerates 3 per turn.
 
-A character can use more action than they have at the risk of becoming winded. When a character has negative energy, they must immediately make an endurance check of 10 or become winded. The winded condition and it's effects are described in [Condition](/wiki/conditions). 
+A character can use more energy than they have at the risk of becoming winded. When a character has negative energy, they must immediately make an endurance check of 10 or become winded. The winded condition and it's effects are described in [Condition](/wiki/conditions). 

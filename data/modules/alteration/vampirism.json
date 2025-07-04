@@ -7,7 +7,7 @@
     {
       "id": 2036,
       "name": "Vampiric Thrall",
-      "description": "You have vampirism and are the thrall to some Vampire Lord. You are considered permanently Charmed by them.",
+      "description": "You have vampirism and are the grunt to some Vampire Lord. You are considered permanently Charmed by them.",
       "mtype": "core",
       "location": "1",
       "cost": 2,
@@ -115,7 +115,7 @@
     {
       "id": 2048,
       "name": "Ascension",
-      "description": "You become freed from the thrall of your master and become a Vampire Lord. Your Bite Attack now functions to infect Humanoids with Vampirism if they fail a Resilience Check with your Level as the Required Check, turning them into your Thrall if they die within 1 Week of being bitten. You can maintain 1 Thrall, increasing to 2 at Level 11, and 3 at level 15.",
+      "description": "You become freed from the grunt of your master and become a Vampire Lord. Your Bite Attack now functions to infect Humanoids with Vampirism if they fail a Resilience Check with your Level as the Required Check, turning them into your Thrall if they die within 1 Week of being bitten. You can maintain 1 Thrall, increasing to 2 at Level 11, and 3 at level 15.",
       "mtype": "core",
       "location": "9",
       "cost": 4,

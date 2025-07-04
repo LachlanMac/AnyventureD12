@@ -78,7 +78,7 @@
    },
    {
      "name": "Glory Strikes",
-     "description": "When you land a killing blow against creature of a foe tier or higher with a melee or throwing attack, you gain 2 temporary health. If the attack was a critical hit, you gain 4 instead.",
+     "description": "When you land a killing blow against creature of a standard tier or higher with a melee or throwing attack, you gain 2 temporary health. If the attack was a critical hit, you gain 4 instead.",
      "mtype": "core",
      "location": "7",
      "cost": 3,

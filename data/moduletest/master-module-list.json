@@ -89,13 +89,13 @@
     "option_4b_desc": "Death doesn't affect you the way it affects others. Gain +1 skill with resilience. You are immune to any effects that cause a loss of resolve due to death.",
     "option_4b_data": "SSI=1:TG",
     "option_5_name": "Action : Assassinate",
-    "option_5_desc": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a weapon that has the piercing property. If the attack hits, the target dies instantly if they are minion tier, or if you roll 2 successful dice against thrall tier, or 3 successful dice against foe tier creatures.",
+    "option_5_desc": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a weapon that has the piercing property. If the attack hits, the target dies instantly if they are minion tier, or if you roll 2 successful dice against grunt tier, or 3 successful dice against standard tier creatures.",
     "option_5_data": "X",
     "option_6a_name": "Poison Master",
     "option_6a_desc": "You have mastered the art of toxins and chemical warfare. Gain +1 skill with alchemy. When you poison a creature, the first time they take damage from it, they take it twice.",
     "option_6a_data": "CS3=1:TO",
     "option_6b_name": "Remote Kill",
-    "option_6b_desc": "You have mastered the art of killing with traps. Gain +1 skill with engineering. When your traps do damage to a thrall or minion, they are executed even if the damage did not bring them to 0 health.",
+    "option_6b_desc": "You have mastered the art of killing with traps. Gain +1 skill with engineering. When your traps do damage to a grunt or minion, they are executed even if the damage did not bring them to 0 health.",
     "option_6b_data": "CS1=1:TO",
     "option_7_name": "Master Assassin",
     "option_7_desc": "You have achieved legendary status as a dealer of death. Gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
@@ -268,7 +268,7 @@
     "option_6b_desc": "When you are bleeding and deal physical or dark damage to another creature that is bleeding with a spell, you regain 2 health. ",
     "option_6b_data": "TO",
     "option_7_name": "Daily Action : Exsanguinate",
-    "option_7_desc": "You target a humanoid or beast corpse within a short (10 units) distance that has died within the last minute and drain their blood to heal yourself. The amount of health restored depends on the creature's tier: minion tier restores 2 health, thrall tier restores 5 health, foe tier restores 10 health, and champion tier or higher restores you to full health.",
+    "option_7_desc": "You target a humanoid or beast corpse within a short (10 units) distance that has died within the last minute and drain their blood to heal yourself. The amount of health restored depends on the creature's tier: minion tier restores 2 health, grunt tier restores 5 health, standard tier restores 10 health, and champion tier or higher restores you to full health.",
     "option_7_data": "TO"
   },
   {
@@ -420,7 +420,7 @@
     "option_2b_desc": "Your experience in the outdoors has given you a great eye for fungi, herbs and spices. Gain +1 health and +1 skill with cooking. Additioanally, when foraging or identifying plants or fungi, gain a bonus dice to your checks.",
     "option_2b_data": "TD",
     "option_3_name": "Action : Shapeshift",
-    "option_3_desc": "You transform into a beast that you have encountered before that is of the minion or thrall tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shapeshifted, you return to your usual form with 0 health.",
+    "option_3_desc": "You transform into a beast that you have encountered before that is of the minion or grunt tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shapeshifted, you return to your usual form with 0 health.",
     "option_3_data": "TG",
     "option_4a_name": "Action : Fungal Regrowth",
     "option_4a_desc": "You channel a spell that has an instantaneous effect on another creature, but heal yourself for the same amount, ignoring any threshold limitations.",
@@ -540,7 +540,7 @@
     "option_6b_desc": "You target a limb on a large or smaller creature with a melee weapon attack, dealing damage. If 3 or more dice hit, you can target a limb to disable. At the end of each turn, the target must roll an endurance check of 7 or higher to regain function of the limb. If 3 or more dice crit, this attack amputates the chosen limb instead. This attack can be used against huge creatures, but the dice requirements are raised to 4.",
     "option_6b_data": "X",
     "option_7_name": "Glory Strikes",
-    "option_7_desc": "When you land a killing blow against creature of a foe tier or higher with a melee or throwing attack, you gain 2 temporary health. If the attack was a critical hit, you gain 4 instead.",
+    "option_7_desc": "When you land a killing blow against creature of a standard tier or higher with a melee or throwing attack, you gain 2 temporary health. If the attack was a critical hit, you gain 4 instead.",
     "option_7_data": ""
   },
   {
@@ -587,7 +587,7 @@
     "option_2a_desc": "You utilize the chaos around you to make a strike against an adjacent enemy. For each adjacent enemy not including your target, roll a bonus dice on your attack.",
     "option_2a_data": "",
     "option_2b_name": "Reaction : Quick Strike",
-    "option_2b_desc": "In response to a thrall or minion making an attack with a melee weapon against you, first make an attack against them with a simple melee weapon.",
+    "option_2b_desc": "In response to a grunt or minion making an attack with a melee weapon against you, first make an attack against them with a simple melee weapon.",
     "option_2b_data": "",
     "option_3_name": "In the Fray",
     "option_3_desc": "You're built for the chaos of mass combat. Gain +1 physical mitigation and +2 health.",
@@ -948,7 +948,7 @@
     "option_6b_desc": "You have chosen to walk the path of mysticism and the spirit realm. Gain +1 skill with mysticism magic. Your spirit pets' attacks that deal physical damage can now deal aether damage instead.",
     "option_6b_data": "SS4=1:TG",
     "option_7_name": "Spirit Master",
-    "option_7_desc": "You have achieved mastery over the spirit realm. You can now target a foe tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
+    "option_7_desc": "You have achieved mastery over the spirit realm. You can now target a standard tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
     "option_7_data": "TG"
   },
   {
@@ -1084,7 +1084,7 @@
     "option_6b_desc": "You have achieved perfect control over your personal transmutation, transcending natural limitations. All effects that would alter your form - whether beneficial or harmful - can be consciously accepted or rejected at will, even bypassing any immutable properties you might have.",
     "option_6b_data": "TD",
     "option_7_name": "Daily Action : Metamorphis",
-    "option_7_desc": "You undergo a complete physical transformation, taking the form of any monster or beast you have encountered of champion tier or lower for one minute. Make an alteration magic check against the creature's tier difficulty (minion 2, thrall 4, foe 6, champion 8). On failure, you become maddened for the entire duration. You retain your mental abilities but gain the target creature's physical form, attacks, and capabilities. If this form is reduced to 0 health, you immediately revert to your original body with 5 health.",
+    "option_7_desc": "You undergo a complete physical transformation, taking the form of any monster or beast you have encountered of champion tier or lower for one minute. Make an alteration magic check against the creature's tier difficulty (minion 2, grunt 4, standard 6, champion 8). On failure, you become maddened for the entire duration. You retain your mental abilities but gain the target creature's physical form, attacks, and capabilities. If this form is reduced to 0 health, you immediately revert to your original body with 5 health.",
     "option_7_data": "TG"
   },
   {

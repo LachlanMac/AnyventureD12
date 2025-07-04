@@ -6,7 +6,6 @@
 
 Many actions are obtained through modules and are more powerful than the standard actions all characters have access to.
 
-
 ### Sprint - 2 Energy
 The character moves up to double their movement speed in a straight line.
 
@@ -28,19 +27,18 @@ The character attempts to channel a spell. The energy cost varies by the spell.
 ### Shove - 1 Energy
 The character attempts to shove another character that is the same size, knocking them prone or pushing them 1 unit away. This is done by making a contested might check against the target's fitness or coordination.
 
-### Use - 1 Energy
+### Use - 0 Energy
 The character uses an item, such as drinking a potion, picking up an object or attempting to unlock a door.
 
 ### Rest - 0 Energy
 The character rests, removing the winded condition.
 
 ### Hide - 0 Energy
-The character gains the obscured condition described in [Conditions](/wiki/conditions). A character cannot use this action if an enemy can currently see them.
+The character gains the obscured condition described in [Conditions](/wiki/conditions). A character cannot use this action if an enemy can currently see or sense them.
 
 <div class="triangle-line"></div>
 
 ## Reactions
-
 
 ### Attack of Opportunity - 0 Energy
 The character makes an attack with a simple weapon or unarmed strike against a creature that willfully moves out of their melee range.

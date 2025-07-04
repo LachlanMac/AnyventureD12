@@ -54,7 +54,7 @@
     },
     {
       "name": "Action : Assassinate",
-      "description": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a weapon that has the piercing property. If the attack hits, the target dies instantly if they are minion tier, or if you roll 2 successful dice against thrall tier, or 3 successful dice against foe tier creatures.",
+      "description": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a weapon that has the piercing property. If the attack hits, the target dies instantly if they are minion tier, or if you roll 2 successful dice against grunt tier, or 3 successful dice against standard tier creatures.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
@@ -70,7 +70,7 @@
     },
     {
       "name": "Remote Kill",
-      "description": "You have mastered the art of killing with traps. Gain +1 skill with engineering. When your traps do damage to a thrall or minion, they are executed even if the damage did not bring them to 0 health.",
+      "description": "You have mastered the art of killing with traps. Gain +1 skill with engineering. When your traps do damage to a grunt or minion, they are executed even if the damage did not bring them to 0 health.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

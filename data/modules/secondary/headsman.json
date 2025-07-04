@@ -78,7 +78,7 @@
     },
     {
       "name": "The Final Cut",
-      "description": "When you hit a minion or a thrall with a slashing weapon, you execute them if you deal at least 1 damage. A foe is executed if you have 3 critical hits in one attack roll.",
+      "description": "When you hit a minion or a grunt with a slashing weapon, you execute them if you deal at least 1 damage. A standard is executed if you have 3 critical hits in one attack roll.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

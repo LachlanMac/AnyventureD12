@@ -78,7 +78,7 @@
    },
    {
      "name": "Spirit Master",
-     "description": "You have achieved mastery over the spirit realm. You can now target a foe tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
+     "description": "You have achieved mastery over the spirit realm. You can now target a standard tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
      "mtype": "core",
      "location": "7",
      "cost": 3,

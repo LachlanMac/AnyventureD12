@@ -2,8 +2,8 @@
 
 export const CREATURE_TIERS = {
   minion: 'var(--color-cloud)',
-  thrall: 'var(--color-old-gold)',
-  foe: 'var(--color-sunset)',
+  grunt: 'var(--color-old-gold)',
+  standard: 'var(--color-sunset)',
   champion: 'var(--color-stormy)',
   elite: 'var(--color-sat-purple)',
   legend: 'var(--color-metal-gold)',

@@ -11,11 +11,11 @@ The lowest of tiers, non-combatants are not expected to offer any meaningful con
 ### Minion
 Minions are the lowest form of creature that can participate in combat and are usually dispatched easily. Minions can range from a creature like a wolf, dryad or a runty kobold.
 
-### Thrall
-Thralls can be dangerous in number, but an average adventurer should be able to defeat at least a couple thralls in a fight. Bandits, squires, skeletons and harpies would fall into this category. 
+### Grunt
+Grunts can be dangerous in number, but an average adventurer should be able to defeat at least a couple thralls in a fight. Bandits, squires, skeletons and harpies would fall into this category. 
 
-### Foe
-Foes typically have the equivalent skills of a starting adventurer with few module points or skills. In favorable conditions, they should be considered an even fight to an average adventurer. Lions, knights and velociraptors would be common foe tier opponents.  
+### Standard
+Standard creatures typically have the equivalent skills of a starting adventurer with few module points or skills. In favorable conditions, they should be considered an even fight to an average adventurer. Lions, knights and velociraptors would be common standard tier opponents.  
 
 ### Champion
 Champions represent the top level of what a humanoid can acheive. Champion tiered creatures include archmages, renowned gladiators and treants.
@@ -28,7 +28,6 @@ Legends are creatures that are so epic, defeating them would make the victors th
 
 ### Mythic
 Mythic creatures include entities and are not meant to be defeated by normal means. These creatures are often only destroyed by rituals or special artifacts, otherwise confronting one unprepared would bring certain doom. These include demi-gods, avatars and primal forces.
-
 
 
 ## Types

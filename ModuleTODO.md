@@ -54,7 +54,7 @@
    - +2 Any Melee Weapon skill
    - +1 Evasion skill
    - +1 Endurance skill
-2. **Passive**: Cleaving Strikes - When you defeat an enemy, make a free attack on adjacent foe
+2. **Passive**: Cleaving Strikes - When you defeat an enemy, make a free attack on adjacent standard
 3. **Action**: Whirlwind (3 Energy) - Attack all adjacent enemies with single roll
 4. **Reaction**: Sidestep (1 Energy) - When missed by melee, move 1 unit without provoking
 5. **Passive**: Many vs One - Gain +1 die when outnumbered 3:1 or more
