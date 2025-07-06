@@ -1,0 +1,15 @@
+{
+    "name": "Camouflage",
+    "description": "You target a creature within a very short (5 unit) distance, making them difficult to spot while in natural environments for the next hour. Being affected by this spell allows a character to attempt to take the hide action despite being in line of sight. Additionally, stealth checks gain a bonus dice and the creature's stealth check cannot be lower than a 4.",
+    "charge":"You can affect up to 4 other creatures with this spell.",
+    "duration": "Concentration",
+    "range": 3,
+    "checkToCast": 6,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

@@ -3,6 +3,7 @@ import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkGfm from 'remark-gfm';
 import rehypeRaw from 'rehype-raw';
+import rehypeSlug from 'rehype-slug';
 import { ArrowLeftIcon, ArrowRightIcon } from '@heroicons/react/24/outline';
 import '../../styles/wiki.css';
 
@@ -104,7 +105,7 @@ const WikiPage = () => {
     <article className="wiki-content">
       <ReactMarkdown
         remarkPlugins={[remarkGfm]}
-        rehypePlugins={[rehypeRaw]}
+        rehypePlugins={[rehypeRaw, rehypeSlug]}
         components={{
           // Custom link renderer for internal wiki links
           a: ({ href, children }) => {

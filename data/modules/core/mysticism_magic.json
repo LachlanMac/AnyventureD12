@@ -15,7 +15,7 @@
    
     {
       "name": "Reaction : Manaspike",
-      "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a spell check. If the result is higher than the contesting check, deal spirit damage in an amount equal to your check.",
+      "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a spell check. If the result is higher than the contesting check, deal aetheric damage in an amount equal to your check.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,

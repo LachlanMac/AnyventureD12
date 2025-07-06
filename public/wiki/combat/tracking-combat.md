@@ -70,19 +70,10 @@ A turn includes:
     Elite, Legendary and Mythic creatures on the other hand, get 1 action during each phase of combat for a total of 3 actions.
 </div>
 
-
 ### Actions
-Actions represent the primary ways characters interact with the world during combat, from attacking enemies tochanneling spells. Each character can perform 2 actions per round, limited by their available Energy, with most
-actions requiring skill checks to determine success. Default actions like Rest, Sprint, and Attack are available
-to all characters, while modules unlock specialized actions that define a character's unique combat style.
+Actions represent the primary ways characters interact with the world during combat, from attacking enemies to channeling spells. Each character can perform 2 actions per round, limited by their available Energy, with most actions requiring skill checks to determine success. Default actions like Rest, Sprint, and Attack are available to all characters, while modules unlock specialized actions that define a character's unique combat style.
 
-
-### Movement
-All characters can move up to their movement speed during their turn without spending resources. This movement can be split before, between or after actions, allowing characters to tactically position themselves.
-
-<div class="example-box">
-A character has a movement speed of 5. They move 2 units and use an action to attack an enemy. They then decide to retreat to safety to pull back from the front line and move back the rest of their movement speed, 3 units. The character then uses their second action to drink a potion.
-</div>
+For detailed information about movement mechanics, see [Movement](/wiki/movement).
 
 <div class="triangle-line"></div>
 

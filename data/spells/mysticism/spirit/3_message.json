@@ -1,0 +1,15 @@
+{
+    "name": "Message",
+    "description": "You gather leaves, or another light material that can carry on the wind, and speak a message into them that lasts no longer than 1 minute. At the end of the spoken message, a magical wind carries the leaves to a creautre you target by name. When it arrives, only that creature is able to hear the message in full.",
+    "charge":"The wind can also carry a message back to you.",
+    "duration": "Instantaneous",
+    "range": 8,
+    "checkToCast": 3,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

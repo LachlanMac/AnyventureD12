@@ -93,39 +93,46 @@
       "order": 1
     },
     {
+      "id": "movement",
+      "title": "Movement",
+      "path": "combat/movement.md",
+      "category": "Combat",
+      "order": 2
+    },
+    {
       "id": "actions-reactions",
       "title": "Actions & Reactions",
       "path": "combat/actions_and_reactions.md",
       "category": "Combat",
-      "order": 2
+      "order": 3
     },
     {
       "id": "attacks-damage",
       "title": "Attacks & Damage",
       "path": "combat/attacks_and_damage.md",
       "category": "Combat",
-      "order": 3
+      "order": 4
     },
     {
       "id": "damage-mitigation",
       "title": "Damage & Mitigation",
       "path": "combat/mitigation.md",
       "category": "Combat",
-      "order": 4
+      "order": 5
     },
     {
       "id": "conditions",
       "title": "Conditions",
       "path": "combat/conditions.md",
       "category": "Combat",
-      "order": 5
+      "order": 6
     },
     {
-      "id": "enemies",
-      "title": "Enemy Types",
-      "path": "combat/enemies.md",
+      "id": "npcs",
+      "title": "NPCs",
+      "path": "combat/npcs.md",
       "category": "Combat",
-      "order": 6
+      "order": 7
     },
     {
       "id": "magic-types",

@@ -36,7 +36,7 @@ A dazed character loses their concentration and cannot concentrate on anything n
 A character who is maddened cannot properly identify friend from standard but is not affected from other mind alterting conditions such as being charmed, confused or afraid. At the end of each turn, they can attempt to recover by making a resilience check of 10. This check is lowered by 1 each turn.
 
 ### Numbed
-A numbed character cannot gain any resolve or morale. Attempts to recover from the maddened, afraid or confused conditions require a check of 4 to break, but does not get lower each time the character attempts to make it. A numbed character has a penalty dice to all mind checks and cannot use resolve to stay conscious when reaching 0 health.
+A numbed character cannot gain any resolve and they cannot benefit from morale. Attempts to recover from the maddened, afraid or confused conditions require a check of 4 to break, but does not get lower each time the character attempts to make it. A numbed character has a penalty dice to all mind checks and cannot use resolve to stay conscious when reaching 0 health. In order to lose the broken condition, a character must make a resilience check of 10 at the end of a full rest. For each full rest taken, this check is lowered by 1.
 
 ### Stunned
 A stunned character cannot take any actions, reactions or movement. They also lose concentration and cannot concentrate until the condition is removed. Instead, they must use their action to attempt to recover by making a concentration check of 10. Each time this check is made, it is lowered by 1. 

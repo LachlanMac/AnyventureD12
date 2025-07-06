@@ -1,6 +1,6 @@
 # Attributes & Talents
 
-## Talents ##
+## Talents
 <div class="triangle-line"></div>
 Talents are one half of the dice rolling system. All skills in AnyventureDX have a talent associated with them.:
 
@@ -40,7 +40,7 @@ Every character has five core attributes that define their natural capabilities.
 Unlike skills, attributes are a category rather than an actual game mechanic. You will never roll a physique or social check to resolve something. Attributes exist only to define your talents and how they affect the skills within the same cateogry.
 Attributes do not directly affect the tier of your dice, but only affect *how many* dice you roll for all skills under that umbrella.
 <div class="example-box">
-A character with 3 talents in Finesse will roll 3 dice for any evasion, stealth, coordination or thievery check. The type of dice rolled is determined by the **skill**.
+A character with 3 talents in Finesse will roll 3 dice for any evasion, stealth, coordination or thievery check. The type of dice rolled is determined by the <b>skill</b>.
 </div>
 
 ## Character Creation
@@ -66,8 +66,3 @@ During character creation:
 - Physique: 1, Finesse: 1, Mind: 2, Knowledge: 2, **Social: 3**
 - Excellent negotiator and leader, average other capabilities
 
-
-
-## Next Steps
-
-- Learn about [Skills](/wiki/skills)

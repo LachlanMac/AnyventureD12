@@ -1,6 +1,6 @@
 # Attributes & Talents
 
-## Talents ##
+## Talents
 <div class="triangle-line"></div>
 Talents are one half of the dice rolling system. All skills in AnyventureDX have a talent associated with them.:
 
@@ -66,8 +66,3 @@ During character creation:
 - Physique: 1, Finesse: 1, Mind: 2, Knowledge: 2, **Social: 3**
 - Excellent negotiator and leader, average other capabilities
 
-
-
-## Next Steps
-
-- Learn about [Skills](/wiki/skills)

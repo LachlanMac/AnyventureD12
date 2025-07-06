@@ -35,9 +35,6 @@ Specialized paths that add unique flavors:
 - **Hybrid**: Spell Thief, Witch, Battle Dancer
 - **Support**: Medic, Diplomat, Investigator
 
-### Cultural Modules
-Tied to specific ancestries or cultures, providing heritage abilities.
-
 ### Personality Modules
 Starting modules that define character nature and social interactions.
 

@@ -1,0 +1,15 @@
+{
+    "name": "Shock Field",
+    "description": "",
+    "charge":"",
+    "duration": "Instantaneous",
+    "range": 0,
+    "checkToCast": 10,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

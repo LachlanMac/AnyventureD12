@@ -1,0 +1,15 @@
+{
+    "name": "Commune",
+    "description": "You enter a trance, allowing you to see spirits and incorporeal beings around you while you concentrate on the spell. Additionally, you can communicate with these spirits in a shared language. When using this spell in proximity to a beast or humanoid that has died within the last hour, you will prevent their spirit from passing on as long as you remain in proximity and can continue to communicate with them.",
+    "charge":"You can target a spirit to banish from either the material or spectral plane, though this ends the spell. Incorporeal creatures that have statblocks, such as spectres, ghosts and poltergeists must makes a resilience check of 7 or higher to avoid this affect.",
+    "duration": "Concentration",
+    "range": 0,
+    "checkToCast": 6,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

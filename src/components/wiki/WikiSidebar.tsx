@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { ChevronDownIcon, ChevronRightIcon } from '@heroicons/react/24/outline';
+import { extractHeaders, MarkdownHeader } from '../../utils/markdownParser';
 
 interface WikiPage {
   id: string;
@@ -18,6 +19,8 @@ interface WikiStructure {
 const WikiSidebar = () => {
   const [structure, setStructure] = useState<WikiStructure | null>(null);
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
+  const [pageHeaders, setPageHeaders] = useState<Record<string, MarkdownHeader[]>>({});
+  const [loadingHeaders, setLoadingHeaders] = useState<Set<string>>(new Set());
   const location = useLocation();
 
   useEffect(() => {
@@ -32,6 +35,43 @@ const WikiSidebar = () => {
       })
       .catch((err) => console.error('Failed to load wiki structure:', err));
   }, []);
+
+  // Fetch headers for a specific page
+  const fetchPageHeaders = async (page: WikiPage) => {
+    if (pageHeaders[page.id] || loadingHeaders.has(page.id)) {
+      return;
+    }
+
+    setLoadingHeaders(prev => new Set(prev).add(page.id));
+
+    try {
+      const response = await fetch(`/wiki/${page.path}`);
+      const content = await response.text();
+      const headers = extractHeaders(content, 3).filter(h => h.level === 2); // Get headers up to level 3, then filter for level 2 only
+      
+      setPageHeaders(prev => ({
+        ...prev,
+        [page.id]: headers
+      }));
+    } catch (error) {
+      console.error(`Failed to fetch headers for ${page.id}:`, error);
+    } finally {
+      setLoadingHeaders(prev => {
+        const newSet = new Set(prev);
+        newSet.delete(page.id);
+        return newSet;
+      });
+    }
+  };
+
+  // Fetch headers for all pages when structure is loaded
+  useEffect(() => {
+    if (structure) {
+      structure.pages.forEach(page => {
+        fetchPageHeaders(page);
+      });
+    }
+  }, [structure]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const toggleCategory = (category: string) => {
     setExpandedCategories((prev) => {
@@ -67,16 +107,13 @@ const WikiSidebar = () => {
   // Define category order manually to match intended structure
   const desiredCategoryOrder = [
     'Getting Started',
+    'Characters',
     'Core Mechanics',
-    'Character Creation',
     'Combat',
     'Magic',
-    'Modules & Progression',
+    'Equipment',
     'Crafting',
-    'Resources',
-    'Effects',
-    'Songs & Music',
-    'Reference'
+    'Songs & Music'
   ];
 
   // Get category order, prioritizing our desired order, then any remaining categories alphabetically
@@ -113,19 +150,44 @@ const WikiSidebar = () => {
                   {pages.map((page) => {
                     const pagePath = `/wiki/${page.id}`;
                     const isActive = location.pathname === pagePath;
+                    const headers = pageHeaders[page.id] || [];
 
                     return (
-                      <Link
-                        key={page.id}
-                        to={pagePath}
-                        className={`block px-3 py-1 rounded text-sm transition-colors ${
-                          isActive
-                            ? 'bg-purple-600/30 text-purple-300 border-l-2 border-purple-400'
-                            : 'text-gray-300 hover:bg-gray-700/30 hover:text-white'
-                        }`}
-                      >
-                        {page.title}
-                      </Link>
+                      <div key={page.id}>
+                        <Link
+                          to={pagePath}
+                          className={`block px-3 py-1 rounded text-sm transition-colors ${
+                            isActive
+                              ? 'bg-purple-600/30 text-purple-300 border-l-2 border-purple-400'
+                              : 'text-gray-300 hover:bg-gray-700/30 hover:text-white'
+                          }`}
+                        >
+                          {page.title}
+                        </Link>
+                        
+                        {/* Show subsections if this is the active page */}
+                        {isActive && headers.length > 0 && (
+                          <div className="ml-6 mt-1 space-y-0.5">
+                            {headers.map((header) => (
+                              <Link
+                                key={header.anchor}
+                                to={`${pagePath}#${header.anchor}`}
+                                className="block px-2 py-0.5 text-xs text-gray-400 hover:text-gray-200 transition-colors"
+                                onClick={(e) => {
+                                  // Smooth scroll to anchor
+                                  e.preventDefault();
+                                  const element = document.getElementById(header.anchor);
+                                  if (element) {
+                                    element.scrollIntoView({ behavior: 'smooth' });
+                                  }
+                                }}
+                              >
+                                {header.text}
+                              </Link>
+                            ))}
+                          </div>
+                        )}
+                      </div>
                     );
                   })}
                 </div>

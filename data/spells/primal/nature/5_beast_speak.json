@@ -1,0 +1,15 @@
+{
+    "name": "Beast Speak",
+    "description": "You enter a trance that allows you to communicate with beasts as if you shared a language with them while you maintain concentration. You can communicate very simple ideas, though they are limited by the primitive intellgience of the target.",
+    "charge":"All allies within a very short (5 unit) distance can share the effects of your spell.",
+    "duration": "Concentration",
+    "range": 0,
+    "checkToCast": 5,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

@@ -1,0 +1,15 @@
+{
+    "name": "Charm Beast",
+    "description": "You touch a beast that is standard tier or lower and charm it if it fails a resilience check of 7. While you maintain concentration, the targeted beast acts as an ally instead. Whenever the beast takes damage, it makes the resilience check again, end the spell if it succeeds.",
+    "charge":"If you keep the beast charmed for at least a full day, you no longer have to maintain concentration on the spell, but it still can end early by taking damage.",
+    "duration": "Concentration",
+    "range": 1,
+    "checkToCast": 9,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

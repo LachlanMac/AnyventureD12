@@ -32,7 +32,9 @@
       "Bash(done)",
       "Bash(npm run reset-items:*)",
       "Bash(git add:*)",
-      "Bash(npm run create-master-modulelist:*)"
+      "Bash(npm run create-master-modulelist:*)",
+      "Bash(npm run dev:*)",
+      "Bash(pkill:*)"
     ],
     "deny": []
   },

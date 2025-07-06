@@ -34,11 +34,3 @@ When you roll with penalty, you reduce your dice pool. When you cannot reduce yo
 <div class="note-box">
 Penalty and Bonus dice cancel each other out. If you have 2 Bonus Dice and 1 Penalty Dice applied to a roll, this is the same as applying just 1 Bonus Dice.
 </div>
-
-
-
-## Next Steps
-
-- Learn about [Skills](/wiki/skills)
-- Understand [Skill Checks](/wiki/checks)
-- Explore [Combat](/wiki/combat-basics)

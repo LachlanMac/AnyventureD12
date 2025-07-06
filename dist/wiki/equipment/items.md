@@ -91,11 +91,7 @@ Enchanted gear with special properties:
 - **Utility Items**: Non-combat benefits
 - **Artifacts**: Unique legendary items
 
-## Currency & Trade
-Standard currency (varies by setting):
-- **Copper**: Basic transactions
-- **Silver**: Common purchases
-- **Gold**: Major transactions
-- **Platinum**: Extreme wealth
-
-Exchange rates typically 10:1 or 100:1.
+## Currency
+Currency is best abstracted into silver and gold coins.
+- **Silver Coin**: equal to about 1 dime.
+- **Gold Coin**: equal to about 1 dollar.

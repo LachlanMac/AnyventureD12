@@ -1,0 +1,15 @@
+{
+    "name": "Rekindle",
+    "description": "You attempt to rekindle a humanoid or beast's spirit that has recently departed it's body within the last minute. To be a valid target of this spell, the body first must be restored to full health by magic. You roll a d12; on a 5 or higher, the spirit is restored back to the body, and instead of dead, it becomes unconscious. On a failure, the spell fails and cannot be used to target the same body.",
+    "charge":"Instead of rolling a d12, the spell automatically succeeds, but the creature can never be the target of this spell again.",
+    "duration": "Instantaneous",
+    "range": 1,
+    "checkToCast": 5,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

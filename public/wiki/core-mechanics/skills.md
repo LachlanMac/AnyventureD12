@@ -174,9 +174,3 @@ Some factors can cause a skill to be upgraded or downgraded, changing the dice p
 The most common cause for upgraded or downgraded skills are due to character size. A large creature will simply have a size advantage over a gnome if they were to arm wrestle. A large creature with 2 skill level will roll a d10 when making a might check, while a gnome with 2 skill level will roll a d6.
 
 <br>
-
-## Next Steps
-- [Combat Skills](/wiki/weapons)
-- [Magic Skills](/wiki/spellcasting)
-- [Crafting Skills](/wiki/crafting)
-- [Music Skills](/wiki/music)
