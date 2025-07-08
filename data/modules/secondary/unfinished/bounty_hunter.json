@@ -78,7 +78,7 @@
     },
     {
       "name": "Trophy Collector",
-      "description": "You wear trophies from your most dangerous kills, drawing strength from your victories. After each full rest, if you wear a trophy from a creature you've taken part in slaying, you gain temporary health based on its tier: standard (2), champion (5), elite (8), or legend (15). This benefit is lost if you reach 0 health or 0 resolve and you must seek out a new trophy. You can only wear one trophy at a time.",
+      "description": "You wear trophies from your most dangerous kills, drawing strength from your victories. After each full rest, if you wear a trophy from a creature you've taken part in slaying, you gain morale based on its tier: standard (2), champion (5), elite (8), or legend (15). This benefit is lost if you reach 0 health or 0 resolve and you must seek out a new trophy. You can only wear one trophy at a time.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

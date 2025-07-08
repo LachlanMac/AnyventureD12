@@ -45,8 +45,8 @@ Imposing humanoids with draconic features including scaled skin, claws, and some
 
 **Key Traits**:
 - **Dragon Breath**: Cone attack using Might, damage type based on heritage
-- **Draconic Heritage**: Choose Red (heat), Blue (lightning), or White (cold) lineage
-- **Draconic Horde**: Gain temporary health from accumulated wealth (1 per 100 gold, max 10)
+- **Draconic Heritage**: Choose Red (heat), Blue (electric), or White (cold) lineage
+- **Draconic Horde**: Gain morale from accumulated wealth (1 per 100 gold, max 10)
 - **Ancient Hunger**: Require 6 meals and 8 hours sleep for full rest benefits
 
 ### Human *(Medium)*
@@ -60,7 +60,7 @@ Diverse and adaptable species that have spread across Atlah in great numbers. Kn
 
 **Key Traits**:
 - **Versatile**: +1 Resilience skill, +1 heat and cold mitigation
-- **Human Destiny**: Once per day, convert resolve to temporary health lasting until end of day
+- **Human Destiny**: Once per day, convert resolve to morale lasting until end of day
 
 ### Elf *(Medium)*
 ![Elf Portrait](/assets/races/elf.png)

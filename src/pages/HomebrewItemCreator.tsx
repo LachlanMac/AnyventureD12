@@ -84,7 +84,7 @@ const HomebrewItemCreator: React.FC = () => {
     physical: 0,
     cold: 0,
     heat: 0,
-    lightning: 0,
+    electric: 0,
     psychic: 0,
     dark: 0,
     divine: 0,
@@ -623,7 +623,7 @@ const HomebrewItemCreator: React.FC = () => {
                           <option value="physical">Physical</option>
                           <option value="heat">Heat</option>
                           <option value="cold">Cold</option>
-                          <option value="lightning">Lightning</option>
+                          <option value="electric">Electric</option>
                           <option value="dark">Dark</option>
                           <option value="divine">Divine</option>
                           <option value="arcane">Arcane</option>
@@ -866,7 +866,7 @@ const HomebrewItemCreator: React.FC = () => {
                             <option value="physical">Physical</option>
                             <option value="heat">Heat</option>
                             <option value="cold">Cold</option>
-                            <option value="lightning">Lightning</option>
+                            <option value="electric">Electric</option>
                             <option value="dark">Dark</option>
                             <option value="divine">Divine</option>
                             <option value="arcane">Arcane</option>

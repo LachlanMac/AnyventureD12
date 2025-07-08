@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Kleptomania",
-      "description": "When you steal an object, you gain 1 temporary health after your next full rest for each 20 gold of value on the object up to a maximum of 10.",
+      "description": "When you steal an object, you gain 1 morale after your next full rest for each 20 gold of value on the object up to a maximum of 10.",
       "mtype": "core",
       "location": "1",
       "cost": 2,

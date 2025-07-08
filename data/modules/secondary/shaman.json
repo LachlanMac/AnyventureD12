@@ -62,7 +62,7 @@
    },
    {
      "name": "Path of Nature",
-     "description": "You have chosen to walk the path of natural magic and elemental forces. Gain +1 skill with primal magic. Your spirit pets' attacks that deal physical damage can now deal heat, lightning or cold damage instead.",
+     "description": "You have chosen to walk the path of natural magic and elemental forces. Gain +1 skill with primal magic. Your spirit pets' attacks that deal physical damage can now deal heat, electric or cold damage instead.",
      "mtype": "core",
      "location": "6a",
      "cost": 2,

@@ -14,7 +14,7 @@
     },
     {
       "name": "Action : Triage",
-      "description": "You quickly stabilize an ally's condition to prevent further deterioration. Make a medicine check and grant temporary health equal to your result. This temporary health lasts until the end of combat. This action can only be used on each creature once per combat.",
+      "description": "You quickly stabilize an ally's condition to prevent further deterioration. Make a medicine check and grant morale equal to your result. This morale lasts until the end of combat. This action can only be used on each creature once per combat.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,

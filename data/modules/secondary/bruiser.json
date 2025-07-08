@@ -78,7 +78,7 @@
     },
     {
       "name": "Action : Curbstomp",
-      "description": "You target a creature that is prone and making a devestating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and thralls have a penalty dice against this attack and are executed if any of the dice hit.",
+      "description": "You target a creature that is prone and making a devestating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and grunts have a penalty dice against this attack and are executed if any of the dice hit.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

@@ -80,7 +80,7 @@
     },
     {
       "name": "Daily Action : Cleansing Focus",
-      "description": "You cleanse your mind, removing any dazed or stunned conditions from you. Additionally, roll a concentration check and gain temporary health equal to your highest roll that lasts for 1 minute.",
+      "description": "You cleanse your mind, removing any dazed or stunned conditions from you. Additionally, roll a concentration check and gain morale equal to your highest roll that lasts for 1 minute.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

@@ -8,7 +8,7 @@ Anyventure features multiple damage types, each representing different forms of 
 - **Physical** - Slashing, piercing, and bludgeoning from weapons
 - **Heat** - Fire, lava, and burning effects
 - **Cold** - Ice, frost, and freezing attacks
-- **Lightning** - Electrical shocks and storms
+- **Electric** - Electrical shocks and storms
 - **Dark** - Necrotic and shadow damage
 - **Divine** - Holy and radiant energy
 - **Aetheric** - Magical and sometimes spiritual damage

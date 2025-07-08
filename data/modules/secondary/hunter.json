@@ -31,7 +31,7 @@
     },
     {
       "name": "Trailblazer",
-      "description": "You are experienced traveling in the most remote terrains. Gain +1 skill with fitness and gain 5 temporary health after spending a long rest in the wild.",
+      "description": "You are experienced traveling in the most remote terrains. Gain +1 skill with fitness and gain 5 morale after spending a long rest in the wild.",
       "mtype": "core",
       "location": "3",
       "cost": 2,

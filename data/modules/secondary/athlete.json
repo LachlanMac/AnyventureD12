@@ -30,7 +30,7 @@
     },
     {
       "name": "Daily Action : Second Wind",
-      "description": "You dig deep to find reserves of energy when exhausted. Remove the winded condition, restore your energy completely and gain 2d4 temporary health that lasts for a minute.",
+      "description": "You dig deep to find reserves of energy when exhausted. Remove the winded condition, restore your energy completely and gain 2d4 morale that lasts for a minute.",
       "mtype": "core",
       "location": "3",
       "cost": 2,

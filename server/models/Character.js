@@ -368,6 +368,10 @@ const CharacterSchema = new Schema({
     resolve: {
       current: { type: Number, default: 0 },
       max: { type: Number, default: 0 }
+    },
+    morale: {
+      current: { type: Number, default: 0 },
+      max: { type: Number, default: 0 }
     }
   },
 
@@ -424,7 +428,7 @@ const CharacterSchema = new Schema({
     physical: { type: Number, default: 0 },
     cold: { type: Number, default: 0 },
     heat: { type: Number, default: 0 },
-    lightning: { type: Number, default: 0 },
+    electric: { type: Number, default: 0 },
     psychic: { type: Number, default: 0 },
     dark: { type: Number, default: 0 },
     divine: { type: Number, default: 0 },
@@ -474,6 +478,7 @@ CharacterSchema.pre('save', function(next) {
   this.resources.health.max = 20;
   this.resources.energy.max = 5;
   this.resources.resolve.max = 20;
+  this.resources.morale.max = 10;
 
   // Initialize current resources if not set (but don't cap them here - equipment may increase max)
   if (!this.resources.health.current) {
@@ -484,6 +489,9 @@ CharacterSchema.pre('save', function(next) {
   }
   if (!this.resources.resolve.current) {
     this.resources.resolve.current = this.resources.resolve.max;
+  }
+  if (!this.resources.morale.current) {
+    this.resources.morale.current = this.resources.morale.max;
   }
   
   // Apply module effects

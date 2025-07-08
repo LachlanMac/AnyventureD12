@@ -22,7 +22,7 @@
     },
     {
       "name": "Reaction : Draw Nature",
-      "description": "In response to taking heat, cold or lightning damage from a spell or effect, you absorb the extra energy. Until the end of your next turn, the first primal spell you channel is charged.",
+      "description": "In response to taking heat, cold or electric damage from a spell or effect, you absorb the extra energy. Until the end of your next turn, the first primal spell you channel is charged.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -30,7 +30,7 @@
     },
     {
       "name": "Of the Elements",
-      "description": "You are attuned to the elements and gain +1 mitigation to heat, cold and lightning damage.",
+      "description": "You are attuned to the elements and gain +1 mitigation to heat, cold and electric damage.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -38,7 +38,7 @@
     },
     {
       "name": "Anchored",
-      "description": "You are naturally anchored to the world, gaining +1 skill with endurance and making you immune from stun or daze conditions caused by lightning effects. Additionally, you gain seismic detection when standing on natural terrain.",
+      "description": "You are naturally anchored to the world, gaining +1 skill with endurance and making you immune from stun or daze conditions caused by electric effects. Additionally, you gain seismic detection when standing on natural terrain.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
@@ -70,7 +70,7 @@
     },
     {
       "name": "Reaction : Dampen Elements",
-      "description": "In response to an effect or spell that deals either heat, cold or lightning damage, reduce the strength of the elements in a 3 unit radius around you by 2d4 damage.",
+      "description": "In response to an effect or spell that deals either heat, cold or electric damage, reduce the strength of the elements in a 3 unit radius around you by 2d4 damage.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

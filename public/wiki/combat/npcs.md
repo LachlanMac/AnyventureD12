@@ -12,7 +12,7 @@ The lowest of tiers, non-combatants are not expected to offer any meaningful con
 Minions are the lowest form of creature that can participate in combat and are usually dispatched easily. Minions can range from a creature like a wolf, dryad or a runty kobold.
 
 ### Grunt
-Grunts can be dangerous in number, but an average adventurer should be able to defeat at least a couple thralls in a fight. Bandits, squires, skeletons and harpies would fall into this category. 
+Grunts can be dangerous in number, but an average adventurer should be able to defeat at least a couple grunts in a fight. Bandits, squires, skeletons and harpies would fall into this category. 
 
 ### Standard
 Standard creatures typically have the equivalent skills of a starting adventurer with few module points or skills. In favorable conditions, they should be considered an even fight to an average adventurer. Lions, knights and velociraptors would be common standard tier opponents.  
@@ -45,7 +45,7 @@ Monsters are similar to beasts, but usually have a different origin than regular
 ### Plantoid
 Plantoids are simply plants that have some form of sentience. This can be treants, dryads or the horrible venus mantrap. 
 ### Elemental
-Elementals are primal creatures that often take the form of elements such as water, ice, fire, lightning, wind or earth.
+Elementals are primal creatures that often take the form of elements such as water, ice, fire, electric, wind or earth.
 ### Dark
 Dark creatures are typically associated with evil and can include demons, devils and spawn from the void.
 ### Divine
@@ -54,4 +54,6 @@ Divine creatures are celestials from the heavens. This can include valkyrs, ange
 Undead creatures are typically other types of creatures that have been risen from death, usually by magic or curses. This includes liches, zombies, ghouls and skeletons.
 ### Construct
 Constructs are creatures that have been built or animated by someone else. They typically act as servants and can range from clockwork minions to golems.
+### Fey
+Fey creatures are the faeries that come from the feywild. These curious and sometimes malicious creatures count sprites, satyrs, and pumpklings among their ranks.
 

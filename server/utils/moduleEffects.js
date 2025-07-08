@@ -300,7 +300,7 @@ const mapMitigationCode = (code) => {
     '1': 'physical',
     '2': 'heat',
     '3': 'cold',
-    '4': 'lightning',
+    '4': 'electric',
     '5': 'dark',
     '6': 'divine',
     '7': 'aether',

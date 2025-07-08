@@ -1,7 +1,7 @@
 {
     "name": "Cosmic Vision",
     "description": "You alter your eyes to supernatural levels, granting you darksight for the next hour. When making a senses check involving vision, you roll a bonus dice.",
-    "charge":"Instead of using your own skill for senses checks involving vision,, roll a 3d12 instead.",
+    "charge":"Instead of using your own skill for senses checks involving vision, roll a 3d12 instead.",
     "duration": "1 hour",
     "range": 0,
     "checkToCast": 9,

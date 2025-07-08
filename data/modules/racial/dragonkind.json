@@ -13,7 +13,7 @@
   "options": [
     {
       "name": "Action : Dragon Breath",
-      "description": "You spew either Fire, Cold or Lightning in a 3 Unit Cone, dealing 1d4 Damage for each Level. Roll a 1d12 plus half of your Level for the Attack Check against a Contested Resilience Check. This ability can be used three times per day.",
+      "description": "You spew either Fire, Cold or Electric in a 3 Unit Cone, dealing 1d4 Damage for each Level. Roll a 1d12 plus half of your Level for the Attack Check against a Contested Resilience Check. This ability can be used three times per day.",
       "location": "1",
       "data": "XD3"
     },

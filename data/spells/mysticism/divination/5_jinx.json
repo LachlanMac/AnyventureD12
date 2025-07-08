@@ -1,6 +1,6 @@
 {
     "name": "Jinx",
-    "description": "You target a creature within a short (10 unit) distance and show them their future failures. While you cocentrate on this spell, any time the creature fails to deal damage with an attack check, they take 4 psychic damage.",
+    "description": "You target a creature within a short (10 unit) distance and show them their future failures. While you concentrate on this spell, any time the creature fails to deal damage with an attack check, they take 4 psychic damage.",
     "charge":"The first attack roll of the target's turn is rolled with a penalty dice.",
     "duration": "Instantaneous",
     "range": 4,

@@ -1,7 +1,7 @@
 {
     "name": "Break Enchantment",
-    "description": "You touch an object or creature that is affected by magic and attempt to remove it. Most magics, like effects from spells are removed.",
-    "charge":"",
+    "description": "You touch an object or creature that is affected by magic and attempt to remove it by rolling a magic check against the required check to channel the spell you are attempting to remove, if there is one. Most magics, like effects from spells are removed.",
+    "charge":"Instead of rolling a magic check, the spell removes any magic that has a required check of 11 or lower to channel.",
     "duration": "Instantaneous",
     "range": 1,
     "checkToCast": 9,

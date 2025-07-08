@@ -77,7 +77,7 @@ EX. M1=1 MITIGATION
 1: Physical
 2: Heat
 3: Cold
-4: Lightning
+4: Electric
 5: Dark
 6: Divine
 7: Aether
@@ -101,7 +101,7 @@ EX. A1=1
 ############## CREATURES ##############
 ### NO KEYS #####
 1: Minion
-2: Thrall
+2: Grunt
 3: Standard
 4: Elite
 5: Legendary

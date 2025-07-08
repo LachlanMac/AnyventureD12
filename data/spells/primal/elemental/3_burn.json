@@ -1,6 +1,6 @@
 {
     "name": "Burn",
-    "description": "You touch a creature, emmiting massive amounts of heat from your hand, dealing 5 heat damage if the target fails a deflection or evasion check of 5. Flammable objects can also be targeted by this ability, setting them on fire.",
+    "description": "You touch a creature, emmiting massive amounts of heat from your hand, dealing 5 heat damage if the target fails a defense check of 5.",
     "charge":"You can cauterize a cut and stop the bleeding condition, while dealing no damage.",
     "duration": "Instantaneous",
     "range": 0,

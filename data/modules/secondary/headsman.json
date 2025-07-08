@@ -38,7 +38,7 @@
     },
     {
       "name": "Executioner",
-      "description": "You are both ruthless and efficient. Gain +2 psychic mitigation. When you kill a creature that is a champion tier or higher with a slashing weapon, you can choose to decapitate them. Any minions or thralls within 10 units must make a resilience check of 7 or higher or become afraid of you.",
+      "description": "You are both ruthless and efficient. Gain +2 psychic mitigation. When you kill a creature that is a champion tier or higher with a slashing weapon, you can choose to decapitate them. Any minions or grunts within 10 units must make a resilience check of 7 or higher or become afraid of you.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,

@@ -32,7 +32,7 @@
     },
     {
       "name": "Downtime Action : Rousing Speech",
-      "description": "You spend time writing and performing a speech to either raise spirits or move someone to your opinion, with an audience suitable for your reputation. A presence check of 6-9 is midly successful, granting 5 temporary health to all who hear it. A check of 10 or higher is very successful and 10 temporary health and may be more likely to move others to your belief. In the event of a perfect check, all who hear become charmed by you for an hour or until it breaks naturally.",
+      "description": "You spend time writing and performing a speech to either raise spirits or move someone to your opinion, with an audience suitable for your reputation. A presence check of 6-9 is midly successful, granting 5 morale to all who hear it. A check of 10 or higher is very successful and 10 morale and may be more likely to move others to your belief. In the event of a perfect check, all who hear become charmed by you for an hour or until it breaks naturally.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -40,7 +40,7 @@
     },
     {
       "name": "Action : To the Death",
-      "description": "While at 0 health, you lead by example and show your bravery, rolling a presence check. You and all allies within a short (10 unit) radius gain temporary health equal to your check for the next minute.",
+      "description": "While at 0 health, you lead by example and show your bravery, rolling a presence check. You and all allies within a short (10 unit) radius gain morale equal to your check for the next minute.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,

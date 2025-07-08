@@ -1,15 +1,15 @@
 {
     "name": "Flamethrower",
-    "description": "",
-    "charge":"",
+    "description": "You spray a wild jet of flames in a very short (5 unit) cone with you as the origin, dealing 7 heat damage to any creature that fails a defense check of 5.",
+    "charge":"Instead of taking damage, creatures that fail this check become ignited instead.",
     "duration": "Instantaneous",
-    "range": 0,
+    "range": 3,
     "checkToCast": 6,
     "components": [""],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,
     "energy": 1,
-    "damage": 0,
-    "damageType": null
+    "damage": 7,
+    "damageType": "Heat"
 }

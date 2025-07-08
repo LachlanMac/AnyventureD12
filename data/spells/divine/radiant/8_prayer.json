@@ -1,7 +1,7 @@
 {
     "name": "Prayer",
-    "description": "You say a short prayer, granting any nearby ally 6 temporary health and restoring +2 resolve. This prayer can only be channeled once per day, even if the spell fails.",
-    "charge":"The spell grants 10 temporary health, instead of 6.",
+    "description": "You say a short prayer, granting any nearby ally 6 morale and restoring +1 resolve. This prayer can only be channeled once per day, even if the spell fails.",
+    "charge":"The spell grants 10 morale, instead of 6 and restores 5 resolve.",
     "duration": "Instantaneous",
     "range": 2,
     "checkToCast": 6,

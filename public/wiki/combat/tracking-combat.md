@@ -11,12 +11,12 @@ A combat in AnyventureDX is broken down into rounds. A round lasts approximately
 
 Rounds are further broken down into **phases**:
 
-- Preperation
+- Preparation
 - Early
 - Middle
 - Late
 
-The preperation phase only happens on the first round of any given combat and allows especially quick characters a chance to act before the fight even starts. This can allow the character to reposition themselves, consume an item, or make a skill check to gain more information that may help them during the combat. A character cannot use the preperation phase to make an attack or channel a spell. Not everyone gets to participate in the preperation phase: [Enemies](/wiki/enemies) such as minions and thralls do not roll initiative, and instead always go in the late phase. 
+The Preparation phase only happens on the first round of any given combat and allows especially quick characters a chance to act before the fight even starts. This can allow the character to reposition themselves, consume an item, or make a skill check to gain more information that may help them during the combat. A character cannot use the Preparation phase to make an attack or channel a spell. Not everyone gets to participate in the Preparation phase: [Enemies](/wiki/enemies) such as minions and grunts do not roll initiative, and instead always go in the late phase. 
 
 <br>
 
@@ -24,13 +24,13 @@ When all participants have taken their turns, the round is over and the next beg
 
 ### Initiative
 
-At the start of combat, all involved parties roll an **initiative check** to determine what phase they are allowed to act in during the round. An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiatve is decide the order the characters act in.
-
+At the start of combat, player characters and significant enemies roll an initiative check to determine what phase they act in. Minions and grunts do not roll initiative and always act in the late phase. 
+An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiatve is decide the order the characters act in.
 After rolling an initiative check, compare the result to this table to decide where the characters act.
 
 <br>
 
-| Roll | Phase | Preperation Phase|
+| Roll | Phase | Preparation Phase|
 |------|--------|--------|
 | < 4 | Late | No |
 | 4-7 | Middle | No | 
@@ -38,7 +38,7 @@ After rolling an initiative check, compare the result to this table to decide wh
 | > 10 | Early | Yes|
 
 <div class="note-box">
-   There are certain scenarios where a player can change what phase they act in. The most common is a player deferring to a later stage after their character rolls into one of the earlier phases. This must be decided on the first round of combat immediately after the preperation phase and cannot be reversed.
+   There are certain scenarios where a player can change what phase they act in. The most common is a player deferring to a later stage after their character rolls into one of the earlier phases. This must be decided on the first round of combat immediately after the Preparation phase and cannot be reversed.
 </div>
 
 <br>
@@ -66,7 +66,7 @@ A turn includes:
 
 <div class="note-box">
     Non-player characters have different rules on what they can do in a single round. 
-    Minions and Thralls only get 1 action and movement on their turn.
+    Minions and Grunts only get 1 action and movement on their turn.
     Elite, Legendary and Mythic creatures on the other hand, get 1 action during each phase of combat for a total of 3 actions.
 </div>
 

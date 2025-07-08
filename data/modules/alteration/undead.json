@@ -52,7 +52,7 @@
     {
       "id": 10007,
       "name": "Ghoulish Desires",
-      "description": "You can spend 1 Minute consuming a Medium or smaller Beast or Humanoid corpse, gaining Temporary Health equal to twice it's level that lasts until the end of your next full rest",
+      "description": "You can spend 1 Minute consuming a Medium or smaller Beast or Humanoid corpse, gaining morale equal to twice it's level that lasts until the end of your next full rest",
       "mtype": "core",
       "location": "4b",
       "cost": 3,

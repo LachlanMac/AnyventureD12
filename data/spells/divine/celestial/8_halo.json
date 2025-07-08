@@ -1,7 +1,7 @@
 {
     "name": "Halo",
     "description": "You target a creature within a very short (5 unit) distance and create a halo around above their head. Any creature affected by this halo gains 5 mitigation to dark damage but suffers a -5 penalty to divine mitigation. The halo also emits a magical light within a very short (5 unit) radius that forces undead or dark creatures who start their turn within the light to make an endurance check of 7 or become blinded until the end of their turn.",
-    "charge":"Minions and thralls must roll a resilience check of 7 when attempting to move within the light's radius or they cannot willfully enter.",
+    "charge":"Minions and grunts must roll a resilience check of 7 when attempting to move within the light's radius or they cannot willfully enter.",
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 8,

@@ -1,0 +1,15 @@
+{
+    "name": "Miracle",
+    "description": "You touch a creature and attempt to bless them with a miracle. Roll a 1d12; on a 6 or higher, you remove any non-permanent condition from them. On a 12, the target of this spell regains all of their health and all non-permanent conditions are removed. A creature can only be the target of a miracle once per day.",
+    "charge":"When you roll a 12 when performing a miracle, you can remove a single permanent condition as well.",
+    "duration": "Instantaneous",
+    "range": 1,
+    "checkToCast": 11,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 2,
+    "damage": 0,
+    "damageType": null
+}

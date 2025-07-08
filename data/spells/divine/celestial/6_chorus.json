@@ -1,7 +1,7 @@
 {
     "name": "Chorus",
-    "description": "",
-    "charge":"",
+    "description": "A divine chorus rings out within a short (10 unit) radius centered on you, dealing 6 divine damage to all creatures who fail a resilience check of 6. For each undead or dark creature that reaches 0 health as a result of this spell, all allies within the radius gain morale up to a maximum of 6.",
+    "charge":"Instead of it's usual effects, this spell can be used as an automatic accompaniment success when helping a song.",
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 6,
@@ -10,6 +10,6 @@
     "concentration": false,
     "reaction": false,
     "energy": 3,
-    "damage": 0,
-    "damageType": null
+    "damage": 6,
+    "damageType": "Divine"
 }

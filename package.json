@@ -13,6 +13,7 @@
     "reset-modules": "node server/scripts/resetModules.js",
     "reset-items": "node server/scripts/resetItems.js",
     "reset-creatures": "node server/scripts/resetCreatures.js",
+    "reset-spells": "node server/scripts/resetSpells.js",
     "fix-module-refs": "node server/scripts/fixBrokenModuleRefs.js",
     "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",
     "migrate-aether": "node server/scripts/migrate-aether.js",

@@ -20,6 +20,7 @@ interface CharacterHeaderProps {
       health: { current: number; max: number };
       energy: { current: number; max: number };
       resolve: { current: number; max: number };
+      morale?: { current: number; max: number };
     };
     movement: number;
     sprintSpeed?: number;
@@ -30,7 +31,7 @@ interface CharacterHeaderProps {
       physical?: number;
       heat?: number;
       cold?: number;
-      lightning?: number;
+      electric?: number;
       dark?: number;
       divine?: number;
       aether?: number;
@@ -39,7 +40,7 @@ interface CharacterHeaderProps {
     };
   };
   onDelete?: () => void;
-  onResourceChange?: (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => void;
+  onResourceChange?: (resource: 'health' | 'energy' | 'resolve' | 'morale', newCurrent: number) => void;
 }
 
 const CharacterHeader: React.FC<CharacterHeaderProps> = ({

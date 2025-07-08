@@ -30,7 +30,7 @@
         {
           "id": "blue",
           "name": "Blue Dragon Heritage",
-          "description": "Descended from blue dragons, your Dragon Breath deals lightning damage. Gain +1 physical mitigation and +3 lightning mitigation.",
+          "description": "Descended from blue dragons, your Dragon Breath deals electric damage. Gain +1 physical mitigation and +3 electric mitigation.",
           "data": "TA:M1=2:M4=4"
         },
         {
@@ -50,7 +50,7 @@
     },
     {
       "name": "Draconic Horde",
-      "description": "Your lineage allows you to benefit from accumulating wealth in a static, enclosed area that you designate as your horde. For each 100 gold within your horde, you gain 1 temporary health at the end of a full rest to a maximum of 10. For each 1000 gold within your horde, you regenerate an additional resolve at the end of a favorable full rest.",
+      "description": "Your lineage allows you to benefit from accumulating wealth in a static, enclosed area that you designate as your horde. For each 100 gold within your horde, you gain 1 morale at the end of a full rest to a maximum of 10. For each 1000 gold within your horde, you regenerate an additional resolve at the end of a favorable full rest.",
       "data": "TYD"
     },
     {

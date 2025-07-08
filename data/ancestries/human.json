@@ -23,7 +23,7 @@
     },
     {
       "name": "Daily Reaction : Human Destiny",
-      "description": "The threads of destiny bend around humans, allowing them the opportunity to defy fate. Once per day, you can convert any amount of resolve into temporary health that lasts until the end of the day. If you use this reaction in response to taking damage that causes you to reach 0 health, you gain this as health instead.",
+      "description": "The threads of destiny bend around humans, allowing them the opportunity to defy fate. Once per day, you can convert any amount of resolve into morale that lasts until the end of the day. If you use this reaction in response to taking damage that causes you to reach 0 health, you gain this as health instead.",
       "data": "XX3"
     }
   ]

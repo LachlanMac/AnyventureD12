@@ -87,11 +87,12 @@ const SpellSchema = new Schema({
       'Psychic',
       'Heat',
       'Cold',
-      'Lightning',
+      'Electric',
       'Aetheric',
       'Toxic',
       'Physical',
-      'True'
+      'True',
+      'Variable'
     ]
   },
   // Homebrew fields

@@ -24,11 +24,11 @@ not to allow an action in an even tier without a mirrored action/reaction near i
 We can also have module options that include a mix or one of the following:
 
 Add max health, resolve, energy (rarely)
-Add mitigations if they make sense (Physical, Cold, Heat, Lightning, Psychic, Dark, Divine, Aetheric, Toxic)
+Add mitigations if they make sense (Physical, Cold, Heat, Electric, Psychic, Dark, Divine, Aetheric, Toxic)
 Add immunities to conditions 
 Add senses like vision types (echolocation, tremorsense, infravision, ultravision etc)
 Add language (Magic languages are more valuable)
-Things that grant Temporary Health
+Things that grant morale
 
 Dont EVER give the same skill twice. For example. Do not give +1 endurance in 2a, then +1 endurance in 6b.
 

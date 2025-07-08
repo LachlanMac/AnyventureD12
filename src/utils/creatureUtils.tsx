@@ -26,7 +26,7 @@ export const DAMAGE_TYPES = [
   'physical',
   'heat',
   'cold',
-  'lightning',
+  'electric',
   'dark',
   'divine',
   'aether',

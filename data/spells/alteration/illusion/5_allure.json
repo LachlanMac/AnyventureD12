@@ -1,7 +1,7 @@
 {
     "name": "Allure",
-    "description": "You target an adjacent creature and make them more alluring, causing them to roll a bonus dice on persuasion and presence checks while you concentrate on this spell.",
-    "charge":"",
+    "description": "You touch a creature and make them more alluring, causing them to roll a bonus dice on persuasion and presence checks while you concentrate on this spell.",
+    "charge":"You also create magical clothing for the creature that can be worn over their normal equipment.",
     "duration": "Concentration",
     "range": 1,
     "checkToCast": 5,

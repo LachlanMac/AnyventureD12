@@ -6,7 +6,7 @@
  "options": [
    {
      "name": "Horde Fighting",
-     "description": "You excel at navigating chaotic melees. You do not provoke opportunity attacks or reactions triggered based on movement from minions, thralls or swarms.",
+     "description": "You excel at navigating chaotic melees. You do not provoke opportunity attacks or reactions triggered based on movement from minions, grunts or swarms.",
      "mtype": "core",
      "location": "1",
      "cost": 2,
@@ -70,7 +70,7 @@
    },
    {
      "name": "Terror of the Masses",
-     "description": "Your brutal efficiency terrifies lesser foes. Gain +1 skill with presence. When you kill an enemy, make a presence check against the resilience of all other adjacent minions or thralls. On a failure, those creatures gain the afraid condition.",
+     "description": "Your brutal efficiency terrifies lesser foes. Gain +1 skill with presence. When you kill an enemy, make a presence check against the resilience of all other adjacent minions or grunts. On a failure, those creatures gain the afraid condition.",
      "mtype": "core",
      "location": "6b",
      "cost": 2,

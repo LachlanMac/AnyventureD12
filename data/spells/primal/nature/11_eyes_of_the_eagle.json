@@ -1,0 +1,15 @@
+{
+    "name": "Eyes of the Eagle",
+    "description": "You touch a creature and enhance their eyes, allowing them to see much further and with more clarity. Until their next full rest, your target rolls a 3d16 on all senses checks that rely on vision.",
+    "charge":" The target also gains a bonus dice with ranged weapons.",
+    "duration": "1 day",
+    "range": 1,
+    "checkToCast": 11,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

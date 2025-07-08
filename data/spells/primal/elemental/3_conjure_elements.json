@@ -1,9 +1,9 @@
 {
     "name": "Conjure Elements",
-    "description": "",
-    "charge":"",
+    "description": "You are able to manipulate the elements in trivial ways by touch, such as extinguishing/creating a flame, turning a cup of water to ice, or creating a spark of electricity. The energy produced by this spell is not enough to inflict damage or a condition.",
+    "charge":"You can manipulate elements within a very short (5 unit) distance instead of by touch.",
     "duration": "Instantaneous",
-    "range": 0,
+    "range": 1,
     "checkToCast": 3,
     "components": [""],
     "ritualDuration": "1 hour",

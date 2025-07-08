@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Cat-like Reflexes",
-      "description": "Your body moves with fluid, practiced motion and lightning-fast reflexes. Gain +1 skill with coordination. When you fall prone, roll a d20; on an 13 or higher, you get up without any cost.",
+      "description": "Your body moves with fluid, practiced motion and electric-fast reflexes. Gain +1 skill with coordination. When you fall prone, roll a d20; on an 13 or higher, you get up without any cost.",
       "mtype": "core",
       "location": "1",
       "cost": 2,

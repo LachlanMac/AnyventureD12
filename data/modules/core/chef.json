@@ -22,7 +22,7 @@
     },
     {
       "name": "Reinforced Food",
-      "description": "Meals you make grant an additional 2 temporary health. When someone eats a meal you made, they get credit for a full rest, regardless of the sleeping conditions and they gain an extra health for completing it.",
+      "description": "Meals you make grant an additional 2 morale. When someone eats a meal you made, they get credit for a full rest, regardless of the sleeping conditions and they gain an extra health for completing it.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,

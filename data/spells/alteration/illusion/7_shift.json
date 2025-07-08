@@ -1,7 +1,7 @@
 {
     "name": "Shift",
     "description": "You target an adjacent creature and cause their form to shift unpredictably, granting them a bonus dice to their evasion skill while you concentrate on this spell.",
-    "charge":"",
+    "charge":"The target of this spell does not halve their evasion checks when rolling against area attacks.",
     "duration": "Concentration",
     "range": 1,
     "checkToCast": 7,

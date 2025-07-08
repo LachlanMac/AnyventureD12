@@ -14,7 +14,7 @@
     },
     {
       "name": "Fear Unburdened",
-      "description": "When you have temporary health, you are immune to the fear condition. Additionally, gain +1 psychic mitigation.",
+      "description": "When you have morale, you are immune to the fear condition. Additionally, gain +1 psychic mitigation.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
@@ -30,7 +30,7 @@
     },
     {
       "name": "Reaction : Controlled Frenzy",
-      "description": "You have become skilled in controlling your frenzied rage. In response to taking damage, you may spend up to 5 resolve to intentionally enter a frenzy, gaining 1d4 temporary health for each spent that last for the next minute or until the frenzy ends.",
+      "description": "You have become skilled in controlling your frenzied rage. In response to taking damage, you may spend up to 5 resolve to intentionally enter a frenzy, gaining 1d4 morale for each spent that last for the next minute or until the frenzy ends.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -78,7 +78,7 @@
     },
     {
       "name": "Battle Shout",
-      "description": "When you enter a frenzy with the Controlled Frenzy reaction, any ally within a short radius (10 units) gains half of the total temporary health you generated, lasting for a minute.",
+      "description": "When you enter a frenzy with the Controlled Frenzy reaction, any ally within a short radius (10 units) gains half of the total morale you generated, lasting for a minute.",
       "mtype": "core",
       "location": "7",
       "cost": 3,

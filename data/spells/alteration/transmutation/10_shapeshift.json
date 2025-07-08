@@ -1,7 +1,7 @@
 {
     "name": "Shapeshift",
-    "description": "You alter your form, perfectly replicating a humananoid you have made physical contact with within the last day. Until the end of your next full rest, you take on all the physical features of this creature, using their physique and finesse skills when making skill checks.",
-    "charge":"",
+    "description": "You alter your form, perfectly replicating a humanoid you have made physical contact with within the last day. Until the end of your next full rest, you take on all the physical features of this creature, using their physique and finesse skills when making skill checks.",
+    "charge":"You can shapeshift into any creature you've replicated before without requiring the physical contact.",
     "duration": "1 day",
     "range": 0,
     "checkToCast": 10,

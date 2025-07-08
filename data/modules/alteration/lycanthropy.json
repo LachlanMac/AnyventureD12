@@ -88,7 +88,7 @@
     {
       "id": 2060,
       "name": "Fortified",
-      "description": "When you transform into a Lycanthrope, the Temporary Health you gain is doubled.",
+      "description": "When you transform into a Lycanthrope, the morale you gain is doubled.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
@@ -133,7 +133,7 @@
     {
       "id": 2065,
       "name": "Lycanthrope",
-      "description": "You are afflicted with Lycanthropy and suffer the benefits and weaknesses. Whenever you are the Target of a True Hit, you must make a Resilience Check against half the total Damage taken after Mitigation or transform into your Lycanthrope Form, gaining Temporary Health equal to your Level and losing the ability to Speak. If there is a Creature within 20 Units has the Bleeding Condition, you become Maddened, which cannot be avoided or removed by any spells, immunities or effects. You remain in this form until you reach 0 Health, at which point you revert back to your original form, gain 1 Tier of Exhaustion, and make a LIfeline Check. The Lycanthrope transformation lasts 1d6 hours and you cannot transform again until you complete a Full Rest.",
+      "description": "You are afflicted with Lycanthropy and suffer the benefits and weaknesses. Whenever you are the Target of a True Hit, you must make a Resilience Check against half the total Damage taken after Mitigation or transform into your Lycanthrope Form, gaining morale equal to your Level and losing the ability to Speak. If there is a Creature within 20 Units has the Bleeding Condition, you become Maddened, which cannot be avoided or removed by any spells, immunities or effects. You remain in this form until you reach 0 Health, at which point you revert back to your original form, gain 1 Tier of Exhaustion, and make a LIfeline Check. The Lycanthrope transformation lasts 1d6 hours and you cannot transform again until you complete a Full Rest.",
       "mtype": "core",
       "location": "b",
       "cost": 0,

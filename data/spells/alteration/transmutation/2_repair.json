@@ -1,9 +1,9 @@
 {
     "name": "Repair",
     "description": "You touch an object that has been damaged, such as something that has been broken into no more than 4 pieces, ripped or cracked and magically repair it.",
-    "charge":"",
+    "charge":"An object that is missing parts or pieces can be repaired if you have 80% or more of the original object. This spell will fail if the value of the missing pieces exceeds the value of the object in it's current state.",
     "duration": "Instantaneous",
-    "range": 0,
+    "range": 1,
     "checkToCast": 2,
     "components": ["a scrap of material of the same type as the target object"],
     "ritualDuration": "1 hour",

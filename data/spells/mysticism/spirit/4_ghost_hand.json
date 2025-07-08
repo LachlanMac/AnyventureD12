@@ -1,7 +1,7 @@
 {
     "name": "Ghost Hand",
-    "description": "",
-    "charge":"",
+    "description": "You summon a spectral hand within a very short (5 unit) distance that is invisible. The hand has 5 units of movement but dissipates at the start of it's next turn after it takes an action. The hand can only take the use, assist, or shove action, using 2d4 as it's check.",
+    "charge":"The check of the hand is increased to 2d6.",
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 4,

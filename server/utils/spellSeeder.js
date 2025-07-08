@@ -76,6 +76,27 @@ export const seedSpells = async () => {
   }
 };
 
+// Function to reset and reseed all spells
+export const resetAndReseedSpells = async () => {
+  try {
+    console.log('Updating and reseeding all spells (preserving references)...');
+    
+    // This will update existing spells and create new ones (preserving ObjectIds)
+    const success = await seedSpells();
+    
+    if (success) {
+      const newSpellCount = await Spell.countDocuments();
+      console.log(`Successfully reseeded ${newSpellCount} spells.`);
+      return true;
+    }
+    
+    return false;
+  } catch (err) {
+    console.error(`Error resetting spells: ${err.message}`);
+    return false;
+  }
+};
+
 // Export a function to run at server startup
 export const initializeSpells = async () => {
   try {

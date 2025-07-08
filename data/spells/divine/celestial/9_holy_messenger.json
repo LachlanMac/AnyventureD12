@@ -1,8 +1,8 @@
 {
     "name": "Holy Messenger",
-    "description": "",
-    "charge":"",
-    "duration": "Instantaneous",
+    "description": "You conjure a standard or lower tier beast that is made of pure divine energy in an adjacent tile that lasts for 1 minute. This apparition cannot attack or use any actions/reactions besides the sprint action. If it ends it's turn adjacent to any other creature, it explodes, dealing 15 divine area damage to any creature that is adjacent to it if they fail a defense check of 9. If apparition also explodes if it takes any damage.",
+    "charge":"Instead of a standard tier beast, the spell instead summons 3 minion-tiered beast apparitions.",
+    "duration": "1 minute",
     "range": 0,
     "checkToCast": 9,
     "components": [""],

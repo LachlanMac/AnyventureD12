@@ -1,15 +1,15 @@
 {
     "name": "Claim",
-    "description": "You claim a lair.",
-    "charge":"",
-    "duration": "Instantaneous",
+    "description": "You claim a lair, a cave or natural shelter that is not occupied by any other creatures. When you complete a full rest in this lair, it counts as a favorable rest. You also become aware of any creature that enters your lair, as long as you are still on the same plane.",
+    "charge":"Your lair is enhanced with magic that allows you to know the direction of any creature that has taken something from it.",
+    "duration": "Permanent",
     "range": 0,
     "checkToCast": 10,
     "components": [""],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,
-    "energy": 1,
+    "energy": 5,
     "damage": 0,
     "damageType": null
 }

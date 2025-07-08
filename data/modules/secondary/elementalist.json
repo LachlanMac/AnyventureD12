@@ -21,8 +21,8 @@
       "data": "TG"
     },
     {
-      "name": "Reaction : Lightning Rod",
-      "description": "In response to being targeted by lightning damage, you can choose to absorb the electrical energy instead of resisting it. The lightning damage is doubled before your mitigation is applied, but on your next turn you gain an extra action and recover all of your energy at the start of that turn.",
+      "name": "Reaction : Electric Rod",
+      "description": "In response to being targeted by electric damage, you can choose to absorb the electrical energy instead of resisting it. The electric damage is doubled before your mitigation is applied, but on your next turn you gain an extra action and recover all of your energy at the start of that turn.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -70,7 +70,7 @@
     },
     {
       "name": "Attuned",
-      "description": "You gain +1 mitigation to cold, heat and lightning damage. Additionally, you are immune from damage from non-magical sources of heat, cold or lightning such as weather or natural phenomenon.",
+      "description": "You gain +1 mitigation to cold, heat and electric damage. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

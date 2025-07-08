@@ -1,0 +1,15 @@
+{
+    "name": "Malediction",
+    "description": "You target a creature on the same plane as you that you have encountered within the last day and place a malady on them. At the end of each of their next 3 full rests, they must make a resilience check of 10 or higher or take 4 dark damage. If you have any of their hair or blood, the damage is increased to 9. Any success ends this spell prematurely.",
+    "charge":"Rather than needing to encounter the target, you need only know of their existence. Additionally, the requirement for needing blood or hair is removed to benefit from the extra damage.",
+    "duration": "3 days",
+    "range": 8,
+    "checkToCast": 11,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 4,
+    "damageType": "Dark"
+}

@@ -14,7 +14,7 @@
    },
    {
      "name": "Last Stand",
-     "description": "Once per day, when you reach 0 health, you roll an endurance check and gain temporary health equal to the highest dice rolled. While you have this temporary health, reroll any death check that results in a 1.",
+     "description": "Once per day, when you reach 0 health, you roll an endurance check and gain morale equal to the highest dice rolled. While you have this morale, reroll any death check that results in a 1.",
      "mtype": "core",
      "location": "2a",
      "cost": 2,

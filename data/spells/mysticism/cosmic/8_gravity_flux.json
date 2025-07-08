@@ -1,7 +1,7 @@
 {
     "name": "Gravity Flux",
     "description": "You manipulate the gravity of a creature you can see within a short (10 unit) distance, allowing them to double the distance they can jump using their fitness while you maintain concentration. A creature affected by this spell falls at half the normal speed and takes half damage from falling.",
-    "charge":"manipulate teh gravity of an additional 2 creatures.",
+    "charge":"manipulate the gravity of an additional 2 creatures.",
     "duration": "Concentration",
     "range": 4,
     "checkToCast": 8,

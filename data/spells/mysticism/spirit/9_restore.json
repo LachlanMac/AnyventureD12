@@ -1,0 +1,15 @@
+{
+    "name": "Restore",
+    "description": "You touch a humanoid or beast and restore their health to 12 or their maximum health if it is lower. For an hour after you channel this spell, you know exactly how many health your target has at all times.",
+    "charge":"Remove a physical condition from the target.",
+    "duration": "Instantaneous",
+    "range": 1,
+    "checkToCast": 9,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

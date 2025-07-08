@@ -16,13 +16,13 @@ const actionSchema = new mongoose.Schema({
     damage_extra: String,
     damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
     },
     secondary_damage: String,
     secondary_damage_extra: String,
     secondary_damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
     },
     category: {
       type: String,
@@ -37,13 +37,13 @@ const actionSchema = new mongoose.Schema({
     damage_extra: String,
     damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
     },
     secondary_damage: String,
     secondary_damage_extra: String,
     secondary_damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
     },
     target_defense: {
       type: String,
@@ -150,7 +150,7 @@ const creatureSchema = new mongoose.Schema({
     physical: { type: Number, min: 0, default: 0 },
     cold: { type: Number, min: 0, default: 0 },
     heat: { type: Number, min: 0, default: 0 },
-    lightning: { type: Number, min: 0, default: 0 },
+    electric: { type: Number, min: 0, default: 0 },
     psychic: { type: Number, min: 0, default: 0 },
     dark: { type: Number, min: 0, default: 0 },
     divine: { type: Number, min: 0, default: 0 },
@@ -196,7 +196,7 @@ const creatureSchema = new mongoose.Schema({
     damage_extra: { type: String },
     damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'lightning', 'dark', 'divine', 'aether', 'psychic', 'toxic'],
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic'],
       default: 'aether'
     },
     target_defense: {

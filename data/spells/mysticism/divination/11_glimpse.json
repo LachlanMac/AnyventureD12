@@ -1,0 +1,15 @@
+{
+    "name": "Glimpse",
+    "description": "You touch an object and attempt to deduce information about it and any creatures that have interacted with it. You must specify what you are attempting to glean from the spell such as finding out who the owner is, learning of an important historical event the object was involved in, the creation of the object or even how the object was last used.",
+    "charge":"You also become aware of if the object is cursed or has any unrevealed magic beyond what you already know.",
+    "duration": "Instantaneous",
+    "range": 8,
+    "checkToCast": 11,
+    "components": [""],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

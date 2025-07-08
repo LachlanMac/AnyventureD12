@@ -1,7 +1,7 @@
 {
     "name": "Witch Brew",
-    "description": "You create a ritual area for brewing potions by using a cauldron, allowing you to make special potions for the next hour.",
-    "charge":"",
+    "description": "You create a ritual area for brewing potions by using a small cauldron, allowing you to make special potions for the next hour.",
+    "charge":"The effect becomes permanent, but requires a large cauldron.",
     "duration": "1 hour",
     "range": 0,
     "checkToCast": 7,

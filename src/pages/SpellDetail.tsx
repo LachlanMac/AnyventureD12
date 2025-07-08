@@ -69,7 +69,7 @@ const SpellDetail: React.FC = () => {
     physical: '#9CA3AF',
     heat: '#EF4444',
     cold: '#3B82F6',
-    lightning: '#FBBF24',
+    electric: '#FBBF24',
     dark: '#6B21A8',
     divine: '#F59E0B',
     arcane: '#8B5CF6',

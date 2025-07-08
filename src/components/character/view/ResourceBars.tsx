@@ -5,8 +5,9 @@ interface ResourceBarProps {
     health: { current: number; max: number };
     energy: { current: number; max: number };
     resolve: { current: number; max: number };
+    morale?: { current: number; max: number };
   };
-  onResourceChange?: (resource: 'health' | 'energy' | 'resolve', newCurrent: number) => void;
+  onResourceChange?: (resource: 'health' | 'energy' | 'resolve' | 'morale', newCurrent: number) => void;
   readOnly?: boolean;
 }
 
@@ -47,7 +48,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   };
 
   // Helper function to handle resource changes
-  const handleResourceChange = (resource: 'health' | 'energy' | 'resolve', newValue: number) => {
+  const handleResourceChange = (resource: 'health' | 'energy' | 'resolve' | 'morale', newValue: number) => {
     const max = resources[resource].max;
     const clampedValue = Math.max(0, Math.min(newValue, max));
     if (onResourceChange) {
@@ -59,7 +60,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   // Helper function to render editable resource
   const renderEditableResource = (
     name: string,
-    resource: 'health' | 'energy' | 'resolve',
+    resource: 'health' | 'energy' | 'resolve' | 'morale',
     color: string
   ) => {
     const current = resources[resource].current;
@@ -72,7 +73,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
           backgroundColor: 'var(--color-dark-surface)',
           border: '1px solid var(--color-dark-border)',
           borderRadius: '0.375rem',
-          padding: '0.5rem',
+          padding: '0.375rem',
         }}
       >
         <div
@@ -209,7 +210,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '0.5rem',
+        gap: '0.375rem',
       }}
     >
       {/* Health */}
@@ -217,6 +218,9 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
 
       {/* Resolve */}
       {renderEditableResource('Resolve', 'resolve', 'var(--color-sat-purple)')}
+
+      {/* Morale */}
+      {resources.morale && renderEditableResource('Morale', 'morale', 'var(--color-forest)')}
 
       {/* Energy */}
       {renderEditableResource('Energy', 'energy', 'var(--color-metal-gold)')}

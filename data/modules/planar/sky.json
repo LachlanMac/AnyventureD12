@@ -25,7 +25,7 @@
     {
       "id": 10003,
       "name": "Skylord's Protection",
-      "description": "Gain +2 Lightning, +1 Dark and +1 Physical Mitigation",
+      "description": "Gain +2 Electric, +1 Dark and +1 Physical Mitigation",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -51,8 +51,8 @@
     },
     {
       "id": 10006,
-      "name": "Reaction : Lightning Rod",
-      "description": "In response to you or an ally within 4 units taking lightning damage, reduce that damage by an amount equal to your level. The next Aeromancy spell you channel before the end of your next turn is charged. If that spell deals lightning damage, the damage is increased by an amount equal to your level.",
+      "name": "Reaction : Electric Rod",
+      "description": "In response to you or an ally within 4 units taking electric damage, reduce that damage by an amount equal to your level. The next Aeromancy spell you channel before the end of your next turn is charged. If that spell deals electric damage, the damage is increased by an amount equal to your level.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,
@@ -70,7 +70,7 @@
     {
       "id": 10008,
       "name": "Free Action : Smiting Thunder",
-      "description": "After making a Melee or Ranged Attack, immediately make another attack with that same weapon against the same target, dealing only the Primary Damage which is all converted to lightning.",
+      "description": "After making a Melee or Ranged Attack, immediately make another attack with that same weapon against the same target, dealing only the Primary Damage which is all converted to electric.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,

@@ -62,7 +62,7 @@
     },
     {
       "name": "Colors of the Wind",
-      "description": "You paint with nature's palette. Gain +1 skill with primal magic. When using your Spell Art action on elemental spells, you can freely substitute any element (fire becomes ice, lightning becomes earth, etc.) without requiring an expression check.",
+      "description": "You paint with nature's palette. Gain +1 skill with primal magic. When using your Spell Art action on elemental spells, you can freely substitute any element (fire becomes ice, electric becomes earth, etc.) without requiring an expression check.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,

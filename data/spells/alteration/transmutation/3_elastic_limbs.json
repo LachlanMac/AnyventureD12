@@ -1,7 +1,7 @@
 {
     "name": "Elastic Limbs",
     "description": "You target an adjacent creature and cause their limbs to be able to stretch and distort beyond their normal means. For the next minute, this creature can make melee attacks at a nearby (1 unit) range.",
-    "charge":"",
+    "charge":"The target of this spell also gains a bonus dice to all physique checks.",
     "duration": "1 Minute",
     "range": 1,
     "checkToCast": 3,

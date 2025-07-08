@@ -1,7 +1,7 @@
 {
     "name": "Summon Elemental",
-    "description": "",
-    "charge":"",
+    "description": "You summon a grunt tier elemental to aid you in battle for the next minute or until it reaches 0 health.",
+    "charge":"You summon a standard tier elemental which lasts until it reaches 0 health. The elemental cannot recover or gain health.",
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 9,
@@ -9,7 +9,7 @@
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,
-    "energy": 1,
+    "energy": 4,
     "damage": 0,
     "damageType": null
 }

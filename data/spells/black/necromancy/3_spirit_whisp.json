@@ -1,7 +1,7 @@
 {
-    "name": "Spirit Whisp",
-    "description": "You summon a spirit from beyond to serve you as a ghostly light that follows you for the next hour. This whisp gives off a very short (5 unit) light that causes undead creatures within the area to glow.",
-    "charge":"Instantaneous",
+    "name": "Spirit Wisp",
+    "description": "You summon a spirit from beyond to serve you as a ghostly light that follows you for the next hour. This wisp gives off a very short (5 unit) light that causes undead creatures within the area to glow.",
+    "charge":"If there is an invisible or object within the radius of the light, the wisp will move to it and stop following you.",
     "duration": "1 hour",
     "range": 0,
     "checkToCast": 3,

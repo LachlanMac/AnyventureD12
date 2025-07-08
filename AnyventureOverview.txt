@@ -60,7 +60,7 @@ A long sword has the following damage:  3 damage, 2 extra.
 The first dice that hits (the highest) deals 3 damage, and then every extra dice deals 2.  Because only 1 extra dice hit, i deal a total of 3+2 damage
 
 However, the enemy may have mitigation to the damage types:
-Damage Types: Physical, Heat, Cold, Lightning, Dark, Divine, Arcane, Psychic, Toxic
+Damage Types: Physical, Heat, Cold, Electric, Dark, Divine, Arcane, Psychic, Toxic
 
 A sword deals physical damage.  If the enemy had +4 mitigation, that means any damage equal to 4 or lower is completely mitigated to 0. In this example, the sword did 5 damage, so the enemy takes ALL the damage.
 If the attack roll was changed to 6,1,1 - this would mean that the player only hit "1" dice for 3 damage which means, they deal nothing to an enemy who has 3 or more mitigation to physical damage.|
@@ -226,7 +226,7 @@ Possible other conditions (poisoned, diseased, panic?,
 
 Creature tiers
 Minion
-Thrall
+Grunt
 Foe
 Champion
 Elite

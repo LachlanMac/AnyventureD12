@@ -1,7 +1,7 @@
 {
     "name": "Dew Frost",
-    "description": "You target a creature within a short (10 unit) distance and cause dew to freeze around them, chilling them and dealing 3 cold damage if they fail a resilience check of 5.",
-    "charge":"",
+    "description": "You target a creature within a short (10 units) distance and cause dew to freeze around them, chilling them and dealing 3 cold damage if they fail a resilience check of 5.",
+    "charge":"The damage is increased to 5. If a standard or lower tier creatures does not mitigate the damage, they become frozen until the end of their next turn.",
     "duration": "Instantaneous",
     "range": 4,
     "checkToCast": 2,
@@ -10,6 +10,6 @@
     "concentration": false,
     "reaction": false,
     "energy": 1,
-    "damage": 0,
-    "damageType": null
+    "damage": 3,
+    "damageType": "Cold"
 }

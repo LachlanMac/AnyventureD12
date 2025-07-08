@@ -1,7 +1,7 @@
 {
     "name": "Blood Shield",
     "description": "You target a creature within a short (10 unit) distance that has the bleeding condition and create a shield around them. The next time that creature takes physical damage before the start of your turn, the damage is halved.",
-    "charge":"",
+    "charge":"This spell is used as a reaction targeting a bleeding creature that instead reduces physical damage by 5 before mitigations are calculated.",
     "duration": "1 Round",
     "range": 1,
     "checkToCast": 4,
@@ -9,7 +9,7 @@
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,
-    "energy": 3,
+    "energy": 2,
     "damage": 0,
     "damageType": null
 }

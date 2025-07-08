@@ -1,15 +1,15 @@
 {
     "name": "Windwall",
-    "description": "",
-    "charge":"",
+    "description": "In response to being targeted by a projectile such as a ranged attack or a spell that requires a defense check, you attempt to summon a sheet of wind to help deflect it. Roll a 2d12 as your defense check instead of using your own skills.",
+    "charge":"The wall of wind lasts until the start of your turn, allowing you protection against projectiles that came from the same general direction as the first.",
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 5,
     "components": [""],
     "ritualDuration": "1 hour",
     "concentration": false,
-    "reaction": false,
-    "energy": 1,
+    "reaction": true,
+    "energy": 2,
     "damage": 0,
     "damageType": null
 }

@@ -5,7 +5,7 @@
   "options": [
     {
       "name": "Trained against Darkness",
-      "description": "In response to taking Dark Damage, reduce the amount by double your Level. If all the Dark Damage was Mitigated, gain Temporary Health equal to your Level until the end of your next turn.",
+      "description": "In response to taking Dark Damage, reduce the amount by double your Level. If all the Dark Damage was Mitigated, gain morale equal to your Level until the end of your next turn.",
       "data": "XX3"
     },
     {

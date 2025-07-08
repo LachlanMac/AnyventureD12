@@ -174,7 +174,7 @@ const ItemSchema = new Schema({
     physical: { type: Number, default: 0 },
     cold: { type: Number, default: 0 },
     heat: { type: Number, default: 0 },
-    lightning: { type: Number, default: 0 },
+    electric: { type: Number, default: 0 },
     psychic: { type: Number, default: 0 },
     dark: { type: Number, default: 0 },
     divine: { type: Number, default: 0 },

@@ -1,14 +1,14 @@
 {
     "name": "Ground",
-    "description": "",
-    "charge":"",
+    "description": "In response to an attack that deals electric damage occuring within a very short (5 unit) radius of you, you attempt to act as a ground and absorb it. If you are the only target of the effect, the damage is halved before applying mitigation. If there are other creatures within the area making a defense check against the effect, they take only half of the total damage dealt, and you take the other half.",
+    "charge":"The ground extends to a short (10 unit) radius and your allies take no damage, but you still take half for each creature within the area who would have taken electric damage.",
     "duration": "Instantaneous",
-    "range": 0,
+    "range": 2,
     "checkToCast": 7,
     "components": [""],
     "ritualDuration": "1 hour",
     "concentration": false,
-    "reaction": false,
+    "reaction": true,
     "energy": 1,
     "damage": 0,
     "damageType": null

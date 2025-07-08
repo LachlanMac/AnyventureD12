@@ -1,15 +1,15 @@
 {
-    "name": "Freezeray",
-    "description": "",
-    "charge":"",
+    "name": "Freeze Ray",
+    "description": "You shoot three, heatseaking rays of frigid energy at up to three targets within a moderate (20 unit) distance. Each ray deals 7 cold damage if the target fails a defense check of 8. If a single target takes more than 20 cold damage they must make a resilience check of 8 or become frozen until the end of their next turn.",
+    "charge":"Minions and grunts become frozen if they take any cold damage from one of the rays.",
     "duration": "Instantaneous",
-    "range": 0,
+    "range": 5,
     "checkToCast": 8,
     "components": [""],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+    "energy": 2,
+    "damage": 7,
+    "damageType": "Cold"
 }

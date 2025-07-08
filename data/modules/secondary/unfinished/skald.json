@@ -54,7 +54,7 @@
     },
     {
       "name": "Action : Song of Valor",
-      "description": "Sing an epic tale of heroism. All allies within 20 units gain +5 temporary health and immunity to fear effects for the next minute. Once the song ends, they gain +1 die on their next attack.",
+      "description": "Sing an epic tale of heroism. All allies within 20 units gain +5 morale and immunity to fear effects for the next minute. Once the song ends, they gain +1 die on their next attack.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

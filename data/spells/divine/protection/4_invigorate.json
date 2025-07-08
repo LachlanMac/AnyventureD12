@@ -1,13 +1,11 @@
 {
     "name": "Invigorate",
     "description": "You target a creature within a short (10 unit) distance and grant them 1 energy and remove the winded condition from them.",
-    "charge":"",
+    "charge":"Their energy is instead restored to full.",
     "duration": "Instantaneous",
     "range": 4,
     "checkToCast": 4,
-    "components": [
-      ""
-    ],
+    "components": [""],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

@@ -1,7 +1,7 @@
 {
     "name": "Influence",
-    "description": "You whisper into an adjacent target's ear and charm them for the next minute if they fail a resilience check of 9. While charmed in this way, the target does not gain a bonus against the check to release the charm when commanded to harm an ally.",
-    "charge":"",
+    "description": "You whisper into an adjacent target's ear and charm them for the next minute if they fail a resilience check of 9. This spell only affects standard tier creatures and lower.",
+    "charge":"While charmed in this way, the target does not gain a bonus against the check to release the charm when commanded to harm an ally.",
     "duration": "1 minute",
     "range": 1,
     "checkToCast": 9,

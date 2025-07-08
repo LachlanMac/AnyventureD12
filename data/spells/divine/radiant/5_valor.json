@@ -1,8 +1,8 @@
 {
     "name": "Valor",
-    "description": "reach 0 health, 2 turns of no resolve/health loss",
-    "charge":"",
-    "duration": "Instantaneous",
+    "description": "You target a creature within a very short (5 unit) distance and grant them a sense of unwavering bravery for 1 minute. If this creature reaches 0 health while this spell is affecting them, they instead drop to 1 health and gain 5 morale, ending the spell.",
+    "charge":"When the spell is triggered, the creature ignores any mental condition until the end of their next turn.",
+    "duration": "1 minute",
     "range": 0,
     "checkToCast": 5,
     "components": [""],
