@@ -410,6 +410,13 @@ const CharacterSchema = new Schema({
   // Modules
   modules: [CharacterModuleSchema],
   
+  // Character Trait (from character creation)
+  characterTrait: {
+    type: Schema.Types.ObjectId,
+    ref: 'Trait',
+    default: null
+  },
+  
   // Legacy modules field (for backward compatibility)
   legacyModules: [ModuleSchema],
   
@@ -491,11 +498,15 @@ CharacterSchema.pre('save', function(next) {
     this.resources.resolve.current = this.resources.resolve.max;
   }
   if (!this.resources.morale.current) {
-    this.resources.morale.current = this.resources.morale.max;
+    this.resources.morale.current = 0;
   }
   
   // Apply module effects
   this.applyModuleEffects();
+  
+  // Apply trait effects (non-async version)
+  this.applyTraitEffectsSync();
+  
   next();
 });
 /**
@@ -949,6 +960,72 @@ CharacterSchema.methods.applyModuleEffects = async function() {
   
   // Apply module effects logic here...
   // (This is just a stub - the actual implementation would be more complex)
+};
+
+// Apply trait effects (synchronous version for pre-save hook)
+CharacterSchema.methods.applyTraitEffectsSync = function() {
+  // Only apply if a trait is selected and already populated
+  if (!this.characterTrait || typeof this.characterTrait === 'string') return;
+  
+  try {
+    const trait = this.characterTrait;
+    if (!trait || !trait.options) return;
+    
+    // Apply all options from the trait
+    for (const option of trait.options) {
+      if (!option.data) continue;
+      
+      // Parse the data string (e.g., "H=5", "R=10", "MP=3", "TP=2")
+      // Handle both comma-separated and single values
+      const dataParts = option.data.includes(',') ? option.data.split(',') : [option.data];
+      
+      for (const part of dataParts) {
+        if (!part.includes('=')) continue;
+        const [key, value] = part.trim().split('=');
+        const numValue = parseInt(value) || 0;
+        
+        switch (key) {
+          case 'H': // Health
+            this.resources.health.max += numValue;
+            break;
+          case 'E': // Energy
+            this.resources.energy.max += numValue;
+            break;
+          case 'R': // Morale (using R for moRale)
+            this.resources.morale.max += numValue;
+            break;
+          case 'MP': // Module Points
+            this.modulePoints.total += numValue;
+            break;
+          case 'TP': // Talent Points
+            // Note: Talent points would need to be handled during character creation
+            // This is stored for reference but applied elsewhere
+            break;
+          // Add more cases as needed for other trait bonuses
+        }
+      }
+    }
+  } catch (error) {
+    console.error('Error applying trait effects:', error);
+  }
+};
+
+// Keep async version for other use cases
+CharacterSchema.methods.applyTraitEffects = async function() {
+  // Only apply if a trait is selected
+  if (!this.characterTrait) return;
+  
+  try {
+    // Populate the trait if needed
+    if (typeof this.characterTrait === 'string' || !this.characterTrait.options) {
+      await this.populate('characterTrait');
+    }
+    
+    // Call the sync version after population
+    this.applyTraitEffectsSync();
+  } catch (error) {
+    console.error('Error applying trait effects:', error);
+  }
 };
 
 

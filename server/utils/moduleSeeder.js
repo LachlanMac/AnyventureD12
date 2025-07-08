@@ -49,9 +49,10 @@ export const purgeAllModules = async () => {
 // Function to read JSON modules from the filesystem
 const readModulesFromFS = async () => {
   try {
-    // Get all module type directories
+    // Get all module type directories, excluding alteration (now converted to traits)
     const moduleTypes = fs.readdirSync(modulesDir)
-      .filter(file => fs.statSync(path.join(modulesDir, file)).isDirectory());
+      .filter(file => fs.statSync(path.join(modulesDir, file)).isDirectory())
+      .filter(dir => dir !== 'alteration');
     
     const modules = [];
     const moduleNames = []; // Track names for comparison later

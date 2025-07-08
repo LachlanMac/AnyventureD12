@@ -20,7 +20,8 @@ export const getCharacters = async (req, res) => {
       userId: userId.toString() 
     })
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
+      .populate('characterCulture.cultureId')
+      .populate('characterTrait');
     
     res.json(characters);
   } catch (error) {
@@ -41,7 +42,8 @@ export const getCharacter = async (req, res) => {
       .populate('modules.moduleId')
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
+      .populate('characterCulture.cultureId')
+      .populate('characterTrait');
 
     
     if (!character) {
@@ -140,7 +142,8 @@ export const updateCharacter = async (req, res) => {
       .populate('modules.moduleId')
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
+      .populate('characterCulture.cultureId')
+      .populate('characterTrait');
     
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();

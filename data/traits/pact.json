@@ -1,0 +1,47 @@
+{
+  "id": 4,
+  "name": "Pact",
+  "description": "Your Patron lends you power with the expectation that your actions will align with their interests. You start your Pact fully aligned with your Patron. When you defy the wishes of your Patron, you lose an alignment, up to a maximum of 3. For each alignment you lose, your Spell Attacks from your Patron's School of Magic suffer a -1 Attack Penalty. At -3 alignment, you can no longer Channel Spells from your Patron's School. Alignment can be restored by fulfilling tasks for your Patron or taking significant actions that please them.",
+  "options": [
+    {
+      "name": "Pact Alignment",
+      "description": "Core pact mechanics - patron alignment system and spell penalties for disobedience.",
+      "data": "TA"
+    },
+    {
+      "name": "Contracted",
+      "description": "You learn 4 Beginner Spells from your Patron's school of magic.",
+      "data": "TA"
+    },
+    {
+      "name": "Reaction [Daily] : Favor of the Patron",
+      "description": "In response to making any Skill Check, add 2d4 to the result. This is decreased to a 1d4 if you have negative alignment with your Patron and does not add any bonus if you have -3 alignment.",
+      "data": "ZD1"
+    },
+    {
+      "name": "Martial Knowledge",
+      "description": "Gain +1 Damage to all Melee Weapons and +1 might.",
+      "data": "AZ3=1:AS2=1"
+    },
+    {
+      "name": "Arcane Knowledge",
+      "description": "Gain +1 Spell Damage and +1 magic.",
+      "data": "AZ4=1:AS7=1"
+    },
+    {
+      "name": "Guiding Hand",
+      "description": "Gain +1 Spell Attack and +1 to Melee Attacks.",
+      "data": "AZ6=1:AZ7=1:AZ8=1:AZM=1:AZ2=1"
+    },
+    {
+      "name": "Gift of Focus",
+      "description": "Gain +1 concentration and Immunity to the Charmed Condition.",
+      "data": "I=4:AS5=1"
+    },
+    {
+      "name": "Gift of Comprehension",
+      "description": "Learn the Magical Language of your Patron and gain +1 insight.",
+      "data": "ASD=1"
+    }
+  ]
+}

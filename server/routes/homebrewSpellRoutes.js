@@ -13,7 +13,7 @@ import {
   approveHomebrewSpell,
   rejectHomebrewSpell
 } from '../controllers/homebrewSpellController.js';
-import { protect } from '../middleware/auth.js';
+import { protect, requirePermanentUser } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -21,14 +21,14 @@ const router = express.Router();
 router.get('/spells', getHomebrewSpells);
 router.get('/spells/:id', getHomebrewSpell);
 
-// Protected routes
-router.post('/spells', protect, createHomebrewSpell);
-router.put('/spells/:id', protect, updateHomebrewSpell);
-router.delete('/spells/:id', protect, deleteHomebrewSpell);
-router.post('/spells/:id/publish', protect, publishHomebrewSpell);
-router.post('/spells/:id/vote', protect, voteHomebrewSpell);
-router.post('/spells/:id/report', protect, reportHomebrewSpell);
-router.post('/spells/:id/fork', protect, forkHomebrewSpell);
+// Protected routes (require permanent user)
+router.post('/spells', requirePermanentUser, createHomebrewSpell);
+router.put('/spells/:id', requirePermanentUser, updateHomebrewSpell);
+router.delete('/spells/:id', requirePermanentUser, deleteHomebrewSpell);
+router.post('/spells/:id/publish', requirePermanentUser, publishHomebrewSpell);
+router.post('/spells/:id/vote', requirePermanentUser, voteHomebrewSpell);
+router.post('/spells/:id/report', requirePermanentUser, reportHomebrewSpell);
+router.post('/spells/:id/fork', requirePermanentUser, forkHomebrewSpell);
 
 // Admin routes (TODO: Add admin middleware)
 router.post('/admin/spells/:id/approve', protect, approveHomebrewSpell);

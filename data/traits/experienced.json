@@ -1,0 +1,12 @@
+{
+  "id": 8,
+  "name": "Experienced",
+  "description": "Your past experiences have taught you valuable lessons. You've already learned skills that others are just beginning to discover.",
+  "options": [
+    {
+      "name": "Experienced",
+      "description": "+3 Module Points - You've learned valuable lessons from your past experiences.",
+      "data": "MP=3"
+    }
+  ]
+}

@@ -55,12 +55,12 @@
       "data": "XX"
     },
     {
-      "name": "Visionary Idealist",
-      "description": "Gain +1 talent with social and +1 skill with persuasion.",
+      "name": "WIP",
+      "description": "This is currently not implemented",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "ST5=1:SST=1"
+      "data": ""
     },
     {
       "name": "WIP",
@@ -79,12 +79,12 @@
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Visionary Idealist",
+      "description": "Gain +1 talent with social and +1 skill with persuasion.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "ST5=1:SST=1"
     }
   ]
 }

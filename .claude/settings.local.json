@@ -34,7 +34,14 @@
       "Bash(git add:*)",
       "Bash(npm run create-master-modulelist:*)",
       "Bash(npm run dev:*)",
-      "Bash(pkill:*)"
+      "Bash(pkill:*)",
+      "Bash(npm run reset-traits:*)",
+      "Bash(npm run fix-discord-index:*)",
+      "Bash(net start:*)",
+      "Bash(sc start:*)",
+      "Bash(mongod:*)",
+      "Bash(do echo \"=== $file ===\")",
+      "Bash(jq:*)"
     ],
     "deny": []
   },

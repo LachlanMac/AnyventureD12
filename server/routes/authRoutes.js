@@ -1,6 +1,7 @@
 import express from 'express';
 import passport from 'passport';
 import jwt from 'jsonwebtoken';
+import { v4 as uuidv4 } from 'uuid';
 import User from '../models/User.js';
 
 const router = express.Router();
@@ -63,8 +64,9 @@ router.get('/me', async (req, res) => {
       authenticated: true,
       user: {
         id: decoded.id,
-        discordId: decoded.discordId,
-        username: decoded.username
+        discordId: decoded.discordId || null,
+        username: decoded.username,
+        isTemporary: decoded.isTemporary || false
       }
     });
   } catch (err) {
@@ -141,6 +143,83 @@ router.put('/profile', async (req, res) => {
     } else {
       res.status(500).json({ message: 'Failed to update profile' });
     }
+  }
+});
+
+// Create temporary session route
+router.post('/temp-session', async (req, res) => {
+  try {
+    const { existingSessionId } = req.body;
+    let tempUser;
+
+    // Try to reuse existing session if provided
+    if (existingSessionId) {
+      tempUser = await User.findOne({ 
+        tempSessionId: existingSessionId,
+        isTemporary: true,
+        expiresAt: { $gt: new Date() } // Make sure it hasn't expired
+      });
+      
+      if (tempUser) {
+        console.log('Reusing existing temporary session:', existingSessionId);
+        // Update last login time
+        tempUser.lastLogin = new Date();
+        await tempUser.save();
+      }
+    }
+
+    // Create new temporary user if no existing session found
+    if (!tempUser) {
+      // Generate a unique session ID
+      const tempSessionId = uuidv4();
+      
+      // Create a temporary user document manually to avoid validation issues
+      const tempUserData = {
+        username: `Guest_${tempSessionId.slice(0, 8)}`,
+        isTemporary: true,
+        tempSessionId: tempSessionId,
+        lastLogin: new Date(),
+        expiresAt: new Date(Date.now() + 24 * 60 * 60 * 1000)
+        // Explicitly NOT setting discordId
+      };
+      
+      tempUser = new User(tempUserData);
+      await tempUser.save();
+      console.log('Created new temporary session:', tempSessionId);
+    }
+    
+    // Generate JWT for temporary user
+    const token = jwt.sign(
+      { 
+        id: tempUser._id,
+        username: tempUser.username,
+        isTemporary: true,
+        tempSessionId: tempUser.tempSessionId
+      }, 
+      process.env.JWT_SECRET,
+      { expiresIn: '24h' } // Temporary sessions expire in 24 hours
+    );
+    
+    // Set JWT as HttpOnly cookie
+    res.cookie('token', token, {
+      httpOnly: true,
+      secure: process.env.NODE_ENV === 'production',
+      sameSite: 'lax',
+      maxAge: 24 * 60 * 60 * 1000 // 24 hours
+    });
+    
+    res.status(200).json({
+      authenticated: true,
+      user: {
+        id: tempUser._id,
+        username: tempUser.username,
+        isTemporary: true,
+        tempSessionId: tempUser.tempSessionId // Return session ID for client storage
+      }
+    });
+  } catch (error) {
+    console.error('Error creating temporary session:', error);
+    res.status(500).json({ message: 'Failed to create temporary session' });
   }
 });
 

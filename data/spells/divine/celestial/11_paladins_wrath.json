@@ -1,6 +1,6 @@
 {
     "name": "Paladin's Wrath",
-    "description": "You call down a divine sword and impale a creature within a moderate (20 unit) distance if they fail a defense check of 10, dealing 8 divine damage. If the attack deals any damage, they remain impaled for 1 minute, unless they use an action to attempt to remove the blade by making a might check of 7. If a creature ends their turn with three or more divine swords in them, they take 24 divine damage as the swords are rended from their body.",
+    "description": "You call down a divine sword and impale a creature within a moderate (20 unit) distance if they fail a defense check of 10, dealing 8 divine damage. If the attack deals any damage, thet target remains impaled for 1 minute, unless they use an action to attempt to remove the blade by making a might check of 7. If a creature ends their turn with three or more divine swords in them, they take 24 divine damage as the swords are rended from their body.",
     "charge":"The initial damage on the sword is increased to 12 divine damage and is more difficult to remove, requiring a might check of 10.",
     "duration": "1 minute",
     "range": 5,

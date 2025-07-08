@@ -96,6 +96,7 @@ EX. A1=1
 5: HEALTH REGEN
 6: RESOLVE REGEN
 7: STAMINA REGEN
+8: MAXIMUM MORALE
 
 
 ############## CREATURES ##############

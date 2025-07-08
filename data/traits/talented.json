@@ -1,0 +1,12 @@
+{
+  "id": 7,
+  "name": "Talented",
+  "description": "You possess natural talents that others must work years to develop. Your innate abilities set you apart from the common folk.",
+  "options": [
+    {
+      "name": "Talented",
+      "description": "+2 Talent Points - You possess natural talents that others must work years to develop.",
+      "data": "TP=2"
+    }
+  ]
+}

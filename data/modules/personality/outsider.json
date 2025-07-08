@@ -55,12 +55,12 @@
       "data": "ZX"
     },
     {
-      "name": "Sovereign Stranger",
-      "description": "Gain +1 talent with social and +1 skill with insight.",
+      "name": "WIP",
+      "description": "This is currently not implemented",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "ST5=1:SSS=1"
+      "data": ""
     },
     {
       "name": "WIP",
@@ -79,12 +79,12 @@
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Sovereign Stranger",
+      "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "ST5=1:SSS=1"
     }
   ]
 }

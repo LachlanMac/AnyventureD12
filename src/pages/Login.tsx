@@ -3,7 +3,7 @@ import { Navigate } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 
 const Login: React.FC = () => {
-  const { isAuthenticated, loading, login } = useAuth();
+  const { isAuthenticated, loading, login, loginTemporary } = useAuth();
 
   // If already authenticated, redirect to home
   if (isAuthenticated && !loading) {
@@ -83,6 +83,75 @@ const Login: React.FC = () => {
           </svg>
           Sign in with Discord
         </button>
+
+        <div
+          style={{
+            margin: '1.5rem 0',
+            display: 'flex',
+            alignItems: 'center',
+            color: 'var(--color-cloud)',
+            fontSize: '0.875rem',
+          }}
+        >
+          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-dark-border)' }}></div>
+          <span style={{ padding: '0 1rem' }}>OR</span>
+          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-dark-border)' }}></div>
+        </div>
+
+        <button
+          onClick={loginTemporary}
+          style={{
+            backgroundColor: 'var(--color-dark-elevated)',
+            color: 'var(--color-white)',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '0.375rem',
+            fontWeight: 'bold',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            width: '100%',
+            border: '1px solid var(--color-dark-border)',
+            cursor: 'pointer',
+            transition: 'all 0.2s',
+          }}
+          onMouseOver={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--color-sat-purple-faded)';
+            e.currentTarget.style.borderColor = 'var(--color-sat-purple)';
+          }}
+          onMouseOut={(e) => {
+            e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)';
+            e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+          }}
+        >
+          <svg
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ marginRight: '0.75rem' }}
+          >
+            <path d="m9 12 2 2 4-4"></path>
+            <path d="M21 12c.552 0 1-.448 1-1V5a2 2 0 0 0-2-2H4a2 2 0 0 0-2 2v6c0 .552.448 1 1 1"></path>
+            <path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"></path>
+          </svg>
+          Try it Out!
+        </button>
+
+        <div style={{ marginTop: '1rem' }}>
+          <p
+            style={{
+              color: 'var(--color-cloud)',
+              fontSize: '0.75rem',
+              lineHeight: '1.4',
+            }}
+          >
+            Try creating a character without signing up. Your session will last 24 hours.
+          </p>
+        </div>
       </div>
     </div>
   );

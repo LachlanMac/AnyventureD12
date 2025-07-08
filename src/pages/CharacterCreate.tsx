@@ -31,8 +31,10 @@ const CharacterCreate: React.FC = () => {
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
   const [stressors, setStressors] = useState<string[]>([]);
+  const [selectedTrait, setSelectedTrait] = useState<string>('');
+  const [traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
   // Define steps
-  const steps = ['Basic Info', 'Attributes', 'Talents', 'Personality', 'Background'];
+  const steps = ['Basic Info', 'Attributes', 'Personality & Trait', 'Talents', 'Background'];
 
   // Initialize character state using the utility function
   const [character, setCharacter] = useState<Character>(createDefaultCharacter('test-user-id'));
@@ -69,6 +71,52 @@ const CharacterCreate: React.FC = () => {
     setSelectedPersonalityModule(personalityModule);
     setStressors(personalityModule.stressors || []);
   };
+
+  // Handle trait selection and apply talent bonuses
+  useEffect(() => {
+    const fetchTraitData = async () => {
+      // Remove previous trait talent bonus
+      if (traitTalentBonus > 0) {
+        setTalentStarsRemaining((prev) => prev - traitTalentBonus);
+        setTraitTalentBonus(0);
+      }
+
+      if (!selectedTrait) {
+        return;
+      }
+
+      try {
+        const response = await fetch(`/api/traits/${selectedTrait}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch trait data');
+        }
+        const traitData = await response.json();
+
+        // Calculate talent point bonus from trait
+        let newTalentBonus = 0;
+        if (traitData.options) {
+          for (const option of traitData.options) {
+            if (option.data && option.data.includes('TP=')) {
+              const match = option.data.match(/TP=(\d+)/);
+              if (match) {
+                newTalentBonus += parseInt(match[1]) || 0;
+              }
+            }
+          }
+        }
+
+        // Apply the new talent bonus
+        if (newTalentBonus > 0) {
+          setTalentStarsRemaining((prev) => prev + newTalentBonus);
+          setTraitTalentBonus(newTalentBonus);
+        }
+      } catch (error) {
+        console.error('Error fetching trait data:', error);
+      }
+    };
+
+    fetchTraitData();
+  }, [selectedTrait]);
 
   // Monitor selectedAncestry changes
   useEffect(() => {
@@ -247,15 +295,15 @@ const CharacterCreate: React.FC = () => {
         return true;
 
       case 3:
-        // Check if all talent stars have been spent
-        if (talentStarsRemaining > 0) {
-          setError(`You still have ${talentStarsRemaining} talent stars to assign`);
+        if (!selectedPersonality) {
+          setError('Please select a personality for your character');
           return false;
         }
         return true;
       case 4:
-        if (!selectedPersonality) {
-          setError('Please select a personality for your character');
+        // Check if all talent stars have been spent
+        if (talentStarsRemaining > 0) {
+          setError(`You still have ${talentStarsRemaining} talent stars to assign`);
           return false;
         }
         return true;
@@ -355,6 +403,7 @@ const CharacterCreate: React.FC = () => {
         physicalTraits: character.physicalTraits,
         stressors: stressors,
         modules: initialModules,
+        characterTrait: selectedTrait || undefined,
         characterCreation: {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,
@@ -476,8 +525,18 @@ const CharacterCreate: React.FC = () => {
               />
             )}
 
-            {/* Step 3: Talents */}
+            {/* Step 3: Personality & Trait */}
             {step === 3 && (
+              <PersonalityCreatorTab
+                selectedPersonality={selectedPersonality}
+                stressors={stressors}
+                selectedTrait={selectedTrait}
+                onSelectPersonality={handlePersonalitySelect}
+                onSelectTrait={setSelectedTrait}
+              />
+            )}
+            {/* Step 4: Talents */}
+            {step === 4 && (
               <TalentsTab
                 weaponSkills={character.weaponSkills}
                 magicSkills={character.magicSkills}
@@ -486,14 +545,6 @@ const CharacterCreate: React.FC = () => {
                 onUpdateMagicSkillTalent={updateMagicSkillTalent}
                 onUpdateSpecializedSkillTalent={updateSpecializedSkillTalent}
                 onUpdateCraftingSkillTalent={updateCraftingSkillTalent}
-              />
-            )}
-            {/* Step 4: Traits */}
-            {step === 4 && (
-              <PersonalityCreatorTab
-                selectedPersonality={selectedPersonality}
-                stressors={stressors}
-                onSelectPersonality={handlePersonalitySelect}
               />
             )}
             {/* Step 5: Background */}

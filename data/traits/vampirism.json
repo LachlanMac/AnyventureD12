@@ -1,0 +1,47 @@
+{
+  "id": 1,
+  "name": "Vampirism",
+  "description": "You are afflicted with Vampirism and suffer the benefits and weaknesses, changing from the Humanoid to Undead Creature Type. You have a -5 Divine Mitigation penalty and take 1d12 True Damage at the end of each turn while in Sunlight. You do not need to eat, drink or breathe and do not get the benefits from consuming foods or potions. For each day that you do not consume at least a vial of Blood, you gain 1 Tier of Exhaustion at the end of a Full Rest which cannot be mitigated by Spells or Immunities.",
+  "options": [
+    {
+      "name": "Vampire",
+      "description": "Core vampirism traits - undead creature type, sunlight vulnerability, blood dependency, and divine mitigation penalty.",
+      "data": "TA"
+    },
+    {
+      "name": "Action : Vampire Bite",
+      "description": "You make an Unarmed Attack against another Creature. If the Target is a Beast or Humanoid and the Damage is not completely Mitigated, you gain Health equal to the damage dealt and have your blood requirements satisfied.",
+      "data": "XX3"
+    },
+    {
+      "name": "Anatomical Changes",
+      "description": "Your vampirism has manifested in several changes to your physique. Gain +1 acrobatics and +1 might.",
+      "data": "AS2=1:AD3=1"
+    },
+    {
+      "name": "Deadskin",
+      "description": "Gain +1 Physical and +2 Dark Mitigation.",
+      "data": "AD4=1:AD7=2"
+    },
+    {
+      "name": "Wallclimb",
+      "description": "You gain a Climbing Speed equal to your Movement Speed and climb vertical and horizontal surfaces.",
+      "data": "T4:TG"
+    },
+    {
+      "name": "Enhanced Senses",
+      "description": "You gain Echolocation up to 8 Units and become Immune to Disease and Poison.",
+      "data": "I=19:I=8:DE"
+    },
+    {
+      "name": "Vampire Charm",
+      "description": "Gain +1 Persuasion. When a Humanoid Botches an Insight Check against your Persuasion, they become Charmed by you until it breaks naturally.",
+      "data": "TG:ASC=1"
+    },
+    {
+      "name": "Free Action : Regeneration",
+      "description": "After consuming blood from a Humanoid or Beast, either with the Vampire Bite Action or drinking from a container, you gain 2d4 Health. After using this ability, your blood requirements are no longer satisfied for the day.",
+      "data": "Y"
+    }
+  ]
+}

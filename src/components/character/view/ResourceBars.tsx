@@ -25,7 +25,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
       <div
         style={{
           position: 'relative',
-          height: '0.75rem',
+          height: '0.5rem',
           backgroundColor: 'var(--color-dark-elevated)',
           borderRadius: '0.375rem',
           overflow: 'hidden',
@@ -49,7 +49,10 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
 
   // Helper function to handle resource changes
   const handleResourceChange = (resource: 'health' | 'energy' | 'resolve' | 'morale', newValue: number) => {
-    const max = resources[resource].max;
+    const resourceData = resources[resource];
+    if (!resourceData) return;
+    
+    const max = resourceData.max;
     const clampedValue = Math.max(0, Math.min(newValue, max));
     if (onResourceChange) {
       onResourceChange(resource, clampedValue);
@@ -63,8 +66,11 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
     resource: 'health' | 'energy' | 'resolve' | 'morale',
     color: string
   ) => {
-    const current = resources[resource].current;
-    const max = resources[resource].max;
+    const resourceData = resources[resource];
+    if (!resourceData) return null;
+    
+    const current = resourceData.current;
+    const max = resourceData.max;
     const isEditing = editingResource === resource;
 
     return (
@@ -73,14 +79,14 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
           backgroundColor: 'var(--color-dark-surface)',
           border: '1px solid var(--color-dark-border)',
           borderRadius: '0.375rem',
-          padding: '0.375rem',
+          padding: '0.25rem',
         }}
       >
         <div
           style={{
             color: 'var(--color-cloud)',
-            fontSize: '0.875rem',
-            marginBottom: '0.25rem',
+            fontSize: '0.75rem',
+            marginBottom: '0.125rem',
             textAlign: 'center',
           }}
         >
@@ -91,7 +97,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
             display: 'flex',
             alignItems: 'center',
             justifyContent: 'space-between',
-            marginBottom: '0.25rem',
+            marginBottom: '0.125rem',
           }}
         >
           {/* -1 button on far left */}
@@ -102,8 +108,8 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
                 color: 'var(--color-white)',
                 border: '1px solid var(--color-dark-border)',
                 borderRadius: '0.25rem',
-                padding: '0.25rem 0.5rem',
-                fontSize: '1rem',
+                padding: '0.125rem 0.375rem',
+                fontSize: '0.875rem',
                 fontWeight: 'bold',
                 cursor: current <= 0 ? 'not-allowed' : 'pointer',
                 opacity: current <= 0 ? 0.5 : 1,
@@ -122,7 +128,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
           <div
             style={{
               color: 'var(--color-white)',
-              fontSize: '1.25rem',
+              fontSize: '1rem',
               fontWeight: 'bold',
               textAlign: 'center',
             }}
@@ -150,7 +156,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
                     borderRadius: '0.25rem',
                     padding: '0.125rem',
                     textAlign: 'center',
-                    fontSize: '1rem',
+                    fontSize: '0.875rem',
                   }}
                   onBlur={(e) => handleResourceChange(resource, parseInt(e.target.value) || 0)}
                   onKeyDown={(e) => {
@@ -161,7 +167,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
                     }
                   }}
                 />
-                <span style={{ fontSize: '0.875rem' }}>/ {max}</span>
+                <span style={{ fontSize: '0.75rem' }}>/ {max}</span>
               </div>
             ) : (
               <div
@@ -184,8 +190,8 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
                 color: 'var(--color-white)',
                 border: '1px solid var(--color-dark-border)',
                 borderRadius: '0.25rem',
-                padding: '0.25rem 0.5rem',
-                fontSize: '1rem',
+                padding: '0.125rem 0.375rem',
+                fontSize: '0.875rem',
                 fontWeight: 'bold',
                 cursor: current >= max ? 'not-allowed' : 'pointer',
                 opacity: current >= max ? 0.5 : 1,
@@ -210,7 +216,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
       style={{
         display: 'flex',
         flexDirection: 'column',
-        gap: '0.375rem',
+        gap: '0.25rem',
       }}
     >
       {/* Health */}

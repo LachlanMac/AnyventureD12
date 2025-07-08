@@ -22,6 +22,7 @@ export interface UpdateCharacterData {
     health?: { current: number; max: number };
     energy?: { current: number; max: number };
     resolve?: { current: number; max: number };
+    morale?: { current: number; max: number };
   };
 }
 

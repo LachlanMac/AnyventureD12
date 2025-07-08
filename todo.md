@@ -1,4 +1,7 @@
+## DONE
 -Finish first pass of spells (2->10 required checks)
+
+## NEXT
 -Finish personality modules
 -Finish cultures
 -Add starting traits (planar, pact, psychic, vampire, hivemind)

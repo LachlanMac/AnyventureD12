@@ -1,5 +1,22 @@
 {
-    "name": "Awakened",
-    "type": "positive",
-    "description": "Your mind has been awakened to it's psionic potential. You gain the Psionics module but have a -3 penalty to your Mental Mitigation."
-  }
+  "id": 9,
+  "name": "Awakened",
+  "description": "Your mind has been awakened to its psionic potential.",
+  "options": [
+    {
+      "name": "Action : Telekinesis",
+      "description": "You can move objects with your mind. Spend 1 Energy to telekinetically manipulate objects within 10 units that weigh no more than 10 pounds. The object moves at a rate of 5 units per round.",
+      "data": "XX3"
+    },
+    {
+      "name": "Telepathic",
+      "description": "You can communicate telepathically with willing creatures within 30 units that you can see. You can also attempt to read surface thoughts of an unwilling creature within 10 units by making a contested Mind check.",
+      "data": "TG"
+    },
+    {
+      "name": "Sensitive Mind",
+      "description": "-3 psychic mitigation",
+      "data": "AD9=-3"
+    }
+  ]
+}

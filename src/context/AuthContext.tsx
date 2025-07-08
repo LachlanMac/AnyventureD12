@@ -2,8 +2,10 @@ import React, { createContext, useState, useEffect, useContext, ReactNode } from
 
 interface User {
   id: string;
-  discordId: string;
+  discordId: string | null;
   username: string;
+  isTemporary?: boolean;
+  tempSessionId?: string;
 }
 
 interface AuthContextType {
@@ -11,6 +13,7 @@ interface AuthContextType {
   user: User | null;
   loading: boolean;
   login: () => void;
+  loginTemporary: () => Promise<void>;
   logout: () => void;
   updateUser: (updatedUser: User) => void;
 }
@@ -20,6 +23,7 @@ const AuthContext = createContext<AuthContextType>({
   user: null,
   loading: true,
   login: () => {},
+  loginTemporary: async () => {},
   logout: () => {},
   updateUser: () => {},
 });
@@ -69,6 +73,45 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
     window.location.href = '/api/auth/discord';
   };
 
+  // Temporary login function
+  const loginTemporary = async () => {
+    try {
+      setLoading(true);
+      
+      // Check for existing session ID in localStorage
+      const existingSessionId = localStorage.getItem('tempSessionId');
+      
+      const response = await fetch('/api/auth/temp-session', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({
+          existingSessionId: existingSessionId
+        }),
+      });
+
+      const data = await response.json();
+
+      if (data.authenticated) {
+        setIsAuthenticated(true);
+        setUser(data.user);
+        
+        // Store the session ID for future use
+        if (data.user.tempSessionId) {
+          localStorage.setItem('tempSessionId', data.user.tempSessionId);
+        }
+      } else {
+        throw new Error('Failed to create temporary session');
+      }
+    } catch (error) {
+      console.error('Temporary login error:', error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
   // Logout function
   const logout = async () => {
     try {
@@ -78,6 +121,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       setIsAuthenticated(false);
       setUser(null);
+      
+      // Clear temporary session ID from localStorage
+      localStorage.removeItem('tempSessionId');
     } catch (error) {
       console.error('Logout error:', error);
     }
@@ -89,7 +135,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, loading, login, logout, updateUser }}>
+    <AuthContext.Provider value={{ isAuthenticated, user, loading, login, loginTemporary, logout, updateUser }}>
       {children}
     </AuthContext.Provider>
   );

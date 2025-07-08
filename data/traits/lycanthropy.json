@@ -1,0 +1,47 @@
+{
+  "id": 2,
+  "name": "Lycanthropy",
+  "description": "You are afflicted with Lycanthropy and suffer the benefits and weaknesses. Whenever you are the Target of a True Hit, you must make a Resilience Check against half the total Damage taken after Mitigation or transform into your Lycanthrope Form, gaining morale equal to your Level and losing the ability to Speak. If there is a Creature within 20 Units has the Bleeding Condition, you become Maddened, which cannot be avoided or removed by any spells, immunities or effects. You remain in this form until you reach 0 Health, at which point you revert back to your original form, gain 1 Tier of Exhaustion, and make a Lifeline Check. The Lycanthrope transformation lasts 1d6 hours and you cannot transform again until you complete a Full Rest.",
+  "options": [
+    {
+      "name": "Lycanthrope",
+      "description": "Core lycanthropy traits - forced transformation mechanics, morale gain, and transformation limitations.",
+      "data": "TA"
+    },
+    {
+      "name": "Action : Lycanthrope Bite",
+      "description": "While in Lycanthrope form, You make an Unarmed Attack against a Creature that deals an additional 1d10 Physical Damage. A Creature must make a Resilience Check against the total Physical Damage dealt after Mitigation or become Diseased. If the Disease Creature is a Humanoid and they are not cured within 1d20 days, they are inflicted with Lycanthropy.",
+      "data": "XX3"
+    },
+    {
+      "name": "Tearing Claws",
+      "description": "While you are in Lycanthrope form, your claws count as Light 1 Handed Slashing Weapons and cause the Bleeding Condition on a True Hit.",
+      "data": "TA"
+    },
+    {
+      "name": "Wild Tracker",
+      "description": "Your Lycanthropy has manifested in innate hunting skills. Gain +1 senses and +1 wildcraft.",
+      "data": "ASG=1:ASB=1"
+    },
+    {
+      "name": "Beastial Manifestations",
+      "description": "Your Lycanthropy has advanced to a point where your body is subtly transformed. Gain +2 Cold Mitigation, +1 might and +1 coordination.",
+      "data": "AD5=2:AS2=1:AS3=1"
+    },
+    {
+      "name": "Action : Lunge",
+      "description": "While in Lycanthrope Form, you leap from a standing position a distance equal to your fitness modifier and make an Attack with one of your Claws.",
+      "data": "XX3"
+    },
+    {
+      "name": "Free Action : Blood Trail",
+      "description": "While in Lycanthrope Form, you Move up to your Movement Speed towards a Creature that has the Bleeding or Wounded Condition.",
+      "data": "Y"
+    },
+    {
+      "name": "Inner Beast",
+      "description": "Gain +1 Resilience, +1 fitness and +1 Damage with Slashing Weapons.",
+      "data": "AS1=1:AS6=1:AZA=1"
+    }
+  ]
+}

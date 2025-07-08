@@ -167,6 +167,7 @@ router.patch('/:id/resources', async (req, res) => {
     const effectiveMaxHealth = characterCopy.resources.health.max;
     const effectiveMaxEnergy = characterCopy.resources.energy.max;
     const effectiveMaxResolve = characterCopy.resources.resolve.max;
+    const effectiveMaxMorale = characterCopy.resources.morale.max;
     
     // Validate and cap resources at effective max
     const validatedResources = {
@@ -181,12 +182,17 @@ router.patch('/:id/resources', async (req, res) => {
       resolve: {
         current: Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve)),
         max: resources.resolve.max
+      },
+      morale: {
+        current: Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale)),
+        max: resources.morale.max
       }
     };
     
     console.log(`Resource validation: Health ${resources.health.current} -> ${validatedResources.health.current} (max: ${effectiveMaxHealth})`);
     console.log(`Resource validation: Energy ${resources.energy.current} -> ${validatedResources.energy.current} (max: ${effectiveMaxEnergy})`);
     console.log(`Resource validation: Resolve ${resources.resolve.current} -> ${validatedResources.resolve.current} (max: ${effectiveMaxResolve})`);
+    console.log(`Resource validation: Morale ${resources.morale.current} -> ${validatedResources.morale.current} (max: ${effectiveMaxMorale})`);
     
     // Update the resources with validated values
     character.resources = validatedResources;

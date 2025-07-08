@@ -698,7 +698,9 @@ const CharacterEdit: React.FC = () => {
             <PersonalityCreatorTab
               selectedPersonality={selectedPersonality || ''}
               stressors={stressors}
+              selectedTrait={''}
               onSelectPersonality={handlePersonalitySelect}
+              onSelectTrait={() => {}}
             />
           )}
           {step === 5 && (

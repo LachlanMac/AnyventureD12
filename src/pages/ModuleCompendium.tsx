@@ -153,12 +153,6 @@ const ModuleCompendium: React.FC = () => {
               All
             </Button>
             <Button
-              variant={activeFilter === 'alteration' ? 'accent' : 'secondary'}
-              onClick={() => setActiveFilter('alteration')}
-            >
-              Alteration
-            </Button>
-            <Button
               variant={activeFilter === 'planar' ? 'accent' : 'secondary'}
               onClick={() => setActiveFilter('planar')}
             >

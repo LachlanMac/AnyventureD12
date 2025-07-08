@@ -33,11 +33,9 @@ const ModulesPage: React.FC = () => {
   const [typeFilters, setTypeFilters] = useState<{
     core: boolean;
     secondary: boolean;
-    alteration: boolean;
   }>({
     core: true,
     secondary: true,
-    alteration: true,
   });
 
   useEffect(() => {
@@ -319,7 +317,6 @@ const ModulesPage: React.FC = () => {
       // Apply type filters
       if (module.mtype === 'core' && !typeFilters.core) return false;
       if (module.mtype === 'secondary' && !typeFilters.secondary) return false;
-      if (module.mtype === 'alteration' && !typeFilters.alteration) return false;
 
       return true;
     });
@@ -521,23 +518,6 @@ const ModulesPage: React.FC = () => {
             }}
           >
             Secondary
-          </button>
-          <button
-            onClick={() => setTypeFilters((prev) => ({ ...prev, alteration: !prev.alteration }))}
-            style={{
-              padding: '0.5rem 1rem',
-              borderRadius: '0.375rem',
-              backgroundColor: typeFilters.alteration
-                ? 'var(--color-sunset)'
-                : 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: '1px solid var(--color-dark-border)',
-              cursor: 'pointer',
-              transition: 'all 0.2s',
-              fontWeight: typeFilters.alteration ? 'bold' : 'normal',
-            }}
-          >
-            Alteration
           </button>
         </div>
       </div>

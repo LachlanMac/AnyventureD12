@@ -1,6 +1,6 @@
 // server/routes/homebrewRoutes.js
 import express from 'express';
-import { protect } from '../middleware/auth.js';
+import { protect, requirePermanentUser } from '../middleware/auth.js';
 import {
   createHomebrewItem,
   getHomebrewItems,
@@ -21,14 +21,14 @@ const router = express.Router();
 router.get('/items', getHomebrewItems);
 router.get('/items/:id', getHomebrewItem);
 
-// Protected routes
-router.post('/items', protect, createHomebrewItem);
-router.put('/items/:id', protect, updateHomebrewItem);
-router.delete('/items/:id', protect, deleteHomebrewItem);
-router.post('/items/:id/publish', protect, publishHomebrewItem);
-router.post('/items/:id/vote', protect, voteHomebrewItem);
-router.post('/items/:id/report', protect, reportHomebrewItem);
-router.post('/items/:id/fork', protect, forkHomebrewItem);
+// Protected routes (require permanent user for creation/modification)
+router.post('/items', requirePermanentUser, createHomebrewItem);
+router.put('/items/:id', requirePermanentUser, updateHomebrewItem);
+router.delete('/items/:id', requirePermanentUser, deleteHomebrewItem);
+router.post('/items/:id/publish', requirePermanentUser, publishHomebrewItem);
+router.post('/items/:id/vote', requirePermanentUser, voteHomebrewItem);
+router.post('/items/:id/report', requirePermanentUser, reportHomebrewItem);
+router.post('/items/:id/fork', requirePermanentUser, forkHomebrewItem);
 
 // Admin routes (TODO: Add admin middleware)
 router.post('/admin/items/:id/approve', protect, approveHomebrewItem);

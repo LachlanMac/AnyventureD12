@@ -18,6 +18,7 @@ import characterSpellRoutes from './routes/characterSpellRoutes.js';
 import itemRoutes from './routes/itemRoutes.js';
 import ancestryRoutes from './routes/ancestryRoutes.js';
 import cultureRoutes from './routes/cultureRoutes.js';
+import traitRoutes from './routes/traitRoutes.js';
 import campaignRoutes from './routes/campaignRoutes.js';
 import homebrewRoutes from './routes/homebrewRoutes.js';
 import homebrewSpellRoutes from './routes/homebrewSpellRoutes.js';
@@ -33,6 +34,7 @@ import { initializeModules } from './utils/moduleSeeder.js';
 import { initializeSpells } from './utils/spellSeeder.js';
 import { initializeAncestries } from './utils/ancestrySeeder.js';
 import { initializeCultures } from './utils/cultureSeeder.js';
+import { initializeTraits } from './utils/traitSeeder.js';
 import { loadCreaturesFromJson } from './utils/creatureSeeder.js';
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -87,6 +89,8 @@ const connectDB = async () => {
     await initializeAncestries();
     console.log('Initializing cultures...');
     await initializeCultures();
+    console.log('Initializing traits...');
+    await initializeTraits();
     console.log('Initializing creatures...');
     await loadCreaturesFromJson();
   } catch (error) {
@@ -101,6 +105,7 @@ app.use('/api/characters', characterRoutes);
 app.use('/api/modules', moduleRoutes);
 app.use('/api/ancestries', ancestryRoutes);
 app.use('/api/cultures', cultureRoutes);
+app.use('/api/traits', traitRoutes);
 app.use('/api/portraits', portraitRoutes);
 app.use('/api/spells', spellRoutes);
 app.use('/api/items', itemRoutes);

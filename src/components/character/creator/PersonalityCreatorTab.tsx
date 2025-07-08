@@ -1,18 +1,23 @@
 import React from 'react';
 import PersonalitySelection from '../PersonalitySelection';
+import CharacterTraitSelection from '../CharacterTraitSelection';
 import { Module } from '../../../types/character';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 
 interface PersonalityCreatorTabProps {
   selectedPersonality: string;
   stressors: string[];
+  selectedTrait: string;
   onSelectPersonality: (personality: string, personalityModule: Module) => void;
+  onSelectTrait: (traitId: string) => void;
 }
 
 const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
   selectedPersonality,
   stressors,
+  selectedTrait,
   onSelectPersonality,
+  onSelectTrait,
 }) => {
   return (
     <div>
@@ -24,7 +29,7 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
           marginBottom: '1.5rem',
         }}
       >
-        Character Personality
+        Character Personality & Trait
       </h2>
 
       <div
@@ -85,6 +90,11 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
           </CardBody>
         </Card>
       )}
+
+      {/* Character Trait Selection */}
+      <div style={{ marginTop: '2rem' }}>
+        <CharacterTraitSelection selectedTrait={selectedTrait} onSelectTrait={onSelectTrait} />
+      </div>
     </div>
   );
 };

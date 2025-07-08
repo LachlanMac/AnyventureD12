@@ -1,0 +1,17 @@
+{
+  "id": 6,
+  "name": "Born to Adventure",
+  "description": "You were born with an adventurer's spirit and natural talents that set you apart from others. Your destiny calls you to greatness.",
+  "options": [
+    {
+      "name": "Adventurer's Spirit",
+      "description": "+5 Max Morale - Your unwavering spirit inspires you to push forward even in the darkest times.",
+      "data": "R=5"
+    },
+    {
+      "name": "Hardy Constitution",
+      "description": "+5 Max Health - Your body is naturally resilient and can withstand more punishment than most.",
+      "data": "H=5"
+    }
+  ]
+}

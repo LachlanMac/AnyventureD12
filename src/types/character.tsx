@@ -27,6 +27,7 @@ export interface Resources {
   health: { current: number; max: number };
   energy: { current: number; max: number };
   resolve: { current: number; max: number };
+  morale?: { current: number; max: number };
 }
 
 // Module point structure
@@ -54,12 +55,29 @@ export interface Action {
   data?: string;
 }
 
-// Trait structure
+// Trait structure (personality traits)
 export interface Trait {
   _id: string;
   name: string;
   type: 'positive' | 'negative';
   description: string;
+}
+
+// Character Creation Trait option structure
+export interface CharacterTraitOption {
+  name: string;
+  description: string;
+  data: string;
+  selected?: boolean;
+}
+
+// Character Creation Trait structure
+export interface CharacterTrait {
+  _id: string;
+  name: string;
+  type: 'supernatural' | 'curse' | 'mutation' | 'condition' | 'other';
+  description: string;
+  options: CharacterTraitOption[];
 }
 
 // Module option structure
@@ -136,7 +154,7 @@ export interface RacialModule {
 export interface Module {
   _id: string;
   name: string;
-  mtype: 'racial' | 'core' | 'secondary' | 'cultural' | 'personality' | 'alteration' | 'planar';
+  mtype: 'racial' | 'core' | 'secondary' | 'cultural' | 'personality' | 'planar';
   ruleset: number;
   options: ModuleOption[];
   description?: string;
@@ -368,6 +386,7 @@ export interface Character {
   actions: Action[];
   modules: CharacterModule[];
   traits: Trait[];
+  characterTrait?: string; // ID of selected character creation trait
   level: number;
   experience: number;
   stressors: string[];

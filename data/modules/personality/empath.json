@@ -40,7 +40,7 @@
     },
     {
       "name": "Daily Action : Plea",
-      "description": "When an ally is at 0 resolve, you can make a plea in a desperate attempt to keep them going. Roll an expression check; for each dice you roll over 6, they gain one resolve.",
+      "description": "When an ally is at 0 resolve, you can make a plea in a desperate attempt to keep them going. Roll an expression check; for each dice you roll over 6, they gain one resolve and any recent broken condition they received in the last minute is removed.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
@@ -55,36 +55,36 @@
       "data": "XX"
     },
     {
-      "name": "Talented Empath",
-      "description": "Gain +1 talent with social and +1 skill with insight.",
+      "name": "Bearer of Burdens",
+      "description": "",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": "ST5=1:SSS=1"
+      "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Resonance",
+      "description": "You are often in sync with your allies, and can share morale. When an ally gains morale, you can gain half of what they did, rounded down once per day. Additionally, when an ally loses morale, you can sacrifice up to 5 of your morale to reduce the amount they lose once per day.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "XXX",
+      "description": "",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Talented Empath",
+      "description": "Gain +1 talent with social and +1 skill with insight.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": ""
+      "data": "ST5=1:SSS=1"
     }
   ]
 }
