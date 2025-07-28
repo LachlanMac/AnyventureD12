@@ -108,12 +108,29 @@ export interface AncestryOption {
   selectedSubchoice?: string;
 }
 
-// Culture option structure (simplified, no location or cost)
+// Culture restriction structure
+export interface CultureRestriction {
+  name: string;
+  description: string;
+}
+
+// Culture benefit structure
+export interface CultureBenefit {
+  name: string;
+  description: string;
+}
+
+// Culture starting item structure
+export interface CultureStartingItem {
+  name: string;
+  description: string;
+}
+
+// Culture option structure
 export interface CultureOption {
   name: string;
   description: string;
-  data: string;
-  selected?: boolean;
+  data?: string;
 }
 
 // Ancestry structure (replaces RacialModule)
@@ -132,12 +149,16 @@ export interface Ancestry {
   options: AncestryOption[];
 }
 
-// Culture structure (replaces CultureModule)
+// Culture structure (updated for new system)
 export interface Culture {
   _id: string;
+  id: number;
   name: string;
   description: string;
-  options: CultureOption[];
+  culturalRestrictions: CultureRestriction[];
+  benefits: CultureBenefit[];
+  startingItems: CultureStartingItem[];
+  options?: CultureOption[];
 }
 
 // Racial Module structure (deprecated - use Ancestry instead)
@@ -154,7 +175,7 @@ export interface RacialModule {
 export interface Module {
   _id: string;
   name: string;
-  mtype: 'racial' | 'core' | 'secondary' | 'cultural' | 'personality' | 'planar';
+  mtype: 'core' | 'secondary' | 'personality';
   ruleset: number;
   options: ModuleOption[];
   description?: string;
@@ -349,7 +370,10 @@ export interface CharacterAncestry {
 // Character culture selection
 export interface CharacterCulture {
   cultureId: string;
-  selectedOptions: string[]; // Array of selected option names
+  selectedRestriction?: CultureRestriction;
+  selectedBenefit?: CultureBenefit;
+  selectedRitual?: CultureRitual;
+  selectedStartingItem?: CultureStartingItem;
 }
 
 // Complete character structure

@@ -2,7 +2,7 @@
   "name": "Gold Ingot",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 9,
   "value": 5000,
   "rarity": "common"

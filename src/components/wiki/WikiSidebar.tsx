@@ -42,21 +42,21 @@ const WikiSidebar = () => {
       return;
     }
 
-    setLoadingHeaders(prev => new Set(prev).add(page.id));
+    setLoadingHeaders((prev) => new Set(prev).add(page.id));
 
     try {
       const response = await fetch(`/wiki/${page.path}`);
       const content = await response.text();
-      const headers = extractHeaders(content, 3).filter(h => h.level === 2); // Get headers up to level 3, then filter for level 2 only
-      
-      setPageHeaders(prev => ({
+      const headers = extractHeaders(content, 3).filter((h) => h.level === 2); // Get headers up to level 3, then filter for level 2 only
+
+      setPageHeaders((prev) => ({
         ...prev,
-        [page.id]: headers
+        [page.id]: headers,
       }));
     } catch (error) {
       console.error(`Failed to fetch headers for ${page.id}:`, error);
     } finally {
-      setLoadingHeaders(prev => {
+      setLoadingHeaders((prev) => {
         const newSet = new Set(prev);
         newSet.delete(page.id);
         return newSet;
@@ -67,7 +67,7 @@ const WikiSidebar = () => {
   // Fetch headers for all pages when structure is loaded
   useEffect(() => {
     if (structure) {
-      structure.pages.forEach(page => {
+      structure.pages.forEach((page) => {
         fetchPageHeaders(page);
       });
     }
@@ -113,13 +113,15 @@ const WikiSidebar = () => {
     'Magic',
     'Equipment',
     'Crafting',
-    'Songs & Music'
+    'Songs & Music',
   ];
 
   // Get category order, prioritizing our desired order, then any remaining categories alphabetically
   const categoryOrder = [
-    ...desiredCategoryOrder.filter(cat => pagesByCategory[cat]),
-    ...Object.keys(pagesByCategory).filter(cat => !desiredCategoryOrder.includes(cat)).sort()
+    ...desiredCategoryOrder.filter((cat) => pagesByCategory[cat]),
+    ...Object.keys(pagesByCategory)
+      .filter((cat) => !desiredCategoryOrder.includes(cat))
+      .sort(),
   ];
 
   return (
@@ -164,7 +166,7 @@ const WikiSidebar = () => {
                         >
                           {page.title}
                         </Link>
-                        
+
                         {/* Show subsections if this is the active page */}
                         {isActive && headers.length > 0 && (
                           <div className="ml-6 mt-1 space-y-0.5">

@@ -2,7 +2,7 @@
   "name": "Aetherium Shavings",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.1,
   "value": 1000,
   "rarity": "common"

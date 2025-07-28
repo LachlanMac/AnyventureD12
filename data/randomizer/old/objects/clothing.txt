@@ -1,0 +1,13 @@
+6004,Feathered Cap,Feathered Caps
+6005,Leather Cap,Leathered Caps
+6006,Scarf,Scarves
+6007,Sash,Sashes
+6008,Leather Boots,Leather Boots
+6009,Doublet,Doublets
+6010,Commoner Clothes,Commoner Clothes
+6011,Peasant Clothes,Peasant Clothes
+6012,Old Rags,Old Rags
+6013,Noble's Clothes,Noble's Clothes
+6014,Well-Made Clothes,Well-Made Clothes
+6015,Pair of Shoes,Shoes
+6016,A Cloak,Cloaks

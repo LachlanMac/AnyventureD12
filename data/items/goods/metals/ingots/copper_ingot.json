@@ -2,7 +2,7 @@
   "name": "Copper Ingot",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 4,
   "value": 40,
   "rarity": "common"

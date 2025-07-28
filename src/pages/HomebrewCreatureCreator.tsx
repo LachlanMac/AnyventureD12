@@ -66,7 +66,14 @@ const HomebrewCreatureCreator: React.FC = () => {
     name: '',
     description: '',
     tactics: '',
-    tier: 'standard' as 'minion' | 'grunt' | 'standard' | 'champion' | 'elite' | 'legend' | 'mythic',
+    tier: 'standard' as
+      | 'minion'
+      | 'grunt'
+      | 'standard'
+      | 'champion'
+      | 'elite'
+      | 'legend'
+      | 'mythic',
     type: 'humanoid' as
       | 'fiend'
       | 'undead'

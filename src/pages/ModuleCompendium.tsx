@@ -13,7 +13,7 @@ interface ModuleOption {
 interface Module {
   _id: string;
   name: string;
-  mtype: 'core' | 'secondary' | 'alteration' | 'planar' | 'personality';
+  mtype: 'core' | 'secondary' | 'personality';
   ruleset: number;
   options: ModuleOption[];
 }
@@ -28,7 +28,7 @@ const ModuleCompendium: React.FC = () => {
 
   // Filter states
   const [activeFilter, setActiveFilter] = useState<
-    'all' | 'core' | 'secondary' | 'alteration' | 'planar' | 'personality'
+    'all' | 'core' | 'secondary' | 'personality'
   >('all');
 
   useEffect(() => {
@@ -151,12 +151,6 @@ const ModuleCompendium: React.FC = () => {
               onClick={() => setActiveFilter('all')}
             >
               All
-            </Button>
-            <Button
-              variant={activeFilter === 'planar' ? 'accent' : 'secondary'}
-              onClick={() => setActiveFilter('planar')}
-            >
-              Planar
             </Button>
             <Button
               variant={activeFilter === 'personality' ? 'accent' : 'secondary'}

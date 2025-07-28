@@ -93,6 +93,10 @@ export const createCharacter = async (req, res) => {
     
     const character = new Character(characterData);
     
+    // If a trait is selected, populate it before saving so trait effects apply
+    if (character.characterTrait) {
+      await character.populate('characterTrait');
+    }
 
     const savedCharacter = await character.save();
     

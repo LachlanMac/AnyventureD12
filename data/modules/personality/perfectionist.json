@@ -54,24 +54,24 @@
       "data": "XX"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Expressive Perfectionist",
+      "description": "Your pursuit of perfection enhances your ability to express yourself artistically and creatively. Gain +1 skill with expression. Additionally, if you've seen art, architecture or a crafted item created by an individual, you can ",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "SSQ=1"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Um, Actually",
+      "description": "Once per day, when another character makes a skill check for a skill you have equal or higher level in, you can immediately make the same check. If your result is higher, you gain 3 resolve as you correct their technique. The subject of this criticism can have your check replace theirs, but they lose 2 resolve.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Meticulous Detail",
+      "description": "Gain +1 skill with all crafting skills, but all of your crafting recipes take twice as long, and failing any recipe causes you to lose all of your morale.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -79,11 +79,11 @@
     },
     {
       "name": "Strive for Excellence",
-      "description": "Gain +1 talent with social and +1 skill with expression.",
+      "description": "Gain +1 talent with social.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "ST5=1:SSQ=1"
+      "data": "ST5=1"
     }
   ]
 }

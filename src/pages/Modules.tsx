@@ -233,13 +233,7 @@ const ModulesPage: React.FC = () => {
 
   const handleDeselectOption = async (moduleId: string, location: string, moduleType: string) => {
     try {
-      if (location === '1' && moduleType === 'racial') {
-        return;
-      }
       if (location === '1' && moduleType === 'personality') {
-        return;
-      }
-      if (location === '1' && moduleType === 'cultural') {
         return;
       }
       if (location === '1') {
@@ -295,22 +289,19 @@ const ModulesPage: React.FC = () => {
 
     let filteredModules = [...allModules];
 
-    // Exclude racial and planar modules
-    filteredModules = filteredModules.filter(
-      (module) => module.mtype !== 'racial' && module.mtype !== 'planar'
-    );
+    // All module types are now allowed
 
     filteredModules = filteredModules.filter((module) => {
-      // Always show cultural and personality modules if they're selected
+      // Always show personality modules if they're selected
       if (
-        (module.mtype === 'cultural' || module.mtype === 'personality') &&
+        module.mtype === 'personality' &&
         isModuleSelected(module._id)
       ) {
         return true;
       }
 
-      // Don't show unselected cultural/personality modules
-      if (module.mtype === 'cultural' || module.mtype === 'personality') {
+      // Don't show unselected personality modules
+      if (module.mtype === 'personality') {
         return false;
       }
 
@@ -335,20 +326,10 @@ const ModulesPage: React.FC = () => {
     }
 
     return filteredModules.sort((a, b) => {
-      const aSelected = isModuleSelected(a._id);
-      const bSelected = isModuleSelected(b._id);
-
-      if (aSelected && !bSelected) return -1;
-      if (!aSelected && bSelected) return 1;
-
-      if (a.mtype !== b.mtype) {
-        const typeOrder = { cultural: 0, personality: 1, core: 2, secondary: 3 };
-        return (
-          typeOrder[a.mtype as keyof typeof typeOrder] -
-          typeOrder[b.mtype as keyof typeof typeOrder]
-        );
-      }
-      return a.name.localeCompare(b.name);
+      // Ensure we're comparing strings and handle any potential null/undefined values
+      const nameA = (a.name || '').toString().trim();
+      const nameB = (b.name || '').toString().trim();
+      return nameA.localeCompare(nameB);
     });
   };
   const displayModules = getDisplayModules();

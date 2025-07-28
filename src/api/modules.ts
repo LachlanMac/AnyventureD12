@@ -3,7 +3,7 @@ import { apiClient } from './client';
 export interface Module {
   _id: string;
   name: string;
-  mtype: 'core' | 'secondary' | 'alteration' | 'cultural' | 'planar' | 'personality';
+  mtype: 'core' | 'secondary' | 'personality';
   ruleset: number;
   description?: string;
   options: ModuleOption[];

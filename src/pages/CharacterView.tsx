@@ -176,7 +176,7 @@ const CharacterView: React.FC = () => {
       // Update character locally first for immediate feedback
       const currentResourceData = character.resources[resource];
       if (!currentResourceData) return;
-      
+
       const updatedCharacter = {
         ...character,
         resources: {

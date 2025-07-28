@@ -135,7 +135,7 @@ const Home: React.FC = () => {
         >
           <FeatureCard
             title="No Classes, Only Choices"
-            description="Build your character through a modular system. Mix and match racial, cultural, core, and secondary modules to create truly unique heroes."
+            description="Build your character through a modular system. Mix and match personality, core, and secondary modules to create truly unique heroes."
             icon="🎭"
             color="var(--color-sat-purple)"
           />

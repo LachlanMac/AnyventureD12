@@ -40,8 +40,8 @@
       "data": ""
     },
     {
-      "name": "Reaction : Smooth Over",
-      "description": "In response to an ally failing a persuasion check, you can interject and replace their roll with your own but with a penalty dice added.",
+      "name": "Action : Talk Down",
+      "description": "When an ally within a short (10 unit) distance is suffering from a mental effect that requires them to make a descending check, you can attempt to talk them down. Until the condition is removed, the check descends by 2 every time they fail instead of 1.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
@@ -56,24 +56,24 @@
       "data": "XX"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Persuasive Mediator",
+      "description": "Your mediation skills enhance your ability to persuade others toward compromise. Gain +1 skill with persuasion. When you diffuse a fight or conflict, you gain 2 resolve.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "SST=1"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Smooth Over",
+       "description": "In response to an ally rolling less than a 7 on a persuasion check, you can interject and replace their roll with your own but with a penalty dice added.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Mutual Aid",
+      "description": "When you recover from a mental condition besides being broken or numbed, you can choose an ally with a short (10 unit) distance who is suffering from the same condition and end it at the same time.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -81,11 +81,11 @@
     },
     {
       "name": "Skilled Negotiator",
-      "description": "Gain +1 talent with social and +1 skill with persuasion.",
+      "description": "Gain +1 talent with social.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "ST5=1:SST=1"
+      "data": "ST5=1"
     }
   ]
 }

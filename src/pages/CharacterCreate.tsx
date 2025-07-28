@@ -12,6 +12,7 @@ import PersonalityCreatorTab from '../components/character/creator/PersonalityCr
 // Import utility functions and types from the shared files
 import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
 import { Character, Ancestry, Culture, Attributes, Module } from '../types/character';
+import { applyTraitEffects, removeTraitEffects, canDeselectTrait } from '../utils/traitEffects';
 
 const CharacterCreate: React.FC = () => {
   const navigate = useNavigate();
@@ -32,7 +33,9 @@ const CharacterCreate: React.FC = () => {
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
   const [stressors, setStressors] = useState<string[]>([]);
   const [selectedTrait, setSelectedTrait] = useState<string>('');
-  const [traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
+  const [_traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
+  const [traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
+  const [previousTraitData, setPreviousTraitData] = useState<any>(null);
   // Define steps
   const steps = ['Basic Info', 'Attributes', 'Personality & Trait', 'Talents', 'Background'];
 
@@ -72,13 +75,40 @@ const CharacterCreate: React.FC = () => {
     setStressors(personalityModule.stressors || []);
   };
 
-  // Handle trait selection and apply talent bonuses
+  // Validate trait change
+  const validateTraitChange = async (
+    fromTraitId: string,
+    _toTraitId: string
+  ): Promise<{ valid: boolean; error?: string }> => {
+    // If we have a previous trait with effects, check if we can remove it
+    if (fromTraitId && previousTraitData) {
+      const characterContext = {
+        talentStarsRemaining,
+        setTalentStarsRemaining,
+        setTraitTalentBonus,
+        setTraitModuleBonus,
+      };
+      const result = canDeselectTrait(previousTraitData, characterContext);
+      if (!result.canDeselect) {
+        return { valid: false, error: result.reason };
+      }
+    }
+    return { valid: true };
+  };
+
+  // Handle trait selection and apply effects
   useEffect(() => {
     const fetchTraitData = async () => {
-      // Remove previous trait talent bonus
-      if (traitTalentBonus > 0) {
-        setTalentStarsRemaining((prev) => prev - traitTalentBonus);
-        setTraitTalentBonus(0);
+      // First, remove effects from previous trait if any
+      if (previousTraitData) {
+        const characterContext = {
+          talentStarsRemaining,
+          setTalentStarsRemaining,
+          setTraitTalentBonus,
+          setTraitModuleBonus,
+        };
+        removeTraitEffects(previousTraitData, characterContext);
+        setPreviousTraitData(null);
       }
 
       if (!selectedTrait) {
@@ -92,24 +122,15 @@ const CharacterCreate: React.FC = () => {
         }
         const traitData = await response.json();
 
-        // Calculate talent point bonus from trait
-        let newTalentBonus = 0;
-        if (traitData.options) {
-          for (const option of traitData.options) {
-            if (option.data && option.data.includes('TP=')) {
-              const match = option.data.match(/TP=(\d+)/);
-              if (match) {
-                newTalentBonus += parseInt(match[1]) || 0;
-              }
-            }
-          }
-        }
-
-        // Apply the new talent bonus
-        if (newTalentBonus > 0) {
-          setTalentStarsRemaining((prev) => prev + newTalentBonus);
-          setTraitTalentBonus(newTalentBonus);
-        }
+        // Apply new trait effects
+        const characterContext = {
+          talentStarsRemaining,
+          setTalentStarsRemaining,
+          setTraitTalentBonus,
+          setTraitModuleBonus,
+        };
+        applyTraitEffects(traitData, characterContext);
+        setPreviousTraitData(traitData);
       } catch (error) {
         console.error('Error fetching trait data:', error);
       }
@@ -531,8 +552,10 @@ const CharacterCreate: React.FC = () => {
                 selectedPersonality={selectedPersonality}
                 stressors={stressors}
                 selectedTrait={selectedTrait}
+                traitModuleBonus={traitModuleBonus}
                 onSelectPersonality={handlePersonalitySelect}
                 onSelectTrait={setSelectedTrait}
+                onValidateTraitChange={validateTraitChange}
               />
             )}
             {/* Step 4: Talents */}

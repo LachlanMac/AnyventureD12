@@ -15,23 +15,6 @@ const modulesDir = path.resolve(__dirname, '../../data/modules');
 const PURGE_MODULES_BEFORE_SEED = false; // Set to true to purge all modules before seeding
 const VERBOSE_LOGGING = true; // Set to false to reduce console output
 
-// Function to generate descriptions for racial modules if they don't exist
-function generateRaceDescription(raceName) {
-  switch (raceName.toLowerCase()) {
-    case 'human':
-      return 'Adaptable and innovative, humans are versatile explorers who have spread throughout the galaxy, establishing colonies and trade networks.';
-    case 'jhen':
-      return 'Amphibious beings with enhanced sensory abilities, the Jhen are naturally attuned to water environments and excel at navigation and exploration.';
-    case 'protoelf':
-      return 'Descendants of ancient genetic engineers, Protoelves have enhanced reflexes and mental capabilities along with extended lifespans.';
-    case 'vxyahlian':
-      return 'Insect-like beings with exoskeletons and heightened engineering skills, Vxyahlians are natural builders and technologists.';
-    case 'zssesh':
-      return 'Reptilian species with natural resilience to harsh environments, the Zssesh have remarkable regenerative capabilities and physical endurance.';
-    default:
-      return 'A unique species with distinctive physiological and cultural traits.';
-  }
-}
 
 // Function to purge all modules from the database
 export const purgeAllModules = async () => {
@@ -49,10 +32,10 @@ export const purgeAllModules = async () => {
 // Function to read JSON modules from the filesystem
 const readModulesFromFS = async () => {
   try {
-    // Get all module type directories, excluding alteration (now converted to traits)
+    // Get all module type directories, excluding alteration (now converted to traits), cultural (now handled by culture system), and racial (now handled by ancestry system)
     const moduleTypes = fs.readdirSync(modulesDir)
       .filter(file => fs.statSync(path.join(modulesDir, file)).isDirectory())
-      .filter(dir => dir !== 'alteration');
+      .filter(dir => dir !== 'alteration' && dir !== 'cultural' && dir !== 'racial');
     
     const modules = [];
     const moduleNames = []; // Track names for comparison later
@@ -75,11 +58,6 @@ const readModulesFromFS = async () => {
           
           // Ensure the module has the correct type based on directory
           moduleData.mtype = moduleType;
-          
-          // Add description for racial modules if it doesn't exist
-          if (moduleType === 'racial' && !moduleData.description) {
-            moduleData.description = generateRaceDescription(moduleData.name);
-          }
           
           modules.push(moduleData);
           moduleNames.push(moduleData.name.toLowerCase()); // Store lowercase name for case-insensitive comparison

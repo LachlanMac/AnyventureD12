@@ -2,7 +2,7 @@
   "name": "Lead Nugget",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.55,
   "value": 40,
   "rarity": "common"

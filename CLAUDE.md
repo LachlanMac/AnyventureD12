@@ -20,6 +20,7 @@ npm run format          # Run Prettier
 npm run reset-modules   # Reseed modules/spells from JSON files (preserves ObjectIds)
 npm run reset-items     # Reseed items from JSON files
 npm run reset-traits    # Reseed traits from JSON files
+npm run reset-ancestries # Reseed ancestries/races from JSON files
 npm run fix-module-refs # Fix broken module references in characters
 npm run kill-ports      # Kill processes on ports 5173 and 4000
 npm run fix-campaign-index  # Fix MongoDB index issues for campaigns

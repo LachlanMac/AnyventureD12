@@ -165,7 +165,16 @@ const HomebrewCreatureBrowser: React.FC = () => {
     'fey',
     'elemental',
   ];
-  const creatureTiers = ['all', 'minion', 'grunt', 'standard', 'champion', 'elite', 'legend', 'mythic'];
+  const creatureTiers = [
+    'all',
+    'minion',
+    'grunt',
+    'standard',
+    'champion',
+    'elite',
+    'legend',
+    'mythic',
+  ];
 
   if (loading && creatures.length === 0) {
     return (

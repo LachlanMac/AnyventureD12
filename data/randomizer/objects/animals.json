@@ -1,0 +1,118 @@
+[
+    {
+        "name": "Dog",
+        "plural": "Dogs"
+    },
+    {
+        "name": "Cat",
+        "plural": "Cats"
+    },
+    {
+        "name": "Pig",
+        "plural": "Pigs"
+    },
+    {
+        "name": "Chicken",
+        "plural": "Chickens"
+    },
+    {
+        "name": "Cow",
+        "plural": "Cows"
+    },
+    {
+        "name": "Horse",
+        "plural": "Horses"
+    },
+    {
+        "name": "Donkey",
+        "plural": "Donkeys"
+    },
+    {
+        "name": "Duck",
+        "plural": "Ducks"
+    },
+    {
+        "name": "Llama",
+        "plural": "Llamas"
+    },
+    {
+        "name": "Yak",
+        "plural": "Yaks"
+    },
+    {
+        "name": "Rabbit",
+        "plural": "Rabbits"
+    },
+    {
+        "name": "Turkey",
+        "plural": "Turkeys"
+    },
+    {
+        "name": "Sheep",
+        "plural": "Sheep"
+    },
+    {
+        "name": "Ram",
+        "plural": "Rams"
+    },
+    {
+        "name": "Boar",
+        "plural": "Boars"
+    },
+    {
+        "name": "Goat",
+        "plural": "Goats"
+    },
+    {
+        "name": "Guinea Pig",
+        "plural": "Guinea Pigs"
+    },
+    {
+        "name": "Goose",
+        "plural": "Geese"
+    },
+    {
+        "name": "Bull",
+        "plural": "Bulls"
+    },
+    {
+        "name": "Calf",
+        "plural": "Calves"
+    },
+    {
+        "name": "Hen",
+        "plural": "Hens"
+    },
+    {
+        "name": "Rooster",
+        "plural": "Roosters"
+    },
+    {
+        "name": "Swan",
+        "plural": "Swans"
+    },
+    {
+        "name": "Pigeon",
+        "plural": "Pigeons"
+    },
+    {
+        "name": "Parrot",
+        "plural": "Parrots"
+    },
+    {
+        "name": "Fish",
+        "plural": "Fish"
+    },
+    {
+        "name": "Bee",
+        "plural": "Bees"
+    },
+    {
+        "name": "Butterfly",
+        "plural": "Butterflies"
+    },
+    {
+        "name": "Kitten",
+        "plural": "Kittens"
+    }
+]

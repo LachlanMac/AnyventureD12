@@ -2,11 +2,39 @@
   "id": 13,
   "name": "Liberated",
   "description": "Freedom Above All\nLiberated cultures reject external authority and prize individual freedom. They value independence, self-reliance, and personal expression. No one tells them how to live, and they'll fight to keep it that way.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "Freedom's Fire",
-      "description": "Your spirit thrives on independence and rebels against constraint. You regain 1 Resolve whenever you assert your independence, help someone escape oppression, or refuse to bow to unjust authority. However, being forced to obey orders against your will or having your freedom restricted causes you to lose 1 Resolve and develop rebellious anger (1 Stress). If you're under someone else's direct control for more than a day, you gain 1 additional Stress daily until free. You can spend 2 Resolve to break free from a single mental compulsion or physical restraint through sheer force of will, but doing so leaves you emotionally drained.",
-      "data": "XX13"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

@@ -3,7 +3,12 @@ import { Culture } from '../../types/character';
 
 interface CultureSelectionProps {
   selectedCulture: string;
-  onSelectCulture: (culture: string, cultureData: Culture) => void;
+  onSelectCulture: (culture: string, cultureData: Culture & { 
+    selectedRestriction?: any;
+    selectedBenefit?: any;
+    selectedStartingItem?: any;
+    selectedOption?: any;
+  }) => void;
 }
 
 const CultureSelection: React.FC<CultureSelectionProps> = ({
@@ -14,6 +19,12 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<boolean>(true);
+  const [cultureSelections, setCultureSelections] = useState<{
+    restriction?: any;
+    benefit?: any;
+    startingItem?: any;
+    option?: any;
+  }>({});
 
   useEffect(() => {
     const fetchCultures = async () => {
@@ -40,9 +51,61 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
 
   // Handler for culture selection
   const handleCultureSelect = (cultureName: string) => {
-    const selectedCulture = cultures.find((culture) => culture.name === cultureName);
+    const selectedCultureData = cultures.find((culture) => culture.name === cultureName);
+    if (selectedCultureData) {
+      // Reset selections when changing cultures
+      setCultureSelections({});
+      
+      const cultureWithSelections = {
+        ...selectedCultureData,
+        selectedRestriction: cultureSelections.restriction,
+        selectedBenefit: cultureSelections.benefit,
+        selectedStartingItem: cultureSelections.startingItem,
+        selectedOption: cultureSelections.option,
+      };
+      onSelectCulture(cultureName, cultureWithSelections);
+    }
+  };
+
+  // Handlers for individual selections
+  const handleRestrictionSelect = (restriction: any) => {
+    const newSelections = { ...cultureSelections, restriction };
+    setCultureSelections(newSelections);
+    updateCultureWithSelections(newSelections);
+  };
+
+  const handleBenefitSelect = (benefit: any) => {
+    const newSelections = { ...cultureSelections, benefit };
+    setCultureSelections(newSelections);
+    updateCultureWithSelections(newSelections);
+  };
+
+  const handleOptionSelect = (option: any) => {
+    const newSelections = { ...cultureSelections, option };
+    setCultureSelections(newSelections);
+    updateCultureWithSelections(newSelections);
+  };
+
+  const handleStartingItemSelect = (startingItem: any) => {
+    const newSelections = { ...cultureSelections, startingItem };
+    setCultureSelections(newSelections);
+    updateCultureWithSelections(newSelections);
+  };
+
+  // Update parent with current selections
+  const updateCultureWithSelections = (selections: any) => {
     if (selectedCulture) {
-      onSelectCulture(cultureName, selectedCulture);
+      const selectedCultureData = cultures.find((culture) => culture.name === selectedCulture);
+      if (selectedCultureData) {
+        const cultureWithSelections = {
+          ...selectedCultureData,
+          selectedRestriction: selections.restriction,
+          selectedBenefit: selections.benefit,
+          selectedStartingItem: selections.startingItem,
+          selectedOption: selections.option,
+        };
+        onSelectCulture(selectedCulture, cultureWithSelections);
+      }
     }
   };
 
@@ -209,46 +272,206 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                 </h3>
                 <p style={{ color: 'var(--color-cloud)' }}>{getSelectedCultureDescription()}</p>
 
-                {/* Display first tier culture traits for the selected culture */}
+                {/* Display culture selection options */}
                 {selectedCulture && (
                   <div style={{ marginTop: '1rem' }}>
-                    <h4
-                      style={{
-                        color: 'var(--color-metal-gold)',
-                        fontSize: '1rem',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Cultural Traits
-                    </h4>
-                    <div>
-                      {cultures
-                        .find((culture) => culture.name === selectedCulture)
-                        ?.options.map((option) => (
-                          <div
-                            key={option.name}
-                            style={{
-                              backgroundColor: 'rgba(85, 65, 130, 0.2)',
-                              padding: '0.5rem',
-                              borderRadius: '0.25rem',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
+                    {(() => {
+                      const culture = cultures.find((c) => c.name === selectedCulture);
+                      if (!culture) return null;
+
+                      return (
+                        <div style={{ display: 'grid', gap: '1rem' }}>
+                          {/* Cultural Restrictions */}
+                          <div>
+                            <h4 style={{ color: 'var(--color-danger)', fontSize: '1rem', marginBottom: '0.5rem' }}>
+                              Cultural Restriction
+                            </h4>
                             <div
                               style={{
-                                fontWeight: 'bold',
+                                padding: '0.75rem',
+                                borderRadius: '0.375rem',
+                                backgroundColor: 'rgba(152, 94, 109, 0.2)',
                                 color: 'var(--color-white)',
-                                marginBottom: '0.25rem',
                               }}
                             >
-                              {option.name}
-                            </div>
-                            <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                              {option.description}
+                              <label
+                                style={{
+                                  display: 'block',
+                                  color: 'var(--color-metal-gold)',
+                                  fontSize: '0.75rem',
+                                  marginBottom: '0.25rem',
+                                }}
+                              >
+                                Choose Cultural Restriction:
+                              </label>
+                              <select
+                                value={cultureSelections.restriction?.name || ''}
+                                onChange={(e) => {
+                                  const selectedRestriction = culture.culturalRestrictions?.find(
+                                    (r: any) => r.name === e.target.value
+                                  );
+                                  handleRestrictionSelect(selectedRestriction);
+                                }}
+                                style={{
+                                  width: '100%',
+                                  padding: '0.375rem',
+                                  backgroundColor: 'var(--color-dark-elevated)',
+                                  color: 'var(--color-white)',
+                                  border: '1px solid var(--color-dark-border)',
+                                  borderRadius: '0.25rem',
+                                  fontSize: '0.875rem',
+                                }}
+                              >
+                                <option value="">Select...</option>
+                                {culture.culturalRestrictions?.map((restriction: any, index: number) => (
+                                  <option key={index} value={restriction.name}>
+                                    {restriction.name}
+                                  </option>
+                                ))}
+                              </select>
+                              {cultureSelections.restriction && (
+                                <div
+                                  style={{
+                                    marginTop: '0.5rem',
+                                    fontSize: '0.875rem',
+                                    color: 'var(--color-cloud)',
+                                    lineHeight: '1.4',
+                                  }}
+                                >
+                                  {cultureSelections.restriction.description}
+                                </div>
+                              )}
                             </div>
                           </div>
-                        ))}
-                    </div>
+
+                          {/* Benefits */}
+                          <div>
+                            <h4 style={{ color: 'var(--color-success)', fontSize: '1rem', marginBottom: '0.5rem' }}>
+                              Cultural Benefit
+                            </h4>
+                            <div
+                              style={{
+                                padding: '0.75rem',
+                                borderRadius: '0.375rem',
+                                backgroundColor: 'rgba(114, 148, 120, 0.2)',
+                                color: 'var(--color-white)',
+                              }}
+                            >
+                              <label
+                                style={{
+                                  display: 'block',
+                                  color: 'var(--color-metal-gold)',
+                                  fontSize: '0.75rem',
+                                  marginBottom: '0.25rem',
+                                }}
+                              >
+                                Choose Cultural Benefit:
+                              </label>
+                              <select
+                                value={cultureSelections.benefit?.name || ''}
+                                onChange={(e) => {
+                                  const selectedBenefit = culture.benefits?.find(
+                                    (b: any) => b.name === e.target.value
+                                  );
+                                  handleBenefitSelect(selectedBenefit);
+                                }}
+                                style={{
+                                  width: '100%',
+                                  padding: '0.375rem',
+                                  backgroundColor: 'var(--color-dark-elevated)',
+                                  color: 'var(--color-white)',
+                                  border: '1px solid var(--color-dark-border)',
+                                  borderRadius: '0.25rem',
+                                  fontSize: '0.875rem',
+                                }}
+                              >
+                                <option value="">Select...</option>
+                                {culture.benefits?.map((benefit: any, index: number) => (
+                                  <option key={index} value={benefit.name}>
+                                    {benefit.name}
+                                  </option>
+                                ))}
+                              </select>
+                              {cultureSelections.benefit && (
+                                <div
+                                  style={{
+                                    marginTop: '0.5rem',
+                                    fontSize: '0.875rem',
+                                    color: 'var(--color-cloud)',
+                                    lineHeight: '1.4',
+                                  }}
+                                >
+                                  {cultureSelections.benefit.description}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+
+                          {/* Starting Items */}
+                          <div>
+                            <h4 style={{ color: 'var(--color-metal-gold)', fontSize: '1rem', marginBottom: '0.5rem' }}>
+                              Starting Equipment
+                            </h4>
+                            <div
+                              style={{
+                                padding: '0.75rem',
+                                borderRadius: '0.375rem',
+                                backgroundColor: 'rgba(215, 183, 64, 0.2)',
+                                color: 'var(--color-white)',
+                              }}
+                            >
+                              <label
+                                style={{
+                                  display: 'block',
+                                  color: 'var(--color-metal-gold)',
+                                  fontSize: '0.75rem',
+                                  marginBottom: '0.25rem',
+                                }}
+                              >
+                                Choose Starting Equipment:
+                              </label>
+                              <select
+                                value={cultureSelections.startingItem?.name || ''}
+                                onChange={(e) => {
+                                  const selectedItem = culture.startingItems?.find(
+                                    (i: any) => i.name === e.target.value
+                                  );
+                                  handleStartingItemSelect(selectedItem);
+                                }}
+                                style={{
+                                  width: '100%',
+                                  padding: '0.375rem',
+                                  backgroundColor: 'var(--color-dark-elevated)',
+                                  color: 'var(--color-white)',
+                                  border: '1px solid var(--color-dark-border)',
+                                  borderRadius: '0.25rem',
+                                  fontSize: '0.875rem',
+                                }}
+                              >
+                                <option value="">Select...</option>
+                                {culture.startingItems?.map((item: any, index: number) => (
+                                  <option key={index} value={item.name}>
+                                    {item.name}
+                                  </option>
+                                ))}
+                              </select>
+                              {cultureSelections.startingItem && (
+                                <div
+                                  style={{
+                                    marginTop: '0.5rem',
+                                    fontSize: '0.875rem',
+                                    color: 'var(--color-cloud)',
+                                    lineHeight: '1.4',
+                                  }}
+                                >
+                                  {cultureSelections.startingItem.description}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </div>
+                      );
+                    })()}
                   </div>
                 )}
               </>

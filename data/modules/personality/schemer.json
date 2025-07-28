@@ -55,24 +55,24 @@
       "data": "ZD"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Logical Manipulation",
+      "description": "Your scheming nature enhances your logical thinking and planning abilities. Gain +1 skill with logic. When you start a fight or prevent one using a social skill, you gain 3 morale.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "SSL=1"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Size Up",
+      "description": "When a creature within sight makes a skill check, you can make an insight or logic check against their result. If yours is higher, you learn their weakest skill in that attribute category. This analysis requires no action but can only be used once per creature.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Fool's Gambit",
+      "description": "Once per day, when you roll a skill or attack check, you can attempt to reroll it by making a final gambit. Regardless of your skill or talent, you roll 3d12, but before you roll, you must name a number between 1-12. If that number doesn't appear in your roll, the new roll is discarded and you lose 5 resolve. If the number does appear, you gain 2 resolve for each time it occurs and replace your original skill check with the highest result of the 3d12.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -80,11 +80,11 @@
     },
     {
       "name": "Strategist",
-      "description": "Gain +1 talent with social and +1 skill with logic.",
+      "description": "Gain +1 talent with social.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "ST5=1:SSL=1"
+      "data": "ST5=1"
     }
   ]
 }

@@ -41,7 +41,12 @@
       "Bash(sc start:*)",
       "Bash(mongod:*)",
       "Bash(do echo \"=== $file ===\")",
-      "Bash(jq:*)"
+      "Bash(jq:*)",
+      "Bash(python3:*)",
+      "Bash(npm run:*)",
+      "Bash(mongosh:*)",
+      "Bash(mongo:*)",
+      "Bash(systemctl status:*)"
     ],
     "deny": []
   },

@@ -111,20 +111,13 @@ const WikiPage = () => {
           a: ({ href, children }) => {
             if (href?.startsWith('/wiki/')) {
               return (
-                <Link
-                  to={href}
-                  className="internal-link"
-                >
+                <Link to={href} className="internal-link">
                   {children}
                 </Link>
               );
             }
             return (
-              <a
-                href={href}
-                target="_blank"
-                rel="noopener noreferrer"
-              >
+              <a href={href} target="_blank" rel="noopener noreferrer">
                 {children}
               </a>
             );
@@ -143,10 +136,7 @@ const WikiPage = () => {
       {/* Navigation */}
       <div className="wiki-nav">
         {prev ? (
-          <Link
-            to={`/wiki/${prev.id}`}
-            className="wiki-nav-link"
-          >
+          <Link to={`/wiki/${prev.id}`} className="wiki-nav-link">
             <ArrowLeftIcon className="w-4 h-4" />
             <span>{prev.title}</span>
           </Link>
@@ -155,10 +145,7 @@ const WikiPage = () => {
         )}
 
         {next ? (
-          <Link
-            to={`/wiki/${next.id}`}
-            className="wiki-nav-link"
-          >
+          <Link to={`/wiki/${next.id}`} className="wiki-nav-link">
             <span>{next.title}</span>
             <ArrowRightIcon className="w-4 h-4" />
           </Link>

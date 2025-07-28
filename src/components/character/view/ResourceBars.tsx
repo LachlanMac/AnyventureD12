@@ -7,7 +7,10 @@ interface ResourceBarProps {
     resolve: { current: number; max: number };
     morale?: { current: number; max: number };
   };
-  onResourceChange?: (resource: 'health' | 'energy' | 'resolve' | 'morale', newCurrent: number) => void;
+  onResourceChange?: (
+    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    newCurrent: number
+  ) => void;
   readOnly?: boolean;
 }
 
@@ -48,10 +51,13 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   };
 
   // Helper function to handle resource changes
-  const handleResourceChange = (resource: 'health' | 'energy' | 'resolve' | 'morale', newValue: number) => {
+  const handleResourceChange = (
+    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    newValue: number
+  ) => {
     const resourceData = resources[resource];
     if (!resourceData) return;
-    
+
     const max = resourceData.max;
     const clampedValue = Math.max(0, Math.min(newValue, max));
     if (onResourceChange) {
@@ -68,7 +74,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   ) => {
     const resourceData = resources[resource];
     if (!resourceData) return null;
-    
+
     const current = resourceData.current;
     const max = resourceData.max;
     const isEditing = editingResource === resource;

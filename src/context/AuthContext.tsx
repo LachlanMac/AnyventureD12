@@ -77,10 +77,10 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   const loginTemporary = async () => {
     try {
       setLoading(true);
-      
+
       // Check for existing session ID in localStorage
       const existingSessionId = localStorage.getItem('tempSessionId');
-      
+
       const response = await fetch('/api/auth/temp-session', {
         method: 'POST',
         headers: {
@@ -88,7 +88,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
         },
         credentials: 'include',
         body: JSON.stringify({
-          existingSessionId: existingSessionId
+          existingSessionId: existingSessionId,
         }),
       });
 
@@ -97,7 +97,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
       if (data.authenticated) {
         setIsAuthenticated(true);
         setUser(data.user);
-        
+
         // Store the session ID for future use
         if (data.user.tempSessionId) {
           localStorage.setItem('tempSessionId', data.user.tempSessionId);
@@ -121,7 +121,7 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
 
       setIsAuthenticated(false);
       setUser(null);
-      
+
       // Clear temporary session ID from localStorage
       localStorage.removeItem('tempSessionId');
     } catch (error) {
@@ -135,7 +135,9 @@ export const AuthProvider: React.FC<AuthProviderProps> = ({ children }) => {
   };
 
   return (
-    <AuthContext.Provider value={{ isAuthenticated, user, loading, login, loginTemporary, logout, updateUser }}>
+    <AuthContext.Provider
+      value={{ isAuthenticated, user, loading, login, loginTemporary, logout, updateUser }}
+    >
       {children}
     </AuthContext.Provider>
   );

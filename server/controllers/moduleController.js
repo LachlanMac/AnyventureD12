@@ -7,7 +7,7 @@ import Character from '../models/Character.js';
 // @access  Public
 export const getModules = async (req, res) => {
   try {
-    const modules = await Module.find({});
+    const modules = await Module.find({}).sort({ name: 1 });
     res.json(modules);
   } catch (error) {
     console.error('Error fetching modules:', error);

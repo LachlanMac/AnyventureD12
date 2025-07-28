@@ -16,6 +16,7 @@
     "reset-spells": "node server/scripts/resetSpells.js",
     "reset-traits": "node server/scripts/resetTraits.js",
     "reset-cultures": "node server/scripts/resetCultures.js",
+    "reset-ancestries": "node server/scripts/resetAncestries.js",
     "fix-module-refs": "node server/scripts/fixBrokenModuleRefs.js",
     "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",
     "migrate-aether": "node server/scripts/migrate-aether.js",

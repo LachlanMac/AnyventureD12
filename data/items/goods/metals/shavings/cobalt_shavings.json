@@ -2,7 +2,7 @@
   "name": "Cobalt Shavings",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.2,
   "value": 500,
   "rarity": "common"

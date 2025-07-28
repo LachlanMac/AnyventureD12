@@ -2,7 +2,7 @@
   "name": "Tin Ingot",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 2,
   "value": 10,
   "rarity": "common"

@@ -11,5 +11,5 @@
     "reaction": false,
     "energy": 1,
     "damage": 2,
-    "damageType": "true"
+    "damageType": "True"
 }

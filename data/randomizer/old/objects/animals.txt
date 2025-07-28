@@ -1,0 +1,18 @@
+Dog,Dogs
+Cat,Cats
+Pig,Pigs
+Chicken,Chickens
+Cow,Cows
+Horse,Horses
+Donkey,Donkeys
+Duck,Ducks
+Llama,Llamas
+Yak,Yaks
+Rabbit,Rabbits
+Turkey,Turkeys
+Sheep,Sheep
+Ram,Rams
+Boar,Boars
+Goat,Goats
+Guinea Pig,Guinea Pigs
+Goose,Geese

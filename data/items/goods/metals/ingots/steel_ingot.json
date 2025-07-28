@@ -2,7 +2,7 @@
   "name": "Steel Ingot",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 3.5,
   "value": 300,
   "rarity": "common"

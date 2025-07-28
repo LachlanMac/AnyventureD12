@@ -55,24 +55,24 @@
       "data": "ZX"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Perceptive Outsider",
+      "description": "Your position on the margins grants you unique insights into others' motivations. Gain +1 skill with insight. Whenever you make an insight check against a humanoid, you can determine if they are an outsider as well by rolling a successful check of 8 or higher.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "SSS=1"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Noone's Pawn",
+      "description": "When you gain the confused, charmed, or maddened condition, roll a 1d12. On an 8 or higher, the effect is removed at the start of your next turn.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Lone Wolf",
+      "description": "You can only rely on yourself. You gain +3 psychic mitigation and +3 maximum resolve, but your maximum morale is lowered by 5.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -80,11 +80,11 @@
     },
     {
       "name": "Sovereign Stranger",
-      "description": "Gain +1 talent with social and +1 skill with insight.",
+      "description": "Gain +1 talent with social.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "ST5=1:SSS=1"
+      "data": "ST5=1"
     }
   ]
 }

@@ -2,7 +2,7 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
-const CultureOptionSchema = new Schema({
+const CultureRestrictionSchema = new Schema({
   name: { 
     type: String, 
     required: true 
@@ -10,18 +10,52 @@ const CultureOptionSchema = new Schema({
   description: { 
     type: String, 
     required: true 
-  },
-  data: { 
-    type: String, 
-    default: "" 
-  },
-  selected: { 
-    type: Boolean, 
-    default: false 
   }
-});
+}, { _id: false });
+
+const CultureBenefitSchema = new Schema({
+  name: { 
+    type: String, 
+    required: true 
+  },
+  description: { 
+    type: String, 
+    required: true 
+  }
+}, { _id: false });
+
+const CultureStartingItemSchema = new Schema({
+  name: { 
+    type: String, 
+    required: true 
+  },
+  description: { 
+    type: String, 
+    required: true 
+  }
+}, { _id: false });
+
+const CultureOptionSchema = new Schema({
+  name: { 
+    type: String,
+    default: ""
+  },
+  description: { 
+    type: String,
+    default: ""
+  },
+  data: {
+    type: String,
+    default: ""
+  }
+}, { _id: false });
 
 const CultureSchema = new Schema({
+  id: {
+    type: Number,
+    required: true,
+    unique: true
+  },
   name: { 
     type: String, 
     required: true,
@@ -31,7 +65,13 @@ const CultureSchema = new Schema({
     type: String,
     required: true
   },
-  options: [CultureOptionSchema]
+  culturalRestrictions: [CultureRestrictionSchema],
+  benefits: [CultureBenefitSchema],
+  startingItems: [CultureStartingItemSchema],
+  options: {
+    type: [CultureOptionSchema],
+    default: []
+  }
 }, {
   timestamps: true
 });

@@ -2,7 +2,7 @@
   "name": "Nickel Nugget",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 1.0,
   "value": 200,
   "rarity": "common"

@@ -2,7 +2,7 @@
   "name": "Iron Shavings",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.175,
   "value": 10,
   "rarity": "common"

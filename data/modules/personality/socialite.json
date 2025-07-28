@@ -40,7 +40,7 @@
     },
     {
       "name": "Reaction : Center of Attention",
-      "description": "In response to an enemy that is adjacent to you making an attack on an ally, the attack instead targets you.",
+      "description": "In response to an enemy that is adjacent to you making an attack on an ally, roll a presence check. If the reuslt is 8 or higher, the attack instead targets you.",
       "mtype": "core",
       "location": "4a",
       "cost": 2,
@@ -55,24 +55,24 @@
       "data": "XX"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Social Presence",
+      "description": "Your natural socialite abilities enhance your commanding presence in social situations. Gain +1 skill with presence. When first meeting someone, you can attempt to convince them that you've already met by making a contested presence check against their insight.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "SSR=1"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Party Goer",
+      "description": "You gain 5 morale and 5 resolve your first full rest after attending a party or social event that you are invited to. During a party, you gain a bonus roll to all social checks.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Everyone's Confidant",
+      "description": "The way you present yourself makes people open up to you and show their cards more often. Gain +1 skill with insight. Once per full rest, an ally can make you a confidant allowing them to recover 2 resolve if they roll an expression check of 6 and you roll an insight check of 8.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -80,11 +80,11 @@
     },
     {
       "name": "Social Luminary",
-      "description": "Gain +1 talent with social and +1 skill with presence.",
+      "description": "Gain +1 talent with social.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "ST5=1:SSR=1"
+      "data": "ST5=1"
     }
   ]
 }

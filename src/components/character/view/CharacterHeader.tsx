@@ -12,6 +12,13 @@ interface CharacterHeaderProps {
     name: string;
     race: string;
     culture: string;
+    characterCulture?: {
+      cultureId: any;
+      selectedRestriction?: any;
+      selectedBenefit?: any;
+      selectedRitual?: any;
+      selectedStartingItem?: any;
+    };
     modulePoints?: {
       total: number;
       spent: number;
@@ -40,7 +47,10 @@ interface CharacterHeaderProps {
     };
   };
   onDelete?: () => void;
-  onResourceChange?: (resource: 'health' | 'energy' | 'resolve' | 'morale', newCurrent: number) => void;
+  onResourceChange?: (
+    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    newCurrent: number
+  ) => void;
 }
 
 const CharacterHeader: React.FC<CharacterHeaderProps> = ({
@@ -140,8 +150,27 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
               <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Culture</div>
                 <div style={{ color: 'var(--color-white)' }}>
-                  {character.culture || 'Not specified'}
+                  {character.characterCulture?.cultureId?.name || character.culture || 'Not specified'}
                 </div>
+                {character.characterCulture && (
+                  <div style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>
+                    {character.characterCulture.selectedRestriction && (
+                      <div style={{ color: 'var(--color-danger)', marginBottom: '0.125rem' }}>
+                        ⚠ {character.characterCulture.selectedRestriction.name}
+                      </div>
+                    )}
+                    {character.characterCulture.selectedBenefit && (
+                      <div style={{ color: 'var(--color-success)', marginBottom: '0.125rem' }}>
+                        ✓ {character.characterCulture.selectedBenefit.name}
+                      </div>
+                    )}
+                    {character.characterCulture.selectedRitual && (
+                      <div style={{ color: 'var(--color-warning)' }}>
+                        ◆ {character.characterCulture.selectedRitual.name}
+                      </div>
+                    )}
+                  </div>
+                )}
               </div>
 
               <div>

@@ -2,11 +2,39 @@
   "id": 7,
   "name": "Devout",
   "description": "Faith Guides All\nDevout cultures are deeply religious societies organized around spiritual beliefs. They value piety, community service, and adherence to moral codes. Faith provides structure, meaning, and purpose to every aspect of life.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "Faith's Foundation",
-      "description": "Your faith provides unshakeable mental stability. You regain 1 Resolve whenever you perform a significant act in service of your faith or help someone in need according to your beliefs. However, committing acts that violate your faith's tenets causes immediate loss of 2 Resolve and ongoing guilt (1 Stress) until you seek proper atonement. During moments of genuine prayer or meditation (takes 10 minutes), you can convert 1 Stress into 1 Resolve, but this can only be done once per day. Your faith protects you - you gain +2 to Resilience checks against despair, nihilism, or loss of purpose.",
-      "data": "XX7"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

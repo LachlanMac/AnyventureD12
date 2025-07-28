@@ -2,11 +2,39 @@
   "id": 2,
   "name": "Wanderers",
   "description": "Free as the Wind\nWanderer cultures are nomadic peoples who value freedom, adaptability, and cultural exchange. They are masters of trade, storytelling, and survival on the road. Home is wherever they make camp, and their true wealth lies in the stories they carry and connections they forge.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "The Journey Sustains",
-      "description": "Movement and change rejuvenate your spirit. You regain 1 Resolve whenever you arrive in a new settlement or significant location you've never visited before. Additionally, if you remain in the same location for more than a week, you gain 1 Stress at the end of each subsequent week as wanderlust gnaws at you. When sharing stories of your travels around a campfire or in a tavern, you can spend 1 Resolve to grant all allies who listen a temporary Resolve point that lasts until the next rest.",
-      "data": "XX2"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

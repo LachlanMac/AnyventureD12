@@ -2,7 +2,7 @@
   "name": "Starsteel Shavings",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.125,
   "value": 2500,
   "rarity": "common"

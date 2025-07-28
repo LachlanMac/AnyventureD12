@@ -2,7 +2,7 @@
   "name": "Platinum Ingot",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 10,
   "value": 10000,
   "rarity": "common"

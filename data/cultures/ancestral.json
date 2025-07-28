@@ -2,11 +2,39 @@
   "id": 10,
   "name": "Ancestral",
   "description": "The Old Ways Are Best\nAncestral cultures are deeply rooted in ancient ways and customs. They value ceremony, respect for elders, and maintaining the old paths. Change comes slowly, if at all, and wisdom is measured in generations, not years.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "Guidance of Ancestors",
-      "description": "The spirits of your forebears provide stability and wisdom. You regain 1 Resolve whenever you honor your ancestors through ritual, uphold ancient traditions, or act according to ancestral wisdom. However, violating sacred customs or disrespecting the old ways causes you to lose 2 Resolve and feel the ancestors' disappointment (1 Stress). During times of great uncertainty, you can commune with ancestral spirits through meditation (10 minutes) to convert 1 Stress into guidance - this grants you +2 bonus dice on your next skill check that involves wisdom or tradition. The dead remember all debts, and their judgment weighs heavily on your soul.",
-      "data": "XX10"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

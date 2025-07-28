@@ -24,7 +24,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({
   // Helper function to get module type badge color
   const getModuleTypeColor = (type: string) => {
     switch (type.toLowerCase()) {
-      case 'racial':
+      case 'personality':
         return 'var(--color-sunset)';
       case 'core':
         return 'var(--color-sat-purple)';

@@ -320,7 +320,7 @@
   }
 
   .example-box::before {
-    content: "Example";
+    content: 'Example';
     position: absolute;
     top: -0.5rem;
     left: 1rem;
@@ -362,7 +362,7 @@
   }
 
   .note-box::before {
-    content: "Note";
+    content: 'Note';
     position: absolute;
     top: -0.75rem; /* Moved up slightly to create more space */
     left: 1rem;
@@ -389,7 +389,7 @@
   }
 
   .warning-box::before {
-    content: "Important";
+    content: 'Important';
     position: absolute;
     top: -0.5rem;
     left: 1rem;
@@ -574,4 +574,3 @@
     transform: translateY(0);
   }
 }
-

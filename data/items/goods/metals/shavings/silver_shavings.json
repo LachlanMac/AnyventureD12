@@ -2,7 +2,7 @@
   "name": "Silver Shavings",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.25,
   "value": 25,
   "rarity": "common"

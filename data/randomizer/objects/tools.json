@@ -1,0 +1,362 @@
+[
+    {
+        "id": 1,
+        "name": "Shovel",
+        "plural": "Shovels"
+    },
+    {
+        "id": 2,
+        "name": "Hammer",
+        "plural": "Hammers"
+    },
+    {
+        "id": 3,
+        "name": "Pitchfork",
+        "plural": "Pitchforks"
+    },
+    {
+        "id": 4,
+        "name": "Needle",
+        "plural": "Needles"
+    },
+    {
+        "id": 5,
+        "name": "Rope",
+        "plural": "Ropes"
+    },
+    {
+        "id": 6,
+        "name": "Shackles",
+        "plural": "Shackles"
+    },
+    {
+        "id": 7,
+        "name": "Torch",
+        "plural": "Torches"
+    },
+    {
+        "id": 8,
+        "name": "Bandage",
+        "plural": "Bandages"
+    },
+    {
+        "id": 9,
+        "name": "Knife",
+        "plural": "Knives"
+    },
+    {
+        "id": 10,
+        "name": "Tong",
+        "plural": "Tongs"
+    },
+    {
+        "id": 11,
+        "name": "Quill and Paper",
+        "plural": "Quill and Paper"
+    },
+    {
+        "id": 12,
+        "name": "Journal",
+        "plural": "Journals"
+    },
+    {
+        "id": 13,
+        "name": "Pouch",
+        "plural": "Pouches"
+    },
+    {
+        "id": 14,
+        "name": "Pot",
+        "plural": "Pots"
+    },
+    {
+        "id": 15,
+        "name": "Pan",
+        "plural": "Pans"
+    },
+    {
+        "id": 16,
+        "name": "Backpack",
+        "plural": "Backpacks"
+    },
+    {
+        "id": 17,
+        "name": "Bedroll",
+        "plural": "Bedrolls"
+    },
+    {
+        "id": 18,
+        "name": "Bell",
+        "plural": "Bells"
+    },
+    {
+        "id": 19,
+        "name": "Blanket",
+        "plural": "Blankets"
+    },
+    {
+        "id": 20,
+        "name": "Book",
+        "plural": "Books"
+    },
+    {
+        "id": 21,
+        "name": "Bucket",
+        "plural": "Buckets"
+    },
+    {
+        "id": 22,
+        "name": "Chain",
+        "plural": "Chains"
+    },
+    {
+        "id": 23,
+        "name": "Crowbar",
+        "plural": "Crowbars"
+    },
+    {
+        "id": 24,
+        "name": "Dice",
+        "plural": "Dice"
+    },
+    {
+        "id": 25,
+        "name": "Flute",
+        "plural": "Flutes"
+    },
+    {
+        "id": 26,
+        "name": "Lute",
+        "plural": "Lutes"
+    },
+    {
+        "id": 27,
+        "name": "Bagpipe",
+        "plural": "Bagpipes"
+    },
+    {
+        "id": 28,
+        "name": "Hand Drum",
+        "plural": "Hand Drums"
+    },
+    {
+        "id": 29,
+        "name": "Horn",
+        "plural": "Horns"
+    },
+    {
+        "id": 30,
+        "name": "Compass",
+        "plural": "Compasses"
+    },
+    {
+        "id": 31,
+        "name": "Orb",
+        "plural": "Orbs"
+    },
+    {
+        "id": 32,
+        "name": "Mining Pick",
+        "plural": "Mining Picks"
+    },
+    {
+        "id": 33,
+        "name": "Playing Cards",
+        "plural": "Playing Cards"
+    },
+    {
+        "id": 34,
+        "name": "Walking Stick",
+        "plural": "Walking Sticks"
+    },
+    {
+        "id": 35,
+        "name": "Rod",
+        "plural": "Rods"
+    },
+    {
+        "id": 36,
+        "name": "Handkerchief",
+        "plural": "Handkerchiefs"
+    },
+    {
+        "id": 37,
+        "name": "Disguise Kit",
+        "plural": "Disguise Kits"
+    },
+    {
+        "id": 38,
+        "name": "Lantern",
+        "plural": "Lanterns"
+    },
+    {
+        "id": 39,
+        "name": "Totem",
+        "plural": "Totems"
+    },
+    {
+        "id": 40,
+        "name": "Vial",
+        "plural": "Vials"
+    },
+    {
+        "id": 41,
+        "name": "Water Skin",
+        "plural": "Water Skins"
+    },
+    {
+        "id": 42,
+        "name": "Wooden Staff",
+        "plural": "Wooden Staves"
+    },
+    {
+        "id": 43,
+        "name": "Crystal Ball",
+        "plural": "Crystal Balls"
+    },
+    {
+        "id": 44,
+        "name": "Pendant",
+        "plural": "Pendants"
+    },
+    {
+        "id": 45,
+        "name": "Heart-Shaped Locket",
+        "plural": "Heart-Shaped Lockets"
+    },
+    {
+        "id": 46,
+        "name": "Flint and Steel",
+        "plural": "Flint and Steel"
+    },
+    {
+        "id": 47,
+        "name": "Pair of Scissors",
+        "plural": "Scissors"
+    },
+    {
+        "id": 48,
+        "name": "Basket",
+        "plural": "Baskets"
+    },
+    {
+        "id": 49,
+        "name": "Spade",
+        "plural": "Spades"
+    },
+    {
+        "id": 50,
+        "name": "Measuring Stick",
+        "plural": "Measuring Sticks"
+    },
+    {
+        "id": 51,
+        "name": "Painting Supplies",
+        "plural": "Painting Supplies"
+    },
+    {
+        "id": 52,
+        "name": "Tarrot Cards",
+        "plural": "Tarrot Cards"
+    },
+    {
+        "id": 53,
+        "name": "Bottle of Ale",
+        "plural": "Ale"
+    },
+    {
+        "id": 54,
+        "name": "Candle",
+        "plural": "Candles"
+    },
+    {
+        "id": 55,
+        "name": "Map",
+        "plural": "Maps"
+    },
+    {
+        "id": 56,
+        "name": "Chisel",
+        "plural": "Chisels"
+    },
+    {
+        "id": 57,
+        "name": "Fishing Pole",
+        "plural": "Fishing Poles"
+    },
+    {
+        "id": 58,
+        "name": "Healer's Kit",
+        "plural": "Healer's Kits"
+    },
+    {
+        "id": 59,
+        "name": "Jester's Hat",
+        "plural": "Jester's Hats"
+    },
+    {
+        "id": 60,
+        "name": "Jeweler's Kit",
+        "plural": "Jeweler's Kits"
+    },
+    {
+        "id": 61,
+        "name": "Thieves' Tools",
+        "plural": "Thieves' Tools"
+    },
+    {
+        "id": 62,
+        "name": "Compass",
+        "plural": "Compasses"
+    },
+    {
+        "id": 63,
+        "name": "Romance Book",
+        "plural": "Romance Books"
+    },
+    {
+        "id": 64,
+        "name": "Fantasy Book",
+        "plural": "Fantasy Books"
+    },
+    {
+        "id": 65,
+        "name": "History Book",
+        "plural": "History Books"
+    },
+    {
+        "id": 66,
+        "name": "Religious Text",
+        "plural": "Religious Texts"
+    },
+    {
+        "id": 67,
+        "name": "Bottle of Wine",
+        "plural": "Wine Bottles"
+    },
+    {
+        "id": 68,
+        "name": "Smut Novel",
+        "plural": "Smut Novels"
+    },
+    {
+        "id": 69,
+        "name": "Flask of Whiskey",
+        "plural": "Whiskey"
+    },
+    {
+        "id": 70,
+        "name": "Holy Symbol",
+        "plural": "Holy Symbols"
+    },
+    {
+        "id": 71,
+        "name": "Poisoner's Kit",
+        "plural": "Poisoners' Kits"
+    },
+    {
+        "id": 72,
+        "name": "Ink",
+        "plural": "Ink"
+    }
+]

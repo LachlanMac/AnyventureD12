@@ -2,7 +2,7 @@
   "name": "Electrum Ingot",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 7.5,
   "value": 1000,
   "rarity": "common"

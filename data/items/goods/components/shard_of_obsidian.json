@@ -2,7 +2,7 @@
   "name": "Shard of Obsidian",
   "description": "A sharp fragment of volcanic glass with razor-like edges",
   "type": "goods",
-"tags":["component"],,
+"tags": ["component"],
   "weight": 0.1,
   "value": 20,
   "rarity": "common"

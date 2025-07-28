@@ -1,0 +1,224 @@
+[
+  {
+    "id": "dumb_brute",
+    "name": "Dumb Brute",
+    "description": "Strong but as sharp as a door knob",
+    "weight_modifier": 30,
+    "height_modifier": 1.3,
+    "attributes": {
+      "physique": 2,
+      "mind": -1,
+      "knowledge": -2
+    },
+    "skills": {
+      "might": 2
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": [],
+    "wealth_modifier": 0,
+    "languages": [],
+    "special": []
+  },
+  {
+    "id": "smart",
+    "name": "Smart",
+    "description": "Very clever and can solve any problem due to superior intellect",
+    "weight_modifier": 0,
+    "height_modifier": 0,
+    "attributes": {
+      "knowledge": 1
+    },
+    "skills": {
+      "academics": 1,
+      "logic": 1
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": [],
+    "wealth_modifier": 0,
+    "languages": [],
+    "special": []
+  },
+  {
+    "id": "drunk",
+    "name": "Drunk",
+    "description": "Often drunk and spends a lot of time at the local tavern",
+    "weight_modifier": 0,
+    "height_modifier": 0,
+    "attributes": {},
+    "skills": {},
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": ["bottle_of_wine", "flask"],
+    "wealth_modifier": -8,
+    "languages": [],
+    "special": []
+  },
+  {
+    "id": "athletic",
+    "name": "Athletic",
+    "description": "In excellent physical condition with exceptional stamina",
+    "weight_modifier": -10,
+    "height_modifier": 0,
+    "attributes": {
+      "physique": 1
+    },
+    "skills": {
+      "fitness": 2,
+      "endurance": 1
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 2, "recovery": 0 },
+      "energy": { "max": 1, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 1,
+    "items": [],
+    "wealth_modifier": 0,
+    "languages": [],
+    "special": []
+  },
+  {
+    "id": "lisp",
+    "name": "Lisp",
+    "description": "Has a slight lisp and mispronounces certain words",
+    "weight_modifier": 0,
+    "height_modifier": 0,
+    "attributes": {},
+    "skills": {
+      "persuasion": -1
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": [],
+    "wealth_modifier": 0,
+    "languages": [],
+    "special": []
+  },
+  {
+    "id": "scarred",
+    "name": "Scarred",
+    "description": "Bears prominent scars from past battles or accidents",
+    "weight_modifier": 0,
+    "height_modifier": 0,
+    "attributes": {},
+    "skills": {
+      "presence": 1
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 1, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": [],
+    "wealth_modifier": 0,
+    "languages": [],
+    "special": ["intimidating_appearance"]
+  },
+  {
+    "id": "noble_born",
+    "name": "Noble Born",
+    "description": "Born into nobility with refined manners and education",
+    "weight_modifier": 0,
+    "height_modifier": 0,
+    "attributes": {
+      "social": 1
+    },
+    "skills": {
+      "expression": 1,
+      "academics": 1
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": ["signet_ring", "fine_clothes"],
+    "wealth_modifier": 50,
+    "languages": ["ancient_imperial"],
+    "special": ["noble_connections"]
+  },
+  {
+    "id": "street_urchin",
+    "name": "Street Urchin",
+    "description": "Grew up on the streets, learning to survive through wit and stealth",
+    "weight_modifier": -5,
+    "height_modifier": -0.1,
+    "attributes": {
+      "finesse": 1
+    },
+    "skills": {
+      "stealth": 1,
+      "thievery": 2
+    },
+    "weapon_talents": {},
+    "magic_talents": {},
+    "craft_talents": {},
+    "mitigations": {},
+    "resources": {
+      "health": { "max": 0, "recovery": 0 },
+      "energy": { "max": 0, "recovery": 0 },
+      "resolve": { "max": 0, "recovery": 0 },
+      "morale": { "max": 0 }
+    },
+    "movement": 0,
+    "items": ["lock_pick", "small_knife"],
+    "wealth_modifier": -15,
+    "languages": ["thieves_cant"],
+    "special": ["street_knowledge"]
+  }
+]

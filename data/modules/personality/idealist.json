@@ -13,7 +13,6 @@
       "cost": 2,
       "data": ""
     },
-   
     {
       "name": "Positive Idealism",
       "description": "You are enthusiastic to share your ideas and beliefs and present your case well. Gain +1 skill to persuasion. Additionally, gain +2 resolve.",
@@ -55,24 +54,24 @@
       "data": "XX"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Shared Idealism",
+      "description": "It is difficult to deny you when you get to talking about your beliefs. Gain +1 skill with persuasion. When you use a Wonder, you can choose an ally within a short (10 unit) distance to gain the same benefit you chose.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Unshakeable Faith",
+      "description": "Your core beliefs protect your mind from outside influence. When you gain either the charmed, confused, maddened, or afraid conditions, you can immediately make a resilience check. On a 10 or higher, the condition is removed without ever taking effect.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Martyr",
+      "description": "When you are at 0 health, and take damage that forces you to make a lifeline check, instead of rolling a d8, you can elect to roll a d4 and compare the result to the Lifeline Table. When you do this, all allies within a short (10 unit) distance immediately gain a wonder.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -80,7 +79,7 @@
     },
     {
       "name": "Visionary Idealist",
-      "description": "Gain +1 talent with social and +1 skill with persuasion.",
+      "description": "Gain +1 talent with social",
       "mtype": "core",
       "location": "7",
       "cost": 3,

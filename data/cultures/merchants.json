@@ -2,11 +2,39 @@
   "id": 6,
   "name": "Merchants",
   "description": "Everything Has a Price\nMerchant cultures are trade-focused societies that see opportunity everywhere. They value negotiation, networking, and turning profit from any situation. A good deal is as satisfying as any victory in battle, and wealth opens all doors.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "The Deal Sustains",
-      "description": "Successful commerce energizes you mentally. You regain 1 Resolve whenever you complete a profitable trade, negotiate a favorable deal, or identify a valuable opportunity others missed. However, losing money on a deal or being cheated causes you to lose 1 Resolve and gain anxiety about future transactions. If your total wealth drops below what you consider 'acceptable' (GM discretion based on your background), you gain 1 Stress per day until you restore your fortunes. You can spend 1 Resolve to instantly appraise the true value of any item or deal.",
-      "data": "XX6"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

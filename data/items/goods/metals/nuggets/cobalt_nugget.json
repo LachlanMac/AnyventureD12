@@ -2,7 +2,7 @@
   "name": "Cobalt Nugget",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.4,
   "value": 1000,
   "rarity": "common"

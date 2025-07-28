@@ -203,9 +203,23 @@ const CharacterSchema = new Schema({
       ref: 'Culture',
       required: false
     },
-    selectedOptions: [{
-      type: String
-    }]
+    selectedRestriction: {
+      name: String,
+      description: String
+    },
+    selectedBenefit: {
+      name: String,
+      description: String
+    },
+    selectedRitual: {
+      name: String,
+      description: String,
+      frequency: String
+    },
+    selectedStartingItem: {
+      name: String,
+      description: String
+    }
   },
   spellSlots: {
     type: Number,

@@ -2,11 +2,39 @@
   "id": 1,
   "name": "Loyalists",
   "description": "Bound by Duty and Honor\nLoyalist cultures are deeply devoted to hierarchy, order, and duty to a greater authority. They value discipline, honor, and sacrifice for the collective good. Members of this culture often serve in military or governmental roles, seeing their personal identity as inseparable from their duty to the state or crown.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "Duty Before Self",
-      "description": "Your sense of duty sustains you through hardship. Whenever you take an action that directly serves a superior, organization, or cause you've sworn to (GM's discretion), you regain 1 Resolve. However, if you ever act against your sworn duty or disobey a direct order from a legitimate superior, you immediately lose 2 Resolve and gain a Stress. You cannot regain Resolve through normal rest until you've made amends or received absolution from your organization.",
-      "data": "XX1"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

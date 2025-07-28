@@ -1,16 +1,26 @@
 import React, { useState, useEffect } from 'react';
 import { CharacterTrait } from '../../types/character';
+import { useToast } from '../../context/ToastContext';
 
 interface CharacterTraitSelectionProps {
   selectedTrait: string;
   onSelectTrait: (traitId: string) => void;
+  onValidateTraitChange?: (
+    fromTraitId: string,
+    toTraitId: string
+  ) => Promise<{ valid: boolean; error?: string }>;
 }
 
-const CharacterTraitSelection: React.FC<CharacterTraitSelectionProps> = ({ selectedTrait, onSelectTrait }) => {
+const CharacterTraitSelection: React.FC<CharacterTraitSelectionProps> = ({
+  selectedTrait,
+  onSelectTrait,
+  onValidateTraitChange,
+}) => {
   const [traits, setTraits] = useState<CharacterTrait[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [expanded, setExpanded] = useState<boolean>(true);
+  const { showError } = useToast();
 
   useEffect(() => {
     const fetchTraits = async () => {
@@ -35,8 +45,21 @@ const CharacterTraitSelection: React.FC<CharacterTraitSelectionProps> = ({ selec
     setExpanded(!expanded);
   };
 
-  const handleTraitSelect = (traitId: string) => {
-    onSelectTrait(traitId);
+  const handleTraitSelect = async (traitId: string) => {
+    // If deselecting or no validation function, just proceed
+    if (traitId === selectedTrait || !onValidateTraitChange) {
+      onSelectTrait(traitId);
+      return;
+    }
+
+    // Validate the trait change
+    const validation = await onValidateTraitChange(selectedTrait, traitId);
+    if (validation.valid) {
+      onSelectTrait(traitId);
+    } else {
+      // Show error message using toast system
+      showError(validation.error || 'Cannot change trait at this time.');
+    }
   };
 
   if (loading) {
@@ -243,11 +266,9 @@ const CharacterTraitSelection: React.FC<CharacterTraitSelectionProps> = ({ selec
                   </div>
                 </>
               ) : (
-                <p style={{ color: 'var(--color-cloud)' }}>
-                  Trait not found
-                </p>
+                <p style={{ color: 'var(--color-cloud)' }}>Trait not found</p>
               );
-            })()} 
+            })()}
           </>
         ) : (
           <>
@@ -262,8 +283,8 @@ const CharacterTraitSelection: React.FC<CharacterTraitSelectionProps> = ({ selec
               Select a Character Trait
             </h3>
             <p style={{ color: 'var(--color-cloud)' }}>
-              Choose a trait that represents your character's unique background or condition. This trait
-              provides permanent bonuses to your character.
+              Choose a trait that represents your character's unique background or condition. This
+              trait provides permanent bonuses to your character.
             </p>
             {traits.length === 0 && (
               <div

@@ -2,7 +2,7 @@
   "name": "Silver Nugget",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.5,
   "value": 50,
   "rarity": "common"

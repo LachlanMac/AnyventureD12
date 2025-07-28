@@ -12,7 +12,7 @@
   margin-top: 2rem;
   color: #c299ff; /* Light purple */
   background-color: rgba(0, 0, 0, 0.398);
-  padding:2rem 1rem 2rem 1rem;
+  padding: 2rem 1rem 2rem 1rem;
   border-radius: 20px;
 }
 
@@ -159,7 +159,9 @@
 /* Images */
 .wiki-content img {
   border-radius: 0.5rem;
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.1),
+    0 4px 6px -2px rgba(0, 0, 0, 0.05);
   max-width: 100%;
   height: auto;
 }
@@ -213,7 +215,6 @@
 .wiki-content .note-box strong {
   color: #f0e6ff; /* Even lighter purple for emphasis */
 }
-
 
 /* Triangle Line Dividers */
 .wiki-content .triangle-line {

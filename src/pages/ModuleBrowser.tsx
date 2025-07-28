@@ -13,7 +13,7 @@ interface ModuleOption {
 interface Module {
   _id: string;
   name: string;
-  mtype: 'racial' | 'core' | 'secondary';
+  mtype: 'core' | 'secondary' | 'personality';
   ruleset: number;
   options: ModuleOption[];
 }
@@ -27,7 +27,7 @@ const ModuleBrowser: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
 
   // Filter states
-  const [activeFilter, setActiveFilter] = useState<'all' | 'racial' | 'core' | 'secondary'>('all');
+  const [activeFilter, setActiveFilter] = useState<'all' | 'core' | 'secondary' | 'personality'>('all');
 
   useEffect(() => {
     const fetchModules = async () => {
@@ -151,10 +151,10 @@ const ModuleBrowser: React.FC = () => {
               All
             </Button>
             <Button
-              variant={activeFilter === 'racial' ? 'accent' : 'secondary'}
-              onClick={() => setActiveFilter('racial')}
+              variant={activeFilter === 'personality' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('personality')}
             >
-              Racial
+              Personality
             </Button>
             <Button
               variant={activeFilter === 'core' ? 'accent' : 'secondary'}

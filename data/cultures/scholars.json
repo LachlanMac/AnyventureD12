@@ -2,11 +2,39 @@
   "id": 5,
   "name": "Scholars",
   "description": "Knowledge is Power\nScholar cultures prize knowledge, research, and intellectual pursuit above all else. They value wisdom, debate, and the preservation of information. To them, ignorance is the only true sin, and a life spent learning is a life well lived.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "Pursuit of Knowledge",
-      "description": "Learning new information sustains your mental well-being. You regain 1 Resolve whenever you learn a significant new fact, solve a complex puzzle, or gain access to rare knowledge. However, being prevented from learning or having your research interrupted causes frustration - if you go more than two days without learning something meaningful, you gain 1 Stress. When you encounter something that contradicts your firmly held beliefs or proves you wrong, you must make a Resilience check or lose 1 Resolve from the cognitive dissonance.",
-      "data": "XX5"
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

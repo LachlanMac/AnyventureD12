@@ -2,7 +2,7 @@
   "name": "Platinum Nugget",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 1.0,
   "value": 1000,
   "rarity": "common"

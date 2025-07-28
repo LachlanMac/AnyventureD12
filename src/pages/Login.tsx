@@ -93,9 +93,13 @@ const Login: React.FC = () => {
             fontSize: '0.875rem',
           }}
         >
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-dark-border)' }}></div>
+          <div
+            style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-dark-border)' }}
+          ></div>
           <span style={{ padding: '0 1rem' }}>OR</span>
-          <div style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-dark-border)' }}></div>
+          <div
+            style={{ flex: 1, height: '1px', backgroundColor: 'var(--color-dark-border)' }}
+          ></div>
         </div>
 
         <button

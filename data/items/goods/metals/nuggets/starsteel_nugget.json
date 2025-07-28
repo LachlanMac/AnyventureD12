@@ -2,7 +2,7 @@
   "name": "Starsteel Nugget",
   "description": "",
   "type": "goods",
-"tags":"metal",,
+"tags": ["metal"],
   "weight": 0.25,
   "value": 5000,
   "rarity": "common"

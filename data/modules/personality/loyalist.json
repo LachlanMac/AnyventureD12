@@ -56,24 +56,24 @@
       "data": "XX"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Intuitive Loyalty",
+      "description": "Your loyalty to others enhances your ability to understand their needs and motivations. Gain +1 skill with insight. When you make an insight check against a humanoid with a final check that is 7 or higher, you know exactly how much resolve they have.",
       "mtype": "core",
       "location": "5",
       "cost": 2,
-      "data": ""
+      "data": "SSS=1"
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "Strength in Allies",
+      "description": "For each humanoid that ends a full rest will full resolve within a very short (5 unit) distance of you, you gain 1 resolve. If you are already at full resolve, you gain 5 morale instead.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
       "data": ""
     },
     {
-      "name": "WIP",
-      "description": "This is currently not implemented",
+      "name": "No Man Left Behind",
+      "description": "When a humanoid ally is at 0 health, your resilience and endurance checks are rolled with 2 bonus dice. Additionally when you take the sprint action towards an ally that has 0 health, it does not take energy.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,
@@ -81,11 +81,11 @@
     },
     {
       "name": "Unbreakable Bonds",
-      "description": "Gain +1 talent with social and +1 skill with insight.",
+      "description": "Gain +1 talent with social.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "ST5=1:SSS=1"
+      "data": "ST5=1"
     }
   ]
 }

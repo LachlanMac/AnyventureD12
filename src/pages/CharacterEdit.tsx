@@ -446,7 +446,7 @@ const CharacterEdit: React.FC = () => {
         : null;
 
       // Handle module updates - keep all existing modules except personality
-      let updatedModules = [];
+      const updatedModules = [];
       let modulePointRefund = 0;
 
       // First, get all personality module IDs and their data to filter them out

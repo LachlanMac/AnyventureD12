@@ -2,11 +2,39 @@
   "id": 8,
   "name": "Warriors",
   "description": "Strength and Honor\nWarrior cultures are martial societies shaped by conflict and struggle. They value strength, courage, and proving oneself through combat or challenge. Every scar tells a story, and a warrior's reputation is their most valuable possession.",
-  "options": [
+  "culturalRestrictions": [
     {
-      "name": "Battle-Forged Spirit",
-      "description": "Combat and challenge strengthen your resolve rather than break it. You regain 1 Resolve whenever you face a worthy opponent in single combat, overcome a significant physical challenge, or defend others from danger. However, backing down from a fight, fleeing from battle, or showing cowardice causes you to lose 2 Resolve and gain a Stress from shame. If you go more than a week without facing some form of meaningful conflict or challenge, you become restless and gain 1 Stress. You can spend 1 Resolve to ignore pain and continue fighting for one round, even when critically wounded.",
-      "data": "XX8"
+      "name": "Honor-Bound",
+      "description": "A warrior is bound to their honor and does not use poisons, traps or attacking from stealth while in combat."
+    },
+    {
+      "name": "",
+      "description": ""
     }
-  ]
+  ],
+  "benefits": [
+    {
+      "name": "Duel",
+      "description": ""
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "Honor Blade",
+      "description": "A dagger that is used to grant a humanoid or beast an honorable death if they have surrendered or can no longer fight back. If this blade is used dishonorably, the wielder loses 1 resolve."
+    },
+    {
+      "name": "Tribal Emblem",
+      "description": "An emblem affixed to a piece of equipment that identifies you as a member of a group of warriors. Other warriors in this group will take this as an indisputible sign that you belong to that group."
+    },
+    {
+      "name": "",
+      "description": ""
+    }
+  ],
+  "options": []
 }

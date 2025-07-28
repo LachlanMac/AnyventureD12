@@ -1,6 +1,6 @@
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import { seedCultures } from '../utils/cultureSeeder.js';
+import { initializeCultures } from '../utils/cultureSeeder.js';
 
 dotenv.config();
 
@@ -10,7 +10,7 @@ const resetCultures = async () => {
     await mongoose.connect(mongoURI);
     console.log('Connected to MongoDB');
 
-    await seedCultures();
+    await initializeCultures();
     
     console.log('Culture reset complete!');
     process.exit(0);
