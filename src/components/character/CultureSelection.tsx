@@ -80,12 +80,6 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
     updateCultureWithSelections(newSelections);
   };
 
-  const handleOptionSelect = (option: any) => {
-    const newSelections = { ...cultureSelections, option };
-    setCultureSelections(newSelections);
-    updateCultureWithSelections(newSelections);
-  };
-
   const handleStartingItemSelect = (startingItem: any) => {
     const newSelections = { ...cultureSelections, startingItem };
     setCultureSelections(newSelections);

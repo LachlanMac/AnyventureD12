@@ -382,7 +382,7 @@ const CharacterCreate: React.FC = () => {
       const cultureData = selectedCulture
         ? {
             cultureId: selectedCulture._id,
-            selectedOptions: selectedCulture.options.map((option) => option.name),
+            selectedOptions: selectedCulture.options?.map((option) => option.name) || [],
           }
         : null;
 

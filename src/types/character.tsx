@@ -372,7 +372,6 @@ export interface CharacterCulture {
   cultureId: string;
   selectedRestriction?: CultureRestriction;
   selectedBenefit?: CultureBenefit;
-  selectedRitual?: CultureRitual;
   selectedStartingItem?: CultureStartingItem;
 }
 

@@ -86,6 +86,13 @@
       "order": 7
     },
     {
+      "id": "resting",
+      "title": "Resting",
+      "path": "core-mechanics/resting.md",
+      "category": "Core Mechanics",
+      "order": 8
+    },
+    {
       "id": "tracking-combat",
       "title": "Tracking Combat",
       "path": "combat/tracking-combat.md",
