@@ -4,36 +4,36 @@
   "description": "Free as the Wind\nWanderer cultures are nomadic peoples who value freedom, adaptability, and cultural exchange. They are masters of trade, storytelling, and survival on the road. Home is wherever they make camp, and their true wealth lies in the stories they carry and connections they forge.",
   "culturalRestrictions": [
     {
-      "name": "",
-      "description": ""
+      "name": "The Neverending Road",
+      "description": "Being incapable of travel is one of the worst fates you can imagine. If you go a complete day without being able to move due to an injury or disgurement, you lose 1 resolve."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Restless Spirit",
+      "description": "When you spend more than 7 days withint he same settlement or camp, you lose 3 resolve and you no longer can benefit from a favorable rest until you complete a rest in a different camp or settlement."
     }
   ],
   "benefits": [
     {
-      "name": "",
-      "description": ""
+      "name": "Traveler's Network",
+      "description": "You know the signs of your traveling group, and can leave signs yourself. This can be encoded messages that only members of your group can decipher."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Wandering Musicians",
+      "description": "Your people use song to pass the time on the road. You automatially learn the song of travel and gain 2 skill points in a single musical skill."
     }
   ],
   "startingItems": [
     {
-      "name": "",
-      "description": ""
+      "name": "Trade Tokens",
+      "description": "You have three very valuable tokens of trade that can be used to trade with members of your traveling group if you encounter them."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Traveler's Map",
+      "description": "You have a map, that when used, will give directions to the closest camp of travelers from your culture. This map can only be used once."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Tinkerer's Kit",
+      "description": "You have a bag of odds and ends that has three items in it which are only determined when you pull them out. You can decide what these items are as you pull them, as long as their value is worth less than 10 gold."
     }
   ],
   "options": []
