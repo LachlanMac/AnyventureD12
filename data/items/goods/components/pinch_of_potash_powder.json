@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Potash Powder",
+  "description": "Alkaline salt from wood ash, used in soap making and alchemical reactions",
+  "type": "goods",
+  "weight": 0.05,
+  "value": 20,
+  "rarity": "common"
+}

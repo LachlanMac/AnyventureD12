@@ -36,5 +36,6 @@
       "description": "You have a bag of odds and ends that has three items in it which are only determined when you pull them out. You can decide what these items are as you pull them, as long as their value is worth less than 10 gold."
     }
   ],
-  "options": []
+  "options": [],
+  "portrait": "/assets/cultures/wanderers.png"
 }

@@ -65,6 +65,10 @@ const CultureSchema = new Schema({
     type: String,
     required: true
   },
+  portrait: {
+    type: String,
+    default: ""
+  },
   culturalRestrictions: [CultureRestrictionSchema],
   benefits: [CultureBenefitSchema],
   startingItems: [CultureStartingItemSchema],

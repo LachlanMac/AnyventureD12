@@ -1,0 +1,14 @@
+{
+  "name": "Potion of True Polymorph",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 500,
+  "rarity": "legendary",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 14,
+    "ingredients": ["beast_head", "pinch_of_powdered_platinum", "pinch_of_powdered_platinum", "vial_of_acid", "vial_of_acid", "vial_of_acid", "vial_of_acid", "vial_of_mercury", "vial_of_mercury"]
+  }
+}

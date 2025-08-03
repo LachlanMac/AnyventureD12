@@ -1,0 +1,8 @@
+{
+  "name": "Vial of Quicksilver",
+  "description": "Liquid mercury used in transmutation and as a catalyst for alchemical reactions",
+  "type": "goods",
+  "weight": 0.2,
+  "value": 250,
+  "rarity": "uncommon"
+}

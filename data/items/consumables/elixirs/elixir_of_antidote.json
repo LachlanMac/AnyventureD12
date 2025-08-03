@@ -1,0 +1,14 @@
+{
+  "name": "Elixir of Antidote",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "elixirs",
+  "weight": 0.1,
+  "value": 5,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 6,
+    "ingredients": ["bundle_of_echinacea", "lump_of_charcoal", "lump_of_charcoal"]
+  }
+}

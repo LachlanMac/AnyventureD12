@@ -1,0 +1,9 @@
+{
+  "name": "Shadow Onyx",
+  "description": "A jet-black onyx that absorbs light and radiates dark energy, casting unnatural shadows",
+  "type": "goods",
+  "tags": ["gemstone"],
+  "weight": 0.1,
+  "value": 690,
+  "rarity": "uncommon"
+}

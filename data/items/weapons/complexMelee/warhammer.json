@@ -12,6 +12,7 @@
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "blunt",
+    "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -39,5 +40,10 @@
   "mitigation": {},
   "armor_penalties": {},
   "detections": {},
-  "immunities": {}
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 7,
+    "ingredients": ["heavy head", "short shaft", "bindings"]
+  }
 }

@@ -1,9 +1,9 @@
 {
   "name": "Starsteel Ingot",
-  "description": "",
+  "description": "A legendary metal that supposedly fell from the heavens in ancient meteorites. Starsteel has an otherworldly blue-silver sheen and exhibits properties that seem to transcend normal metallurgy. Even master smiths find it incredibly challenging to work with.",
   "type": "goods",
-"tags": ["metal"],
+  "tags": ["metal", "ingot", "legendary"],
   "weight": 2.5,
   "value": 50000,
-  "rarity": "common"
+  "rarity": "legendary"
 }

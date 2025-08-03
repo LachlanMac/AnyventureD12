@@ -1,0 +1,14 @@
+{
+  "name": "Lesser Firebomb",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "explosives",
+  "weight": 0.5,
+  "value": 26,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 7,
+    "ingredients": ["pouch_of_sulfur", "pouch_of_nitrate", "lump_of_charcoal", "lump_of_charcoal"]
+  }
+}

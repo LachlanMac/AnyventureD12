@@ -5,5 +5,9 @@
 "tags": ["metal"],
   "weight": 5.5,
   "value": 400,
-  "rarity": "common"
+  "rarity": "common",
+  "crafting": {
+    "difficulty_modifier": 1,
+    "properties": "Infuse a component with lead, which causes the object it is part of to become completely immutable."
+  }
 }

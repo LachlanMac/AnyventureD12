@@ -1,0 +1,9 @@
+{
+  "name": "Bundle of Heavy Leather",
+  "description": "Thick, durable leather pieces perfect for armor crafting, sturdy gear, and heavy-duty applications. Requires more skill to work but provides superior protection",
+  "type": "goods",
+  "tags": ["textiles", "leather", "crafting_material"],
+  "weight": 5.0,
+  "value": 45,
+  "rarity": "common"
+}

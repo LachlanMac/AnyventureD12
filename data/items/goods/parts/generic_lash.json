@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Leather Lash",
+    "description": "A flexible leather striking component braided from quality hide strips, essential for crafting whips and flexible weapons.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "flexible", "leather"],
+    "weight": 0.5,
+    "value": 60,
+    "rarity": "common",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["bundle of heavy leather strips"],
+      "difficulty": 3
+    },
+    "properties": "Standard material with no special effects"
+  },
+  {
+    "name": "Truesteel Chainlinked Lash",
+    "description": "A powerful striking component crafted from truesteel chainlinks, providing superior flexibility and striking power.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "flexible", "monster"],
+    "weight": 0.6,
+    "value": 240,
+    "rarity": "uncommon",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["truesteel ingot"],
+      "difficulty": 7
+    },
+    "properties": "Adds +1 primary damage when fabricated into an item."
+  }
+]

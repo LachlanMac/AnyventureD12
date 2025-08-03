@@ -1,0 +1,22 @@
+[
+  {
+    "name": "Sinew Bowstring",
+    "description": "A durable bowstring crafted from processed animal sinew, providing excellent elasticity and strength.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "string", "sinew"],
+    "weight": 0.1,
+    "value": 45,
+    "rarity": "common",
+    "properties": "Standard bowstring with no special effects"
+  },
+  {
+    "name": "Silk Bowstring",
+    "description": "An exceptional bowstring crafted from spider silk, providing incredible tensile strength despite its light weight, allowing the wielder to be more accurate at shorter distances.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "string", "silk"],
+    "weight": 0.05,
+    "value": 300,
+    "rarity": "rare",
+    "properties": "Reduces the minimum optimal range by 1 when fabricated into a ranged weapon."
+  }
+]

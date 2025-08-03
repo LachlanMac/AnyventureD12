@@ -12,6 +12,7 @@
     "damage_extra": "3",
     "damage_type": "physical",
     "category": "slash",
+    "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -39,6 +40,11 @@
   "mitigation": {},
   "armor_penalties": {},
   "detections": {},
-  "immunities": {}
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 6,
+     "ingredients": ["light blade", "handle", "bindings"]
+  }
 }
   

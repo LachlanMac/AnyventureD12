@@ -1,6 +1,6 @@
 {
   "name": "Glaive",
-  "description": "A single-edged blade mounted on the end of a long pole designed to provide long-ranged slashing attacks.",
+  "description": "A single-edged blade mounted on the end of a long pole designed to provide long-ranged slashing attacks. There is a small weight on the pommel that allows the wielder to make blunt attacks.",
   "type": "weapon",
   "weapon_category": "complexMelee",
   "weight": 3,
@@ -12,6 +12,7 @@
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "slash",
+    "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -50,5 +51,10 @@
   "mitigation": {},
   "armor_penalties": {},
   "detections": {},
-  "immunities": {}
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 7,
+    "ingredients": ["light blade (affects only primary slashing attack)","light head (affects only secondary blunt attacks)", "long shaft", "bindings"]
+  }
 }

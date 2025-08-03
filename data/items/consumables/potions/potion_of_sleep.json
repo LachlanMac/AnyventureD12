@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Sleep",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 6,
+    "ingredients": ["bundle_of_golden_poppy", "bundle_of_valerian_root", "bundle_of_valerian_root"]
+  }
+}

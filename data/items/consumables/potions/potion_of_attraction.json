@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Attraction",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 29,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 9,
+    "ingredients": ["bundle_of_saffron", "pinch_of_powdered_silver", "pinch_of_powdered_silver", "bottle_of_whiskey"]
+  }
+}

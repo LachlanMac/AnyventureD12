@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Calming",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 140,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 12,
+    "ingredients": ["bundle_of_golden_poppy", "bundle_of_golden_poppy", "bundle_of_licorice", "bundle_of_valerian_root"]
+  }
+}

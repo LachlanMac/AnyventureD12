@@ -1,0 +1,8 @@
+{
+  "name": "Spices (Tier 1)",
+  "description": "Common culinary spices like pepper, salt, and basic herbs that add +1 to all meal effects",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

@@ -66,6 +66,10 @@ const ItemSchema = new Schema({
       type: String, 
       enum: ["light", "heavy"],
   },
+  consumable_category: { 
+      type: String, 
+      enum: ["poisons", "elixirs", "potions", "explosives", "intoxicants", "snack", "meal"],
+  },
   bonus_attack: {
     type: Number,
     default: 0,

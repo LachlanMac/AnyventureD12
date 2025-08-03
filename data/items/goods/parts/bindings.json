@@ -1,0 +1,9 @@
+{
+  "name": "Bindings",
+  "description": "Essential fabrication components including rivets, pins, nails, washers, bolts, clamps, hinges, brackets, fasteners, and various small metal fittings required for crafting weapons, armor, and other metal goods",
+  "type": "goods",
+  "tags": ["parts", "fabrication", "assembly"],
+  "weight": 1.0,
+  "value": 15,
+  "rarity": "common"
+}

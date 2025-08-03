@@ -1,0 +1,9 @@
+{
+  "name": "Bundle of Silk",
+  "description": "Luxurious silk fabric pieces prized for their softness, strength, and lustrous appearance. Essential for high-quality clothing and premium textile applications",
+  "type": "goods",
+  "tags": ["textiles", "luxury", "crafting_material"],
+  "weight": 1.0,
+  "value": 85,
+  "rarity": "uncommon"
+}

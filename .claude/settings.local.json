@@ -46,7 +46,10 @@
       "Bash(npm run:*)",
       "Bash(mongosh:*)",
       "Bash(mongo:*)",
-      "Bash(systemctl status:*)"
+      "Bash(systemctl status:*)",
+      "Bash(do if [ \"$file\" != \"data/cultures/ancestral.json\" ])",
+      "Bash(then echo \"Processing $file\")",
+      "Bash(fi)"
     ],
     "deny": []
   },

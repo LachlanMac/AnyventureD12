@@ -1,0 +1,14 @@
+{
+  "name": "Field Porridge",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "meal",
+  "weight": 1,
+  "value": 1,
+  "rarity": "common",
+  "recipe": {
+    "type": "cooking",
+    "difficulty": 2,
+    "ingredients": ["grain", "liquid", "sweetener"]
+  }
+}

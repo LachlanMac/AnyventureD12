@@ -1,0 +1,9 @@
+{
+  "name": "Bundle of Cloth",
+  "description": "A collection of various fabric pieces including cotton, linen, and wool. Useful for crafting clothing, padding, and basic textile goods",
+  "type": "goods",
+  "tags": ["textiles", "crafting_material"],
+  "weight": 2.0,
+  "value": 12,
+  "rarity": "common"
+}

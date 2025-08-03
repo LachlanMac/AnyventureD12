@@ -1,0 +1,14 @@
+{
+  "name": "Weak Elixir of Healing",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "elixirs",
+  "weight": 0.1,
+  "value": 15,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 6,
+    "ingredients": ["vial_of_flax_oil", "bundle_of_mandrake", "bundle_of_mandrake", "crushed_gem_5gp"]
+  }
+}

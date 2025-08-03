@@ -6,6 +6,8 @@ export interface Item {
   description: string;
   type: string;
   weapon_category?: string;
+  shield_category?: string;
+  consumable_category?: string;
   weight: number;
   value: number;
   bonus_attack: number;
@@ -30,6 +32,8 @@ export interface ItemFilters {
   search?: string;
   type?: string;
   weapon_category?: string;
+  shield_category?: string;
+  consumable_category?: string;
   rarity?: string;
   sortBy?: 'name' | 'type' | 'value' | 'weight';
   sortOrder?: 'asc' | 'desc';
@@ -40,6 +44,8 @@ export interface CreateItemData {
   description: string;
   type: string;
   weapon_category?: string;
+  shield_category?: string;
+  consumable_category?: string;
   weight: number;
   value: number;
   bonus_attack: number;

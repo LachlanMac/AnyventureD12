@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Iron Heavy Blade",
+    "description": "A substantial iron blade component designed for crafting large slashing weapons such as longswords, greataxes, battleaxes, and greatswords. This reliable component provides solid cutting power at an affordable cost.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "blade", "iron"],
+    "weight": 4.0,
+    "value": 450,
+    "rarity": "common",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 iron ingots"],
+      "difficulty": 5
+    },
+     "properties": "Standard material damage with no special effects"
+  },
+  {
+    "name": "Steel Heavy Blade",
+    "description": "A substantial steel blade component designed for crafting large slashing weapons such as longswords, greataxes, battleaxes, and greatswords. This durable component offers improved performance over iron alternatives.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "blade", "steel"],
+    "weight": 4.0,
+    "value": 650,
+    "rarity": "common",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 steel ingots"],
+      "difficulty": 7
+    },
+     "properties": "Standard material damage with no special effects"
+  },
+  {
+    "name": "True Steel Heavy Blade",
+    "description": "A substantial true steel blade component designed for crafting large slashing weapons of exceptional quality. This masterwork component delivers superior cutting power through advanced metallurgy.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "blade", "truesteel"],
+    "weight": 4.0,
+    "value": 1050,
+    "rarity": "uncommon",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 true steel ingots"],
+      "difficulty": 9
+    },
+    "properties": "Adds +1 primary damage when fabricated into an item."
+  },
+  {
+    "name": "Starsteel Heavy Blade",
+    "description": "A substantial starsteel blade component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "blade", "starsteel", "legendary"],
+    "weight": 3.0,
+    "value": 100450,
+    "rarity": "legendary",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 starsteel ingots"],
+      "difficulty": 15
+    },
+   "properties": "Adds +2 primary damage and +1 secondary damage when fabricated into an item."
+  }
+]

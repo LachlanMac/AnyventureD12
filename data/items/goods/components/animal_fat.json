@@ -1,0 +1,8 @@
+{
+  "name": "Animal Fat",
+  "description": "Rendered fat used as a base for salves and slow-release potions",
+  "type": "goods",
+  "weight": 0.2,
+  "value": 1,
+  "rarity": "common"
+}

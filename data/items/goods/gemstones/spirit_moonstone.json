@@ -1,0 +1,9 @@
+{
+  "name": "Spirit Moonstone",
+  "description": "A luminous moonstone that phases between the material and ethereal planes, pulsing with mystical energy",
+  "type": "goods",
+  "tags": ["gemstone"],
+  "weight": 0.1,
+  "value": 710,
+  "rarity": "uncommon"
+}

@@ -155,6 +155,7 @@ export interface Culture {
   id: number;
   name: string;
   description: string;
+  portrait?: string;
   culturalRestrictions: CultureRestriction[];
   benefits: CultureBenefit[];
   startingItems: CultureStartingItem[];
@@ -282,6 +283,15 @@ export interface Item {
     | 'complexRanged'
     | 'unarmed'
     | 'throwing';
+  shield_category?: 'light' | 'heavy';
+  consumable_category?:
+    | 'poisons'
+    | 'elixirs'
+    | 'potions'
+    | 'explosives'
+    | 'intoxicants'
+    | 'snack'
+    | 'meal';
   bonus_attack?: number;
   primary?: Damage;
   secondary?: Damage;

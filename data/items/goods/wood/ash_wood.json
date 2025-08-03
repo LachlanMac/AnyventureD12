@@ -1,0 +1,9 @@
+{
+  "name": "Ash Wood",
+  "description": "A reliable hardwood prized for its excellent balance of flexibility and strength. Its consistent grain and workability make it ideal for crafting quality tools and weapons",
+  "type": "goods",
+  "tags": ["wood", "crafting_material", "bow_material"],
+  "weight": 2.5,
+  "value": 15,
+  "rarity": "common"
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Bundle of Light Leather",
+  "description": "Thin, flexible leather pieces suitable for clothing, light armor padding, and delicate leather goods. Easy to work with and comfortable to wear",
+  "type": "goods",
+  "tags": ["textiles", "leather", "crafting_material"],
+  "weight": 3.0,
+  "value": 25,
+  "rarity": "common"
+}

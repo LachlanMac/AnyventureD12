@@ -1,0 +1,14 @@
+{
+  "name": "Comfort Soup",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "meal",
+  "weight": 1.5,
+  "value": 4,
+  "rarity": "common",
+  "recipe": {
+    "type": "cooking",
+    "difficulty": 5,
+    "ingredients": ["broth", "vegetable", "vegetable", "herb", "grain"]
+  }
+}

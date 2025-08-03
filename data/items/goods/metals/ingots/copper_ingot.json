@@ -1,8 +1,8 @@
 {
   "name": "Copper Ingot",
-  "description": "",
+  "description": "A reddish-brown metal ingot known for its malleability and excellent heat and electrical conductivity. Copper is one of the easiest metals to work with and is often used for practice pieces and decorative items.",
   "type": "goods",
-"tags": ["metal"],
+  "tags": ["metal", "ingot"],
   "weight": 4,
   "value": 40,
   "rarity": "common"

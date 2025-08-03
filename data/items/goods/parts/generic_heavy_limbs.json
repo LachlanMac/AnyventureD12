@@ -1,0 +1,77 @@
+[
+  {
+    "name": "Ash Heavy Limbs",
+    "description": "Long, powerful ash wood limb components crafted for large bows such as longbows, warbows, and heavy crossbows. These flexible yet strong limbs provide reliable performance.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "bow", "wood", "ash"],
+    "weight": 2.5,
+    "value": 150,
+    "rarity": "common",
+    "recipe": {
+      "skill": "engineering",
+      "ingredients": ["2 ash wood", "wood treatment oil"],
+      "difficulty": 6
+    },
+    "properties": "Standard material damage with no special effects"
+  },
+  {
+    "name": "Yew Heavy Limbs",
+    "description": "Long, powerful yew wood limb components crafted for large bows. The natural properties of yew create exceptional spring and power in these premium limbs.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "bow", "wood", "yew"],
+    "weight": 3.0,
+    "value": 450,
+    "rarity": "uncommon",
+    "recipe": {
+      "skill": "engineering",
+      "ingredients": ["2 yew wood", "wood treatment oil"],
+      "difficulty": 8
+    },
+     "properties": "Adds +1 maximum range at the expense of adding +1 minimum range."
+  },
+  {
+    "name": "Ironwood Heavy Limbs",
+    "description": "Long, powerful ironwood limb components crafted from the densest of hardwoods. These exceptional limbs rival metal in durability while maintaining organic flexibility.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "bow", "wood", "ironwood"],
+    "weight": 4.0,
+    "value": 1200,
+    "rarity": "rare",
+    "recipe": {
+      "skill": "engineering",
+      "ingredients": ["2 ironwood", "wood treatment oil"],
+      "difficulty": 10
+    },
+     "properties": "Adds +1 maximum range and +1 primary damage when fabricated into a ranged weapon"
+  },
+  {
+    "name": "True Steel Heavy Limbs",
+    "description": "Long, powerful true steel limb components forged from exceptional metallurgy for masterwork heavy crossbows. These premium limbs deliver unmatched power and accuracy.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "bow", "truesteel"],
+    "weight": 4.0,
+    "value": 1050,
+    "rarity": "uncommon",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 true steel ingots"],
+      "difficulty": 10
+    },
+    "properties": "Adds +1 secondary damage when fabricated into a ranged weapon"
+  },
+  {
+    "name": "Starsteel Heavy Limbs",
+    "description": "Long, powerful starsteel limb components forged from legendary celestial metal. These otherworldly limbs channel devastating power through their divine properties.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "bow", "starsteel", "legendary"],
+    "weight": 3.0,
+    "value": 100450,
+    "rarity": "legendary",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 starsteel ingots"],
+      "difficulty": 14
+    },
+    "properties": "Adds +2 primary damage and +1 secondary damage when fabricated into a ranged weapon"
+  }
+]

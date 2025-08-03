@@ -12,12 +12,14 @@
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "slash",
+    "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 1,
     "max_range": 1
   },
+  
   "health": {
     "max": 0,
     "recovery": 0
@@ -39,5 +41,10 @@
   "mitigation": {},
   "armor_penalties": {},
   "detections": {},
-  "immunities": {}
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 8,
+    "ingredients": ["2 heavy blades", "short shaft", "bindings"]
+  }
 }

@@ -1,0 +1,62 @@
+[
+  {
+    "name": "Iron Heavy Head",
+    "description": "A substantial iron head component designed for crafting large blunt weapons such as warhammers, greathammers, and mauls. This reliable component provides solid crushing power at an affordable cost.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "head", "iron"],
+    "weight": 5.0,
+    "value": 450,
+    "rarity": "common",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 iron ingots"],
+      "difficulty": 5
+    },
+    "properties": "Standard material damage with no special effects"
+  },
+  {
+    "name": "Steel Heavy Head",
+    "description": "A substantial steel head component designed for crafting large blunt weapons of superior quality. This durable component offers improved crushing power over iron alternatives.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "head", "steel"],
+    "weight": 5.0,
+    "value": 650,
+    "rarity": "common",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 steel ingots"],
+      "difficulty": 7
+    },
+    "properties": "Standard material damage with no special effects"
+  },
+  {
+    "name": "True Steel Heavy Head",
+    "description": "A substantial true steel head component designed for crafting exceptional large blunt weapons. This masterwork component delivers superior crushing power through advanced metallurgy.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "head", "truesteel"],
+    "weight": 5.0,
+    "value": 1050,
+    "rarity": "uncommon",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 true steel ingots"],
+      "difficulty": 9
+    },
+    "properties": "Adds +1 primary damage when fabricated into an item."
+  },
+  {
+    "name": "Starsteel Heavy Head",
+    "description": "A substantial starsteel head component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "head", "starsteel", "legendary"],
+    "weight": 4.0,
+    "value": 100450,
+    "rarity": "legendary",
+    "recipe": {
+      "skill": "fabrication",
+      "ingredients": ["2 starsteel ingots"],
+      "difficulty": 15
+    },
+    "properties": "Adds +2 primary damage and +1 secondary damage when fabricated into an item."
+  }
+]

@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Ochre Dust",
+  "description": "Iron-rich clay powder in red or yellow, used as pigment and drying agent in alchemy",
+  "type": "goods",
+  "weight": 0.05,
+  "value": 10,
+  "rarity": "common"
+}

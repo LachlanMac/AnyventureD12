@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Awakening",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 30,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["bundle_of_licorice", "bundle_of_licorice", "bottle_of_pure_alcohol"]
+  }
+}

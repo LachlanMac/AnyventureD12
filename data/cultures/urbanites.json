@@ -36,5 +36,6 @@
       "description": "A reversible cloak with different colors/patterns on each side, plus a hood that can dramatically change your silhouette. When you make a stealth check in an urban environement like a large town or city, you gain a bonus dice on that check."
     }
   ],
-  "options": []
+  "options": [],
+  "portrait": "/assets/cultures/urbanites.png"
 }

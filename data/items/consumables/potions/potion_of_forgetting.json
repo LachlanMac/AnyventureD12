@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Forgetting",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 170,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 14,
+    "ingredients": ["bundle_of_gingko", "bundle_of_gingko", "bundle_of_gingko", "pinch_of_powdered_gold", "pinch_of_powdered_gold", "bottle_of_pure_alcohol"]
+  }
+}

@@ -1,0 +1,41 @@
+{
+  "id": 1,
+  "name": "Empire",
+  "description": "Bound by Duty and Honor\nLoyalist cultures are deeply devoted to hierarchy, order, and duty to a greater authority. They value discipline, honor, and sacrifice for the collective good. Members of this culture often serve in military or governmental roles, seeing their personal identity as inseparable from their duty to the state or crown.",
+  "culturalRestrictions": [
+    {
+      "name": "Imperial Dignity",
+      "description": "You must uphold the Empire's reputation. If you are witnessed by a member of your culture under the effects of the confused, maddened, charmed or afraid conditions, you lose 1 resolve."
+    },
+    {
+      "name": "Absolute Loyalty",
+      "description": "Your word is your bond, especially to your sovereign or state. Breaking sworn oaths, abandoning official duties, or betraying your allegiance to your nation/ruler causes you to lose 3 resolve. Renouncing your loyalist oath causes you to become broken if you do not roll an 11 or higher on a resilience check."
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Glory of the Empire",
+      "description": "When you defeat a significant enemy (Champion tier or higher) in service to your Empire, you gain 2 resolve."
+    },
+    {
+      "name": "Service to State",
+      "description": "When you complete a major objective that advances your culture and you bring proof to a superior in your culture or faction, you gain 3 resolve and 3 morale. "
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "Proof of Loyalty",
+      "description": "An emblem, sash, or tabbard that shows your loyalty to a specific faction within your sovereign state."
+    },
+    {
+      "name": "State Issued Weapon",
+      "description": "A short sword that is gifted to conscripted youth who are forcibly drafted into temporary military service. This sword identifies you as having served the required amount of time."
+    },
+    {
+      "name": "Standard Banner",
+      "description": "A banner with the colors representing your allegiance. You can plant this flag as an action within soft ground, giving all allies with the same loyalist culture a bonus dice to all resilience checks when within a short (10 unit) distance."
+    }
+  ],
+  "options": [],
+  "portrait": "/assets/cultures/empire.png"
+}

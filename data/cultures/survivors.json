@@ -1,0 +1,41 @@
+{
+  "id": 15,
+  "name": "Survivors",
+  "description": "Death is a Daily Visitor\nSurvivor cultures are forged in the harshest environments where every day is a struggle against extinction. Whether born from frozen wastes, scorching deserts, toxic swamps, or post-catastrophe wastelands, they value pragmatism, resourcefulness, and the will to endure. They waste nothing, trust cautiously, and know that tomorrow is never guaranteed.",
+  "culturalRestrictions": [
+    {
+      "name": "No One Left Behind",
+      "description": "Abandoning allies contradicts everything survivors believe. Leaving allies behind in dangerous situations when you could reasonably attempt rescue causes you to lose 3 resolve."
+    },
+    {
+      "name": "Circle of Trust",
+      "description": "Survivor groups depend on absolute trust to survive. When you witness betrayal within your trusted circle - allies harming, lying to, or stealing from each other - you lose 2 resolve as the bonds that keep everyone alive are damaged."
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Scavenger",
+      "description": "Your experience in harsh environments has honed your ability to find valuable resources others would miss. Gain bonus dice on Wildcraft and Senses checks when searching for food, water, shelter materials, or other survival necessities in any environment."
+    },
+    {
+      "name": "Provider",
+      "description": "Contributing to your group's survival strengthens your sense of purpose and belonging. When you craft an item worth more than 10 gold for an ally, you gain 2 resolve."
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "Group Signal Horn",
+      "description": "A horn with a distinctive sound known to your culture and allies. Can be used to call for help, coordinate with allies at distance, or signal danger to other survivors in the area."
+    },
+    {
+      "name": "Desert Wraps",
+      "description": "Unique garbs meant to protect against the harsh sands and temperature shifts of the desert. While wearing these, you gain a bonus dice when rolling any check against an environmental effect, such as an extreme temperature or sandstorm."
+    },
+    {
+      "name": "Warming Stone",
+      "description": "Three warming stones that can be rubbed together to create a friction based heat effect that lasts 4 hours. When carrying one of these warmed stones, you gain a bonus dice to any check against the cold."
+    }
+  ],
+  "options": [],
+  "portrait": "/assets/cultures/survivors.png"
+}

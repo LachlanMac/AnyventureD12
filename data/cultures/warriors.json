@@ -36,5 +36,6 @@
       "description": "A kit that allows the warrior to paint their face and body before an important battle. When painted in this way, the warrior recovers 3 resolve after their next battle if it contained a champion or higher tiered creature. The woad wears off after a full rest, causing the warrior to lose 3 resolve if they did not fight a battle with a champion tiered creature or higher."
     }
   ],
-  "options": []
+  "options": [],
+  "portrait": "/assets/cultures/warriors.png"
 }

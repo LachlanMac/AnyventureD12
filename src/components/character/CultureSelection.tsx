@@ -219,7 +219,7 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                 type="button"
                 style={{
                   position: 'relative',
-                  padding: '0.75rem 1.5rem',
+                  padding: '0.75rem 1.5rem 0.75rem 1rem', // Reduced right padding to make room for portrait
                   borderRadius: '0.375rem',
                   backgroundColor:
                     selectedCulture === culture.name
@@ -238,7 +238,37 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                 }}
                 onClick={() => handleCultureSelect(culture.name)}
               >
-                <span>{culture.name}</span>
+                <span style={{ maxWidth: 'calc(100% - 50px)' }}>{culture.name}</span>
+                <div
+                  style={{
+                    position: 'absolute',
+                    right: '0',
+                    top: '0',
+                    bottom: '0',
+                    width: '50px', // Increased width for larger portrait
+                    overflow: 'hidden',
+                    backgroundColor: 'rgba(0,0,0,0.2)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    borderTopRightRadius: '0.375rem',
+                    borderBottomRightRadius: '0.375rem',
+                  }}
+                >
+                  <img
+                    src={culture.portrait || '/assets/cultures/default.png'}
+                    alt={culture.name}
+                    onError={(e) => {
+                      // Fallback for missing images
+                      e.currentTarget.src = '/assets/cultures/default.png';
+                    }}
+                    style={{
+                      width: '100%',
+                      height: '100%',
+                      objectFit: 'cover',
+                    }}
+                  />
+                </div>
               </button>
             ))}
           </div>

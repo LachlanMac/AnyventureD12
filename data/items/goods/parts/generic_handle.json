@@ -1,0 +1,32 @@
+[
+  {
+    "name": "Wooden Handle",
+    "description": "A simple wooden grip component designed for weapon hilts and tool handles, providing basic control and comfort during use.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "grip", "wood"],
+    "weight": 0.8,
+    "value": 5,
+    "rarity": "common",
+    "properties": "Standard grip with no special effects"
+  },
+  {
+    "name": "Leather Handle",
+    "description": "A leather-wrapped grip component providing comfortable control for weapons and tools.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "grip", "leather"],
+    "weight": 0.5,
+    "value": 15,
+    "rarity": "common",
+    "properties": "Standard grip with no special effects"
+  },
+  {
+    "name": "Metal Handle",
+    "description": "A metal grip component offering durability and solid control for heavy-duty weapons and tools.",
+    "type": "goods",
+    "tags": ["parts", "weapon_component", "grip", "metal"],
+    "weight": 1.0,
+    "value": 25,
+    "rarity": "common",
+    "properties": "Standard grip with enhanced durability"
+  }
+]

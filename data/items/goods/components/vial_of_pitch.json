@@ -1,0 +1,8 @@
+{
+  "name": "Vial of Pitch",
+  "description": "Black tar from pine trees, used for waterproofing and adhesion in alchemy",
+  "type": "goods",
+  "weight": 0.2,
+  "value": 50,
+  "rarity": "common"
+}

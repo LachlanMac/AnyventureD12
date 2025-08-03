@@ -1,0 +1,9 @@
+{
+  "name": "Hickory Wood",
+  "description": "A tough, shock-resistant hardwood known for its durability and strength. Commonly used in tool handles and weapons due to its ability to withstand heavy impacts",
+  "type": "goods",
+  "tags": ["wood", "crafting_material", "bow_material"],
+  "weight": 2.0,
+  "value": 5,
+  "rarity": "common"
+}

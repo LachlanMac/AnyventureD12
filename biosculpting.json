@@ -1,0 +1,293 @@
+ [
+    {
+      "name": "Carapace Armor",
+      "description": "Living armor that bonds with the wearer's skin, hardening in response to threats",
+      "ingredients": ["beetle_carapace", "symbiotic_fungus", "nerve_tissue", "chitin_secretions"]
+    },
+    {
+      "name": "Glow Wasp Lantern",
+      "description": "A docile wasp colony modified to emit bright bioluminescence on command",
+      "ingredients": ["wasp_queen", "firefly_glands", "pheromone_sac", "sugar_solution"]
+    },
+    {
+      "name": "Blood Leech Purifier",
+      "description": "Symbiotic leeches that attach to the host and filter toxins from their bloodstream",
+      "ingredients": ["medicinal_leech", "liver_tissue", "filtering_membrane", "adaptation_enzymes"]
+    },
+    {
+      "name": "Bone Weaver Spider",
+      "description": "Modified spider that secretes calcium-rich silk to mend broken bones",
+      "ingredients": ["orb_weaver", "bone_marrow", "calcium_glands", "healing_hormones"]
+    },
+    {
+      "name": "Echo Bat Messenger",
+      "description": "Bat engineered with enhanced memory to deliver messages between locations",
+      "ingredients": ["fruit_bat", "parrot_brain_tissue", "homing_gland", "vocal_enhancer"]
+    },
+    {
+      "name": "Muscle Fiber Graft",
+      "description": "Living muscle tissue that integrates with the host to enhance strength",
+      "ingredients": ["predator_muscle", "growth_hormone", "nerve_connectors", "rejection_suppressant"]
+    },
+    {
+      "name": "Acid Spit Gland",
+      "description": "Implanted gland that allows the host to produce and spit corrosive acid",
+      "ingredients": ["bombardier_beetle_gland", "acid_resistant_lining", "pressure_sac", "targeting_neurons"]
+    },
+    {
+      "name": "Living Lockpick",
+      "description": "Tentacled organism that can navigate and manipulate lock mechanisms",
+      "ingredients": ["octopus_arm", "sensitive_cilia", "metal_detecting_cells", "shape_memory_tissue"]
+    },
+    {
+      "name": "Scent Hound Symbiont",
+      "description": "Nasal cavity enhancement that grants tracking abilities equal to a bloodhound",
+      "ingredients": ["canine_olfactory_tissue", "scent_memory_cells", "neural_bridge", "mucous_enhancer"]
+    },
+    {
+      "name": "Breathing Gill Collar",
+      "description": "Living collar that extracts oxygen from water for underwater breathing",
+      "ingredients": ["shark_gills", "blood_vessel_mesh", "waterproof_skin", "oxygen_exchange_membrane"]
+    },
+    {
+      "name": "Camouflage Skin",
+      "description": "Grafted skin layer with chromatophores for adaptive camouflage",
+      "ingredients": ["chameleon_skin", "octopus_chromatophores", "neural_control_web", "transparent_scales"]
+    },
+    {
+      "name": "Toxic Spore Pouch",
+      "description": "Fungal sac that releases paralytic spores when squeezed",
+      "ingredients": ["puffball_fungus", "paralytic_toxin", "spore_accelerator", "protective_lining"]
+    },
+    {
+      "name": "Living Rope",
+      "description": "Snake-like organism that can extend, contract, and grip on command",
+      "ingredients": ["constrictor_muscle", "gecko_pad_cells", "stretch_proteins", "obedience_pheromones"]
+    },
+    {
+      "name": "Memory Worm",
+      "description": "Symbiotic worm that enhances memory storage and recall",
+      "ingredients": ["flatworm", "neural_tissue", "memory_proteins", "blood_brain_barrier_key"]
+    },
+    {
+      "name": "Healing Cocoon",
+      "description": "Chrysalis-like organism that envelops wounds and accelerates healing",
+      "ingredients": ["moth_cocoon", "stem_cells", "growth_factors", "antiseptic_secretions"]
+    },
+    {
+      "name": "Living Compass",
+      "description": "Magnetoreceptive organism that always points to magnetic north",
+      "ingredients": ["migratory_bird_brain", "magnetite_crystals", "stabilizing_fluid", "direction_indicator_cells"]
+    },
+    {
+      "name": "Venom Fang Implants",
+      "description": "Retractable fangs with customizable venom sacs",
+      "ingredients": ["snake_fangs", "venom_gland", "retractor_muscle", "venom_selection_valve"]
+    },
+    {
+      "name": "Living Parachute",
+      "description": "Membrane organism that expands into a functional parachute when falling",
+      "ingredients": ["flying_squirrel_membrane", "pressure_sensors", "rapid_expansion_cells", "grip_tendrils"]
+    },
+    {
+      "name": "Sonic Scream Throat",
+      "description": "Vocal cord modification that produces stunning sonic attacks",
+      "ingredients": ["bat_larynx", "amplification_chambers", "protective_dampeners", "frequency_modulators"]
+    },
+    {
+      "name": "Thermal Vision Eyes",
+      "description": "Eye modification that allows perception of heat signatures",
+      "ingredients": ["pit_viper_organs", "infrared_sensitive_cells", "neural_processors", "protective_lens"]
+    },
+    {
+      "name": "Living Backpack",
+      "description": "Symbiotic creature that clings to the back and stores items in specialized pouches",
+      "ingredients": ["marsupial_pouch", "gripping_limbs", "spatial_compression_organs", "load_distribution_skeleton"]
+    },
+    {
+      "name": "Pheromone Emitter",
+      "description": "Gland system that produces various pheromones for influence and communication",
+      "ingredients": ["moth_pheromone_gland", "chemical_synthesizer", "dispersion_pores", "selection_neurons"]
+    },
+    {
+      "name": "Living Grappling Hook",
+      "description": "Tentacle creature that can extend and anchor to distant surfaces",
+      "ingredients": ["squid_tentacle", "barnacle_cement_glands", "muscle_amplifiers", "distance_sensors"]
+    },
+    {
+      "name": "Detox Liver Symbiont",
+      "description": "Additional liver organ that processes poisons and alcohol at accelerated rates",
+      "ingredients": ["shark_liver", "hyperactive_enzymes", "toxin_breakdown_cells", "integration_vessels"]
+    },
+    {
+      "name": "Bone Blade Arm",
+      "description": "Arm modification where bones can extend through skin as weapons",
+      "ingredients": ["wolverine_claw_mechanism", "rapid_healing_tissue", "bone_hardening_cells", "retraction_system"]
+    },
+     {
+    "name": "Flesh Patch",
+    "description": "A small, leech-like creature that bonds with wounded flesh to seal injuries and promote rapid healing",
+    "effect": "Takes 2 actions to apply. Stops bleeding condition immediately and restores 1d6 health. Creature dissolves after healing is complete.",
+    "recipe": {
+      "type": "biosculpting",
+      "difficulty": 6,
+      "ingredients": ["medicinal_leech", "regenerative_tissue", "coagulation_agents", "flesh_bonding_enzymes"]
+    },
+    "usage_notes": [
+      "Creature must crawl from container to wound site (1 action)",
+      "Bonds with flesh and begins healing process (1 action)",
+      "Automatically removes bleeding condition",
+      "Restores health over next few minutes",
+      "Single-use - creature is consumed in the process"
+    ]
+  },
+    
+      {
+        "name": "Boring Worm Drill",
+        "description": "Rock-eating worm modified to tunnel through stone and metal on command",
+        "ingredients": ["rockborer_worm", "diamond_teeth_glands", "directional_pheromones", "metal_digestive_acids"]
+      },
+      {
+        "name": "Living Hammer",
+        "description": "Calcified creature that hardens its head on impact for striking",
+        "ingredients": ["woodpecker_skull", "impact_resistant_tissue", "shock_absorption_fluid", "grip_symbiont"]
+      },
+      {
+        "name": "Cutting Grass Blade",
+        "description": "Razor-sharp grass that maintains its edge through constant growth",
+        "ingredients": ["sawgrass", "metal_absorption_roots", "edge_maintaining_cells", "handle_bark"]
+      },
+      {
+        "name": "Acid Torch",
+        "description": "Bioluminescent organism that produces focused heat through chemical reaction",
+        "ingredients": ["firefly_light_organ", "thermite_bacteria", "focusing_lens_tissue", "heat_resistant_shell"]
+      },
+      {
+        "name": "Living Crossbow",
+        "description": "Creature with powerful tendons that launches bone projectiles",
+        "ingredients": ["mantis_shrimp_club", "spring_loaded_tendons", "bone_projectile_growth", "targeting_eye"]
+      },
+      {
+        "name": "Filter Mask",
+        "description": "Breathing apparatus creature that purifies air of toxins and diseases",
+        "ingredients": ["barnacle_filter", "viral_antibodies", "toxic_neutralizers", "seal_forming_tissue"]
+      },
+      {
+        "name": "Spy Beetle",
+        "description": "Beetle with compound eyes that transmits visual information to its handler",
+        "ingredients": ["jewel_beetle", "enhanced_optics", "neural_transmitter", "stealth_carapace"]
+      },
+      {
+        "name": "Living Shovel",
+        "description": "Mole-like appendage that rapidly excavates earth and stone",
+        "ingredients": ["mole_claws", "earth_moving_muscles", "soil_ejection_system", "reinforced_keratin"]
+      },
+      {
+        "name": "Sonic Probe",
+        "description": "Echolocation organ that maps surroundings and detects hidden spaces",
+        "ingredients": ["dolphin_sonar", "sound_amplifier", "echo_processing_brain", "directional_cone"]
+      },
+      {
+        "name": "Living Shield",
+        "description": "Turtle-shell organism that expands to block attacks",
+        "ingredients": ["tortoise_shell", "reactive_expansion_tissue", "shock_distribution_web", "grip_handles"]
+      }
+
+
+   ,
+      {
+        "name": "Trait Harvester",
+        "description": "Symbiotic organism that extracts genetic traits from consumed creature parts",
+        "recipe": {
+          "type": "biosculpting",
+          "difficulty": 8,
+          "ingredients": ["extraction_leech", "genetic_storage_sac", "trait_identifier_cells"]
+        }
+      },
+      {
+        "name": "Mammoth Fur Graft",
+        "description": "Implants woolly mammoth fur follicles for cold resistance",
+        "effect": "Grants cold mitigation +3",
+        "ingredients": ["mammoth_fur_sample", "follicle_integration_serum", "cold_adaptation_hormones"]
+      },
+      {
+        "name": "Salamander Regeneration",
+        "description": "Implants salamander healing factor for limb regrowth",
+        "effect": "Slowly regenerates lost limbs over time",
+        "ingredients": ["salamander_tail", "regeneration_activator", "stem_cell_booster"]
+      },
+      {
+        "name": "Electric Eel Organs",
+        "description": "Bioelectric organs that generate electrical discharges",
+        "effect": "Gain electric touch attack",
+        "ingredients": ["eel_electric_organ", "insulation_tissue", "discharge_controller"]
+      },
+      {
+        "name": "Spider Silk Glands",
+        "description": "Wrist-mounted glands that produce strong silk strands",
+        "effect": "Can produce 30ft of silk rope per day",
+        "ingredients": ["spider_silk_gland", "pressurization_sac", "spinneret_ports"]
+      },
+      {
+        "name": "Chameleon Eyes",
+        "description": "Independent eye movement and 360-degree vision",
+        "effect": "Cannot be flanked, +2 to perception",
+        "ingredients": ["chameleon_eyes", "neural_splitter", "integration_nerves"]
+      },
+      {
+        "name": "Rhino Hide Transplant",
+        "description": "Thick, armor-like skin grafted from rhinoceros",
+        "effect": "Natural armor +2, physical mitigation +1",
+        "ingredients": ["rhino_hide", "skin_integration_culture", "flexibility_treatment"]
+      },
+      {
+        "name": "Owl Silent Feathers",
+        "description": "Sound-dampening feathers for stealth",
+        "effect": "+3 to stealth checks",
+        "ingredients": ["owl_flight_feathers", "sound_absorption_treatment", "attachment_follicles"]
+      },
+      {
+        "name": "Bloodhound Nose",
+        "description": "Enhanced olfactory system for tracking",
+        "effect": "Can track by scent, identify creatures by smell",
+        "ingredients": ["bloodhound_nose_tissue", "scent_memory_enhancer", "neural_connections"]
+      },
+      {
+        "name": "Gecko Grip Pads",
+        "description": "Microscopic setae on hands and feet for climbing",
+        "effect": "Can climb any surface",
+        "ingredients": ["gecko_toe_pads", "setae_growth_formula", "selective_adhesion_control"]
+      }
+
+
+,
+      {
+        "name": "Trait Extractor Symbiont",
+        "description": "Creature that safely extracts genetic material from living or dead organisms",
+        "recipe": {
+          "type": "biosculpting",
+          "difficulty": 10,
+          "ingredients": ["vampire_bat_saliva", "genetic_preservation_cells", "extraction_proboscis"]
+        }
+      },
+      {
+        "name": "Graft Applicator",
+        "description": "Living tool that integrates foreign tissue into a host body",
+        "recipe": {
+          "type": "biosculpting",
+          "difficulty": 9,
+          "ingredients": ["integration_enzymes", "rejection_suppressor", "tissue_weaver"]
+        }
+      },
+      {
+        "name": "Trait Storage Vessel",
+        "description": "Living container that preserves extracted traits indefinitely",
+        "recipe": {
+          "type": "biosculpting",
+          "difficulty": 7,
+          "ingredients": ["stasis_organism", "preservation_fluid", "genetic_stabilizers"]
+        }
+      }
+    ]
+  
+  

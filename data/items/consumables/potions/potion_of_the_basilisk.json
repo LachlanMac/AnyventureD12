@@ -1,0 +1,14 @@
+{
+  "name": "Potion of the Basilisk",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 120,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["vial_of_venom", "vial_of_venom", "pouch_of_sulfur", "bottle_of_pure_alcohol"]
+  }
+}

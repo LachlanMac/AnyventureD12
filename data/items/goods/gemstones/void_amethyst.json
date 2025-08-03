@@ -1,0 +1,9 @@
+{
+  "name": "Void Amethyst",
+  "description": "A deep purple amethyst that seems to bend light around it and whispers with psychic energy",
+  "type": "goods",
+  "tags": ["gemstone"],
+  "weight": 0.1,
+  "value": 680,
+  "rarity": "uncommon"
+}

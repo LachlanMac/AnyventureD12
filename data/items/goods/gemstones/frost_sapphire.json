@@ -1,0 +1,9 @@
+{
+  "name": "Frost Sapphire",
+  "description": "A brilliant ice-blue sapphire that radiates cold energy and seems to frost the air around it",
+  "type": "goods",
+  "tags": ["gemstone"],
+  "weight": 0.1,
+  "value": 750,
+  "rarity": "uncommon"
+}

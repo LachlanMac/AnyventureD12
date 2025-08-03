@@ -25,6 +25,7 @@ const ItemCompendium: React.FC = () => {
   const [typeFilter, setTypeFilter] = useState<string>('all');
   const [rarityFilter, setRarityFilter] = useState<string>('all');
   const [weaponCategoryFilter, setWeaponCategoryFilter] = useState<string>('all');
+  const [consumableCategoryFilter, setConsumableCategoryFilter] = useState<string>('all');
 
   useEffect(() => {
     const fetchItems = async () => {
@@ -73,6 +74,11 @@ const ItemCompendium: React.FC = () => {
     // Weapon category filter
     if (weaponCategoryFilter !== 'all' && typeFilter === 'weapon') {
       filtered = filtered.filter((item) => item.weapon_category === weaponCategoryFilter);
+    }
+
+    // Consumable category filter
+    if (consumableCategoryFilter !== 'all' && typeFilter === 'consumable') {
+      filtered = filtered.filter((item) => item.consumable_category === consumableCategoryFilter);
     }
 
     // Sort by rarity (artifact > legendary > epic > rare > uncommon > common), then name
@@ -131,6 +137,17 @@ const ItemCompendium: React.FC = () => {
     'complexRanged',
     'unarmed',
     'throwing',
+  ];
+
+  const consumableCategories = [
+    'all',
+    'poisons',
+    'elixirs',
+    'potions',
+    'explosives',
+    'intoxicants',
+    'snack',
+    'meal',
   ];
 
   if (loading) {
@@ -358,6 +375,44 @@ const ItemCompendium: React.FC = () => {
                               .replace(/([A-Z])/g, ' $1')
                               .trim()
                               .replace(/^./, (str) => str.toUpperCase())}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+              )}
+
+              {/* Consumable Category Filter (only show when type is consumable) */}
+              {typeFilter === 'consumable' && (
+                <div>
+                  <label
+                    htmlFor="consumable-category-filter"
+                    style={{
+                      display: 'block',
+                      color: 'var(--color-cloud)',
+                      marginBottom: '0.5rem',
+                      fontSize: '0.875rem',
+                    }}
+                  >
+                    Consumable Category
+                  </label>
+                  <select
+                    id="consumable-category-filter"
+                    value={consumableCategoryFilter}
+                    onChange={(e) => setConsumableCategoryFilter(e.target.value)}
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      color: 'var(--color-white)',
+                      border: '1px solid var(--color-dark-border)',
+                      borderRadius: '0.375rem',
+                      padding: '0.5rem',
+                    }}
+                  >
+                    {consumableCategories.map((category) => (
+                      <option key={category} value={category}>
+                        {category === 'all'
+                          ? 'All Consumables'
+                          : category.charAt(0).toUpperCase() + category.slice(1)}
                       </option>
                     ))}
                   </select>

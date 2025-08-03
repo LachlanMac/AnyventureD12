@@ -1,8 +1,8 @@
 {
   "name": "Steel Ingot",
-  "description": "",
+  "description": "A high-quality steel ingot created by carefully controlling the carbon content in iron during the smelting process. Steel is stronger and more durable than iron, though more challenging to work with.",
   "type": "goods",
-"tags": ["metal"],
+  "tags": ["metal", "ingot"],
   "weight": 3.5,
   "value": 300,
   "rarity": "common"

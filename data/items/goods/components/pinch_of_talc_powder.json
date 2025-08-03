@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Talc Powder",
+  "description": "Soft mineral powder that absorbs moisture and prevents sticking in alchemical mixtures",
+  "type": "goods",
+  "weight": 0.05,
+  "value": 20,
+  "rarity": "common"
+}

@@ -4,37 +4,38 @@
   "description": "Everything Has a Price\nMerchant cultures are trade-focused societies that see opportunity everywhere. They value negotiation, networking, and turning profit from any situation. A good deal is as satisfying as any victory in battle, and wealth opens all doors.",
   "culturalRestrictions": [
     {
-      "name": "",
-      "description": ""
+      "name": "Dealseaker",
+      "description": "Paying the asking price without negotiating is a sign of weakness and poor business sense. If an ally buys something worth more than 10 gold at full price using communal funds, you lose 1 resolve. If you personally pay full price for any item worth more than 10 gold, you lose 2 resolve."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Merchant's Code",
+      "description": "You must uphold the honor of legitimate trade and commerce. If you or your allies attack traders, steal from merchants, destroy shops, knowingly sell defective goods as quality merchandise, or otherwise harm honest business, you lose 2 resolve."
     }
   ],
   "benefits": [
     {
-      "name": "",
-      "description": ""
+      "name": "Feel-Good Money",
+      "description": "For each 1000 gold you personally have on your person or within an institution that holds money, you recover an additional 1 resolve after completeling a full rest, up to a maximum of 3 resolve."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Appraiser's Eye",
+      "description": "Your trained eye can spot frauds, forgeries, and counterfeits with remarkable accuracy. When examining any item for signs of deception - counterfeit coins, forged documents, fake artifacts, disguised materials, or tampered goods - you automatically detect inconsistencies that others would miss. Additionally, whenever you successfully identify a fake or forgery, you gain 2 morale."
     }
   ],
   "startingItems": [
     {
-      "name": "",
-      "description": ""
+      "name": "Guild Seal",
+      "description": "A seal that identifies you as a member of a guild within a certain craft. For each talent point you have in the craft of your guild, start with an extra 10 gold."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Coin Purse",
+      "description": "A purse filled with 200 gold of inherited wealth."
     },
     {
-      "name": "",
-      "description": ""
+      "name": "Trade Compendium",
+      "description": "A comprehensive reference book containing detailed price guides, market values, and appraisal information from across various regions and cultures. When examining an item, roll 1d12 - on a 5 or higher, you find relevant information that reveals the item's approximate value and market demand."
     }
   ],
-  "options": []
+  "options": [],
+  "portrait": "/assets/cultures/merchants.png"
 }

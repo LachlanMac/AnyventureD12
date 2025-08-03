@@ -1,0 +1,8 @@
+{
+  "name": "Long Chain",
+  "description": "A heavy iron chain spanning 3 units, useful for securing heavy objects or prisoners. These changes can be fastened together to increase their length.",
+  "type": "adventure",
+  "weight": 20.0,
+  "value": 500,
+  "rarity": "common"
+}

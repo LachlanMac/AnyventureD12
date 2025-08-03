@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Gypsum Powder",
+  "description": "Soft white mineral that hardens when mixed with water, used for binding and molding",
+  "type": "goods",
+  "weight": 0.05,
+  "value": 10,
+  "rarity": "common"
+}

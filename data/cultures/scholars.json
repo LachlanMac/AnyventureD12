@@ -36,5 +36,6 @@
       "description": "A distinctive piece of jewelry, pin, or emblem that identifies you as a member of a recognized scholarly institution or academic society. Fellow scholars immediately recognize your credentials and will extend professional courtesy, while educated members of other cultures often show respect for your academic standing and expertise."
     }
   ],
-  "options": []
+  "options": [],
+  "portrait": "/assets/cultures/scholars.png"
 }

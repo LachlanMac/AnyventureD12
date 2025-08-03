@@ -1,0 +1,41 @@
+{
+  "id": 4,
+  "name": "Purifiers",
+  "description": "Through Pain, We Are Cleansed\nPurifier cultures believe that suffering and hardship burn away weakness, leaving only strength and truth. They practice ritual self-mortification, embrace painful ordeals, and see comfort as corruption of the spirit. To them, easy paths breed weakness, while agony forges unbreakable will. Pain is not avoided—it is welcomed as the ultimate teacher and purifier of body and soul.",
+  "culturalRestrictions": [
+    {
+      "name": "Daily Mortification",
+      "description": "You must take at least 1 self-inflicted damage to your health or 3 damage from an ally each day, or lose 2 resolve. When you take damage in this way, it is not mitigated by morale."
+    },
+    {
+      "name": "No Comforts",
+      "description": "You do not gain resolve or morale for completing a favorable rest or from consuming food or drink. However, you don't lose morale when completing an unfavorable rest."
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Rise in Pain",
+      "description": "When you complete a full rest with half of your maximum health or less, you gain 5 morale."
+    },
+    {
+      "name": "Embrace Suffering",
+      "description": "When you are suffering from any physical condition, you gain a bonus dice on all endurance and resilience checks. This bonus does not occur if you have any mental conditions."
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "Purifying Knife",
+      "description": "A small dagger that always deals 1 physical damage to willing creature, regardless of any physical mitigation."
+    },
+    {
+      "name": "Spiked Crown",
+      "description": "A jagged metal band with protruding spikes that dig into the skull and cause constant pain. When you wear this during a full rest, make an endurance or resilience check of 7 or higher to gain 1 morale - otherwise you lose 1 morale. An unwilling creature that wears this crown has a penalty dice to all resilience and endurance checks after wearing it for 1 hour."
+    },
+    {
+      "name": "Iron Mask",
+      "description": "A mask made of iron that covers most of your face, obscuring your identity. Wearing this mask gives you a bonus dice to any presence checks against humanoids you have dealt damage to within the last day."
+    }
+  ],
+  "options": [],
+  "portrait": "/assets/cultures/purifiers.png"
+}

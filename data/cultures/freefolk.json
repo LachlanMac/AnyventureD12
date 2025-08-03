@@ -1,0 +1,41 @@
+{
+  "id": 13,
+  "name": "Free Folk",
+  "description": "Bound by Nothing\nFree Folk cultures reject external authority and prize individual liberty above all else. They value self-reliance, personal expression, and the right to make their own choices. Born from rebellion, exile, or simply the desire to live unrestrained, they see any form of imposed rule as chains to be broken. Freedom is not just a philosophy—it's a way of life.",
+  "culturalRestrictions": [
+    {
+      "name": "Independent Spirit",
+      "description": "When someone gives you a command or order that you follow without questioning or modifying it, you lose 2 resolve. This includes military orders, noble commands, or official directives - but not requests, suggestions, or collaborative planning."
+    },
+    {
+      "name": "Idealist",
+      "description": "When you witness slavery, indentured servitude, or someone being held against their will unjustly, you must attempt to help within a day or lose 1 resolve."
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Liberator",
+      "description": "You gain resolve for liberating those who are held, in your opinion, in an unjust manner. If you have freed at least 1 beast or humanoid, you gain 2 resolve at the end of your next full rest."
+    },
+    {
+      "name": "Free from Influence",
+      "description": "When you first acquire the charmed condition, roll a d12. On a 6 or higher, the condition ends without taking effect."
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "Regional Customs Guide",
+      "description": "A practical reference book detailing local laws, social expectations, and cultural norms across different areas. This guide should contain most customs and laws for major cities and nations."
+    },
+    {
+      "name": "Brand",
+      "description": "An metal brand used to burn a unique mark into a humanoid, making them easier to identify. When branding a slaver, tyrant or humanoid that attempted to infringe upon yours or your allies rights, you gain 1 morale."
+    },
+    {
+      "name": "Token of Rebellion",
+      "description": "A unique token that identifies you as a member of a rebel group or culture. This token can be used as indisputable proof of your membership or involvement in either a past or present rebel group."
+    }
+  ],
+  "options": [],
+  "portrait": "/assets/cultures/freefolk.png"
+}

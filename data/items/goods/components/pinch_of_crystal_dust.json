@@ -1,0 +1,8 @@
+{
+  "name": "Pinch of Crystal Dust",
+  "description": "Powdered quartz crystal used to clarify solutions and store magical energy",
+  "type": "goods",
+  "weight": 0.05,
+  "value": 50,
+  "rarity": "common"
+}

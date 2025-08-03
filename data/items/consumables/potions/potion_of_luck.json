@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Luck",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 60,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["pinch_of_pixie_dust", "bottle_of_vinegar"]
+  }
+}

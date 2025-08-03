@@ -1,0 +1,8 @@
+{
+  "name": "Bone Dust",
+  "description": "Finely ground bone powder used in alchemy for structure and mineral content",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 2,
+  "rarity": "common"
+}

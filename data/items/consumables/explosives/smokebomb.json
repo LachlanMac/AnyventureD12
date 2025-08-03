@@ -1,0 +1,14 @@
+{
+  "name": "Smokebomb",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "explosives",
+  "weight": 0.2,
+  "value": 5,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 6,
+    "ingredients": ["pouch_of_saltpeter", "pinch_of_sugar", "pinch_of_sugar", "pinch_of_sugar", "pinch_of_sugar", "vial"]
+  }
+}

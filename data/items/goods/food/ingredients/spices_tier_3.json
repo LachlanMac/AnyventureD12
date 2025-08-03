@@ -1,0 +1,8 @@
+{
+  "name": "Spices (Tier 3)",
+  "description": "Magical spices infused with elemental essences and mystical properties that add +3 to all meal effects",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 200,
+  "rarity": "rare"
+}

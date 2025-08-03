@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Dispelling",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 100,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["lead_dust", "dark_catalyst", "bundle_of_mugwort"]
+  }
+}

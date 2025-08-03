@@ -1,0 +1,14 @@
+{
+  "name": "Sweet Pastry",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "snack",
+  "weight": 0.2,
+  "value": 3,
+  "rarity": "common",
+  "recipe": {
+    "type": "cooking",
+    "difficulty": 6,
+    "ingredients": ["flour", "sweetener", "fat", "fruit"]
+  }
+}

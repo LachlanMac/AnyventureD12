@@ -1,0 +1,8 @@
+{
+  "name": "Pine Resin",
+  "description": "Sticky tree sap used as an adhesive, binding agent, and preservative in alchemy",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 2,
+  "rarity": "common"
+}

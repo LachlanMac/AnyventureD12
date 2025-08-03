@@ -2,6 +2,7 @@
   "id": 10,
   "name": "Ancestral",
   "description": "The Old Ways Are Best\nAncestral cultures are deeply rooted in ancient ways and customs. They value ceremony, respect for elders, and maintaining the old paths. Change comes slowly, if at all, and wisdom is measured in generations, not years.",
+  "portrait": "/assets/cultures/ancestral.png",
   "culturalRestrictions": [
     {
       "name": "Respect of Elders",

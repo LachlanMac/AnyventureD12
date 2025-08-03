@@ -1,0 +1,9 @@
+{
+  "name": "True Steel Ingot",
+  "description": "An exceptional grade of steel created through masterful forging techniques and precise temperature control. True steel represents the pinnacle of traditional metallurgy, prized for its perfect balance of hardness and flexibility.",
+  "type": "goods",
+  "tags": ["metal", "ingot"],
+  "weight": 3.5,
+  "value": 500,
+  "rarity": "uncommon"
+}

@@ -1,8 +1,8 @@
 {
   "name": "Iron Ingot",
-  "description": "",
+  "description": "A refined bar of iron metal, smelted and shaped for use in crafting. Iron is abundant and reliable, making it the backbone of most metalworking projects.",
   "type": "goods",
-"tags": ["metal"],
+  "tags": ["metal", "ingot"],
   "weight": 3.5,
   "value": 200,
   "rarity": "common"

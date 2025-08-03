@@ -1,8 +1,0 @@
-{
-  "name": "15 ft. Chain [5 Unit]",
-  "description": "A heavy iron chain spanning 5 units, useful for securing heavy objects or prisoners",
-  "type": "adventure",
-  "weight": 20.0,
-  "value": 500,
-  "rarity": "common"
-}

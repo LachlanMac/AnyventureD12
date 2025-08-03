@@ -1,0 +1,9 @@
+{
+  "name": "Ironwood",
+  "description": "An exceptionally dense and resilient hardwood that rivals metal in durability. Master craftsmen prize this rare wood for creating items of unmatched strength and longevity",
+  "type": "goods",
+  "tags": ["wood", "crafting_material", "bow_material", "exotic"],
+  "weight": 4.0,
+  "value": 120,
+  "rarity": "rare"
+}

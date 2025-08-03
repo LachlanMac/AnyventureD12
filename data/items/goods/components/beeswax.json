@@ -1,0 +1,8 @@
+{
+  "name": "Beeswax",
+  "description": "Natural wax used to bind powders, thicken liquids, and seal containers",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 3,
+  "rarity": "common"
+}

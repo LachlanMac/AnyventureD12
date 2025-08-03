@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Serpent Sight",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 40,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["live_snake"]
+  }
+}

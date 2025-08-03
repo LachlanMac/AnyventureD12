@@ -1,0 +1,14 @@
+{
+  "name": "Dried Provisions",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "snack",
+  "weight": 0.1,
+  "value": 2,
+  "rarity": "common",
+  "recipe": {
+    "type": "cooking",
+    "difficulty": 4,
+    "ingredients": ["meat", "salt", "herb"]
+  }
+}

@@ -1,9 +1,9 @@
 {
   "name": "Aetherium Ingot",
-  "description": "",
+  "description": "A mystical metal that seems to defy the natural laws of weight and mass. Aetherium appears to shimmer with an inner light and feels almost weightless despite its solid form. This rare material is said to come from places where the veil between worlds is thin.",
   "type": "goods",
-"tags": ["metal"],
+  "tags": ["metal", "ingot", "magical"],
   "weight": 0.5,
   "value": 20000,
-  "rarity": "common"
+  "rarity": "rare"
 }

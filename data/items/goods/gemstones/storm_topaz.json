@@ -1,0 +1,9 @@
+{
+  "name": "Storm Topaz",
+  "description": "A golden topaz crackling with internal electrical energy that sparks and flickers like captured lightning",
+  "type": "goods",
+  "tags": ["gemstone"],
+  "weight": 0.1,
+  "value": 720,
+  "rarity": "uncommon"
+}

@@ -177,6 +177,48 @@
       "order": 1
     },
     {
+      "id": "engineering",
+      "title": "Engineering",
+      "path": "crafting/engineering.md",
+      "category": "Crafting",
+      "order": 2
+    },
+    {
+      "id": "fabrication",
+      "title": "Fabrication",
+      "path": "crafting/fabrication.md",
+      "category": "Crafting",
+      "order": 3
+    },
+    {
+      "id": "alchemy",
+      "title": "Alchemy", 
+      "path": "crafting/alchemy.md",
+      "category": "Crafting",
+      "order": 4
+    },
+    {
+      "id": "cooking",
+      "title": "Cooking",
+      "path": "crafting/cooking.md",
+      "category": "Crafting",
+      "order": 5
+    },
+    {
+      "id": "glyphcraft",
+      "title": "Glyphcraft",
+      "path": "crafting/glyphcraft.md",
+      "category": "Crafting",
+      "order": 6
+    },
+    {
+      "id": "bioshaping",
+      "title": "Bioshaping",
+      "path": "crafting/bioshaping.md",
+      "category": "Crafting",
+      "order": 7
+    },
+    {
       "id": "songs-overview",
       "title": "Songs Overview",
       "path": "songs/overview.md",

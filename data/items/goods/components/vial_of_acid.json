@@ -1,0 +1,8 @@
+{
+  "name": "Vial of Acid",
+  "description": "Dilute acid extracted from citrus fruits or vinegar, used for etching and dissolving",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 100,
+  "rarity": "common"
+}

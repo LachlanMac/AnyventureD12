@@ -1,0 +1,8 @@
+{
+  "name": "Vial of Ammonia",
+  "description": "Pungent liquid from fermented urine, used for cleaning and chemical reactions",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 80,
+  "rarity": "common"
+}

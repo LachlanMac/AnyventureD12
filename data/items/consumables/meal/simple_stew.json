@@ -1,0 +1,14 @@
+{
+  "name": "Simple Stew",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "meal",
+  "weight": 1.5,
+  "value": 3,
+  "rarity": "common",
+  "recipe": {
+    "type": "cooking",
+    "difficulty": 4,
+    "ingredients": ["protein", "vegetable", "liquid", "herb"]
+  }
+}

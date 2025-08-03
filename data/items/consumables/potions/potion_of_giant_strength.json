@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Giant Strength",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 50,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["giant_toe"]
+  }
+}

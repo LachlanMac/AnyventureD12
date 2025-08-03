@@ -36,5 +36,6 @@
       "description": "A cloak that identifies you as a relgious traveler. Most cultures consider it dishonorable to attack a pilgrim, but it is equally dishonorable to start a conflict while wearing the pilgrim's cloak."
     }
   ],
-  "options": []
+  "options": [],
+  "portrait": "/assets/cultures/devout.png"
 }

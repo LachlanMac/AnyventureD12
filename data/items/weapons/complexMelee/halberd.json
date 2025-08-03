@@ -12,6 +12,7 @@
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "slash",
+    "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -50,5 +51,10 @@
   "mitigation": {},
   "armor_penalties": {},
   "detections": {},
-  "immunities": {}
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 8,
+    "ingredients": ["heavy blade (affects only primary slashing attack)", "point (affects only secondary piercing attack)", "long shaft", "bindings"]
+  }
 }

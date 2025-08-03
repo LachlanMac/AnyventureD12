@@ -51,15 +51,20 @@ const readItemsFromDirectory = (directory) => {
         if (pathParts.length >= 1) {
           const category = pathParts[0];
           
-          // Add metadata about where item was loaded from
-          itemData._source = {
-            path: relativePath,
-            category,
-            subcategory: pathParts.length > 1 ? pathParts[1] : null,
-            filename: entry.name
-          };
+          // Handle both single items and arrays of items
+          const itemsToProcess = Array.isArray(itemData) ? itemData : [itemData];
           
-          items.push(itemData);
+          for (const item of itemsToProcess) {
+            // Add metadata about where item was loaded from
+            item._source = {
+              path: relativePath,
+              category,
+              subcategory: pathParts.length > 1 ? pathParts[1] : null,
+              filename: entry.name
+            };
+            
+            items.push(item);
+          }
         }
       } catch (err) {
         console.error(`Error reading item file ${fullPath}: ${err.message}`);

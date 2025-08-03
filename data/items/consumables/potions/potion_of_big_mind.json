@@ -1,0 +1,14 @@
+{
+  "name": "Potion of Big Mind",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 42,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": ["bundle_of_gingko", "bundle_of_gingko", "pouch_of_salt", "bottle_of_honey"]
+  }
+}

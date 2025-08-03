@@ -1,0 +1,14 @@
+{
+  "name": "Elixir of Restoration",
+  "description": "",
+  "type": "consumable",
+  "consumable_category": "elixirs",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 9,
+    "ingredients": ["bottle_of_pure_alcohol", "bundle_of_echinacea"]
+  }
+}

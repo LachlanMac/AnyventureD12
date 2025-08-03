@@ -1,0 +1,41 @@
+{
+  "id": 3,
+  "name": "Wild Folk",
+  "description": "One with Nature\nWild Folk cultures live in harmony with nature, understanding its rhythms and secrets. They prioritize sustainability, tradition, and spiritual connection to the earth. To them, the natural world is not a resource to exploit but a partner to respect.",
+  "culturalRestrictions": [
+    {
+      "name": "Natural Balance",
+      "description": "You cannot willingly harm nature without purpose or take more than you need. Unnecessarily destroying plants, killing beasts for sport, or polluting natural areas causes you to lose 2 resolve."
+    },
+    {
+      "name": "Fish out of Water",
+      "description": "Large settlements and artificial environments disturb your spiritual balance. When staying in large towns, cities or heavily developed areas for more than 3 days, you lose 1 resolve per day as the separation from nature weighs on you."
+    }
+  ],
+  "benefits": [
+    {
+      "name": "Natural Terrain",
+      "description": "Choose a specific type of terrain (Mountain, Plains, Forest, Jungle, Desert) as your home terrain. When you take the Sprint action in this terrain, it does not require stamina."
+    },
+    {
+      "name": "Among the Stars",
+      "description": "When you complete a full rest in natural settings (not in buildings or settlements), you recover an additional 1 resolve."
+    }
+  ],
+  "startingItems": [
+    {
+      "name": "Animal Friend Token",
+      "description": "A carved charm that marks you as a friend to a specific type of animal (birds, wolves, deer, etc.). Members of that species will not attack you unless directly threatened and may provide minor assistance or warnings."
+    },
+    {
+      "name": "Warning Totem",
+      "description": "A sacred item crafted from natural materials - carved bone, polished stone, or preserved wood - that resonates with the spiritual energy of the land. When held during meditation, it provides vague but meaningful impressions about the area's well-being: unrest in the earth, approaching weather changes, or warnings of unnatural disturbances affecting the local ecosystem."
+    },
+    {
+      "name": "Camouflage Paint Kit",
+      "description": "A collection of pigments found within nature that can be used to paint yourself or an ally to better blend in with natural terrain. When painted in this way, the wearer gains a bonus dice to stealth checks in the specified environment."
+    }
+  ],
+  "options": [],
+  "portrait": "/assets/cultures/wildfolk.png"
+}

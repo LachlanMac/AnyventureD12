@@ -1,0 +1,8 @@
+{
+  "name": "Spices (Tier 2)",
+  "description": "Exotic spices like saffron, cardamom, and rare peppers that add +2 to all meal effects",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 50,
+  "rarity": "uncommon"
+}
