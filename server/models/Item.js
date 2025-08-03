@@ -29,7 +29,7 @@ const DamageSchema = new Schema({
   damage_type: { type: String, default: "physical" }, 
   category: { 
     type: String, 
-    enum: ["pierce", "slash", "blunt", "ranged", "extra"],
+    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic"],
     default: "blunt" 
   },
   secondary_damage: { type: Number, default: 0 },
