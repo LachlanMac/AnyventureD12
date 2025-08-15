@@ -14,6 +14,11 @@ interface APIItem extends Item {
     secondary: Damage;
   };
   armor_data?: ArmorData;
+  recipe?: {
+    type: string;
+    difficulty: number;
+    ingredients: string[];
+  };
 }
 
 // Helper function to convert range numbers to descriptive text
@@ -191,6 +196,20 @@ const ItemDetail: React.FC = () => {
             </CardBody>
           </Card>
 
+          {/* Properties */}
+          {item.properties && (
+            <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+              <CardHeader>
+                <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Properties</h2>
+              </CardHeader>
+              <CardBody>
+                <p style={{ color: 'var(--color-sky)', lineHeight: '1.6', margin: 0, fontSize: '1.1rem' }}>
+                  {item.properties}
+                </p>
+              </CardBody>
+            </Card>
+          )}
+
           {/* Combat Stats */}
           {item.primary && (
             <Card variant="default" style={{ marginBottom: '1.5rem' }}>
@@ -268,7 +287,7 @@ const ItemDetail: React.FC = () => {
             item.resolve?.max !== 0 ||
             item.resolve?.recovery !== 0 ||
             item.movement !== 0) && (
-            <Card variant="default">
+            <Card variant="default" style={{ marginBottom: '1.5rem' }}>
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Bonuses & Effects</h2>
               </CardHeader>
@@ -311,6 +330,52 @@ const ItemDetail: React.FC = () => {
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Movement:</strong> {item.movement > 0 ? '+' : ''}
                       {item.movement} speed
+                    </div>
+                  )}
+                </div>
+              </CardBody>
+            </Card>
+          )}
+
+          {/* Recipe Information */}
+          {item.recipe && (
+            <Card variant="default">
+              <CardHeader>
+                <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Crafting Recipe</h2>
+              </CardHeader>
+              <CardBody>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                    <div style={{ color: 'var(--color-cloud)' }}>
+                      <strong>Crafting Skill:</strong> {item.recipe.type.charAt(0).toUpperCase() + item.recipe.type.slice(1)}
+                    </div>
+                    <div style={{ color: 'var(--color-cloud)' }}>
+                      <strong>Difficulty:</strong> {item.recipe.difficulty}
+                    </div>
+                  </div>
+                  
+                  {item.recipe.ingredients && item.recipe.ingredients.length > 0 && (
+                    <div>
+                      <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem', fontSize: '1rem' }}>
+                        Required Ingredients
+                      </h3>
+                      <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                        {item.recipe.ingredients.map((ingredient, index) => (
+                          <span
+                            key={index}
+                            style={{
+                              color: 'var(--color-cloud)',
+                              backgroundColor: 'var(--color-dark-border)',
+                              padding: '0.25rem 0.5rem',
+                              borderRadius: '0.25rem',
+                              fontSize: '0.875rem',
+                              textTransform: 'capitalize'
+                            }}
+                          >
+                            {ingredient.replace(/_/g, ' ')}
+                          </span>
+                        ))}
+                      </div>
                     </div>
                   )}
                 </div>

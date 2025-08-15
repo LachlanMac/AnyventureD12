@@ -5,7 +5,7 @@
   "weapon_category": "simpleRanged",
   "weight": 2,
   "value": 30,
-  "bonus_attack":0,
+  "bonus_attack": 0,
   "rarity": "common",
   "primary": {
     "damage": "4",
@@ -44,6 +44,9 @@
   "recipe": {
     "type": "fabrication",
     "difficulty": 5,
-    "ingredients": ["cloth", "handle"]
+    "ingredients": [
+      "Cloth",
+      "Handle"
+    ]
   }
 }

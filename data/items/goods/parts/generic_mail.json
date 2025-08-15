@@ -3,14 +3,22 @@
     "name": "Iron Mail",
     "description": "Interlocking iron rings forming flexible chain armor. These reliable links provide moderate protection while allowing mobility.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "mail", "iron"],
-    "weight": 6.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "mail",
+      "iron"
+    ],
+    "weight": 6,
     "value": 350,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 iron ingots", "bindings"],
-      "difficulty": 8
+      "ingredients": [
+        "3x Iron Ingots",
+        "Bindings"
+      ],
+      "difficulty": 8,
+      "type": "fabrication"
     },
     "properties": "Balanced protection and mobility"
   },
@@ -18,14 +26,22 @@
     "name": "Steel Mail",
     "description": "Interlocking steel rings forming superior chain armor. These enhanced links provide better protection than iron alternatives.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "mail", "steel"],
-    "weight": 6.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "mail",
+      "steel"
+    ],
+    "weight": 6,
     "value": 550,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 steel ingots", "bindings"],
-      "difficulty": 11
+      "ingredients": [
+        "3x Steel Ingots",
+        "Bindings"
+      ],
+      "difficulty": 11,
+      "type": "fabrication"
     },
     "properties": "Enhanced protection with maintained flexibility"
   },
@@ -33,14 +49,22 @@
     "name": "True Steel Mail",
     "description": "Interlocking true steel rings forming masterwork chain armor. These advanced links deliver superior protection through refined craftsmanship.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "mail", "truesteel"],
-    "weight": 6.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "mail",
+      "truesteel"
+    ],
+    "weight": 6,
     "value": 850,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 true steel ingots", "bindings"],
-      "difficulty": 13
+      "ingredients": [
+        "3x True Steel Ingots",
+        "Bindings"
+      ],
+      "difficulty": 13,
+      "type": "fabrication"
     },
     "properties": "Slashing resistance gains +1 effectiveness"
   },
@@ -48,14 +72,23 @@
     "name": "Aetherium Mail",
     "description": "Interlocking aetherium rings that shimmer with otherworldly energy. These mystical links provide protection without hindering movement.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "mail", "aetherium", "magical"],
+    "tags": [
+      "parts",
+      "armor_component",
+      "mail",
+      "aetherium",
+      "magical"
+    ],
     "weight": 1.5,
     "value": 36350,
     "rarity": "rare",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 aetherium ingots", "bindings"],
-      "difficulty": 15
+      "ingredients": [
+        "3x Aetherium Ingots",
+        "Bindings"
+      ],
+      "difficulty": 15,
+      "type": "fabrication"
     },
     "properties": "No dexterity penalties from armor"
   },
@@ -63,14 +96,23 @@
     "name": "Starsteel Mail",
     "description": "Interlocking starsteel rings forged from celestial metal. These divine links channel protective energies through their legendary properties.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "mail", "starsteel", "legendary"],
+    "tags": [
+      "parts",
+      "armor_component",
+      "mail",
+      "starsteel",
+      "legendary"
+    ],
     "weight": 4.5,
     "value": 90350,
     "rarity": "legendary",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 starsteel ingots", "bindings"],
-      "difficulty": 17
+      "ingredients": [
+        "3x Starsteel Ingots",
+        "Bindings"
+      ],
+      "difficulty": 17,
+      "type": "fabrication"
     },
     "properties": "All physical damage types resistance gains +1 effectiveness"
   }

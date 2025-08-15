@@ -1,0 +1,18 @@
+{
+  "name": "Flash Bomb",
+  "description": "A cylindrical object that when thrown or destroyed creates a blinding flash of light within a 1 unit radius of its origin. Creatures in the area must make a resilience check of 6 or become dazed (cannot use concentration) for 1 round. Creatures can use their reaction to cover their eyes to avoid the effect entirely.",
+  "type": "consumable",
+  "consumable_category": "explosives",
+  "weight": 0.3,
+  "value": 35,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 8,
+    "ingredients": [
+      "2x Pinch Of Phosphorus",
+      "Pinch Of Crystal Dust",
+      "Magnesium Shavings"
+    ]
+  }
+}

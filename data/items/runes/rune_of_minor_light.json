@@ -1,0 +1,15 @@
+{
+  "name": "Rune of Minor Light",
+  "description": "A magical inscription that ",
+  "type": "runes",
+  "weight": 0,
+  "value": 150,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 8,
+    "ingredients": [
+      "Pinch Of Powdered Electrum"
+    ]
+  }
+}

@@ -3,14 +3,21 @@
     "name": "Iron Point",
     "description": "A sharp iron point component crafted for piercing weapons of all sizes, from small daggers and rapiers to large spears and pikes. This reliable component provides solid penetrating power at an affordable cost.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "piercing", "iron"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "piercing",
+      "iron"
+    ],
     "weight": 0.5,
     "value": 225,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 iron ingot"],
-      "difficulty": 6
+      "ingredients": [
+        "Iron Ingot"
+      ],
+      "difficulty": 6,
+      "type": "fabrication"
     },
     "properties": "Standard piercing damage with no special effects"
   },
@@ -18,14 +25,21 @@
     "name": "Steel Point",
     "description": "A sharp steel point component crafted for superior piercing weapons. This durable component offers enhanced penetrating power and edge retention over iron alternatives.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "piercing", "steel"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "piercing",
+      "steel"
+    ],
     "weight": 0.5,
     "value": 325,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 steel ingot"],
-      "difficulty": 10
+      "ingredients": [
+        "Steel Ingot"
+      ],
+      "difficulty": 10,
+      "type": "fabrication"
     },
     "properties": "Standard piercing damage with enhanced durability"
   },
@@ -33,29 +47,44 @@
     "name": "True Steel Point",
     "description": "A sharp true steel point component crafted for exceptional piercing weapons. This masterwork component delivers superior penetrating power through advanced metallurgy.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "piercing", "truesteel"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "piercing",
+      "truesteel"
+    ],
     "weight": 0.5,
     "value": 525,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 true steel ingot"],
-      "difficulty": 12
+      "ingredients": [
+        "True Steel Ingot"
+      ],
+      "difficulty": 12,
+      "type": "fabrication"
     },
-    "properties": "Piercing attacks gain +1 primary damage"
+    "properties": "Piercing attacks gain +1  damage"
   },
   {
     "name": "Aetherium Point",
     "description": "A sharp aetherium point component that seems to phase through matter while maintaining deadly sharpness. This mystical component makes piercing weapons feel weightless in the wielder's hands.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "piercing", "aetherium", "magical"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "piercing",
+      "aetherium",
+      "magical"
+    ],
     "weight": 0.1,
     "value": 20225,
     "rarity": "rare",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 aetherium ingot"],
-      "difficulty": 14
+      "ingredients": [
+        "Aetherium Ingot"
+      ],
+      "difficulty": 14,
+      "type": "fabrication"
     },
     "properties": "Piercing attacks require no energy cost to perform"
   },
@@ -63,15 +92,23 @@
     "name": "Starsteel Point",
     "description": "A sharp starsteel point component forged from legendary celestial metal. This otherworldly component channels devastating power through its divine sharpness.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "piercing", "starsteel", "legendary"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "piercing",
+      "starsteel",
+      "legendary"
+    ],
     "weight": 0.4,
     "value": 50225,
     "rarity": "legendary",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 starsteel ingot"],
-      "difficulty": 16
+      "ingredients": [
+        "Starsteel Ingot"
+      ],
+      "difficulty": 16,
+      "type": "fabrication"
     },
-    "properties": "Piercing attacks gain +2 primary damage and +1 secondary damage"
+    "properties": "Piercing attacks gain +2  damage and +1 extra damage"
   }
 ]

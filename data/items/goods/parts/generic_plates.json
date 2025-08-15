@@ -3,14 +3,21 @@
     "name": "Iron Plates",
     "description": "Solid iron armor plates designed for heavy protection. These reliable plates provide substantial defense at an affordable cost.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "plates", "iron"],
-    "weight": 8.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "plates",
+      "iron"
+    ],
+    "weight": 8,
     "value": 400,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 iron ingots"],
-      "difficulty": 7
+      "ingredients": [
+        "3x Iron Ingots"
+      ],
+      "difficulty": 7,
+      "type": "fabrication"
     },
     "properties": "Standard physical mitigation with heavy weight"
   },
@@ -18,14 +25,21 @@
     "name": "Steel Plates",
     "description": "Durable steel armor plates offering superior protection. These enhanced plates provide better defense than iron alternatives.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "plates", "steel"],
-    "weight": 8.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "plates",
+      "steel"
+    ],
+    "weight": 8,
     "value": 600,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 steel ingots"],
-      "difficulty": 10
+      "ingredients": [
+        "3x Steel Ingots"
+      ],
+      "difficulty": 10,
+      "type": "fabrication"
     },
     "properties": "Enhanced physical mitigation with improved durability"
   },
@@ -33,14 +47,21 @@
     "name": "True Steel Plates",
     "description": "Masterwork true steel armor plates of exceptional quality. These advanced plates deliver superior protection through refined metallurgy.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "plates", "truesteel"],
-    "weight": 8.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "plates",
+      "truesteel"
+    ],
+    "weight": 8,
     "value": 950,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 true steel ingots"],
-      "difficulty": 12
+      "ingredients": [
+        "3x True Steel Ingots"
+      ],
+      "difficulty": 12,
+      "type": "fabrication"
     },
     "properties": "Physical mitigation gains +1 effectiveness"
   },
@@ -48,14 +69,22 @@
     "name": "Aetherium Plates",
     "description": "Mystical aetherium armor plates that seem to defy weight while maintaining protection. These otherworldly plates make armor feel weightless.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "plates", "aetherium", "magical"],
-    "weight": 2.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "plates",
+      "aetherium",
+      "magical"
+    ],
+    "weight": 2,
     "value": 38400,
     "rarity": "rare",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 aetherium ingots"],
-      "difficulty": 14
+      "ingredients": [
+        "3x Aetherium Ingots"
+      ],
+      "difficulty": 14,
+      "type": "fabrication"
     },
     "properties": "No movement penalty from armor weight"
   },
@@ -63,14 +92,22 @@
     "name": "Starsteel Plates",
     "description": "Legendary starsteel armor plates forged from celestial metal. These divine plates channel protective power through their otherworldly properties.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "plates", "starsteel", "legendary"],
-    "weight": 6.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "plates",
+      "starsteel",
+      "legendary"
+    ],
+    "weight": 6,
     "value": 95400,
     "rarity": "legendary",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["3 starsteel ingots"],
-      "difficulty": 16
+      "ingredients": [
+        "3x Starsteel Ingots"
+      ],
+      "difficulty": 16,
+      "type": "fabrication"
     },
     "properties": "Physical mitigation gains +2 effectiveness and immunity to armor sundering"
   }

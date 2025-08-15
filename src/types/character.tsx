@@ -309,6 +309,7 @@ export interface Item {
   detections?: Record<string, number>;
   immunities?: Record<string, boolean>;
   effects?: ItemEffect[];
+  properties?: string;
   createdAt?: string;
   updatedAt?: string;
 }

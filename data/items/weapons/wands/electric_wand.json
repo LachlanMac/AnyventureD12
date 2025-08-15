@@ -44,6 +44,10 @@
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 8,
-    "ingredients": ["electric core", "ash wood", "bindings"]
+    "ingredients": [
+      "Electric Core",
+      "Ash Wood",
+      "Bindings"
+    ]
   }
 }

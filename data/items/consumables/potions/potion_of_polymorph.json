@@ -1,6 +1,6 @@
 {
   "name": "Potion of Polymorph",
-  "description": "",
+  "description": "A concoction that turns the consumer into a standard tier or lower beast or monster for an hour. While transformed in this way, the consumer retains their mind and knowledge abilities, but uses the statblock of the creature. Reaching 0 health while in this form results in the consumer reverting back to their original form. The consumer can attempt to resist this affect by making an endurance check of 5 or higher. This transformation is non-magical and can only be ended early if the consumer uses a potion of true form.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,12 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 12,
-    "ingredients": ["beast_tongue", "vial_of_acid", "vial_of_acid", "vial_of_mercury", "pinch_of_powdered_gold"]
-  }
+    "ingredients": [
+      "Beast Tongue",
+      "2x Vial Of Acid",
+      "Vial Of Mercury",
+      "Pinch Of Powdered Gold"
+    ]
+  },
+  "side_effect": "For an hour after the potion wears off, all knowledge and mind checks become a single d4 dice while the consumer recalibrates to their original body."
 }

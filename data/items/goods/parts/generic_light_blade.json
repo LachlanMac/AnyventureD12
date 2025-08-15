@@ -3,60 +3,89 @@
     "name": "Iron Light Blade",
     "description": "A compact iron blade component designed for crafting smaller slashing weapons such as scimitars, handaxes, short swords, and falchions. This reliable component provides solid cutting power at an affordable cost.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "blade", "iron"],
-    "weight": 4.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "blade",
+      "iron"
+    ],
+    "weight": 4,
     "value": 450,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 iron ingot"],
-      "difficulty": 3
+      "ingredients": [
+        "Iron Ingot"
+      ],
+      "difficulty": 3,
+      "type": "fabrication"
     },
-     "properties": "Standard material damage with no special effects"
+    "properties": "Standard material damage with no special effects"
   },
   {
     "name": "Steel Light Blade",
     "description": "A compact steel blade component designed for crafting smaller slashing weapons such as scimitars, handaxes, short swords, and falchions. This durable component offers improved performance over iron alternatives.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "blade", "steel"],
-    "weight": 4.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "blade",
+      "steel"
+    ],
+    "weight": 4,
     "value": 650,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 steel ingot"],
-      "difficulty": 5
+      "ingredients": [
+        "Steel Ingot"
+      ],
+      "difficulty": 5,
+      "type": "fabrication"
     },
-     "properties": "Standard material damage with no special effects"
+    "properties": "Standard material damage with no special effects"
   },
   {
     "name": "True Steel Light Blade",
     "description": "A compact true steel blade component designed for crafting smaller slashing weapons of exceptional quality. This masterwork component delivers superior cutting power through advanced metallurgy.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "blade", "truesteel"],
-    "weight": 4.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "blade",
+      "truesteel"
+    ],
+    "weight": 4,
     "value": 1050,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 true steel ingot"],
-      "difficulty": 7
+      "ingredients": [
+        "True Steel Ingot"
+      ],
+      "difficulty": 7,
+      "type": "fabrication"
     },
-    "properties": "Adds +1 primary damage when fabricated into an item."
+    "properties": "Adds +1  damage when fabricated into an item."
   },
   {
     "name": "Starsteel Light Blade",
     "description": "A compact starsteel blade component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "blade", "starsteel", "legendary"],
-    "weight": 3.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "blade",
+      "starsteel",
+      "legendary"
+    ],
+    "weight": 3,
     "value": 100450,
     "rarity": "legendary",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 starsteel ingot"],
-      "difficulty": 13
+      "ingredients": [
+        "Starsteel Ingot"
+      ],
+      "difficulty": 13,
+      "type": "fabrication"
     },
-   "properties": "Adds +2 primary damage and +1 secondary damage when fabricated into an item."
+    "properties": "Adds +2  damage and +1 extra damage when fabricated into an item."
   }
 ]

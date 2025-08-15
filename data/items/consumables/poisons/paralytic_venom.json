@@ -1,0 +1,18 @@
+{
+  "name": "Paralytic Venom",
+  "description": "A poison that when ingested or applied through a coated weapon causes the impaired condition, requiring an initial endurance check of 8 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. While poisoned, the creature cannot move or take reactions.",
+  "type": "consumable",
+  "consumable_category": "poisons",
+  "weight": 0.1,
+  "value": 80,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": [
+      "Spider Venom",
+      "Pinch Of Salt",
+      "Bundle Of Mugwort"
+    ]
+  }
+}

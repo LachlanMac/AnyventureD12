@@ -1,6 +1,6 @@
 {
   "name": "Potion of Forgetting",
-  "description": "",
+  "description": "A concoction that allows the user to erase a single memory. This can be used to unlearn a module and gain the points back, remove the broken condition, or rid the consumer of an event specificed by the potion creator at the time of brewing. ",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,11 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 14,
-    "ingredients": ["bundle_of_gingko", "bundle_of_gingko", "bundle_of_gingko", "pinch_of_powdered_gold", "pinch_of_powdered_gold", "bottle_of_pure_alcohol"]
-  }
+    "ingredients": [
+      "3x Bundle Of Gingko",
+      "2x Pinch Of Powdered Gold",
+      "Bottle Of Pure Alcohol"
+    ]
+  },
+  "side_effect": ""
 }

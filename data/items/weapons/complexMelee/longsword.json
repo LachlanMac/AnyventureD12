@@ -5,7 +5,7 @@
   "weapon_category": "complexMelee",
   "weight": 3,
   "value": 50,
-  "bonus_attack":0,
+  "bonus_attack": 0,
   "rarity": "common",
   "primary": {
     "damage": "5",
@@ -56,6 +56,10 @@
   "recipe": {
     "type": "fabrication",
     "difficulty": 7,
-    "ingredients": ["heavy blade", "handle", "bindings"]
+    "ingredients": [
+      "Heavy Blade",
+      "Handle",
+      "Bindings"
+    ]
   }
 }

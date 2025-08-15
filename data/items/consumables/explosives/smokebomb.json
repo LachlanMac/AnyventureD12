@@ -1,6 +1,6 @@
 {
-  "name": "Smokebomb",
-  "description": "",
+  "name": "Smoke Bomb",
+  "description": "A cylindrical object that when thrown or destroyed creates an cloud of smoke within a 2 unit radius of it's origin that lasts lasts for 2 rounds. Creatures that are completely within the smoke are considered blinded, and attacks that originate from outside the smoke directed at a creature completely within it are rolled with 2 penalty dice.",
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 0.2,
@@ -9,6 +9,10 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
-    "ingredients": ["pouch_of_saltpeter", "pinch_of_sugar", "pinch_of_sugar", "pinch_of_sugar", "pinch_of_sugar", "vial"]
+    "ingredients": [
+      "Pouch Of Saltpeter",
+      "4x Pinch Of Sugar",
+      "Vial"
+    ]
   }
 }

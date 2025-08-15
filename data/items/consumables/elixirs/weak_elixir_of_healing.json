@@ -9,6 +9,10 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
-    "ingredients": ["vial_of_flax_oil", "bundle_of_mandrake", "bundle_of_mandrake", "crushed_gem_5gp"]
+    "ingredients": [
+      "Vial Of Flax Oil",
+      "2x Bundle Of Mandrake",
+      "Crushed Gem 5gp"
+    ]
   }
 }

@@ -28,6 +28,7 @@ import ItemManager from './pages/ItemManager';
 import ItemCompendium from './pages/ItemCompendium';
 import SpellCompendium from './pages/SpellCompendium';
 import ConditionsCompendium from './pages/ConditionsCompendium';
+import RecipeCompendium from './pages/RecipeCompendium';
 import ItemDetail from './pages/ItemDetail';
 import SpellDetail from './pages/SpellDetail';
 import HomebrewBrowser from './pages/HomebrewBrowser';
@@ -137,6 +138,14 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <ConditionsCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/recipes"
+                  element={
+                    <MainLayout>
+                      <RecipeCompendium />
                     </MainLayout>
                   }
                 />

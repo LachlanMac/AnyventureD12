@@ -1,0 +1,19 @@
+{
+  "name": "Sticky Bomb",
+  "description": "A cylindrical object that when thrown or destroyed creates a puddle of sticky substance within a 1 unit radius of it's origin that lasts lasts for 2 rounds. Creatures that start their turn in, or walk through the puddle must make a might check of 5, or they become impaired until the start of their next turn.",
+  "type": "consumable",
+  "consumable_category": "explosives",
+  "weight": 0.3,
+  "value": 23,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": [
+      "Sack Of Flour",
+      "Pinch Of Sulfur",
+      "Pinch Of Powdered Iron",
+      "5x Bottle Of Tree Sap"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 {
   "name": "Elixir of Restoration",
-  "description": "",
+  "description": "An elixir that when consumed immediately cures non-permanent causes of deafness, muteness, and blindness.",
   "type": "consumable",
   "consumable_category": "elixirs",
   "weight": 0.1,
@@ -9,6 +9,9 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 9,
-    "ingredients": ["bottle_of_pure_alcohol", "bundle_of_echinacea"]
+    "ingredients": [
+      "Bottle Of Pure Alcohol",
+      "Bundle Of Echinacea"
+    ]
   }
 }

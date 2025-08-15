@@ -3,14 +3,22 @@
     "name": "Lesser Heat Core",
     "description": "A magical focus core embedded with a fiery ruby that channels pure thermal energy. When integrated into wands, staves, or magical weapons, it allows casters to generate intense heat-based attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "heat"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "heat"
+    ],
     "weight": 0.5,
     "value": 850,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["ruby", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Ruby",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables heat damage channeling in magical weapons"
   },
@@ -18,14 +26,22 @@
     "name": "Greater Heat Core",
     "description": "A superior magical focus core embedded with a brilliant ruby that channels devastating thermal energy. This enhanced core allows for more powerful heat-based magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "heat"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "heat"
+    ],
     "weight": 0.5,
     "value": 1050,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["ruby", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Ruby",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced heat damage channeling in magical weapons"
   },
@@ -33,14 +49,22 @@
     "name": "Lesser Cold Core",
     "description": "A magical focus core embedded with an icy frost sapphire that channels pure frost energy. When integrated into wands, staves, or magical weapons, it allows casters to generate freezing cold attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "cold"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "cold"
+    ],
     "weight": 0.5,
     "value": 800,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["frost sapphire", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Frost Sapphire",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables cold damage channeling in magical weapons"
   },
@@ -48,14 +72,22 @@
     "name": "Greater Cold Core",
     "description": "A superior magical focus core embedded with a brilliant frost sapphire that channels devastating frost energy. This enhanced core allows for more powerful cold-based magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "cold"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "cold"
+    ],
     "weight": 0.5,
     "value": 950,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["frost sapphire", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Frost Sapphire",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced cold damage channeling in magical weapons"
   },
@@ -63,14 +95,22 @@
     "name": "Lesser Electric Core",
     "description": "A magical focus core embedded with a crackling storm topaz that channels pure electrical energy. When integrated into wands, staves, or magical weapons, it allows casters to generate lightning-based attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "electric"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "electric"
+    ],
     "weight": 0.5,
     "value": 770,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["storm topaz", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Storm Topaz",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables electric damage channeling in magical weapons"
   },
@@ -78,14 +118,22 @@
     "name": "Greater Electric Core",
     "description": "A superior magical focus core embedded with a brilliant storm topaz that channels devastating electrical energy. This enhanced core allows for more powerful lightning-based magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "electric"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "electric"
+    ],
     "weight": 0.5,
     "value": 920,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["storm topaz", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Storm Topaz",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced electric damage channeling in magical weapons"
   },
@@ -93,14 +141,22 @@
     "name": "Lesser Aetheric Core",
     "description": "A magical focus core embedded with a shimmering spirit moonstone that channels pure mystical energy. When integrated into wands, staves, or magical weapons, it allows casters to generate aetheric attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "aetheric"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "aetheric"
+    ],
     "weight": 0.5,
     "value": 760,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["spirit moonstone", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Spirit Moonstone",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables aetheric damage channeling in magical weapons"
   },
@@ -108,14 +164,22 @@
     "name": "Greater Aetheric Core",
     "description": "A superior magical focus core embedded with a luminous spirit moonstone that channels devastating mystical energy. This enhanced core allows for more powerful aetheric magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "aetheric"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "aetheric"
+    ],
     "weight": 0.5,
     "value": 910,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["spirit moonstone", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Spirit Moonstone",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced aetheric damage channeling in magical weapons"
   },
@@ -123,14 +187,22 @@
     "name": "Lesser Dark Core",
     "description": "A magical focus core embedded with a void-black shadow onyx that channels pure shadow energy. When integrated into wands, staves, or magical weapons, it allows casters to generate dark attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "dark"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "dark"
+    ],
     "weight": 0.5,
     "value": 740,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["shadow onyx", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Shadow Onyx",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables dark damage channeling in magical weapons"
   },
@@ -138,14 +210,22 @@
     "name": "Greater Dark Core",
     "description": "A superior magical focus core embedded with a sinister black diamond that channels devastating shadow energy. This enhanced core allows for more powerful dark magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "dark"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "dark"
+    ],
     "weight": 0.5,
     "value": 5250,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["black diamond", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Black Diamond",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced dark damage channeling in magical weapons"
   },
@@ -153,14 +233,22 @@
     "name": "Lesser Divine Core",
     "description": "A magical focus core embedded with a radiant diamond that channels pure divine energy. When integrated into wands, staves, or magical weapons, it allows casters to generate divine attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "divine"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "divine"
+    ],
     "weight": 0.5,
     "value": 1050,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["diamond", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Diamond",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables divine damage channeling in magical weapons"
   },
@@ -168,14 +256,22 @@
     "name": "Greater Divine Core",
     "description": "A superior magical focus core embedded with a brilliant diamond that channels devastating divine energy. This enhanced core allows for more powerful divine magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "divine"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "divine"
+    ],
     "weight": 0.5,
     "value": 1250,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["diamond", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Diamond",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced divine damage channeling in magical weapons"
   },
@@ -183,14 +279,22 @@
     "name": "Lesser Psychic Core",
     "description": "A magical focus core embedded with a mind-bending void amethyst that channels pure mental energy. When integrated into wands, staves, or magical weapons, it allows casters to generate psychic attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "psychic"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "psychic"
+    ],
     "weight": 0.5,
     "value": 730,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["void amethyst", "electrum shavings"],
-      "difficulty": 8
+      "ingredients": [
+        "Void Amethyst",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
     },
     "properties": "Enables psychic damage channeling in magical weapons"
   },
@@ -198,14 +302,22 @@
     "name": "Greater Psychic Core",
     "description": "A superior magical focus core embedded with a mesmerizing void amethyst that channels devastating mental energy. This enhanced core allows for more powerful psychic magical attacks.",
     "type": "goods",
-    "tags": ["parts", "magical_component", "core", "psychic"],
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "psychic"
+    ],
     "weight": 0.5,
     "value": 880,
     "rarity": "rare",
     "recipe": {
-      "skill": "glyphcraft",
-      "ingredients": ["void amethyst", "platinum shavings"],
-      "difficulty": 12
+      "ingredients": [
+        "Void Amethyst",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
     },
     "properties": "Enables enhanced psychic damage channeling in magical weapons"
   }

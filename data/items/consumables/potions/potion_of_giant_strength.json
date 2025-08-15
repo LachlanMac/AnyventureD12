@@ -1,6 +1,6 @@
 {
-  "name": "Potion of Giant Strength",
-  "description": "",
+  "name": "Potion of the Titan",
+  "description": "A concoction that grants the consumer supernatural strength for an hour, allowing them to use a d20 for any might check while still using their talent to determine the number of dice.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,9 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 10,
-    "ingredients": ["giant_toe"]
-  }
+    "ingredients": [
+      "Giant Toe"
+    ]
+  },
+  "side_effect": "After the potion wears off, the consumer rolls a d4 for any might checks until they complete a full rest."
 }

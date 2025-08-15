@@ -1,0 +1,18 @@
+{
+  "name": "Shrapnel Bomb",
+  "description": "A cylindrical object that when thrown or destroyed creates an explosion of metal fragments within a 1 unit radius of its origin, dealing 4d4 physical damage. Any creature that takes more than 8 damage after mitigations are applied also gains the bleeding condition.",
+  "type": "consumable",
+  "consumable_category": "explosives",
+  "weight": 0.8,
+  "value": 45,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": [
+      "2x Iron Shavings",
+      "2x Pinch Of Sulfur",
+      "3x Scrap Metal"
+    ]
+  }
+}

@@ -3,14 +3,23 @@
     "name": "Ash Light Limbs",
     "description": "Long, powerful ash wood limb components crafted for large bows such as longbows, warbows, and heavy crossbows. These flexible yet strong limbs provide reliable performance.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "bow", "wood", "ash"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "bow",
+      "wood",
+      "ash"
+    ],
     "weight": 2.5,
     "value": 150,
     "rarity": "common",
     "recipe": {
-      "skill": "engineering",
-      "ingredients": ["ash wood", "wood treatment oil"],
-      "difficulty": 5
+      "ingredients": [
+        "Ash Wood",
+        "Wood Treatment Oil"
+      ],
+      "difficulty": 5,
+      "type": "engineering"
     },
     "properties": "Standard material damage with no special effects"
   },
@@ -18,60 +27,93 @@
     "name": "Yew Light Limbs",
     "description": "Long, powerful yew wood limb components crafted for large bows. The natural properties of yew create exceptional spring and power in these premium limbs.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "bow", "wood", "yew"],
-    "weight": 3.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "bow",
+      "wood",
+      "yew"
+    ],
+    "weight": 3,
     "value": 450,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "engineering",
-      "ingredients": ["yew wood", "wood treatment oil"],
-      "difficulty": 7
+      "ingredients": [
+        "Yew Wood",
+        "Wood Treatment Oil"
+      ],
+      "difficulty": 7,
+      "type": "engineering"
     },
-     "properties": "Adds +1 maximum range at the expense of adding +1 minimum range."
+    "properties": "Adds +1 maximum range at the expense of adding +1 minimum range."
   },
   {
     "name": "Ironwood Light Limbs",
     "description": "Long, powerful ironwood limb components crafted from the densest of hardwoods. These exceptional limbs rival metal in durability while maintaining organic flexibility.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "bow", "wood", "ironwood"],
-    "weight": 4.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "bow",
+      "wood",
+      "ironwood"
+    ],
+    "weight": 4,
     "value": 1200,
     "rarity": "rare",
     "recipe": {
-      "skill": "engineering",
-      "ingredients": ["ironwood", "wood treatment oil"],
-      "difficulty": 9
+      "ingredients": [
+        "Ironwood",
+        "Wood Treatment Oil"
+      ],
+      "difficulty": 9,
+      "type": "engineering"
     },
-     "properties": "Adds +1 maximum range and +1 primary damage when fabricated into a ranged weapon"
+    "properties": "Adds +1 maximum range and +1  damage when fabricated into a ranged weapon"
   },
   {
     "name": "True Steel Light Limbs",
     "description": "Long, powerful true steel limb components forged from exceptional metallurgy for masterwork heavy crossbows. These premium limbs deliver unmatched power and accuracy.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "bow", "truesteel"],
-    "weight": 4.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "bow",
+      "truesteel"
+    ],
+    "weight": 4,
     "value": 1050,
     "rarity": "uncommon",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["true steel ingots"],
-      "difficulty": 8
+      "ingredients": [
+        "True Steel Ingots"
+      ],
+      "difficulty": 8,
+      "type": "fabrication"
     },
-    "properties": "Adds +1 secondary damage when fabricated into a ranged weapon"
+    "properties": "Adds +1 extra damage when fabricated into a ranged weapon"
   },
   {
     "name": "Starsteel Light Limbs",
     "description": "Long, powerful starsteel limb components forged from legendary celestial metal. These otherworldly limbs channel devastating power through their divine properties.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "bow", "starsteel", "legendary"],
-    "weight": 3.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "bow",
+      "starsteel",
+      "legendary"
+    ],
+    "weight": 3,
     "value": 100450,
     "rarity": "legendary",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["starsteel ingots"],
-      "difficulty": 12
+      "ingredients": [
+        "Starsteel Ingots"
+      ],
+      "difficulty": 12,
+      "type": "fabrication"
     },
-    "properties": "Adds +2 primary damage and +1 secondary damage when fabricated into a ranged weapon"
+    "properties": "Adds +2  damage and +1 extra damage when fabricated into a ranged weapon"
   }
 ]

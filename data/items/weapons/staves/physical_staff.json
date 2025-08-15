@@ -3,7 +3,7 @@
   "description": "A sturdy staff crafted for both magical focus and physical combat, channeling pure physical damage and serving as a reliable blunt weapon.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
-  "weight": 2.0,
+  "weight": 2,
   "value": 300,
   "bonus_attack": 0,
   "rarity": "common",
@@ -56,6 +56,9 @@
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 7,
-    "ingredients": ["ash wood", "bindings"]
+    "ingredients": [
+      "Ash Wood",
+      "Bindings"
+    ]
   }
 }

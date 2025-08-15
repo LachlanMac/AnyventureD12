@@ -14,7 +14,7 @@
     },
     {
       "name": "Metallurgy",
-      "description": "You have studied metals and their properties. You gain +1 academics and roll a bonus dice when making checks that identify rocks, minerals or metal. Additionally, when you fail fabricating a weapon or piece of armor, you can spend an hour to recover any ingots you used.",
+      "description": "You have studied metals and their properties. You gain +1 academics and roll a bonus dice when making checks that identify rocks, minerals or metal. Additionally, when you fail fabricating a weapon or piece of armor, you can spend an hour to recover 1 ingot from it if you successfully make an fabrication check of 6.",
       "mtype": "core",
       "location": "2a",
       "cost": 2,
@@ -22,7 +22,7 @@
     },
     {
       "name": "Scrapyard Smith",
-      "description": "You have talent with making more with less. You gain +1 logic and do not suffer the first-time craft penalty for a recipe you have never made before. Additionally, you can spend 4 hours smelting down a weapon or piece of armor and recover ingots from it.",
+      "description": "You have talent with making more with less. You gain +1 logic and do not suffer the first-time craft penalty for a recipe you have never made before. Additionally, you can spend 4 hours smelting down a weapon or piece of armor and recover 1 ingot from it if you make a fabrication check of 6.",
       "mtype": "core",
       "location": "2b",
       "cost": 2,
@@ -30,7 +30,7 @@
     },
     {
       "name": "Reaction : Brace",
-      "description": "In response to making a deflection check or a check to avoid being displaced, roll an additionally fabrication check with a single dice, adding it to the original check.",
+      "description": "In response to making a deflection check or a check to avoid being displaced, roll an additional fabrication check with a single dice, adding it to the original check.",
       "mtype": "core",
       "location": "3",
       "cost": 2,
@@ -62,7 +62,7 @@
     },
     {
        "name": "Improved Weapons",
-      "description": "You have focused on crafting superior arms. Weapons you fabricate gain an extra module slot.",
+      "description": "You have focused on crafting superior arms. You roll a bonus dice when making a fabrication check to create a weapon.",
       "mtype": "core",
       "location": "6a",
       "cost": 2,
@@ -70,7 +70,7 @@
     },
     {
        "name": "Improved Armor", 
-      "description": "You have focused on crafting superior armor. Armor you fabricate gains an extra module slot.",
+      "description": "You have focused on crafting superior armor. You roll a bonus dice when making a fabrication check to create a piece of armor.",
       "mtype": "core",
       "location": "6b",
       "cost": 2,

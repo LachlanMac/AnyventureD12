@@ -1,6 +1,6 @@
 {
   "name": "Potion of Calming",
-  "description": "",
+  "description": "A concoction that calms the consumer until they complete their next full rest, making them more resistant to effects that cause the afraid, confused or maddened condition. When making their first check to end one of these conditions, the required check to end the condition starts 2 less than normal.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,11 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 12,
-    "ingredients": ["bundle_of_golden_poppy", "bundle_of_golden_poppy", "bundle_of_licorice", "bundle_of_valerian_root"]
-  }
+    "ingredients": [
+      "2x Bundle Of Golden Poppy",
+      "Bundle Of Licorice",
+      "Bundle Of Valerian Root"
+    ]
+  },
+  "side_effect": "The consumer gains the numbed condition when the effects of this potion wear off."
 }

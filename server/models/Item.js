@@ -54,7 +54,7 @@ const ItemSchema = new Schema({
   // Item type information
   type: { 
     type: String, 
-    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition" ],
+    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition", "runes" ],
     required: true 
   },
 
@@ -68,7 +68,7 @@ const ItemSchema = new Schema({
   },
   consumable_category: { 
       type: String, 
-      enum: ["poisons", "elixirs", "potions", "explosives", "intoxicants", "snack", "meal"],
+      enum: ["poisons", "elixirs", "potions", "explosives", "intoxicants"],
   },
   bonus_attack: {
     type: Number,
@@ -220,6 +220,30 @@ const ItemSchema = new Schema({
     stunned: { type: Boolean, default: false },
     unconscious: { type: Boolean, default: false }
   },
+  
+  // Recipe information for craftable items
+  recipe: {
+    type: {
+      type: String,
+      enum: ["alchemy", "cooking", "engineering", "fabrication", "glyphcraft", "bioshaping"]
+    },
+    difficulty: { type: Number, default: 0 },
+    ingredients: [{ type: String }]
+  },
+  
+  // Side effect for potions
+  side_effect: { type: String, default: "" },
+  
+  // Homebrew metadata
+  isHomebrew: { type: Boolean, default: false },
+  creatorId: { type: String },
+  creatorName: { type: String },
+  status: { 
+    type: String, 
+    enum: ['draft', 'published', 'approved', 'rejected'],
+    default: 'published'
+  },
+  publishedAt: { type: Date },
   
   // Metadata
   createdAt: { type: Date, default: Date.now },

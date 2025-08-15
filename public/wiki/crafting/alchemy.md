@@ -1,25 +1,27 @@
 # Alchemy
 
-Alchemy is the science of brewing potions, creating chemicals, and mixing magical compounds. Alchemists combine various ingredients to produce consumable items with temporary or permanent effects.
+Alchemy is the art of brewing potions, creating elixirs, and mixing poisons. Master alchemists can enhance their creations with special infusions that modify potency, duration, and other properties.
 
 ## What You Can Create
 
 Alchemy allows you to craft:
-- **Healing Potions** - Restore health, energy, and resolve
-- **Enhancement Elixirs** - Temporary stat boosts and special abilities
-- **Poisons and Toxins** - Harmful substances for weapons or direct use
-- **Magical Compounds** - Reagents and components for other crafts
-- **Utility Mixtures** - Adhesives, solvents, and specialized chemicals
-- **Consumable Items** - Various one-use items with magical or chemical effects
+- **Elixirs** - Healing drafts and restorative compounds
+- **Potions** - Temporary enhancement effects and magical transformations
+- **Poisons** - Harmful substances for weapons or direct application
 
-## Specialization Focus
+## Infusion System
 
-Alchemists work primarily with herbs, minerals, and magical components to create liquid and powder-based items. They understand the interactions between different substances and can combine them to achieve specific effects.
+When crafting alchemical items, alchemists can attempt to add infusions that enhance the item's properties. Each infusion requires an additional success at the required check. For example, if brewing a potion has a required check of 10, adding one infusion means you need 2 successes at 10 or higher.
 
-## Ingredient Mastery
+### Alchemical Infusions
 
-Alchemy relies heavily on understanding ingredient properties and combinations. Rare herbs, exotic minerals, and magical components can produce more powerful effects but require greater skill to work with safely.
-
-## Overcrafting Options
-
-*(Overcrafting bonuses will be detailed here once recipes are established)*
+| Name | Description | Ingredients |
+|------|-------------|-------------|
+| Extended Duration | Doubles the duration of effects | Stabilizing salt |
+| Concentrated | Adds +1 to fixed damage/healing or +1 die if dice-based | Distilled essence |
+| Potent | Increases required check to resist by 2 | Vial of venom |
+| Batch Brewing | Creates 2 doses instead of 1 | None (technique only) |
+| Tasteless | Cannot be detected by taste or smell | Bundle of licorice |
+| Instant | Can be used instantly (no action required) | Gold shavings |
+| Delayed | Effect triggers after a set time (up to 1 hour) | Pinch of gypsum powder |
+| Slow Release | Poison checks occur every hour or day instead of each round | Beeswax |

@@ -3,7 +3,7 @@
   "description": "A magical staff infused with otherworldly energy that channels pure aetheric damage and can also be used as a blunt weapon.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
-  "weight": 2.0,
+  "weight": 2,
   "value": 600,
   "bonus_attack": 0,
   "rarity": "uncommon",
@@ -56,6 +56,10 @@
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 9,
-    "ingredients": ["aetheric core", "ash wood", "bindings"]
+    "ingredients": [
+      "Aetheric Core",
+      "Ash Wood",
+      "Bindings"
+    ]
   }
 }

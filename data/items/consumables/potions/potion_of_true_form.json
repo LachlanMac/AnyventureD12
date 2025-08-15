@@ -1,6 +1,6 @@
 {
   "name": "Potion of True Form",
-  "description": "",
+  "description": "A concoction that causes the consumer to immediately revert to their true form if they are under the effect of any type of transformation magic or effect. The consumer can attempt to resist this affect by making a resilience check of 6 or higher.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,13 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 14,
-    "ingredients": ["bundle_of_mint", "bundle_of_mint", "bottle_of_pure_alcohol", "bundle_of_sage", "bundle_of_sage", "bundle_of_incense", "bundle_of_incense", "pinch_of_powdered_platinum"]
-  }
+    "ingredients": [
+      "2x Bundle Of Mint",
+      "Bottle Of Pure Alcohol",
+      "2x Bundle Of Sage",
+      "2x Bundle Of Incense",
+      "Pinch Of Powdered Platinum"
+    ]
+  },
+  "side_effect": "The consumer takes 10 toxic damage if they fail an endurance check of 6."
 }

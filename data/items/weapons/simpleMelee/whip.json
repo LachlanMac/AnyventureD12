@@ -5,7 +5,7 @@
   "weapon_category": "simpleMelee",
   "weight": 0.5,
   "value": 5,
-  "bonus_attack":0,
+  "bonus_attack": 0,
   "rarity": "common",
   "primary": {
     "damage": "4",
@@ -44,7 +44,10 @@
   "recipe": {
     "type": "fabrication",
     "difficulty": 5,
-     "ingredients": ["lash", "handle", "bindings"]
+    "ingredients": [
+      "Lash",
+      "Handle",
+      "Bindings"
+    ]
   }
 }
-  

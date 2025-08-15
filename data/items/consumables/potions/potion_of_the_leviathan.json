@@ -1,0 +1,18 @@
+{
+  "name": "Potion of the Leviathan",
+  "description": "A concoction that causes the consumer to grow gills and sprout webbed toes and fingers for an hour. These anatomical changes give them a swim speed of 8 units and allow underwater breathing.",
+  "type": "consumable",
+  "consumable_category": "potions",
+  "weight": 0.1,
+  "value": 60,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": [
+      "Spider Silk",
+      "Spider Legs"
+    ]
+  },
+  "side_effect": "After the potion wears off, the consumer becomes winded for an hour if they fail an endurance check of 4. This condition cannot be ended prematurely by natural means."
+}

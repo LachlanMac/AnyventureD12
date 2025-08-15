@@ -44,6 +44,10 @@
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 8,
-    "ingredients": ["divine core", "ash wood", "bindings"]
+    "ingredients": [
+      "Divine Core",
+      "Ash Wood",
+      "Bindings"
+    ]
   }
 }

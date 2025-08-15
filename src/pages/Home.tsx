@@ -244,7 +244,7 @@ const Home: React.FC = () => {
         </h2>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6"
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
           style={{ maxWidth: '1200px', margin: '0 auto' }}
         >
           <ResourceCard
@@ -274,6 +274,13 @@ const Home: React.FC = () => {
             linkText="View Conditions"
             linkTo="/conditions"
             icon="⚡"
+          />
+          <ResourceCard
+            title="Recipe Compendium"
+            description="Browse all crafting recipes for alchemy, cooking, engineering, fabrication, and more."
+            linkText="View Recipes"
+            linkTo="/recipes"
+            icon="🔨"
           />
         </div>
       </div>

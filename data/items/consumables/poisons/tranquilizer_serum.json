@@ -1,6 +1,6 @@
 {
   "name": "Tranquilizer Serum",
-  "description": "",
+  "description": "A poison that when ingested or applied through a coated weapon requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. While this potion does not deal damage, if the effect isn't removed after 3 checks after the initial check, the poisoned creature falls asleep.",
   "type": "consumable",
   "consumable_category": "poisons",
   "weight": 0.1,
@@ -9,6 +9,10 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 8,
-    "ingredients": ["bundle_of_golden_poppy", "bundle_of_golden_poppy", "bundle_of_nightshade", "vial_of_distilled_valerian_root"]
+    "ingredients": [
+      "2x Bundle Of Golden Poppy",
+      "Bundle Of Nightshade",
+      "Vial Of Distilled Valerian Root"
+    ]
   }
 }

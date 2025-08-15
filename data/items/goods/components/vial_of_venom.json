@@ -1,0 +1,8 @@
+{
+  "name": "Vial of Venom",
+  "description": "Concentrated venom extracted from serpents and venomous creatures, used to enhance poison potency",
+  "type": "goods",
+  "weight": 0.1,
+  "value": 250,
+  "rarity": "uncommon"
+}

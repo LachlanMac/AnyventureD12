@@ -1,6 +1,6 @@
 {
   "name": "Potion of True Polymorph",
-  "description": "",
+  "description": "A concoction that turns the consumer into a champion tier or lower beast or monster permanently, inheriting their entire statblock. While the consciousness may remain in remnants, the mind is limited by that of the statblock. The consumer can attempt to resist this affect by making an endurance check of 4 or higher. This transformation is non-magical and can only be reversed by a potion of true form.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,12 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 14,
-    "ingredients": ["beast_head", "pinch_of_powdered_platinum", "pinch_of_powdered_platinum", "vial_of_acid", "vial_of_acid", "vial_of_acid", "vial_of_acid", "vial_of_mercury", "vial_of_mercury"]
-  }
+    "ingredients": [
+      "Beast Head",
+      "2x Pinch Of Powdered Platinum",
+      "4x Vial Of Acid",
+      "2x Vial Of Mercury"
+    ]
+  },
+  "side_effect": "The consumer of this potion becomes confused immediately after the transformation if they fail a concentration check of 4."
 }

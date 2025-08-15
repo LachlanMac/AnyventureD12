@@ -1,0 +1,19 @@
+{
+  "name": "Elixir of Rejuvenation",
+  "description": "A humanoid or beast that consumes this elixir completely restores their health after completing their next full rest. A creature can only benefit from an elixir that restores health in this way once per day.",
+  "type": "consumable",
+  "consumable_category": "elixirs",
+  "weight": 0.1,
+  "value": 160,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 14,
+    "ingredients": [
+      "Vial Of Flax Oil",
+      "2x Bundle Of Mandrake",
+      "Bundle Of Ginseng Root",
+      "Crushed Gem 100gp"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "name": "Vial of Blight",
+  "description": "A poison that when ingested or applied through a coated weapon causes 4 dark damage each round, requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. Plantoids take double dark damage from this poison.",
+  "type": "consumable",
+  "consumable_category": "poisons",
+  "weight": 0.1,
+  "value": 75,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": [
+      "Plantoid Remains"
+    ]
+  }
+}

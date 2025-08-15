@@ -1,25 +1,25 @@
 # Glyphcraft
 
-Glyphcraft is the art of inscribing magical symbols, creating enchantments, and crafting scrolls and magical inscriptions. Glyphcrafters bridge the gap between mundane crafting and pure magic.
+Glyphcraft is the art of inscribing magical symbols to create enchantments and magical items. Glyphcrafters use special inks infused with metal shavings to imbue items with permanent magical properties.
 
 ## What You Can Create
 
 Glyphcraft allows you to craft:
+- **Runes** - Magical inscriptions that grant permanent enchantments
+- **Wands & Staves** - Focus items for spellcasters
 - **Spell Scrolls** - Single-use items containing prepared spells
-- **Enchanted Items** - Equipment with permanent magical properties
-- **Magical Inscriptions** - Symbols and glyphs with various effects
-- **Wards and Protections** - Defensive magical markings
-- **Ritual Components** - Items used in magical ceremonies
-- **Magical Texts** - Spellbooks, tomes, and instructional materials
 
-## Specialization Focus
+## Infusion System
 
-Glyphcrafters work with magical inks, precious metals, gemstones, and enchanted materials. They must understand both the physical craft of inscription and the magical principles that make their creations function.
+When inscribing magical items, glyphcrafters can add infusions using different metal shavings mixed into their inks. Each infusion requires an additional success at the required check. The type of metal shaving determines the enchantment effect.
 
-## Magical Integration
+### Glyphcraft Infusions
 
-Glyphcraft uniquely combines crafting skills with magical knowledge. Many recipes require both crafting ability and understanding of specific magical schools to complete successfully.
-
-## Overcrafting Options
-
-*(Overcrafting bonuses will be detailed here once recipes are established)*
+| Name | Description | Ingredients |
+|------|-------------|-------------|
+| Power Enhancement | Adds +1 primary damage to weapons | Silver shavings |
+| Potency Enhancement | Adds +1 secondary damage to weapons | Electrum shavings |
+| Precision Enhancement | Adds +1 bonus die to attack rolls | Platinum shavings |
+| Focus Enhancement | Adds +1 to maximum range | Gold shavings |
+| Warding Enhancement | Add +1 primary damage, weapon becomes immutable (cannot be altered by magic) | Lead shavings |
+| Conservation Enhancement | Add +1 primary damage, Reduces energy cost by 1 | Aetherium shavings |

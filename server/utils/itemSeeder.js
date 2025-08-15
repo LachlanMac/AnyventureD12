@@ -194,12 +194,36 @@ export const resetAndReseedItems = async () => {
   try {
     console.log('Updating and reseeding all items (preserving references)...');
     
+    // First, get all items from JSON files
+    const itemsData = readItemsFromDirectory(itemsDir);
+    const itemNamesFromFiles = new Set(itemsData.map(item => item.name));
+    
+    // Get all non-homebrew items from database
+    const itemsInDatabase = await Item.find({ isHomebrew: { $ne: true } }, 'name');
+    
+    // Find orphaned items (non-homebrew items in database but not in files)
+    const orphanedItems = itemsInDatabase.filter(dbItem => !itemNamesFromFiles.has(dbItem.name));
+    
+    // Delete orphaned items (non-homebrew only)
+    if (orphanedItems.length > 0) {
+      console.log(`Found ${orphanedItems.length} orphaned non-homebrew items to delete:`);
+      for (const orphan of orphanedItems) {
+        console.log(`Deleting orphaned item: ${orphan.name}`);
+        await Item.deleteOne({ _id: orphan._id });
+      }
+    } else {
+      console.log('No orphaned non-homebrew items found.');
+    }
+    
     // This will update existing items and create new ones (preserving ObjectIds)
     const success = await seedItems(false);
     
     if (success) {
       const newItemCount = await Item.countDocuments();
       console.log(`Successfully reseeded ${newItemCount} items.`);
+      if (orphanedItems.length > 0) {
+        console.log(`Deleted ${orphanedItems.length} orphaned items.`);
+      }
       return true;
     }
     

@@ -1,6 +1,6 @@
 {
   "name": "Potion of Sleep",
-  "description": "",
+  "description": "A concoction that when consumed causes the affected individual to immediately fall asleep upon failing a concentration check of 6. If the container is destroyed, it creates a gaseous cloud within a 2 unit radius that requires a concentration check of 3 or higher to avoid the effects.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,10 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
-    "ingredients": ["bundle_of_golden_poppy", "bundle_of_valerian_root", "bundle_of_valerian_root"]
-  }
+    "ingredients": [
+      "Bundle Of Golden Poppy",
+      "2x Bundle Of Valerian Root"
+    ]
+  },
+  "side_effect": "The next time the consumer completes a full rest, they must make a resilience check of 5 or higher, or they do not get credit for the rest."
 }

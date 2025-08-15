@@ -1,0 +1,8 @@
+{
+  "name": "Stabilizing Salt",
+  "description": "Alchemically refined mineral salts that extend the duration of magical effects",
+  "type": "goods",
+  "weight": 0.2,
+  "value": 150,
+  "rarity": "uncommon"
+}

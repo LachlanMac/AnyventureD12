@@ -1,6 +1,6 @@
 {
   "name": "Potion of Serpent Sight",
-  "description": "",
+  "description": "The consumer of this potion gains unnatural vision for the next 4 hours, granting them a bonus check to senses checks based on sight as well as infravision.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,9 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 10,
-    "ingredients": ["live_snake"]
-  }
+    "ingredients": [
+      "Live Snake"
+    ]
+  },
+  "side_effect": "After the potion wears off, the consumer goes blind for 1 hour."
 }

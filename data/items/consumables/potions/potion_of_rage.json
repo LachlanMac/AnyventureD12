@@ -1,6 +1,6 @@
 {
   "name": "Potion of Rage",
-  "description": "",
+  "description": "This concoction causes the consumer to enter an unstoppable rage for the next minute, granting a bonus dice to all endurance, resilience and might checks while inhibiting their focus, not allowing them to use their concentration. The consumer can attempt to resist this affect by making an endurance check of 6 or higher.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,10 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 12,
-    "ingredients": ["pinch_of_powdered_iron", "bundle_of_bloodthorn"]
-  }
+    "ingredients": [
+      "Pinch Of Powdered Iron",
+      "Bundle Of Bloodthorn"
+    ]
+  },
+  "side_effect": "If the consumer takes more than 10 damage after calculating mitigations, they become maddened."
 }

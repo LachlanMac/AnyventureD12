@@ -3,14 +3,21 @@
     "name": "Cloth Padding",
     "description": "Simple cloth padding to provide comfort under armor. This basic material prevents chafing and absorbs impact.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "padding", "cloth"],
-    "weight": 2.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "padding",
+      "cloth"
+    ],
+    "weight": 2,
     "value": 15,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["bundle of cloth"],
-      "difficulty": 2
+      "ingredients": [
+        "Bundle Of Cloth"
+      ],
+      "difficulty": 2,
+      "type": "fabrication"
     },
     "properties": "Basic comfort and minor impact absorption"
   }

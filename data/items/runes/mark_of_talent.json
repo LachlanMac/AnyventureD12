@@ -1,0 +1,16 @@
+{
+  "name": "Mark of Innate Talent",
+  "description": "A permanent magical tattoo that enhances the bearer's natural abilities. When inscribed, choose one attribute. The bearer gains +1 talent to that attribute permanently. A creature can only bear one Mark of Talent.",
+  "type": "runes",
+  "weight": 0,
+  "value": 5000,
+  "rarity": "legendary",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 14,
+    "ingredients": [
+      "Crushed Gem 500gp",
+      "5x Pinch Of Powdered Platinum"
+    ]
+  }
+}

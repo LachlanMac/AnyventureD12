@@ -44,6 +44,9 @@
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 6,
-    "ingredients": ["ash wood", "bindings"]
+    "ingredients": [
+      "Ash Wood",
+      "Bindings"
+    ]
   }
 }

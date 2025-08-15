@@ -93,6 +93,13 @@
       "order": 8
     },
     {
+      "id": "narrative-dice",
+      "title": "Narrative Dice",
+      "path": "core-mechanics/narrative_dice.md",
+      "category": "Core Mechanics",
+      "order": 9
+    },
+    {
       "id": "tracking-combat",
       "title": "Tracking Combat",
       "path": "combat/tracking-combat.md",

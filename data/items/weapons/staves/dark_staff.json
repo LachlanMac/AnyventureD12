@@ -3,7 +3,7 @@
   "description": "A magical staff infused with shadow energy that channels pure dark damage and can also be used as a blunt weapon.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
-  "weight": 2.0,
+  "weight": 2,
   "value": 600,
   "bonus_attack": 0,
   "rarity": "uncommon",
@@ -56,6 +56,10 @@
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 9,
-    "ingredients": ["dark core", "ash wood", "bindings"]
+    "ingredients": [
+      "Dark Core",
+      "Ash Wood",
+      "Bindings"
+    ]
   }
 }

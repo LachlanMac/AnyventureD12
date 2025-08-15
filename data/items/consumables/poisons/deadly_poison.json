@@ -1,0 +1,18 @@
+{
+  "name": "Deadly Poison",
+  "description": "A poison that when ingested or applied through a coated weapon causes 6 toxic damage each round, requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success.",
+  "type": "consumable",
+  "consumable_category": "poisons",
+  "weight": 0.1,
+  "value": 24,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 6,
+    "ingredients": [
+      "2x Bundle Of Nightshade",
+      "Pinch Of Powdered Iron",
+      "Bundle Of Mint"
+    ]
+  }
+}

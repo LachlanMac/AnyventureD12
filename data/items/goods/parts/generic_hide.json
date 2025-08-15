@@ -3,14 +3,21 @@
     "name": "Thick Hide",
     "description": "Durable animal hide suitable for crafting leather armor. This natural material provides basic protection while remaining flexible.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "hide", "leather"],
-    "weight": 4.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "hide",
+      "leather"
+    ],
+    "weight": 4,
     "value": 80,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 pelt"],
-      "difficulty": 4
+      "ingredients": [
+        "Pelt"
+      ],
+      "difficulty": 4,
+      "type": "fabrication"
     },
     "properties": "Standard material with no special effects"
   },
@@ -18,14 +25,23 @@
     "name": "Studded Hide",
     "description": "Thick hide reinforced with metal studs for enhanced protection. This upgraded material balances defense and flexibility.",
     "type": "goods",
-    "tags": ["parts", "armor_component", "hide", "studded"],
-    "weight": 5.0,
+    "tags": [
+      "parts",
+      "armor_component",
+      "hide",
+      "studded"
+    ],
+    "weight": 5,
     "value": 150,
     "rarity": "common",
     "recipe": {
-      "skill": "fabrication",
-      "ingredients": ["1 pelt", "5 iron nuggets", "bindings"],
-      "difficulty": 6
+      "ingredients": [
+        "Pelt",
+        "5x Iron Nuggets",
+        "Bindings"
+      ],
+      "difficulty": 6,
+      "type": "fabrication"
     },
     "properties": "reinforced material that adds +1 physical mitigation when fabricated into armor."
   }

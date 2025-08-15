@@ -1,6 +1,6 @@
 {
-  "name": "Firebomb",
-  "description": "",
+  "name": "Fire Bomb",
+  "description": "A cylindrical object that when thrown or destroyed creates an explosion of heat and fire within a 1 unit radius of it's origin, dealing 2d8 heat damage. Any creature that takes more than 10 heat damage after mitigations are applied also becomes ignited.",
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 1,
@@ -9,6 +9,11 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 12,
-    "ingredients": ["pouch_of_sulfur", "pouch_of_sulfur", "pouch_of_nitrate", "pouch_of_nitrate", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "lump_of_charcoal", "pinch_of_powdered_silver"]
+    "ingredients": [
+      "2x Pouch Of Sulfur",
+      "2x Pouch Of Nitrate",
+      "10x Lump Of Charcoal",
+      "Pinch Of Powdered Silver"
+    ]
   }
 }

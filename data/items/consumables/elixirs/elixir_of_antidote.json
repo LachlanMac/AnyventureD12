@@ -1,6 +1,6 @@
 {
   "name": "Elixir of Antidote",
-  "description": "",
+  "description": "Upon consumption, this elixir immediately reduces the required check to recover from poison by 2. Taking this elixir again does not provide any additional benefit until a full rest is completed. If at least a vial of poison or venom is mixed into the elixir and left to steep for one hour, it will then instantly cure any poisoning caused by that same substance.",
   "type": "consumable",
   "consumable_category": "elixirs",
   "weight": 0.1,
@@ -9,6 +9,9 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
-    "ingredients": ["bundle_of_echinacea", "lump_of_charcoal", "lump_of_charcoal"]
+    "ingredients": [
+      "Bundle Of Echinacea",
+      "2x Lump Of Charcoal"
+    ]
   }
 }

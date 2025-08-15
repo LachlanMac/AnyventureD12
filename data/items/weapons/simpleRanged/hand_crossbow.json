@@ -5,7 +5,7 @@
   "weapon_category": "simpleRanged",
   "weight": 2,
   "value": 30,
-  "bonus_attack":0,
+  "bonus_attack": 0,
   "rarity": "common",
   "primary": {
     "damage": "3",
@@ -44,6 +44,11 @@
   "recipe": {
     "type": "engineering",
     "difficulty": 6,
-    "ingredients": ["release mechanism", "light limbs", "bowstring", "bindings"]
+    "ingredients": [
+      "Release Mechanism",
+      "Light Limbs",
+      "Bowstring",
+      "Bindings"
+    ]
   }
 }

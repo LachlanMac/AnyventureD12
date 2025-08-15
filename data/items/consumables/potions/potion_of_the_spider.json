@@ -1,6 +1,6 @@
 {
   "name": "Potion of the Spider",
-  "description": "",
+  "description": "A concoction that allows the consumer to scale any surface effortlessly, granting them a climb speed of 4 for the next hour. While affected by this potion, the consumer can stick to any surface, even hanging upside-down and traverse it without being required to make a check if their movement is simple.",
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
@@ -9,6 +9,10 @@
   "recipe": {
     "type": "alchemy",
     "difficulty": 10,
-    "ingredients": ["spider_silk", "spider_legs"]
-  }
+    "ingredients": [
+      "Spider Silk",
+      "Spider Legs"
+    ]
+  },
+  "side_effect": "After this potion wears off, the consumer rolls a d4 for any coordination checks they make for the next hour."
 }
