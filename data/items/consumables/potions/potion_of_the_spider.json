@@ -4,14 +4,16 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 60,
+  "value": 850,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 10,
     "ingredients": [
-      "Spider Silk",
-      "Spider Legs"
+      "Pine Resin",
+      "Beeswax",
+      "Bundle of Embervine",
+      "Vial of Alchemist's Spirits"
     ]
   },
   "side_effect": "After this potion wears off, the consumer rolls a d4 for any coordination checks they make for the next hour."

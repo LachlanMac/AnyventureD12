@@ -4,15 +4,16 @@
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 0.2,
-  "value": 5,
+  "value": 280,
   "rarity": "common",
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
     "ingredients": [
-      "Pouch Of Saltpeter",
-      "4x Pinch Of Sugar",
-      "Vial"
+      "Pinch of Saltpeter",
+      "2x Pinch of Sugar",
+      "Pinch of Ash",
+      "Charcoal"
     ]
   }
 }

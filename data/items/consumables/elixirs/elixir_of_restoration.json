@@ -4,14 +4,16 @@
   "type": "consumable",
   "consumable_category": "elixirs",
   "weight": 0.1,
-  "value": 20,
+  "value": 350,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 9,
     "ingredients": [
-      "Bottle Of Pure Alcohol",
-      "Bundle Of Echinacea"
+      "Vial of Alchemist's Spirits",
+      "Bundle Of Yarrow",
+      "Bundle of Sage",
+      "Pinch of Crystal Dust"
     ]
   }
 }

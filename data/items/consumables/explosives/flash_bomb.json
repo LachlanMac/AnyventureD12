@@ -4,15 +4,15 @@
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 0.3,
-  "value": 35,
+  "value": 450,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 8,
     "ingredients": [
-      "2x Pinch Of Phosphorus",
-      "Pinch Of Crystal Dust",
-      "Magnesium Shavings"
+      "Pinch of Phosphorus",
+      "Pinch of Crystal Dust",
+      "Silver Shavings"
     ]
   }
 }

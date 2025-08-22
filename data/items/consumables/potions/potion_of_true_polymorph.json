@@ -4,16 +4,16 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 500,
+  "value": 8000,
   "rarity": "legendary",
   "recipe": {
     "type": "alchemy",
     "difficulty": 14,
     "ingredients": [
-      "Beast Head",
-      "2x Pinch Of Powdered Platinum",
-      "4x Vial Of Acid",
-      "2x Vial Of Mercury"
+      "Vial of Quicksilver",
+      "Sapphire dust",
+      "Vial of Acid",
+      "Hair, Scale or Blood of targeted creature"
     ]
   },
   "side_effect": "The consumer of this potion becomes confused immediately after the transformation if they fail a concentration check of 4."

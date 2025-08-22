@@ -4,13 +4,16 @@
   "type": "consumable",
   "consumable_category": "poisons",
   "weight": 0.1,
-  "value": 75,
+  "value": 600,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 8,
     "ingredients": [
-      "Plantoid Remains"
+      "Bundle of Bloodthorn",
+      "Bone Dust",
+      "Pinch of Ash",
+      "Vial of Ammonia"
     ]
   }
 }

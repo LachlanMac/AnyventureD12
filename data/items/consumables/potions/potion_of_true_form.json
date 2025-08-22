@@ -4,17 +4,16 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 400,
+  "value": 1300,
   "rarity": "legendary",
   "recipe": {
     "type": "alchemy",
     "difficulty": 14,
     "ingredients": [
-      "2x Bundle Of Mint",
-      "Bottle Of Pure Alcohol",
-      "2x Bundle Of Sage",
-      "2x Bundle Of Incense",
-      "Pinch Of Powdered Platinum"
+      "4x Bundle of Sage",
+      "Diamond dust",
+      "Vial of Quicksilver",
+      "Vial of Alchemist's Spirits"
     ]
   },
   "side_effect": "The consumer takes 10 toxic damage if they fail an endurance check of 6."

@@ -4,15 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 42,
+  "value": 650,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 6,
     "ingredients": [
-      "2x Bundle Of Gingko",
-      "Pouch Of Salt",
-      "Bottle Of Honey"
+      "2x Bundle of Gingko",
+      "Pinch of Crystal Dust",
+      "Jar of Honey"
     ]
   },
   "side_effect": ""

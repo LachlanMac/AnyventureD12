@@ -4,14 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 20,
+  "value": 300,
   "rarity": "common",
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
     "ingredients": [
-      "Bundle Of Golden Poppy",
-      "2x Bundle Of Valerian Root"
+      "Bundle of Golden Poppy",
+      "2x Bundle of Valerian Root",
+      "Jar of Honey"
     ]
   },
   "side_effect": "The next time the consumer completes a full rest, they must make a resilience check of 5 or higher, or they do not get credit for the rest."

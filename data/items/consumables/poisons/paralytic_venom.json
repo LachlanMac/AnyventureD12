@@ -4,15 +4,16 @@
   "type": "consumable",
   "consumable_category": "poisons",
   "weight": 0.1,
-  "value": 80,
+  "value": 600,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 8,
     "ingredients": [
-      "Spider Venom",
-      "Pinch Of Salt",
-      "Bundle Of Mugwort"
+      "Vial of Venom",
+      "Bundle of Mugwort",
+      "Pine Resin",
+      "Pinch of Salt"
     ]
   }
 }

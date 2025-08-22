@@ -1,0 +1,9 @@
+{
+  "name": "Vial of Alchemist's Spirits",
+  "description": "Highly purified alcohol distilled multiple times through copper alembics, used as a solvent and preservative in alchemical preparations",
+  "type": "goods",
+  "tags": ["component"],
+  "weight": 0.1,
+  "value": 200,
+  "rarity": "common"
+}

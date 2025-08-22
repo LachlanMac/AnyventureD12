@@ -4,15 +4,15 @@
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 0.8,
-  "value": 45,
+  "value": 460,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 10,
     "ingredients": [
-      "2x Iron Shavings",
-      "2x Pinch Of Sulfur",
-      "3x Scrap Metal"
+      "3x Iron Shavings",
+      "Pinch of Sulfur",
+      "Pinch of Saltpeter"
     ]
   }
 }

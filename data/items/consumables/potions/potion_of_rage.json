@@ -4,14 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 45,
+  "value": 900,
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 12,
+    "difficulty": 8,
     "ingredients": [
-      "Pinch Of Powdered Iron",
-      "Bundle Of Bloodthorn"
+      "Bundle of Bloodthorn",
+      "Pinch of Sulfur",
+      "Vial of Alchemist's Spirits"
     ]
   },
   "side_effect": "If the consumer takes more than 10 damage after calculating mitigations, they become maddened."

@@ -4,16 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 200,
+  "value": 540,
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 12,
+    "difficulty": 10,
     "ingredients": [
-      "Beast Tongue",
-      "2x Vial Of Acid",
-      "Vial Of Mercury",
-      "Pinch Of Powdered Gold"
+      "Bundle of Mandrake",
+      "Vial of Alchemist's Spirits",
+      "Hair, Scale or Blood of targeted creature"
     ]
   },
   "side_effect": "For an hour after the potion wears off, all knowledge and mind checks become a single d4 dice while the consumer recalibrates to their original body."

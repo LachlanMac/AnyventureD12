@@ -4,15 +4,15 @@
   "type": "consumable",
   "consumable_category": "poisons",
   "weight": 0.1,
-  "value": 24,
+  "value": 800,
   "rarity": "common",
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
     "ingredients": [
-      "2x Bundle Of Nightshade",
-      "Pinch Of Powdered Iron",
-      "Bundle Of Mint"
+      "2x Bundle of Nightshade",
+      "Vial of Venom",
+      "Pinch of Sulfur"
     ]
   }
 }

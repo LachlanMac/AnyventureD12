@@ -4,13 +4,16 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 50,
+  "value": 1100,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 8,
     "ingredients": [
-      "Giant Toe"
+      "Garnet dust",
+      "Toe of a Huge Creature",
+      "Vial of Alchemist's Spirits",
+      "Iron Shavings"
     ]
   },
   "side_effect": "After the potion wears off, the consumer rolls a d4 for any might checks until they complete a full rest."

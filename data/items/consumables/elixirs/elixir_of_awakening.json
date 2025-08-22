@@ -4,14 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 30,
+  "value": 700,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 7,
     "ingredients": [
-      "2x Bundle Of Licorice",
-      "Bottle Of Pure Alcohol"
+      "Bundle of Gingko",
+      "Bundle of Guarana",
+      "Vial of Alchemist's Spirits"
     ]
   },
   "side_effect": ""

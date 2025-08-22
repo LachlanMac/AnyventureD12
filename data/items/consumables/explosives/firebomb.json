@@ -4,16 +4,15 @@
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 1,
-  "value": 60,
+  "value": 680,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 12,
     "ingredients": [
-      "2x Pouch Of Sulfur",
-      "2x Pouch Of Nitrate",
-      "10x Lump Of Charcoal",
-      "Pinch Of Powdered Silver"
+      "Pinch of Sulfur",
+      "2x Pinch of Saltpeter",
+      "2x Charcoal"
     ]
   }
 }

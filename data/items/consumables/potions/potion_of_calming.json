@@ -4,15 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 140,
+  "value": 400,
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 12,
+    "difficulty": 6,
     "ingredients": [
-      "2x Bundle Of Golden Poppy",
-      "Bundle Of Licorice",
-      "Bundle Of Valerian Root"
+      "2x Bundle of Golden Poppy",
+      "Bundle of Licorice",
+      "Bundle of Valerian Root"
     ]
   },
   "side_effect": "The consumer gains the numbed condition when the effects of this potion wear off."

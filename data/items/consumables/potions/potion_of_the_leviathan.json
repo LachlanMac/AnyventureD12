@@ -4,14 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 60,
+  "value": 1550,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 10,
     "ingredients": [
-      "Spider Silk",
-      "Spider Legs"
+      "Vial of Quicksilver",
+      "Aquamarine dust",
+      "Bundle of Sage"
     ]
   },
   "side_effect": "After the potion wears off, the consumer becomes winded for an hour if they fail an endurance check of 4. This condition cannot be ended prematurely by natural means."

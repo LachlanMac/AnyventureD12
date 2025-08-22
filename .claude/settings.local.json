@@ -51,7 +51,8 @@
       "Bash(then echo \"Processing $file\")",
       "Bash(fi)"
     ],
-    "deny": []
+    "deny": [],
+    "defaultMode": "acceptEdits"
   },
   "enableAllProjectMcpServers": false
 }

@@ -4,15 +4,16 @@
   "type": "consumable",
   "consumable_category": "poisons",
   "weight": 0.1,
-  "value": 35,
+  "value": 600,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 8,
+    "difficulty": 6,
     "ingredients": [
-      "2x Bundle Of Golden Poppy",
-      "Bundle Of Nightshade",
-      "Vial Of Distilled Valerian Root"
+      "2x Bundle of Golden Poppy",
+      "Bundle of Valerian Root",
+      "Jar of Honey",
+      "Vial of Alchemist's Spirits"
     ]
   }
 }

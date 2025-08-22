@@ -1,0 +1,9 @@
+{
+  "name": "Charcoal",
+  "description": "Activated carbon from burned wood, used to absorb toxins and purify liquids in alchemical preparations",
+  "type": "goods",
+  "tags": ["component"],
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common"
+}

@@ -4,13 +4,15 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 40,
+  "value": 900,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 8,
     "ingredients": [
-      "Live Snake"
+      "Bundle of Eyestalk",
+      "Fresh Milk",
+      "Chalk Powder"
     ]
   },
   "side_effect": "After the potion wears off, the consumer goes blind for 1 hour."

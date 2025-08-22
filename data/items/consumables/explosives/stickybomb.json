@@ -4,16 +4,16 @@
   "type": "consumable",
   "consumable_category": "explosives",
   "weight": 0.3,
-  "value": 23,
+  "value": 250,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 6,
     "ingredients": [
-      "Sack Of Flour",
-      "Pinch Of Sulfur",
-      "Pinch Of Powdered Iron",
-      "5x Bottle Of Tree Sap"
+      "Pine Resin",
+      "Vial of Pitch",
+      "Beeswax",
+      "Pinch of Sulfur"
     ]
   }
 }

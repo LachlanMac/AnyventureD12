@@ -4,14 +4,15 @@
   "type": "consumable",
   "consumable_category": "elixirs",
   "weight": 0.1,
-  "value": 5,
+  "value": 400,
   "rarity": "common",
   "recipe": {
     "type": "alchemy",
     "difficulty": 6,
     "ingredients": [
-      "Bundle Of Echinacea",
-      "2x Lump Of Charcoal"
+      "Bottle of Vinegar",
+      "Vial of Ammonia",
+      "Vial of Venom"
     ]
   }
 }

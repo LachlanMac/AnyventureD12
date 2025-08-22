@@ -4,15 +4,16 @@
   "type": "consumable",
   "consumable_category": "potions",
   "weight": 0.1,
-  "value": 170,
+  "value": 1000,
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 14,
+    "difficulty": 10,
     "ingredients": [
-      "3x Bundle Of Gingko",
-      "2x Pinch Of Powdered Gold",
-      "Bottle Of Pure Alcohol"
+      "Bundle of Mugwort",
+      "Bundle of Golden Poppy",
+      "Gold Shavings",
+      "Vial of Quicksilver"
     ]
   },
   "side_effect": ""

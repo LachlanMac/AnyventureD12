@@ -8,6 +8,7 @@ pnpm-debug.log*
 lerna-debug.log*
 uploads/portraits
 node_modules
+training/
 dist
 dist-ssr
 *.local

@@ -4,16 +4,15 @@
   "type": "consumable",
   "consumable_category": "elixirs",
   "weight": 0.1,
-  "value": 65,
+  "value": 400,
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
     "difficulty": 11,
     "ingredients": [
-      "Vial Of Flax Oil",
-      "2x Bundle Of Mandrake",
-      "Pinch Of Powdered Silver",
-      "Crushed Gem 50gp"
+      "Vial of Quicksilver",
+      "Bundle Of Mandrake",
+      "Pinch of Crystal Dust"
     ]
   }
 }
