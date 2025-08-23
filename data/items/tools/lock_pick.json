@@ -1,0 +1,16 @@
+{
+  "name": "Lock Pick",
+  "description": "A thin piece of metal used for picking locks which is destroyed on a failure. The recipe for this item creates 4 picks.",
+  "type": "tools",
+  "weight": 0.5,
+  "value": 200,
+  "rarity": "common",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 3,
+    "ingredients": [
+      "Steel Sheet",
+      "Bindings"
+    ]
+  }
+}

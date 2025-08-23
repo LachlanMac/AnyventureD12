@@ -1,0 +1,9 @@
+{
+  "name": "Tin Sheet",
+  "description": "A thin, malleable sheet of tin created by heating and hammering an ingot flat. Used for lightweight metal components",
+  "type": "goods",
+  "tags": ["part", "crafting_material"],
+  "weight": 0.5,
+  "value": 20,
+  "rarity": "common"
+}

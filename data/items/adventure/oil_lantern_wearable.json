@@ -1,6 +1,6 @@
 {
   "name": "Wearable Oil Lantern",
-  "description": "A small lantern with belt clip, provides hands-free light in a 10-foot radius",
+  "description": "A small lantern with belt clip, provides hands-free light within a 3 unit radius.",
   "type": "adventure",
   "weight": 1.5,
   "value": 120,

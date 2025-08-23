@@ -1,0 +1,18 @@
+{
+  "name": "Alarm Trap Kit",
+  "description": "A motion-triggered mechanism that sounds a loud bell or whistle, alerting everyone within a moderate (20 unit) distance when activated",
+  "type": "tools",
+  "weight": 1.5,
+  "value": 750,
+  "rarity": "common",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 6,
+    "ingredients": [
+      "Brass Sheet",
+      "Lead Weight",
+      "Spool of Invisible String",
+      "Bindings"
+    ]
+  }
+}

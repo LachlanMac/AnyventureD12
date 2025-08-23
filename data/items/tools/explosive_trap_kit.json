@@ -1,0 +1,21 @@
+{
+  "name": "Explosive Trap Kit",
+  "description": "A trip wire mechanism that detonates a placed explosive when triggered dealing 3d8 fire damage to anyone within a 2 unit radius if they fail a defense check of 9. The individual who triggers the trap automatically fails this check.",
+  "type": "tools",
+  "weight": 2.0,
+  "value": 1150,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 10,
+    "ingredients": [
+      "Copper Sheet",
+      "Spool of Invisible Thread",
+      "Lead Weight",
+      "Pinch of Sulfur",
+      "Pinch of Saltpeter",
+      "Bindings",
+      "Flint"
+    ]
+  }
+}

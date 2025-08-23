@@ -1,0 +1,9 @@
+{
+  "name": "Steel Sheet",
+  "description": "A strong, durable sheet of steel formed through careful hammering. Ideal for armor plating and structural components",
+  "type": "goods",
+  "tags": ["part", "crafting_material"],
+  "weight": 1.0,
+  "value": 600,
+  "rarity": "common"
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Mechanical Lockpick",
+  "description": "A spring-loaded automatic lockpick that attempts to open locks on its own. Rolls 3d10 for thievery checks when picking locks despite the user's talent. This lock takes 1 minute to function, but is not destroyed on a failure.",
+  "type": "tools",
+  "weight": 1.2,
+  "value": 3650,
+  "rarity": "rare",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 9,
+    "ingredients": [
+      "8x Advanced Lock Picks",
+      "Clockwork Gears",
+      "Brass Fittings",
+      "Bindings"
+    ]
+  }
+}

@@ -1,0 +1,17 @@
+{
+  "name": "Spyglass",
+  "description": "A collapsible telescope for viewing distant objects, grants a bonus die to senses checks for spotting distant details",
+  "type": "tools",
+  "weight": 1.0,
+  "value": 300,
+  "rarity": "common",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 8,
+    "ingredients": [
+      "2x Pinch of Crystal Dust",
+      "Brass Sheet",
+      "Bindings"
+    ]
+  }
+}

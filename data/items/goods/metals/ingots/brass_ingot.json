@@ -1,0 +1,9 @@
+{
+  "name": "Brass Ingot",
+  "description": "An alloy ingot created by smelting copper and tin together in precise ratios, producing a golden-colored metal with excellent corrosion resistance and workability",
+  "type": "goods",
+  "tags": ["metal", "ingot"],
+  "weight": 1.0,
+  "value": 50,
+  "rarity": "common"
+}

@@ -1,6 +1,6 @@
 {
   "name": "Oil Lantern",
-  "description": "A metal lantern that burns oil to provide bright light in a 15-foot radius",
+  "description": "A metal lantern that burns oil to provide bright light within a 5 unit radius.",
   "type": "adventure",
   "weight": 2.0,
   "value": 80,

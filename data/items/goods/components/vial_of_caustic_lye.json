@@ -1,0 +1,9 @@
+{
+  "name": "Vial of Caustic Lye",
+  "description": "Concentrated alkaline solution made from ash and lime, used in alchemy to break down organic matter and intensify reactions",
+  "type": "goods",
+  "tags": ["component"],
+  "weight": 0.1,
+  "value": 150,
+  "rarity": "common"
+}

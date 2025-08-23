@@ -19,9 +19,9 @@ When crafting alchemical items, alchemists can attempt to add infusions that enh
 |------|-------------|-------------|
 | Extended Duration | Doubles the duration of effects | Stabilizing salt |
 | Concentrated | Adds +1 to fixed damage/healing or +1 die if dice-based | Distilled essence |
-| Potent | Increases required check to resist by 2 | Vial of venom |
-| Batch Brewing | Creates 2 doses instead of 1 | None (technique only) |
+| Potent | Increases required check to resist by 2 | Vial of Caustic Lye |
+| Batch Brewing | Creates 2 doses instead of 1 | None |
 | Tasteless | Cannot be detected by taste or smell | Bundle of licorice |
-| Instant | Can be used instantly (no action required) | Gold shavings |
-| Delayed | Effect triggers after a set time (up to 1 hour) | Pinch of gypsum powder |
-| Slow Release | Poison checks occur every hour or day instead of each round | Beeswax |
+| Instant | Potions that restore health grant their benefits instantaneously | Gold shavings |
+| Delayed | Effect triggers after a set time | Pinch of gypsum powder |
+| Slow Release | Poison checks occur every hour or day instead of each round | Pinch of Potash Powder |

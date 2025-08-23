@@ -1,6 +1,6 @@
 {
   "name": "Set of Manacles",
-  "description": "Iron restraints for wrists, requires DC 15 to escape or DC 12 to pick",
+  "description": "Metal restraints that can bind a creature's arms or legs that require a thievery check of 8 to open with the correct tools.",
   "type": "adventure",
   "weight": 6.0,
   "value": 200,

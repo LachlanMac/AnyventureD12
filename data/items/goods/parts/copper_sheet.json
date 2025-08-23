@@ -1,0 +1,9 @@
+{
+  "name": "Copper Sheet",
+  "description": "A hammered sheet of copper, excellent for conducting heat and creating flexible metal components",
+  "type": "goods",
+  "tags": ["part", "crafting_material"],
+  "weight": 0.8,
+  "value": 80,
+  "rarity": "common"
+}

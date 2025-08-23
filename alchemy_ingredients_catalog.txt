@@ -143,6 +143,9 @@ Vial of Alchemist's Spirits - 20g
 Vial of Ammonia - 8g
   Pungent liquid for cleaning and chemical reactions
 
+Vial of Caustic Lye - 15g
+  Concentrated alkaline solution for breaking down organic matter
+
 Vial of Pitch - 5g
   Black tar for waterproofing and adhesion
 

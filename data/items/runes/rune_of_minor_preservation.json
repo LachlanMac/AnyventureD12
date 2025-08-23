@@ -1,0 +1,15 @@
+{
+  "name": "Rune of Minor Preservation",
+  "description": "A magical inscription that keeps organic materials fresh and prevents decay for 1 day. Food stays fresh instead of spoiling, and bodies are protected against natural decomposition, making it valuable for burial rites or medical study.",
+  "type": "runes",
+  "weight": 0,
+  "value": 60,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 7,
+    "ingredients": [
+      "Electrum Shavings"
+    ]
+  }
+}

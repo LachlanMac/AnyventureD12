@@ -1,0 +1,17 @@
+{
+  "name": "Simple Lock",
+  "description": "A simple lock requiring a Thievery check of 8 or higher to pick without the key",
+  "type": "tools",
+  "weight": 1.0,
+  "value": 300,
+  "rarity": "common",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 6,
+    "ingredients": [
+      "Brass Sheet",
+      "Bindings",
+      "Pine Resin"
+    ]
+  }
+}

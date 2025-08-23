@@ -1,6 +1,6 @@
 {
   "name": "Large Net",
-  "description": "A 10-foot square net for trapping creatures or catching large quantities of fish",
+  "description": "A large square net that is 3 units wide and long, designed for trapping large creatures or catching large quantities of fish.",
   "type": "adventure",
   "weight": 6.0,
   "value": 120,

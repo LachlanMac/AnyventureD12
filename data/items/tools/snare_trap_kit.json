@@ -1,0 +1,19 @@
+{
+  "name": "Snare Trap Kit",
+  "description": "A tension spring mechanism that captures and hoists a medium or smaller target when triggered if they fail a fitness check of 8.",
+  "type": "tools",
+  "weight": 4.0,
+  "value": 900,
+  "rarity": "common",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 7,
+    "ingredients": [
+      "Spool of Invisible String",
+      "Bindings",
+      "Net",
+      "Pine Resin",
+      "Rope (30 ft)"
+    ]
+  }
+}

@@ -1,0 +1,9 @@
+{
+  "name": "Brass Fittings",
+  "description": "Precision connectors and joints made from copper and tin alloy. Used for articulation points in complex mechanisms",
+  "type": "goods",
+  "tags": ["part", "crafting_material", "clockwork"],
+  "weight": 0.4,
+  "value": 80,
+  "rarity": "common"
+}

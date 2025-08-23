@@ -1,0 +1,17 @@
+{
+  "name": "Advanced Lock Pick",
+  "description": "A superior version of the lockpick, this metal is paired with a sticky resin that allows it to adapt to a lock, granting the user a bonus dice to their thievery check. As with a normal lockpick, this item is destroyed upon failure. The recipe for this item creates 4 picks.",
+  "type": "tools",
+  "weight": 0.8,
+  "value": 250,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 6,
+    "ingredients": [
+      "Steel Sheet",
+      "Brass Fittings",
+      "Pine Resin"
+    ]
+  }
+}

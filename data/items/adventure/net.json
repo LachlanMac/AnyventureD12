@@ -1,6 +1,6 @@
 {
   "name": "Net",
-  "description": "A 5-foot square net suitable for fishing or small game",
+  "description": "A square net made of rope that can be used for fishing or trapping medium or smaller creatures.",
   "type": "adventure",
   "weight": 3.0,
   "value": 60,

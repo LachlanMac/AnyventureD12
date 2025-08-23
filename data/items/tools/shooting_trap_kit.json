@@ -1,0 +1,18 @@
+{
+  "name": "Shooting Trap Kit",
+  "description": "A pressure plate mechanism that fires loaded ammunition when triggered. Can be loaded with any arrow or bolt which is rolled with a 3d10, dealing 4 damage and 2 extra.",
+  "type": "tools",
+  "weight": 3.0,
+  "value": 950,
+  "rarity": "common",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 8,
+    "ingredients": [
+      "Steel Sheet",
+      "Bindings",
+      "Flint",
+      "Pine Resin"
+    ]
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "name": "Binoculars",
+  "description": "Twin telescopes mounted side-by-side for enhanced depth perception and wider field of view that have an adjustable control to shift the lenses, granting better zoom and focus. Grants 2 bonus dice to senses checks for spotting distant details.",
+  "type": "tools",
+  "weight": 2.0,
+  "value": 2000,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 12,
+    "ingredients": [
+      "2x Spyglass",
+      "Clockwork Gears",
+      "Brass Fittings",
+      "Bindings"
+    ]
+  }
+}
