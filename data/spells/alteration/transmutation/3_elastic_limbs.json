@@ -5,7 +5,7 @@
     "duration": "1 Minute",
     "range": 1,
     "checkToCast": 3,
-    "components": [""],
+    "components": ["Rubber Sap"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

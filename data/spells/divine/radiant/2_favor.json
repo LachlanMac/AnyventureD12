@@ -5,7 +5,7 @@
     "duration": "1 day",
     "range": 1,
     "checkToCast": 2,
-    "components": [""],
+    "components": ["Pinch of Crystal Dust"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

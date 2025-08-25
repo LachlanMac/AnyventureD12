@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 4,
     "checkToCast": 11,
-    "components": [""],
+    "components": ["Onyx"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

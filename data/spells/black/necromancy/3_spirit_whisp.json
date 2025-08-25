@@ -5,7 +5,7 @@
     "duration": "1 hour",
     "range": 0,
     "checkToCast": 3,
-    "components": [""],
+    "components": ["Quartz"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

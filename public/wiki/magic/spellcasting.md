@@ -20,35 +20,35 @@ A character with 3 talent and 2 skill in Primal Magic would roll <b>3d8</b> to c
 ### Energy Cost
 Channeling spells costs **Energy**. In order to attempt to cast a spell, a player must first spend the energy to do it.
 
-### Components
-All spells have **components** which are used in the channeling process and are used to focus magic to make the process more safe. Components are consumed when the spell is channeled, on success or failure.
+### Spell Failure
+If you fail to successfully channel a spell, you cannot attempt to channel that same spell again until you complete a **full rest**. This represents the magical strain and mental fatigue from a failed casting.
 
+### Components
+All spells have **components** listed in their descriptions. Components are **not required** for basic spellcasting, but they are used to **charge** spells for enhanced effects. When used for charging, components are always consumed unless you have an appropriate **focus**.
 
 <div class="example-box">
-The spell Mend has "silver shards" listed as a component. These shards will be consumed when the spell is channeled regardless of success of failure.
+The spell Mend has "silver shards" listed as a component. You can cast Mend normally without silver shards, but if you want to charge it for extra effect, the silver shards will be consumed.
 </div>
 
+There are some items called **focuses** that allow you to charge spells without consuming the component. For example, a silver idol focus could replace the need for silver shards when charging spells. However, focuses can break when used, with rules typically built into the item description. 
 
-There are some items called **focuses** that allow you to replace needing a component for a spell. For example, the silver idol is a focus that replaces the need for silver shards as a component. However, these items can break when you fail to channel a spell while using them. The rules for this are typically built into the item, usually having a chance to break based on failing to cast a spell. 
-
-### Manaburn
-A character can channel a spell without a component by using a **Manaburn**. Manaburning is both dangerous and inefficient; a way to use your own lifeforce to attempt to cast a spell. When you channel a spell without a component, you take true damage equal to the required check of the spell. If you fail, this damage is doubled. Reaching 0 health due to performing a manaburn makes you unable to use magic until you complete your next full rest. 
+ 
 
 ### Charging Spells
 Charging is a way to get an extra effect or potency from a spell. Every single spell in AnyventureDX has a **charge effect** listed in the spell description. 
 
-There are a few rules to remember when channeling a spell:
+There are a few rules to remember when charging a spell:
 
 - You must declare that you are charging a spell before channeling it
-- It is not possible to attempt to charge a spell without using the component
+- Charging a spell requires using the component (which is consumed) or an appropriate focus
 - Charging a spell increases the required check by +2
-- Charging a spell with a focus consumes the focus as if it were the component
+- Charging a spell with a focus does not consume the focus, but the focus may break based on its own rules
 
 ## Rituals
 <div class="triangle-line"></div>
 Rituals allow a character to channel a spell over a long duration. Casting a spell as a ritual has some differences:
 
-- Rituals cannot be channeled without components
+- Rituals require the spell's component (which is consumed unless using a focus)
 - A successful ritual results in the spell being automatically charged without requiring an increased required check
 - Other characters can assist in the ritual, improving the chance of success
 
@@ -69,7 +69,7 @@ Assisting in rituals makes channeling spells possible that would normally be imp
 <br>
 
 <div class="example-box">
-  A Lich Lord wants to raise an army of the dead to bring destruction to the world. This spell requires a check of 22—an impossible feat alone, because although his skill check for channeling a necromancy spell is 4d20, his maximum possible score is only 20. To aid in his success, the Lich gathers his ten strongest generals. They may not excel at necromancy as he does, but they can still contribute with their serviceable Dark Magic checks (3d16). For each check of 11 or higher, they add +1 to the Lich Lord’s final total. Each general has about a two-thirds chance of succeeding and a one-third chance of hindering the ritual. The Lich Lord rolls a 19, so he needs at least three more successes than failures—which is going to be a close call!
+  A Lich Lord wants to raise an army of the dead to bring destruction to the world. This spell requires a check of 22; an impossible feat alone, because although his skill check for channeling a necromancy spell is 4d20, his maximum possible score is only 20. To aid in his success, the Lich gathers his ten strongest generals. They may not excel at necromancy as he does, but they can still contribute with their serviceable Dark Magic checks (3d16). For each check of 11 or higher, they add +1 to the Lich Lord’s final total. Each general has about a two-thirds chance of succeeding and a one-third chance of hindering the ritual. The Lich Lord rolls a 19, so he needs at least three more successes than failures, which is going to be a close call!
 </div>
 
 

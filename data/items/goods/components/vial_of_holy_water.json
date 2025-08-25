@@ -1,0 +1,15 @@
+{
+  "name": "Vial of Holy Water",
+  "description": "Pure water blessed with silver shavings, creating a sacred mixture that glows faintly with divine energy. The silver particles remain suspended in the water, creating swirling patterns that never settle. Essential for divine magic and purification rituals.",
+  "type": "goods",
+  "tags": ["component", "liquid", "divine"],
+  "weight": 0.2,
+  "value": 150,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy", 
+    "difficulty": 3,
+    "ingredients": ["Bottle of Water", "Silver Shavings"],
+    "yield": 5
+  }
+}

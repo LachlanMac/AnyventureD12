@@ -1,0 +1,18 @@
+{
+  "name": "Pixie Dust",
+  "description": "A shimmering, iridescent powder that sparkles with all the colors of the rainbow and carries the sweet, refreshing scent of wild mint and honey. Created by grinding crystal dust with aromatic herbs beloved by fey creatures, then binding the mixture with honey's natural magic-conducting properties. The dust seems to float and dance in the air when disturbed, creating tiny swirling motes of light that fade after a few seconds. This recipe yields 5 doses.",
+  "type": "goods",
+  "tags": ["component", "alchemical", "fey"],
+  "weight": 0.05,
+  "value": 240,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 4,
+    "ingredients": [
+      "12x Bundle of Mint",
+      "12x Pinch of Crystal Dust",
+      "2x Jar of Honey"
+    ]
+  }
+}

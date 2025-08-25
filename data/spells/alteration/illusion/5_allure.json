@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 1,
     "checkToCast": 5,
-    "components": [""],
+    "components": ["Bundle of Rosemary"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

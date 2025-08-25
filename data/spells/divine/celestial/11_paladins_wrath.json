@@ -5,7 +5,7 @@
     "duration": "1 minute",
     "range": 5,
     "checkToCast": 11,
-    "components": [""],
+    "components": ["Long Sword"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

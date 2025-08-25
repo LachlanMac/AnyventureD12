@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 4,
     "checkToCast": 5,
-    "components": [""],
+    "components": ["Bundle of Mandrake"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

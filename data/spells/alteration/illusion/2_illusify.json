@@ -6,7 +6,7 @@
    "range": 4,
    "tags": ["illusion"],
    "checkToCast": 2,
-   "components": ["A pinch of colored sand or dust"],
+   "components": ["Pinch of Ochre Dust"],
    "ritualDuration": "1 hour",
    "concentration": true,
    "reaction": false,

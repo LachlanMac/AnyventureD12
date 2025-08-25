@@ -1,7 +1,7 @@
 {
   "id": 13,
   "name": "Free Folk",
-  "description": "Bound by Nothing\nFree Folk cultures reject external authority and prize individual liberty above all else. They value self-reliance, personal expression, and the right to make their own choices. Born from rebellion, exile, or simply the desire to live unrestrained, they see any form of imposed rule as chains to be broken. Freedom is not just a philosophy—it's a way of life.",
+  "description": "Bound by Nothing\nFree Folk cultures reject external authority and prize individual liberty above all else. They value self-reliance, personal expression, and the right to make their own choices. Born from rebellion, exile, or simply the desire to live unrestrained, they see any form of imposed rule as chains to be broken. Freedom is not just a philosophy, it's a way of life.",
   "culturalRestrictions": [
     {
       "name": "Independent Spirit",

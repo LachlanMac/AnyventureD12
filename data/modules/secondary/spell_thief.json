@@ -78,7 +78,7 @@
    },
    {
      "name": "Spell Shatter",
-     "description": "You don't just steal spells—you shatter them. When you successfully steal a spell, the original casting is completely negated. Additionally, if the stolen spell was innate to the creature, they must make a magic knowlege check of 9 or higher, or the spell becomes disabled for 1 minute.",
+     "description": "You don't just steal spells, you shatter them. When you successfully steal a spell, the original casting is completely negated. Additionally, if the stolen spell was innate to the creature, they must make a magic knowlege check of 9 or higher, or the spell becomes disabled for 1 minute.",
      "mtype": "core",
      "location": "7",
      "cost": 3,

@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 1,
     "checkToCast": 10,
-    "components": [""],
+    "components": ["Nickel Shavings"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

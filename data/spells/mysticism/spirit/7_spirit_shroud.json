@@ -5,7 +5,7 @@
     "duration": "1 hour",
     "range": 0,
     "checkToCast": 7,
-    "components": [""],
+    "components": ["Any Cloak"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

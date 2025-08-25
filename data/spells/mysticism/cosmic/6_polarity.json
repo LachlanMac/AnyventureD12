@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 5,
     "checkToCast": 6,
-    "components": [""],
+    "components": ["Lodestone"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

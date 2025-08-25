@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 4,
     "checkToCast": 5,
-    "components": [""],
+    "components": ["Chunk of Obsidian"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

@@ -1,0 +1,9 @@
+{
+  "name": "Human Skull",
+  "description": "A cleaned and preserved human skull, often used in necromantic rituals. The bone has been treated to prevent decay and maintains its structural integrity for magical purposes.",
+  "type": "goods",
+  "tags": ["component", "bone", "dark"],
+  "weight": 1,
+  "value": 250,
+  "rarity": "uncommon"
+}

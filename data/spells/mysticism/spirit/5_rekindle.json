@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 1,
     "checkToCast": 5,
-    "components": [""],
+    "components": ["Ruby"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

@@ -1,0 +1,9 @@
+{
+  "name": "Rubber Sap",
+  "description": "A sticky, amber-colored sap that hardens into a flexible, bouncing material when exposed to air. Harvested from the rare Springwood trees found in enchanted forests, this natural rubber maintains its elasticity for months after collection. When used in magic, it imbues spells with properties of flexibility and stretch.",
+  "type": "goods",
+  "tags": ["component", "organic"],
+  "weight": 0.2,
+  "value": 40,
+  "rarity": "common"
+}

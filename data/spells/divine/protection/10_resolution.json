@@ -6,7 +6,7 @@
     "range": 1,
     "checkToCast": 10,
     "components": [
-      ""
+      "Citrine"
     ],
     "ritualDuration": "1 hour",
     "concentration": false,

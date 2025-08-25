@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 1,
     "checkToCast": 11,
-    "components": [""],
+    "components": ["Moonstone"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

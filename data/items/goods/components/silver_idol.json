@@ -1,0 +1,9 @@
+{
+  "name": "Silver Idol",
+  "description": "An intricately carved silver figurine depicting a celestial guardian. The surface is etched with holy symbols that seem to catch and reflect light in unusual ways, creating a subtle halo effect around the idol.",
+  "type": "goods",
+  "tags": ["component", "metal", "divine"],
+  "weight": 0.5,
+  "value": 300,
+  "rarity": "uncommon"
+}

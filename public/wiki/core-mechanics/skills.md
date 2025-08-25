@@ -110,7 +110,7 @@ Contested checks are resolved easily; the higher value succeeds and the lower va
   <strong>Example 2 — The Falling Gem</strong><br>
   <em>Situation:</em> Two adventurers, Kellan and Mira, dive to snatch a gem that slips from a pedestal.<br>
   <em>Check:</em> Both roll <strong>Coordination</strong>. Kellan scores <strong>7</strong>; Mira scores <strong>7</strong>.<br>
-  <em>Outcome:</em> It’s a tie, so per the rule there is “no change.” The gem clatters to the floor, unclaimed—for now.
+  <em>Outcome:</em> It’s a tie, so per the rule there is “no change.” The gem clatters to the floor, unclaimed for now.
 </div>
 
 ## Helping Others

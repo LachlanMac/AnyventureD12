@@ -1,0 +1,17 @@
+{
+  "name": "Frost Dust",
+  "description": "A pale blue crystalline powder that chills everything it touches and causes ice crystals to form in the surrounding air. Created through an endothermic alchemical reaction between ammonia vapors and pulverized crystal, this dust absorbs heat from its environment and maintains a temperature well below freezing. When exposed to moisture, it instantly forms a thin layer of frost. The dust must be stored in insulated containers to prevent it from freezing other materials. This recipe yields 5 doses.",
+  "type": "goods",
+  "tags": ["component", "alchemical"],
+  "weight": 0.1,
+  "value": 220,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 4,
+    "ingredients": [
+      "5x Vial of Ammonia",
+      "10x Pinch of Crystal Dust"
+    ]
+  }
+}

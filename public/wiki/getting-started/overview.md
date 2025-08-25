@@ -3,12 +3,12 @@
 
 ## What Makes Anyventure Different
 
-Anyventure breaks away from traditional class-based systems, offering complete freedom in character creation and progression. There are no predetermined paths—every character is built through modular advancement, tactical decision-making, and meaningful risk management.
+Anyventure breaks away from traditional class-based systems, offering complete freedom in character creation and progression. There are no predetermined paths; every character is built through modular advancement, tactical decision-making, and meaningful risk management.
 
 ### Core Innovations
 - **No Classes**: Build any character concept through [Modules](/wiki/modules)
 - **Talent/Skill Split**: [Talents](/wiki/attributes) determine how many dice you roll, [Skills](/wiki/skills) determine what dice you roll
-- **Take Highest**: Roll multiple dice, use the highest result—not the sum
+- **Take Highest**: Roll multiple dice, use the highest result - not the sum
 - **Lifeline System**: Fight at 0 health using [Resolve](/wiki/resources), but face permanent consequences
 - **Four-Phase Initiative**: Strategic [combat timing](/wiki/tracking-combat) with Preparation, Early, Middle, and Late phases
 
@@ -36,7 +36,7 @@ Start your journey by understanding how to build a character from the ground up:
 ## Character Progression
 <div class="triangle-line"></div>
 
-Advancement in Anyventure is entirely modular—no levels, no classes, just choices:
+Advancement in Anyventure is entirely modular; no levels, no classes, just choices:
 
 ### Module System
 - **[Modules Overview](/wiki/modules)** - The heart of character progression
@@ -111,7 +111,7 @@ New to Anyventure? Follow this recommended reading order:
 Anyventure prioritizes:
 
 - **Player Agency**: Every choice matters, from character creation to combat tactics
-- **Meaningful Risk**: The [Lifeline System](/wiki/resources) lets you fight beyond your limits—but at a cost
+- **Meaningful Risk**: The [Lifeline System](/wiki/resources) lets you fight beyond your limits, but at a cost
 - **Tactical Depth**: [Combat phases](/wiki/tracking-combat), [resource management](/wiki/resources), and [positioning](/wiki/ranges-distances) create engaging encounters
 - **Narrative Integration**: [Personality modules](/wiki/modules), [cultural backgrounds](/wiki/cultures), and [social mechanics](/wiki/skills) support rich storytelling
 

@@ -5,7 +5,7 @@
     "duration": "1 hour",
     "range": 0,
     "checkToCast": 8,
-    "components": [""],
+    "components": ["Iron Ingot"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

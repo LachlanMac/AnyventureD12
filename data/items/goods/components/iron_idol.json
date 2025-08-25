@@ -1,0 +1,9 @@
+{
+  "name": "Iron Idol",
+  "description": "A rough-hewn idol forged from cold iron, depicting a stern protector deity. Despite its crude appearance, the idol radiates an aura of strength and unwavering resolve. Often used in protective wards and banishment rituals.",
+  "type": "goods",
+  "tags": ["component", "metal", "protective"],
+  "weight": 0.8,
+  "value": 80,
+  "rarity": "common"
+}

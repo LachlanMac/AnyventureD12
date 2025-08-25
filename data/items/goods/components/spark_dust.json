@@ -1,0 +1,17 @@
+{
+  "name": "Spark Dust",
+  "description": "A crackling blue-white powder that constantly arcs with tiny bolts of electricity between its particles. The dust emits a sharp ozone smell and causes hair to stand on end when handled. Created by combining conductive metal shavings with reactive phosphorus, this alchemical mixture stores and releases electrical energy in small bursts. It must be kept in non-conductive containers to prevent discharge. This recipe yields 5 doses.",
+  "type": "goods",
+  "tags": ["component", "alchemical"],
+  "weight": 0.1,
+  "value": 200,
+  "rarity": "common",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 4,
+    "ingredients": [
+      "4x Electrum Shavings",
+      "2x Pinch of Phosphorus"
+    ]
+  }
+}

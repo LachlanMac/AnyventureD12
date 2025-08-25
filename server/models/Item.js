@@ -54,7 +54,7 @@ const ItemSchema = new Schema({
   // Item type information
   type: { 
     type: String, 
-    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition", "runes" ],
+    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "tools", "instrument", "ammunition", "runes" ],
     required: true 
   },
 

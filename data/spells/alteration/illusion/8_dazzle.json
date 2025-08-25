@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 8,
-    "components": [""],
+    "components": ["Opal"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

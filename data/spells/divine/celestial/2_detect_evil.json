@@ -6,7 +6,7 @@
     "range": 5,
     "checkToCast": 2,
     "components": [
-      ""
+      "Vial of Holy Water"
     ],
     "ritualDuration": "1 hour",
     "concentration": false,

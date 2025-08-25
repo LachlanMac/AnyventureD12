@@ -6,7 +6,7 @@
     "duration": "Instantaneous",
     "range": 5,
     "checkToCast": 10,
-    "components": [""],
+    "components": ["Short Metal Chain"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

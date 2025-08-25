@@ -5,7 +5,7 @@
     "duration": "1 day",
     "range": 0,
     "checkToCast": 10,
-    "components": [""],
+    "components": ["Amber"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

@@ -5,7 +5,7 @@
     "duration": "1 round",
     "range": 0,
     "checkToCast": 5,
-    "components": ["golden idol"],
+    "components": ["Brass Idol"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

@@ -1,0 +1,9 @@
+{
+  "name": "Beast's Eyeball",
+  "description": "A preserved eyeball from a wild beast, still retaining the primal essence of the creature's natural form. The iris holds faint magical properties that resonate with transformation magic, making it a key component in spells that alter physical shape. The eyeball must be kept in a sealed vial to prevent decay.",
+  "type": "goods",
+  "tags": ["component", "organic"],
+  "weight": 0.05,
+  "value": 80,
+  "rarity": "common"
+}

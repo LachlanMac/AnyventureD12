@@ -5,7 +5,7 @@
     "duration": "1 Round",
     "range": 1,
     "checkToCast": 4,
-    "components": [""],
+    "components": ["Hematite"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

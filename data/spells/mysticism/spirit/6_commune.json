@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 0,
     "checkToCast": 6,
-    "components": [""],
+    "components": ["Bundle of Sage"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

@@ -6,7 +6,7 @@
     "range": 0,
     "tags":["illusion"],
     "checkToCast": 3,
-    "components": [""],
+    "components": ["Pinch of Gypsum Powder"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,
