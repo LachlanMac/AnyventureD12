@@ -34,12 +34,14 @@ Performing songs with just vocals is definitely the most efficient way to perfor
 When performing a song in combat, the performer must make the check every single turn to keep it going. If the lead performer does not continue the song on their turn, or the song is interrupted by some other means, such as losing concentration, the song no longer provides any benefit. If no one else is participating in the song, the song ends. Otherwise, the lead performer can attempt to rejoin the song on their next action with a success leading to benefits being restored.
 
 <div class="note-box">
-A character can only benefit from receiving a unique song once per day. This limit is reset on completion of a full rest. 
+A character can only benefit from receiving a unique song/ballad once per day. This limit is reset on completion of a full rest. 
 </div>
 
 <div class="example-box">
-    It is the battle-skald's turn and they want to perform the song of battle which grants all allies who hear it a free weapon attack that does not count against their turn limit. The skald has 2 talents and 4 skill in the expression skill, so by default they would roll a 2d12 with a required check of 6 on the song they want to play. They are also an expert vocalist and want to sing the song so they can dedicate their hands to swinging their swords. This means they roll with a bonus dice for a 3d12, and as expected, they succeed as their highest dice rolled was a 10, and all allies within 10 units gain the effects of the song on their turn. Because they are only using their voice, they only need to dedicate their concentration. If the skald has not lost their concentration before their next turn, they must make the check again, or the song ends. If the skald does lose concentration, the benefits end immediately.  
+    It is the battle-skald's turn and they want to perform the <b>Song of Battle</b> which grants all allies who hear it a free weapon attack that does not count against their turn limit. The skald has 2 talents and 4 skill in the expression skill, so by default they would roll a 2d12 with a required check of 6 on the song they want to play. They are also an expert vocalist and want to sing the song so they can dedicate their hands to swinging their swords. This means they roll with a bonus dice for a 3d12, and as expected, they succeed as their highest dice rolled was a 10, and all allies within 10 units gain the effects of the song on their turn. Because they are only using their voice, they only need to dedicate their concentration. If the skald has not lost their concentration before their next turn, they must make the check again, or the song ends. If the skald does lose concentration, the benefits end immediately.  
 </div>
+
+
 
 
 ## Joining In
@@ -64,6 +66,24 @@ Songs have one or more harmonies that allow additional benefits. These harmonies
 
 <div class="example-box">
     As an extension of our archer lutist, lets assume because he is being chased down, he wants a different effect. The song of battle also has a percussion part that grants +2 to movement speed. However, they don't have a drum - they have a lute. The check to harmonize with their lute becomes an 8 instead of a 6. This means they must get at least one maximum roll on their 3d8. Unfortunately, they fail and their action is wasted.
+</div>
+
+
+## Ballads
+
+<div class="triangle-line"></div>
+
+Songs are meant to be utilized in combat, but ballads are longer form performances that provide unique benefits. The rules for songs and ballads is the similar except for the following:
+
+
+<b>One Check: </b> Only one check made when starting a ballad. Ballads take 10 minutes to perform and a character has to be present for the entirety of the song to gain the benefits granted.
+
+<b>Stackable Harmonies: </b>Instead of different variations of harmonies, any musical talent can be used to join in on a ballad and the bonus effect can stack a number of times that the ballad specifies. More than one character can even use the same musical talent. 
+
+<b>Overplay: </b>Ballads are much more powerful than battle songs, and there is a potential for the ballad to be overplayed and not have the same effect. After completing a ballad, the main performer rolls a 1d6. The number rolled corresponds to how many days must pass before anyone who heard the ballad can be affected by a ballad of the same type.
+
+<div class="example-box">
+    A bard wants to play the <b>Ballad of Hope</b> for their party which has just suffered a big defeat and lost one of their companions. The ballad restores 1 resolve with just the melody alone and requires a check of 6 to perform. The ballad still requires concentration to perform or join. For the <b>Ballad of Hope</b>, each successful harmony increases the resolve gain by an additional 1 up to a maximum of 3. The party has two more musically inclined people, and luckily, they all succeed causing the party to gain 3 resolve. After the ballad is played, the bard rolls a 1d6 and gets a 4. Anyone who benefited from the ballad cannot benefit from it again until completing 4 full rests.
 </div>
 
 <div class="triangle-line"></div>
