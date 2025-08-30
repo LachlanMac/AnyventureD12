@@ -57,7 +57,7 @@ export const getSpellsBySchool = async (req, res) => {
     const { school } = req.params;
     
     // Validate school
-    const validSchools = ['alteration', 'black', 'divine', 'mysticism', 'primal'];
+    const validSchools = ['meta', 'black', 'divine', 'mysticism', 'primal'];
     if (!validSchools.includes(school)) {
       return res.status(400).json({ message: 'Invalid spell school' });
     }
@@ -196,7 +196,7 @@ export const seedSpells = async (req, res) => {
       return res.status(401).json({ message: 'Not authorized as admin' });
     }
     
-    const schools = ['alteration', 'black', 'divine', 'mysticism', 'primal'];
+    const schools = ['meta', 'black', 'divine', 'mysticism', 'primal'];
     let spellCount = 0;
     
     for (const school of schools) {

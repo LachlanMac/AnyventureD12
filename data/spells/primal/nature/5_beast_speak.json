@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 0,
     "checkToCast": 5,
-    "components": [""],
+    "components": ["Pinch of Bone Dust"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

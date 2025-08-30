@@ -1,7 +1,7 @@
 {
     "name": "Change Form",
     "description": "You alter your form, taking on the appearance and stat block of a standard tiered dark creature. When used again, you are bound to the initial creature you chose and cannot choose another form unless you die.",
-    "charge":"You turn into a champion tiered dark creature which is seperately bound than your standard tier form. This bound champion tiered creature can only be chosen again after death releases you from the bond.",
+    "charge":"You turn into a champion tiered dark creature which is separately bound than your standard tier form. This bound champion tiered creature can only be chosen again after death releases you from the bond.",
     "duration": "1 day",
     "range": 0,
     "checkToCast": 8,

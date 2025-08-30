@@ -54,7 +54,7 @@
     },
     {
       "name": "Action : Spinning Strikes",
-      "description": "You make an attack with either a melee weapon or unarmed strike at an adjacent target, and then an attack using your expression skill as the attack roll. These two attacks can be directed at seperate targets.",
+      "description": "You make an attack with either a melee weapon or unarmed strike at an adjacent target, and then an attack using your expression skill as the attack roll. These two attacks can be directed at separate targets.",
       "mtype": "core",
       "location": "5",
       "cost": 2,

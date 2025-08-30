@@ -1,0 +1,15 @@
+{
+    "name": "Tongue Twister",
+    "description": "You target a creature within a moderate (20 unit) distance and cause them to become muted for the next minute if they fail a concentration check of 10.",
+    "charge":"You can target two additional creatures within the range of the spell.",
+    "duration": "1 minute",
+    "range": 5,
+    "checkToCast": 10,
+    "components": ["1 Unit of Invisible String"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": true,
+    "energy": 2,
+    "damage": 0,
+    "damageType": null
+}

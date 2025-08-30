@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 1,
     "checkToCast": 10,
-    "components": [""],
+    "components": ["Emerald"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

@@ -349,7 +349,7 @@ const RecipeCompendium: React.FC = () => {
 
                 {/* Properties Column */}
                 <div style={{ minWidth: 0 }}>
-                  {item.properties ? (
+                  {item.properties && (
                     <div
                       style={{
                         color: 'var(--color-sky)',
@@ -364,10 +364,6 @@ const RecipeCompendium: React.FC = () => {
                       title={item.properties}
                     >
                       {item.properties}
-                    </div>
-                  ) : (
-                    <div style={{ color: 'var(--color-gray)', fontSize: '0.875rem', fontStyle: 'italic' }}>
-                      No special properties
                     </div>
                   )}
                 </div>

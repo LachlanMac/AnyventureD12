@@ -1,0 +1,53 @@
+{
+  "name": "Flame Wand",
+  "description": "A magical wand infused with fiery energy that channels pure heat damage.",
+  "type": "weapon",
+  "weapon_category": "simpleMelee",
+  "weight": 0.5,
+  "value": 800,
+  "bonus_attack": 0,
+  "rarity": "uncommon",
+  "primary": {
+    "damage": "5",
+    "damage_extra": "3",
+    "damage_type": "heat",
+    "category": "primal_magic",
+    "energy": 1,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 3
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 8,
+    "ingredients": [
+      "Heat Core",
+      "Ash Wood",
+      "Bindings"
+    ]
+  }
+}

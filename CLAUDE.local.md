@@ -1,0 +1,1 @@
+- assume I am running the front end and API server on my computer. DO not start them yourself.

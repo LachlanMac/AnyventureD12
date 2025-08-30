@@ -1,9 +1,0 @@
-{
-  "name": "Bundle of Mandrake",
-  "description": "A collection of dried mandrake roots tied together with twine. These gnarled, humanoid-shaped roots are known for their paralytic properties and their piercing screams when uprooted. Essential for curses and hexes affecting the nervous system.",
-  "type": "goods",
-  "tags": ["component", "organic", "poisonous"],
-  "weight": 0.3,
-  "value": 150,
-  "rarity": "uncommon"
-}

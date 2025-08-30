@@ -231,13 +231,6 @@
       "path": "songs/overview.md",
       "category": "Songs & Music",
       "order": 1
-    },
-    {
-      "id": "instruments",
-      "title": "Instruments",
-      "path": "songs/instruments.md",
-      "category": "Songs & Music",
-      "order": 2
     }
   ]
 }

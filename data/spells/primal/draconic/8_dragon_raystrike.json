@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 4,
     "checkToCast": 8,
-    "components": [""],
+    "components": ["Carnelian"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

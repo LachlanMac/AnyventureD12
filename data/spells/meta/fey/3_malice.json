@@ -1,0 +1,15 @@
+{
+    "name": "Malice",
+    "description": "You target a creature within a short (10 unit) distance and deal 4 psychic damage to them if they fail a resilience check of 5.",
+    "charge":"If the creature takes damage, they suffer a penalty dice to their first attack they take if it is against another target besides you.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 3,
+    "components": ["Bundle of Nightshade"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 4,
+    "damageType": "Psychic"
+}

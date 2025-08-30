@@ -1,0 +1,14 @@
+{
+  "name": "Zephyr Dust",
+  "description": "An ethereally light powder that seems to dance and swirl in the slightest breeze. Created from finely ground talc mixed with reactive saltpeter, this dust captures the essence of gentle winds and moving air. The powder never fully settles, always maintaining a subtle motion that mimics the flow of wind currents. This recipe yields 5 doses.",
+  "type": "goods",
+  "tags": ["component", "powder", "elemental"],
+  "weight": 0.1,
+  "value": 300,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 3,
+    "ingredients": ["Pinch of Talc Powder", "Pinch of Saltpeter"]
+  }
+}

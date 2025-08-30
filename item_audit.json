@@ -1,0 +1,4001 @@
+[
+  {
+    "file": "accessories/amulet.json",
+    "category": "accessories",
+    "name": "Amulet",
+    "description": "A pendant worn around the neck on a chain or cord.",
+    "value": 10,
+    "type": "accessory",
+    "rarity": "common"
+  },
+  {
+    "file": "accessories/belt.json",
+    "category": "accessories",
+    "name": "Belt",
+    "description": "A sturdy leather belt worn around the waist.",
+    "value": 6,
+    "type": "accessory",
+    "rarity": "common"
+  },
+  {
+    "file": "accessories/bracer.json",
+    "category": "accessories",
+    "name": "Bracer",
+    "description": "A protective band worn around the forearm.",
+    "value": 8,
+    "type": "accessory",
+    "rarity": "common"
+  },
+  {
+    "file": "accessories/ring.json",
+    "category": "accessories",
+    "name": "Ring",
+    "description": "A simple band of metal worn on the finger.",
+    "value": 5,
+    "type": "accessory",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/rope_15ft.json",
+    "category": "adventure",
+    "name": "15 ft. Rope [5 Units]",
+    "description": "A sturdy 5 unit length of rope, useful for climbing, tying, or securing equipment",
+    "value": 60,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/rope_30ft.json",
+    "category": "adventure",
+    "name": "30 ft. Rope [10 Units]",
+    "description": "A 10 unit rope, essential for longer climbs or more complex tasks requiring more length",
+    "value": 120,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/journal_40page.json",
+    "category": "adventure",
+    "name": "40-Page Journal",
+    "description": "A sturdy bound journal containing 40 blank pages, ideal for recording adventures or sketching",
+    "value": 80,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/rope_45ft.json",
+    "category": "adventure",
+    "name": "45 ft. Rope [15 Units]",
+    "description": "A 15 unit rope, versatile for a variety of situations from scaling walls to crossing gaps",
+    "value": 200,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/rope_60ft.json",
+    "category": "adventure",
+    "name": "60 ft. Rope [20 Units]",
+    "description": "A substantial 20 unit length of rope, ideal for challenging climbs or significant distances",
+    "value": 300,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/string_invisible_90ft.json",
+    "category": "adventure",
+    "name": "90 ft. Spool of Invisible String [30 Units]",
+    "description": "String that is so thin, it is nearly invisible to the eye, making it an idea material for creating traps.",
+    "value": 400,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/string_90ft.json",
+    "category": "adventure",
+    "name": "90 ft. Spool of String [30 Units]",
+    "description": "Thin but durable string useful for setting trap triggers or marking paths",
+    "value": 40,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/disguise_kit.json",
+    "category": "adventure",
+    "name": "Disguise Kit",
+    "description": "Contains makeup, wigs, and prosthetics for altering one's appearance",
+    "value": 250,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/fishing_pole.json",
+    "category": "adventure",
+    "name": "Fishing Pole",
+    "description": "A collapsible rod with line and hooks for catching fish",
+    "value": 50,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/grappling_hook.json",
+    "category": "adventure",
+    "name": "Grappling Hook",
+    "description": "A four-pronged metal hook designed to catch on edges when thrown",
+    "value": 100,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/grinding_file.json",
+    "category": "adventure",
+    "name": "Grinding File",
+    "description": "A metal file for shaping metal or removing rust",
+    "value": 40,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/hand_saw.json",
+    "category": "adventure",
+    "name": "Hand Saw",
+    "description": "A portable saw with sharp teeth for cutting wood or bone",
+    "value": 80,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/iron_pan.json",
+    "category": "adventure",
+    "name": "Iron Pan",
+    "description": "A heavy skillet for cooking over open flames",
+    "value": 30,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/iron_pot.json",
+    "category": "adventure",
+    "name": "Iron Pot",
+    "description": "A sturdy pot with lid for boiling water or cooking stews",
+    "value": 50,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/large_net.json",
+    "category": "adventure",
+    "name": "Large Net",
+    "description": "A large square net that is 3 units wide and long, designed for trapping large creatures or catching large quantities of fish.",
+    "value": 120,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/lead_weight.json",
+    "category": "adventure",
+    "name": "Lead Weight",
+    "description": "A heavy weight for fishing lines, creating traps or measuring depths",
+    "value": 50,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/long_chain.json",
+    "category": "adventure",
+    "name": "Long Chain",
+    "description": "A heavy iron chain spanning 3 units, useful for securing heavy objects or prisoners. These changes can be fastened together to increase their length.",
+    "value": 500,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/tent_luxurious.json",
+    "category": "adventure",
+    "name": "Luxurious Tent",
+    "description": "A spacious silk tent with room dividers that comfortably sleeps four",
+    "value": 800,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/mortar_and_pestle.json",
+    "category": "adventure",
+    "name": "Mortar and Pestle",
+    "description": "Stone tools for grinding herbs, spices, or alchemical ingredients",
+    "value": 60,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/needle.json",
+    "category": "adventure",
+    "name": "Needle",
+    "description": "A set of sewing needles for repairing cloth and leather",
+    "value": 10,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/net.json",
+    "category": "adventure",
+    "name": "Net",
+    "description": "A square net made of rope that can be used for fishing or trapping medium or smaller creatures.",
+    "value": 60,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/oil_lantern.json",
+    "category": "adventure",
+    "name": "Oil Lantern",
+    "description": "A metal lantern that burns oil to provide bright light within a 5 unit radius.",
+    "value": 80,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/painting_kit.json",
+    "category": "adventure",
+    "name": "Painting Kit",
+    "description": "A leather satchel containing an assortment of pigments, brushes, and mixing tools. Includes vials of various colored paints derived from minerals and plants, fine-tipped brushes made from sable hair, palette knives, and a mixing board. Essential for artists, scribes, and those who work with glyphs and magical inscriptions.",
+    "value": 50,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/manacles.json",
+    "category": "adventure",
+    "name": "Set of Manacles",
+    "description": "Metal restraints that can bind a creature's arms or legs that require a thievery check of 8 to open with the correct tools.",
+    "value": 200,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/sharpening_stone.json",
+    "category": "adventure",
+    "name": "Sharpening Stone",
+    "description": "A whetstone for maintaining blade edges",
+    "value": 20,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/short_chain.json",
+    "category": "adventure",
+    "name": "Short Metal Chain",
+    "description": "A short length of chain ideal for manacles or securing small items.",
+    "value": 100,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/shovel.json",
+    "category": "adventure",
+    "name": "Shovel",
+    "description": "A sturdy digging tool with wooden handle and iron blade",
+    "value": 40,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/skinning_knife.json",
+    "category": "adventure",
+    "name": "Skinning Knife",
+    "description": "A curved blade designed for removing pelts from game animals",
+    "value": 60,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/smithing_bellows.json",
+    "category": "adventure",
+    "name": "Smithing Bellows",
+    "description": "Leather bellows for stoking forge fires to proper temperature",
+    "value": 120,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/smithing_hammer.json",
+    "category": "adventure",
+    "name": "Smithing Hammer",
+    "description": "A specialized hammer for shaping hot metal on an anvil",
+    "value": 100,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/smithing_tongs.json",
+    "category": "adventure",
+    "name": "Smithing Tongs",
+    "description": "Long-handled tongs for safely handling hot metal",
+    "value": 80,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/tent.json",
+    "category": "adventure",
+    "name": "Tent",
+    "description": "A basic canvas shelter that sleeps two people",
+    "value": 200,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/torch.json",
+    "category": "adventure",
+    "name": "Torch",
+    "description": "A wooden stick with cloth soaked in pitch, burns for 1 hour",
+    "value": 10,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "adventure/oil_lantern_wearable.json",
+    "category": "adventure",
+    "name": "Wearable Oil Lantern",
+    "description": "A small lantern with belt clip, provides hands-free light within a 3 unit radius.",
+    "value": 120,
+    "type": "adventure",
+    "rarity": "common"
+  },
+  {
+    "file": "ammunition/iron_head_arrow.json",
+    "category": "ammunition",
+    "name": "Iron-Head Arrow",
+    "description": "NO DESCRIPTION",
+    "value": 20,
+    "type": "ammunition",
+    "rarity": "common"
+  },
+  {
+    "file": "ammunition/wooden_arrow.json",
+    "category": "ammunition",
+    "name": "Wooden Arrow",
+    "description": "NO DESCRIPTION",
+    "value": 10,
+    "type": "ammunition",
+    "rarity": "common"
+  },
+  {
+    "file": "body/chainmail.json",
+    "category": "body",
+    "name": "Chainmail",
+    "description": "Armor made from interlocking metal rings. Excellent protection against slashing attacks but heavy and noisy.",
+    "value": 100,
+    "type": "body",
+    "rarity": "common"
+  },
+  {
+    "file": "body/leather_armor.json",
+    "category": "body",
+    "name": "Leather Armor",
+    "description": "Armor made from thick, boiled leather. Provides decent protection while maintaining flexibility.",
+    "value": 25,
+    "type": "body",
+    "rarity": "common"
+  },
+  {
+    "file": "body/plate_armor.json",
+    "category": "body",
+    "name": "Plate Armor",
+    "description": "Full suit of articulated metal plates. The pinnacle of personal protection, though extremely heavy and restrictive.",
+    "value": 500,
+    "type": "body",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "body/robes.json",
+    "category": "body",
+    "name": "Robes",
+    "description": "Simple cloth robes that offer minimal protection but allow complete freedom of movement. Common attire for scholars and mages.",
+    "value": 5,
+    "type": "body",
+    "rarity": "common"
+  },
+  {
+    "file": "body/scalemail.json",
+    "category": "body",
+    "name": "Scale Mail",
+    "description": "Armor made from overlapping metal scales sewn onto a leather backing. Offers better protection than chain with slightly less flexibility.",
+    "value": 150,
+    "type": "body",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "body/studded_leather.json",
+    "category": "body",
+    "name": "Studded Leather",
+    "description": "Leather armor reinforced with metal rivets that provides mild protection.",
+    "value": 45,
+    "type": "body",
+    "rarity": "common"
+  },
+  {
+    "file": "boots/armored_boots.json",
+    "category": "boots",
+    "name": "Armored Boots",
+    "description": "Heavy boots reinforced with steel plates. While they offer superior protection, their weight and noise make stealth difficult.",
+    "value": 40,
+    "type": "boots",
+    "rarity": "common"
+  },
+  {
+    "file": "boots/fur_boots.json",
+    "category": "boots",
+    "name": "Fur Boots",
+    "description": "Heavy boots lined with thick fur and reinforced with leather. Excellent for cold climates but bulky for stealth.",
+    "value": 35,
+    "type": "boots",
+    "rarity": "common"
+  },
+  {
+    "file": "boots/leather_boots.json",
+    "category": "boots",
+    "name": "Leather Boots",
+    "description": "Sturdy boots made from thick leather with reinforced soles. Perfect for long journeys and rough terrain.",
+    "value": 15,
+    "type": "boots",
+    "rarity": "common"
+  },
+  {
+    "file": "boots/simple_shoes.json",
+    "category": "boots",
+    "name": "Simple Shoes",
+    "description": "Basic cloth or soft leather shoes suitable for everyday wear in towns and cities. Not ideal for rough terrain.",
+    "value": 3,
+    "type": "boots",
+    "rarity": "common"
+  },
+  {
+    "file": "cloaks/fur_cloak.json",
+    "category": "cloaks",
+    "name": "Fur Cloak",
+    "description": "A heavy cloak lined with thick wolf fur. While somewhat cumbersome, it provides excellent protection against the harshest winter conditions.",
+    "value": 50,
+    "type": "cloak",
+    "rarity": "common"
+  },
+  {
+    "file": "cloaks/scout_cloak.json",
+    "category": "cloaks",
+    "name": "Scout's Cloak",
+    "description": "A lightweight cloak dyed in mottled greens and browns. The irregular pattern helps break up the wearer's silhouette in natural environments, granting a bonus dice to stealth checks.",
+    "value": 30,
+    "type": "cloak",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "cloaks/traveler_cloak.json",
+    "category": "cloaks",
+    "name": "Traveler's Cloak",
+    "description": "A sturdy wool cloak with a deep hood, designed to protect against wind and rain. Popular among merchants and wanderers for its durability.",
+    "value": 15,
+    "type": "cloak",
+    "rarity": "common"
+  },
+  {
+    "file": "consumables/elixirs/elixir_of_antidote.json",
+    "category": "consumables/elixirs",
+    "name": "Elixir of Antidote",
+    "description": "Upon consumption, this elixir immediately reduces the required check to recover from poison by 2. Taking this elixir again does not provide any additional benefit until a full rest is completed. If at least a vial of poison or venom is mixed into the elixir and left to steep for one hour, it will then instantly cure any poisoning caused by that same substance.",
+    "value": 400,
+    "type": "consumable",
+    "rarity": "common"
+  },
+  {
+    "file": "consumables/elixirs/elixir_of_awakening.json",
+    "category": "consumables/elixirs",
+    "name": "Elixir of Awakening",
+    "description": "When consuming this elixir, an unconscious humanoid or beast immediately regains consciousness. If the creature is unconscious due to reaching 0 health, they only become conscious if they currently have more than 5 health. ",
+    "value": 700,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/elixirs/elixir_of_healing.json",
+    "category": "consumables/elixirs",
+    "name": "Elixir of Healing",
+    "description": "A humanoid or beast that consumes this elixir heals for an additional 1d4 after completing their next full rest. A creature can only benefit from an elixir that restores health in this way once per day.",
+    "value": 400,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/elixirs/elixir_of_rejuvenation.json",
+    "category": "consumables/elixirs",
+    "name": "Elixir of Rejuvenation",
+    "description": "A humanoid or beast that consumes this elixir completely restores their health after completing their next full rest. A creature can only benefit from an elixir that restores health in this way once per day.",
+    "value": 1200,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/elixirs/elixir_of_restoration.json",
+    "category": "consumables/elixirs",
+    "name": "Elixir of Restoration",
+    "description": "An elixir that when consumed immediately cures non-permanent causes of deafness, muteness, and blindness.",
+    "value": 350,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/explosives/firebomb.json",
+    "category": "consumables/explosives",
+    "name": "Fire Bomb",
+    "description": "A cylindrical object that when thrown or destroyed creates an explosion of heat and fire within a 1 unit radius of it's origin, dealing 2d8 heat damage. Any creature that takes more than 10 heat damage after mitigations are applied also becomes ignited.",
+    "value": 680,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/explosives/flash_bomb.json",
+    "category": "consumables/explosives",
+    "name": "Flash Bomb",
+    "description": "A cylindrical object that when thrown or destroyed creates a blinding flash of light within a 1 unit radius of its origin. Creatures in the area must make a resilience check of 6 or become dazed (cannot use concentration) for 1 round. Creatures can use their reaction to cover their eyes to avoid the effect entirely.",
+    "value": 450,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/explosives/shrapnel_bomb.json",
+    "category": "consumables/explosives",
+    "name": "Shrapnel Bomb",
+    "description": "A cylindrical object that when thrown or destroyed creates an explosion of metal fragments within a 1 unit radius of its origin, dealing 4d4 physical damage. Any creature that takes more than 8 damage after mitigations are applied also gains the bleeding condition.",
+    "value": 460,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/explosives/smokebomb.json",
+    "category": "consumables/explosives",
+    "name": "Smoke Bomb",
+    "description": "A cylindrical object that when thrown or destroyed creates an cloud of smoke within a 2 unit radius of it's origin that lasts lasts for 2 rounds. Creatures that are completely within the smoke are considered blinded, and attacks that originate from outside the smoke directed at a creature completely within it are rolled with 2 penalty dice.",
+    "value": 280,
+    "type": "consumable",
+    "rarity": "common"
+  },
+  {
+    "file": "consumables/explosives/stickybomb.json",
+    "category": "consumables/explosives",
+    "name": "Sticky Bomb",
+    "description": "A cylindrical object that when thrown or destroyed creates a puddle of sticky substance within a 1 unit radius of it's origin that lasts lasts for 2 rounds. Creatures that start their turn in, or walk through the puddle must make a might check of 5, or they become impaired until the start of their next turn.",
+    "value": 250,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/poisons/basilisk_poison.json",
+    "category": "consumables/poisons",
+    "name": "Basilisk Poison",
+    "description": "A poison that when ingested or applied through a coated weapon causes 5 toxic damage each round, requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. If a creature takes damage from this poison 5 times, they turn into stone and enter a stasis.",
+    "value": 300,
+    "type": "consumable",
+    "rarity": "common"
+  },
+  {
+    "file": "consumables/poisons/deadly_poison.json",
+    "category": "consumables/poisons",
+    "name": "Deadly Poison",
+    "description": "A poison that when ingested or applied through a coated weapon causes 6 toxic damage each round, requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success.",
+    "value": 800,
+    "type": "consumable",
+    "rarity": "common"
+  },
+  {
+    "file": "consumables/poisons/paralytic_venom.json",
+    "category": "consumables/poisons",
+    "name": "Paralytic Venom",
+    "description": "A poison that when ingested or applied through a coated weapon causes the impaired condition, requiring an initial endurance check of 8 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. While poisoned, the creature cannot move or take reactions.",
+    "value": 600,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/poisons/tranquilizer_serum.json",
+    "category": "consumables/poisons",
+    "name": "Tranquilizer Serum",
+    "description": "A poison that when ingested or applied through a coated weapon requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. While this potion does not deal damage, if the effect isn't removed after 3 checks after the initial check, the poisoned creature falls asleep.",
+    "value": 600,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/poisons/blighted_poison.json",
+    "category": "consumables/poisons",
+    "name": "Vial of Blight",
+    "description": "A poison that when ingested or applied through a coated weapon causes 4 dark damage each round, requiring an initial endurance check of 9 to avoid. As with all poisons, this check is reduced by 1 each time it is made, with the effects of the poison being cleared upon a success. Plantoids take double dark damage from this poison.",
+    "value": 600,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_big_mind.json",
+    "category": "consumables/potions",
+    "name": "Potion of Big Mind",
+    "description": "A concoction that sharpens the user's mental faculties at the cost of making them more prone to psychic attacks. For the next four hours, the consumer gets a bonus dice on all mind and knowledge checks but any psychic damage they take is doubled before applying mitigations.",
+    "value": 650,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_calming.json",
+    "category": "consumables/potions",
+    "name": "Potion of Calming",
+    "description": "A concoction that calms the consumer until they complete their next full rest, making them more resistant to effects that cause the afraid, confused or maddened condition. When making their first check to end one of these conditions, the required check to end the condition starts 2 less than normal.",
+    "value": 400,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/potions/potion_of_forgetting.json",
+    "category": "consumables/potions",
+    "name": "Potion of Forgetting",
+    "description": "A concoction that allows the user to erase a single memory. This can be used to unlearn a module and gain the points back, remove the broken condition, or rid the consumer of an event specificed by the potion creator at the time of brewing. ",
+    "value": 1000,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/potions/potion_of_luck.json",
+    "category": "consumables/potions",
+    "name": "Potion of Luck",
+    "description": "A concoction that gives the consumer supernatural luck for an hour. During this time, any 1 that is rolled during any check on a dice d6 or higher is rerolled once. An individual can only benefit once from this potion before taking a full rest.",
+    "value": 5400,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_polymorph.json",
+    "category": "consumables/potions",
+    "name": "Potion of Polymorph",
+    "description": "A concoction that turns the consumer into a standard tier or lower beast or monster for an hour. While transformed in this way, the consumer retains their mind and knowledge abilities, but uses the statblock of the creature. Reaching 0 health while in this form results in the consumer reverting back to their original form. The consumer can attempt to resist this affect by making an endurance check of 5 or higher. This transformation is non-magical and can only be ended early if the consumer uses a potion of true form.",
+    "value": 540,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/potions/potion_of_quick_tongue.json",
+    "category": "consumables/potions",
+    "name": "Potion of Quick Tongue",
+    "description": "A concoction that grants the consumer a bonus to speechcraft, allowing them to speak a language they know at one level higher than they normally would be able to until they complete a full rest.",
+    "value": 1100,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/potions/potion_of_rage.json",
+    "category": "consumables/potions",
+    "name": "Potion of Rage",
+    "description": "This concoction causes the consumer to enter an unstoppable rage for the next minute, granting a bonus dice to all endurance, resilience and might checks while inhibiting their focus, not allowing them to use their concentration. The consumer can attempt to resist this affect by making an endurance check of 6 or higher.",
+    "value": 900,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/potions/potion_of_reflex.json",
+    "category": "consumables/potions",
+    "name": "Potion of Reflex",
+    "description": "This concoction causes the consumer of this potion to gain a bonus dice to all finesse checks for the next hour.",
+    "value": 950,
+    "type": "consumable",
+    "rarity": "rare"
+  },
+  {
+    "file": "consumables/potions/potion_of_serpent_sight.json",
+    "category": "consumables/potions",
+    "name": "Potion of Serpent Sight",
+    "description": "The consumer of this potion gains unnatural vision for the next 4 hours, granting them a bonus check to senses checks based on sight as well as infravision.",
+    "value": 900,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_sleep.json",
+    "category": "consumables/potions",
+    "name": "Potion of Sleep",
+    "description": "A concoction that when consumed causes the affected individual to immediately fall asleep upon failing a concentration check of 6. If the container is destroyed, it creates a gaseous cloud within a 2 unit radius that requires a concentration check of 3 or higher to avoid the effects.",
+    "value": 300,
+    "type": "consumable",
+    "rarity": "common"
+  },
+  {
+    "file": "consumables/potions/potion_of_the_leviathan.json",
+    "category": "consumables/potions",
+    "name": "Potion of the Leviathan",
+    "description": "A concoction that causes the consumer to grow gills and sprout webbed toes and fingers for an hour. These anatomical changes give them a swim speed of 8 units and allow underwater breathing.",
+    "value": 1550,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_the_spider.json",
+    "category": "consumables/potions",
+    "name": "Potion of the Spider",
+    "description": "A concoction that allows the consumer to scale any surface effortlessly, granting them a climb speed of 4 for the next hour. While affected by this potion, the consumer can stick to any surface, even hanging upside-down and traverse it without being required to make a check if their movement is simple.",
+    "value": 850,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_giant_strength.json",
+    "category": "consumables/potions",
+    "name": "Potion of the Titan",
+    "description": "A concoction that grants the consumer supernatural strength for an hour, allowing them to use a d20 for any might check while still using their talent to determine the number of dice.",
+    "value": 1100,
+    "type": "consumable",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "consumables/potions/potion_of_true_form.json",
+    "category": "consumables/potions",
+    "name": "Potion of True Form",
+    "description": "A concoction that causes the consumer to immediately revert to their true form if they are under the effect of any type of transformation magic or effect. The consumer can attempt to resist this affect by making a resilience check of 6 or higher.",
+    "value": 1300,
+    "type": "consumable",
+    "rarity": "legendary"
+  },
+  {
+    "file": "consumables/potions/potion_of_true_polymorph.json",
+    "category": "consumables/potions",
+    "name": "Potion of True Polymorph",
+    "description": "A concoction that turns the consumer into a champion tier or lower beast or monster permanently, inheriting their entire statblock. While the consciousness may remain in remnants, the mind is limited by that of the statblock. The consumer can attempt to resist this affect by making an endurance check of 4 or higher. This transformation is non-magical and can only be reversed by a potion of true form.",
+    "value": 8000,
+    "type": "consumable",
+    "rarity": "legendary"
+  },
+  {
+    "file": "gloves/cloth_gloves.json",
+    "category": "gloves",
+    "name": "Cloth Gloves",
+    "description": "Simple cotton gloves that provide basic protection from cold and rough surfaces. Favored by merchants and scribes.",
+    "value": 2,
+    "type": "gloves",
+    "rarity": "common"
+  },
+  {
+    "file": "gloves/fur_gloves.json",
+    "category": "gloves",
+    "name": "Fur Gloves",
+    "description": "Thick gloves lined with soft fur, designed for harsh winter conditions. While warm, they reduce manual dexterity.",
+    "value": 20,
+    "type": "gloves",
+    "rarity": "common"
+  },
+  {
+    "file": "gloves/leather_gloves.json",
+    "category": "gloves",
+    "name": "Leather Gloves",
+    "description": "Well-fitted gloves made from supple leather. They offer protection from basic elements.",
+    "value": 10,
+    "type": "gloves",
+    "rarity": "common"
+  },
+  {
+    "file": "gloves/gauntlets.json",
+    "category": "gloves",
+    "name": "Steel Gauntlets",
+    "description": "Heavy metal gauntlets with articulated fingers. While they provide excellent protection, they make delicate tasks nearly impossible.",
+    "value": 35,
+    "type": "gloves",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/flint.json",
+    "category": "goods",
+    "name": "Flint",
+    "description": "NO DESCRIPTION",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_bloodthorn.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Bloodthorn",
+    "description": "Thorny vines that cause anger and intense emotions when touched, often found growing around corpses",
+    "value": 400,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_echinacea.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Echinacea",
+    "description": "Purple coneflowers popular for their immune-boosting properties in herbal remedies",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_embervine.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Embervine",
+    "description": "A dark red vine with glowing orange veins that gives off faint warmth when touched",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_eyestalk.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Eyestalk",
+    "description": "A rare plant with a single bulbous growth that resembles an eye, complete with vein-like roots",
+    "value": 700,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_frostleaf.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Frostleaf",
+    "description": "Thin pale blue leaves that shimmer with frost even in warm climates",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_gingko.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Gingko",
+    "description": "Fan-shaped leaves known for improving memory and concentration in alchemical brews",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_ginseng.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Ginseng",
+    "description": "Prized roots known for revitalizing properties and use in longevity potions",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_golden_poppy.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Golden Poppy",
+    "description": "Bright golden flowers known for their use in sleep-inducing potions",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_grave_moss.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Grave Moss",
+    "description": "Dark, spongy moss that thrives on graves and around decomposing organic matter. This morbid plant feeds on death and decay, absorbing the essence of rotting flesh and bone. The moss has an unpleasant odor and feels cold to the touch.",
+    "value": 250,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/bundles/bundle_of_guarana.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Guarana",
+    "description": "A plant with seeds known for stimulating properties and use in energy potions",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_incense.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Incense",
+    "description": "Aromatic sticks and resins used to create pleasant atmosphere or in ritual practices",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_licorice.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Licorice",
+    "description": "Sweet woody roots often used in medicinal concoctions for their distinct flavor",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_lions_mane.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Lion's Mane",
+    "description": "A collection of golden-brown mane hair taken from a lion, tied with red thread. The hair seems to radiate warmth and courage, stirring feelings of bravery in those who hold it. Prized by warriors and clerics alike for spells that inspire valor and fearlessness.",
+    "value": 150,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/bundles/bundle_of_mandrake.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Mandrake",
+    "description": "Forked roots resembling human form, notorious in folklore for magical practices and potions",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_mint.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Mint",
+    "description": "Fresh green leaves commonly used for their refreshing taste and aroma in cooking and teas",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_mugwort.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Mugwort",
+    "description": "A silvery herb used in dream magic and various protective rituals",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_nightshade.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Nightshade",
+    "description": "A dangerous poisonous plant with dark berries, used in various dark alchemical recipes",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_peppermint.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Peppermint",
+    "description": "Fresh mint leaves with a cooling sensation, known for refreshing scent and medicinal uses",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_rosemary.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Rosemary",
+    "description": "Fragrant needle-like herbs with woody scent, used in both culinary and medicinal practices",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_saffron.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Saffron",
+    "description": "Delicate red threads from crocus flowers, a rare and valuable spice with coloring properties",
+    "value": 150,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_sage.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Sage",
+    "description": "Gray-green leaves often used for culinary purposes and in rituals for cleansing and protection",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_valerian_root.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Valerian Root",
+    "description": "Pungent roots commonly used in sleep aids and calming potions",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/bundles/bundle_of_yarrow.json",
+    "category": "goods/bundles",
+    "name": "Bundle of Yarrow",
+    "description": "White flowering herb commonly used in traditional medicine for its healing properties",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/animal_fat.json",
+    "category": "goods/components",
+    "name": "Animal Fat",
+    "description": "Rendered fat used as a base for salves and slow-release potions",
+    "value": 1,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/beasts_eyeball.json",
+    "category": "goods/components",
+    "name": "Beast's Eyeball",
+    "description": "A preserved eyeball from a wild beast, still retaining the primal essence of the creature's natural form. The iris holds faint magical properties that resonate with transformation magic, making it a key component in spells that alter physical shape. The eyeball must be kept in a sealed vial to prevent decay.",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/beeswax.json",
+    "category": "goods/components",
+    "name": "Beeswax",
+    "description": "Natural wax used to bind powders, thicken liquids, and seal containers",
+    "value": 3,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/bone_dust.json",
+    "category": "goods/components",
+    "name": "Bone Dust",
+    "description": "Finely ground bone powder used in alchemy for structure and mineral content",
+    "value": 2,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/brass_idol.json",
+    "category": "goods/components",
+    "name": "Brass Idol",
+    "description": "A small figurine cast from polished brass, depicting a divine being with outstretched arms. The idol gleams with a warm golden hue and feels slightly warm to the touch, as if holding residual divine energy.",
+    "value": 150,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/chalk_powder.json",
+    "category": "goods/components",
+    "name": "Chalk Powder",
+    "description": "Fine calcium carbonate powder that neutralizes acids and stabilizes alchemical reactions",
+    "value": 1,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/charcoal.json",
+    "category": "goods/components",
+    "name": "Charcoal",
+    "description": "Activated carbon from burned wood, used to absorb toxins and purify liquids in alchemical preparations",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/coal.json",
+    "category": "goods/components",
+    "name": "Coal",
+    "description": "A black combustible rock that burns with intense heat and flame",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/copper_idol.json",
+    "category": "goods/components",
+    "name": "Copper Idol",
+    "description": "A small idol crafted from burnished copper, showing a figure in meditation. The copper has developed a distinctive green patina in places, giving it an ancient appearance. Commonly used in healing and restoration magic.",
+    "value": 60,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/ember_dust.json",
+    "category": "goods/components",
+    "name": "Ember Dust",
+    "description": "A fine, glowing orange-red powder that radiates gentle warmth and occasionally releases tiny sparks. Created through careful alchemical mixing of combustible elements, this dust maintains a constant internal heat that makes it useful for both magical and practical applications. When sprinkled, it leaves behind faint scorch marks and the acrid scent of sulfur. This recipe yields 5 doses.",
+    "value": 220,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/flint.json",
+    "category": "goods/components",
+    "name": "Flint",
+    "description": "A hard stone that produces sparks when struck against metal",
+    "value": 5,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/frost_dust.json",
+    "category": "goods/components",
+    "name": "Frost Dust",
+    "description": "A pale blue crystalline powder that chills everything it touches and causes ice crystals to form in the surrounding air. Created through an endothermic alchemical reaction between ammonia vapors and pulverized crystal, this dust absorbs heat from its environment and maintains a temperature well below freezing. When exposed to moisture, it instantly forms a thin layer of frost. The dust must be stored in insulated containers to prevent it from freezing other materials. This recipe yields 5 doses.",
+    "value": 220,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/gold_idol.json",
+    "category": "goods/components",
+    "name": "Gold Idol",
+    "description": "An exquisite figurine crafted from pure gold, depicting a radiant deity with wings spread wide. The idol's surface is polished to a mirror finish and inscribed with ancient holy symbols that pulse with divine power when touched by the faithful.",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/components/human_skull.json",
+    "category": "goods/components",
+    "name": "Human Skull",
+    "description": "A cleaned and preserved human skull, often used in necromantic rituals. The bone has been treated to prevent decay and maintains its structural integrity for magical purposes.",
+    "value": 250,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/iron_idol.json",
+    "category": "goods/components",
+    "name": "Iron Idol",
+    "description": "A rough-hewn idol forged from cold iron, depicting a stern protector deity. Despite its crude appearance, the idol radiates an aura of strength and unwavering resolve. Often used in protective wards and banishment rituals.",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/lodestone.json",
+    "category": "goods/components",
+    "name": "Lodestone",
+    "description": "A naturally magnetized piece of iron ore that attracts metallic objects. The stone emanates a subtle field that causes nearby metal shavings to align in patterns around it. Prized by navigators and mages alike for its repelling and attracting properties.",
+    "value": 30,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_ash.json",
+    "category": "goods/components",
+    "name": "Pinch of Ash",
+    "description": "Fine gray powder left behind after wood or bone has burned completely",
+    "value": 1,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_crystal_dust.json",
+    "category": "goods/components",
+    "name": "Pinch of Crystal Dust",
+    "description": "Powdered quartz crystal used to clarify solutions and store magical energy",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_gypsum_powder.json",
+    "category": "goods/components",
+    "name": "Pinch of Gypsum Powder",
+    "description": "Soft white mineral that hardens when mixed with water, used for binding and molding",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_ochre_dust.json",
+    "category": "goods/components",
+    "name": "Pinch of Ochre Dust",
+    "description": "Iron-rich clay powder in red or yellow, used as pigment and drying agent in alchemy",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_phosphorus.json",
+    "category": "goods/components",
+    "name": "Pinch of Phosphorus",
+    "description": "White powder that glows faintly and ignites spontaneously in air",
+    "value": 300,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_potash_powder.json",
+    "category": "goods/components",
+    "name": "Pinch of Potash Powder",
+    "description": "Alkaline salt from wood ash, used in soap making and alchemical reactions",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_saltpeter.json",
+    "category": "goods/components",
+    "name": "Pinch of Saltpeter",
+    "description": "White crystalline powder that burns rapidly when ignited",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_sulfur.json",
+    "category": "goods/components",
+    "name": "Pinch of Sulfur",
+    "description": "Yellow powder with a distinctive acrid smell that burns blue",
+    "value": 150,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pinch_of_talc_powder.json",
+    "category": "goods/components",
+    "name": "Pinch of Talc Powder",
+    "description": "Soft mineral powder that absorbs moisture and prevents sticking in alchemical mixtures",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pine_resin.json",
+    "category": "goods/components",
+    "name": "Pine Resin",
+    "description": "Sticky tree sap used as an adhesive, binding agent, and preservative in alchemy",
+    "value": 2,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/pixie_dust.json",
+    "category": "goods/components",
+    "name": "Pixie Dust",
+    "description": "A shimmering, iridescent powder that sparkles with all the colors of the rainbow and carries the sweet, refreshing scent of wild mint and honey. Created by grinding crystal dust with aromatic herbs beloved by fey creatures, then binding the mixture with honey's natural magic-conducting properties. The dust seems to float and dance in the air when disturbed, creating tiny swirling motes of light that fade after a few seconds. This recipe yields 5 doses.",
+    "value": 240,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/rubber_sap.json",
+    "category": "goods/components",
+    "name": "Rubber Sap",
+    "description": "A sticky, amber-colored sap that hardens into a flexible, bouncing material when exposed to air. Harvested from the rare Springwood trees found in enchanted forests, this natural rubber maintains its elasticity for months after collection. When used in magic, it imbues spells with properties of flexibility and stretch.",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/scroll.json",
+    "category": "goods/components",
+    "name": "Scroll",
+    "description": "A blank parchment scroll made from quality vellum, suitable for writing spells, contracts, or important documents. The surface is smooth and receptive to both ink and magical inscriptions.",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/shard_of_obsidian.json",
+    "category": "goods/components",
+    "name": "Shard of Obsidian",
+    "description": "A sharp fragment of volcanic glass with razor-like edges",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/silver_idol.json",
+    "category": "goods/components",
+    "name": "Silver Idol",
+    "description": "An intricately carved silver figurine depicting a celestial guardian. The surface is etched with holy symbols that seem to catch and reflect light in unusual ways, creating a subtle halo effect around the idol.",
+    "value": 300,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/spark_dust.json",
+    "category": "goods/components",
+    "name": "Spark Dust",
+    "description": "A crackling blue-white powder that constantly arcs with tiny bolts of electricity between its particles. The dust emits a sharp ozone smell and causes hair to stand on end when handled. Created by combining conductive metal shavings with reactive phosphorus, this alchemical mixture stores and releases electrical energy in small bursts. It must be kept in non-conductive containers to prevent discharge. This recipe yields 5 doses.",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/stabilizing_salt.json",
+    "category": "goods/components",
+    "name": "Stabilizing Salt",
+    "description": "Alchemically refined mineral salts that extend the duration of magical effects",
+    "value": 150,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/tarot_card.json",
+    "category": "goods/components",
+    "name": "Tarot Card",
+    "description": "One of many mystical cards depicting archetypal symbols and figures. Each card is meticulously painted with silver-infused inks on treated parchment, allowing it to channel divinatory energies. These cards are commonly used in fortune-telling rituals and as components for divination spells.",
+    "value": 200,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/treated_scroll.json",
+    "category": "goods/components",
+    "name": "Treated Scroll",
+    "description": "An expensive scroll that has been specially prepared with alchemical treatments and magical primers. The parchment shimmers faintly and can hold powerful magical inscriptions that would destroy lesser materials.",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/components/vial_of_acid.json",
+    "category": "goods/components",
+    "name": "Vial of Acid",
+    "description": "Dilute acid extracted from citrus fruits or vinegar, used for etching and dissolving",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/vial_of_alchemists_spirits.json",
+    "category": "goods/components",
+    "name": "Vial of Alchemist's Spirits",
+    "description": "Highly purified alcohol distilled multiple times through copper alembics, used as a solvent and preservative in alchemical preparations",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/vial_of_ammonia.json",
+    "category": "goods/components",
+    "name": "Vial of Ammonia",
+    "description": "Pungent liquid from fermented urine, used for cleaning and chemical reactions",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/vial_of_caustic_lye.json",
+    "category": "goods/components",
+    "name": "Vial of Caustic Lye",
+    "description": "Concentrated alkaline solution made from ash and lime, used in alchemy to break down organic matter and intensify reactions",
+    "value": 150,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/vial_of_dried_blood.json",
+    "category": "goods/components",
+    "name": "Vial of Dried Blood",
+    "description": "A small vial containing dark, coagulated blood that has been carefully drained and preserved. The blood maintains a faint warmth and magical resonance, making it useful for dark magic that requires a life essence component. Can be created by voluntarily sacrificing 1 point of health and allowing the blood to dry naturally over several hours.",
+    "value": 30,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/vial_of_holy_water.json",
+    "category": "goods/components",
+    "name": "Vial of Holy Water",
+    "description": "Pure water blessed with silver shavings, creating a sacred mixture that glows faintly with divine energy. The silver particles remain suspended in the water, creating swirling patterns that never settle. Essential for divine magic and purification rituals.",
+    "value": 150,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/vial_of_pitch.json",
+    "category": "goods/components",
+    "name": "Vial of Pitch",
+    "description": "Black tar from pine trees, used for waterproofing and adhesion in alchemy",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/vial_of_quicksilver.json",
+    "category": "goods/components",
+    "name": "Vial of Quicksilver",
+    "description": "Liquid mercury used in transmutation and as a catalyst for alchemical reactions",
+    "value": 250,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/vial_of_venom.json",
+    "category": "goods/components",
+    "name": "Vial of Venom",
+    "description": "Concentrated venom extracted from serpents and venomous creatures, used to enhance poison potency",
+    "value": 250,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/components/voodoo_doll.json",
+    "category": "goods/components",
+    "name": "Voodoo Doll",
+    "description": "A small humanoid figure crafted from cloth and stuffed with herbs, bound with dark thread and pierced with pins. Used in sympathetic magic rituals to establish connections with distant targets. The doll's crude features seem to shift in the shadows.",
+    "value": 100,
+    "type": "goods",
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/components/wood_treatment_oil.json",
+    "category": "goods/components",
+    "name": "Wood Treatment Oil",
+    "description": "A blend of linseed and other natural oils used to seal and preserve wood, preventing moisture damage and maintaining flexibility in wooden weapons and tools",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/components/zephyr_dust.json",
+    "category": "goods/components",
+    "name": "Zephyr Dust",
+    "description": "An ethereally light powder that seems to dance and swirl in the slightest breeze. Created from finely ground talc mixed with reactive saltpeter, this dust captures the essence of gentle winds and moving air. The powder never fully settles, always maintaining a subtle motion that mimics the flow of wind currents. This recipe yields 5 doses.",
+    "value": 300,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/food/ingredients/bottle_of_vinegar.json",
+    "category": "goods/food/ingredients",
+    "name": "Bottle of Vinegar",
+    "description": "Sour fermented liquid used for preserving foods and adding tangy flavor",
+    "value": 30,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/cooking_oil.json",
+    "category": "goods/food/ingredients",
+    "name": "Cooking Oil",
+    "description": "A bottle of refined oil extracted from plants, used for frying and cooking",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/dried_herbs.json",
+    "category": "goods/food/ingredients",
+    "name": "Dried Herbs",
+    "description": "A collection of dried culinary herbs like thyme, oregano, and basil",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/dried_meat.json",
+    "category": "goods/food/ingredients",
+    "name": "Dried Meat",
+    "description": "Preserved strips of meat that keep well during long journeys",
+    "value": 60,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/fresh_eggs.json",
+    "category": "goods/food/ingredients",
+    "name": "Fresh Eggs",
+    "description": "A dozen farm-fresh eggs essential for baking and cooking protein-rich meals",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/fresh_milk.json",
+    "category": "goods/food/ingredients",
+    "name": "Fresh Milk",
+    "description": "A pitcher of creamy milk from farm animals, used for drinking and cooking",
+    "value": 30,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/fruit.json",
+    "category": "goods/food/ingredients",
+    "name": "Fruit",
+    "description": "A piece of fresh fruit like apple, orange, or banana, perfect for snacks or meals",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/jar_of_honey.json",
+    "category": "goods/food/ingredients",
+    "name": "Jar of Honey",
+    "description": "Golden sweet syrup produced by bees, used for sweetening and preservation",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/nuts.json",
+    "category": "goods/food/ingredients",
+    "name": "Nuts",
+    "description": "A mixture of tree nuts like almonds, walnuts, and hazelnuts for snacking or cooking",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/pickled_vegetables.json",
+    "category": "goods/food/ingredients",
+    "name": "Pickled Vegetables",
+    "description": "Vegetables preserved in brine that add tangy flavor to meals",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/pinch_of_salt.json",
+    "category": "goods/food/ingredients",
+    "name": "Pinch of Salt",
+    "description": "A small quantity of salt, essential for seasoning and preserving food",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/pinch_of_spices.json",
+    "category": "goods/food/ingredients",
+    "name": "Pinch of Spices",
+    "description": "A mixture of various spices used to enhance the flavor of numerous dishes",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/pinch_of_sugar.json",
+    "category": "goods/food/ingredients",
+    "name": "Pinch of Sugar",
+    "description": "A pinch of sugar used to sweeten foods and beverages",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/sack_of_beans.json",
+    "category": "goods/food/ingredients",
+    "name": "Sack of Beans",
+    "description": "A large sack containing dried beans, a protein-rich staple food",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/sack_of_flour.json",
+    "category": "goods/food/ingredients",
+    "name": "Sack of Flour",
+    "description": "A large sack of ground grain flour, essential for baking bread and pastries",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/sack_of_rice.json",
+    "category": "goods/food/ingredients",
+    "name": "Sack of Rice",
+    "description": "A large sack of dried rice grains, a versatile staple grain",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/sack_of_sugar.json",
+    "category": "goods/food/ingredients",
+    "name": "Sack of Sugar",
+    "description": "A large sack of refined sugar crystals used for sweetening and preservation",
+    "value": 300,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/smoked_fish.json",
+    "category": "goods/food/ingredients",
+    "name": "Smoked Fish",
+    "description": "Fish preserved through smoking process, giving it rich flavor and long shelf life",
+    "value": 70,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/spices_tier_1.json",
+    "category": "goods/food/ingredients",
+    "name": "Spices (Tier 1)",
+    "description": "Common culinary spices like pepper, salt, and basic herbs that add +1 to all meal effects",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/spices_tier_2.json",
+    "category": "goods/food/ingredients",
+    "name": "Spices (Tier 2)",
+    "description": "Exotic spices like saffron, cardamom, and rare peppers that add +2 to all meal effects",
+    "value": 50,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/food/ingredients/spices_tier_3.json",
+    "category": "goods/food/ingredients",
+    "name": "Spices (Tier 3)",
+    "description": "Magical spices infused with elemental essences and mystical properties that add +3 to all meal effects",
+    "value": 200,
+    "type": "goods",
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/food/ingredients/vegetable.json",
+    "category": "goods/food/ingredients",
+    "name": "Vegetable",
+    "description": "A fresh vegetable such as carrot, potato, or onion, essential for basic nutrition",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/wheel_of_cheese.json",
+    "category": "goods/food/ingredients",
+    "name": "Wheel of Cheese",
+    "description": "A round block of aged cheese with rich flavor and firm texture",
+    "value": 120,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/food/ingredients/yeast.json",
+    "category": "goods/food/ingredients",
+    "name": "Yeast",
+    "description": "Live cultures essential for making bread rise and fermenting beverages",
+    "value": 60,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/agate.json",
+    "category": "goods/gemstones",
+    "name": "Agate",
+    "description": "A banded stone with layers of different colors and patterns",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/alexandrite.json",
+    "category": "goods/gemstones",
+    "name": "Alexandrite",
+    "description": "A color-changing crystal that shifts from green to red in different light",
+    "value": 2500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/amber.json",
+    "category": "goods/gemstones",
+    "name": "Amber",
+    "description": "A fossilized resin with golden color and transparent appearance",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/amethyst.json",
+    "category": "goods/gemstones",
+    "name": "Amethyst",
+    "description": "A purple quartz crystal with deep violet hues and glassy luster",
+    "value": 900,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/aquamarine.json",
+    "category": "goods/gemstones",
+    "name": "Aquamarine",
+    "description": "A pale blue crystal with sea-like transparency and clarity",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/azurite.json",
+    "category": "goods/gemstones",
+    "name": "Azurite",
+    "description": "A deep blue stone with intense color and crystalline structure",
+    "value": 150,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/black_diamond.json",
+    "category": "goods/gemstones",
+    "name": "Black Diamond",
+    "description": "A rare black crystal with intense sparkle and metallic luster",
+    "value": 20000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/black_pearl.json",
+    "category": "goods/gemstones",
+    "name": "Black Pearl",
+    "description": "A dark lustrous sphere with iridescent surface and metallic sheen",
+    "value": 1200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/bloodstone.json",
+    "category": "goods/gemstones",
+    "name": "Bloodstone",
+    "description": "A dark green stone with red spots resembling drops of blood",
+    "value": 250,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/carnelian.json",
+    "category": "goods/gemstones",
+    "name": "Carnelian",
+    "description": "An orange-red stone with translucent appearance and smooth surface",
+    "value": 220,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/chalcedony.json",
+    "category": "goods/gemstones",
+    "name": "Chalcedony",
+    "description": "A translucent stone with waxy luster and pale colors",
+    "value": 90,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/citrine.json",
+    "category": "goods/gemstones",
+    "name": "Citrine",
+    "description": "A yellow-orange quartz crystal with warm, sunny transparency",
+    "value": 350,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/diamond.json",
+    "category": "goods/gemstones",
+    "name": "Diamond",
+    "description": "A brilliant clear crystal known for its hardness and light refraction",
+    "value": 10000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/emerald.json",
+    "category": "goods/gemstones",
+    "name": "Emerald",
+    "description": "A rich green crystal with deep color and natural inclusions",
+    "value": 4000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/fire_opal.json",
+    "category": "goods/gemstones",
+    "name": "Fire Opal",
+    "description": "A translucent orange-red stone with internal flashes of light",
+    "value": 1500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/flame_emerald.json",
+    "category": "goods/gemstones",
+    "name": "Flame Emerald",
+    "description": "A fiery green crystal with orange-red inclusions resembling flames",
+    "value": 16000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/frost_sapphire.json",
+    "category": "goods/gemstones",
+    "name": "Frost Sapphire",
+    "description": "A brilliant ice-blue sapphire that radiates cold energy and seems to frost the air around it",
+    "value": 7500,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/gemstones/garnet.json",
+    "category": "goods/gemstones",
+    "name": "Garnet",
+    "description": "A deep red crystal with wine-like color and vitreous shine",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/hematite.json",
+    "category": "goods/gemstones",
+    "name": "Hematite",
+    "description": "A metallic gray stone with heavy weight and mirror-like shine",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/jade.json",
+    "category": "goods/gemstones",
+    "name": "Jade",
+    "description": "A smooth green stone with waxy luster and tough composition",
+    "value": 700,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/jasper.json",
+    "category": "goods/gemstones",
+    "name": "Jasper",
+    "description": "An opaque stone with earth-tone colors and smooth texture",
+    "value": 60,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/lapis_lazuli.json",
+    "category": "goods/gemstones",
+    "name": "Lapis Lazuli",
+    "description": "A deep blue stone with gold flecks and opaque surface",
+    "value": 400,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/malachite.json",
+    "category": "goods/gemstones",
+    "name": "Malachite",
+    "description": "A bright green stone with swirled patterns and opaque surface",
+    "value": 120,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/moonstone.json",
+    "category": "goods/gemstones",
+    "name": "Moonstone",
+    "description": "A milky white stone with blue flashes that shimmer like moonlight",
+    "value": 450,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/obsidian.json",
+    "category": "goods/gemstones",
+    "name": "Obsidian",
+    "description": "A volcanic glass with black color and mirror-like surface",
+    "value": 70,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/onyx.json",
+    "category": "goods/gemstones",
+    "name": "Onyx",
+    "description": "A black stone with white bands and polished surface",
+    "value": 180,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/opal.json",
+    "category": "goods/gemstones",
+    "name": "Opal",
+    "description": "A milky stone with flashes of rainbow colors within",
+    "value": 300,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/pearl.json",
+    "category": "goods/gemstones",
+    "name": "Pearl",
+    "description": "A smooth white sphere with lustrous surface and natural shine",
+    "value": 600,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/peridot.json",
+    "category": "goods/gemstones",
+    "name": "Peridot",
+    "description": "A bright green goods known for its clear, glassy appearance",
+    "value": 550,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/quartz.json",
+    "category": "goods/gemstones",
+    "name": "Quartz",
+    "description": "A clear crystal with glassy luster and six-sided structure",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/ruby.json",
+    "category": "goods/gemstones",
+    "name": "Ruby",
+    "description": "A deep red crystal with intense color and brilliant shine",
+    "value": 8000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/sapphire.json",
+    "category": "goods/gemstones",
+    "name": "Sapphire",
+    "description": "A vibrant blue crystal with exceptional clarity and hardness",
+    "value": 6000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/shadow_onyx.json",
+    "category": "goods/gemstones",
+    "name": "Shadow Onyx",
+    "description": "A jet-black onyx that absorbs light and radiates dark energy, casting unnatural shadows",
+    "value": 5500,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/gemstones/sky_emerald.json",
+    "category": "goods/gemstones",
+    "name": "Sky Emerald",
+    "description": "A pale blue-green crystal with ethereal clarity and sky-like hues",
+    "value": 14000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/spirit_moonstone.json",
+    "category": "goods/gemstones",
+    "name": "Spirit Moonstone",
+    "description": "A luminous moonstone that phases between the material and ethereal planes, pulsing with mystical energy",
+    "value": 6500,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/gemstones/star_ruby.json",
+    "category": "goods/gemstones",
+    "name": "Star Ruby",
+    "description": "A deep red gem displaying a six-pointed star pattern when light hits it",
+    "value": 12000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/storm_topaz.json",
+    "category": "goods/gemstones",
+    "name": "Storm Topaz",
+    "description": "A golden topaz crackling with internal electrical energy that sparks and flickers like captured lightning",
+    "value": 7000,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/gemstones/topaz.json",
+    "category": "goods/gemstones",
+    "name": "Topaz",
+    "description": "A golden-yellow crystal with exceptional brilliance and hardness",
+    "value": 800,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/turquoise.json",
+    "category": "goods/gemstones",
+    "name": "Turquoise",
+    "description": "A blue-green stone with opaque appearance and waxy luster",
+    "value": 380,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/gemstones/void_amethyst.json",
+    "category": "goods/gemstones",
+    "name": "Void Amethyst",
+    "description": "A deep purple amethyst that seems to bend light around it and whispers with psychic energy",
+    "value": 5000,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/metals/ingots/aetherium_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Aetherium Ingot",
+    "description": "A mystical metal that seems to defy the natural laws of weight and mass. Aetherium appears to shimmer with an inner light and feels almost weightless despite its solid form. This rare material is said to come from places where the veil between worlds is thin.",
+    "value": 20000,
+    "type": "goods",
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/metals/ingots/brass_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Brass Ingot",
+    "description": "An alloy ingot created by smelting copper and tin together in precise ratios, producing a golden-colored metal with excellent corrosion resistance and workability",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/cobalt_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Cobalt Ingot",
+    "description": "NO DESCRIPTION",
+    "value": 10000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/copper_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Copper Ingot",
+    "description": "A reddish-brown metal ingot known for its malleability and excellent heat and electrical conductivity. Copper is one of the easiest metals to work with and is often used for practice pieces and decorative items.",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/electrum_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Electrum Ingot",
+    "description": "NO DESCRIPTION",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/gold_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Gold Ingot",
+    "description": "NO DESCRIPTION",
+    "value": 5000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/iron_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Iron Ingot",
+    "description": "A refined bar of iron metal, smelted and shaped for use in crafting. Iron is abundant and reliable, making it the backbone of most metalworking projects.",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/lead_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Lead Ingot",
+    "description": "NO DESCRIPTION",
+    "value": 400,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/nickel_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Nickel Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 2000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/platinum_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Platinum Ingot",
+    "description": "NO DESCRIPTION",
+    "value": 10000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/silver_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Silver Ingot",
+    "description": "A precious metal ingot with a brilliant white luster. Silver is highly valued for currency, jewelry, and decorative items. It is also known for its conductivity and resistance to corrosion.",
+    "value": 500,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/metals/ingots/startsteel_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Starsteel Ingot",
+    "description": "A legendary metal that supposedly fell from the heavens in ancient meteorites. Starsteel has an otherworldly blue-silver sheen and exhibits properties that seem to transcend normal metallurgy. Even master smiths find it incredibly challenging to work with.",
+    "value": 50000,
+    "type": "goods",
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/metals/ingots/steel_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Steel Ingot",
+    "description": "A high-quality steel ingot created by carefully controlling the carbon content in iron during the smelting process. Steel is stronger and more durable than iron, though more challenging to work with.",
+    "value": 300,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/tin_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "Tin Ingot",
+    "description": "NO DESCRIPTION",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/ingots/truesteel_ingot.json",
+    "category": "goods/metals/ingots",
+    "name": "True Steel Ingot",
+    "description": "An exceptional grade of steel created through masterful forging techniques and precise temperature control. True steel represents the pinnacle of traditional metallurgy, prized for its perfect balance of hardness and flexibility.",
+    "value": 500,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/metals/nuggets/aetherium_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Aetherium Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 2000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/cobalt_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Cobalt Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/copper_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Copper Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 4,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/electrum_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Electrum Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/gold_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Gold Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/iron_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Iron Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/lead_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Lead Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 40,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/nickel_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Nickel Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 200,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/platinum_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Platinum Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/silver_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Silver Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/starsteel_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Starsteel Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 5000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/steel_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Steel Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 30,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/nuggets/tin_nugget.json",
+    "category": "goods/metals/nuggets",
+    "name": "Tin Nugget",
+    "description": "NO DESCRIPTION",
+    "value": 1,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/aetherium_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Aetherium Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 1000,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/cobalt_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Cobalt Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/copper_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Copper Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 2,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/electrum_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Electrum Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 50,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/gold_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Gold Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 250,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/iron_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Iron Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 10,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/lead_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Lead Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/nickel_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Nickel Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/platinum_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Platinum Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/silver_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Silver Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 25,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/starsteel_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Starsteel Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 2500,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/steel_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Steel Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 15,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/metals/shavings/tin_shavings.json",
+    "category": "goods/metals/shavings",
+    "name": "Tin Shavings",
+    "description": "NO DESCRIPTION",
+    "value": 1,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_mail.json",
+    "category": "goods/parts",
+    "name": "Aetherium Mail",
+    "description": "Interlocking aetherium rings that shimmer with otherworldly energy. These mystical links provide protection without hindering movement.",
+    "value": 36350,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_plates.json",
+    "category": "goods/parts",
+    "name": "Aetherium Plates",
+    "description": "Mystical aetherium armor plates that seem to defy weight while maintaining protection. These otherworldly plates make armor feel weightless.",
+    "value": 38400,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_point.json",
+    "category": "goods/parts",
+    "name": "Aetherium Point",
+    "description": "A sharp aetherium point component that seems to phase through matter while maintaining deadly sharpness. This mystical component makes piercing weapons feel weightless in the wielder's hands.",
+    "value": 20225,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_heavy_limbs.json",
+    "category": "goods/parts",
+    "name": "Ash Heavy Limbs",
+    "description": "Long, powerful ash wood limb components crafted for large bows such as longbows, warbows, and heavy crossbows. These flexible yet strong limbs provide reliable performance.",
+    "value": 150,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_light_limbs.json",
+    "category": "goods/parts",
+    "name": "Ash Light Limbs",
+    "description": "Long, powerful ash wood limb components crafted for large bows such as longbows, warbows, and heavy crossbows. These flexible yet strong limbs provide reliable performance.",
+    "value": 150,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/bindings.json",
+    "category": "goods/parts",
+    "name": "Bindings",
+    "description": "Essential fabrication components including rivets, pins, nails, washers, bolts, clamps, hinges, brackets, fasteners, and various small metal fittings required for crafting weapons, armor, and other metal goods",
+    "value": 15,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/brass_fittings.json",
+    "category": "goods/parts",
+    "name": "Brass Fittings",
+    "description": "Precision connectors and joints made from copper and tin alloy. Used for articulation points in complex mechanisms",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/brass_sheet.json",
+    "category": "goods/parts",
+    "name": "Brass Sheet",
+    "description": "A hammered sheet of brass alloy, combining the malleability of copper with the strength of tin. Ideal for precision components and decorative elements",
+    "value": 100,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/bundle_of_copper_wire.json",
+    "category": "goods/parts",
+    "name": "Bundle of Copper Wire",
+    "description": "Flexible copper strands useful in crafting jewelry and electrical conduits for magical devices. This wire can be created by cutting a copper sheet into strips and combining them through heat.",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/clockwork_gears.json",
+    "category": "goods/parts",
+    "name": "Clockwork Gears",
+    "description": "A set of precisely cut interlocking gears made from steel sheets. Essential for any clockwork mechanism",
+    "value": 150,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_padding.json",
+    "category": "goods/parts",
+    "name": "Cloth Padding",
+    "description": "Simple cloth padding to provide comfort under armor. This basic material prevents chafing and absorbs impact.",
+    "value": 15,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/copper_sheet.json",
+    "category": "goods/parts",
+    "name": "Copper Sheet",
+    "description": "A hammered sheet of copper, excellent for conducting heat and creating flexible metal components",
+    "value": 80,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Aetheric Core",
+    "description": "A superior magical focus core embedded with a luminous spirit moonstone that channels devastating mystical energy. This enhanced core allows for more powerful aetheric magical attacks.",
+    "value": 910,
+    "type": "goods",
+    "arrayIndex": 7,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Cold Core",
+    "description": "A superior magical focus core embedded with a brilliant frost sapphire that channels devastating frost energy. This enhanced core allows for more powerful cold-based magical attacks.",
+    "value": 950,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Dark Core",
+    "description": "A superior magical focus core embedded with a sinister black diamond that channels devastating shadow energy. This enhanced core allows for more powerful dark magical attacks.",
+    "value": 5250,
+    "type": "goods",
+    "arrayIndex": 9,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Divine Core",
+    "description": "A superior magical focus core embedded with a brilliant diamond that channels devastating divine energy. This enhanced core allows for more powerful divine magical attacks.",
+    "value": 1250,
+    "type": "goods",
+    "arrayIndex": 11,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Electric Core",
+    "description": "A superior magical focus core embedded with a brilliant storm topaz that channels devastating electrical energy. This enhanced core allows for more powerful lightning-based magical attacks.",
+    "value": 920,
+    "type": "goods",
+    "arrayIndex": 5,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Heat Core",
+    "description": "A superior magical focus core embedded with a brilliant ruby that channels devastating thermal energy. This enhanced core allows for more powerful heat-based magical attacks.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Greater Psychic Core",
+    "description": "A superior magical focus core embedded with a mesmerizing void amethyst that channels devastating mental energy. This enhanced core allows for more powerful psychic magical attacks.",
+    "value": 880,
+    "type": "goods",
+    "arrayIndex": 13,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_heavy_blade.json",
+    "category": "goods/parts",
+    "name": "Iron Heavy Blade",
+    "description": "A substantial iron blade component designed for crafting large slashing weapons such as longswords, greataxes, battleaxes, and greatswords. This reliable component provides solid cutting power at an affordable cost.",
+    "value": 450,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_heavy_head.json",
+    "category": "goods/parts",
+    "name": "Iron Heavy Head",
+    "description": "A substantial iron head component designed for crafting large blunt weapons such as warhammers, greathammers, and mauls. This reliable component provides solid crushing power at an affordable cost.",
+    "value": 450,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_light_blade.json",
+    "category": "goods/parts",
+    "name": "Iron Light Blade",
+    "description": "A compact iron blade component designed for crafting smaller slashing weapons such as scimitars, handaxes, short swords, and falchions. This reliable component provides solid cutting power at an affordable cost.",
+    "value": 450,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_light_head.json",
+    "category": "goods/parts",
+    "name": "Iron Light Head",
+    "description": "A compact iron head component designed for crafting small blunt weapons such as maces, clubs, and light hammers. This reliable component provides solid impact force while maintaining weapon balance.",
+    "value": 225,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_mail.json",
+    "category": "goods/parts",
+    "name": "Iron Mail",
+    "description": "Interlocking iron rings forming flexible chain armor. These reliable links provide moderate protection while allowing mobility.",
+    "value": 350,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_plates.json",
+    "category": "goods/parts",
+    "name": "Iron Plates",
+    "description": "Solid iron armor plates designed for heavy protection. These reliable plates provide substantial defense at an affordable cost.",
+    "value": 400,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_point.json",
+    "category": "goods/parts",
+    "name": "Iron Point",
+    "description": "A sharp iron point component crafted for piercing weapons of all sizes, from small daggers and rapiers to large spears and pikes. This reliable component provides solid penetrating power at an affordable cost.",
+    "value": 225,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_heavy_limbs.json",
+    "category": "goods/parts",
+    "name": "Ironwood Heavy Limbs",
+    "description": "Long, powerful ironwood limb components crafted from the densest of hardwoods. These exceptional limbs rival metal in durability while maintaining organic flexibility.",
+    "value": 1200,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_light_limbs.json",
+    "category": "goods/parts",
+    "name": "Ironwood Light Limbs",
+    "description": "Long, powerful ironwood limb components crafted from the densest of hardwoods. These exceptional limbs rival metal in durability while maintaining organic flexibility.",
+    "value": 1200,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_handle.json",
+    "category": "goods/parts",
+    "name": "Leather Handle",
+    "description": "A leather-wrapped grip component providing comfortable control for weapons and tools.",
+    "value": 15,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_lash.json",
+    "category": "goods/parts",
+    "name": "Leather Lash",
+    "description": "A flexible leather striking component braided from quality hide strips, essential for crafting whips and flexible weapons.",
+    "value": 60,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Aetheric Core",
+    "description": "A magical focus core embedded with a shimmering spirit moonstone that channels pure mystical energy. When integrated into wands, staves, or magical weapons, it allows casters to generate aetheric attacks.",
+    "value": 760,
+    "type": "goods",
+    "arrayIndex": 6,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Cold Core",
+    "description": "A magical focus core embedded with an icy frost sapphire that channels pure frost energy. When integrated into wands, staves, or magical weapons, it allows casters to generate freezing cold attacks.",
+    "value": 800,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Dark Core",
+    "description": "A magical focus core embedded with a void-black shadow onyx that channels pure shadow energy. When integrated into wands, staves, or magical weapons, it allows casters to generate dark attacks.",
+    "value": 740,
+    "type": "goods",
+    "arrayIndex": 8,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Divine Core",
+    "description": "A magical focus core embedded with a radiant diamond that channels pure divine energy. When integrated into wands, staves, or magical weapons, it allows casters to generate divine attacks.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 10,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Electric Core",
+    "description": "A magical focus core embedded with a crackling storm topaz that channels pure electrical energy. When integrated into wands, staves, or magical weapons, it allows casters to generate lightning-based attacks.",
+    "value": 770,
+    "type": "goods",
+    "arrayIndex": 4,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Heat Core",
+    "description": "A magical focus core embedded with a fiery ruby that channels pure thermal energy. When integrated into wands, staves, or magical weapons, it allows casters to generate intense heat-based attacks.",
+    "value": 850,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_core.json",
+    "category": "goods/parts",
+    "name": "Lesser Psychic Core",
+    "description": "A magical focus core embedded with a mind-bending void amethyst that channels pure mental energy. When integrated into wands, staves, or magical weapons, it allows casters to generate psychic attacks.",
+    "value": 730,
+    "type": "goods",
+    "arrayIndex": 12,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_handle.json",
+    "category": "goods/parts",
+    "name": "Metal Handle",
+    "description": "A metal grip component offering durability and solid control for heavy-duty weapons and tools.",
+    "value": 25,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_long_shaft.json",
+    "category": "goods/parts",
+    "name": "Metal Long Shaft",
+    "description": "A lengthy metal shaft component providing superior strength and durability for heavy polearms requiring maximum reliability.",
+    "value": 60,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_short_shaft.json",
+    "category": "goods/parts",
+    "name": "Metal Short Shaft",
+    "description": "A compact metal shaft shorter than 1 unit in length providing superior durability for one-handed weapons requiring maximum strength.",
+    "value": 35,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_long_shaft.json",
+    "category": "goods/parts",
+    "name": "Reinforced Long Shaft",
+    "description": "A lengthy reinforced shaft component offering exceptional strength and balance for premium polearms and two-handed weapons.",
+    "value": 120,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/release_mechanism.json",
+    "category": "goods/parts",
+    "name": "Release Mechanism",
+    "description": "A standard trigger component for crossbows and complex ranged weapons, providing basic functionality for releasing stored energy",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_bowstring.json",
+    "category": "goods/parts",
+    "name": "Silk Bowstring",
+    "description": "An exceptional bowstring crafted from spider silk, providing incredible tensile strength despite its light weight, allowing the wielder to be more accurate at shorter distances.",
+    "value": 300,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/parts/generic_bowstring.json",
+    "category": "goods/parts",
+    "name": "Sinew Bowstring",
+    "description": "A durable bowstring crafted from processed animal sinew, providing excellent elasticity and strength.",
+    "value": 45,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_heavy_blade.json",
+    "category": "goods/parts",
+    "name": "Starsteel Heavy Blade",
+    "description": "A substantial starsteel blade component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
+    "value": 100450,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_heavy_head.json",
+    "category": "goods/parts",
+    "name": "Starsteel Heavy Head",
+    "description": "A substantial starsteel head component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
+    "value": 100450,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_heavy_limbs.json",
+    "category": "goods/parts",
+    "name": "Starsteel Heavy Limbs",
+    "description": "Long, powerful starsteel limb components forged from legendary celestial metal. These otherworldly limbs channel devastating power through their divine properties.",
+    "value": 100450,
+    "type": "goods",
+    "arrayIndex": 4,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_light_blade.json",
+    "category": "goods/parts",
+    "name": "Starsteel Light Blade",
+    "description": "A compact starsteel blade component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
+    "value": 100450,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_light_head.json",
+    "category": "goods/parts",
+    "name": "Starsteel Light Head",
+    "description": "A compact starsteel head component forged from legendary celestial metal. This otherworldly component channels devastating power through its otherworldly properties.",
+    "value": 50225,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_light_limbs.json",
+    "category": "goods/parts",
+    "name": "Starsteel Light Limbs",
+    "description": "Long, powerful starsteel limb components forged from legendary celestial metal. These otherworldly limbs channel devastating power through their divine properties.",
+    "value": 100450,
+    "type": "goods",
+    "arrayIndex": 4,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_mail.json",
+    "category": "goods/parts",
+    "name": "Starsteel Mail",
+    "description": "Interlocking starsteel rings forged from celestial metal. These divine links channel protective energies through their legendary properties.",
+    "value": 90350,
+    "type": "goods",
+    "arrayIndex": 4,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_plates.json",
+    "category": "goods/parts",
+    "name": "Starsteel Plates",
+    "description": "Legendary starsteel armor plates forged from celestial metal. These divine plates channel protective power through their otherworldly properties.",
+    "value": 95400,
+    "type": "goods",
+    "arrayIndex": 4,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_point.json",
+    "category": "goods/parts",
+    "name": "Starsteel Point",
+    "description": "A sharp starsteel point component forged from legendary celestial metal. This otherworldly component channels devastating power through its divine sharpness.",
+    "value": 50225,
+    "type": "goods",
+    "arrayIndex": 4,
+    "isPartOfArray": true,
+    "rarity": "legendary"
+  },
+  {
+    "file": "goods/parts/generic_heavy_blade.json",
+    "category": "goods/parts",
+    "name": "Steel Heavy Blade",
+    "description": "A substantial steel blade component designed for crafting large slashing weapons such as longswords, greataxes, battleaxes, and greatswords. This durable component offers improved performance over iron alternatives.",
+    "value": 650,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_heavy_head.json",
+    "category": "goods/parts",
+    "name": "Steel Heavy Head",
+    "description": "A substantial steel head component designed for crafting large blunt weapons of superior quality. This durable component offers improved crushing power over iron alternatives.",
+    "value": 650,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_light_blade.json",
+    "category": "goods/parts",
+    "name": "Steel Light Blade",
+    "description": "A compact steel blade component designed for crafting smaller slashing weapons such as scimitars, handaxes, short swords, and falchions. This durable component offers improved performance over iron alternatives.",
+    "value": 650,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_light_head.json",
+    "category": "goods/parts",
+    "name": "Steel Light Head",
+    "description": "A compact steel head component designed for crafting small blunt weapons of improved quality. This durable component offers enhanced impact power over iron alternatives.",
+    "value": 325,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_mail.json",
+    "category": "goods/parts",
+    "name": "Steel Mail",
+    "description": "Interlocking steel rings forming superior chain armor. These enhanced links provide better protection than iron alternatives.",
+    "value": 550,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_plates.json",
+    "category": "goods/parts",
+    "name": "Steel Plates",
+    "description": "Durable steel armor plates offering superior protection. These enhanced plates provide better defense than iron alternatives.",
+    "value": 600,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_point.json",
+    "category": "goods/parts",
+    "name": "Steel Point",
+    "description": "A sharp steel point component crafted for superior piercing weapons. This durable component offers enhanced penetrating power and edge retention over iron alternatives.",
+    "value": 325,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/steel_sheet.json",
+    "category": "goods/parts",
+    "name": "Steel Sheet",
+    "description": "A strong, durable sheet of steel formed through careful hammering. Ideal for armor plating and structural components",
+    "value": 600,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_hide.json",
+    "category": "goods/parts",
+    "name": "Studded Hide",
+    "description": "Thick hide reinforced with metal studs for enhanced protection. This upgraded material balances defense and flexibility.",
+    "value": 150,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_hide.json",
+    "category": "goods/parts",
+    "name": "Thick Hide",
+    "description": "Durable animal hide suitable for crafting leather armor. This natural material provides basic protection while remaining flexible.",
+    "value": 80,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/tin_sheet.json",
+    "category": "goods/parts",
+    "name": "Tin Sheet",
+    "description": "A thin, malleable sheet of tin created by heating and hammering an ingot flat. Used for lightweight metal components",
+    "value": 20,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_heavy_blade.json",
+    "category": "goods/parts",
+    "name": "True Steel Heavy Blade",
+    "description": "A substantial true steel blade component designed for crafting large slashing weapons of exceptional quality. This masterwork component delivers superior cutting power through advanced metallurgy.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_heavy_head.json",
+    "category": "goods/parts",
+    "name": "True Steel Heavy Head",
+    "description": "A substantial true steel head component designed for crafting exceptional large blunt weapons. This masterwork component delivers superior crushing power through advanced metallurgy.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_heavy_limbs.json",
+    "category": "goods/parts",
+    "name": "True Steel Heavy Limbs",
+    "description": "Long, powerful true steel limb components forged from exceptional metallurgy for masterwork heavy crossbows. These premium limbs deliver unmatched power and accuracy.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_light_blade.json",
+    "category": "goods/parts",
+    "name": "True Steel Light Blade",
+    "description": "A compact true steel blade component designed for crafting smaller slashing weapons of exceptional quality. This masterwork component delivers superior cutting power through advanced metallurgy.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_light_head.json",
+    "category": "goods/parts",
+    "name": "True Steel Light Head",
+    "description": "A compact true steel head component designed for crafting superior small blunt weapons. This masterwork component delivers exceptional impact power through advanced metallurgy.",
+    "value": 525,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_light_limbs.json",
+    "category": "goods/parts",
+    "name": "True Steel Light Limbs",
+    "description": "Long, powerful true steel limb components forged from exceptional metallurgy for masterwork heavy crossbows. These premium limbs deliver unmatched power and accuracy.",
+    "value": 1050,
+    "type": "goods",
+    "arrayIndex": 3,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_mail.json",
+    "category": "goods/parts",
+    "name": "True Steel Mail",
+    "description": "Interlocking true steel rings forming masterwork chain armor. These advanced links deliver superior protection through refined craftsmanship.",
+    "value": 850,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_plates.json",
+    "category": "goods/parts",
+    "name": "True Steel Plates",
+    "description": "Masterwork true steel armor plates of exceptional quality. These advanced plates deliver superior protection through refined metallurgy.",
+    "value": 950,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_point.json",
+    "category": "goods/parts",
+    "name": "True Steel Point",
+    "description": "A sharp true steel point component crafted for exceptional piercing weapons. This masterwork component delivers superior penetrating power through advanced metallurgy.",
+    "value": 525,
+    "type": "goods",
+    "arrayIndex": 2,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_lash.json",
+    "category": "goods/parts",
+    "name": "Truesteel Chainlinked Lash",
+    "description": "A powerful striking component crafted from truesteel chainlinks, providing superior flexibility and striking power.",
+    "value": 240,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_handle.json",
+    "category": "goods/parts",
+    "name": "Wooden Handle",
+    "description": "A simple wooden grip component designed for weapon hilts and tool handles, providing basic control and comfort during use.",
+    "value": 5,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_long_shaft.json",
+    "category": "goods/parts",
+    "name": "Wooden Long Shaft",
+    "description": "A sturdy wooden shaft component measuring 6+ feet, crafted for polearms and two-handed weapons such as pikes, halberds, glaives, and quarterstaffs.",
+    "value": 15,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_short_shaft.json",
+    "category": "goods/parts",
+    "name": "Wooden Short Shaft",
+    "description": "A compact wooden shaft component shorter than 1 unit in length, suitable for crafting one-handed weapons and shorter implements.",
+    "value": 8,
+    "type": "goods",
+    "arrayIndex": 0,
+    "isPartOfArray": true,
+    "rarity": "common"
+  },
+  {
+    "file": "goods/parts/generic_heavy_limbs.json",
+    "category": "goods/parts",
+    "name": "Yew Heavy Limbs",
+    "description": "Long, powerful yew wood limb components crafted for large bows. The natural properties of yew create exceptional spring and power in these premium limbs.",
+    "value": 450,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/parts/generic_light_limbs.json",
+    "category": "goods/parts",
+    "name": "Yew Light Limbs",
+    "description": "Long, powerful yew wood limb components crafted for large bows. The natural properties of yew create exceptional spring and power in these premium limbs.",
+    "value": 450,
+    "type": "goods",
+    "arrayIndex": 1,
+    "isPartOfArray": true,
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/textiles/bundle_of_cloth.json",
+    "category": "goods/textiles",
+    "name": "Bundle of Cloth",
+    "description": "A collection of various fabric pieces including cotton, linen, and wool. Useful for crafting clothing, padding, and basic textile goods",
+    "value": 12,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/textiles/bundle_of_heavy_leather.json",
+    "category": "goods/textiles",
+    "name": "Bundle of Heavy Leather",
+    "description": "Thick, durable leather pieces perfect for armor crafting, sturdy gear, and heavy-duty applications. Requires more skill to work but provides superior protection",
+    "value": 45,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/textiles/bundle_of_light_leather.json",
+    "category": "goods/textiles",
+    "name": "Bundle of Light Leather",
+    "description": "Thin, flexible leather pieces suitable for clothing, light armor padding, and delicate leather goods. Easy to work with and comfortable to wear",
+    "value": 25,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/textiles/bundle_of_silk.json",
+    "category": "goods/textiles",
+    "name": "Bundle of Silk",
+    "description": "Luxurious silk fabric pieces prized for their softness, strength, and lustrous appearance. Essential for high-quality clothing and premium textile applications",
+    "value": 85,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "goods/wood/ash_wood.json",
+    "category": "goods/wood",
+    "name": "Ash Wood",
+    "description": "A reliable hardwood prized for its excellent balance of flexibility and strength. Its consistent grain and workability make it ideal for crafting quality tools and weapons",
+    "value": 15,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/wood/hickory_wood.json",
+    "category": "goods/wood",
+    "name": "Hickory Wood",
+    "description": "A tough, shock-resistant hardwood known for its durability and strength. Commonly used in tool handles and weapons due to its ability to withstand heavy impacts",
+    "value": 5,
+    "type": "goods",
+    "rarity": "common"
+  },
+  {
+    "file": "goods/wood/ironwood.json",
+    "category": "goods/wood",
+    "name": "Ironwood",
+    "description": "An exceptionally dense and resilient hardwood that rivals metal in durability. Master craftsmen prize this rare wood for creating items of unmatched strength and longevity",
+    "value": 120,
+    "type": "goods",
+    "rarity": "rare"
+  },
+  {
+    "file": "goods/wood/yew_wood.json",
+    "category": "goods/wood",
+    "name": "Yew Wood",
+    "description": "A premium hardwood featuring exceptional natural elasticity and strength. Its unique grain structure provides superior performance in flexible applications and fine craftsmanship",
+    "value": 45,
+    "type": "goods",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "head/armored_helmet.json",
+    "category": "head",
+    "name": "Armored Helmet",
+    "description": "A metal helmet with reinforced crown and cheek guards that slightly obstructs your senses. While wearing this helmet, you cannot become dazed from a melee attack.",
+    "value": 40,
+    "type": "headwear",
+    "rarity": "common"
+  },
+  {
+    "file": "head/fur_hat.json",
+    "category": "head",
+    "name": "Fur Hat",
+    "description": "A warm cap made from thick fur with ear flaps. Provides excellent protection against cold but can muffle sounds.",
+    "value": 15,
+    "type": "headwear",
+    "rarity": "common"
+  },
+  {
+    "file": "head/leather_helmet.json",
+    "category": "head",
+    "name": "Leather Helmet",
+    "description": "A simple leather cap reinforced with hardened leather strips.",
+    "value": 10,
+    "type": "headwear",
+    "rarity": "common"
+  },
+  {
+    "file": "head/plate_helmet.json",
+    "category": "head",
+    "name": "Plate Helmet",
+    "description": "A full helm of articulated steel plates with a narrow visor. While obscuring senses, the plate helmet provides benefits against concussive forces. When you become stunned due to a melee attack, you become dazed instead and you cannot be dazed by melee attacks.",
+    "value": 100,
+    "type": "headwear",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "instruments/bagpipes.json",
+    "category": "instruments",
+    "name": "Bagpipes",
+    "description": "A complex wind instrument with an air reservoir and multiple pipes. Its distinctive drone and piercing melody can stir hearts or clear taverns.",
+    "value": 40,
+    "type": "instrument",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "instruments/hunting_horn.json",
+    "category": "instruments",
+    "name": "Hunting Horn",
+    "description": "A small curved horn traditionally used during hunts to coordinate riders and hounds. Its clear, carrying notes can communicate complex messages across great distances.",
+    "value": 15,
+    "type": "instrument",
+    "rarity": "common"
+  },
+  {
+    "file": "instruments/lute.json",
+    "category": "instruments",
+    "name": "Lute",
+    "description": "A pear-shaped, string instrument with a curved back, fretted fingerboard and head with tuning pegs.",
+    "value": 5,
+    "type": "instrument",
+    "rarity": "common"
+  },
+  {
+    "file": "instruments/lyre.json",
+    "category": "instruments",
+    "name": "Lyre",
+    "description": "An ancient stringed instrument with a U-shaped frame. Its delicate, harp-like tones are perfect for accompanying poetry and ballads.",
+    "value": 20,
+    "type": "instrument",
+    "rarity": "common"
+  },
+  {
+    "file": "instruments/tambourine.json",
+    "category": "instruments",
+    "name": "Tambourine",
+    "description": "A circular frame drum with metal jingles around the edge. Popular at festivals and taverns for its bright, rhythmic sound.",
+    "value": 8,
+    "type": "instrument",
+    "rarity": "common"
+  },
+  {
+    "file": "instruments/war_drum.json",
+    "category": "instruments",
+    "name": "War Drum",
+    "description": "A large drum carried into battle to maintain marching tempo and boost morale. Its deep, resonant beat can be heard across the battlefield.",
+    "value": 25,
+    "type": "instrument",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "instruments/war_horn.json",
+    "category": "instruments",
+    "name": "War Horn",
+    "description": "A curved horn made from brass or animal horn, used to signal troops in battle. Its powerful blast can rally allies or strike fear into enemies.",
+    "value": 30,
+    "type": "instrument",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "instruments/wooden_flute.json",
+    "category": "instruments",
+    "name": "Wooden Flute",
+    "description": "A simple woodwind instrument carved from a single piece of hardwood. Its sweet, melodic tones are favored by traveling minstrels.",
+    "value": 10,
+    "type": "instrument",
+    "rarity": "common"
+  },
+  {
+    "file": "runes/mark_of_talent.json",
+    "category": "runes",
+    "name": "Mark of Innate Talent",
+    "description": "A permanent magical tattoo that enhances the bearer's natural abilities. When inscribed, choose one attribute. The bearer gains +1 talent to that attribute permanently. A creature can only bear one Mark of Talent.",
+    "value": 5000,
+    "type": "runes",
+    "rarity": "legendary"
+  },
+  {
+    "file": "runes/rune_of_minor_alarm.json",
+    "category": "runes",
+    "name": "Rune of Minor Alarm",
+    "description": "A magical inscription that creates a soft chime audible within 1 unit when the inscribed object is touched by anyone other than the attuned owner for 1 hour. Useful for detecting tampering with valuables.",
+    "value": 30,
+    "type": "runes",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "runes/rune_of_minor_light.json",
+    "category": "runes",
+    "name": "Rune of Minor Light",
+    "description": "A magical inscription that causes an object to emit a 3 unit radius of light for 1 hour.",
+    "value": 150,
+    "type": "runes",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "runes/rune_of_minor_preservation.json",
+    "category": "runes",
+    "name": "Rune of Minor Preservation",
+    "description": "A magical inscription that keeps organic materials fresh and prevents decay for 1 day. Food stays fresh instead of spoiling, and bodies are protected against natural decomposition, making it valuable for burial rites or medical study.",
+    "value": 60,
+    "type": "runes",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "runes/rune_of_minor_return.json",
+    "category": "runes",
+    "name": "Rune of Minor Return",
+    "description": "A magical inscription that bonds an item to a single word in any language. Anyone who knows the command word can use an action to summon the inscribed item back to their hand if it is within 3 units. The rune must be inscribed on the item to be recalled.",
+    "value": 150,
+    "type": "runes",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "runes/rune_of_minor_sealing.json",
+    "category": "runes",
+    "name": "Rune of Minor Sealing",
+    "description": "A magical inscription that makes it more difficult to open a container, barrier or door. Checks required to open the door by forcing it, or finding other means of opening it are increased by 2 for 1 hour.",
+    "value": 150,
+    "type": "runes",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "runes/rune_of_minor_silence.json",
+    "category": "runes",
+    "name": "Rune of Minor Silence",
+    "description": "A magical inscription that muffles all sounds made by the inscribed object by half for 1 hour. Perfect for reducing noise from armor, weapons, or tools during stealth.",
+    "value": 30,
+    "type": "runes",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "shields/buckler.json",
+    "category": "shields",
+    "name": "Buckler",
+    "description": "A small round shield strapped to the forearm. Provides modest protection while maintaining mobility and weapon use.",
+    "value": 15,
+    "type": "shield",
+    "rarity": "common"
+  },
+  {
+    "file": "shields/kite_shield.json",
+    "category": "shields",
+    "name": "Kite Shield",
+    "description": "A large, almond-shaped shield that covers most of the torso. Excellent protection but requires significant strength to wield effectively.",
+    "value": 50,
+    "type": "shield",
+    "rarity": "common"
+  },
+  {
+    "file": "shields/round_shield.json",
+    "category": "shields",
+    "name": "Round Shield",
+    "description": "A traditional circular shield with a metal boss in the center. Favored by warriors for its balanced protection and versatility.",
+    "value": 25,
+    "type": "shield",
+    "rarity": "common"
+  },
+  {
+    "file": "shields/tower_shield.json",
+    "category": "shields",
+    "name": "Tower Shield",
+    "description": "A massive rectangular shield that covers the entire body. Provides maximum protection but severely limits mobility and requires both hands to use effectively.",
+    "value": 100,
+    "type": "shield",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/advanced_lock.json",
+    "category": "tools",
+    "name": "Advanced Lock",
+    "description": "A sophisticated lock requiring a Thievery check of 12 or higher to pick without the key",
+    "value": 2250,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/advanced_lock_pick.json",
+    "category": "tools",
+    "name": "Advanced Lock Pick",
+    "description": "A superior version of the lockpick, this metal is paired with a sticky resin that allows it to adapt to a lock, granting the user a bonus dice to their thievery check. As with a normal lockpick, this item is destroyed upon failure. The recipe for this item creates 4 picks.",
+    "value": 250,
+    "type": "tools",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "tools/alarm_trap_kit.json",
+    "category": "tools",
+    "name": "Alarm Trap Kit",
+    "description": "A motion-triggered mechanism that sounds a loud bell or whistle, alerting everyone within a moderate (20 unit) distance when activated",
+    "value": 750,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/binoculars.json",
+    "category": "tools",
+    "name": "Binoculars",
+    "description": "Twin telescopes mounted side-by-side for enhanced depth perception and wider field of view that have an adjustable control to shift the lenses, granting better zoom and focus. Grants 2 bonus dice to senses checks for spotting distant details.",
+    "value": 2000,
+    "type": "tools",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "tools/auto_lantern.json",
+    "category": "tools",
+    "name": "Clockwork Lantern",
+    "description": "A lantern that is powered by the residual energy of a crystal or gem to give off a steady light. This lantern has 3 settings; On, 5-unit light range and 10 unit light range. The color of the light is based on the type of gem or crystal used.",
+    "value": 1350,
+    "type": "tools",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "tools/explosive_trap_kit.json",
+    "category": "tools",
+    "name": "Explosive Trap Kit",
+    "description": "A trip wire mechanism that detonates a placed explosive when triggered dealing 3d8 fire damage to anyone within a 2 unit radius if they fail a defense check of 9. The individual who triggers the trap automatically fails this check.",
+    "value": 1150,
+    "type": "tools",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "tools/lock_pick.json",
+    "category": "tools",
+    "name": "Lock Pick",
+    "description": "A thin piece of metal used for picking locks which is destroyed on a failure. The recipe for this item creates 4 picks.",
+    "value": 200,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/auto_lockpick.json",
+    "category": "tools",
+    "name": "Mechanical Lockpick",
+    "description": "A spring-loaded automatic lockpick that attempts to open locks on its own. Rolls 3d10 for thievery checks when picking locks despite the user's talent. This lock takes 1 minute to function, but is not destroyed on a failure.",
+    "value": 3650,
+    "type": "tools",
+    "rarity": "rare"
+  },
+  {
+    "file": "tools/shooting_trap_kit.json",
+    "category": "tools",
+    "name": "Shooting Trap Kit",
+    "description": "A pressure plate mechanism that fires loaded ammunition when triggered. Can be loaded with any arrow or bolt which is rolled with a 3d10, dealing 4 damage and 2 extra.",
+    "value": 950,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/simple_lock.json",
+    "category": "tools",
+    "name": "Simple Lock",
+    "description": "A simple lock requiring a Thievery check of 8 or higher to pick without the key",
+    "value": 300,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/snare_trap_kit.json",
+    "category": "tools",
+    "name": "Snare Trap Kit",
+    "description": "A tension spring mechanism that captures and hoists a medium or smaller target when triggered if they fail a fitness check of 8.",
+    "value": 900,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "tools/spyglass.json",
+    "category": "tools",
+    "name": "Spyglass",
+    "description": "A collapsible telescope for viewing distant objects, grants a bonus die to senses checks for spotting distant details",
+    "value": 300,
+    "type": "tools",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/battle_axe.json",
+    "category": "weapons/complexMelee",
+    "name": "Battleaxe",
+    "description": "A heavy, broad-bladed weapon capable of devastating cuts.",
+    "value": 75,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/falchion.json",
+    "category": "weapons/complexMelee",
+    "name": "Falchion",
+    "description": "A single-edged curved blade designed for powerful chopping strikes.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/flail.json",
+    "category": "weapons/complexMelee",
+    "name": "Flail",
+    "description": "A spiked metal ball attached to a handle by a heavy chain.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/glaive.json",
+    "category": "weapons/complexMelee",
+    "name": "Glaive",
+    "description": "A single-edged blade mounted on the end of a long pole designed to provide long-ranged slashing attacks. There is a small weight on the pommel that allows the wielder to make blunt attacks.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/greataxe.json",
+    "category": "weapons/complexMelee",
+    "name": "Great-Axe",
+    "description": "A massive two-handed axe with a broad crescent blade.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/greathammer.json",
+    "category": "weapons/complexMelee",
+    "name": "Great-Hammer",
+    "description": "An enormous two-handed hammer with a massive head.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/greatsword.json",
+    "category": "weapons/complexMelee",
+    "name": "Great-Sword",
+    "description": "A massive two-handed sword that deals devastating slashing damage.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/halberd.json",
+    "category": "weapons/complexMelee",
+    "name": "Halberd",
+    "description": "A versatile polearm combining an axe blade, a spear point, and a hook.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/longsword.json",
+    "category": "weapons/complexMelee",
+    "name": "Longsword",
+    "description": "A versatile blade equally capable of delivering devastating slashes or precise thrusts.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/pike.json",
+    "category": "weapons/complexMelee",
+    "name": "Pike",
+    "description": "An extremely long thrusting polearm designed for long-ranged thrusts.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/rapier.json",
+    "category": "weapons/complexMelee",
+    "name": "Rapier",
+    "description": "A slender, sharply pointed sword designed for thrusting attacks.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexMelee/warhammer.json",
+    "category": "weapons/complexMelee",
+    "name": "Warhammer",
+    "description": "A brutal weapon featuring a heavy hammerhead on one side and a sharp spike on the other.",
+    "value": 50,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexRanged/arbalest.json",
+    "category": "weapons/complexRanged",
+    "name": "Arbalest",
+    "description": "A heavy crossbow that is capable at a variety of ranges and relatively easy to operate compared to a drawn bow.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexRanged/longbow.json",
+    "category": "weapons/complexRanged",
+    "name": "Longbow",
+    "description": "A large, powerful bow that is accurate over great distances.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/complexRanged/warbow.json",
+    "category": "weapons/complexRanged",
+    "name": "Warbow",
+    "description": "A powerful recurved bow that provides power at medium distance.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/club.json",
+    "category": "weapons/simpleMelee",
+    "name": "Club",
+    "description": "A simple but effective bludgeon made from heavy wood or stone.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/dagger.json",
+    "category": "weapons/simpleMelee",
+    "name": "Dagger",
+    "description": "A small, simple blade.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/handaxe.json",
+    "category": "weapons/simpleMelee",
+    "name": "Handaxe",
+    "description": "A small one-handed axe that can be used as a slashing weapon or tool.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/quarterstaff.json",
+    "category": "weapons/simpleMelee",
+    "name": "Quarterstaff",
+    "description": "A long wooden shaft that provides excellent reach.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/scimitar.json",
+    "category": "weapons/simpleMelee",
+    "name": "Scimitar",
+    "description": "A curved, single-edged blade optimized for slashing attacks.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/short_sword.json",
+    "category": "weapons/simpleMelee",
+    "name": "Shortsword",
+    "description": "A versatile blade that can be used to slash or pierce.",
+    "value": 25,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/spear.json",
+    "category": "weapons/simpleMelee",
+    "name": "Spear",
+    "description": "A simple shaft topped with a sharp point.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/mace.json",
+    "category": "weapons/simpleMelee",
+    "name": "War Mace",
+    "description": "A metal rod with a heavy head designed to deliver crushing blows.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleMelee/whip.json",
+    "category": "weapons/simpleMelee",
+    "name": "Whip",
+    "description": "A length of braided leather or chain designed to strike at range.",
+    "value": 5,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleRanged/crossbow.json",
+    "category": "weapons/simpleRanged",
+    "name": "Crossbow",
+    "description": "A mechanical bow mounted on a stock that shoots bolts that is easier to use than a traditional bow.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleRanged/hand_crossbow.json",
+    "category": "weapons/simpleRanged",
+    "name": "Hand Crossbow",
+    "description": "A small one-handed crossbow, typically attached to the wrist which can fire bolts at close range without requiring a second hand.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleRanged/shortbow.json",
+    "category": "weapons/simpleRanged",
+    "name": "Shortbow",
+    "description": "A compact bow that can be used even in confined spaces.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/simpleRanged/sling.json",
+    "category": "weapons/simpleRanged",
+    "name": "Sling",
+    "description": "A simple leather pouch on cords used to hurl stones or bullets.",
+    "value": 30,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/staves/aetheric_staff.json",
+    "category": "weapons/staves",
+    "name": "Aetheric Staff",
+    "description": "A magical staff infused with otherworldly energy that channels pure aetheric damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/staves/cold_staff.json",
+    "category": "weapons/staves",
+    "name": "Cold Staff",
+    "description": "A magical staff infused with freezing energy that channels pure cold damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/staves/dark_staff.json",
+    "category": "weapons/staves",
+    "name": "Dark Staff",
+    "description": "A magical staff infused with shadow energy that channels pure dark damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/staves/divine_staff.json",
+    "category": "weapons/staves",
+    "name": "Divine Staff",
+    "description": "A magical staff infused with holy energy that channels pure divine damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/staves/electric_staff.json",
+    "category": "weapons/staves",
+    "name": "Electric Staff",
+    "description": "A magical staff infused with crackling energy that channels pure electric damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/staves/heat_staff.json",
+    "category": "weapons/staves",
+    "name": "Heat Staff",
+    "description": "A magical staff infused with fiery energy that channels pure heat damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/staves/physical_staff.json",
+    "category": "weapons/staves",
+    "name": "Physical Staff",
+    "description": "A sturdy staff crafted for both magical focus and physical combat, channeling pure physical damage and serving as a reliable blunt weapon.",
+    "value": 300,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/staves/psychic_staff.json",
+    "category": "weapons/staves",
+    "name": "Psychic Staff",
+    "description": "A magical staff infused with mental energy that channels pure psychic damage and can also be used as a blunt weapon.",
+    "value": 600,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/aetheric_wand.json",
+    "category": "weapons/wands",
+    "name": "Aetheric Wand",
+    "description": "A magical wand infused with mystical energy that channels pure aetheric damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/cold_wand.json",
+    "category": "weapons/wands",
+    "name": "Cold Wand",
+    "description": "A magical wand infused with freezing energy that channels pure cold damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/dark_wand.json",
+    "category": "weapons/wands",
+    "name": "Dark Wand",
+    "description": "A magical wand infused with shadow energy that channels pure dark damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/divine_wand.json",
+    "category": "weapons/wands",
+    "name": "Divine Wand",
+    "description": "A magical wand infused with holy energy that channels pure divine damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/electric_wand.json",
+    "category": "weapons/wands",
+    "name": "Electric Wand",
+    "description": "A magical wand infused with crackling energy that channels pure electric damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/heat_wand.json",
+    "category": "weapons/wands",
+    "name": "Heat Wand",
+    "description": "A magical wand infused with fiery energy that channels pure heat damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  },
+  {
+    "file": "weapons/wands/physical_wand.json",
+    "category": "weapons/wands",
+    "name": "Physical Wand",
+    "description": "A magical wand that channels pure physical force damage.",
+    "value": 200,
+    "type": "weapon",
+    "rarity": "common"
+  },
+  {
+    "file": "weapons/wands/psychic_wand.json",
+    "category": "weapons/wands",
+    "name": "Psychic Wand",
+    "description": "A magical wand infused with mental energy that channels pure psychic damage.",
+    "value": 500,
+    "type": "weapon",
+    "rarity": "uncommon"
+  }
+]

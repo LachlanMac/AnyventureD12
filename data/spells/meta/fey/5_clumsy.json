@@ -1,0 +1,15 @@
+{
+    "name": "Clumsy",
+    "description": "You target a creature within a short (10 unit) distance and make them clumsy if they fail a resilience check of 6. While you concentrate on this spell, the target rolls finesse checks with a penalty dice.",
+    "charge":"The target also rolls a penalty dice on physique checks.",
+    "duration": "Concentration",
+    "range": 4,
+    "checkToCast": 5,
+    "components": ["Bundle of Mandrake"],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

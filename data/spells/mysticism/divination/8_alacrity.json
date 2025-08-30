@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 3,
     "checkToCast": 8,
-    "components": [""],
+    "components": ["Vial of Quicksilver"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

@@ -1,0 +1,15 @@
+{
+    "name": "Tricksy",
+    "description": "You target a creature within a short (10 unit) and cause them to become confused if they fail a concentration check of 6. When the confused condition ends, the target of this spell takes 5 psychic damage.",
+    "charge":"The check required to avoid this spell becomes an 8.",
+    "duration": "Instantaneous",
+    "range": 4,
+    "checkToCast": 6,
+    "components": ["Bundle of Mugwort"],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 3,
+    "damageType": "Psychic"
+}

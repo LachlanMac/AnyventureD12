@@ -1,11 +1,11 @@
 {
     "name": "Mantle",
-    "description": "You fortity armor or clothing you are wearing with rock and raw metals for the next minute, granting you an additional 2 mitigation to physical damage.",
+    "description": "You fortify armor or clothing you are wearing with rock and raw metals for the next minute, granting you an additional 2 mitigation to physical damage.",
     "charge":"You also gain an additional 2 mitigation to heat, electric and cold damage.",
     "duration": "Instantaneous",
     "range": 0,
     "checkToCast": 4,
-    "components": [""],
+    "components": ["Iron Shavings"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

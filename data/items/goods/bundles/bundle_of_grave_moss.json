@@ -1,0 +1,9 @@
+{
+  "name": "Bundle of Grave Moss",
+  "description": "Dark, spongy moss that thrives on graves and around decomposing organic matter. This morbid plant feeds on death and decay, absorbing the essence of rotting flesh and bone. The moss has an unpleasant odor and feels cold to the touch.",
+  "type": "goods",
+  "tags": ["bundle", "organic", "dark"],
+  "weight": 0.5,
+  "value": 250,
+  "rarity": "uncommon"
+}

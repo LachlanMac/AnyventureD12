@@ -28,7 +28,7 @@ const SpellSchema = new Schema({
   school: {
     type: String,
     required: true,
-    enum: ['alteration', 'black', 'divine', 'mysticism', 'primal']
+    enum: ['meta', 'black', 'divine', 'mysticism', 'primal']
   },
   subschool: {
     type: String,
@@ -36,7 +36,7 @@ const SpellSchema = new Schema({
     validate: {
       validator: function(v) {
         const validSubschools = {
-          alteration: ['fey', 'illusion', 'transmutation'],
+          meta: ['fey', 'illusion', 'transmutation'],
           black: ['fiend', 'necromancy', 'witchcraft'],
           divine: ['celestial', 'radiant', 'protection'],
           mysticism: ['spirit', 'divination', 'cosmic'],

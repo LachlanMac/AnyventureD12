@@ -1,11 +1,11 @@
 {
     "name": "Weaponized Pebbles",
-    "description": "You launch a swarm of pebble-sized rocks at a target within a very short (5 unit) distance. You roll a 1d4, and fire that many pebbles towards a target who must make that many defense checks of 4 or higher. Each pebble that hits deals 2 physical damage, but is mitigated seperately.",
+    "description": "You launch a swarm of pebble-sized rocks at a target within a very short (5 unit) distance. You roll a 1d4, and fire that many pebbles towards a target who must make that many defense checks of 4 or higher. Each pebble that hits deals 2 physical damage, but is mitigated separately.",
     "charge":"You launch 1d6 pebbles instead. The damage cannot be mitigated lower than 1 physical damage.",
     "duration": "Instantaneous",
     "range": 2,
     "checkToCast": 2,
-    "components": ["copper shavings"],
+    "components": ["Iron Shavings"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

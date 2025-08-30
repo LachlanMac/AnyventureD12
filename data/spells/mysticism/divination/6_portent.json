@@ -5,7 +5,7 @@
     "duration": "1 round",
     "range": 4,
     "checkToCast": 6,
-    "components": [""],
+    "components": ["Tarot Card"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

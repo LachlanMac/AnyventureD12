@@ -29,7 +29,7 @@ const DamageSchema = new Schema({
   damage_type: { type: String, default: "physical" }, 
   category: { 
     type: String, 
-    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic"],
+    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "divine_magic", "mysticism_magic", "meta_magic"],
     default: "blunt" 
   },
   secondary_damage: { type: Number, default: 0 },
@@ -60,7 +60,7 @@ const ItemSchema = new Schema({
 
   weapon_category: { 
       type: String, 
-      enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
+      enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing", "black_magic", "primal_magic", "divine_magic", "mysticism_magic", "meta_magic"],
   },
   shield_category: { 
       type: String, 
@@ -158,9 +158,9 @@ const ItemSchema = new Schema({
   magic: {
     black: { type: SkillTalentBonusSchema, default: () => ({}) },
     primal: { type: SkillTalentBonusSchema, default: () => ({}) },
-    alteration: { type: SkillTalentBonusSchema, default: () => ({}) },
+    meta: { type: SkillTalentBonusSchema, default: () => ({}) },
     divine: { type: SkillTalentBonusSchema, default: () => ({}) },
-    mystic: { type: SkillTalentBonusSchema, default: () => ({}) }
+    mysticism: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
   // Weapon skill bonuses
@@ -230,6 +230,9 @@ const ItemSchema = new Schema({
     difficulty: { type: Number, default: 0 },
     ingredients: [{ type: String }]
   },
+  
+  // Properties description for items (e.g., special effects, bonuses)
+  properties: { type: String, default: "" },
   
   // Side effect for potions
   side_effect: { type: String, default: "" },

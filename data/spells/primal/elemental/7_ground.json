@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 2,
     "checkToCast": 7,
-    "components": [""],
+    "components": ["Lead Ingot"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": true,

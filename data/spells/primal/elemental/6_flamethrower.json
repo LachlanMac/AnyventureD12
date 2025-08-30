@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 3,
     "checkToCast": 6,
-    "components": [""],
+    "components": ["Ember Dust"],
     "ritualDuration": "1 hour",
     "concentration": false,
     "reaction": false,

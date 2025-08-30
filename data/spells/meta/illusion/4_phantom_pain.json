@@ -1,0 +1,15 @@
+{
+    "name": "Phantom Pain",
+    "description": "You target a creature within a short (10 unit) distance and cause them to feel a phantom pain if they fail a logic check of 6. While you concentrate on this spell, the target takes 3 psychic damage at the end of their turn if they either moved or made an attack on their turn. Each time they take damage, they can remake the logic check to attempt to end the spell.",
+    "charge":"You also choose a mind, physique or finesse skill check that the target must roll with a penalty dice for the duration of this spell.",
+    "duration": "Concentration",
+    "range": 4,
+    "checkToCast": 4,
+    "components": ["Bundle of Mandrake"],
+    "ritualDuration": "1 hour",
+    "concentration": true,
+    "reaction": false,
+    "energy": 1,
+    "damage": 3,
+    "damageType": "Psychic"
+}

@@ -1,0 +1,65 @@
+{
+  "name": "Earthen Staff",
+  "description": "A sturdy staff crafted for both magical focus and physical combat, channeling pure physical damage and serving as a reliable blunt weapon.",
+  "type": "weapon",
+  "weapon_category": "simpleMelee",
+  "weight": 2,
+  "value": 900,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "4",
+    "damage_extra": "3",
+    "damage_type": "physical",
+    "category": "primal_magic",
+    "energy": 1,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 4
+  },
+  "secondary": {
+    "damage": "4",
+    "damage_extra": "2",
+    "damage_type": "physical",
+    "category": "blunt",
+    "energy": 0,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 2
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 9,
+    "ingredients": [
+      "Earth Core",
+      "Ash Wood",
+      "Bindings"
+    ]
+  }
+}

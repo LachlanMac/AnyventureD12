@@ -10,11 +10,11 @@
       "heat"
     ],
     "weight": 0.5,
-    "value": 850,
+    "value": 650,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "Ruby",
+        "Garnet",
         "Electrum Shavings"
       ],
       "difficulty": 8,
@@ -33,7 +33,7 @@
       "heat"
     ],
     "weight": 0.5,
-    "value": 1050,
+    "value": 6600,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -43,7 +43,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced heat damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   },
   {
     "name": "Lesser Cold Core",
@@ -56,11 +56,11 @@
       "cold"
     ],
     "weight": 0.5,
-    "value": 800,
+    "value": 650,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "Frost Sapphire",
+        "Aquamarine",
         "Electrum Shavings"
       ],
       "difficulty": 8,
@@ -79,7 +79,7 @@
       "cold"
     ],
     "weight": 0.5,
-    "value": 950,
+    "value": 6600,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -89,7 +89,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced cold damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   },
   {
     "name": "Lesser Electric Core",
@@ -102,11 +102,11 @@
       "electric"
     ],
     "weight": 0.5,
-    "value": 770,
+    "value": 650,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "Storm Topaz",
+        "Citrine",
         "Electrum Shavings"
       ],
       "difficulty": 8,
@@ -125,7 +125,7 @@
       "electric"
     ],
     "weight": 0.5,
-    "value": 920,
+    "value": 6600,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -135,7 +135,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced electric damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   },
   {
     "name": "Lesser Aetheric Core",
@@ -148,11 +148,11 @@
       "aetheric"
     ],
     "weight": 0.5,
-    "value": 760,
+    "value": 900,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "Spirit Moonstone",
+        "Moonstone",
         "Electrum Shavings"
       ],
       "difficulty": 8,
@@ -171,7 +171,7 @@
       "aetheric"
     ],
     "weight": 0.5,
-    "value": 910,
+    "value": 8400,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -181,7 +181,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced aetheric damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   },
   {
     "name": "Lesser Dark Core",
@@ -194,7 +194,7 @@
       "dark"
     ],
     "weight": 0.5,
-    "value": 740,
+    "value": 900,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
@@ -217,7 +217,7 @@
       "dark"
     ],
     "weight": 0.5,
-    "value": 5250,
+    "value": 12600,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -227,11 +227,11 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced dark damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   },
   {
     "name": "Lesser Divine Core",
-    "description": "A magical focus core embedded with a radiant diamond that channels pure divine energy. When integrated into wands, staves, or magical weapons, it allows casters to generate divine attacks.",
+    "description": "A magical focus core embedded with a radiant pearl that channels pure divine energy. When integrated into wands, staves, or magical weapons, it allows casters to generate divine attacks.",
     "type": "goods",
     "tags": [
       "parts",
@@ -240,11 +240,11 @@
       "divine"
     ],
     "weight": 0.5,
-    "value": 1050,
+    "value": 800,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "Diamond",
+        "Pearl",
         "Electrum Shavings"
       ],
       "difficulty": 8,
@@ -263,7 +263,7 @@
       "divine"
     ],
     "weight": 0.5,
-    "value": 1250,
+    "value": 12600,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -273,7 +273,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced divine damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   },
   {
     "name": "Lesser Psychic Core",
@@ -286,11 +286,11 @@
       "psychic"
     ],
     "weight": 0.5,
-    "value": 730,
+    "value": 800,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "Void Amethyst",
+        "Amethyst",
         "Electrum Shavings"
       ],
       "difficulty": 8,
@@ -309,7 +309,7 @@
       "psychic"
     ],
     "weight": 0.5,
-    "value": 880,
+    "value": 8400,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
@@ -319,6 +319,52 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Enables enhanced psychic damage channeling in magical weapons"
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
+  },
+  {
+    "name": "Lesser Earth Core",
+    "description": "A magical focus core embedded with a vibrant peridot that channels pure earth energy. When integrated into wands, staves, or magical weapons, it allows casters to generate physical force attacks.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "earth"
+    ],
+    "weight": 0.5,
+    "value": 700,
+    "rarity": "uncommon",
+    "recipe": {
+      "ingredients": [
+        "Peridot",
+        "Electrum Shavings"
+      ],
+      "difficulty": 8,
+      "type": "glyphcraft"
+    },
+    "properties": "Enables physical damage channeling in magical weapons"
+  },
+  {
+    "name": "Greater Earth Core",
+    "description": "A superior magical focus core embedded with a brilliant emerald that channels devastating earth energy. This enhanced core allows for more powerful physical force magical attacks.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "magical_component",
+      "core",
+      "earth"
+    ],
+    "weight": 0.5,
+    "value": 5400,
+    "rarity": "rare",
+    "recipe": {
+      "ingredients": [
+        "Emerald",
+        "Platinum Shavings"
+      ],
+      "difficulty": 12,
+      "type": "glyphcraft"
+    },
+    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon"
   }
 ]

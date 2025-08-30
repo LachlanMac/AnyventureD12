@@ -8,6 +8,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   server: {
     port: 5174,
+    hmr: {
+      overlay: true,
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:4000',

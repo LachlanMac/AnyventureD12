@@ -5,7 +5,7 @@
     "duration": "Instantaneous",
     "range": 4,
     "checkToCast": 5,
-    "components": [""],
+    "components": ["Gold Coin"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

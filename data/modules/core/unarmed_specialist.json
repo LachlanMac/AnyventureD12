@@ -22,14 +22,14 @@
     },
     {
       "name": "Action : Flurry",
-      "description": "You make an unarmed attack, but treat each dice as it's own seperate attack that is mitigated seperately. Each attack deals only the primary damage. If all attacks hit, even if they do no damage, the enemy becomes dazed.",
+      "description": "You make an unarmed attack, but treat each dice as it's own separate attack that is mitigated separately. Each attack deals only the primary damage. If all attacks hit, even if they do no damage, the enemy becomes dazed.",
       "mtype": "core",
       "location": "2b",
       "cost": 1,
       "data": "X"
     },
     {
-      "name": "Reaction : Distrupting Strike",
+      "name": "Reaction : Disrupting Strike",
       "description": "When an enemy makes an attack against you while adjacent, make an unarmed attack against them. If all of your attack dice hit, their attack is rolled with only 1 dice.",
       "mtype": "core",
       "location": "3",

@@ -1,0 +1,53 @@
+{
+  "name": "Prayer Wand",
+  "description": "A magical wand infused with divine energy that channels pure divine damage.",
+  "type": "weapon",
+  "weapon_category": "simpleMelee",
+  "weight": 0.5,
+  "value": 1000,
+  "bonus_attack": 0,
+  "rarity": "uncommon",
+  "primary": {
+    "damage": "5",
+    "damage_extra": "3",
+    "damage_type": "divine",
+    "category": "divine_magic",
+    "energy": 1,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 3
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "armor_penalties": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 8,
+    "ingredients": [
+      "Divine Core",
+      "Ash Wood",
+      "Bindings"
+    ]
+  }
+}

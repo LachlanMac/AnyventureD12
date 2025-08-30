@@ -1,0 +1,15 @@
+{
+    "name": "Smoke Cloud",
+    "description": "You create a magical smoke within a very short (5 unit) radius of you, obscuring the area until the end of your next turn. Creatures who rely on normal vision, darksight or deadsight to see are considered blinded while in this fog.",
+    "charge":"You can use your concentration to keep the smoke cloud active indefinitely.",
+    "duration": "1 Round",
+    "range": 3,
+    "checkToCast": 6,
+    "components": ["Coal"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 1,
+    "damage": 0,
+    "damageType": null
+}

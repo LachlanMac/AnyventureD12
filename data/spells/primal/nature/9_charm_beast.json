@@ -5,7 +5,7 @@
     "duration": "Concentration",
     "range": 1,
     "checkToCast": 9,
-    "components": [""],
+    "components": ["Bundle of Valerian Root"],
     "ritualDuration": "1 hour",
     "concentration": true,
     "reaction": false,

@@ -1,0 +1,15 @@
+{
+    "name": "Scatterdust",
+    "description": "You target a point you can see within a moderate (20 unit) range and cause tiny motes of colors to fall from the sky within a 3 unit radius centered on that point for the next minute. Creatures that start their turn within the dust must make a concentration check of 8 or become confused. If a confused creature starts their turn within the area, they take 6 psychic damage.",
+    "charge":"Creatures with any mental condition who start their turn in the area take the psychic damage, which is upgraded to 10 damage.",
+    "duration": "1 minute",
+    "range": 5,
+    "checkToCast": 11,
+    "components": ["Pixie Dust"],
+    "ritualDuration": "1 hour",
+    "concentration": false,
+    "reaction": false,
+    "energy": 3,
+    "damage": 6,
+    "damageType": "Psychic"
+}
