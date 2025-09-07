@@ -1,0 +1,13 @@
+{
+  "id": 12,
+  "type": "song",
+  "name": "Song of Warding",
+  "magical": true,
+  "difficulty": 6,
+  "description": "A firm chorus that stiffens will and bars the path",
+  "effect": "Minions and grunts cannot enter the song's area unless they succeed a resilience check (3); once a successful check has been made, they become immune to the effect until they complete a full rest",
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Resilience check becomes 5 and includes standard tier; affects only the type mapped by the instrument — brass: divine; percussion: undead; wind: dark; strings: fey"
+  }
+}

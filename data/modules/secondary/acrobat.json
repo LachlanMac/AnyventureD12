@@ -7,81 +7,61 @@
     {
       "name": "Cat-like Reflexes",
       "description": "Your body moves with fluid, practiced motion and electric-fast reflexes. Gain +1 skill with coordination. When you fall prone, roll a d20; on an 13 or higher, you get up without any cost.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "SSG=1:TG"
     },
     {
       "name": "Light-footed",
       "description": "You move with supernatural grace and silence. Gain +1 skill with stealth. Your footsteps make no sound when moving at normal speed.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "SSF=1:TG"
     },
     {
       "name": "Graceful Discipline",
-      "description": "Your regular stretching routine has trained your mind to maintain focus through physical discipline. Gain +1 skill with concentration and +1 maximum resolve.",      
-      "mtype": "core",
+      "description": "Your regular stretching routine has trained your mind to maintain focus through physical discipline. Gain +1 skill with concentration and +1 maximum resolve.",
       "location": "2b",
-      "cost": 2,
       "data": "SSJ=1:A2=1:TG"
     },
     {
       "name": "Reaction : Rolling Dodge",
       "description": "In response to being targeted with a melee attack, you roll out of the way, moving to an adjacent tile. If you successfully evade the attack, you get a bonus dice to all evasion checks until the start of your turn. This effect can stack when using this reaction multiple times in a round.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "Z"
     },
     {
       "name": "Swift Climber",
-      "description": "You can scale surfaces with remarkable speed and agility. Gain +1 skill with fitness. You climb at your full movement speed without penalty and can traverse impossible surfaces like smooth walls or ceilings, provided you end your movement on a surface where you can maintain your grip.",      
-      "mtype": "core",
+      "description": "You can scale surfaces with remarkable speed and agility. Gain +1 skill with fitness. You climb at your full movement speed without penalty and can traverse impossible surfaces like smooth walls or ceilings, provided you end your movement on a surface where you can maintain your grip.",
       "location": "4a",
-      "cost": 2,
       "data": "SSA=1:TG"
     },
     {
       "name": "Safe Fall",
       "description": "Gain +1 skill with coordination. You do not take damage from falling 5 or less units, and always land on your feet. Otherwise, the damage you take from falling is halved unless falling from 12 or more units.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSG=1:TD"
     },
     {
       "name": "Evasive Master",
       "description": "Your ability to avoid attacks has reached professional levels. Gain +1 skill with evasion.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SSE=1:TD"
     },
     {
       "name": "Daily Action : Escape Artist",
       "description": "You contort your body to slip free from any physical restraint. Automatically remove the impaired condition from yourself and immediately move up to your full movement speed. This movement does not provoke reactions.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "X"
     },
     {
-     "name": "Reaction : Catch",
+      "name": "Reaction : Catch",
       "description": "In response to falling or being forcibly displaced, you can grab onto an adjacent object, ledge, or structure to halt your movement by making a coordination check of 6 or higher.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "Z"
     },
     {
       "name": "Parkour Master",
       "description": "You have mastered the art of fluid movement through any environment. Gain +1 movement speed. When you take the sprint action, you can jump at any point during your movement without using an additional action, and you are no longer required to move in a straight line.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "A4=1:TG"
     }
   ]

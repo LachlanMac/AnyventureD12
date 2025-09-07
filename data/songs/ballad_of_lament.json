@@ -1,4 +1,10 @@
 {
-"description":"trade resolve for morale."
-
+  "id": 201,
+  "type": "ballad",
+  "name": "Ballad of Lament",
+  "magical": false,
+  "difficulty": 4,
+  "description": "A sad ode to an ideal or individual that trades resolve for morale",
+  "effect": "Exchange 2 resolve for 2 morale",
+  "harmony_1": { "instrument": "any", "effect": "Each harmony converts an additional resolve to morale" }
 }

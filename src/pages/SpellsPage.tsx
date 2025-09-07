@@ -17,6 +17,7 @@ const SpellsPage: React.FC = () => {
     data: character,
     loading: characterLoading,
     error: characterError,
+    refetch: refetchCharacter,
   } = useCharacter(characterId);
   const { data: allSpells, loading: spellsLoading, error: spellsError } = useSpells();
 
@@ -80,8 +81,11 @@ const SpellsPage: React.FC = () => {
   const handleLearnSpell = async (spellId: string) => {
     try {
       setActionLoading(true);
+      // Prevent duplicate add
+      if (isSpellLearned(spellId)) return;
       await spellApi.learnSpell(characterId!, spellId, spellNote);
-      // The character data will be refetched automatically by the hook
+      // Explicitly refetch character so the left list updates immediately
+      refetchCharacter();
       setSpellNote('');
     } catch (err) {
       console.error('Error learning spell:', err);
@@ -95,7 +99,7 @@ const SpellsPage: React.FC = () => {
     try {
       setActionLoading(true);
       await spellApi.forgetSpell(characterId!, spellId);
-      // The character data will be refetched automatically by the hook
+      refetchCharacter();
     } catch (err) {
       console.error('Error forgetting spell:', err);
     } finally {

@@ -7,81 +7,61 @@
     {
       "name": "Arcane Scholar",
       "description": "Your dedication to magical study is unmatched. Gain +1 skill with academics. Your academic foundation is so broad, when you help an ally by using your academics skill, you grant them 2 bonus dice if you are successful.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "SKV=1"
     },
     {
       "name": "Theoretical Mastery",
       "description": "Your mind processes magical formulae with machine-like precision. Gain +1 skill with concentration. You can continue a ritual that you prematurely ended as long as you restart within 6 hours of ending it without a penalty.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "SMF=1"
     },
     {
       "name": "Scribe",
       "description": "Ancient runes and mystical symbols flow from your quill like water. Gain +1 skill with glyphcraft and become proficient in one magical language.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "SMJ=1"
     },
     {
       "name": "Arcane Mana",
       "description": "You've learned to tap into pure magical essence. You gain 3 mana points that refresh after a full rest. When channeling a spell, you can spend 1 mana point to charge the spell.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Researcher",
       "description": "Your spell research is unparalleled. Gain +1 skill with magic. Once per day, when researching a spell, you do not suffer the penalty for not knowing it.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "MS1=1"
     },
     {
       "name": "Structured Mind",
       "description": "A wizard's mind must be sharp to keep a large selection of spells. Gain +1 skill with logic. You never truly forget spells; instead you can switch out spells that you know with any spell that you knew in the past at the end of a full rest.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SKW=1"
     },
     {
       "name": "Action : Mana Burn",
       "description": "You channel all remaining mana you have available, rolling a d10 for each point against a resilience defense check. For each success, you deal 5 aetheric damage and 8 damage if a 10 is rolled.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Elemental Theorist",
       "description": "Your mastery extends to the fundamental forces. Gain +1 skill with primal magic.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "MS2=1"
     },
     {
       "name": "Metaphysical Study",
       "description": "You've mastered the art of bending reality itself. Gain +1 skill with metamagic.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "MS3=1"
     },
     {
       "name": "Archmage",
       "description": "You gain 2 additional mana points and gain +3 spell capacity. Additionally, the dice on your Mana Burn action becomes a d12.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": ""
     }
   ]

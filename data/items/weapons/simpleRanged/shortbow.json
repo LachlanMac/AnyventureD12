@@ -4,7 +4,7 @@
   "type": "weapon",
   "weapon_category": "simpleRanged",
   "weight": 2,
-  "value": 30,
+  "value": 1260,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {

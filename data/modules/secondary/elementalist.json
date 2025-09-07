@@ -3,85 +3,65 @@
   "name": "Elementalist",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
-      {
+  "options": [
+    {
       "name": "Primal Attunement",
       "description": "Your deep communion with primal forces has opened new pathways of understanding. Gain +1 to your magic skill and +1 spell capacity.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1:TG"
     },
     {
       "name": "Weathersense",
       "description": "Your mastery of the elements extends into the weather systems of the world. Gain +1 skill with senses. Additionally, you can reliably predict the weather for the next day and predict natural catacylsms like earthquakes, hurricanes and erruptions up to a week in advance.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Reaction : Electric Rod",
       "description": "In response to being targeted by electric damage, you can choose to absorb the electrical energy instead of resisting it. The electric damage is doubled before your mitigation is applied, but on your next turn you gain an extra action and recover all of your energy at the start of that turn.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Specialization",
       "description": "You form a bond with one of the elemental planes, learning its language. Additionally, you can attempt to sense elementals in a moderate (20 units) distance with an action.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Action : Enhanced Control",
       "description": "Your mastery allows surgical precision with destructive forces. When channeling area effect spells, you can shape them to avoid harming allies",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Action : Elemental Weaver",
       "description": "You channel a primal spell. If it succeeds, all primal spells you channel before the start of your next turn are rolled with a bonus dice. Using this ability multiple times on a single turn allows this bonus to be stacked.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Master of the Elements",
       "description": "You have mastered the elements. Gain +1 skill with primal magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Elemental",
       "description": "When you summon an elemental using primal magic, it does not require your concentration to maintain and serves you until it dies, although it still counts against your pet limit.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Attuned",
       "description": "You gain +1 mitigation to cold, heat and electric damage. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Daily Action : Cataclysm",
       "description": "You channel a primal spell that deals damage, infusing it with a large amount of energy increasing it's destructive power. The damage of the spell is doubled and the radius is increased by 2. If the spell only targets a single creature or point, the radius becomes 2.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TO"
     }
   ]

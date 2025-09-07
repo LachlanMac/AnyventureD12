@@ -21,7 +21,7 @@ A character with 3 talent and 2 skill in Primal Magic would roll <b>3d8</b> to c
 Channeling spells costs **Energy**. In order to attempt to cast a spell, a player must first spend the energy to do it.
 
 ### Spell Failure
-If you fail to successfully channel a spell, you cannot attempt to channel that same spell again until you complete a **full rest**. This represents the magical strain and mental fatigue from a failed casting.
+If you fail to successfully channel a spell, you cannot attempt to channel that same spell again until you complete a **full rest**. Failing a spell in this way is called a **Fizzle**. Some abilities give characters ways to recover a **Fizzled** spell.
 
 ### Components
 All spells have **components** listed in their descriptions. Components are **not required** for basic spellcasting, but they are used to **charge** spells for enhanced effects. When used for charging, components are always consumed unless you have an appropriate **focus**.
@@ -80,7 +80,7 @@ When a character wants to channel a spell, they must <i>know</i> the spell. By d
 
 ### Learning New Spells
 
-Learning spells is relatively easy and not that different from channeling a spell normally. In order to learn a new spell, the character must complete the spell's ritual but with an required check that is +2 higher than the spell usually requires. This naturally restricts spells based on the channeler's skill. Naturally, this only applies to the normal <b>subschools</b>. Unless a player has a module or trait that specifically allows them to learn spells from an <b>exotic school</b>, they cannot learn from it.
+Learning spells is relatively easy and not that different from channeling a spell normally. In order to learn a new spell, the character must complete the spell's ritual but with a required check that is +2 higher than the spell usually requires. This naturally restricts spells based on the channeler's skill. Naturally, this only applies to the normal <b>subschools</b>. Unless a player has a module or trait that specifically allows them to learn spells from an <b>exotic school</b>, they cannot learn from it.
 
 <div class="example-box">
 If a character has a +3 skill in Dark Magic with 2 talents, their maximum possible roll is an 8. This ensures, that without help from an outside source, the character could never learn a spell with a required check higher than 8.

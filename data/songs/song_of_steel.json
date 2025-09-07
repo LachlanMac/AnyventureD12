@@ -1,0 +1,11 @@
+{
+  "id": 3,
+  "type": "song",
+  "name": "Song of Steel",
+  "magical": false,
+  "difficulty": 7,
+  "description": "A resonant cadence that hardens guards and hones parries.",
+  "effect": "Allies gain +1 deflection",
+  "harmony_1": { "instrument": "percussion", "effect": "+2 physical mitigation" },
+  "harmony_2": { "instrument": "wind", "effect": "double endurance checks (rounded down)" }
+}

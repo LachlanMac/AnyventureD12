@@ -1,0 +1,68 @@
+{
+  "id": 105,
+  "name": "Bounty Hunter",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Daily Action : Mark Quarry",
+      "description": "You designate a creature you can see as your quarry. You gain +1 dice on all senses and insight checks to track or gather information about your quarry. You also know the general direction and approximate distance to your quarry if they are within distant (40 units) range. This mark lasts until the quarry is captured, killed, or you complete a full rest.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Relentless Pursuit",
+      "description": "Gain +1 skill with wildcraft. Once per round, when you use your movement to move closer to the target of your Mark Quarry in natural terrain, gain +2 movement.",
+      "location": "2a",
+      "data": "SSM=1:TG"
+    },
+    {
+      "name": "Urban Hunter",
+      "description": "Gain +1 skill with presence. In settlements, you can use your daily Mark Quarry as a free task (does not consume an action). You still can only use it once per day.",
+      "location": "2b",
+      "data": "SSR=1:TG"
+    },
+    {
+      "name": "Bounty Handler",
+      "description": "Gain +1 skill with coordination. When you Grab a creature that is your size or smaller and it has the prone, incapacitated, or impaired condition, you can immediately move 2 units, bringing the creature to a tile adjacent to you.",
+      "location": "3",
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "Reaction : Hunter's Chase",
+      "description": "When your quarry moves away from you, you can immediately move up to your movement speed toward them without provoking reactions. You must end this movement closer to your quarry than when you started.",
+      "location": "4a",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Capture Alive",
+      "description": "You make a specialized non-lethal attack with any type of weapon, designed to incapacitate rather than kill.",
+      "location": "4b",
+      "data": "TO"
+    },
+    {
+      "name": "Trophy Collector",
+      "description": "When you defeat a creature that is the target of your Mark Quarry, you can take a trophy from them. When this trophy is either affixed to, or crafted into, your equipment, you gain additional morale for defeating creatures targeted by Mark Quarry that are the same creature type as the trophy: 1 for Grunt, 2 for Standard, 4 for Champion, 8 for Elite, and your Morale is set to its maximum for Legendary. The creature defeated must be equal to or lower than the tier of the creature your trophy originated from.",
+      "location": "5",
+      "data": "SSR=1:TG"
+    },
+    {
+      "name": "Unorthodox Takedowns",
+      "description": "Gain +1 skill with throwing weapons. When you apply a poison to a dart, the required check to avoid the effects is increased by 1.",
+      "location": "6a",
+      "data": "WS2=1:TO"
+    },
+    {
+      "name": "Trapper",
+      "description": "Gain +1 skill with engineering. Trap kits that you deploy have the required check to avoid the effects increased by 1.",
+      "location": "6b",
+      "data": "CS1=1:TG"
+    },
+    {
+      "name": "Action : Take Down",
+      "description": "You make a carefully aimed attack with a weapon, with the intent to take your target down. If the attack hits and deals damage, the targeted creature must make an endurance check against the total damage done after mitigation or they fall prone. If the creature is the subject of your Mark Quarry action, you roll a bonus dice on your attack.",
+      "location": "7",
+      "data": "TD"
+    }
+  ]
+}

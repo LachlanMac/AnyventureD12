@@ -244,40 +244,41 @@ const Home: React.FC = () => {
         </h2>
 
         <div
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-6"
+          className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6"
           style={{ maxWidth: '1200px', margin: '0 auto' }}
         >
           <ResourceCard
             title="Item Compendium"
-            description="Browse weapons, armor, and equipment. From simple daggers to legendary artifacts."
             linkText="View Items"
             linkTo="/items"
             icon="🗡️"
           />
           <ResourceCard
             title="Spell Library"
-            description="Explore spells across all five schools of magic. Learn their requirements and effects."
             linkText="View Spells"
             linkTo="/spells"
             icon="📜"
           />
           <ResourceCard
+            title="Song Compendium"
+            linkText="View Songs"
+            linkTo="/songs"
+            icon="🎵"
+          />
+          <ResourceCard
             title="Module Directory"
-            description="Discover all available modules to plan your character's growth and abilities."
             linkText="View Modules"
             linkTo="/modules"
             icon="📚"
           />
           <ResourceCard
             title="Conditions Reference"
-            description="Quick reference for all status conditions and their effects in combat and roleplay."
             linkText="View Conditions"
             linkTo="/conditions"
             icon="⚡"
           />
           <ResourceCard
             title="Recipe Compendium"
-            description="Browse all crafting recipes for alchemy, cooking, engineering, fabrication, and more."
             linkText="View Recipes"
             linkTo="/recipes"
             icon="🔨"
@@ -395,19 +396,12 @@ const StepCard: React.FC<StepCardProps> = ({ number, title, description }) => (
 
 interface ResourceCardProps {
   title: string;
-  description: string;
   linkText: string;
   linkTo: string;
   icon: string;
 }
 
-const ResourceCard: React.FC<ResourceCardProps> = ({
-  title,
-  description,
-  linkText,
-  linkTo,
-  icon,
-}) => (
+const ResourceCard: React.FC<ResourceCardProps> = ({ title, linkText, linkTo, icon }) => (
   <Link
     to={linkTo}
     style={{
@@ -440,16 +434,7 @@ const ResourceCard: React.FC<ResourceCardProps> = ({
     >
       {title}
     </h3>
-    <p
-      style={{
-        color: 'var(--color-cloud)',
-        marginBottom: '1rem',
-        textAlign: 'center',
-        lineHeight: '1.5',
-      }}
-    >
-      {description}
-    </p>
+    {/* description removed for compact single-line layout */}
     <div
       style={{
         color: 'var(--color-metal-gold)',

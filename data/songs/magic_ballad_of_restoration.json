@@ -1,0 +1,10 @@
+{
+  "id": 207,
+  "type": "ballad",
+  "name": "Ballad of Restoration",
+  "magical": true,
+  "difficulty": 6,
+  "description": "A sweeping refrain that tidies, purifies, and rights what has fallen apart",
+  "effect": "Purify water, clear debris, and repair simple non-magical objects if all pieces are present",
+  "harmony_1": { "instrument": "any", "effect": "Each harmony grants a bonus die to the next two crafting checks made in this location until a full rest is completed; each successive harmony allows an additional two crafting checks to benefit from the bonus die" }
+}

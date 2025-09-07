@@ -3,87 +3,65 @@
   "name": "Monk",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
-      {
+  "options": [
+    {
       "name": "Reinforced Mind",
-      "description": "You have dedciated your life to combat and discipline. You gain +1 maximum resolve and can spend 4 hours meditating to regenerate 1 resolve per day.",
-      "mtype": "core",
+      "description": "You have dedicated your life to combat and discipline. You gain +1 maximum resolve and can spend 4 hours meditating to regenerate 1 resolve per day.",
       "location": "1",
-      "cost": 2,
       "data": "AE=1:TD"
     },
-       {
+    {
       "name": "Stride of the Cheetah",
       "description": "You gain +1 skill with fitness. Additionally, gain +1 movement speed and roll an extra dice when defending against attack of opportunties.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Breath of the Dolphin",
       "description": "You gain +1 skill with endurance. Additionally, your swim speed becomes equal to your movement speed and you can hold your breath for twice as long.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TD"
     },
-   
     {
       "name": "Reaction : Flow Like Water",
       "description": "When you successfully evade or deflect an attack, you immediately move to an adjacent tile. Until the start of your turn, you roll an extra dice on defense checks.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "TD"
     },
-        {
+    {
       "name": "Action : Flying Kick",
       "description": "You leap towards a target within 3 units using your fitness or acrobatics skill as the attack check. If the attack hits, deal 1d4 damage for each unit traveled.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Action : Palm Strike",
       "description": "You strike a creature with an unarmed attack that deals no damage, but forces the target to make a concentration or endurance check against you, or they become stunned. The check required is equal to 3 times the total amount of dice that hit the target.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TO"
     },
-
     {
       "name": "Monk's Discipline",
       "description": "Gain +1 skill with concentration and +1 skill with resilience.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "TD"
     },
- {
+    {
       "name": "Master of Staves",
       "description": "Gain +1 skill with simple melee weapons and +1 deflection while not wearing armor.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Master of Fists",
       "description": "Gain +1 skill with unarmed attacks and +1 evasion while not wearing armor.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Daily Action : Cleansing Focus",
       "description": "You cleanse your mind, removing any dazed or stunned conditions from you. Additionally, roll a concentration check and gain morale equal to your highest roll that lasts for 1 minute.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TD"
     }
   ]

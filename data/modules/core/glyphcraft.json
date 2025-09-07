@@ -7,81 +7,61 @@
     {
       "name": "Apprentice Glyphwright",
       "description": "You have learned the fundamentals of magical writing and runic inscription. Gain +1 skill with glyphcraft.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "CS5=1"
     },
     {
       "name": "Subtle Inscriptions",
       "description": "You excel at creating hidden and protective runes which demand complete focus. Gain +1 concentration. Your runes are much harder to detect and can be made invisible to normal sight, requiring magical detection to find.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "SSJ=1:TG"
     },
     {
       "name": "Volatile Runes",
       "description": "You specialize in leveraging magical forces to create explosive and destructive glyphs. Gain +1 skill with magic. Runes you create that deal damage have their damage increased by +2 and their radius increased by 1 unit.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "SSO=1:TG"
     },
     {
       "name": "Reaction : Quick Command",
       "description": "In response to any situation where you could normally use an action to activate a rune with a command word, you can instead activate it as a reaction.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZINE=1"
     },
     {
       "name": "Arcane Infusion",
       "description": "You are able to infuse your runes with raw magic. Gain +1 skill with primal magic. When you create a rune that deals aether damage, you can instead change the damage type to either electric, heat or cold.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "YS2=1:TG"
     },
     {
       "name": "Shared Words",
       "description": "Your runes can be triggered by others who know the command word, and you can teach them these words. Unlock a magical language of your choice and gain +1 language point in it. Your runes can be activated by anyone within a short (10 unit) radius who speaks the command word.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Skilled Glyphwright",
       "description": "Your glyphcraft skills have reached professional levels. Gain +1 skill with glyphcraft. When making glyphcraft checks, any roll under a 4 becomes a 3.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "CS5=1:TC"
     },
     {
       "name": "Extended Duration",
       "description": "Your mastery allows for long-lasting magical inscriptions. When activated, your runes last an entire day instead of their normal duration.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TG"
     },
     {
-      "name": "Permanent Inscription",
-      "description": "You can create runes that don't fade after use. Your runes don't disappear when activated and can be used once per day.",
-      "mtype": "core",
+      "name": "Magical Weaponry",
+      "description": "Gain +1 bonus dice to glyphcraft checks when creating wands and staves.",
       "location": "6b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Legendary Glyphwright",
       "description": "You have achieved mastery over magical writing and runic arts. Gain +1 talent and +1 skill with glyphcraft. When making glyphcraft checks, any roll under a 6 becomes a 5.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "CT5=1:CS5=1:TC"
     }
   ]

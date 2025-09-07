@@ -4,7 +4,7 @@
   "type": "weapon",
   "weapon_category": "complexMelee",
   "weight": 3,
-  "value": 50,
+  "value": 300,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {

@@ -27,10 +27,13 @@ import ItemBrowser from './pages/ItemBrowser';
 import ItemManager from './pages/ItemManager';
 import ItemCompendium from './pages/ItemCompendium';
 import SpellCompendium from './pages/SpellCompendium';
+import SongCompendium from './pages/SongCompendium';
 import ConditionsCompendium from './pages/ConditionsCompendium';
 import RecipeCompendium from './pages/RecipeCompendium';
 import ItemDetail from './pages/ItemDetail';
 import SpellDetail from './pages/SpellDetail';
+import SongDetail from './pages/SongDetail';
+import SongsPage from './pages/SongsPage';
 import HomebrewBrowser from './pages/HomebrewBrowser';
 import HomebrewItemBrowser from './pages/HomebrewItemBrowser';
 import HomebrewItemCreator from './pages/HomebrewItemCreator';
@@ -130,6 +133,22 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <SpellCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/songs"
+                  element={
+                    <MainLayout>
+                      <SongCompendium />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/songs/:id"
+                  element={
+                    <MainLayout>
+                      <SongDetail />
                     </MainLayout>
                   }
                 />
@@ -275,14 +294,22 @@ const App: React.FC = () => {
                       </MainLayout>
                     }
                   />
-                  <Route
-                    path="/characters/:id/spells"
-                    element={
-                      <MainLayout>
-                        <SpellsPage />
-                      </MainLayout>
-                    }
-                  />
+                <Route
+                  path="/characters/:id/spells"
+                  element={
+                    <MainLayout>
+                      <SpellsPage />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/characters/:id/songs"
+                  element={
+                    <MainLayout>
+                      <SongsPage />
+                    </MainLayout>
+                  }
+                />
                   <Route
                     path="/characters/:id/edit"
                     element={

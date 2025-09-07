@@ -76,10 +76,63 @@ export const seedSpells = async () => {
   }
 };
 
+// Function to get all spell names from JSON files
+const getAllSpellNamesFromFiles = () => {
+  const spellNames = new Set();
+  const schools = ['meta', 'black', 'divine', 'mysticism', 'primal'];
+  
+  for (const school of schools) {
+    const schoolDir = path.join(spellsDir, school);
+    
+    // Skip if directory doesn't exist
+    if (!fs.existsSync(schoolDir)) {
+      continue;
+    }
+    
+    const subschools = fs.readdirSync(schoolDir)
+      .filter(file => fs.statSync(path.join(schoolDir, file)).isDirectory());
+   
+    for (const subschool of subschools) {
+      const subschoolDir = path.join(schoolDir, subschool);
+     
+      // Get all JSON files in the subschool directory
+      const files = fs.readdirSync(subschoolDir)
+        .filter(file => file.endsWith('.json'));
+      
+      for (const file of files) {
+        const filePath = path.join(subschoolDir, file);
+        const fileContent = fs.readFileSync(filePath, 'utf8');
+        
+        try {
+          const spellData = JSON.parse(fileContent);
+          if (spellData.name) {
+            spellNames.add(spellData.name);
+          }
+        } catch (err) {
+          console.error(`Error reading ${filePath}: ${err.message}`);
+        }
+      }
+    }
+  }
+  
+  return spellNames;
+};
+
 // Function to reset and reseed all spells
 export const resetAndReseedSpells = async () => {
   try {
     console.log('Updating and reseeding all spells (preserving references)...');
+    
+    // Get all spell names from JSON files
+    const validSpellNames = getAllSpellNamesFromFiles();
+    console.log(`Found ${validSpellNames.size} spells in JSON files.`);
+    
+    // Delete spells that are not in the JSON files (excluding homebrew)
+    const deletedSpells = await Spell.deleteMany({
+      name: { $nin: Array.from(validSpellNames) },
+      isHomebrew: { $ne: true }
+    });
+    console.log(`Deleted ${deletedSpells.deletedCount} outdated spells.`);
     
     // This will update existing spells and create new ones (preserving ObjectIds)
     const success = await seedSpells();

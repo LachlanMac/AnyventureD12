@@ -7,81 +7,61 @@
     {
       "name": "Dangersense",
       "description": "You possess an innate sense of danger that warns you of significant threats. When an elite-tier creature or higher, or a deadly trap that poses a threat to you is within a moderate (20 unit) distance, you automatically sense the presence of danger without identifying its specific source or location.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "SS5=1:TG"
     },
     {
       "name": "Foritifed Soul",
       "description": "Your soul is especially resistent from things that would damage it. Gain +2 mitigation to aether damage.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Threads of Fate",
       "description": "You can perceive the mystical connections between people and events. Gain +1 skill with insight. When you meet someone for the first time, you can sense if they are connected to your destiny or will play a significant role in future events.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Mystic Echoes",
       "description": "Your connection to mystical forces deepens your understanding. Gain +1 skill with magic knowledge. When you inspect a magical item, you can determine the last time it was used and a vague nature of the type of creature who wielded it.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "SS3=1:TG"
     },
     {
       "name": "Signs",
       "description": "You can read the subtle signs and omens that others miss. Gain +1 skill with senses. You can sense when you are being watched by making a senses check of 8 or higher, both magically and naturally.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SS5=1:TG"
     },
     {
       "name": "First to Act",
       "description": "You are always prepared and can act quickly to events. Gain +1 skill to coordination. You also reroll 1's when rolling a coordination check to determine initiative.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSN=1:TG"
     },
     {
       "name": "Seer",
       "description": "Your mastery of divination magic has grown considerably. Gain +1 skill with mysticism magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SS8=1:TG"
     },
     {
       "name": "Action : Trance of the Oracle",
       "description": "You dedicate your concentration to entering a trance, perceiving the possible futures of combat. Gain +1 skill wtih concentration. While in this trance, you roll all weapon attack and defense checks with a bonus dice. If you lose concentration while tranced in this way, you become dazed.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "SS2=1:TG"
     },
     {
       "name": "Reaction : Bend Fate",
       "description": "In response to an attack roll of either a 1 or the maximum dice face being rolled within a short (10 unit) distance, the attacker rerolls that dice.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "SS4=1:TG"
     },
     {
       "name": "Portent",
       "description": "At the start of each day, you peer into the threads of fate and possibility. Roll a mysticism magic check and record each individual dice result. Throughout the day, you can replace any instantaneous roll made by you or an ally with one of these stored results. Each result can only be used once and cannot be applied to checks that take extended time to complete.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TG"
     }
   ]

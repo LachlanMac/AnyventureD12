@@ -1,0 +1,10 @@
+{
+  "id": 202,
+  "type": "ballad",
+  "name": "Ballad of Hope",
+  "magical": false,
+  "difficulty": 4,
+  "description": "An inspiring ballad about overcoming difficulty",
+  "effect": "Restore +1 resolve",
+  "harmony_1": { "instrument": "any", "effect": "Each harmony restores an additional resolve" }
+}

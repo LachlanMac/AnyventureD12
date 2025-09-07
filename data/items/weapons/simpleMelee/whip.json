@@ -4,7 +4,7 @@
   "type": "weapon",
   "weapon_category": "simpleMelee",
   "weight": 0.5,
-  "value": 5,
+  "value": 125,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {

@@ -1,0 +1,68 @@
+{
+  "id": 209,
+  "name": "Skald",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "War Singer",
+      "description": "Your voice is suited to carry through the sound of battle. You become novice in the musical skill: Vocal. If you are already a novice or higher, become novice in any of the other musical skills.",
+      "location": "1",
+      "data": "SSQ=1:TG"
+    },
+    {
+      "name": "Battlefield Awareness",
+      "description": "Your combat experience grants superior awareness. Gain +1 skill with coordination. When you participate in the preparation phase, you can use your action to start a song.",
+      "location": "2a",
+      "data": "SSM=1:TG"
+    },
+    {
+      "name": "Inspiring Presence",
+      "description": "Your very presence bolsters allies. Gain +1 skill with presence. When an ally who is benefiting from one of your songs takes psychic damage, roll a presence check. On a 6 or higher, the damage is reduced by 2. On a 12 or higher, the damage is halved.",
+      "location": "2b",
+      "data": "SSR=1:TG"
+    },
+    {
+      "name": "Living for the Performance",
+      "description": "Music fills your spirit with purpose and joy. Gain +2 maximum morale. Once per day, when you successfully maintain a song in combat for 5 or more consecutive rounds, or complete a ballad that is not overplayed, you gain +5 morale.",
+      "location": "3",
+      "data": "R=2:TG"
+    },
+    {
+      "name": "Action : Inspiring Rally",
+      "description": "While concentrating on a song, you can inspire an ally to act immediately. Choose one ally who can hear your song - they immediately take one action out of turn.",
+      "location": "4a",
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Instrumental Interlude",
+      "description": "When a harmony or melody is lost on a song, even if it is not your own, you can attempt to save it by rolling an expression check with an instrument equal to the song's required check. You immediately dedicate your concentration to carrying the song until the start of your next turn, maintaining any benefits that the song provided before one or more of the parts was lost. Any participants in the song can attempt to rejoin on their turn. If you fail your check, or succeed and your playing is interrupted, the song ends.",
+      "location": "4b",
+      "data": "Z"
+    },
+    {
+      "name": "Voice of Power",
+      "description": "You have near perfect control of your volume. Gain +1 skill with expression. Whenever you refresh a song on your turn, you can determine how many units it stretches, up to an extends range of 20 units to a minimum of 1 unit.",
+      "location": "5",
+      "data": "SSD=1:TG"
+    },
+    {
+      "name": "Instrumental Mastery",
+      "description": "You have perfected your instrumental technique. Choose one musical skill at Expert level (2 talents) and increase it to Master level (3 talents). If you do not currently have a musical skill at expert level, you can instead choose to become Expert (2 talents) at two separate musical skills.",
+      "location": "6a",
+      "data": "TG"
+    },
+    {
+      "name": "Legendary Ballads",
+      "description": "When you successfully play a ballad, you automatically contribute an additional two harmony successes to the result which do not count against the maximum number of successes.",
+      "location": "6b",
+      "data": "SSL=1:TG"
+    },
+    {
+      "name": "Harmonic Master",
+      "description": "You have achieved perfect musical unity. You can play harmonies to songs without requiring concentration, allowing you to harmonize while playing an instrument with your own vocal melody.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

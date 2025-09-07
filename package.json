@@ -26,6 +26,8 @@
     "cleanup-cultures": "node server/scripts/cleanupCultures.js",
     "cleanup-traits": "node server/scripts/cleanupTraits.js",
     "fix-discord-index": "node server/scripts/fix-discord-index.js",
+    "remove-module-costs": "node scripts/remove_module_costs.js",
+    "remove-option-mtype": "node scripts/remove_option_mtype.js",
     "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\"",
     "dev:clean": "npm run kill-ports && npm run reset-modules && npm run dev:full",
     "lint": "eslint --ext .ts,.tsx src/",

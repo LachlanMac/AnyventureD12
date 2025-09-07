@@ -3,87 +3,70 @@
   "name": "Leader",
   "mtype": "personality",
   "ruleset": 1,
-"stressors":["Your plan fails","You witness an ally die","You abandon an ally"],
- "options": [
-      {
+  "stressors": [
+    "Your plan fails",
+    "You witness an ally die",
+    "You abandon an ally"
+  ],
+  "options": [
+    {
       "name": "Leader",
       "description": "You are a natural leader who inspires others to follow your guidance through both your commanding presence and your willingness to face danger first. Your leadership manifests in your readiness to take initiative, set examples, and make difficult decisions that others shy away from. You value courage, responsibility, and strategic thinking above all else.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1"
     },
-   
     {
       "name": "Take the Initiative",
       "description": "You are the first to act, often to set an example. Gain +1 skill with coordination. On the first round of combat, you gain a bonus dice to all your actions.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG:SSG=1"
     },
     {
       "name": "Natural Born Leader",
       "description": "You are born to lead and find it easy to get people to do your bidding. Gain +1 skill with the presence skill. Once per day, you can replace any persuasion check with a presence check.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG:SSR=1"
     },
     {
       "name": "Downtime Action : Rousing Speech",
       "description": "You spend time writing and performing a speech to either raise spirits or move someone to your opinion, with an audience suitable for your reputation. A presence check of 6-9 is midly successful, granting 5 morale to all who hear it. A check of 10 or higher is very successful and 10 morale and may be more likely to move others to your belief. In the event of a perfect check, all who hear become charmed by you for an hour or until it breaks naturally.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "Y"
     },
     {
       "name": "Action : To the Death",
       "description": "While at 0 health, you lead by example and show your bravery, rolling a presence check. You and all allies within a short (10 unit) radius gain morale equal to your check for the next minute.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "XX"
     },
     {
       "name": "Action : Rally",
       "description": "You attempt to rally your allies that can hear you to your position by calling out or blowing a horn. Until the start of your next turn, the movement speed of your allies is doubled when they are moving towards you or an enemy that you are adjacent to.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "XX"
     },
     {
       "name": "Commanding Presence",
       "description": "Your leadership abilities are enhanced by your commanding presence. Gain +1 skill with presence. Whenever you spend a Wonder, roll a presence check; a result of 7 or higher removes the Woe from any ally within a short (10 unit) radius.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SSR=1"
     },
     {
       "name": "A Leader's Sacrifice",
       "description": "Your maximum morale is decreased by 5, but at the end of a full rest, you can sacrifice a number of your morale to give all allies within a short (10 unit) distance of you the amount you sacrificed.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Tactical Reposition",
       "description": "At the start of combat, during the preperation phase, you can reposition up to three allies up to 2 units if they have the ability to move. When you designate a spot to move, the ally can either accept or decline your suggestion. This movement does not provoke reactions.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Proven Leader",
       "description": "Gain +1 talent with social.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "ST5=1"
     }
   ]

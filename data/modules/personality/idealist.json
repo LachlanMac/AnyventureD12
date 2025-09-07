@@ -3,86 +3,70 @@
   "name": "Idealist",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors":["Your core beliefs face challenge","You witness injustice","You violate your oath or personal code"],
- "options": [
-      {
+  "stressors": [
+    "Your core beliefs face challenge",
+    "You witness injustice",
+    "You violate your oath or personal code"
+  ],
+  "options": [
+    {
       "name": "Idealist",
       "description": "You are an idealist, driven by unwavering beliefs in how the world should be and refusing to compromise your vision despite the pragmatic realities others accept. Your passionate convictions inspire those around you while sometimes blinding you to practical limitations, creating both devoted followers and frustrated opponents. You value principles, vision, and integrity above all else.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Positive Idealism",
       "description": "You are enthusiastic to share your ideas and beliefs and present your case well. Gain +1 skill to persuasion. Additionally, gain +2 resolve.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG:SST=1"
     },
     {
       "name": "Manifesto",
       "description": "You are a visionary and have often put your dream to quill and scroll. You gain +1 skill with academics. Additionally, when you persuasion attempts made through writing gain a bonus dice.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG:SSN=1"
     },
     {
       "name": "Downtime Action : Conversion",
       "description": "You spend time, asserting your views in an attempt to bring a non-hostile individual along to your line of thinking. Your success is tied to a persuasion check; of an 6-9 is midly successful and suggests a good dialogue, while a 10 or higher is very successful and may convince or convert an individual. On a perfect check, the you are able to convert even the most stubborn individual.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "Y"
     },
     {
       "name": "Daily Reacton : Fervent Conviction",
       "description": "In response to either losing resolve or taking psychic damage, roll a resilience check. On a 6 or higher, the loss or damage is completely mitigated, otherwise, the damage or loss of resolve is doubled.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "ZD"
     },
     {
       "name": "Action : Reinforced Idealism",
       "description": "You take the Defense action, but instead of gaining just a bonus dice to evasion and deflection, you gain a bonus dice to any contested or defensive check you make.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "XX"
     },
     {
       "name": "Shared Idealism",
       "description": "It is difficult to deny you when you get to talking about your beliefs. Gain +1 skill with persuasion. When you use a Wonder, you can choose an ally within a short (10 unit) distance to gain the same benefit you chose.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Unshakeable Faith",
       "description": "Your core beliefs protect your mind from outside influence. When you gain either the charmed, confused, maddened, or afraid conditions, you can immediately make a resilience check. On a 10 or higher, the condition is removed without ever taking effect.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Martyr",
       "description": "When you are at 0 health, and take damage that forces you to make a lifeline check, instead of rolling a d8, you can elect to roll a d4 and compare the result to the Lifeline Table. When you do this, all allies within a short (10 unit) distance immediately gain a wonder.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Visionary Idealist",
       "description": "Gain +1 talent with social",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "ST5=1:SST=1"
     }
   ]

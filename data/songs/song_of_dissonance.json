@@ -1,0 +1,11 @@
+{
+  "id": 14,
+  "type": "song",
+  "name": "Song of Dissonance",
+  "magical": false,
+  "difficulty": 6,
+  "description": "Jagged tones that fray focus and unsettle the mind",
+  "effect": "Characters who hear the song roll a penalty die on mind checks",
+  "harmony_1": { "instrument": "wind", "effect": "Spell checks roll a penalty die while being channeled" },
+  "harmony_2": { "instrument": "brass", "effect": "The starting difficulty to recover from dazed and stunned is increased by +2 (to 12)" }
+}

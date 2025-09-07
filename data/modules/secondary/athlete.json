@@ -7,81 +7,61 @@
     {
       "name": "Physical Conditioning",
       "description": "You have developed exceptional physical fitness through dedicated training. Gain +1 skill with fitness and +1 health.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "SS9=1:TG"
     },
     {
       "name": "Endurance Training",
       "description": "Your body has been conditioned to endure physical stress. Gain +1 skill with endurance. You can hold your breath for twice as long.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "SS1=1:TG"
     },
     {
       "name": "Natural Athlete",
       "description": "Your coordination and agility are exceptional. Gain +1 skill with coordination and +1 movement speed.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "SSG=1:TG"
     },
     {
       "name": "Daily Action : Second Wind",
       "description": "You dig deep to find reserves of energy when exhausted. Remove the winded condition, restore your energy completely and gain 2d4 morale that lasts for a minute.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "X"
     },
     {
       "name": "Action : Run and Jump",
       "description": "You take an enhanced sprint action, moving up to double your movement speed and then making a leap equal to your maximum jump distance at the end of your movement.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "X"
     },
     {
       "name": "Reaction : Athletic Reflexes",
       "description": "In response to being targeted by an attack that you could normally block or deflect, you can instead use your athletic ability to avoid the attack. Make a fitness check in place of your normal deflection or evasion check, with a success meaning you avoid any damage.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "Z"
     },
     {
       "name": "Mind-Body Connection",
       "description": "Your dedication to your body has resulted in a stronger willpower. Gain +1 resilience and +1 maximum energy.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SS9=1:TG"
     },
     {
       "name": "Precision Thrower",
       "description": "Your training has perfected your throwing technique. Gain +1 skill with throwing weapons.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "WS0=1:TG"
     },
     {
       "name": "Powerful Build",
       "description": "Your physical strength has reached impressive levels. Gain +1 skill with might and +2 health.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "SS0=1:TG"
     },
     {
       "name": "Legendary Athlete",
       "description": "You have achieved legendary status in physical performance and the results are there for all to see. Gain +1 skill with fitness and +1 skill to presence. When competing in an athletic competition, roll a bonus dice to any physique or finesse checks.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "SS9=1:TG"
     }
   ]

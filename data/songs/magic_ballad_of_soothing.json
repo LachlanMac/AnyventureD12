@@ -1,0 +1,10 @@
+{
+  "id": 206,
+  "type": "ballad",
+  "name": "Ballad of Soothing",
+  "magical": true,
+  "difficulty": 6,
+  "description": "A gentle hymn that knits small wounds and eases pain",
+  "effect": "Restore +1 health",
+  "harmony_1": { "instrument": "any", "effect": "Each harmony restores +1 additional health" }
+}

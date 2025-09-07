@@ -1,0 +1,245 @@
+Anyventure Rule Guide (Master Reference)
+
+Authority and Scope
+- This document is the authoritative, consolidated rules reference for Anyventure.
+- The public/wiki is the ultimate source. If the AnyventureOverview conflicts with the wiki, the wiki rules take precedence.
+- Units: All distances are in “units”; 1 unit ≈ 1 yard/meter/3 feet.
+
+Core Principles
+- No classes: Characters advance via Modules, not classes/levels.
+- Talents determine how many dice you roll; Skills determine what die you roll.
+- For non-attack checks, roll all dice and take the highest single result (unless otherwise stated).
+- For attacks, each die that meets/exceeds the defense counts as a success; damage is derived from number of successes.
+
+Character Creation (Summary)
+1) Choose Ancestry (race): Size category, innate traits, languages.
+2) Choose Culture: Background flavor, potential bonuses/traits.
+3) Assign Attributes (Talents): Physique, Finesse, Mind, Knowledge, Social.
+   - Start at 1 each; distribute 6 points; normal max 4 at creation; attributes never below 1.
+   - Attribute “Talent” value (0–4) sets number of dice for skills under that attribute.
+4) Derived stats: Health (default 20 unless modified), Resolve (default 20), Energy (default 5), Movement (default 4 units for Medium; 3 for Small, ancestry/items may modify).
+5) Weapon Talents: Unarmed, Throwing, Simple Melee, Simple Ranged start at +1 Talent; Complex Melee and Complex Ranged start at +0 Talent (unless ancestry/module modifies).
+6) Languages and Personality/module choices as allowed by the campaign.
+
+Attributes and Skills
+- Five Attributes (Talents): Physique, Finesse, Mind, Knowledge, Social.
+- Skills (20 base) by Attribute:
+  Physique: Fitness, Deflection, Might, Endurance
+  Finesse: Evasion, Stealth, Coordination, Thievery
+  Mind: Resilience, Concentration, Senses, Logic
+  Knowledge: Wildcraft, Academics, Magic, Medicine
+  Social: Expression, Presence, Insight, Persuasion
+- Skills have Levels 0–6 (0=d4, 1=d6, 2=d8, 3=d10, 4=d12, 5=d16, 6=d20).
+- Attribute governs dice count (Talent); Skill governs die size (Level).
+- A check is Talent dice of the Skill’s die size; result is the highest die unless a rule says otherwise.
+
+Dice System
+- Talent = count; Skill = die size; Pool = total rolled.
+- Bonus Dice: Add dice to the pool.
+- Penalty Dice: Reduce dice. If you would go below 1 die, continue adding dice but take the lowest result.
+- Bonus and Penalty dice cancel one-for-one before rolling.
+
+Upgraded/Downgraded Skills
+- Situational modifiers can upgrade/downgrade the die ladder.
+  Table (Skill Level → die):
+  Level: 0  1  2  3  4   5   6
+  Base:  d4 d6 d8 d10 d12 d16 d20
+  Upg.:  d6 d8 d10 d12 d16 d20 d30
+  Dng.:  d2 d4 d6 d8 d10 d12 d16
+
+Opposed/Group Checks and Help
+- Help (same skill): helper must have equal-or-higher skill; grants +1 bonus die automatically.
+- Help (different skill): helper rolls one die of their chosen relevant skill; on success (meets RC), grants +1 bonus die; otherwise rolls with two dice and takes lowest for the help attempt as adjudicated.
+
+Special Checks
+- Attack Check: weapon attack roll.
+- Defense Check: Evasion or Deflection.
+- Crafting Check: attempt to craft by recipe.
+- Magic Check: channel a spell (school skill).
+- Death Check: special random unmodified d12 (see Lifeline table context below).
+
+Resources
+- Health: Default 20 (PC). Full rest recovers Health: Favorable Rest +3; Unfavorable Rest +2 (see Resting). Other sources (potions, medic, magic, items) can restore Health.
+- Resolve: Default 20 (PC). Recovered by consumables, roleplay, Counselor-like effects, or ballads; not automatically by resting unless specified.
+- Morale: Buffer before Health/Resolve if present. Default max 0; can be gained via modules/items/ballads up to 20.
+- Energy: Short-term action resource. Default 5; regenerate 3 per turn. If Energy < 0, immediately roll Endurance 10 or gain Winded.
+- Wonder & Woe: Meta-currency awarded by GM for notable events. Max 1 Wonder and 1 Woe per character; may be cashed at any time.
+
+Resting
+- Favorable Rest: 8 hours uninterrupted in safe/comfortable conditions; +3 Health, +1 Resolve.
+- Unfavorable Rest: 6 hours sleep within 10 hours (broken/uncomfortable); +2 Health, -2 Morale.
+
+Vision and Senses
+- Special senses: Darksight, Infravision, Deadsight, Echolocation, Tremorsense, Truesight (see wiki for definitions and detection ranges by category).
+
+Ranges and Distances
+- Range bands: Adjacent (0), Nearby (1), Very Short (2–5), Short (6–10), Moderate (11–20), Distant (21–40), Remote (41–100), Planar (Unlimited).
+- Optimal ranges: Ranged/throwing weapons list optimal min/max bands. One band outside optimal imposes 2 penalty dice. Cannot attack beyond one band outside maximum; minimum can be attempted with penalty as above.
+
+Combat Structure
+- Rounds: ~6 seconds each.
+- Phases: Preparation (R1 only), Early, Middle, Late. After Preparation in round 1, subsequent rounds flow Early → Middle → Late.
+- Initiative: Roll Coordination or Concentration; map result to phase: <4 Late; 4–7 Middle; 8–10 Early; >10 Early + Preparation access.
+  Ties: “No change” (simultaneous) or use exact values as tiebreakers as needed.
+  Within a phase: PCs act before enemies; allied/neutral NPCs act after enemies unless otherwise stated.
+- Turns (default PCs): 2 Actions + Movement. Reactions: unlimited per round, limited by Energy.
+- NPC Action economy:
+  • Minions/Grunts: 1 Action.
+  • Standard/Champion: 2 Actions.
+  • Elite/Legendary/Mythic: 1 Action in each phase (Early, Middle, Late) = 3 Actions total.
+- Reactions on R1: A character cannot use a Reaction until they’ve taken their first turn.
+
+Default Actions (examples; 0 unless noted)
+- Sprint (2 Energy): Move up to double movement in a straight line (unless modified).
+- Attack (Simple/Unarmed/Throwing 0; Complex 1 Energy): Make a weapon attack.
+- Jump (1 Energy): Declare units ≤ movement; roll Fitness. With running start (moved ≥2 or Sprint), must meet units; without, distance = Fitness/2 (floor).
+- Grab (1 Energy): Contested Fitness vs target’s Fitness or Coordination; holds until start of your next turn.
+- Channel (X Energy): Cast a spell (see Magic).
+- Shove (1 Energy): Contested Might vs target’s Fitness or Coordination; knock prone or push 1 unit.
+- Use (0): Use an item / interact.
+- Rest (0): Remove Winded.
+- Hide (0): Gain Obscured (cannot if an enemy currently sees/senses you).
+
+Default Reactions (examples)
+- Attack of Opportunity (weapon rules as above): vs creature moving out of your melee range.
+- Cover Eyes (0): Self-applied Blinded to protect vs sight-based effects until start of your next turn.
+- Cover Ears (0): Self-applied Deafened to protect vs sound-based effects until start of your next turn.
+- Fall Prone (0): Voluntarily become Prone.
+
+Attacks and Damage
+- Attack Roll: Use Weapon Talent count + Weapon Skill die; compare each die vs a single defense value.
+- Defense Check (defender chooses one unless attack specifies otherwise):
+  Evasion: If Evasion > all attack dice, attack misses completely. Versus Area, Evasion check is halved (round down).
+  Deflection: If vs Melee and Deflection > all attack dice, attack is blocked. Versus Ranged/Area, Deflection is halved (round down). Light Shield removes penalty vs Ranged; Heavy Shield removes penalty vs Ranged and Area.
+- Successes and Damage: Count each attack die ≥ defense as a success.
+  Primary damage applies once (first success); each additional success adds “extra” damage.
+  Example: Longsword with Primary 3, Extra 2. Two successes = 3 + 2 = 5 damage before mitigation.
+
+Critical Hits (weapon attacks)
+- Start at Skill Level 4 (d12). Crit on: d12=12; d16=15–16; d20=18–20.
+- A crit adds Primary damage once more (default one crit counted unless rule says otherwise).
+
+Mitigation (Damage & Types)
+- Damage types include: Physical, Heat, Cold, Electric, Dark, Divine, Aetheric (replaces Arcane), Psychic, Toxic.
+- Full Mitigation: If mitigation ≥ incoming damage → 0 damage.
+- Partial Mitigation: Each mitigation has a partial threshold = 2× mitigation. If incoming damage is > full but ≤ partial → take half damage (round down).
+- No Mitigation: If damage > partial → take full damage.
+- Order: Halving/doubling occurs before applying mitigation calculations.
+
+Conditions (high level)
+- Examples include: Afraid, Bleeding, Blinded, Broken, Charmed, Confused, Dazed, Deafened, Diseased, Hidden/Obscured, Ignited, Impaired, Incapacitated, Maddened, Muted, Numbed, Poisoned, Prone, Stunned, Winded, Wounded. See wiki/Combat/Conditions for complete effects and recovery checks.
+
+Condition Details (from wiki; no tables, concise text)
+- Afraid: Cannot take reactions; when attempting an action, roll Resilience 10. On failure, move up to movement away from source; on success, Afraid ends. Each time this check is made, its DC lowers by 1.
+- Alert: Auto Senses check vs Stealth attempts without costs; can point out revealed target as a reaction; requires Concentration to maintain.
+- Broken: Occurs at 0 Resolve. Roll with 1 penalty die on Knowledge/Social/Mind checks; auto‑fail vs Afraid/Confused/Maddened/Charmed; cannot recover Resolve until removed. Remove via Resilience 12 at end of a full rest; DC lowers by 1 per full rest.
+- Charmed: Target treats charmer as trusted; cannot take aggressive actions vs charmer. Charmer can command via contested Persuasion vs target Insight; gains a bonus die to Social checks vs target. Harmful/dangerous commands double next break‑out check.
+- Confused: On each attempted Action/Reaction, roll 1d4: 1 attack nearest; 2 do nothing; 3 move full speed in random direction; 4 act normally. Remove via Concentration 10 at end of turn; DC lowers by 1 each turn.
+- Dazed: Lose Concentration and cannot start new Concentrations. First defense check has a penalty die. Ends automatically at end of your next turn.
+- Maddened: Cannot distinguish friend from foe; immune to Afraid/Charmed/Confused effects. Remove via Resilience 10 at end of turn; DC lowers by 1 each turn.
+- Numbed: Cannot gain Resolve or benefit from Morale; roll a penalty die on Mind checks; cannot spend Resolve to stay conscious at 0 Health. Remove via Resilience 10 at end of a full rest; DC lowers by 1.
+- Stunned: Cannot take Actions, Reactions, or Movement; lose Concentration. Must use Action to attempt recovery via Concentration 10; DC lowers by 1 each time.
+- Bleeding: Take 1 damage at end of turn; remove via Endurance 10 (DC lowers by 1 each turn). If Bleeding damage is taken at 0 Health, see Lifeline for binary rule.
+- Blinded: Cannot see; penalty die to all Attacks and Defense; auto‑fail vision Senses checks. Duration based on source.
+- Deafened: Cannot hear; auto‑fail hearing Senses checks.
+- Ignited: Take 5 Heat damage at end of turn; damage increases by 1 each turn up to 10. Put out: Action, Coordination 6; Ally: Action, Coordination 4.
+- Impaired: Cannot move; penalty die to all Attacks and Defense. Commonly from Grab; duration depends on source.
+- Incapacitated: Cannot move, act, or defend. Static Defense: 2 melee / 4 ranged. Sources: paralysis, frozen, sleep, unconscious; duration per source.
+- Muted: Cannot speak; cannot perform speech‑required tasks.
+- Obscured: Hidden from line of sight; when moving while Obscured, must roll Stealth to remain hidden.
+- Poisoned: Take Toxic damage at end of turn per poison. Each time, roll Endurance vs poison’s RC: success ends poison; else RC lowers by 1 for next time.
+- Prone: On ground; Attacks and Defense have a penalty die. Remove by spending an Action or entire Movement.
+- Stasis: Unconscious and do not need to eat/breathe/sleep; periodic effects paused.
+- Unconscious: Extremely vulnerable; double damage from Melee. If no other rule applies, roll d12 end of each turn; on 9+, regain consciousness.
+- Winded: Cannot regenerate Energy; remove via Rest Action.
+- Wounded: Cannot have or recover more than half max Health; if above, set to half. Roll penalty dice on Physique and Finesse skills. Remove via Endurance 10 at end of full rest; DC reduces by 1 each time.
+
+Reaching 0 Health (Lifeline)
+- At 0 Health, a character may spend 2 Resolve at the start of their turn to act (“lifeline” state), risking lasting consequences.
+- Bleeding/Poison while at 0 Health (Binary, Repeated): When Bleeding or Poison would deal damage at 0 Health, immediately make an Endurance or Resilience check against the effect’s Required Check (RC).
+  • Fail: the creature dies.
+  • Success: the creature falls unconscious.
+  • While unconscious, on each turn that Bleeding/Poison would deal damage, repeat the same check versus the effect’s RC, but the rolled check result is halved (rounded down) before comparison. The outcome remains binary each time (fail = death; success = remain unconscious and survive that instance).
+- Taking >5 damage while in lifeline (from other sources) triggers a 1d8 roll on the Lifeline Table:
+  1 Death Check (d12; ≤7 die; else fall unconscious)
+  2 Lost Limb
+  3 Lingering Injury
+  4 Severe Wound (max Health -1; gain Bleeding)
+  5 Cosmetic Injury
+  6 Fall Unconscious
+  7 Fall Prone (stand requires Endurance/Resilience 15)
+  8 Nothing Happens
+- Falling Unconscious: Regain consciousness in 1 hour if you gain ≥10 Health; otherwise, recover per Conditions rules.
+
+Magic System
+- Casting: Roll with a specific magic School skill (Black, Primal, Meta, Divine, Mysticism; subschools per wiki). Take highest die; must meet Required Check (RC).
+- Pass/Fail: Spell effects are pass/fail and do not scale by result unless the spell specifies otherwise.
+- Energy: Pay spell Energy cost before attempting.
+- Spell Failure: If you fail to channel a specific spell, you cannot attempt that same spell again until after a full rest.
+- Components & Foci: Components are used to charge spells for extra effects. Foci can substitute and may break per item rules.
+- Charging: Declare before casting; using the component (or a focus) increases RC by +2 and applies the listed Charge effect for that spell.
+- Rituals: Require component; successful ritual auto-applies charged effect without increased RC. Others may assist:
+  - Assist with School: Helper rolls School check; on ≥ half original RC (rounded up) → +1; else −1.
+  - Assist with Magic (knowledge) Skill: Helper rolls Magic knowledge; on ≥ original RC → +1; else −1.
+
+Magic Schools (overview)
+- Black (Necromancy, Witchcraft; exotic: Fiend)
+- Primal (Elemental, Nature; exotic: Draconic)
+- Meta (Transmutation, Illusion; exotic: Fey)
+- Divine (Protection, Radiant; exotic: Celestial)
+- Mysticism (Spirit, Divination; exotic: Cosmic)
+
+Magical Effects (examples)
+- Hellfire (Dark) burns unlike normal fire and is harder to extinguish; holyfire (Divine) harms evil/undead/dark-bound; Feyfire (Aetheric) grants morale to nearby fey when damaging others; Permafrost preserves and resists non-magical breaking; Nullfield raises RC for magic or blocks it entirely.
+
+Crafting
+- Disciplines: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping.
+- Crafting Check: Roll Talent (attribute-based) dice of the appropriate Crafting skill die.
+- Recipes define RC; success crafts item.
+- Infusions: Each infusion requires an additional success at RC. Multiple unique infusions allowed; cannot stack the same infusion twice unless specifically allowed.
+- Discipline notes:
+  Alchemy: Elixirs, potions, poisons; infusions modify potency/duration/batches.
+  Fabrication: Weapons and armor; infusions add damage, crit properties, etc.
+  Cooking: Meals give day-long mitigations, minimum roll floors, resources; hearty/fine variants; effects don’t stack, newest overrides.
+  Glyphcraft: Runes, wands, staves, scrolls; metal-shaving inks provide enchantments.
+  Bioshaping: Organic materials (in progress in wiki).
+
+Items & Equipment (high level)
+- Worn slots with accessory limits; shields (light/heavy) affect Deflection vs ranged/area as noted.
+- Ammunition: General ammo not tracked individually; special tracked; throws can be recovered if feasible.
+- Rarity tiers: common→artifact; availability guidance only.
+- Currency: Gold/Silver; reference tables for wages and costs in wiki.
+
+Songs (Combat) and Ballads (Out of Combat)
+- Songs: Performed in combat via Expression check each turn to maintain; vocalist requires only concentration; instruments require an action and two hands; taking a hand-using action ends that instrument’s harmony benefit.
+- Harmonies: Instrument talents add listed bonuses; any one harmony applies to all benefiting allies; must know the song to join; harmonies can be constrained by instrument type.
+- Limits: A character can benefit from a unique song/ballad effect at most once per day (reset on full rest). This applies equally to magical and non‑magical songs.
+- Ballads: 10-minute performances with a single check; effects apply after the performance; harmonies stack up to stated caps; after play, roll overplay (d6) for days until the same ballad can be effective again for those listeners.
+
+NPCs, Types, and Tiers (high level)
+- Tiers: Non-Combatant, Minion, Grunt, Standard, Champion, Elite (1–5 stars), Legend, Mythic.
+- Types: Humanoid, Beast, Monster, Plantoid, Elemental, Dark, Divine, Undead, Construct, Fey. Some skills/spells target specific types.
+
+Modules and Progression
+- Modules: 7 tiers; 11 total choices in pattern 1 / (2a–2b) / 3 / (4a–4b) / 5 / (6a–6b) / 7 (capstone).
+- Secondary vs Core module content shouldn’t duplicate unique actions/passives; high-value weapon/magic skill bumps appear around T5/T6.
+- Invest Module Points awarded by GM to unlock tiered options.
+- Actions/Reactions from modules follow combat rules and Energy costs.
+
+Resting, Recovery, and Narrative Dice
+- Narrative Dice: GM tool (d100) to adjudicate narrative outcomes where mechanics are unsuitable; state stakes in advance; use sparingly and not for arbitrary lethal outcomes.
+
+Clarifications and Open Items (Needs GM/Author Input)
+1) Energy Regeneration: Wiki states “regenerate 3 per turn” (Resources.md). AnyventureOverview mentioned +2. Using wiki precedence (3). Confirm final default.
+2) Damage Types: Overview used “Arcane”; wiki standardizes “Aetheric.” Using Aetheric everywhere. Confirm that “Arcane” should be treated as Aetheric.
+3) Shields and Deflection: Wiki defines halving for Deflection vs Ranged/Area; Light shield removes ranged penalty; Heavy removes both. Confirm if shield items impart any additional non-Deflection benefits.
+4) NPC action economy granularity: Wiki notes Minion/Grunt 1 action; some high-tier creatures get 1 action per phase. Provide a compact table per tier?
+5) Conditions: Ensure final condition list/effects match wiki’s Conditions page; several conditions (e.g., Numbed, Broken recovery DCs) should be confirmed.
+6) Lifeline resolution details: Wiki Lifeline Table uses d8 with specific outcomes. Confirm whether Bleeding/Poison damage during lifeline always triggers Lifeline roll (>5 damage threshold covered).
+7) Movement base values: Common Movement assumed 5 units for medium characters. Confirm if default varies by ancestry more broadly.
+8) Songs and Ballads daily limits: The wiki states “receive a unique song once per day.” Confirm stacking across different songs and interactions with magical songs.
+9) Overcrafting: Removed; Infusions are the official model.
+10) (Removed) Module early‑bump policy per your note; we will follow current ModuleCreationRules without additional constraints here.
+
+Design Notes
+- When ambiguity exists, defer to the wiki text and intended examples; otherwise use the Clarifications list above to resolve.

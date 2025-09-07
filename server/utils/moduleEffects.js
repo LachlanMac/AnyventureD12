@@ -19,6 +19,14 @@ export const applyDataEffects = (character, dataString) => {
     // Skip empty effects
     if (!effect.trim()) continue;
     
+    // Check for action/reaction encoding first (XINE=1, ZDME=2, YINE=1, etc.)
+    const actionMatch = effect.match(/^([XYZD])([IDCT])([NM])E=(\d+)$/);
+    if (actionMatch) {
+      const [_, type, frequency, magic, energy] = actionMatch;
+      handleActionEffect(character, type, frequency, magic, parseInt(energy));
+      continue;
+    }
+    
     // Parse the effect code - handle both numeric values and X/Y for dice tier modifications
     const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+|[XY])/);
     if (!match) continue;
@@ -221,7 +229,53 @@ const handleAutoEffect = (character, code, value) => {
       character.moduleBonuses.movement += value;
       character.movement += value;
       break;
+    case '9': // Spell Capacity
+      if (!character.moduleBonuses.spellSlots) character.moduleBonuses.spellSlots = 0;
+      character.moduleBonuses.spellSlots += value;
+      character.spellSlots += value;
+      break;
   }
+};
+
+const handleActionEffect = (character, type, frequency, magic, energy) => {
+  // Initialize action properties if not exists
+  if (!character.actionProperties) {
+    character.actionProperties = [];
+  }
+  
+  // Determine action type
+  let actionType = '';
+  switch (type) {
+    case 'X': actionType = 'Action'; break;
+    case 'Z': actionType = 'Reaction'; break;
+    case 'Y': actionType = 'Both'; break;  // Action & Reaction
+    case 'D': actionType = 'Downtime Action'; break;
+    default: return;
+  }
+  
+  // Determine frequency type
+  let frequencyType = 'instant';
+  switch (frequency) {
+    case 'I': frequencyType = 'instant'; break;
+    case 'D': frequencyType = 'daily'; break;
+    case 'C': frequencyType = 'perCombat'; break;
+    case 'T': frequencyType = 'perTarget'; break;
+  }
+  
+  // Determine if magical
+  const isMagical = magic === 'M';
+  
+  // Create action property object
+  const actionProperty = {
+    type: actionType,
+    frequency: frequencyType,
+    magical: isMagical,
+    energy: energy,
+    // Source info will be added when processing module options
+  };
+  
+  // Add to character's action properties
+  character.actionProperties.push(actionProperty);
 };
 
 // Mapping functions

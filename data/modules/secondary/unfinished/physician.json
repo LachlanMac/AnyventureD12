@@ -7,81 +7,61 @@
     {
       "name": "Medical Expertise",
       "description": "Your medical knowledge extends beyond basic healing. Gain +1 skill with medicine. You can grant an ally +2 temporary hit points during a short rest that lasts until their next rest.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "SSP=1:TO"
     },
     {
       "name": "Action : Emergency Surgery",
       "description": "Perform emergency treatment on an adjacent ally. Make a medicine check (DC 8). Success: Remove one physical condition and heal 2 health. Failure: They take 1 damage from rough treatment.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "X"
     },
     {
       "name": "Reaction : Preventive Care",
       "description": "When an adjacent ally would gain a physical condition, make a medicine check (DC equals the effect's DC). On success, prevent the condition.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "Z"
     },
     {
       "name": "Anatomical Knowledge",
       "description": "Your medical training helps you spot vulnerabilities. Gain +1 skill with senses. When you successfully treat an ally, you can identify any hidden injuries or conditions affecting them.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "SSK=1:TO"
     },
     {
       "name": "Combat Medic",
       "description": "You remain effective under pressure. Gain +1 skill with endurance. You can use medicine checks in combat without penalty and gain +2 physical mitigation while treating an ally.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SSD=1:M1=2"
     },
     {
       "name": "Herbalist",
       "description": "You can create healing remedies from nature. Gain +1 skill with wildcraft. Spend 10 minutes to create a poultice that heals 3 health when applied (limit 3 per day).",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSM=1:TO"
     },
     {
       "name": "Action : Resuscitate",
       "description": "Attempt to revive an ally who fell to 0 health within the last 2 rounds. Make a medicine check (DC 12). Success: They return to consciousness with 1 health and are weakened for 1 hour. Once per ally per day.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "X"
     },
     {
       "name": "Master Surgeon",
       "description": "Your medical treatments are exceptionally effective. Gain +1 skill with medicine. Healing you provide is increased by 2, and you can cure permanent injuries with a week of treatment (DC 15 medicine check).",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "SSP=1:TO"
     },
     {
       "name": "Plague Doctor",
       "description": "You are immune to diseases and poisons. Gain +1 skill with resilience and immunity to non-magical diseases and poisons. You can create antidotes that grant others temporary immunity (1 hour).",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "SSI=1:IH:IK"
     },
     {
       "name": "Miracle Worker",
       "description": "Your medical abilities approach the miraculous. Gain +1 skill with medicine and +1 skill with endurance. Once per day, perform a 1-minute miracle: remove all conditions from one ally, heal them for 10 health, grant immunity to physical conditions for 1 hour, and remove permanent injuries if at 0 health.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "SSP=1:SSD=1:X"
     }
   ]

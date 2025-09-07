@@ -7,81 +7,61 @@
     {
       "name": "Kleptomania",
       "description": "When you steal an object, you gain 1 morale after your next full rest for each 20 gold of value on the object up to a maximum of 10.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Action : Sleight of Hand",
       "description": "You attempt to either steal a visible, unequipped object from an adjacent creature or plant a small object on them. Make a coordination check contested by their senses check. On success, you complete the action unnoticed. On failure, they become aware of your attempt.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Reaction : Evasive Maneuvers",
       "description": "In response to being targeted by a melee attack, you can immediately move up to 2 units without provoking reactions, gaining a bonus dice to your defense check.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Skilled Thief",
       "description": "Gain +1 skill with thievery. You have learned the fundamentals of larceny and security bypass. Your mastery with lockpicks is so refined that you can pick locks without making any noise, allowing you to work undetected.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "SSP=1:TG"
     },
     {
       "name": "Thrill of the Steal",
       "description": "Gain +1 skill with coordination. Once per day, when you steal an object valued at 100 gold or higher, gain +1 resolve for each 100 gold valuation of the object.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SSO=1:TG"
     },
     {
       "name": "Evasive",
       "description": "You have honed your ability to avoid attacks through quick reflexes and positioning. Gain +1 skill with evasion.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSI=1:TG"
     },
     {
       "name": "Shadow Step",
       "description": "You are adept at moving unseen. Gain +1 skill with stealth. Additionally, when you successfully use stealth to gain the hidden condition, the sprint action does not reveal you.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SSS=1:TG"
     },
     {
       "name": "Concealed Weapons",
       "description": "You are skilled at hiding weapons on your person and using them effectively. Gain +1 skill with simple melee weapons. Simple melee weapons you carry cannot be discovered by normal searches.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "WS2=1:TG"
     },
     {
       "name": "Street Connections",
       "description": "Gain +1 skill with insight. You are skilled at reading people and identifying the right contacts for information gathering. By spending a day networking within a settlement, you can make an insight check to discover any criminal organizations operating in the area and learn how to make contact with them.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "SSG=1:TG"
     },
     {
       "name": "Action : Reliable Escape",
       "description": "You take a modified sprint action. If you end your movement in a location where no hostile creatures have line of sight to you, you automatically gain the hidden condition.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TG"
     }
   ]

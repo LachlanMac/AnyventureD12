@@ -1,0 +1,68 @@
+{
+  "id": 211,
+  "name": "Metalmancer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Ferrosense",
+      "description": "Gain +1 skill with senses. When you make a senses check, you are aware of notable iron within a short (10 units) range.",
+      "location": "1",
+      "data": "SSK=1:TG"
+    },
+    {
+      "name": "Reaction : Iron Shell",
+      "description": "In response to being targeted by an attack, gain +10 physical mitigation against the damage.",
+      "location": "2a",
+      "data": "Z"
+    },
+    {
+      "name": "Action : Conductive Throw",
+      "description": "Make a throwing attack with a metal throwing weapon, but use a magic check instead of a throwing check for your attack.",
+      "location": "2b",
+      "data": "X"
+    },
+    {
+      "name": "Innate Magnetism",
+      "description": "Gain +1 skill with concentration. You can move objects mostly composed of iron or steel within very short (5 units) range by making a concentration check instead of a might check.",
+      "location": "3",
+      "data": "SSJ=1:TG"
+    },
+    {
+      "name": "Power Forge",
+      "description": "Gain +1 skill with fabrication. When making a fabrication crafting check, add a dice from your highest magical school to the fabrication dice pool.",
+      "location": "4a",
+      "data": "CS2=1:TG"
+    },
+    {
+      "name": "Transmuter",
+      "description": "Gain +1 skill with magic knowledge. You can spend an hour transmuting any amount of shards, nuggets or ingots as long as the resulting metal is equal to or less than the value of the input.",
+      "location": "4b",
+      "data": "SSO=1:TG"
+    },
+    {
+      "name": "Daily Action : Splinter Metal",
+      "description": "You touch a mutable metal object and splinter it into shards. If the object is equipped, this action requires a successful unarmed attack. Items crafted with ingots create 10 shards per ingot used. Before you take a full rest, you can spend a minute reassembling the shards into their original form.",
+      "location": "5",
+      "data": "X"
+    },
+    {
+      "name": "Arcane Smith",
+      "description": "You may craft fabrication recipes using any one of your magic schools in place of fabrication for the skill check. When you do, you can benefit from at most one infusion on that item.",
+      "location": "6a",
+      "data": "TG"
+    },
+    {
+      "name": "Charged Metalmancy",
+      "description": "You can charge spells using metal shavings instead of the listed component. When you declare a charged spell, increase the required check by: +2 (Iron), +3-4 (Silver), +5-6 (Gold), +7-8 (Platinum), or +9-11 (Aetherium).",
+      "location": "6b",
+      "data": "TG"
+    },
+    {
+      "name": "Metal Magic",
+      "description": "Gain +1 skill with meta magic and +1 skill with primal magic.",
+      "location": "7",
+      "data": "YS3=1:YS2=1:TO"
+    }
+  ]
+}

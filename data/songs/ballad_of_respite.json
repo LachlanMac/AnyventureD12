@@ -1,0 +1,10 @@
+{
+  "id": 205,
+  "type": "ballad",
+  "name": "Ballad of Respite",
+  "magical": false,
+  "difficulty": 4,
+  "description": "A gentle lay that turns poor sleep into true rest",
+  "effect": "Treat an unfavorable rest as favorable and remove its penalties",
+  "harmony_1": { "instrument": "any", "effect": "Each harmony reduces the required sleep by 1 hour (minimum 4 hours)" }
+}

@@ -125,6 +125,7 @@ const ItemCompendium: React.FC = () => {
     'tool',
     'instrument',
     'ammunition',
+    'runes',
   ];
 
   const rarityTypes = ['all', 'common', 'uncommon', 'rare', 'epic', 'legendary', 'artifact'];
@@ -145,9 +146,6 @@ const ItemCompendium: React.FC = () => {
     'elixirs',
     'potions',
     'explosives',
-    'intoxicants',
-    'snack',
-    'meal',
   ];
 
   if (loading) {

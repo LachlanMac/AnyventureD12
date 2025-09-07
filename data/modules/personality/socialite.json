@@ -3,87 +3,70 @@
   "name": "Socialite",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors":["You face public mockery or accusation","You fail a social check severely","You experience betrayal from an ally"],
- "options": [
-      {
+  "stressors": [
+    "You face public mockery or accusation",
+    "You fail a social check severely",
+    "You experience betrayal from an ally"
+  ],
+  "options": [
+    {
       "name": "Socialite",
       "description": "You are a socialite, thriving in social environments where your natural charm and expressiveness make you the heart of any gathering. Your ability to navigate social dynamics comes naturally to you, although you may struggle when forced to spend extended periods in isolation or silence. You value connection, expression, and social harmony above all else.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1"
     },
-   
     {
       "name": "Heart of the Party",
       "description": "You are a pleasure to be around. Gain +1 skill with the presence and +1 skill with expression. ",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "First Impressions",
       "description": "The best time to make an impression is in your first meeting. Gain +1 skill with persuasion. Additionally, the first time you meet someone, roll a bonus dice for all social checks involving them for the next hour.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG:SSQ=1"
     },
     {
       "name": "Downtime Action : Seek Ally",
       "description": "You spend time seeking out an ally who shares a common purpose with you, with their resources and usefulness dependent upon a persuasion check. A check of 6-9 is midly successful, gaining an ally that may offer minor assistance with your goals. A check of 10 or higher is very successful and the ally is much more resourceful. In the event of a perfect check, the ally is extremely resourceful and wields significant power and influence.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "Y"
     },
     {
       "name": "Reaction : Center of Attention",
       "description": "In response to an enemy that is adjacent to you making an attack on an ally, roll a presence check. If the reuslt is 8 or higher, the attack instead targets you.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "ZX"
     },
     {
       "name": "Action : Mock",
       "description": "You mock a creature that you share a language with by rolling any social check against the target's resilience. Until the start of your next turn, that creature gains a bonus attack dice against you, but a penalty against your allies.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "XX"
     },
     {
       "name": "Social Presence",
       "description": "Your natural socialite abilities enhance your commanding presence in social situations. Gain +1 skill with presence. When first meeting someone, you can attempt to convince them that you've already met by making a contested presence check against their insight.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SSR=1"
     },
     {
       "name": "Party Goer",
       "description": "You gain 5 morale and 5 resolve your first full rest after attending a party or social event that you are invited to. During a party, you gain a bonus roll to all social checks.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Everyone's Confidant",
       "description": "The way you present yourself makes people open up to you and show their cards more often. Gain +1 skill with insight. Once per full rest, an ally can make you a confidant allowing them to recover 2 resolve if they roll an expression check of 6 and you roll an insight check of 8.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Social Luminary",
       "description": "Gain +1 talent with social.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "ST5=1"
     }
   ]

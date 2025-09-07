@@ -3,85 +3,65 @@
   "name": "Primal Magic",
   "mtype": "core",
   "ruleset": 1,
- "options": [
+  "options": [
     {
       "name": "Fledgling Primalist",
       "description": "You have trained to channel primal spells. Gain +1 skill with primal magic.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "YS2=1"
     },
     {
       "name": "Action : Kinesis",
       "description": "You make a ranged spell attack using your primal magic skill at a target within a short (10 unit) distance. For each dice that hits, deal 3 physical damage.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
-      "data": "X"
+      "data": "XIME=1"
     },
     {
       "name": "Reaction : Draw Nature",
       "description": "In response to taking heat, cold or electric damage from a spell or effect, you absorb the extra energy. Until the end of your next turn, the first primal spell you channel is charged.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZIME=1"
     },
     {
       "name": "Of the Elements",
       "description": "You are attuned to the elements and gain +1 mitigation to heat, cold and electric damage.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "M2=1:M3=1:M4=1:TG"
     },
     {
       "name": "Anchored",
       "description": "You are naturally anchored to the world, gaining +1 skill with endurance and making you immune from stun or daze conditions caused by electric effects. Additionally, you gain seismic detection when standing on natural terrain.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SSD=1:TG"
     },
     {
       "name": "Studied Magic",
       "description": "Your experience with primal magic has led to greater understanding. Gain +1 skill with magic knowledge and +1 spell capacity.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
-      "data": "SSO=1:TG"
+      "data": "SSO=1:A9=1:TG"
     },
     {
       "name": "Skilled Primalist",
       "description": "You have trained extensively with primal spells. Gain +1 skill with primal magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "YS2=1"
     },
     {
       "name": "Daily Action : Primal Overcharge",
       "description": "You channel a primal spell that deals damage, but the damage dealt and the energy required are both doubled. This ability only works in natural environments.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
-      "data": "X"
+      "data": "XDME=1"
     },
     {
       "name": "Reaction : Dampen Elements",
       "description": "In response to an effect or spell that deals either heat, cold or electric damage, reduce the strength of the elements in a 3 unit radius around you by 2d4 damage.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZIME=1"
     },
     {
       "name": "Talented Primalist",
       "description": "Your relentless training has resulted in +1 talent with primal magic spells.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "YT2=1"
     }
   ]

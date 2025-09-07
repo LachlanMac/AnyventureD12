@@ -7,81 +7,61 @@
     {
       "name": "Arcane Analysis",
       "description": "Gain +1 skill with magic knowledge. When you touch an object or creature, you can determine if it is in it's natural form or if it is under the effect of magic that has transmuted it in some way.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1:TG"
     },
     {
       "name": "Immutable Crafting",
       "description": "Items you craft become resistant to change and decay. Gain +1 skill with fabrication. Equipment you create cannot be affected by rust, corrosion, or magical transformation effects or have it's form, weight or size altered or disguised in any way.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Material Sympathy",
       "description": "Gain +1 skill with senses. You can sense the structural integrity and weak points of any object or structure by touch. You can determine how much damage would be required to break, collapse, or significantly damage it, and identify the most vulnerable points for maximum effect.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG"
     },
     {
-      "name": "Material Mastery",  
+      "name": "Material Mastery",
       "description": "You understand the fundamental properties of materials and how to alter them. Gain +1 skill with academics. You can identify the composition, quality, and approximate value of any material by touch.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "TG"
     },
     {
-     "name": "Reaction : Adjust Mass",
+      "name": "Reaction : Adjust Mass",
       "description": "In response to being the target of an ability that would displace you, the check required to avoid the displacement is halved. If there is no check associated with the displacement, you automatically succeed.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Action : Destabilize",
       "description": "You target an adjacent creature or object and attempt to disrupt its fundamental structure by channeling a spell that deals damage. If your spell successfully deals damage after mitigations, your target's mitigation to the damage type you dealt becomes 0 until the start of your next turn.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Skilled Transmuter",
       "description": "Your mastery of transformation magic has deepened considerably. Gain +1 skill with alteration magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Alchemical Transmutation",
-      "description": "You blend magical theory with practical alchemy. Gain +1 skill with alchemy. When you make an alchemy check, roll an alteration check with a single dice and add that dice to your alchemy check pool.", 
-      "mtype": "core",
+      "description": "You blend magical theory with practical alchemy. Gain +1 skill with alchemy. When you make an alchemy check, roll an alteration check with a single dice and add that dice to your alchemy check pool.",
       "location": "6a",
-      "cost": 2,
       "data": "TG"
     },
     {
-     "name": "Selective Immutability",
+      "name": "Selective Immutability",
       "description": "You have achieved perfect control over your personal transmutation, transcending natural limitations. All effects that would alter your form - whether beneficial or harmful - can be consciously accepted or rejected at will, even bypassing any immutable properties you might have.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Daily Action : Metamorphis",
       "description": "You undergo a complete physical transformation, taking the form of any monster or beast you have encountered of champion tier or lower for one minute. Make an alteration magic check against the creature's tier difficulty (minion 2, grunt 4, standard 6, champion 8). On failure, you become maddened for the entire duration. You retain your mental abilities but gain the target creature's physical form, attacks, and capabilities. If this form is reduced to 0 health, you immediately revert to your original body with 5 health.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TG"
     }
   ]

@@ -3,87 +3,70 @@
   "name": "Schemer",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors":["Your plan fails","You discover someone has lied to you","You become imprisoned against your will"],
- "options": [
-      {
+  "stressors": [
+    "Your plan fails",
+    "You discover someone has lied to you",
+    "You become imprisoned against your will"
+  ],
+  "options": [
+    {
       "name": "Schemer",
       "description": "You are a schemer, always contemplating contingencies and plotting several steps ahead of those around you with both brilliant foresight and occasional paranoia. Your calculating mind sees opportunities and angles others miss, though your constant planning can sometimes prevent you from acting spontaneously when needed. You value foresight, contingency planning, and strategic advantage above all else.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1"
     },
-   
     {
       "name": "Contigency Planning",
       "description": "Gain +1 skill with coordination. At the start of each day, choose one skill and make a standard skill check, noting your highest rolled dice result. Until your next full rest, whenever you make another check using that same skill, you may replace any single dice result with the stored result from that initial roll.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Deceiver",
       "description": "You lie as easily as you breathe. Gain +1 to the persuasion skill. When you are not telling the truth, you roll an additional dice on persuasion checks.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Downtime Action : Intrigue",
       "description": "Over the course of approximately a day, you choose to either gather or spread rumors, with the quality of the intrigue proprotional to a persuasion check; A check of an 6-9 is midly successful, while an 10 or higher is very successful.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Action : Misdirection",
       "description": "You make a melee attack with a penalty dice, deliberately telegraphing your movements to create an opening. Whether your attack hits or misses, you expose a vulnerability in your target's defenses. The next attack check rolled against that target before the start of your next turn gains two bonus dice.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "XX"
     },
     {
       "name": "Daily Reaction : Backup Plan",
       "description": "In response to making a check of any kind, reroll the check using any other mind or social skill.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "ZD"
     },
     {
       "name": "Logical Manipulation",
       "description": "Your scheming nature enhances your logical thinking and planning abilities. Gain +1 skill with logic. When you start a fight or prevent one using a social skill, you gain 3 morale.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SSL=1"
     },
     {
       "name": "Size Up",
       "description": "When a creature within sight makes a skill check, you can make an insight or logic check against their result. If yours is higher, you learn their weakest skill in that attribute category. This analysis requires no action but can only be used once per creature.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Fool's Gambit",
       "description": "Once per day, when you roll a skill or attack check, you can attempt to reroll it by making a final gambit. Regardless of your skill or talent, you roll 3d12, but before you roll, you must name a number between 1-12. If that number doesn't appear in your roll, the new roll is discarded and you lose 5 resolve. If the number does appear, you gain 2 resolve for each time it occurs and replace your original skill check with the highest result of the 3d12.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": ""
     },
     {
       "name": "Strategist",
       "description": "Gain +1 talent with social.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "ST5=1"
     }
   ]

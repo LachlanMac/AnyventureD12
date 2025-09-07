@@ -54,13 +54,13 @@ const ItemSchema = new Schema({
   // Item type information
   type: { 
     type: String, 
-    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "tools", "instrument", "ammunition", "runes" ],
+    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition", "runes" ],
     required: true 
   },
 
   weapon_category: { 
       type: String, 
-      enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing", "black_magic", "primal_magic", "divine_magic", "mysticism_magic", "meta_magic"],
+      enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
   },
   shield_category: { 
       type: String, 
@@ -68,7 +68,7 @@ const ItemSchema = new Schema({
   },
   consumable_category: { 
       type: String, 
-      enum: ["poisons", "elixirs", "potions", "explosives", "intoxicants"],
+      enum: ["poisons", "elixirs", "potions", "explosives"],
   },
   bonus_attack: {
     type: Number,

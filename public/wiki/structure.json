@@ -170,11 +170,32 @@
       "order": 3
     },
     {
-      "id": "items",
-      "title": "Items & Equipment",
-      "path": "equipment/items.md",
-      "category": "Equipment",
+      "id": "equipment",
+      "title": "Equipment",
+      "path": "items/equipment.md",
+      "category": "Items",
       "order": 1
+    },
+    {
+      "id": "items",
+      "title": "Items",
+      "path": "items/items.md",
+      "category": "Items",
+      "order": 2
+    },
+    {
+      "id": "item-rarity",
+      "title": "Item Rarity",
+      "path": "items/item_rarity.md",
+      "category": "Items",
+      "order": 3
+    },
+    {
+      "id": "currency",
+      "title": "Currency",
+      "path": "items/currency.md",
+      "category": "Items",
+      "order": 4
     },
     {
       "id": "crafting",

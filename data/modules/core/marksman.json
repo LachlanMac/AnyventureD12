@@ -7,81 +7,61 @@
     {
       "name": "Fledgling Marksman",
       "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple and complex ranged weapons.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "WS4=1:WS6=1"
     },
     {
-      "name": "Action : Aimed Shot",
-      "description": "While making an attack with a simple or complex ranged weapon, roll an additional attack dice.",
-      "mtype": "core",
+      "name": "Action : Pin Down",
+      "description": "You make an attack with a ranged weapon against a large or smaller creature with legs, reducing their movement speed by 2. Your attack must deal damage for this effect to work.",
       "location": "2a",
-      "cost": 2,
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Headshot",
-      "description": "While making an attack with a simple or complex ranged weapon, roll one less dice but the damage on your primary attack dice is doubled.",
-      "mtype": "core",
+      "description": "While making an attack with a simple or complex ranged weapon roll 1 less dice. Your first dice that hits deals double damage after all other modifiers, such as critical hits, are added.",
       "location": "2b",
-      "cost": 2,
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Improved Aim",
-      "description": "Your aiming is greatly improved, allowing you not suffer a penalty while shooting at one range greater than your optimal range.",
-      "mtype": "core",
+      "description": "Your aiming is greatly improved, increasing your optimal range on simple and complex ranged weapons by 1.",
       "location": "3",
-      "cost": 2,
-      "data": "TG"
+      "data": "AB=1:AD=1"
     },
     {
-      "name": "Ammocraft",
+      "name": "Fletching",
       "description": "You are skilled at making your own ammunition. Gain +1 skill with engineering. When crafting ammunition or ranged weapons, roll an additional dice.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "CS1=1:TC"
     },
     {
       "name": "Focused",
       "description": "Marksman require a centered mind to achieve their potential. Gain +1 skill with concentration and coordination.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSJ=1:SSG=1:TG"
     },
     {
       "name": "Skilled Marksman",
       "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple and complex ranged weapons.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "WS4=1:WS6=1"
     },
     {
-      "name": "Savage Shots",
-      "description": "When all of your dice hit when making an attack with a simple or complex ranged weapon, deal extra damage equal to your weapon damage.",
-      "mtype": "core",
+      "name": "Perfectly Precise",
+      "description": "You can use an action to shoot an inanimate object without rolling a check, as long as it is within your optimal range. Additionally, you ignore partial cover when making attacks with ranged weapons.",
       "location": "6a",
-      "cost": 2,
       "data": "TG"
     },
     {
-      "name": "Stance of the Marksman",
-      "description": "You gain the Marksman Stance, allowing you to utilize your concentration to improve your accuracy.",
-      "mtype": "core",
+      "name": "Action : Marksman Stance",
+      "description": "You enter a stance that allows you to utilize your concentration to improve your aim, granting you a bonus dice to all ranged and throwing attacks. This stance ends if your concentration is lost.",
       "location": "6b",
-      "cost": 2,
-      "data": "TG"
+      "data": "XINE=0"
     },
     {
       "name": "Talented Marksman",
       "description": "Your relentless training has resulted in +1 talent with simple and complex ranged weapons.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "WT4=1:WT6=1"
     }
   ]

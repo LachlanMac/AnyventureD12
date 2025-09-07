@@ -7,81 +7,61 @@
     {
       "name": "Fledgling Combatant",
       "description": "You have trained with several types of melee weapons. Gain +1 skill with simple and complex melee weapons.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "WS3=1:WS5=1"
     },
     {
       "name": "Action : Power Strike",
-      "description": "You make a powerful attack against an enemy with a simple or complex melee weapon. You roll an additional dice for your attack, but do not benefit from any extra damage. Instead, do three times the primary damage of your weapon.",
-      "mtype": "core",
+      "description": "You make a powerful attack against an enemy with a simple or complex melee weapon that consumes a lot of energy, adding 2 might dice to your weapon attack. These dice are not eligible for critical hits.",
       "location": "2a",
-      "cost": 2,
-      "data": "X"
+      "data": "XINE=2"
     },
     {
       "name": "Action : Close the Gap",
       "description": "You move up to 2 units towards an enemy and then make an attack against them with a melee weapon.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 1,
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Reactive Strike",
-      "description": "When an enemy moves within your melee range, make an attack against them.",
-      "mtype": "core",
+      "description": "When an enemy moves within your melee range, make an attack against them with a simple or complex melee weapon.",
       "location": "3",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZINE=1"
     },
     {
       "name": "Conditioning",
-      "description": "Your dedication to weapon training has resulted in increased conditioning. You gain +1 skill with fitness and +2 health.",
-      "mtype": "core",
+      "description": "Your dedication to weapon training has resulted in increased conditioning. You gain +1 skill with fitness and +2 maximum health.",
       "location": "4a",
-      "cost": 2,
-      "data": "SSA=1:A1=2:TG"
+      "data": "SSA=1:A1=2"
     },
     {
       "name": "Parry",
       "description": "You have trained to block attacks with your weapons. You gain +1 skill with deflection.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
-      "data": "SSB=1:TG"
+      "data": "SSB=1"
     },
     {
       "name": "Skilled Combatant",
       "description": "You have trained with several types of melee weapons. Gain +1 skill with simple and complex melee weapons.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "WS3=1:WS5=1"
     },
     {
       "name": "Perfect Form",
-      "description": "You ignore penalties for weapons with the 'heavy' property and gain +1 skill with coordination.",
-      "mtype": "core",
+      "description": "",
       "location": "6a",
-      "cost": 2,
       "data": "SSG=1:TG"
     },
     {
-      "name": "Critical Hits",
-      "description": "When all of your dice hit when making an attack with a simple or complex melee weapon, deal extra damage equal to your weapon damage.",
-      "mtype": "core",
+      "name": "Brutal Criticals",
+      "description": "When you score any number of critical hits on a simple or complex melee weapon attack, add 5 damage to the final calculation.",
       "location": "6b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Talented Combatant",
       "description": "Your relentless training has resulted in +1 talent with simple and complex melee weapons.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "WT3=1:WT5=1"
     }
   ]

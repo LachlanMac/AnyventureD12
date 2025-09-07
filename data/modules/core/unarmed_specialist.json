@@ -7,81 +7,61 @@
     {
       "name": "Fledgling Striker",
       "description": "You are well trained in using your fists as a weapon. Gain +1 skill with unarmed attacks.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "WS1=1"
     },
     {
       "name": "Action : Reposition",
       "description": "You strike an enemy and reposition yourself to where you are still adjacent to your target. This has a limit equal to your movement speed when considering exceptionally large enemies.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Flurry",
       "description": "You make an unarmed attack, but treat each dice as it's own separate attack that is mitigated separately. Each attack deals only the primary damage. If all attacks hit, even if they do no damage, the enemy becomes dazed.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 1,
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Disrupting Strike",
       "description": "When an enemy makes an attack against you while adjacent, make an unarmed attack against them. If all of your attack dice hit, their attack is rolled with only 1 dice.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZINE=1"
     },
     {
       "name": "Raw Strikes",
       "description": "Your primary damage for unarmed attacks becomes equal to your might skill instead of using the physical mitigation on your hands slot. Your extra damage becomes equal to half your might.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Boxer",
       "description": "You have put extensive effort into improving your stamina and avoiding being hit. Gain +1 skill with evasion and endurance.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSE=1:SSD=1:TG"
     },
     {
       "name": "Skilled Striker",
       "description": "You are well trained in using your body as a weapon. Gain +1 skill with unarmed attacks.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "WS1=1"
     },
     {
       "name": "Advantageous Blows",
       "description": "Whenever you make an unarmed attack against an enemy that is dazed or stunned, physical mitigation cannot mitigate your unarmed attacks.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Knockout",
       "description": "When you deal damage with an unarmed attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they become unconscious for 1 minute.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Talented Striker",
       "description": "Your relentless training has resulted in +1 talent with unarmed attacks.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "WT1=1"
     }
   ]

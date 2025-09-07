@@ -3,86 +3,65 @@
   "name": "Druid",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
-      {
+  "options": [
+    {
       "name": "Animal Companion",
       "description": "You gain +1 skill with wildcraft. When you have a beast or plantoid as a pet or under your command, you can experience their senses as long as they are within a moderate (20 unit) distance from you.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1:TG"
     },
-   
     {
       "name": "Beastial Spirit",
       "description": "You are infused with the spirit of the beast. Gain +1 skill with athletics and +1 movement speed.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Natural Diet",
       "description": "Your experience in the outdoors has given you a great eye for fungi, herbs and spices. Gain +1 health and +1 skill with cooking. Additioanally, when foraging or identifying plants or fungi, gain a bonus dice to your checks.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Action : Shapeshift",
       "description": "You transform into a beast that you have encountered before that is of the minion or grunt tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shapeshifted, you return to your usual form with 0 health.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Action : Fungal Regrowth",
       "description": "You channel a spell that has an instantaneous effect on another creature, but heal yourself for the same amount, ignoring any threshold limitations.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TD"
     },
     {
       "name": "Action : Nature's Wrath",
       "description": "You channel a primal spell from the nature subschool and increase the check to avoid it by 2.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Nature Magic",
       "description": "Your talent to bend the forces of nature is well documented. You gain +1 skill with primal magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Greater Shift",
       "description": "Your Shapeshift Action allows you to turn into standard tier beasts you have encountered. Additionally, when you are transformed, you can use your unarmed skill to replace any attack check on the beast's statblock.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Defiler",
       "description": "You use the dark arts to taint the natural order. Gain +1 skill with black magic and learn the Raise Beast spell which you can channel once a day with an automatic success.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Archdruid",
       "description": "You effortlessly command the power of nature, allowing you to speak to plantoids and beasts as if you were under the effect of the spells that grant that power. Additionally, you can command plants as an action, such as commanding vines or tree branches to perform simple tasks like shove, grapple or assist using your primal magic skill as a check.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TG"
     }
   ]

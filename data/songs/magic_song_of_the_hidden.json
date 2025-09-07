@@ -1,0 +1,10 @@
+{
+  "id": 7,
+  "type": "song",
+  "name": "Song of the Hidden",
+  "magical": true,
+  "difficulty": 8,
+  "description": "A hushed weave that blurs edges and muffles sound",
+  "effect": "Allies start their turn with the obscured condition",
+  "harmony_1": { "instrument": "any", "effect": "Affected characters also start their turn silenced and invisible; anything but movement breaks this effect" }
+}

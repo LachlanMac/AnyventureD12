@@ -15,6 +15,7 @@ import moduleRoutes from './routes/moduleRoutes.js';
 import portraitRoutes from './routes/portraitRoutes.js';
 import spellRoutes from './routes/spellRoutes.js';
 import characterSpellRoutes from './routes/characterSpellRoutes.js';
+import characterSongRoutes from './routes/characterSongRoutes.js';
 import itemRoutes from './routes/itemRoutes.js';
 import ancestryRoutes from './routes/ancestryRoutes.js';
 import cultureRoutes from './routes/cultureRoutes.js';
@@ -24,6 +25,7 @@ import homebrewRoutes from './routes/homebrewRoutes.js';
 import homebrewSpellRoutes from './routes/homebrewSpellRoutes.js';
 import homebrewCreatureRoutes from './routes/homebrewCreatureRoutes.js';
 import creatureRoutes from './routes/creatureRoutes.js';
+import songRoutes from './routes/songRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -32,6 +34,7 @@ import setupPassport from './config/passport.js';
 import { initializeItems } from './utils/itemSeeder.js';
 import { initializeModules } from './utils/moduleSeeder.js';
 import { initializeSpells } from './utils/spellSeeder.js';
+import { initializeSongs } from './utils/songSeeder.js';
 import { initializeAncestries } from './utils/ancestrySeeder.js';
 import { initializeCultures } from './utils/cultureSeeder.js';
 import { initializeTraits } from './utils/traitSeeder.js';
@@ -85,6 +88,8 @@ const connectDB = async () => {
     await initializeModules();
     console.log('Initializing spells...');
     await initializeSpells();
+    console.log('Initializing songs...');
+    await initializeSongs();
     console.log('Initializing ancestries...');
     await initializeAncestries();
     console.log('Initializing cultures...');
@@ -108,13 +113,16 @@ app.use('/api/cultures', cultureRoutes);
 app.use('/api/traits', traitRoutes);
 app.use('/api/portraits', portraitRoutes);
 app.use('/api/spells', spellRoutes);
+app.use('/api/songs', songRoutes);
 app.use('/api/items', itemRoutes);
 app.use('/api/campaigns', campaignRoutes);
+app.use('/api/songs', songRoutes);
 app.use('/api/homebrew', homebrewRoutes);
 app.use('/api/homebrew', homebrewSpellRoutes);
 app.use('/api/homebrew/creatures', homebrewCreatureRoutes);
 app.use('/api/creatures', creatureRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
+app.use('/api/characters/:characterId/songs', characterSongRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {
   res.json({ message: 'API is running' });

@@ -15,6 +15,10 @@ The character makes an attack with a simple weapon, unarmed strike or throwing w
 ### Attack (Complex Weapon) - 1 Energy
 The character makes an attack with a complex weapon.
 
+<div class="note-box">
+When using a special action with an energy cost, that cost is increased by 1 if using a complex weapon.
+</div>
+
 ### Jump - 1 Energy
 The character specifies how many units they want to jump, up to their movement speed. They then roll a fitness check to determine if they were able to make the full jump or if they fall short. If they took either the sprint action or used 2 units of their movement speed immediately before the jump, their fitness check must be greater than or equal to the units they are attempting to jump - otherwise, they only jump a number of units equal to their fitness check. Without a running start, their fitness check is halved and rounded down to calculate the number of units they traverse.
 
@@ -31,7 +35,7 @@ The character attempts to shove another character that is the same size, knockin
 The character uses an item, such as drinking a potion, picking up an object or attempting to unlock a door.
 
 ### Rest - 0 Energy
-The character rests, removing the winded condition.
+The character rests, removing the winded condition. If the character does not have the winded condition, this action instead restores 2 energy.
 
 ### Hide - 0 Energy
 The character gains the obscured condition described in [Conditions](/wiki/conditions). A character cannot use this action if an enemy can currently see or sense them.

@@ -69,6 +69,13 @@ const CharacterSpellSchema = new Schema({
   }
 });
 
+const CharacterSongSchema = new Schema({
+  songId: { type: Schema.Types.ObjectId, ref: 'Song', required: true },
+  dateAdded: { type: Date, default: Date.now },
+  favorite: { type: Boolean, default: false },
+  notes: { type: String, default: '' }
+});
+
 const CharacterItemSchema = new Schema({
   // Either a reference OR full item data
   itemId: {
@@ -227,6 +234,7 @@ const CharacterSchema = new Schema({
     min: 0
   },
   spells: [CharacterSpellSchema],
+  songs: [CharacterSongSchema],
   
   // Inventory system
   inventory: [CharacterItemSchema],

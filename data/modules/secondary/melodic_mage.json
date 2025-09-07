@@ -1,0 +1,68 @@
+{
+  "id": 210,
+  "name": "Melodic Mage",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Harmonic Theory",
+      "description": "You understand the magical resonance within music. Gain +1 skill with magic knowledge. When you attempt to learn a new spell, roll an expression check; the highest dice is added to your spell check pool.",
+      "location": "1",
+      "data": "SSK=1:TG"
+    },
+    {
+      "name": "Melodic Memory",
+      "description": "Your mind retains magical patterns through musical mnemonics. Gain +1 skill with logic and +1 spell capacity.",
+      "location": "2a",
+      "data": "SSN=1:TG"
+    },
+    {
+      "name": "Perfect Tune",
+      "description": "Your senses are magically attuned, granting you +1 skill with senses. When you have the alert condition, you roll a bonus dice when making senses checks with only sound.",
+      "location": "2b",
+      "data": "SSQ=1:TG"
+    },
+    {
+      "name": "Music Arcana",
+      "description": "You have learned to enhance your musical performances with arcane power, allowing you to use, learn and compose magical songs and ballads. Learn one magical song of your choice with a difficulty of 6 or lower.",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "Daily Action : Power Ballad",
+      "description": "You attempt to charge a spell you know by channeling it as a ritual. To succeed, you must make an expression check using a musical skill that is 4 higher than the normal required check of the spell. On a failure, this spell cannot be channeled until a full rest is completed.",
+      "location": "4a",
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Counter Verse",
+      "description": "In response to a creature within a short (10 unit) distance using an ability that requires sound, you weave a silencing counter-melody. If they are channeling a spell, they roll their spell check with a penalty die (as if unable to speak). All allies within range become deafened by your harmony, protecting them from sonic attacks. You must be playing a song to use this ability.",
+      "location": "4b",
+      "data": "Z"
+    },
+    {
+      "name": "Virtuoso",
+      "description": "Your dedication to musical craft deepens. Gain +1 skill with expression. Choose one musical skill where you are Novice - become Expert. If you have no Novice skills, become Novice in two musical skills of your choice.",
+      "location": "5",
+      "data": "SSQ=1:TG"
+    },
+    {
+      "name": "Transformative Magic",
+      "description": "Your understanding of magical transformation is unparalleled. Gain +1 skill with Metamagic.",
+      "location": "6a",
+      "data": "WTH=1:TG"
+    },
+    {
+      "name": "Magical Melody",
+      "description": "When you are concentrating on a melody, you can channel spells by making expression checks with your voice/instrument instead of a check from the spell school. Channeling a spell in this way prolongs your song as if you had used an action to continue it. You cannot charge a spell, or channel a spell that requires concentration using this method.",
+      "location": "6b",
+      "data": "TG"
+    },
+    {
+      "name": "Songweaver",
+      "description": "While you are concentrating on a song, you can channel a spell that requires concentration and maintain both at the same time. If your song is interrupted or you lose the ability to concentrate, the spell also ends. Concentration checks rolled while using the Songweaving trait are rolled with a penalty dice.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

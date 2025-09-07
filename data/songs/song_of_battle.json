@@ -1,9 +1,11 @@
 {
   "id": 1,
+  "type": "song",
   "name": "Song of Battle",
   "magical": false,
   "difficulty": 6,
-  "harmony":"percussion",
-  "description": "A driving percussion rhythm that synchronizes allies' attacks, granting them enhanced combat prowess.",
-  "effect":"+1 Bonus Attack Dice and 1 Free Melee Attack"
+  "description": "A driving rhythm that synchronizes allies' attacks, granting them enhanced combat prowess",
+  "effect": "Allies gain an additional action that can only be used to make a melee attack",
+  "harmony_1": { "instrument": "percussion", "effect": "+1 bonus dice to all attack checks" },
+  "harmony_2": { "instrument": "strings", "effect": "+2 units of additional free movement" }
 }

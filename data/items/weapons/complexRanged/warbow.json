@@ -4,7 +4,7 @@
   "type": "weapon",
   "weapon_category": "complexRanged",
   "weight": 2,
-  "value": 30,
+  "value": 1280,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {

@@ -7,81 +7,61 @@
     {
       "name": "Apprentice Chef",
       "description": "You have learned the fundamentals of cooking and food preparation. Gain +1 skill with cooking.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "CS4=1"
     },
     {
-      "name": "Tastetester",
+      "name": "Taste Tester",
       "description": "Not only are you an aspiring cook, you also have a keen sense of taste and smell. Gain +1 skill with senses. You can automatically detect when food or drink has been modified, such as when it has been poisoned or modified magically.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "SSK=1:TG"
     },
     {
       "name": "Reinforced Food",
       "description": "Meals you make grant an additional 2 morale. When someone eats a meal you made, they get credit for a full rest, regardless of the sleeping conditions and they gain an extra health for completing it.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Knife Tricks",
       "description": "Your time in the kitchen has made you proficient with the tools. Gain +1 skill with coordination and +1 skill with expression.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "SSG=1:SSQ=1:TG"
     },
     {
       "name": "Exotic Cooking",
       "description": "Your experience has given you a perspective on other cultures. Gain +1 skill with insight and gain +1 language points.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SSS=1:TG"
     },
     {
       "name": "Reaction : Trusty Pan",
       "description": "In response to making a deflection check, use your pan to help ward off an attack adding a 1d12 into your deflection dice pool.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZINE=1"
     },
     {
       "name": "Skilled Chef",
       "description": "Your cooking skills have reached professional levels. Gain +1 skill with cooking. When making cooking checks, any roll under a 4 becomes a 3.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "CS4=1:TC"
     },
     {
       "name": "Comfort Food",
       "description": "Your snacks are so good they make troubling times bearable. You gain +1 maximum resolve. When a character eats one of your snacks, any damage they take from psychic damage is halved until the end of their next full rest.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "A2=1:TG"
     },
     {
       "name": "Nutritionist",
       "description": "You practice healthy and clean eating. You gain +1 skill with medicine and +1 health. When someone eats a meal you made, they regenerate an extra resolve at the end of a full rest.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "SSP=1:A1=1:TG"
     },
     {
       "name": "Legendary Chef",
       "description": "You have achieved mastery over the culinary arts. Gain +1 talent and +1 skill with cooking. When making cooking checks, any roll under a 6 becomes a 5.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "CT4=1:CS4=1:TG"
     }
   ]

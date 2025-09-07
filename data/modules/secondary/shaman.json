@@ -1,88 +1,68 @@
 {
- "id": 105,
- "name": "Shaman",
- "mtype": "secondary",
- "ruleset": 1,
- "options": [
-   {
-     "name": "Ancestral Protection",
-     "description": "The spirits of your ancestors watch over you. Gain +1 aether mitigation and +1 skill with resilience.",
-     "mtype": "core",
-     "location": "1",
-     "cost": 2,
-     "data": "SS5=1:TD"
-   },
-   {
-     "name": "Spirit Sight",
-     "description": "Your eyes have been opened to perceive the ethereal realm. Gain +1 skill with senses. You can see ethereal creatures and spirits as glowing wisps within a short (10 unit) distance, allowing you to detect their presence even when they would normally be invisible.",
-     "mtype": "core",
-     "location": "2a",
-     "cost": 2,
-     "data": "SS5=1:TG"
-   },
-   {
-     "name": "Witch Doctor",
-     "description": "You know the healing traditions of your ancestors. Gain +1 skill with medicine. Additionally, you can identify any non-magical disease or poison by their symptoms.",
-     "mtype": "core",
-     "location": "2b",
-     "cost": 2,
-     "data": "SS2=1:TD"
-   },
-   {
-     "name": "Action : Raise Spirit",
-     "description": "You call forth the spirit of a dead animal that died within the last day. The spirit retains the stats of the original creature but becomes spectral. You can only have one spirit pet at a time. If it dies, it dissipates and cannot be raised again.",
-     "mtype": "core",
-     "location": "3",
-     "cost": 2,
-     "data": "TG"
-   },
-   {
-     "name": "Spirit Bond",
-     "description": "Gain +1 skill with magic knowledge. You can see through your spirit pet's eyes and communicate telepathically with it regardless of distance, as long as you are on the same plane of existence.",
-     "mtype": "core",
-     "location": "4a",
-     "cost": 2,
-     "data": "SS3=1:TG"
-   },
-   {
-     "name": "Cleansing Aura",
-     "description": "When you channel a healing spell or a spell that removes a condition as a ritual, it affects everone within a 3 unit radius of your spirit pet.",
-      "mtype": "core",
-     "location": "4b",
-     "cost": 2,
-     "data": "SSR=1:TD"
-   },
-   {
-     "name": "Reaction : Spirit Shield",
-     "description": "In response to taking damage, you can redirect that damage to your spirit pet instead.",
-     "mtype": "core",
-     "location": "5",
-     "cost": 2,
-     "data": "SSN=1:TD"
-   },
-   {
-     "name": "Path of Nature",
-     "description": "You have chosen to walk the path of natural magic and elemental forces. Gain +1 skill with primal magic. Your spirit pets' attacks that deal physical damage can now deal heat, electric or cold damage instead.",
-     "mtype": "core",
-     "location": "6a",
-     "cost": 2,
-     "data": "SS8=1:TG"
-   },
-   {
-     "name": "Path of Spirits",
-     "description": "You have chosen to walk the path of mysticism and the spirit realm. Gain +1 skill with mysticism magic. Your spirit pets' attacks that deal physical damage can now deal aether damage instead.",
-     "mtype": "core",
-     "location": "6b",
-     "cost": 2,
-     "data": "SS4=1:TG"
-   },
-   {
-     "name": "Spirit Master",
-     "description": "You have achieved mastery over the spirit realm. You can now target a standard tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
-     "mtype": "core",
-     "location": "7",
-     "cost": 3,
-     "data": "TG"
-   }
- ]
+  "id": 105,
+  "name": "Shaman",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Ancestral Protection",
+      "description": "The spirits of your ancestors watch over you. Gain +1 aether mitigation and +1 skill with resilience.",
+      "location": "1",
+      "data": "SS5=1:TD"
+    },
+    {
+      "name": "Spirit Sight",
+      "description": "Your eyes have been opened to perceive the ethereal realm. Gain +1 skill with senses. You can see ethereal creatures and spirits as glowing wisps within a short (10 unit) distance, allowing you to detect their presence even when they would normally be invisible.",
+      "location": "2a",
+      "data": "SS5=1:TG"
+    },
+    {
+      "name": "Witch Doctor",
+      "description": "You know the healing traditions of your ancestors. Gain +1 skill with medicine. Additionally, you can identify any non-magical disease or poison by their symptoms.",
+      "location": "2b",
+      "data": "SS2=1:TD"
+    },
+    {
+      "name": "Action : Raise Spirit",
+      "description": "You call forth the spirit of a dead animal that died within the last day. The spirit retains the stats of the original creature but becomes spectral. You can only have one spirit pet at a time. If it dies, it dissipates and cannot be raised again.",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "Spirit Bond",
+      "description": "Gain +1 skill with magic knowledge. You can see through your spirit pet's eyes and communicate telepathically with it regardless of distance, as long as you are on the same plane of existence.",
+      "location": "4a",
+      "data": "SS3=1:TG"
+    },
+    {
+      "name": "Cleansing Aura",
+      "description": "When you channel a healing spell or a spell that removes a condition as a ritual, it affects everone within a 3 unit radius of your spirit pet.",
+      "location": "4b",
+      "data": "SSR=1:TD"
+    },
+    {
+      "name": "Reaction : Spirit Shield",
+      "description": "In response to taking damage, you can redirect that damage to your spirit pet instead.",
+      "location": "5",
+      "data": "SSN=1:TD"
+    },
+    {
+      "name": "Path of Nature",
+      "description": "You have chosen to walk the path of natural magic and elemental forces. Gain +1 skill with primal magic. Your spirit pets' attacks that deal physical damage can now deal heat, electric or cold damage instead.",
+      "location": "6a",
+      "data": "SS8=1:TG"
+    },
+    {
+      "name": "Path of Spirits",
+      "description": "You have chosen to walk the path of mysticism and the spirit realm. Gain +1 skill with mysticism magic. Your spirit pets' attacks that deal physical damage can now deal aether damage instead.",
+      "location": "6b",
+      "data": "SS4=1:TG"
+    },
+    {
+      "name": "Spirit Master",
+      "description": "You have achieved mastery over the spirit realm. You can now target a standard tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
 }

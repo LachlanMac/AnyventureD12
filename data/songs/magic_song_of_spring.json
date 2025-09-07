@@ -1,0 +1,13 @@
+{
+  "id": 9,
+  "type": "song",
+  "name": "Song of Spring",
+  "magical": true,
+  "difficulty": 6,
+  "description": "A warming current that balances the body's temperatures",
+  "effect": "+3 mitigation vs heat, cold, and electric",
+  "harmony_1": { "instrument": "any", "effect": "Upgrade mitigation one step for heat, cold, and electric (none → partial, partial → full)" }
+}
+
+
+ 

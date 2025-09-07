@@ -1,0 +1,13 @@
+{
+  "id": 11,
+  "type": "song",
+  "name": "Song of the Siren",
+  "magical": true,
+  "difficulty": 8,
+  "description": "A luring melody that draws the will toward the singer",
+  "effect": "As an action, choose a visible creature within the range of your song and force it to move 3 units toward you if it fails a resilience check (4); this magic does not affect creatures immune to the charmed condition or creatures that cannot hear",
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Resilience check becomes 7; instrument mapping — strings: humanoid; wind: beast; percussion: plantoid; brass: fey"
+  }
+}

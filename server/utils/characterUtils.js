@@ -15,7 +15,8 @@ export const applyModuleBonusesToCharacter = (character) => {
     vision: [...(character.vision || [])],
     health: character.resources.health.max,
     movement: character.movement,
-    initiative: character.initiative
+    initiative: character.initiative,
+    spellSlots: character.spellSlots || 10
   };
   
   // Temporary structure to collect bonuses
@@ -28,7 +29,8 @@ export const applyModuleBonusesToCharacter = (character) => {
     vision: [],
     health: 0,
     movement: 0,
-    initiative: 0
+    initiative: 0,
+    spellSlots: 0
   };
   
   // Helper function to process any ability for bonuses
@@ -374,8 +376,8 @@ const parseDataString = (dataString, bonuses) => {
       continue;
     }
     
-    // AUTO stats (A) - matching A1=1 pattern
-    const autoMatch = effect.match(/^A([1-4])=(-?\d+)$/);
+    // AUTO stats (A) - matching A1=1 pattern (now includes A9 for spell slots)
+    const autoMatch = effect.match(/^A([1-49])=(-?\d+)$/);
     if (autoMatch) {
       const [_, code, valueStr] = autoMatch;
       const value = parseInt(valueStr);
@@ -384,7 +386,8 @@ const parseDataString = (dataString, bonuses) => {
         '1': 'health',
         '2': 'resolve',
         '3': 'energy',
-        '4': 'movement'
+        '4': 'movement',
+        '9': 'spellSlots'
       };
       
       const statType = autoMappings[code];
@@ -492,6 +495,11 @@ const applyBonusesToCharacter = (character, bonuses) => {
   // Apply initiative bonus
   if (bonuses.initiative) {
     character.initiative += bonuses.initiative;
+  }
+  
+  // Apply spell slots bonus
+  if (bonuses.spellSlots) {
+    character.spellSlots = (character.spellSlots || 10) + bonuses.spellSlots;
   }
   
   // Apply immunities

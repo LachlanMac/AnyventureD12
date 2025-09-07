@@ -22,6 +22,7 @@ const HomebrewItemCreator: React.FC = () => {
     description: '',
     type: 'weapon' as Item['type'],
     weapon_category: '' as Item['weapon_category'],
+    consumable_category: '' as Item['consumable_category'],
     rarity: 'common' as Item['rarity'],
     weight: 1,
     value: 0,
@@ -115,6 +116,7 @@ const HomebrewItemCreator: React.FC = () => {
         description: item.description,
         type: item.type,
         weapon_category: item.weapon_category || '',
+        consumable_category: item.consumable_category || '',
         rarity: item.rarity,
         weight: item.weight,
         value: item.value,
@@ -318,7 +320,11 @@ const HomebrewItemCreator: React.FC = () => {
                       <option value="shield">Shield</option>
                       <option value="consumable">Consumable</option>
                       <option value="tool">Tool</option>
+                      <option value="instrument">Instrument</option>
+                      <option value="ammunition">Ammunition</option>
+                      <option value="adventure">Adventure</option>
                       <option value="goods">Trade Good</option>
+                      <option value="runes">Runes</option>
                     </select>
                   </div>
 
@@ -391,6 +397,43 @@ const HomebrewItemCreator: React.FC = () => {
                       <option value="complexRanged">Complex Ranged</option>
                       <option value="unarmed">Unarmed</option>
                       <option value="throwing">Throwing</option>
+                    </select>
+                  </div>
+                )}
+
+                {itemData.type === 'consumable' && (
+                  <div>
+                    <label
+                      style={{
+                        color: 'var(--color-cloud)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
+                      Consumable Category
+                    </label>
+                    <select
+                      value={itemData.consumable_category}
+                      onChange={(e) =>
+                        setItemData({
+                          ...itemData,
+                          consumable_category: e.target.value as Item['consumable_category'],
+                        })
+                      }
+                      style={{
+                        width: '100%',
+                        padding: '0.5rem',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        color: 'var(--color-white)',
+                        border: '1px solid var(--color-dark-border)',
+                        borderRadius: '0.375rem',
+                      }}
+                    >
+                      <option value="">Select category...</option>
+                      <option value="poisons">Poisons</option>
+                      <option value="elixirs">Elixirs</option>
+                      <option value="potions">Potions</option>
+                      <option value="explosives">Explosives</option>
                     </select>
                   </div>
                 )}
@@ -663,6 +706,11 @@ const HomebrewItemCreator: React.FC = () => {
                           <option value="pierce">Pierce</option>
                           <option value="blunt">Blunt</option>
                           <option value="ranged">Ranged</option>
+                          <option value="black_magic">Black Magic</option>
+                          <option value="primal_magic">Primal Magic</option>
+                          <option value="divine_magic">Divine Magic</option>
+                          <option value="mysticism_magic">Mysticism Magic</option>
+                          <option value="meta_magic">Meta Magic</option>
                         </select>
                       </div>
 
@@ -909,6 +957,11 @@ const HomebrewItemCreator: React.FC = () => {
                             <option value="pierce">Pierce</option>
                             <option value="blunt">Blunt</option>
                             <option value="ranged">Ranged</option>
+                            <option value="black_magic">Black Magic</option>
+                            <option value="primal_magic">Primal Magic</option>
+                            <option value="divine_magic">Divine Magic</option>
+                            <option value="mysticism_magic">Mysticism Magic</option>
+                            <option value="meta_magic">Meta Magic</option>
                           </select>
                         </div>
 

@@ -22,7 +22,7 @@
       "data": "TG:AS5=1"
     },
     {
-      "name": "Action [Daily] : Gnomish Touch",
+      "name": "Daily Action : Gnomish Touch",
       "description": "You touch an object and reveal any magical properties on it. Additionally, you can make an academics check to appraise an item and determine its approximate value.",
       "data": "XD1"
     },

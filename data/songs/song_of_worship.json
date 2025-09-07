@@ -1,0 +1,11 @@
+{
+  "id": 5,
+  "type": "song",
+  "name": "Song of Worship",
+  "magical": false,
+  "difficulty": 6,
+  "description": "A reverent hymn that steadies hearts and guides prayer",
+  "effect": "Allies roll a bonus die on mysticism and divine magic checks",
+  "harmony_1": { "instrument": "brass", "effect": "+5 dark mitigation" },
+  "harmony_2": { "instrument": "vocal", "effect": "Dark spells in the area roll with a penalty die" }
+}

@@ -1,88 +1,67 @@
 {
   "id": 105,
   "name": "Mystic",
-  "mtype": "secondary",
+  "mtype": "core",
   "ruleset": 1,
- "options": [
-      {
+  "options": [
+    {
       "name": "Awakened Mind",
       "description": "You have opened your consciousness to forces beyond the material world. Gain +1 skill with mysticism magic.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "YS5=1"
     },
-   
     {
       "name": "Reaction : Manaspike",
       "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a spell check. If the result is higher than the contesting check, deal aetheric damage in an amount equal to your check.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZIME=1"
     },
     {
       "name": "Reaction : Soul Ward",
       "description": "In response to taking divine or dark damage, roll a mysticism magic check and reduce the damage by the result of the check.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZIME=1"
     },
     {
       "name": "Otherworldly Focus",
       "description": "Your connection to mystical forces strengthens your mental discipline. Gain +1 skill with concentration and +1 psychic mitigation.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "SSJ=1:M8=1:TG"
     },
     {
       "name": "Chakra Alignment",
       "description": "You have learned to align and stabilize your inner energies. Gain +1 skill with Resilience. After completing a full rest, you can realign your chakra, choosing one attribute. Until you realign, any skill check made using that attribute cannot result in a value lower than 4, unless rolled with penalty dice.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SSI=1:TG"
     },
     {
-     "name": "Third Eye",
+      "name": "Third Eye",
       "description": "Your perception extends beyond normal senses. Gain +1 skill with senses. After spending an hour with any object or location, you can sense magic or residual effects, with the quality of the information gained determined by a magic knowledge check.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSK=1:TG"
     },
     {
       "name": "Practiced Mystic",
       "description": "Your understanding of mystical forces has deepened considerably. Gain +1 skill with mysticism magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "YS5=1"
     },
     {
       "name": "Daily Action : Spirit Guide",
       "description": "You call upon otherworldly guidance to aid you in a moment of need. Replace any single dice in a roll you are about to make with a d16.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
-      "data": "X"
+      "data": "XDME=1"
     },
     {
       "name": "Action : Spirit Shift",
       "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to aether damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
-      "data": "X"
+      "data": "XIME=1"
     },
     {
       "name": "Master Mystic",
       "description": "Your mastery over mystical forces is undeniable. Gain +1 talent with mysticism magic spells.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "YT5=1"
     }
   ]

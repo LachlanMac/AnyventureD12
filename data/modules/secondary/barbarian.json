@@ -3,85 +3,65 @@
   "name": "Barbarian",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
+  "options": [
     {
       "name": "Frenzied Spirit",
       "description": "When you take damage while below 10 health, you roll a resilience check. If the result is less than a 8, you enter a Frenzy which grants you a bonus dice on attack, endurance and might checks but a penalty dice on defense checks for the next minute. At the start of each of your successive turns, roll a resilience check: on a 2 or lower, you gain the maddened condition.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "AE=1:TO"
     },
     {
       "name": "Fear Unburdened",
       "description": "When you have morale, you are immune to the fear condition. Additionally, gain +1 psychic mitigation.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Pushing the Limit",
       "description": "Gain +1 skill with endurance and +2 health. ",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Reaction : Controlled Frenzy",
       "description": "You have become skilled in controlling your frenzied rage. In response to taking damage, you may spend up to 5 resolve to intentionally enter a frenzy, gaining 1d4 morale for each spent that last for the next minute or until the frenzy ends.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Massive Weaponry",
       "description": "You gain +1 skill with complex melee weapons.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "The Old Way",
       "description": "You gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Action : Savage Strike",
       "description": "While under the effects of the Frenzy action, you make a savage melee attack, doubling your primary weapon damage.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Mind Over Matter",
       "description": "You gain +1 skill with resilience. When you receive a new mental condition, you can delay it taking effect until the end of your next turn.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Imposing",
       "description": "You are an imposing figure, especially when you're angry. You gain +1 skill with presence and +1 skill with might.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Battle Shout",
       "description": "When you enter a frenzy with the Controlled Frenzy reaction, any ally within a short radius (10 units) gains half of the total morale you generated, lasting for a minute.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TO"
     }
   ]

@@ -1,0 +1,11 @@
+{
+  "id": 13,
+  "type": "song",
+  "name": "Song of the Profaned",
+  "magical": false,
+  "difficulty": 6,
+  "description": "A low chant that honors forbidden rites",
+  "effect": "Allies roll a bonus die on black magic checks",
+  "harmony_1": { "instrument": "brass", "effect": "+5 divine mitigation" },
+  "harmony_2": { "instrument": "vocal", "effect": "Divine spells in the area roll with a penalty die" }
+}

@@ -3,6 +3,7 @@ import { useParams, Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import { Module, CharacterModule } from '../types/character';
+import { getOptionEnergyCost, getEnergyDisplay } from '../utils/actionParser';
 
 // Type definitions
 
@@ -734,17 +735,55 @@ const ModulesPage: React.FC = () => {
                                   }
                                 }}
                               >
-                                {/* Tier indicator in top right */}
+                                {/* Top right indicators */}
                                 <div
                                   style={{
                                     position: 'absolute',
                                     top: '0.5rem',
                                     right: '0.5rem',
-                                    color: 'var(--color-cloud)',
-                                    fontSize: '0.75rem',
+                                    display: 'flex',
+                                    gap: '0.5rem',
+                                    alignItems: 'center',
                                   }}
                                 >
-                                  {option.location}
+                                  {/* Energy cost tag for actions/reactions */}
+                                  {(() => {
+                                    const energyCost = getOptionEnergyCost(option);
+                                    if (energyCost !== null) {
+                                      return (
+                                        <div
+                                          style={{
+                                            backgroundColor: energyCost === 0 
+                                              ? 'var(--color-dark-elevated)' 
+                                              : 'rgba(59, 130, 246, 0.2)',
+                                            color: energyCost === 0 
+                                              ? 'var(--color-cloud)' 
+                                              : 'rgb(147, 197, 253)',
+                                            padding: '0.125rem 0.375rem',
+                                            borderRadius: '0.25rem',
+                                            fontSize: '0.75rem',
+                                            fontWeight: 'bold',
+                                            border: energyCost === 0 
+                                              ? '1px solid var(--color-dark-border)' 
+                                              : '1px solid rgba(59, 130, 246, 0.3)',
+                                          }}
+                                        >
+                                          {getEnergyDisplay(energyCost)}
+                                        </div>
+                                      );
+                                    }
+                                    return null;
+                                  })()}
+                                  
+                                  {/* Tier indicator */}
+                                  <div
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                    }}
+                                  >
+                                    {option.location}
+                                  </div>
                                 </div>
 
                                 <div

@@ -1,0 +1,68 @@
+{
+  "id": 211,
+  "name": "Local Legend",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Memorable Presence",
+      "description": "Your reputation precedes you. Gain +1 skill with expression. When you introduce yourself with your full title or catchphrase, NPCs must make an insight check (DC 8) or be either impressed or intimidated (your choice).",
+      "location": "1",
+      "data": "SSQ=1:TG"
+    },
+    {
+      "name": "Comic Relief",
+      "description": "Your failures become legendary tales. Gain +1 skill with coordination. When you critically fail any check (roll a 1), all allies within 10 units gain +1 morale as they laugh at your misfortune.",
+      "location": "2a",
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "Reaction : Duck and Cover",
+      "description": "When targeted by an attack, dramatically dive out of the way. Make an evasion check. If you succeed and there's another creature adjacent to you, the attack targets them instead as you 'accidentally' use them as cover.",
+      "location": "2b",
+      "data": "Z"
+    },
+    {
+      "name": "Scripted Fate",
+      "description": "Your life follows dramatic narrative rules. Gain +1 skill with presence. Once per combat, when you would be reduced to 0 health, you can deliver a dramatic one-liner and remain at 1 health instead.",
+      "location": "3",
+      "data": "SSR=1:TG"
+    },
+    {
+      "name": "Action : Mocking Verse",
+      "description": "While performing a song, unleash devastating verbal mockery at an enemy within 15 units. Make an expression check opposed by their resilience. If you succeed, they take 2 psychic damage and have -1 die on their next attack. If you succeed by 5+, they are also stunned for 1 round.",
+      "location": "4a",
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Words of Wisdom",
+      "description": "When an ally within 10 units fails a skill check, offer immediate advice. You can make the same check with +1 bonus die. If you succeed, your result replaces theirs as your wisdom guides their action. Costs 1 energy.",
+      "location": "4b",
+      "data": "Z"
+    },
+    {
+      "name": "Signature Move",
+      "description": "You have a legendary finishing technique. Gain +1 skill with either a weapon skill or magic skill of your choice. When you defeat an enemy with this skill while speaking your catchphrase, all allies who witness it gain +2 resolve and +1 energy.",
+      "location": "5",
+      "data": "TG"
+    },
+    {
+      "name": "Living Legend",
+      "description": "Your exploits inspire epic tales. Gain +1 skill with academics. Whenever you succeed on a check by 10 or more, you can narrate how this adds to your legend. All allies gain advantage on their next check.",
+      "location": "6a",
+      "data": "SSL=1:TG"
+    },
+    {
+      "name": "Plot Armor",
+      "description": "Fate conspires to keep you alive for dramatic moments. Gain +1 skill with resilience. You are immune to instant death effects and when making death saves, add your expression modifier to the roll.",
+      "location": "6b",
+      "data": "SSI=1:TG"
+    },
+    {
+      "name": "Final Act",
+      "description": "Your most dramatic moments come when all seems lost. When at 0 health, you can still take actions without spending resolve. Once per day, while at 0 health, deliver an epic monologue - all allies gain +3 to all checks for the next 3 rounds, and you automatically stabilize after the speech.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

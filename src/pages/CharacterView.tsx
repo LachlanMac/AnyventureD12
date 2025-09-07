@@ -14,6 +14,7 @@ import ActionsTab from '../components/character/view/ActionsTab';
 import TraitsTab from '../components/character/view/TraitsTab';
 import BackgroundTab from '../components/character/view/BackgroundTab';
 import SpellsTab from '../components/character/view/SpellsTab';
+import SongsTab from '../components/character/view/SongsTab';
 import InventoryTab from '../components/character/view/InventoryTab';
 
 // Type for spells that come from the API
@@ -392,6 +393,9 @@ const CharacterView: React.FC = () => {
               spells={character.spells || []}
               spellSlots={character.spellSlots || 10}
             />
+          )}
+          {activeTab === 'songs' && (
+            <SongsTab characterId={character._id} />
           )}
 
           {/* Inventory Tab */}

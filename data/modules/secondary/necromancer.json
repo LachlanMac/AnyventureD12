@@ -3,85 +3,65 @@
   "name": "Necromancer",
   "mtype": "secondary",
   "ruleset": 1,
- "options": [
+  "options": [
     {
       "name": "Action : Command Undead",
       "description": "You use your concentration to take command of an undead creature that you can see which you have created. While dedicating your concentration in this way, it acts under your control.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Life Siphon",
       "description": "When a creature dies as a result of damage from a spell from the necromancy subschool that you channeled, you gain 3 health. This trait does not work on constructs or undead.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "CS1=1:TC:TO"
     },
     {
       "name": "Death Bond",
       "description": "Each day, the first time you reach 0 health, your health is set to 1. Additionally, gain +1 skill with endurance.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "SSJ=1:SSG=1:TO"
     },
     {
       "name": "Deadspeak",
       "description": "You unlock the Deadspeak language and gain +1 to your presence skill.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "AE=1:TO"
     },
     {
       "name": "Daily Action : Death Touch",
       "description": "You touch a creature using your dark magic skill as an attack roll against a defensive endurance check. For each dice that hits, deal dark damage equal to your missing health. This does not affect constructs or elementals but deals double damage to humanoids and plantoids.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Action : Harvest",
       "description": "You siphon the magic from one undead creature under your command that is within a moderate (20 units) range, destroying it and recovering 2d4 health and completely restoring your energy.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "The Dark Arts",
       "description": "You are practiced in the dark arts. Gain +1 skill with dark magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "WS1=3:WS4=1:TO"
     },
     {
       "name": "Forbidden Science",
       "description": "You have experimented with forbidden sciences giving you greater understanding. Gain +1 skill in medicine and +1 skill in academics.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Enhanced Minions",
       "description": "Undead creatures under your control gain an extra dice on their attack rolls. Additionally, undead under the effect of your Command Undead action are gifted primitive mental capabilities, allowing them to make social, mind and knowledge checks with a 1d4 dice.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "TO"
     },
     {
       "name": "Expanded Control",
       "description": "You are no longer limited to controlling one undead creature and can instead control a number of creatures or swarms equal to your concentration skill.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TO"
     }
   ]

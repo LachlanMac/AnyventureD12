@@ -7,81 +7,61 @@
     {
       "name": "Natural Performer",
       "description": "You have an innate talent for captivating audiences and expressing yourself. Gain +1 skill with expression. Your performances are memorable, and people who have seen you perform will remember you fondly.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "SSQ=1:TG"
     },
     {
       "name": "Reaction : Feign Death",
       "description": "In response to being targeted by an attack, you dramatically collapse and play dead. Make an expression check against the attacker's insight. If successful, they believe you are dead and will not target you again unless you take an action or someone else reveals your deception.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Reaction : Mocking Taunt",
       "description": "In response to a creature starting their turn within a very short (5 unit) distance, you deliver a cutting insult. Make an expression check against their resilience. If successful, they gain a penalty dice on attacks against anyone other than you until the start of their next turn.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Penchant for Dramatics",
       "description": "Your theatrical training allows you to apply dramatic flair to social situations. You can use expression checks in place of persuasion checks when trying to deceive, intimidate, or convince others through dramatic presentation.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
       "data": "TG"
     },
     {
       "name": "Method Acting",
       "description": "You can immerse yourself so completely in a role that you become the character. Gain +1 skill with insight. You can spend 10 minutes adopting a persona, gaining a bonus dice on all social checks while maintaining that role for the next hour.",
-      "mtype": "core",
       "location": "4a",
-      "cost": 2,
       "data": "SSS=1:TG"
     },
     {
       "name": "Stage Presence",
       "description": "Your commanding presence can captivate any audience. Gain +1 skill with presence. When you perform somewhere, people are much more likely remember you positively.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "SSR=1:TG"
     },
     {
       "name": "Master Performer",
       "description": "Your theatrical skills have reached professional levels. Gain +1 skill with expression. When making expression checks, any roll under a 4 becomes a 3.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "SSQ=1:TG"
     },
     {
       "name": "Performing Arts",
       "description": "Your theatrical training encompasses multiple disciplines. Gain +1 skill with coordination.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
       "data": "SSG=1:TG"
     },
     {
       "name": "Traveling Troupe",
       "description": "Your life on the road has given you skills to shine in a community. Gain +1 skill with cooking and become proficient in one musical skill.",
-      "mtype": "core",
       "location": "6b",
-      "cost": 2,
       "data": "SS6=1:TG"
     },
     {
       "name": "Reaction : Improvise",
       "description": "In response to failing any skill check while in combat, you can immediately attempt the same task using a different skill of your choice.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "TG"
     }
   ]

@@ -3,86 +3,65 @@
   "name": "Black Magic",
   "mtype": "core",
   "ruleset": 1,
-   "options": [
-      {
+  "options": [
+    {
       "name": "Fledgling Heretic",
       "description": "You have honed your connection to the dark. Gain +1 skill with black magic.",
-      "mtype": "core",
       "location": "1",
-      "cost": 2,
       "data": "YS1=1"
     },
-   
     {
       "name": "Action : Tainted Steel",
       "description": "You touch a weapon and taint it with black magic. The first time each round that this weapon deals damage, the recipient of that damage must make an endurance check against half the total damage taken or gain the bleeding condition.",
-      "mtype": "core",
       "location": "2a",
-      "cost": 2,
-      "data": "X"
+      "data": "XIME=1"
     },
     {
       "name": "Reaction : Twisted Magic",
       "description": "In response to a spell or effect dealing divine or aether damage to any creature within a moderate (10 unit) range of you, roll a black magic check and convert that amount of the damage to dark. The rest of the damage is dealt as the original damage type and mitigated separately.",
-      "mtype": "core",
       "location": "2b",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZIME=1"
     },
     {
       "name": "Dark Studies",
       "description": "Gain +1 skill with magic knowledge and +1 spell capacity.",
-      "mtype": "core",
       "location": "3",
-      "cost": 2,
-      "data": "SSO=1:TG"
+      "data": "SSO=1:A9=1"
     },
     {
       "name": "Profane Lore",
-      "description": "Gain +1 skill with academics. You automatically know if a creature, object, or location has been tainted by dark magic by touching it with an action, and can identify the specific subschools.",
-      "mtype": "core",
+      "description": "Gain +1 skill with academics. You automatically know if a creature, object, or location has been tainted by dark magic by touching it with an action, and can identify the specific subschool.",
       "location": "4a",
-      "cost": 2,
       "data": "SSN=1:TG"
     },
     {
       "name": "Corrupted Soul",
       "description": "The effect of healing magic on you is reduced by half, but you gain +3 divine and +3 dark mitigation.",
-      "mtype": "core",
       "location": "4b",
-      "cost": 2,
       "data": "M6=3:M5=3:TG"
     },
- {
+    {
       "name": "Skilled Heretic",
       "description": "Through dedication to the darkness, you have gained power. Gain +1 skill with black magic.",
-      "mtype": "core",
       "location": "5",
-      "cost": 2,
       "data": "YS1=1"
     },
     {
       "name": "Daily Reaction : Soul Claim",
       "description": "In response to a living creature dying within a moderate (20 units) distance of you, restore all of your energy and then immediately take a full turn.",
-      "mtype": "core",
       "location": "6a",
-      "cost": 2,
-      "data": "Z"
+      "data": "ZDME=0"
     },
     {
       "name": "Action : Cursed Blast",
-      "description": "You hurl a projectile of pure, dark enery at a target within a moderate (20 units) distance, by making a dark spell check as your attack. For each dice that hits, deal 4 dark damage.",
-      "mtype": "core",
+      "description": "You hurl a projectile of pure, dark energy at a target within a moderate (20 units) distance, by making a dark spell check as your attack. For each dice that hits, deal 4 dark damage.",
       "location": "6b",
-      "cost": 2,
-      "data": "X"
+      "data": "XIME=1"
     },
     {
       "name": "Master Heretic",
       "description": "Your relentless training has resulted in +1 talent with black magic spells.",
-      "mtype": "core",
       "location": "7",
-      "cost": 3,
       "data": "YT1=1"
     }
   ]

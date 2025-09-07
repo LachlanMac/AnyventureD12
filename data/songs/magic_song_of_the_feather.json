@@ -1,0 +1,10 @@
+{
+  "id": 8,
+  "type": "song",
+  "name": "Song of the Feather",
+  "magical": true,
+  "difficulty": 8,  
+  "description": "Buoyant tones that make bodies feel light as air",
+  "effect": "Allies gain levitation, converting their movement speed to a hover speed; while levitating, the character falls at 5 units per turn but always remains slightly above the ground",
+  "harmony_1": { "instrument": "any", "effect": "Affected characters can use their free movement each round as a fly speed instead and do not sink or fall" }
+}
