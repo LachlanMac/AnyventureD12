@@ -63,12 +63,23 @@ export interface Trait {
   description: string;
 }
 
+// Subchoice structure for trait options
+export interface TraitSubchoice {
+  id: string;
+  name: string;
+  description: string;
+  data: string;
+}
+
 // Character Creation Trait option structure
 export interface CharacterTraitOption {
   name: string;
   description: string;
   data: string;
   selected?: boolean;
+  subchoices?: TraitSubchoice[];
+  requiresChoice?: boolean;
+  choiceType?: string;
 }
 
 // Character Creation Trait structure

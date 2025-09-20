@@ -99,6 +99,6 @@
     "id": 17,
     "name": "Winded",
     "category": "Physical",
-    "description": "Cannot regenerate energy. Ends after taking a Rest Action."
+    "description": "Cannot regenerate energy. Automatically fail all Physique and Finesse skill checks. Cannot hold your own body weight or swim. Must sink if in water and fall if climbing. Ends after taking a Rest Action."
   }
 ]

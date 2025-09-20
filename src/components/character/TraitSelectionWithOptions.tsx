@@ -39,7 +39,6 @@ const TraitSelectionWithOptions: React.FC<TraitSelectionProps> = ({
   selectedTraits,
   onSelectTrait,
   onDeselectTrait,
-  availableModulePoints,
 }) => {
   const [availableTraits, setAvailableTraits] = useState<Trait[]>([]);
   const [loading, setLoading] = useState<boolean>(true);

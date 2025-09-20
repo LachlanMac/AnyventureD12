@@ -65,7 +65,7 @@ An incapacitated character cannot move, take actions or defend themselves. When 
 ### Muted
 A muted character cannot speak and therefore cannot effectively communicate verbally.
 
-### Obscure
+### Obscured
 An obscure character is hidden from line of sight from non-enemies. Whenever the character uses movement while obscured, they must make a stealth check to remain hidden.
 
 ### Poisoned

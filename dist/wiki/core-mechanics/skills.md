@@ -63,7 +63,7 @@ In most scenarios, skills are denoted by their dice type rather than a numerical
 
 ## Skill Checks
 <div class="triangle-line"></div>
-Skill checks are the core of how nearly everything is resolved in AnyventureDX. If you want your character to do anything "non-trivial", you must make a skill check to see if you succeed, fail, or end up somewhere inbetween. These checks are the primary 
+Skill checks are the core of how nearly everything is resolved in AnyventureDX. If you want your character to do anything "non-trivial", you must make a skill check to see if you succeed, fail, or end up somewhere in between. These checks are the primary 
 way the plot advanced.
 
 <br> 
@@ -85,9 +85,17 @@ When making a skill check:
 |Extreme     |13-16     |Beating a minotaur in arm wrestling           |
 |Legendary   |17+       |Deceiving a dragon           |
 
+### Skill Dice
+In some cases, instead of a skill check, <b>skill dice</b> are called for to supplement another skill. A skill dice is whatever tier of dice you'd normally roll if you were making a standard skill check, but only rolling a single dice. 
+
+<div class="example-box">
+A gladiator has a reaction that is triggered after they roll any sort of contested or defense check. As an example, 
+</div> 
+
+
 ## Contested Checks
 <div class="triangle-line"></div>
-Instead of having a required check, some skills are contested when they are done in direct oppositon to another character. This is called a contested check.
+Instead of having a required check, some skills are contested when they are done in direct opposition to another character. This is called a contested check.
 
 Some common examples of contested checks:
 - Persuasion against Insight when attempting to lie to someone

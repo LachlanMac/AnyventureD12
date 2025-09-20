@@ -409,7 +409,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
   // Helper function to get maximum carry weight based on character size
   const getMaxCarryWeight = (): number => {
-    const size = character.physicalTraits?.size || character.ancestry?.ancestryId?.size || 'Medium';
+    const size = character.physicalTraits?.size || 'Medium';
     switch (size.toLowerCase()) {
       case 'small':
         return 25;

@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useMemo, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
@@ -20,7 +20,7 @@ const SongsPage: React.FC = () => {
   const [selected, setSelected] = useState<any | null>(null);
   const [songNote, setSongNote] = useState('');
 
-  const learnedIds = useMemo(() => new Set((character?.songs || []).map((s: any)=> (typeof s.songId==='string'? s.songId : s.songId?._id))), [character]);
+  const learnedIds = useMemo(() => new Set((character && 'songs' in character ? (character as any).songs : []).map((s: any)=> (typeof s.songId==='string'? s.songId : s.songId?._id))), [character]);
   const isLearned = (songId: string) => learnedIds.has(songId);
 
   const filtered = useMemo(()=>{
