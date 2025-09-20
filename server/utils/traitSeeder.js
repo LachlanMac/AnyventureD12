@@ -66,16 +66,45 @@ export const seedTraits = async () => {
 // Function to reset and reseed all traits
 export const resetAndReseedTraits = async () => {
   try {
-    console.log('Updating and reseeding all traits (preserving references)...');
-    
+    console.log('Updating and reseeding all traits...');
+
+    // Get list of trait names from JSON files
+    const validTraitNames = [];
+    if (fs.existsSync(traitsDir)) {
+      const files = fs.readdirSync(traitsDir).filter(file => file.endsWith('.json'));
+      for (const file of files) {
+        try {
+          const filePath = path.join(traitsDir, file);
+          const fileContent = fs.readFileSync(filePath, 'utf8');
+          const traitData = JSON.parse(fileContent);
+          if (traitData.name) {
+            validTraitNames.push(traitData.name);
+          }
+        } catch (err) {
+          console.error(`Error reading ${file}: ${err.message}`);
+        }
+      }
+    }
+
+    // Delete traits that are not in JSON files
+    if (validTraitNames.length > 0) {
+      const deleteResult = await Trait.deleteMany({
+        name: { $nin: validTraitNames }
+      });
+      if (deleteResult.deletedCount > 0) {
+        console.log(`Deleted ${deleteResult.deletedCount} orphaned traits not found in JSON files.`);
+      }
+    }
+
+    // Now seed/update traits from JSON files
     const success = await seedTraits();
-    
+
     if (success) {
       const newTraitCount = await Trait.countDocuments();
       console.log(`Successfully reseeded ${newTraitCount} traits.`);
       return true;
     }
-    
+
     return false;
   } catch (err) {
     console.error(`Error resetting traits: ${err.message}`);
