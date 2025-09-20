@@ -14,17 +14,17 @@
     {
       "name": "Small",
       "description": "Gnomes are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
-      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
+      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:K1=-1:TA"
     },
     {
       "name": "Dual Synapses",
       "description": "Gnomes have a talent for focusing on spells and other complex tasks, gaining a +1 Bonus to Concentration. Additionally, Gnomes maintain their concentration while unconscious or sleeping.",
-      "data": "TG:AS5=1"
+      "data": "TG:SSJ=1"
     },
     {
       "name": "Daily Action : Gnomish Touch",
       "description": "You touch an object and reveal any magical properties on it. Additionally, you can make an academics check to appraise an item and determine its approximate value.",
-      "data": "XD1"
+      "data": "XD1:TA"
     },
     {
       "name": "Fractured Minds",

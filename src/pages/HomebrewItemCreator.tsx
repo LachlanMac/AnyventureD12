@@ -60,17 +60,8 @@ const HomebrewItemCreator: React.FC = () => {
 
   const [hasSecondaryDamage, setHasSecondaryDamage] = useState(false);
 
-  // Armor penalties
-  const [armorPenalties, setArmorPenalties] = useState({
-    movement: 0,
-    energy: 0,
-    fitness: 0,
-    stealth: 0,
-    coordination: 0,
-    evasion: 0,
-    deflection: 0,
-    senses: 0,
-  });
+  // Encumbrance penalty
+  const [encumbrancePenalty, setEncumbrancePenalty] = useState(0);
 
   // Resource bonuses
   const [resourceBonuses, setResourceBonuses] = useState({
@@ -134,8 +125,8 @@ const HomebrewItemCreator: React.FC = () => {
         setHasSecondaryDamage(!!item.secondary);
       }
 
-      if (item.armor_penalties) {
-        setArmorPenalties(item.armor_penalties);
+      if (item.encumbrance_penalty) {
+        setEncumbrancePenalty(item.encumbrance_penalty);
       }
 
       if (item.health || item.energy || item.resolve || item.movement) {
@@ -176,7 +167,7 @@ const HomebrewItemCreator: React.FC = () => {
           primary: weaponData.primary,
           ...(hasSecondaryDamage && { secondary: weaponData.secondary }),
         }),
-        armor_penalties: armorPenalties,
+        encumbrance_penalty: encumbrancePenalty,
         health: resourceBonuses.health,
         energy: resourceBonuses.energy,
         resolve: resourceBonuses.resolve,
@@ -1282,57 +1273,36 @@ const HomebrewItemCreator: React.FC = () => {
                   </div>
                 </div>
 
-                {/* Armor Penalties */}
-                {(itemData.type === 'body' ||
-                  itemData.type === 'boots' ||
-                  itemData.type === 'gloves' ||
-                  itemData.type === 'headwear') && (
+                {/* Encumbrance Penalty */}
+                <div>
+                  <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
+                    Encumbrance Penalty
+                  </h3>
                   <div>
-                    <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
-                      Armor Penalties
-                    </h3>
-                    <div
+                    <label
                       style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)',
-                        gap: '0.5rem',
+                        color: 'var(--color-cloud)',
+                        fontSize: '0.75rem',
                       }}
                     >
-                      {Object.entries(armorPenalties).map(([key, value]) => (
-                        <div key={key}>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              fontSize: '0.75rem',
-                              textTransform: 'capitalize',
-                            }}
-                          >
-                            {key}
-                          </label>
-                          <input
-                            type="number"
-                            value={value}
-                            onChange={(e) =>
-                              setArmorPenalties({
-                                ...armorPenalties,
-                                [key]: Number(e.target.value),
-                              })
-                            }
-                            max={0}
-                            style={{
-                              width: '100%',
-                              padding: '0.25rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.25rem',
-                            }}
-                          />
-                        </div>
-                      ))}
-                    </div>
+                      Penalty Value
+                    </label>
+                    <input
+                      type="number"
+                      value={encumbrancePenalty}
+                      onChange={(e) => setEncumbrancePenalty(Number(e.target.value))}
+                      min={0}
+                      style={{
+                        width: '100%',
+                        padding: '0.25rem',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        color: 'var(--color-white)',
+                        border: '1px solid var(--color-dark-border)',
+                        borderRadius: '0.25rem',
+                      }}
+                    />
                   </div>
-                )}
+                </div>
               </div>
             </CardBody>
           </Card>

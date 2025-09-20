@@ -13,61 +13,61 @@
       "name": "Socialite",
       "description": "You are a socialite, thriving in social environments where your natural charm and expressiveness make you the heart of any gathering. Your ability to navigate social dynamics comes naturally to you, although you may struggle when forced to spend extended periods in isolation or silence. You value connection, expression, and social harmony above all else.",
       "location": "1",
-      "data": "AE=1"
+      "data": "TP"
     },
     {
       "name": "Heart of the Party",
       "description": "You are a pleasure to be around. Gain +1 skill with the presence and +1 skill with expression. ",
       "location": "2a",
-      "data": ""
+      "data": "SSR=1:SSQ=1"
     },
     {
       "name": "First Impressions",
       "description": "The best time to make an impression is in your first meeting. Gain +1 skill with persuasion. Additionally, the first time you meet someone, roll a bonus dice for all social checks involving them for the next hour.",
       "location": "2b",
-      "data": "TG:SSQ=1"
+      "data": "TP:SST=1"
     },
     {
-      "name": "Downtime Action : Seek Ally",
-      "description": "You spend time seeking out an ally who shares a common purpose with you, with their resources and usefulness dependent upon a persuasion check. A check of 6-9 is midly successful, gaining an ally that may offer minor assistance with your goals. A check of 10 or higher is very successful and the ally is much more resourceful. In the event of a perfect check, the ally is extremely resourceful and wields significant power and influence.",
+      "name": "Social Presence",
+      "description": "Your natural socialite abilities enhance your commanding presence in social situations. Gain +1 skill with presence. When first meeting someone, you can attempt to convince them that you've already met by making a contested presence check against their insight.",
       "location": "3",
-      "data": "Y"
+      "data": "TP:SSR=1"
     },
     {
       "name": "Reaction : Center of Attention",
-      "description": "In response to an enemy that is adjacent to you making an attack on an ally, roll a presence check. If the reuslt is 8 or higher, the attack instead targets you.",
+      "description": "In response to an enemy that is adjacent to you making an attack on an ally, roll a presence check. If the result is 8 or higher, the attack instead targets you.",
       "location": "4a",
-      "data": "ZX"
+      "data": "ZINE=1"
     },
     {
       "name": "Action : Mock",
       "description": "You mock a creature that you share a language with by rolling any social check against the target's resilience. Until the start of your next turn, that creature gains a bonus attack dice against you, but a penalty against your allies.",
       "location": "4b",
-      "data": "XX"
+      "data": "XINE=0"
     },
     {
-      "name": "Social Presence",
-      "description": "Your natural socialite abilities enhance your commanding presence in social situations. Gain +1 skill with presence. When first meeting someone, you can attempt to convince them that you've already met by making a contested presence check against their insight.",
+      "name": "Social Luminary",
+      "description": "Gain +1 talent with social.",
       "location": "5",
-      "data": "SSR=1"
+      "data": "ST5=1"
     },
     {
       "name": "Party Goer",
       "description": "You gain 5 morale and 5 resolve your first full rest after attending a party or social event that you are invited to. During a party, you gain a bonus roll to all social checks.",
       "location": "6a",
-      "data": ""
+      "data": "TP"
     },
     {
       "name": "Everyone's Confidant",
       "description": "The way you present yourself makes people open up to you and show their cards more often. Gain +1 skill with insight. Once per full rest, an ally can make you a confidant allowing them to recover 2 resolve if they roll an expression check of 6 and you roll an insight check of 8.",
       "location": "6b",
-      "data": ""
+      "data": "TP:SSS=1"
     },
     {
-      "name": "Social Luminary",
-      "description": "Gain +1 talent with social.",
+      "name": "Downtime Action : Seek Ally",
+      "description": "You spend time seeking out an ally who shares a common purpose with you, with their resources and usefulness dependent upon a persuasion check. A check of 6-9 is mildly successful, gaining an ally that may offer minor assistance with your goals. A check of 10 or higher is very successful and the ally is much more resourceful. In the event of a perfect check, the ally is extremely resourceful and wields significant power and influence.",
       "location": "7",
-      "data": "ST5=1"
+      "data": "YDNE=0"
     }
   ]
 }

@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Arcane Analysis",
-      "description": "Gain +1 skill with magic knowledge. When you touch an object or creature, you can determine if it is in it's natural form or if it is under the effect of magic that has transmuted it in some way.",
+      "description": "Gain +1 skill with magic. When you touch an object or creature, you can determine if it is in it's natural form or if it is under the effect of magic that has transmuted it in some way.",
       "location": "1",
-      "data": "AE=1:TG"
+      "data": "TG:SSO=1"
     },
     {
       "name": "Immutable Crafting",
-      "description": "Items you craft become resistant to change and decay. Gain +1 skill with fabrication. Equipment you create cannot be affected by rust, corrosion, or magical transformation effects or have it's form, weight or size altered or disguised in any way.",
+      "description": "You can add a meta magic dice to a crafting check pool when creating wearable equipment for fabrication, engineering and glyphcraft recipes. Items that you craft in this way become immutable.",
       "location": "2a",
       "data": "TG"
     },
     {
       "name": "Material Sympathy",
-      "description": "Gain +1 skill with senses. You can sense the structural integrity and weak points of any object or structure by touch. You can determine how much damage would be required to break, collapse, or significantly damage it, and identify the most vulnerable points for maximum effect.",
+      "description": "Gain +1 skill with senses. You can sense the structural integrity and weak points of any object by making a meta magic check instead of requiring engineering or academics. You can determine how much damage would be required to break, collapse, or significantly damage it, and identify the most vulnerable points for maximum effect.",
       "location": "2b",
-      "data": "TG"
+      "data": "TG:SSK=1"
     },
     {
       "name": "Material Mastery",
       "description": "You understand the fundamental properties of materials and how to alter them. Gain +1 skill with academics. You can identify the composition, quality, and approximate value of any material by touch.",
       "location": "3",
-      "data": "TG"
+      "data": "TG:SSN=1"
     },
     {
       "name": "Reaction : Adjust Mass",
       "description": "In response to being the target of an ability that would displace you, the check required to avoid the displacement is halved. If there is no check associated with the displacement, you automatically succeed.",
       "location": "4a",
-      "data": "TD"
+      "data": "ZIME=0"
     },
     {
       "name": "Action : Destabilize",
       "description": "You target an adjacent creature or object and attempt to disrupt its fundamental structure by channeling a spell that deals damage. If your spell successfully deals damage after mitigations, your target's mitigation to the damage type you dealt becomes 0 until the start of your next turn.",
       "location": "4b",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "Skilled Transmuter",
-      "description": "Your mastery of transformation magic has deepened considerably. Gain +1 skill with alteration magic.",
+      "description": "Your mastery of transformation magic has deepened considerably. Gain +1 skill with meta magic.",
       "location": "5",
-      "data": "TG"
+      "data": "YS3=1"
     },
     {
       "name": "Alchemical Transmutation",
-      "description": "You blend magical theory with practical alchemy. Gain +1 skill with alchemy. When you make an alchemy check, roll an alteration check with a single dice and add that dice to your alchemy check pool.",
+      "description": "You've mastered the alchemical art of metal transmutation. Gain +1 skill with alchemy. You can transmute up to an ingots worth of copper into brass or iron into steel by spending an hour. You can also transmute between shavings, nuggets and ingots of any metal [1 ingot = 10 nuggets or 20 shavings].",
       "location": "6a",
-      "data": "TG"
+      "data": "TG:CS3=1"
     },
     {
       "name": "Selective Immutability",
       "description": "You have achieved perfect control over your personal transmutation, transcending natural limitations. All effects that would alter your form - whether beneficial or harmful - can be consciously accepted or rejected at will, even bypassing any immutable properties you might have.",
       "location": "6b",
-      "data": "TD"
+      "data": "TG"
     },
     {
       "name": "Daily Action : Metamorphis",
-      "description": "You undergo a complete physical transformation, taking the form of any monster or beast you have encountered of champion tier or lower for one minute. Make an alteration magic check against the creature's tier difficulty (minion 2, grunt 4, standard 6, champion 8). On failure, you become maddened for the entire duration. You retain your mental abilities but gain the target creature's physical form, attacks, and capabilities. If this form is reduced to 0 health, you immediately revert to your original body with 5 health.",
+      "description": "You undergo a complete physical transformation, taking the form of any monster or beast you have encountered of champion tier or lower for one minute. Make a meta magic check against the creature's tier difficulty (minion 2, grunt 4, standard 6, champion 8). On failure, you become maddened for the entire duration. You retain your mental abilities but gain the target creature's physical form, attacks, and capabilities. If this form is reduced to 0 health, you immediately revert to your original body with 5 health.",
       "location": "7",
-      "data": "TG"
+      "data": "XDME=3"
     }
   ]
 }

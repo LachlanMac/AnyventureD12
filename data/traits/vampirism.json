@@ -1,47 +1,82 @@
 {
   "id": 1,
   "name": "Vampirism",
-  "description": "You are afflicted with Vampirism and suffer the benefits and weaknesses, changing from the Humanoid to Undead Creature Type. You have a -5 Divine Mitigation penalty and take 1d12 True Damage at the end of each turn while in Sunlight. You do not need to eat, drink or breathe and do not get the benefits from consuming foods or potions. For each day that you do not consume at least a vial of Blood, you gain 1 Tier of Exhaustion at the end of a Full Rest which cannot be mitigated by Spells or Immunities.",
+  "description": "You are afflicted with vampirism and suffer the benefits and weaknesses of the undead curse.",
   "options": [
     {
       "name": "Vampire",
-      "description": "Core vampirism traits - undead creature type, sunlight vulnerability, blood dependency, and divine mitigation penalty.",
-      "data": "TA"
+      "description": "You are no longer a humanoid and cannot be affected by spells that target them - instead, your new creature type is undead. You are undying, but require blood to function. You must consume at least one vial of blood per day, or you enter a stasis after completing a full rest which cannot be ended until someone feeds you the required blood. When you are killed, you also enter this stasis. If you are pierced through the heart with a wooden stake while in this stasis, you turn to ash and are killed.",
+      "data": "TG"
     },
     {
-      "name": "Action : Vampire Bite",
-      "description": "You make an Unarmed Attack against another Creature. If the Target is a Beast or Humanoid and the Damage is not completely Mitigated, you gain Health equal to the damage dealt and have your blood requirements satisfied.",
-      "data": "XX3"
+      "name": "Action : Transformation",
+      "description": "You transform into a beast based on your bloodline that is of the minion tier. If the beast form reaches 0 health, you transform back into your original form and cannot use the ability until you complete a full rest or consume blood.",
+      "data": "XIME=1"
     },
     {
-      "name": "Anatomical Changes",
-      "description": "Your vampirism has manifested in several changes to your physique. Gain +1 acrobatics and +1 might.",
-      "data": "AS2=1:AD3=1"
+      "name": "Vampire Curse",
+      "description": "All vampires suffer from a debilitating curse:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "blood_weakness",
+          "name": "Blood Weakness",
+          "description": "You cannot benefit from food, drink, or consumables of any kind and cannot restore health in any way except for blood. When you drink a vial of blood, or successfully deal damage with the Bite action, you gain 1d4 health.",
+          "data": "TG"
+        },
+        {
+          "id": "silver_weakness",
+          "name": "Silver Bane",
+          "description": "When you take any damage from a weapon or piece of ammunition with the silvered property while at 0 health, you must roll on the lifeline table. If you roll a '1', you do not get to make a death check and instead turn to ash. Additionally, carrying or touching an object that contains silver deals 1 true damage to you each round.",
+          "data": "TG"
+        },
+        {
+          "id": "holy_weakness",
+          "name": "Holy Weakness",
+          "description": "You are especially weak against divine magic. Any damage that bypasses your mitigation is doubled against you and causes you to become afraid.",
+          "data": "TG"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Curse Selection"
     },
     {
-      "name": "Deadskin",
-      "description": "Gain +1 Physical and +2 Dark Mitigation.",
-      "data": "AD4=1:AD7=2"
+      "name": "Action : Vampiric Bite",
+      "description": "You make an unarmed attack against a creature, dealing 3 physical damage for each dice that hit. If the target is a humanoid and take damage after mitigation, they must make a resilience of check of 5 after their next full rest, or they become infected with vampirism. Each full rest, they can make this check again to clear the infection. If the target dies while infected, they must make a final resilience check; on a 9 or lower, they rise as a mindless vampire spawn, otherwise, they gain the vampirism trait. If this action is used against a willing or unconscious target, the attack roll is not necessary and the bite deals 3 true damage.",
+      "data": "XIME=1:TA"
     },
     {
-      "name": "Wallclimb",
-      "description": "You gain a Climbing Speed equal to your Movement Speed and climb vertical and horizontal surfaces.",
-      "data": "T4:TG"
-    },
-    {
-      "name": "Enhanced Senses",
-      "description": "You gain Echolocation up to 8 Units and become Immune to Disease and Poison.",
-      "data": "I=19:I=8:DE"
-    },
-    {
-      "name": "Vampire Charm",
-      "description": "Gain +1 Persuasion. When a Humanoid Botches an Insight Check against your Persuasion, they become Charmed by you until it breaks naturally.",
-      "data": "TG:ASC=1"
-    },
-    {
-      "name": "Free Action : Regeneration",
-      "description": "After consuming blood from a Humanoid or Beast, either with the Vampire Bite Action or drinking from a container, you gain 2d4 Health. After using this ability, your blood requirements are no longer satisfied for the day.",
-      "data": "Y"
+      "name": "Vampire Bloodline",
+      "description": "There are various vampire bloodlines, each with unique abilities and transformation forms:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "strigoi",
+          "name": "Strigoi Bloodline",
+          "description": "Strigoi are feral, grave-born predators, embodying the hunger and savagery of the oldest vampire myths. Your Transform action allows you to turn into a wolf. Your might and senses skills are upgraded and you gain +1 physical mitigation. When you start your turn in direct sunlight, you are considered blinded.",
+          "data": "SSC=X:SSK=X:M1=1:TG"
+        },
+        {
+          "id": "nosferatu",
+          "name": "Nosferatu Bloodline",
+          "description": "Nosferatu are twisted, plague-bearing outcasts, rulers of vermin and corruption in the shadows of civilization. Your Transform action allows you to turn into a snake. Your stealth and wildcraft skills are upgraded and you gain +3 toxic mitigation. If you start your turn in direct sunlight, you take 1 true damage.",
+          "data": "SSF=X:SSM=X:M9=3:TG"
+        },
+        {
+          "id": "moroi",
+          "name": "Moroi Bloodline",
+          "description": "Moroi are liminal half-breeds, cursed with vampiric power yet gifted with eerie sorcery and prophetic insight. Your Transform action allows you to turn into an owl. Your Bite action cannot spread vampirism and you are considered a humanoid instead of undead. You are also blessed with unnatural magical ability, gaining +1 skill with dark magic. Unlike other lineages, you are not affected by sunlight.",
+          "data": "YS1=1:TG"
+        },
+        {
+          "id": "dracul",
+          "name": "Dracul Bloodline",
+          "description": "Dracul are regal warlords and aristocrats of the night, embodying command, charisma, and the dark majesty of the vampire lord. Your Transform action allows you to turn into a bat. Your persuasion and logic skills are upgraded and you gain +3 psychic mitigation. If you start your turn in direct sunlight, you take 1 true damage.",
+          "data": "SST=X:SSL=X:M8=2:TG"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Bloodline Selection"
     }
   ]
 }

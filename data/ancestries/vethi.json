@@ -24,12 +24,12 @@
     {
       "name": "Daily Action : Third Eye",
       "description": "You unleash the power of your Third Eye towards a creature within a short (10 units) distance by making an attack with concentration against your target's resilience. For each dice that hits, deal 4 psychic damage. This disables your Eye of the Veth trait until you complete the next Full Rest.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
     {
       "name": "Intrinsic Guilt",
       "description": "The Vethi are burdened by the sins of their ancestors. You suffer a penalty of 3 to your maximum resolve.",
-      "data": "AR=-3:TA"
+      "data": "R=-3:TA"
     }
   ]
 }

@@ -5,40 +5,40 @@
   "ruleset": 1,
   "options": [
     {
-      "name": "Action : Reaching Stab",
-      "description": "You make an attack with a complex melee weapon with an additional +1 range that is not obstructed by other creatures or objects at the risk of exposing yourself. If you miss this attack or it deals no damage, you suffer a penalty dice to defense checks until the start of your next turn.",
+      "name": "Action : Lunging Stab",
+      "description": "You make an attack using a melee weapon with the piercing property, but with an additional +1 range, The target cannot be obstructed by other creatures or objects. If you miss this attack or it deals no damage, you suffer a penalty dice to defense checks until the start of your next turn.",
       "location": "1",
-      "data": ""
+      "data": "XINE=1"
     },
     {
       "name": "Boar Skewer",
-      "description": "Gain +1 skill with wilderness. When you make an attack or defense check against a beast while wielding a weapon with the piercing property, add a wilderness dice into your pool.",
+      "description": "Gain +1 skill with wildcraft. When you make an attack or defense check against a beast while wielding a weapon with the piercing property, add a wildcraft dice into your pool.",
       "location": "2a",
-      "data": "SKU=1"
+      "data": "TG:SSM=1"
     },
     {
       "name": "Pole Vaulter",
       "description": "You regularly use your weapons as leverage to increase your jumping distance. Gain +1 skill with fitness. When taking the jump action with a complex piercing weapon equipped, you can add a complex weapon attack dice to your jump check.",
       "location": "2b",
-      "data": "SSA=1"
+      "data": "TG:SSA=1"
     },
     {
       "name": "Precision Striker",
       "description": "Your thrusts find the gaps in any defense. Gain +1 skill with coordination. When you deal over 10 damage after calculating mitigation to an enemy using a weapon that has the piercing property, they gain the bleeding condition.",
       "location": "3",
-      "data": "SSE=1"
+      "data": "TG:SSG=1"
     },
     {
       "name": "Action: Impale",
       "description": "Make an attack with a weapon that has the piercing property, dealing damage. If you score at least 3 successes and the creature is at most one size larger than you, roll a might check against the enemies endurance. On a success, you impale the enemy on your weapon. While impaled, they are considered impaired, with the condition ending if you make another attack with your weapon or they successfully use an action to force another contest between your might and their endurance.",
       "location": "4a",
-      "data": ""
+      "data": "XINE=1"
     },
     {
       "name": "Reaction: Brace",
       "description": "When an enemy moves within your weapon's reach, you can brace a weapon with the piercing property, using their momentum against them. Make an attack with your weapon, rolling a bonus dice if the creature is larger than you or mounted. This attack also deals an extra damage for each unit the attacker moved as part of their last action or free movement.",
       "location": "4b",
-      "data": ""
+      "data": "ZINE=1"
     },
     {
       "name": "Master of Spears",
@@ -48,21 +48,21 @@
     },
     {
       "name": "Long-Distance Piercing",
-      "description": "Gain +1 skill with throwing weapons. Additionally, you can throw any weapon with a piercing property with a 1 dice penalty and deal damage as if it were a melee strike.",
+      "description": "Gain +1 skill with throwing weapons. When you use a throwing weapon, you can use actions that require piercing weapons as part of the attack.",
       "location": "6a",
-      "data": "WS2=1"
+      "data": "TG:WS2=1"
     },
     {
       "name": "Through and Through",
       "description": "Your piercing strikes can hit multiple foes. When you make an attack against a creature with a complex piercing weapon, the attack is also made against an enemy that is within the reach of your weapon and in a line with your target.",
       "location": "6b",
-      "data": "WS3=1"
+      "data": "TG:WS5=1"
     },
     {
-      "name": "Action: Find the Gap",
+      "name": "Action: Armor Piercer",
       "description": "Make an attack with a weapon that has the piercing property. Additionally, make a coordination check against the enemies defense check. If the attack hits and your coordination check succeeds, the target cannot benefit from physical mitigation.",
       "location": "7",
-      "data": "SSE=1:SMF=1"
+      "data": "XINE=1"
     }
   ]
 }

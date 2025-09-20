@@ -5,13 +5,8 @@
   "options": [
     {
       "name": "Adventurer's Spirit",
-      "description": "+5 Max Morale - Your unwavering spirit inspires you to push forward even in the darkest times.",
-      "data": "R=5"
-    },
-    {
-      "name": "Hardy Constitution",
-      "description": "+5 Max Health - Your body is naturally resilient and can withstand more punishment than most.",
-      "data": "H=5"
+      "description": "You gain +5 maximum morale and +5 maximum health.",
+      "data": "A1=5:A8=5:TA"
     }
   ]
 }

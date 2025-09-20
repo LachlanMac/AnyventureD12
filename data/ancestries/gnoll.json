@@ -14,7 +14,7 @@
     {
       "name": "Large",
       "description": "Gnolls are large creatures. All of your physique skills are upgraded and your finesse skills downgraded. Additionally, you take up a 2x2 unit area.",
-      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y"
+      "data": "SSA=X:SSB=X:SSC=X:SSD=X:SSE=Y:SSF=Y:SSG=Y:SSH=Y:TA"
     },
     {
       "name": "Gnoll Honor Bond",
@@ -24,12 +24,12 @@
     {
       "name": "Action : Gnoll Bite",
       "description": "You make a modified unarmed attack against a creature with a bonus dice, dealing 3 physical damage for the primary dice and any extra dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
     {
       "name": "Primitive",
       "description": "Your logic, academics knowledge and magic knowledge skills are downgraded. Additionally, you can only learn languages at a basic level.",
-      "data": "SSL=Y:SSN=Y:SSO=Y"
+      "data": "SSL=Y:SSN=Y:SSO=Y:TA"
     }
   ]
 }

@@ -12,13 +12,13 @@
     },
     {
       "name": "Reaction : Manaspike",
-      "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a spell check. If the result is higher than the contesting check, deal aetheric damage in an amount equal to your check.",
+      "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a mysticism spell check. If the result is higher than the contesting check, deal aetheric damage in an amount equal to your check.",
       "location": "2a",
-      "data": "ZIME=1"
+      "data": "ZIME=2"
     },
     {
       "name": "Reaction : Soul Ward",
-      "description": "In response to taking divine or dark damage, roll a mysticism magic check and reduce the damage by the result of the check.",
+      "description": "In response to taking divine or dark damage, roll a mysticism magic check and reduce the damage by the result of the check. This check is made after mitigations are calculated.",
       "location": "2b",
       "data": "ZIME=1"
     },
@@ -30,13 +30,13 @@
     },
     {
       "name": "Chakra Alignment",
-      "description": "You have learned to align and stabilize your inner energies. Gain +1 skill with Resilience. After completing a full rest, you can realign your chakra, choosing one attribute. Until you realign, any skill check made using that attribute cannot result in a value lower than 4, unless rolled with penalty dice.",
+      "description": "You have learned to align and stabilize your inner energies. Gain +1 skill with resilience. After completing a full rest, you can realign your chakra, choosing one attribute. Until you realign, any skill check made using that attribute cannot result in a value lower than 4, unless rolled with penalty dice.",
       "location": "4a",
       "data": "SSI=1:TG"
     },
     {
       "name": "Third Eye",
-      "description": "Your perception extends beyond normal senses. Gain +1 skill with senses. After spending an hour with any object or location, you can sense magic or residual effects, with the quality of the information gained determined by a magic knowledge check.",
+      "description": "Your perception extends beyond normal limitations. Gain +1 skill with senses. After spending an hour with any object or location, you can sense magic or residual effects, with the quality of the information gained determined by a magic knowledge check.",
       "location": "4b",
       "data": "SSK=1:TG"
     },
@@ -48,15 +48,15 @@
     },
     {
       "name": "Daily Action : Spirit Guide",
-      "description": "You call upon otherworldly guidance to aid you in a moment of need. Replace any single dice in a roll you are about to make with a d16.",
+      "description": "You call upon otherworldly guidance to aid you in a moment of need. Replace any single dice in the next roll you make within the next minute with a d16.",
       "location": "6a",
-      "data": "XDME=1"
+      "data": "XDME=0"
     },
     {
       "name": "Action : Spirit Shift",
-      "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to aether damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
+      "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to aetheric damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
       "location": "6b",
-      "data": "XIME=1"
+      "data": "XIME=2"
     },
     {
       "name": "Master Mystic",

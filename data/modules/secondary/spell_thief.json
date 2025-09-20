@@ -8,61 +8,61 @@
       "name": "Arcane Pilfering",
       "description": "You've learned to pilfer magic itself. You gain one thief slot that can hold a spell with a casting difficulty of 2 or lower. When casting spells from thief slots, you use your thievery skill instead of the normal magic skill.",
       "location": "1",
-      "data": ""
+      "data": "TG"
     },
     {
       "name": "Shadow Caster",
       "description": "Gain +1 skill with stealth. When you channel a spell in a thief slot while hidden, you roll a bonus dice.",
       "location": "2a",
-      "data": ""
+      "data": "SSF=1:TG"
     },
     {
       "name": "Unbreakable Focus",
       "description": "Gain +1 skill with concentration. When you channel a thief slot spell, your concentration cannot be broken by sleeping or becoming unconscious.",
       "location": "2b",
-      "data": ""
+      "data": "SSJ=1:TG"
     },
     {
       "name": "Reaction : Spell Steal",
       "description": "In response to a creature channeling a spell within 5 units, make a thievery check contested by their casting check. On success, you steal the spell and place it in one of your thief slots, replacing any spell already there. If the spell wasn't innate to the caster, they forget it permanently.",
       "location": "3",
-      "data": ""
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Distant Theft",
       "description": "Your understanding of magic empowers your thief slot spells. Gain +1 skill with magic knowledge. Your Spell Steal reaction now works at short range (10 units) instead of 5.",
       "location": "4a",
-      "data": "SS3=1"
+      "data": "SSO=1:TG"
     },
     {
       "name": "Borrowed Magic",
       "description": "You've learned gentler methods of magical acquisition. Gain +1 skill with insight. You can now use Spell Steal on willing allies without causing them to forget the spell.",
       "location": "4b",
-      "data": "SSS=1"
+      "data": "SSS=1:TG"
     },
     {
       "name": "Expanded Cache",
       "description": "Your capacity for stolen magic expands. Gain +1 skill with thievery and an additional thief slot.",
       "location": "5",
-      "data": "SSP=1"
+      "data": "SSH=1:TG"
     },
     {
       "name": "Reaction : Sacrificial Ward",
       "description": "In response to being targeted with an attack that deals damage, you sacrifice one of your spells in your thief slots, forgetting it. You gain mitigation against the damage equal to twice the cast check of the stolen spell.",
       "location": "6a",
-      "data": ""
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Action : Unstable Fusion",
       "description": "You channel both your known thief slot spells at the same time, specifying different targets for each. You take psychic damage equal to half the cast check of the higher tier spell.",
       "location": "6b",
-      "data": ""
+      "data": "TG:XINE=1"
     },
     {
       "name": "Spell Shatter",
       "description": "You don't just steal spells, you shatter them. When you successfully steal a spell, the original casting is completely negated. Additionally, if the stolen spell was innate to the creature, they must make a magic knowlege check of 9 or higher, or the spell becomes disabled for 1 minute.",
       "location": "7",
-      "data": ""
+      "data": "TG"
     }
   ]
 }

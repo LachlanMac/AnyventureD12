@@ -5,64 +5,64 @@
   "ruleset": 1,
   "options": [
     {
-      "name": "Death from Shadows",
-      "description": "You strike with lethal precision when enemies cannot see you coming. When you are hidden, all extra dice on weapon attacks become equal to primary damage instead of their normal extra damage value.",
+      "name": "Shadow Walker",
+      "description": "You move through darkness like a living shadow. Gain +1 skill with stealth. When you kill a creature, the next stealth check you make before the start of your next turn gains a bonus dice.",
       "location": "1",
-      "data": "TO"
+      "data": "TG:SSF=1"
     },
     {
       "name": "Action : Phantom Throw",
-      "description": "You make a throwing attack while hidden. If the attack hits, the target becomes dazed until the end of their next turn. Roll a stealth check; on a 6 or higher, you remain hidden.",
+      "description": "You make a throwing attack while hidden. If you have cover, you can roll a stealth check ",
       "location": "2a",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Silencing Strike",
-      "description": "You make a precise attack designed to prevent your target from calling for help. You make an unarmed attack that deals no damage, but strikes in a way that the target cannot speak or make noise until the end of their next turn if the attack hits.",
+      "description": "You make a precise attack designed to prevent your target from calling for help. You make an unarmed attack that deals no damage, but strikes in a way that the target cannot speak or make noise until the end of their next turn if at least 3 of the dice hit.",
       "location": "2b",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
-      "name": "Shadow Walker",
-      "description": "You move through darkness like a living shadow. Gain +1 skill with stealth. When you kill a creature, the next stealth check you make before the start of your next turn gains a bonus dice.",
+      "name": "Death from Shadows",
+      "description": "You strike with lethal precision when enemies cannot see you coming. When you are hidden, you can add a stealth dice into your attack check dice pool.",
       "location": "3",
-      "data": "SSF=1:TO"
+      "data": "TG"
     },
     {
       "name": "Stalker",
-      "description": "You can track and pursue targets relentlessly. Gain +1 skill with senses. You can automatically detect if someone you've seen before is within a short (10 unit) distance.",
+      "description": "You can track and pursue targets relentlessly. Gain +1 skill with senses. You can automatically detect if someone you've seen before is within a short (10 unit) distance if they are currently visible.",
       "location": "4a",
-      "data": "SSK=1:TG"
+      "data": "TG:SSK=1"
     },
     {
       "name": "Cold Blooded",
-      "description": "Death doesn't affect you the way it affects others. Gain +1 skill with resilience. You are immune to any effects that cause a loss of resolve due to death.",
+      "description": "You have seen some horrible things and do not break easily. Gain +1 skill with resilience and +2 maximum resolve.",
       "location": "4b",
-      "data": "SSI=1:TG"
+      "data": "TG:SSI=1:A2=2"
     },
     {
       "name": "Action : Assassinate",
-      "description": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a weapon that has the piercing property. If the attack hits, the target dies instantly if they are minion tier, or if you roll 2 successful dice against grunt tier, or 3 successful dice against standard tier creatures.",
+      "description": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a simple weapon. If the attack hits, the target dies instantly if they are minion tier. Grunts are executed on 2 successful dice hits and standard creatures on 3.",
       "location": "5",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Poison Master",
       "description": "You have mastered the art of toxins and chemical warfare. Gain +1 skill with alchemy. When you poison a creature, the first time they take damage from it, they take it twice.",
       "location": "6a",
-      "data": "CS3=1:TO"
+      "data": "TG:CS3=1"
     },
     {
       "name": "Remote Kill",
       "description": "You have mastered the art of killing with traps. Gain +1 skill with engineering. When your traps do damage to a grunt or minion, they are executed even if the damage did not bring them to 0 health.",
       "location": "6b",
-      "data": "CS1=1:TO"
+      "data": "TG:CS1=1"
     },
     {
       "name": "Master Assassin",
       "description": "You have achieved legendary status as a dealer of death. Gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
       "location": "7",
-      "data": "WS3=1:WS2=1:TO"
+      "data": "TG:WS3=1:WS2=1"
     }
   ]
 }

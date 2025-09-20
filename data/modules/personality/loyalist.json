@@ -13,61 +13,61 @@
       "name": "Loyalist",
       "description": "You are a loyalist, steadfast in your dedication to friends, causes, or ideals, even when doing so puts you at personal risk or disadvantage. Your unwavering loyalty makes you both a treasured ally and sometimes a person whose judgment can be clouded by your bonds. You value dedication, trust, and sacrifice above all else.",
       "location": "1",
-      "data": "AE=1"
+      "data": "TP"
     },
     {
       "name": "Dedicated Loyalty",
       "description": "Your loyalty to your friends transcends magical effects. You gain +1 skill with concentration. Additionally, when you attack an ally as a result of being charmed, confused or maddened, you only roll 1 dice despite your talents.",
       "location": "2a",
-      "data": ""
+      "data": "TP:SSJ=1"
     },
     {
       "name": "Trusting",
       "description": "Your trusting nature has made you naturally more likeable. Gain +1 skill with presence. Additionally, you once per day, you can substitute a wildcraft check involving an animal with your presence skill.",
       "location": "2b",
-      "data": ""
+      "data": "TP:SSR=1"
     },
     {
-      "name": "Downtime Action : Strengthen Bonds",
-      "description": "You spend time strengthing the bond between you and an ally. While you are within a moderate range (20 units) from your ally, resolve checks that either individual makes are rolled by both, and the higher value is used. This bond lasts until this downtime action is used again.",
+      "name": "Intuitive Loyalty",
+      "description": "Your loyalty to others enhances your ability to understand their needs and motivations. Gain +1 skill with insight. When you make an insight check against a humanoid with a final check that is 7 or higher, you know exactly how much resolve they have.",
       "location": "3",
-      "data": ""
+      "data": "TP:SSS=1"
     },
     {
       "name": "Reaction : Shared Burden",
-      "description": "In response to you or your bonded ally taking psychic damage, your mental connection shares the pain. The original damage is reduced by half, but both you and your bonded ally take this reduced amount.",
+      "description": "In response to an ally taking psychic damage, your mental connection shares the pain. The original damage is reduced by half, but both you and your bonded ally take this reduced amount.",
       "location": "4a",
-      "data": "ZX"
+      "data": "ZINE=0"
     },
     {
       "name": "Action : Coordinated Flank",
       "description": "You coordinate a flank with your ally, both making a melee attack against the same target. You make your attack with a bonus dice and your ally makes theirs with a penalty dice. Your ally must be able to use a reaction, but it does not have a cost.",
       "location": "4b",
-      "data": "XX"
-    },
-    {
-      "name": "Intuitive Loyalty",
-      "description": "Your loyalty to others enhances your ability to understand their needs and motivations. Gain +1 skill with insight. When you make an insight check against a humanoid with a final check that is 7 or higher, you know exactly how much resolve they have.",
-      "location": "5",
-      "data": "SSS=1"
-    },
-    {
-      "name": "Strength in Allies",
-      "description": "For each humanoid that ends a full rest will full resolve within a very short (5 unit) distance of you, you gain 1 resolve. If you are already at full resolve, you gain 5 morale instead.",
-      "location": "6a",
-      "data": ""
-    },
-    {
-      "name": "No Man Left Behind",
-      "description": "When a humanoid ally is at 0 health, your resilience and endurance checks are rolled with 2 bonus dice. Additionally when you take the sprint action towards an ally that has 0 health, it does not take energy.",
-      "location": "6b",
-      "data": ""
+      "data": "XINE=1"
     },
     {
       "name": "Unbreakable Bonds",
       "description": "Gain +1 talent with social.",
-      "location": "7",
+      "location": "5",
       "data": "ST5=1"
+    },
+    {
+      "name": "Strength in Allies",
+      "description": "For each humanoid that ends a full rest will full resolve within a very short (5 unit) distance of you, you gain 1 resolve. If you are already at full resolve, you gain 2 morale instead.",
+      "location": "6a",
+      "data": "TP"
+    },
+    {
+      "name": "No Man Left Behind",
+      "description": "When a humanoid ally within a moderate (20 unit) distance is at 0 health or unconscious, your resilience and endurance checks are rolled with 2 bonus dice. Additionally when you take the sprint action towards an ally that has 0 health, it does not take energy.",
+      "location": "6b",
+      "data": "TP"
+    },
+    {
+      "name": "Downtime Action : Strengthen Bonds",
+      "description": "You spend time strengthening the bond between you and an ally. While you are within a moderate range (20 units) from your ally, resolve checks that either individual makes are rolled by both, and the higher value is used. This bond lasts until this downtime action is used again.",
+      "location": "7",
+      "data": "YDNE=0"
     }
   ]
 }

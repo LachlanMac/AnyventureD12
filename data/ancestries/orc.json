@@ -19,12 +19,12 @@
     {
       "name": "Orcish Endurance",
       "description": "Orcs have evolved beyond their brutal past, but their bodies remain remarkably resilient. Gain +1 skill with resilience and heal 1 extra health per full rest.",
-      "data": "AS2=1:TA"
+      "data": "SSI=1:TA"
     },
     {
       "name": "Daily Action : Endure",
       "description": "You attempt to shake off any poisons, harmful substances in your body or remove the bleeding condition by rolling an endurance check. On a 6 or higher, you are successfully cleansed. On an 11 or higher, you also gain 5 morale which last until you complete your next full rest.",
-      "data": "XD1"
+      "data": "XD1:TA"
     },
     {
       "name": "Innate Rage",

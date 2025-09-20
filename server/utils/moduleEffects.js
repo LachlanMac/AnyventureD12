@@ -27,6 +27,14 @@ export const applyDataEffects = (character, dataString) => {
       continue;
     }
     
+    // Check for conditional effects first (CA[...], CB[...], etc.)
+    const conditionalMatch = effect.match(/^C([A-G])\[([^\]]+)\]$/);
+    if (conditionalMatch) {
+      const [_, conditionType, effects] = conditionalMatch;
+      handleConditionalEffect(character, conditionType, effects);
+      continue;
+    }
+    
     // Parse the effect code - handle both numeric values and X/Y for dice tier modifications
     const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+|[XY])/);
     if (!match) continue;
@@ -278,6 +286,124 @@ const handleActionEffect = (character, type, frequency, magic, energy) => {
   character.actionProperties.push(actionProperty);
 };
 
+const handleConditionalEffect = (character, conditionType, effectsString) => {
+  // Initialize conditional bonuses if not exists
+  if (!character.conditionalBonuses) character.conditionalBonuses = [];
+
+  // Map condition type to internal condition name
+  let condition = '';
+  switch (conditionType) {
+    case 'A': condition = 'noArmor'; break;
+    case 'B': condition = 'lightArmor'; break;
+    case 'C': condition = 'heavyArmor'; break;
+    case 'D': condition = 'anyArmor'; break;
+    case 'E': condition = 'anyShield'; break;
+    case 'F': condition = 'lightShield'; break;
+    case 'G': condition = 'heavyShield'; break;
+    default: return; // Unknown conditional type
+  }
+
+  // Parse the effects inside the brackets
+  const effects = effectsString.split(',').map(e => e.trim());
+  const parsedEffects = [];
+
+  for (const effect of effects) {
+    // Parse mitigation effects (M1=2, M4=1, etc.)
+    const mitigationMatch = effect.match(/^M([1-9A])=(\d+)$/);
+    if (mitigationMatch) {
+      const [_, mitigationType, value] = mitigationMatch;
+      parsedEffects.push({
+        type: 'mitigation',
+        subtype: getMitigationName(mitigationType),
+        value: parseInt(value)
+      });
+      continue;
+    }
+
+    // Parse skill effects (SSB=1, SSE=1, etc.)
+    const skillMatch = effect.match(/^SS([A-T])=(\d+)$/);
+    if (skillMatch) {
+      const [_, skillCode, value] = skillMatch;
+      const skillMapping = getSkillMapping(skillCode);
+      if (skillMapping && skillMapping.type === 'skill') {
+        parsedEffects.push({
+          type: 'skill',
+          subtype: skillMapping.id,
+          value: parseInt(value)
+        });
+      }
+      continue;
+    }
+
+    // Parse immunity effects (IA=1, IB=1, etc.)
+    const immunityMatch = effect.match(/^I([A-Z])=1$/);
+    if (immunityMatch) {
+      const [_, immunityCode] = immunityMatch;
+      const immunityName = getImmunityName(immunityCode);
+      if (immunityName) {
+        parsedEffects.push({
+          type: 'immunity',
+          subtype: immunityName,
+          value: true
+        });
+      }
+    }
+  }
+
+  // Create conditional bonus object with all effects
+  const conditionalBonus = {
+    condition: condition,
+    effects: parsedEffects
+  };
+
+  // Add to character's conditional bonuses
+  character.conditionalBonuses.push(conditionalBonus);
+};
+
+// Helper function to get mitigation names
+const getMitigationName = (code) => {
+  const mitigationMap = {
+    '1': 'physical',
+    '2': 'heat',
+    '3': 'cold',
+    '4': 'electric',
+    '5': 'dark',
+    '6': 'divine',
+    '7': 'aether',
+    '8': 'psychic',
+    '9': 'toxic',
+    'A': 'true'
+  };
+  return mitigationMap[code] || null;
+};
+
+// Helper function to get immunity names
+const getImmunityName = (code) => {
+  const immunityMap = {
+    'A': 'afraid',
+    'B': 'bleeding',
+    'C': 'blinded',
+    'D': 'charmed',
+    'E': 'confused',
+    'F': 'dazed',
+    'G': 'deafened',
+    'H': 'diseased',
+    'I': 'winded',
+    'J': 'prone',
+    'K': 'poisoned',
+    'L': 'muted',
+    'M': 'stunned',
+    'N': 'impaired',
+    'O': 'numbed',
+    'P': 'broken',
+    'Q': 'incapacitated',
+    'R': 'ignited',
+    'S': 'hidden',
+    'T': 'maddened'
+  };
+  return immunityMap[code] || null;
+};
+
 // Mapping functions
 const getSkillMapping = (code) => {
   const attributeMap = {
@@ -407,3 +533,99 @@ const mapMitigationCode = (code) => {
     
     return immunityMap[code] || null;
   };
+
+/**
+ * Evaluate conditional bonuses based on character's current equipment
+ * @param {Object} character - The character to evaluate
+ * @param {Array} equippedItems - Array of currently equipped items
+ */
+export const evaluateConditionalBonuses = (character, equippedItems = []) => {
+  if (!character.conditionalBonuses || character.conditionalBonuses.length === 0) {
+    return;
+  }
+
+  // Reset any previously applied conditional bonuses
+  if (character.activeConditionalBonuses) {
+    // Remove previously applied bonuses
+    for (const activeBonus of character.activeConditionalBonuses) {
+      if (activeBonus.bonus === 'deflection' && character.skills.deflection) {
+        character.skills.deflection.value -= activeBonus.value;
+      } else if (activeBonus.bonus === 'evasion' && character.skills.evasion) {
+        character.skills.evasion.value -= activeBonus.value;
+      }
+    }
+  }
+
+  character.activeConditionalBonuses = [];
+
+  // Check each conditional bonus
+  for (const conditionalBonus of character.conditionalBonuses) {
+    let shouldApply = false;
+
+    // Check equipped armor (body slot only) and shields
+    const hasLightArmor = equippedItems.some(item => item.type === 'body' && item.armor_category === 'light');
+    const hasHeavyArmor = equippedItems.some(item => item.type === 'body' && item.armor_category === 'heavy');
+    const hasAnyArmor = hasLightArmor || hasHeavyArmor;
+    const hasLightShield = equippedItems.some(item => item.type === 'shield' && item.shield_category === 'light');
+    const hasHeavyShield = equippedItems.some(item => item.type === 'shield' && item.shield_category === 'heavy');
+    const hasAnyShield = hasLightShield || hasHeavyShield;
+
+    switch (conditionalBonus.condition) {
+      case 'noArmor':
+        shouldApply = !hasAnyArmor;
+        break;
+      case 'lightArmor':
+        shouldApply = hasLightArmor;
+        break;
+      case 'heavyArmor':
+        shouldApply = hasHeavyArmor;
+        break;
+      case 'anyArmor':
+        shouldApply = hasAnyArmor;
+        break;
+      case 'anyShield':
+        shouldApply = hasAnyShield;
+        break;
+      case 'lightShield':
+        shouldApply = hasLightShield;
+        break;
+      case 'heavyShield':
+        shouldApply = hasHeavyShield;
+        break;
+    }
+
+    if (shouldApply && conditionalBonus.effects) {
+      // Apply each effect from the conditional
+      for (const effect of conditionalBonus.effects) {
+        switch (effect.type) {
+          case 'skill':
+            if (!character.skills[effect.subtype]) {
+              character.skills[effect.subtype] = { value: 0, talent: 0, diceTierModifier: 0 };
+            }
+            character.skills[effect.subtype].value += effect.value;
+            break;
+
+          case 'mitigation':
+            if (!character.mitigations[effect.subtype]) {
+              character.mitigations[effect.subtype] = 0;
+            }
+            character.mitigations[effect.subtype] += effect.value;
+            break;
+
+          case 'immunity':
+            if (!character.immunities[effect.subtype]) {
+              character.immunities[effect.subtype] = false;
+            }
+            character.immunities[effect.subtype] = effect.value;
+            break;
+        }
+      }
+
+      // Track the applied bonuses
+      character.activeConditionalBonuses.push({
+        condition: conditionalBonus.condition,
+        effects: conditionalBonus.effects
+      });
+    }
+  }
+};

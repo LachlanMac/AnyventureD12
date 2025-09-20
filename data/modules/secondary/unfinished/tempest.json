@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Tempest",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "",
+      "description": "",
+      "location": "1",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "2a",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "2b",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "3",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "4a",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "4b",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "5",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "6a",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "6b",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "7",
+      "data": ""
+    }
+  ]
+}

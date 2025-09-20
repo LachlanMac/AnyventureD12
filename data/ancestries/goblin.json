@@ -14,17 +14,17 @@
     {
       "name": "Small",
       "description": "Goblins are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
-      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
+      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:K1=-1:TA"
     },
     {
       "name": "Nimble Hands",
       "description": "Goblin fingers are incredibly nimble, capable of complex and accurate movements. Gain +1 skill with coordination and +1 skill with engineering.",
-      "data": "TA"
+      "data": "SSG=1:CRA=1:TA"
     },
     {
       "name": "Reaction : Flexible Bones",
       "description": "Goblin bones are incredibly flexible and rarely break. In response to taking damage from being shoved or falling, halve the damage.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
       {
       "name": "Quick Metabolism",

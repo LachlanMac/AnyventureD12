@@ -14,22 +14,22 @@
     {
       "name": "Small",
       "description": "Kobolds are small creatures. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
-      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:A4=-1:TA"
+      "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:K1=-1:TA"
     },
     {
       "name": "Born to Fight",
       "description": "Kobolds are born for battle. You gain +1 skill with simple melee and simple ranged weapons and +1 skill with evasion.",
-      "data": "AZ1=1:AZ2=1:AS2=1:TA"
+      "data": "WTA=1:WTB=1:SSF=1:TA"
     },
     {
       "name": "Reaction : Play Dead",
       "description": "In response to taking damage, you fall prone and convincingly play dead. A creature cannot deduce that you are alive unless making a contested senses check against your expression if they have reason to suspect.",
-      "data": "ZX2"
+      "data": "ZX2:TA"
     },
     {
       "name": "Fragile",
       "description": "Kobolds are naturally fragile creatures. You suffer a -5 penalty to your maximum health and a -1 penalty to your physical mitigation.",
-      "data": "AH=-5:DI:TA"
+      "data": "H=-5:M1=-1:TA"
     }
   ]
 }

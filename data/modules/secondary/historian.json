@@ -8,61 +8,61 @@
       "name": "Daily Action : Scholar's Memory",
       "description": "You can recall useful information about a humanoid, beast or monster creature you encounter for the first time. Make an academics check to determine what you remember: on a 6-9, you learn a single target's weakest mitigation type and one condition they are not immune to. On a 10 or higher, you learn their two weakest mitigation types and two conditions they are not immune to.",
       "location": "1",
-      "data": "SSS=1:TG"
+      "data": "XDNE=0"
     },
     {
       "name": "Art of War",
       "description": "You have studied military history and tactical theory extensively. Gain +1 skill with logic. If you successfully use your Scholar's Memory action, you also gain your choice of a bonus dice to attack checks or defense checks until the end of combat against your target and any identical creatures.",
       "location": "2a",
-      "data": "SSL=1:TG"
+      "data": "TG:SSL=1"
     },
     {
       "name": "Arcane Studies",
       "description": "You have delved into the histories of magical creatures and otherworldly beings. Gain +1 skill with magic knowledge. Your Scholar's Memory ability works on magical creatures such as elementals, constructs, divine and dark types.",
       "location": "2b",
-      "data": "SS3=1:TG"
+      "data": "TG:SSO=1"
     },
     {
       "name": "Walking Library",
       "description": "Your mind is a repository of countless facts and figures. Gain +1 skill with academics. When you help an ally make an academics check, your help dice replaces their check if it is higher.",
       "location": "3",
-      "data": "SSQ=1:TG"
+      "data": "TG:SSN=1"
     },
     {
       "name": "Ancient Languages",
-      "description": "You are experienced in ancient, and sometimes exotic languages. Gain +1 skill with expression and learn 2 magical languages at a basic level.",
+      "description": "You are experienced in ancient, and sometimes exotic languages. Gain +1 skill with expression. Additionally, gain +2 magical language points.",
       "location": "4a",
-      "data": "SSR=1:TG"
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Lore of the Ancients",
       "description": "You can identify the history and properties of ancient items and architecture. Gain +1 skill with resilience. You can spend 10 minutes examining an object or structure to learn its history, purpose, and any special properties. You gain a bonus dice on this check if the item is related to your chosen specialization (military artifacts for Art of War, magical items for Arcane Studies).",
       "location": "4b",
-      "data": "SS2=1:TG"
+      "data": "TG:SSI=1"
     },
     {
       "name": "Studious",
       "description": "Your dedication to research has sharpened your focus. Gain +1 skill with concentration. When you spend at least 1 hour researching a creature, faction or entity, you gain a bonus dice to your academics check for your Scholar's Memory action.",
       "location": "5",
-      "data": "SSN=1:TG"
+      "data": "TG:SSJ=1"
     },
     {
       "name": "Ancient Song",
-      "description": "You've discovered and mastered a song from ages past. Gain +1 skill with expression. You learn 1 song of any difficulty and become proficient in one musical skill.",
+      "description": "You've discovered and mastered a song from ages past. Gain +1 skill with expression. You learn one song or ballad of any difficulty and become an expert in one musical skill.",
       "location": "6a",
-      "data": "TG"
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Living Archive",
-      "description": "Immediately after completing a full rest, make an academics check and note the highest number. Until your next full rest, you can replace one of your academics dice rolls with that number.",
+      "description": "You have become a living archive of knowledge, with cross-disciplined knowledge. Gain +1 skill with academics. Immediately after completing a full rest, make an academics check and note the highest number. Until your next full rest, you can replace a single knowledge check you make with that number.",
       "location": "6b",
-      "data": "TG"
+      "data": "TG:SSN=1"
     },
     {
       "name": "Action : Second Edition",
       "description": "You dedicate your concentration to clearing your memory, allowing your Scholar's Memory action to refresh at the start of your next turn. Additionally, you can now use it on creatures you've previously attempted to recall information about, even if those attempts failed.",
       "location": "7",
-      "data": "TG"
+      "data": "XINE=1"
     }
   ]
 }

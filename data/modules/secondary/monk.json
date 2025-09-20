@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Reinforced Mind",
-      "description": "You have dedicated your life to combat and discipline. You gain +1 maximum resolve and can spend 4 hours meditating to regenerate 1 resolve per day.",
+      "description": "You have dedicated your life to combat and discipline. You gain +2 maximum resolve. Additionally, when you complete a favorable rest, recover 2 resolve.",
       "location": "1",
-      "data": "AE=1:TD"
+      "data": "TG:A2=2"
     },
     {
       "name": "Stride of the Cheetah",
-      "description": "You gain +1 skill with fitness. Additionally, gain +1 movement speed and roll an extra dice when defending against attack of opportunties.",
+      "description": "You gain +1 skill with fitness. Additionally, gain +1 movement speed and roll a bonus dice when rolling defense checks against attack of opportunities.",
       "location": "2a",
-      "data": "TD"
+      "data": "TG:SSA=1:K1=1"
     },
     {
       "name": "Breath of the Dolphin",
       "description": "You gain +1 skill with endurance. Additionally, your swim speed becomes equal to your movement speed and you can hold your breath for twice as long.",
       "location": "2b",
-      "data": "TD"
+      "data": "TG:SSD=1"
     },
     {
       "name": "Reaction : Flow Like Water",
-      "description": "When you successfully evade or deflect an attack, you immediately move to an adjacent tile. Until the start of your turn, you roll an extra dice on defense checks.",
+      "description": "In response to you successfully defending against a melee attack and taking no damage, immediately move to an adjacent tile. Until the start of your turn, you roll an extra dice on defense checks. This ability can stack up to 3 times, granting 3 bonus dice.",
       "location": "3",
-      "data": "TD"
+      "data": "ZINE=0"
     },
     {
       "name": "Action : Flying Kick",
-      "description": "You leap towards a target within 3 units using your fitness or acrobatics skill as the attack check. If the attack hits, deal 1d4 damage for each unit traveled.",
+      "description": "You leap towards a target within 3 units using your fitness or acrobatics skill as the attack check, dealing 3 physical damage for each successful attack dice. If you traveled the entire 3 units, you deal 4 physical damage per dice instead.",
       "location": "4a",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Palm Strike",
-      "description": "You strike a creature with an unarmed attack that deals no damage, but forces the target to make a concentration or endurance check against you, or they become stunned. The check required is equal to 3 times the total amount of dice that hit the target.",
+      "description": "You strike a creature with an unarmed attack that deals no damage, but forces the target to make a concentration or endurance check, or they become stunned. The check required is equal to 2 times the total amount of dice that hit the target.",
       "location": "4b",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
       "name": "Monk's Discipline",
       "description": "Gain +1 skill with concentration and +1 skill with resilience.",
       "location": "5",
-      "data": "TD"
+      "data": "SSJ=1:SSI=1"
     },
     {
       "name": "Master of Staves",
       "description": "Gain +1 skill with simple melee weapons and +1 deflection while not wearing armor.",
       "location": "6a",
-      "data": "TO"
+      "data": "WS3=1:CA=1"
     },
     {
       "name": "Master of Fists",
       "description": "Gain +1 skill with unarmed attacks and +1 evasion while not wearing armor.",
       "location": "6b",
-      "data": "TO"
+      "data": "WS1=1:CB=1"
     },
     {
       "name": "Daily Action : Cleansing Focus",
-      "description": "You cleanse your mind, removing any dazed or stunned conditions from you. Additionally, roll a concentration check and gain morale equal to your highest roll that lasts for 1 minute.",
+      "description": "You cleanse your mind, removing any dazed or stunned conditions from you. After removing one of those conditions, roll a concentration check; if the result is over 9, you gain 2 resolve. If the result is over 15, you gain 3 resolve and your action is refunded.",
       "location": "7",
-      "data": "TD"
+      "data": "XDNE=0"
     }
   ]
 }

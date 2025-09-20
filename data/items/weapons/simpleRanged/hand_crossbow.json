@@ -38,7 +38,6 @@
   "magic": {},
   "craft": {},
   "mitigation": {},
-  "armor_penalties": {},
   "detections": {},
   "immunities": {},
   "recipe": {
@@ -50,5 +49,6 @@
       "Bowstring",
       "Bindings"
     ]
-  }
+  },
+  "encumbrance_penalty": 0
 }

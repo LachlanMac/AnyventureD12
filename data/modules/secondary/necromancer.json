@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Action : Command Undead",
-      "description": "You use your concentration to take command of an undead creature that you can see which you have created. While dedicating your concentration in this way, it acts under your control.",
+      "description": "You use your concentration to take command of an undead creature that you can see which you have created through magic. While dedicating your concentration in this way, it acts under your control.",
       "location": "1",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "Life Siphon",
-      "description": "When a creature dies as a result of damage from a spell from the necromancy subschool that you channeled, you gain 3 health. This trait does not work on constructs or undead.",
+      "description": "When a creature dies as a result of damage caused by a spell from the necromancy subschool that you channeled, you gain 3 health. This trait does not work on constructs. elementals or undead creatures.",
       "location": "2a",
-      "data": "CS1=1:TC:TO"
+      "data": "TG"
     },
     {
       "name": "Death Bond",
-      "description": "Each day, the first time you reach 0 health, your health is set to 1. Additionally, gain +1 skill with endurance.",
+      "description": "Each day, the first time you reach 0 health, your health instead is set to 1. Additionally, gain +1 skill with endurance.",
       "location": "2b",
-      "data": "SSJ=1:SSG=1:TO"
+      "data": "TG:SSD=1"
     },
     {
       "name": "Deadspeak",
-      "description": "You unlock the Deadspeak language and gain +1 to your presence skill.",
+      "description": "You become fluent in the Deadspeak language and gain +1 to your presence skill.",
       "location": "3",
-      "data": "AE=1:TO"
+      "data": "SSR=1"
     },
     {
       "name": "Daily Action : Death Touch",
-      "description": "You touch a creature using your dark magic skill as an attack roll against a defensive endurance check. For each dice that hits, deal dark damage equal to your missing health. This does not affect constructs or elementals but deals double damage to humanoids and plantoids.",
+      "description": "You touch a creature using your dark magic skill as an attack roll against a contested endurance check. For each dice that hits, deal 10 dark damage, with critical hit dice dealing 15. This does not affect constructs or elementals but deals double damage to humanoids and plantoids.",
       "location": "4a",
-      "data": "TO"
+      "data": "XDME=2"
     },
     {
       "name": "Action : Harvest",
-      "description": "You siphon the magic from one undead creature under your command that is within a moderate (20 units) range, destroying it and recovering 2d4 health and completely restoring your energy.",
+      "description": "You siphon the magic from one undead creature under your command that is within a moderate (20 units) range, destroying it and recovering 8 health for a minion or grunt and 15 health for a standard or champion tier creature.",
       "location": "4b",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "The Dark Arts",
       "description": "You are practiced in the dark arts. Gain +1 skill with dark magic.",
       "location": "5",
-      "data": "WS1=3:WS4=1:TO"
+      "data": "YS1=1"
     },
     {
       "name": "Forbidden Science",
       "description": "You have experimented with forbidden sciences giving you greater understanding. Gain +1 skill in medicine and +1 skill in academics.",
       "location": "6a",
-      "data": "TO"
+      "data": "SSP=1:SSN=1"
     },
     {
       "name": "Enhanced Minions",
-      "description": "Undead creatures under your control gain an extra dice on their attack rolls. Additionally, undead under the effect of your Command Undead action are gifted primitive mental capabilities, allowing them to make social, mind and knowledge checks with a 1d4 dice.",
+      "description": "Undead creatures under your control gain an extra dice on their attack rolls. Additionally, undead under the effect of your Command Undead action are gifted primitive mental capabilities, allowing them to make social, mind and knowledge checks as if they had 1 skill and 1 talent (1d4).",
       "location": "6b",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Expanded Control",
-      "description": "You are no longer limited to controlling one undead creature and can instead control a number of creatures or swarms equal to your concentration skill.",
+      "description": "Your Command Undead action is no longer limited to a single undead or swarm. You can use your focus and use the Command Undead action again by making a concentration check greater than 6 plus the number of creatures you are controlling. If you fail this check, you cannot attempt again until completing a full rest.",
       "location": "7",
-      "data": "TO"
+      "data": "TG"
     }
   ]
 }

@@ -1,0 +1,9 @@
+{
+  "name": "Medicine Kit",
+  "description": "A general collection of testing equipment, salves, and medical supplies. This item grants a bonus check to several medical activities such as diagnosing diseases, treating temporary physical conditions and determining how long ago a creature died. It is consumed in the process.",
+  "type": "adventure",
+  "subtype": "consumable",
+  "value": 50,
+  "weight": 1,
+ "rarity": "common"
+}

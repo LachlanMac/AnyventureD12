@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Calculated Trauma",
-      "description": "You understand how to apply the right amount of force with your weapon. Gain +1 skill with medicine. When you reduce a creature to 0 health with a bludgeoning weapon, you can choose to knock them unconscious instead of killing them.",
+      "description": "You understand how to apply the right amount of force with your weapon. Gain +1 skill with medicine. When you reduce a creature to 0 health with a weapon that has the blunt property, you can choose to knock them unconscious instead of killing them.",
       "location": "1",
-      "data": "SSG=1:TO"
+      "data": "TG:SSP=1"
     },
     {
       "name": "Reaction: Batter Aside",
-      "description": "In response to being targeted by a melee attack, you attempt to defend yourself by striking first. Make a weapon attack instead and use your highest result as your defense check.",
+      "description": "In response to being targeted by a melee attack, you attempt to defend yourself by striking first. Make a weapon attack instead and use your highest result as your defense check. If successful, the target rolls a penalty dice on any future attacks against you until the start of your next turn.",
       "location": "2a",
-      "data": "X"
+      "data": "ZINE=1"
     },
     {
       "name": "Action: Shatter Guard",
-      "description": "Make an attack with a bludgeoning weapon against an enemy in an attempt to batter down their defenses. Instead of dealing damage, each success forces the enemy to have a penalty dice on their deflection checks until the start of their next turn, up to a maximum of 3 penalty dice.",
+      "description": "Make an attack with a weapon that has the blunt property against an enemy in an attempt to batter down their defenses. Instead of dealing damage, each success forces the enemy to have a penalty dice on their deflection checks until the start of their next turn, up to a maximum of 3 penalty dice.",
       "location": "2b",
-      "data": "Z"
+      "data": "XINE=1"
     },
     {
       "name": "Staggering Blows",
       "description": "Gain +1 skill with might. When you score at least one critical hit, you can also displace your target by a number of units equal to how many critical hits you scored. This trait only works on large or smaller creatures.",
       "location": "3",
-      "data": "SSD=1:TO"
+      "data": "TG:SSC=1"
     },
     {
       "name": "Empowered Leap",
-      "description": "You have mastered art of using your momentum to make staggering hits. Gain +1 skill with fitness. When you take the jump action, your next attack with a weapon that has the bludgeoning property gains 2 bonus dice until the end of your turn.",
+      "description": "You have mastered the art of using your momentum to make staggering leaping hits. Gain +1 skill with fitness. When you take the jump action, your next attack with a weapon that has the bludgeoning property gains 2 bonus dice until the end of your turn.",
       "location": "4a",
-      "data": "SKW=1:TO"
+      "data": "TG:SSA=1"
     },
     {
       "name": "Shaft-Guard",
       "description": "You are skilled using the shaft of a weapon to block incoming blows. Gain +1 skill with deflection.",
       "location": "4b",
-      "data": "SMG=1:TO"
+      "data": "TG:SSB=1"
     },
     {
       "name": "Master of Hammers",
       "description": "Your skill with bludgeoning weapons is legendary. Gain +1 skill with complex melee weapons.",
       "location": "5",
-      "data": "WS5=1:TO"
+      "data": "WS5=1"
     },
     {
       "name": "Action: Seismic Slam",
-      "description": "You strike the ground with tremendous force using a complex melee weapon with the bludgeoning property. All creatures within 2 units must make a fitness or coordination against your might check or fall prone.",
+      "description": "You strike the ground with tremendous force using a complex melee weapon with the blunt property. All creatures within 2 units must make a fitness or coordination against your might check or fall prone. Creatures who fail this check take 3 falling damage.",
       "location": "6a",
-      "data": "WS5=1:WA"
+      "data": "XINE=1"
     },
     {
       "name": "Action: Double Crush",
-      "description": "Make a single attack with a weapon that has the bludgeoning property against two separate targets within range. Foe tier or lower creatures become automatically dazed by this attack if they take damage. Higher tiered creatures must make a concentration check higher than the total damage taken or become dazed.",
+      "description": "Make a single attack with a weapon that has the blunt property against two separate targets within range. Foe tier or lower creatures become automatically dazed by this attack if they take damage. Higher tiered creatures must make a concentration check higher than the total damage taken or become dazed.",
       "location": "6b",
-      "data": "WS3=1:TO"
+      "data": "XINE=1"
     },
     {
       "name": "Brain Scrambler",
-      "description": "When you land two or more critical hits on a target that is dazed they must make a resilience check of 7 or the become stunned. If the target is already stunned, they fall unconscious with a failed check.",
+      "description": "When you make an attack against a creature that is dazed with at least 2 critical attack dice, they must make a resilience check of 7 or they become stunned. If the target is already stunned, they fall unconscious with a failed check.",
       "location": "7",
-      "data": "SSG=1:SSD=1:TO"
+      "data": "TG"
     }
   ]
 }

@@ -66,6 +66,11 @@ const ItemSchema = new Schema({
       type: String, 
       enum: ["light", "heavy"],
   },
+  armor_category: {
+      type: String,
+      enum: ["light", "heavy", "none"],
+      default: "none"
+  },
   consumable_category: { 
       type: String, 
       enum: ["poisons", "elixirs", "potions", "explosives"],
@@ -79,18 +84,7 @@ const ItemSchema = new Schema({
   secondary: DamageSchema,
 
 
- armor_penalties:{
-    movement: {type:Number, default:0},
-    energy: {type:Number, default:0},
-    fitness: {type:Number, default:0},
-    stealth: {type:Number, default:0},
-    coordination: {type:Number, default:0},
-    evasion: {type:Number, default:0},
-    deflection: {type:Number, default:0},
-    senses: {type:Number, default:0},
-    sprint: {type:Number, default:0},
-    swim: {type:Number, default:0},
- },
+  encumbrance_penalty: { type: Number, default: 0 },
  
 
  health: {

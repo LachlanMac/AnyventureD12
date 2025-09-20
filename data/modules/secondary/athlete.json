@@ -8,61 +8,61 @@
       "name": "Physical Conditioning",
       "description": "You have developed exceptional physical fitness through dedicated training. Gain +1 skill with fitness and +1 health.",
       "location": "1",
-      "data": "SS9=1:TG"
+      "data": "TG:SSA=1:A1=1"
     },
     {
       "name": "Endurance Training",
       "description": "Your body has been conditioned to endure physical stress. Gain +1 skill with endurance. You can hold your breath for twice as long.",
       "location": "2a",
-      "data": "SS1=1:TG"
+      "data": "TG:SSD=1"
     },
     {
       "name": "Natural Athlete",
       "description": "Your coordination and agility are exceptional. Gain +1 skill with coordination and +1 movement speed.",
       "location": "2b",
-      "data": "SSG=1:TG"
+      "data": "TG:SSG=1:K1=1"
     },
     {
       "name": "Daily Action : Second Wind",
-      "description": "You dig deep to find reserves of energy when exhausted. Remove the winded condition, restore your energy completely and gain 2d4 morale that lasts for a minute.",
+      "description": "You dig deep to find reserves of energy when exhausted. Remove the winded condition and restore your energy completely.",
       "location": "3",
-      "data": "X"
+      "data": "XDNE=0"
     },
     {
       "name": "Action : Run and Jump",
-      "description": "You take an enhanced sprint action, moving up to double your movement speed and then making a leap equal to your maximum jump distance at the end of your movement.",
+      "description": "You take an enhanced sprint action, moving up to double your movement speed. At any point within your sprint, you can jump a distance equal to your movement speed without requiring a check.",
       "location": "4a",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Athletic Reflexes",
       "description": "In response to being targeted by an attack that you could normally block or deflect, you can instead use your athletic ability to avoid the attack. Make a fitness check in place of your normal deflection or evasion check, with a success meaning you avoid any damage.",
       "location": "4b",
-      "data": "Z"
+      "data": "ZINE=1"
     },
     {
       "name": "Mind-Body Connection",
       "description": "Your dedication to your body has resulted in a stronger willpower. Gain +1 resilience and +1 maximum energy.",
       "location": "5",
-      "data": "SS9=1:TG"
+      "data": "TG:SSI=1:A3=1"
     },
     {
       "name": "Precision Thrower",
       "description": "Your training has perfected your throwing technique. Gain +1 skill with throwing weapons.",
       "location": "6a",
-      "data": "WS0=1:TG"
-    },
-    {
-      "name": "Powerful Build",
-      "description": "Your physical strength has reached impressive levels. Gain +1 skill with might and +2 health.",
-      "location": "6b",
-      "data": "SS0=1:TG"
+      "data": "TG:WS2=1"
     },
     {
       "name": "Legendary Athlete",
       "description": "You have achieved legendary status in physical performance and the results are there for all to see. Gain +1 skill with fitness and +1 skill to presence. When competing in an athletic competition, roll a bonus dice to any physique or finesse checks.",
+      "location": "6b",
+      "data": "TG:SSA=1:SSR=1"
+    },
+    {
+      "name": "Dig Deep",
+      "description": "You have increased energy levels that allow you to persevere physically and mentally. Gain +1 maximum energy and +1 skill with resilience.",
       "location": "7",
-      "data": "SS9=1:TG"
+      "data": "A3=1:SSI=1"
     }
   ]
 }

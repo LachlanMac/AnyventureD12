@@ -4,5 +4,6 @@
   "type": "body",
   "weight": 2,
   "value": 5,
-  "rarity": "common"
+  "rarity": "common",
+  "armor_category": "none"
 }

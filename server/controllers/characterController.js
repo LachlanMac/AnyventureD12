@@ -21,7 +21,7 @@ export const getCharacters = async (req, res) => {
     })
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('characterTrait');
+      .populate('traits.traitId');
     
     res.json(characters);
   } catch (error) {
@@ -43,7 +43,7 @@ export const getCharacter = async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('characterTrait');
+      .populate('traits.traitId');
 
     
     if (!character) {
@@ -147,7 +147,7 @@ export const updateCharacter = async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('characterTrait');
+      .populate('traits.traitId');
     
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
@@ -391,6 +391,137 @@ export const updateItemQuantity = async (req, res) => {
     }
   } catch (error) {
     console.error('Error updating item quantity:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Add trait to character with selected options
+// @route   POST /api/characters/:id/traits
+// @access  Private
+export const addTrait = async (req, res) => {
+  try {
+    const { traitId, selectedOptions } = req.body;
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check if trait already exists
+    const existingTrait = character.traits.find(t => t.traitId.toString() === traitId);
+    if (existingTrait) {
+      return res.status(400).json({ message: 'Trait already added to character' });
+    }
+
+    // Add trait with selected options
+    character.traits.push({
+      traitId,
+      selectedOptions: selectedOptions || [],
+      dateAdded: Date.now()
+    });
+
+    await character.save();
+
+    // Re-fetch with populations
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    // Apply bonuses
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error adding trait:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Remove trait from character
+// @route   DELETE /api/characters/:id/traits/:traitId
+// @access  Private
+export const removeTrait = async (req, res) => {
+  try {
+    const { traitId } = req.params;
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Find and remove the trait
+    const traitIndex = character.traits.findIndex(t => t.traitId.toString() === traitId);
+    if (traitIndex === -1) {
+      return res.status(404).json({ message: 'Trait not found on character' });
+    }
+
+    character.traits.splice(traitIndex, 1);
+    await character.save();
+
+    // Re-fetch with populations
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    // Apply bonuses
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error removing trait:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Update trait options/subchoices
+// @route   PUT /api/characters/:id/traits/:traitId
+// @access  Private
+export const updateTraitOptions = async (req, res) => {
+  try {
+    const { traitId } = req.params;
+    const { selectedOptions } = req.body;
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Find the trait
+    const trait = character.traits.find(t => t.traitId.toString() === traitId);
+    if (!trait) {
+      return res.status(404).json({ message: 'Trait not found on character' });
+    }
+
+    // Update selected options
+    trait.selectedOptions = selectedOptions || [];
+    await character.save();
+
+    // Re-fetch with populations
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    // Apply bonuses
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error updating trait options:', error);
     res.status(500).json({ message: error.message });
   }
 };

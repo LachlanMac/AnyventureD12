@@ -8,55 +8,55 @@
       "name": "Reaction : Parting Shot",
       "description": "When a hostile within very short range (5 units) moves farther from you, you may make a throwing or simple ranged attack against it as a reaction.",
       "location": "1",
-      "data": "Z"
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Guerrilla Fighter",
       "description": "Gain +1 skill with stealth. If you end your turn within 1 unit of cover, you can reposition yourself that additional unit assuming you are able to move. This type of movement does not provoke reactions.",
       "location": "2a",
-      "data": "SSF=1:TG"
+      "data": "TG:SSF=1"
     },
     {
       "name": "Field Scout",
       "description": "Gain +1 skill with senses. While you are hidden, your senses checks roll with a bonus die.",
       "location": "2b",
-      "data": "SSK=1:TG"
+      "data": "TG:SSK=1"
     },
     {
       "name": "Hard Pivot",
       "description": "Gain +1 skill with concentration. When you take the Sprint action, you may make a single 90° turn during that movement.",
       "location": "3",
-      "data": "SSJ=1:TG"
+      "data": "TG:SSJ=1"
     },
     {
       "name": "Action : Running Toss",
       "description": "You move up to 3 units, then make a throwing attack. This attack rolls with a bonus die.",
       "location": "4a",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Skirmish",
       "description": "You make a weapon attack with a simple melee weapon or an unarmed strike, then immediately move up to 3 units without provoking reactions.",
       "location": "4b",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Fleet Footwork",
       "description": "Gain +1 skill with coordination and +1 movement speed.",
       "location": "5",
-      "data": "SSG=1:A4=1:TG"
+      "data": "SSG=1:K1=1"
     },
     {
       "name": "Throwing Mastery",
       "description": "Gain +1 skill with throwing weapons. Your minimum optimal range with throwing weapons is reduced by 1 step, letting you throw effectively at one range closer without penalties.",
       "location": "6a",
-      "data": "WS2=1:TG"
+      "data": "TG:WS2=1"
     },
     {
       "name": "Evasive Motion",
       "description": "Gain +1 skill with evasion.",
       "location": "6b",
-      "data": "SSE=1:TG"
+      "data": "TG:SSE=1"
     },
     {
       "name": "Flow of Battle",

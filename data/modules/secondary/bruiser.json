@@ -8,61 +8,61 @@
       "name": "Tough",
       "description": "Gain +1 skill with endurance. Also, you ignore the first time you would become winded during combat.",
       "location": "1",
-      "data": "AE=1:TO"
+      "data": "TG:SSD=1"
     },
     {
       "name": "Slugger",
       "description": "Once per round, on any Action or Reaction, when you make a melee attack, you can also make an unarmed attack. The round resets at the start of your turn.",
       "location": "2a",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Engager",
       "description": "You are usually first to join the fray. Gain +1 skill with coordination. On the first turn of combat, your free movement speed during your turn is doubled.",
       "location": "2b",
-      "data": "TO"
+      "data": "TG:SSG=1"
     },
     {
       "name": "Vitality",
       "description": "You are naturally more hardy than others. Gain +3 health.",
       "location": "3",
-      "data": "TO"
+      "data": "A1=3"
     },
     {
-      "name": "Action : Bodyblow",
-      "description": "You make an unarmed attack at a creature that is your size or smaller. If the attack hits, the target loses 1 energy.",
+      "name": "Action : Body Blow",
+      "description": "You make an unarmed attack at a creature that is your size or smaller. If the attack hits, the target must make an endurance check against half the damage dealt after mitigation or become winded.",
       "location": "4a",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
-      "name": "Action : Pummel",
-      "description": "You make a vicious attack with either an unarmed or melee weapon that has the bludgeon tab. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",
+      "name": "Action : Power Pummel",
+      "description": "You make a vicious attack with either an unarmed or melee weapon that has the blunt property. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",
       "location": "4b",
-      "data": "TO"
+      "data": "XINE=2"
     },
     {
-      "name": "Powerful Parry",
-      "description": "Gain +1 skill with deflection. If a creature hard fails an attack with a melee weapon against your deflection check, they drop their weapon.",
+      "name": "Body Block",
+      "description": "You have become effective at blocking attacks by using your body. Gain +1 skill with deflection.",
       "location": "5",
-      "data": "TO"
+      "data": "SSB=1"
     },
     {
       "name": "Heavy Hitter",
       "description": "Gain +1 skill with complex melee weapons.",
       "location": "6a",
-      "data": "TO"
+      "data": "WS5=1"
     },
     {
       "name": "Street Fighter",
       "description": "Gain +1 skill with unarmed attacks.",
       "location": "6b",
-      "data": "TO"
+      "data": "WS1=1"
     },
     {
       "name": "Action : Curbstomp",
-      "description": "You target a creature that is prone and making a devestating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and grunts have a penalty dice against this attack and are executed if any of the dice hit.",
+      "description": "You target a creature that is prone and making a devastating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and grunts have a penalty dice while defending against this attack and are executed if any of the dice hit.",
       "location": "7",
-      "data": "TO"
+      "data": "XINE=1"
     }
   ]
 }

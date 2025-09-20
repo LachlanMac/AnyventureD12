@@ -11,58 +11,58 @@
       "data": "TG"
     },
     {
-      "name": "Tactical Fighter",
-      "description": "Your diverse weapon training has improved your battlefield awareness. Gain +1 skill with senses. You can identify the weapon type and fighting style of any armed opponent by observing them for one round.",
+      "name": "Action : Disarm",
+      "description": "You make an attack with a melee weapon against a target that is also wielding a weapon in their hands. Instead of making a normal defense check, the target must make a coordination check greater than or equal to half your attack check, rounded down. If the target is dazed, stunned or impaired, your attack check is not halved.",
       "location": "2a",
-      "data": "SSK=1:TG"
-    },
-    {
-      "name": "Master at Arms",
-      "description": "Your knowledge of weapon construction and maintenance is extensive. Gain +1 skill with fabrication. If you spend an hour with any weapon, you learn the recipe on how to make it.",
-      "location": "2b",
-      "data": "CS2=1:TG"
-    },
-    {
-      "name": "Reaction : Follow-Up",
-      "description": "In response to you making an attack with a melee weapon, reroll your melee weapon check and take that result, stead.",
-      "location": "3",
-      "data": "Z"
-    },
-    {
-      "name": "Blade Master",
-      "description": "Your mastery of close combat weapons is exceptional. Gain +1 skill with simple melee weapons.",
-      "location": "4a",
-      "data": "WS3=1:TO"
-    },
-    {
-      "name": "Combat Veteran",
-      "description": "Your extensive weapon training has honed your reflexes. Gain +1 skill with coordination.",
-      "location": "4b",
-      "data": "SSG=1:TG"
-    },
-    {
-      "name": "Weapon Consistency",
-      "description": "You gain improved critials with complex weapons, causing even your extra dice to add the primary damage to your total roll.",
-      "location": "5",
-      "data": "TO"
-    },
-    {
-      "name": "Action : Disarming Parry",
-      "description": "In response to being the target of a melee attack, attempt to forcefully block it by making an attack with a complex melee weapon. If the attacker is making their attack with a melee weapon, they must roll a coordination check of 6 or higher, or they drop their weapon.",
-      "location": "6a",
-      "data": "Z"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Follow-Through",
-      "description": "You make a devastating combination attack with two different weapons. Make an attack with a complex melee weapon, then immediately make an attack with a simple ranged weapon that you are wielding with one hand. The ranged attack ignores physical mitigation.",
-      "location": "6b",
-      "data": "X"
+      "description": "You make a combination attack with two different weapons. First make an attack with a complex weapon, then immediately make an attack against the same target with a unarmed attack, throwing weapon or simple weapon as part of the same action. Both attacks are mitigated separately.",
+      "location": "2b",
+      "data": "XINE=1"
     },
     {
-      "name": "Master Armsman",
-      "description": "You have achieved mastery over many forms of weaponry. Gain +1 skill with simple ranged weapons and +1 skill with complex melee weapons.",
+      "name": "Tactical Fighter",
+      "description": "Your diverse weapon training has improved your battlefield awareness. Gain +1 skill with logic. When making a defense check against a creature that is using a simple or complex melee weapon, gain a bonus dice.",
+      "location": "3",
+      "data": "TG:SSL=1"
+    },
+    {
+      "name": "Training",
+      "description": "Your extensive weapon training has honed your reflexes. Gain +1 skill with coordination. When using the attack action, you can use your coordination skill with a penalty dice as your attack check. These weapon attacks are not eligible for critical hits and cannot be used as part of other actions or reactions.",
+      "location": "4a",
+      "data": "TG:SSG=1"
+    },
+    {
+      "name": "Master at Arms",
+      "description": "Your knowledge of weapon construction and maintenance is extensive. Gain +1 skill with fabrication. You can study a weapon for an hour to learn how to make it and avoid the first time craft penalty.",
+      "location": "4b",
+      "data": "TG:CS2=1"
+    },
+    {
+      "name": "Action : Find the Gap",
+      "description": "You search for a gap in your opponent's defenses by rolling a coordination check against their defense. If successful, you make a weapon attack with a penalty dice against that same defense check, but the physical damage cannot be mitigated. This does not affect creatures with traits that halve or are immune to physical damage.",
+      "location": "5",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Weapon Master [A]",
+      "description": "Gain +1 skill with complex melee and simple ranged weapons.",
+      "location": "6a",
+      "data": "WS5=1:WS4=1"
+    },
+    {
+      "name": "Weapon Master [B]",
+      "description": "Gain +1 skill with simple melee weapons and throwing weapons.",
+      "location": "6b",
+      "data": "WS3=1:WS2=1"
+    },
+    {
+      "name": "Effortless Weapons",
+      "description": "Complex weapons are no more difficult to handle than simple ones for you. You no longer have to expend 1 energy when making an attack with complex ranged or melee weapons.",
       "location": "7",
-      "data": "WS4=1:WS5=1:TO"
+      "data": "AG=1:AH=1"
     }
   ]
 }

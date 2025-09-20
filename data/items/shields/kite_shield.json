@@ -9,8 +9,5 @@
   "mitigation": {
     "physical": 1
   },
-  "armor_penalties": {
-    "sprint": -1,
-    "coordination": -1
-  }
+  "encumbrance_penalty": 2
 }

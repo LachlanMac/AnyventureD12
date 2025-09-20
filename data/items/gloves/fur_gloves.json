@@ -8,8 +8,5 @@
   "mitigation": {
     "cold": 1
   },
-  "armor_penalties": {
-    "thievery": -1,
-    "coordination": -1
-  }
+  "encumbrance_penalty": 0
 }

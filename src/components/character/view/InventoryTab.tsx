@@ -117,6 +117,19 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
 
         {/* Right: Status Badges */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+          {/* Weight Display */}
+          <span
+            style={{
+              color: 'var(--color-cloud)',
+              fontSize: '0.75rem',
+              backgroundColor: 'var(--color-dark-bg)',
+              padding: '0.125rem 0.5rem',
+              borderRadius: '4px',
+              border: '1px solid var(--color-dark-border)',
+            }}
+          >
+            {((item.weight || 0) * inventoryItem.quantity).toFixed(1)} bu
+          </span>
           {isCustomized && (
             <span
               style={{
@@ -394,6 +407,41 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     handleUpdateQuantity(index, quantity);
   };
 
+  // Helper function to get maximum carry weight based on character size
+  const getMaxCarryWeight = (): number => {
+    const size = character.physicalTraits?.size || character.ancestry?.ancestryId?.size || 'Medium';
+    switch (size.toLowerCase()) {
+      case 'small':
+        return 25;
+      case 'medium':
+        return 50;
+      case 'large':
+        return 75;
+      default:
+        return 50; // Default to medium
+    }
+  };
+
+  // Helper function to calculate current inventory weight (excluding equipped items)
+  const getCurrentInventoryWeight = (): number => {
+    if (!character.inventory) return 0;
+
+    let totalWeight = 0;
+    character.inventory.forEach((invItem) => {
+      const item = getItemFromInventory(invItem);
+      if (!item) return;
+
+      // Only count unequipped items
+      const { equipped } = isItemEquipped(item);
+      if (!equipped) {
+        const quantity = invItem.quantity || 1;
+        totalWeight += (item.weight || 0) * quantity;
+      }
+    });
+
+    return totalWeight;
+  };
+
   // Helper function to check if an item is equipped
   const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
     if (!character.equipment) return { equipped: false };
@@ -470,7 +518,43 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
               marginBottom: '1rem',
             }}
           >
-            <h3 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Inventory</h3>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+              <h3 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Inventory</h3>
+              <div
+                style={{
+                  color: getCurrentInventoryWeight() > getMaxCarryWeight()
+                    ? 'var(--color-white)'
+                    : 'var(--color-cloud)',
+                  fontSize: '0.9rem',
+                  padding: '0.25rem 0.75rem',
+                  backgroundColor: getCurrentInventoryWeight() > getMaxCarryWeight()
+                    ? 'rgba(152, 94, 109, 0.3)'
+                    : 'var(--color-dark-elevated)',
+                  borderRadius: '6px',
+                  border: getCurrentInventoryWeight() > getMaxCarryWeight()
+                    ? '1px solid var(--color-sunset)'
+                    : '1px solid var(--color-dark-border)',
+                  fontWeight: getCurrentInventoryWeight() > getMaxCarryWeight() ? 'bold' : 'normal',
+                }}
+                title="Carry weight excludes equipped items"
+              >
+                {getCurrentInventoryWeight().toFixed(1)} / {getMaxCarryWeight()} Bulk Units
+                {getCurrentInventoryWeight() > getMaxCarryWeight() && (
+                  <span style={{ color: 'var(--color-sunset)', marginLeft: '0.5rem' }}>
+                    (Overloaded!)
+                  </span>
+                )}
+              </div>
+              <div
+                style={{
+                  fontSize: '0.75rem',
+                  color: 'var(--color-cloud)',
+                  opacity: 0.7,
+                }}
+              >
+                *Equipped items excluded
+              </div>
+            </div>
             <button
               onClick={handleAddItem}
               style={{

@@ -39,21 +39,21 @@ Creatures come in all shapes and sizes. Certain skills, mechanics and spells onl
 ### Humanoid
 Humanoids make up all of the playable ancestries and many more. A humanoid is defined as a creature that is human-like; bipedal, speaks a language and has a culture.
 ### Beast
-Beasts are the most common type of creature; unintelligent animals that have survival as their main goal. These include anything from tigers and mammoths to more exotic and mythical creatures like the griffon.
+Beasts are the most common type of creature; unintelligent animals that have survival as their main goal. These include anything from tigers and mammoths to more exotic and mythical creatures like the griffon. Beasts are fairly predictable in combat and act off pure survival, fighting until they are weak and then fleeing when they are injured or run out of resolve.
 ### Monster
-Monsters are similar to beasts, but usually have a different origin than regular animals. Monsters is a very broad category including creatures like hydras, dragons, giants and mutated insects.
+Monsters are similar to beasts, but usually have a different origin than regular animals. Monsters is a very broad category including creatures like hydras, dragons, giants and mutated insects. Monsters are the most diversified character type and can have many different traits or behaviors.
 ### Plantoid
-Plantoids are simply plants that have some form of sentience. This can be treants, dryads or the horrible venus mantrap. 
+Plantoids are simply plants that have some form of sentience. This can be treants, dryads or the horrible venus mantrap.  
 ### Elemental
-Elementals are primal creatures that often take the form of elements such as water, ice, fire, electric, wind or earth.
+Elementals are primal creatures that often take the form of elements such as water, ice, fire, electric, wind or earth. Elementals do not have resolve and cannot be damaged by psychic damage.
 ### Dark
-Dark creatures are typically associated with evil and can include demons, devils and spawn from the void.
+Dark creatures are typically associated with evil and can include demons, devils and spawn from the void. 
 ### Divine
 Divine creatures are celestials from the heavens. This can include valkyrs, angels, pegasi or the mythical phoenix.
 ### Undead
 Undead creatures are typically other types of creatures that have been risen from death, usually by magic or curses. This includes liches, zombies, ghouls and skeletons.
 ### Construct
-Constructs are creatures that have been built or animated by someone else. They typically act as servants and can range from clockwork minions to golems.
+Constructs are creatures that have been built or animated by someone else. They typically act as servants and can range from clockwork minions to golems. Golems do not have resolve and cannot be damaged by psychic damage.
 ### Fey
 Fey creatures are the faeries that come from the feywild. These curious and sometimes malicious creatures count sprites, satyrs, and pumpklings among their ranks.
 

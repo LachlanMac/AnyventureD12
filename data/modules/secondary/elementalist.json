@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Primal Attunement",
-      "description": "Your deep communion with primal forces has opened new pathways of understanding. Gain +1 to your magic skill and +1 spell capacity.",
+      "description": "Your deep communion with primal forces has opened new pathways of understanding. Gain +1 skill with magic knowledge and +1 spell capacity.",
       "location": "1",
-      "data": "AE=1:TG"
+      "data": "SSN=1:A9=1"
     },
     {
-      "name": "Weathersense",
-      "description": "Your mastery of the elements extends into the weather systems of the world. Gain +1 skill with senses. Additionally, you can reliably predict the weather for the next day and predict natural catacylsms like earthquakes, hurricanes and erruptions up to a week in advance.",
+      "name": "Action : Shaped Elements",
+      "description": "You channel a primal spell that has an area effect and can choose who is or isn't included in the effects of it, allowing you to avoiding hurting allies.",
       "location": "2a",
-      "data": "TG"
+      "data": "XIME=1"
     },
     {
-      "name": "Reaction : Electric Rod",
-      "description": "In response to being targeted by electric damage, you can choose to absorb the electrical energy instead of resisting it. The electric damage is doubled before your mitigation is applied, but on your next turn you gain an extra action and recover all of your energy at the start of that turn.",
+      "name": "Reaction : Lightning Rod",
+      "description": "In response to you or an ally(s) within a very short (5 unit) distance being attacked by an ability that deals electric damage, you can choose to absorb all of the electrical energy instead of resisting it. Your electric mitigation becomes 0 when calculating the damage, but your energy is completely restored if you take at least 5 electric damage. If the attack is over an area, you take double the electric damage instead and gain an additional action on your next turn.",
       "location": "2b",
-      "data": "TD"
+      "data": "ZMNE=0"
     },
     {
-      "name": "Specialization",
-      "description": "You form a bond with one of the elemental planes, learning its language. Additionally, you can attempt to sense elementals in a moderate (20 units) distance with an action.",
+      "name": "Planar Specialization",
+      "description": "You form a bond with one of the elemental planes [fire, earth, air, water], learning its language. Additionally, you can sense if elementals from this plane are within a moderate (20 unit) distance.",
       "location": "3",
       "data": "TG"
     },
     {
-      "name": "Action : Enhanced Control",
-      "description": "Your mastery allows surgical precision with destructive forces. When channeling area effect spells, you can shape them to avoid harming allies",
+      "name": "Weathersense",
+      "description": "Your mastery of the elements extends into the weather systems of the world. Gain +1 skill with senses. Additionally, you can reliably predict the weather for the next day and get hints for impending natural cataclysms like earthquakes, hurricanes and eruptions up to a week in advance.",
       "location": "4a",
-      "data": "TG"
+      "data": "TG:SSK=1"
     },
     {
-      "name": "Action : Elemental Weaver",
-      "description": "You channel a primal spell. If it succeeds, all primal spells you channel before the start of your next turn are rolled with a bonus dice. Using this ability multiple times on a single turn allows this bonus to be stacked.",
+      "name": "Elemental Strikes",
+      "description": "You are skilled in converting residual energy from spells into your weapons. Gain +1 skill with simple melee weapons. After dealing elemental damage [electric, heat, cold], any physical damage on the next attack you make with a melee weapon is converted to that damage type. This effect expires at the start of your next turn.",
       "location": "4b",
-      "data": "TO"
+      "data": "TG:WS3=1"
     },
     {
       "name": "Master of the Elements",
       "description": "You have mastered the elements. Gain +1 skill with primal magic.",
       "location": "5",
-      "data": "TG"
+      "data": "YS2=1"
     },
     {
-      "name": "Elemental",
-      "description": "When you summon an elemental using primal magic, it does not require your concentration to maintain and serves you until it dies, although it still counts against your pet limit.",
+      "name": "Summoner",
+      "description": "When you summon an elemental using primal magic, you can use it's elemental mitigations [cold, heat, electric, physical] in place of your own when you take those damage types. Additionally, when you charge a spell that summons an elemental, you can use double the components to increase the allowed creature tier by 1.",
       "location": "6a",
       "data": "TG"
     },
     {
-      "name": "Attuned",
-      "description": "You gain +1 mitigation to cold, heat and electric damage. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
+      "name": "Fully Attuned",
+      "description": "You gain +2 mitigation to cold, heat and electric damage. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
       "location": "6b",
-      "data": "TD"
+      "data": "TG:M2=2:M3=2:M4=2"
     },
     {
-      "name": "Daily Action : Cataclysm",
-      "description": "You channel a primal spell that deals damage, infusing it with a large amount of energy increasing it's destructive power. The damage of the spell is doubled and the radius is increased by 2. If the spell only targets a single creature or point, the radius becomes 2.",
+      "name": "Daily Action : Elemental Cataclysm",
+      "description": "You unleash a laser of elemental fury at a target within a short (10 unit) distance. You roll a primal spell attack against your target's defense check, with a maximum of 4 dice in the pool, each representing a different element [electric, heat, cold, physical]. For each dice that hits, you choose the element and deal 10 damage of that type.",
       "location": "7",
-      "data": "TO"
+      "data": "XDME=3"
     }
   ]
 }

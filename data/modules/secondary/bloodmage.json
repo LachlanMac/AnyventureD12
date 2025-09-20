@@ -8,61 +8,61 @@
       "name": "Blood Letter",
       "description": "You have experience with letting your own blood without causing yourself injury. Gain +2 health. As an action, you can give yourself the bleeding condition.",
       "location": "1",
-      "data": "SS1=1:TO"
+      "data": "TG:A1=2"
     },
     {
       "name": "Hemocraft",
       "description": "Your knowledge of medicine allows you determine how to maximize bloodloss. Gain +1 skill with medicine. When you cause the bleeding condition on a creature other than yourself, the check to stop the bleeding is increased by 2.",
       "location": "2a",
-      "data": "SS3=1:TO"
+      "data": "TG:SSP=1"
     },
     {
       "name": "Crimson Focus",
       "description": "Gain +1 skill with endurance. When you are forced to make a concentration check to maintain a spell, use an endurance check instead.",
       "location": "2b",
-      "data": "SS4=1:TO"
+      "data": "TG:SSD=1"
     },
     {
       "name": "Blood Channeling",
-      "description": "While you have the bleeding condition, you roll a bonus dice on all spell checks. Additionally, if you are below 5 health and bleeding, your spells becomes automatically charged.",
+      "description": "While you have the bleeding condition, you roll a bonus dice on all spell checks.",
       "location": "3",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Action : Hemokinesis",
-      "description": "You can control the flow of blood with your mind with a moderate (20 unit) distance. You can use this action to either stop a creature from bleeding or cause a creature to bleed by forcing them to make an endurance check of 6 or higher.",
+      "description": "You can control the flow of blood with your mind within a moderate (20 unit) distance. You can use this action to either stop a creature from bleeding or cause a creature to bleed by forcing them to make an endurance check of 6 or higher.",
       "location": "4a",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "Reaction : Blood Trail",
       "description": "In response to taking physical damage while you have the bleeding condition, you manipulate your blood to become acidic and splash it on any adjacent creature dealing toxic damage equal to half of the physical damage taken. If a creature takes damage from your blood trail, you can sense their direction for the next 3 days.",
       "location": "4b",
-      "data": "SSN=1:TO"
-    },
-    {
-      "name": "Controlled Bleeds",
-      "description": "Gain +1 Resilience. When you have the bleeding condition, you only take 1 damage instead of 2.",
-      "location": "5",
-      "data": "TO"
+      "data": "ZIME=1"
     },
     {
       "name": "Sanguine Power",
       "description": "Your connection to blood magic has deepened considerably. Gain +1 skill with black magic",
+      "location": "5",
+      "data": "YS1=1"
+    },
+    {
+      "name": "Controlled Bleeds",
+      "description": "Gain +1 Resilience. When you successfully recover from the bleeding condition by making an endurance check, you can keep the condition but not take damage from it unless you gain the condition again from another source.",
       "location": "6a",
-      "data": "TO"
+      "data": "TG:SSI=1"
     },
     {
       "name": "Dark Empathy",
-      "description": "When you are bleeding and deal physical or dark damage to another creature that is bleeding with a spell, you regain 2 health. ",
+      "description": "When you are bleeding and deal physical or dark damage to another creature that is bleeding with a spell, you regain 2 health.",
       "location": "6b",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Daily Action : Exsanguinate",
       "description": "You target a humanoid or beast corpse within a short (10 units) distance that has died within the last minute and drain their blood to heal yourself. The amount of health restored depends on the creature's tier: minion tier restores 2 health, grunt tier restores 5 health, standard tier restores 10 health, and champion tier or higher restores you to full health.",
       "location": "7",
-      "data": "TO"
+      "data": "XDME=0"
     }
   ]
 }

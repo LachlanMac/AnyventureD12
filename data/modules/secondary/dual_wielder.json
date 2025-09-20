@@ -8,61 +8,61 @@
       "name": "Two-Weapon Fighting",
       "description": "You have learned to fight effectively with a simple melee weapons in each hand. Gain +1 skill with coordination. When dual wielding, your offhand attacks roll with only a single penalty dice.",
       "location": "1",
-      "data": "SSG=1:TO"
+      "data": "TG:SSG=1:AZ=1"
     },
     {
       "name": "Action : Disengaging Strike",
       "description": "You attack with your offhand weapon while using your main weapon to defend. Make an offhand attack and immediately move up to 3 units. Until the start of your next turn, reroll any deflection or evasion dice that land on the 1 face.",
       "location": "2a",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Synchronized Strikes",
-      "description": "You coordinate both weapons in a devastating combination. Until the end of your turn, your weapon damage cannot be reduced by physical mitigation.",
+      "description": "You make a synchronized attack with your main hand, striking the target off balance. If your attack hits, your next off-hand attack this turn cannot be reduced by physical mitigation.",
       "location": "2b",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
-      "name": "Stamina",
-      "description": "You have adpated to the stamina requirements for swinging two weapons in compbat. Gain +1 skill with fitness and +1 maximum energy.",
+      "name": "Dual Wielder's Stamina",
+      "description": "You have adapted to the stamina requirements for swinging two weapons in combat. Gain +1 skill with fitness and +1 maximum energy.",
       "location": "3",
-      "data": "TO"
+      "data": "SSA=1:A3=1"
     },
     {
       "name": "Weapon Finesse",
       "description": "Wielding two weapons has improved your footwork, allowing you to dance around your enemies' strikes. Gain +1 skill with evasion",
       "location": "4a",
-      "data": "SSI=1:TO"
+      "data": "SSE=1"
     },
     {
-      "name": "Inpenetrable Defense",
+      "name": "Impenetrable Defense",
       "description": "You utilize your dual weapons to create an impenetrable defense. Gain +1 skill with deflection.",
       "location": "4b",
-      "data": "SSH=1:TO"
+      "data": "SSB=1"
     },
     {
       "name": "Weapon Master",
       "description": "Your mastery of light weapons has reached professional levels. Gain +1 skill with simple melee weapons.",
       "location": "5",
-      "data": "WS2=1:TO"
+      "data": "WS3=1"
     },
     {
       "name": "Reaction : Cross Block",
       "description": "In response to being targeted by a melee attack, you cross both weapons to block. Make a deflection check with a bonus dice. If you successfully deflect the attack, instead of taking half damage from a deflection check without a shield, you take none.",
       "location": "6a",
-      "data": "TO"
+      "data": "ZINE=1"
     },
     {
       "name": "Reaction : Dual Opportunity",
-      "description": "In response to a creature leaving or enterting a tile adjacent to you, you make an attack with both your main and offhand",
+      "description": "In response to a creature leaving or entering a tile adjacent to you, you make an attack with both your main and offhand.",
       "location": "6b",
-      "data": "TO"
+      "data": "ZINE=1"
     },
     {
       "name": "Ambidextrous",
-      "description": "You have achieved perfect coordination with both hands. You no longer have a penalty dice when making offhand attacks, rolling with your full talent. Additionally, you can make up to 2 offhand attacks per turn instead of the normal limit of 1.",
+      "description": "You have achieved perfect coordination with both hands. You no longer have a penalty dice when making offhand attacks, rolling with your full talent. Additionally, there is no limit to the amount of off-hand attacks you can make in a single round.",
       "location": "7",
-      "data": "TO"
+      "data": "TG:AZ=2"
     }
   ]
 }

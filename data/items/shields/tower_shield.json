@@ -14,10 +14,5 @@
       "add_bonus": 1
     }
   },
-  "armor_penalties": {
-    "movement": -1,
-    "sprint":-2,
-    "coordination": -1,
-    "evasion": -1
-  }
+  "encumbrance_penalty": 2
 }

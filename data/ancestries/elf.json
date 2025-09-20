@@ -19,12 +19,12 @@
     {
       "name": "Keydaran Blood",
       "description": "The blood of the first Keyadar runs through the Elves, granting them +1 skill with resilience. They are also immune to effects that would prematurely age them.",
-      "data": "AS4=1:TA"
+      "data": "SSI=1:TA"
     },
     {
       "name": "Action : Nebulous Eyes",
       "description": "Your eyes glow with the power of the cosmos, allowing you to focus and improve your vision capabilities. While you maintain your concentration, you have darksight in a moderate (20 unit) distance.",
-      "data": "XD1"
+      "data": "XINE=1:V2=5:TA"
     },
     {
       "name": "Born of Starlight",

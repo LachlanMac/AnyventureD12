@@ -19,12 +19,12 @@
     {
       "name": "The Magic of Orycota",
       "description": "The orycotal are enchanted by ancient magic, allowing them to learn spells from the fey subschool if they are capable of learning metamagic spells. Additionally, your natural affinity with magic allows you to gain +1 skill with magic knowledge.",
-      "data": "AS8=1:TA"
+      "data": "SSO=1:TA"
     },
     {
       "name": "Action : Hop-Skip",
       "description": "You use the Jump action without having a running start. Your maximum jump distance is 6 units, and you gain a bonus die on your fitness check for the jump.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
     {
       "name": "Easily Startled",

@@ -18,7 +18,7 @@
     },
     {
       "name": "Reaction : Amplify Force",
-      "description": "In response any creature making a melee attack, but before the result of the roll is known, amplify that attack. Each extra damage dice is instead upgraded to primary damage.",
+      "description": "In response any creature within a short (10 unit) distance making a melee attack, but before the result of the roll is known, amplify that attack. For each attack dice that hits, add 2 damage.",
       "location": "2b",
       "data": "ZIME=1"
     },
@@ -30,13 +30,13 @@
     },
     {
       "name": "Mutable Form",
-      "description": "You adapt to change more easily, both mentally and physically. Gain +1 skill with resilience. Additionally, You can alter minor physical features (hair color, eye color, height by 6 inches) over the course of 10 minutes.",
+      "description": "You adapt to change more easily, both mentally and physically. Gain +1 skill with resilience. Additionally, You can alter your minor physical features (hair color, eye color, height by 6 inches) over the course of 10 minutes.",
       "location": "4a",
       "data": "SSI=1:TG"
     },
     {
       "name": "Immutable",
-      "description": "You are naturally immutable. Gain +2 aether mitigation. You are unable to be affected by transformation magic, whether beneficial or harmful. This includes: size or shape changes, petrification, aging/time effects, and spells that modify your fundamental nature or temporal existence.",
+      "description": "You are naturally immutable. Gain +2 aetheric mitigation. You are unable to be affected by transformation magic, whether beneficial or harmful. This includes: size or shape changes, petrification, aging/time effects, and spells that modify your fundamental nature or temporal existence.",
       "location": "4b",
       "data": "M7=2:TG"
     },
@@ -48,13 +48,13 @@
     },
     {
       "name": "Reaction : Amplified Resistance",
-      "description": "In response to taking damage that matches your Adaptive Resistance type, halve the damage before mitigation is applied. Then reduce your current Adaptive Resistance mitigation by 1. If reduced to 0, you lose all Adaptive Resistance benefits until your next full rest.",
+      "description": "In response to taking damage of a type equal to your Adaptive Resistance, triple that mitigation before calculating damage. The adaptive mitigation is lost after using this ability.",
       "location": "6a",
       "data": "ZIME=1"
     },
     {
       "name": "Daily Action : Energy Discharge",
-      "description": "You touch an adjacent creature and discharge your adaptive energy. Make a meta magic attack against their endurance. Each successful dice deals damage equal to your current Adaptive Resistance mitigation bonus, using the same damage type you chose for that mitigation.",
+      "description": "You touch an adjacent creature and discharge your adaptive energy by making a meta magic check against your target's resilience. Each dice that hits deals damage equal to your adaptive mitigation value, to a maximum of 7.",
       "location": "6b",
       "data": "XDME=1"
     },

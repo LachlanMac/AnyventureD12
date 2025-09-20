@@ -38,7 +38,6 @@
   "magic": {},
   "craft": {},
   "mitigation": {},
-  "armor_penalties": {},
   "detections": {},
   "immunities": {},
   "recipe": {
@@ -48,5 +47,6 @@
       "Cloth",
       "Handle"
     ]
-  }
+  },
+  "encumbrance_penalty": 0
 }

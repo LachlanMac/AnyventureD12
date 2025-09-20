@@ -1,6 +1,5 @@
 // server/models/Character.js
 import mongoose from 'mongoose';
-import { applyDataEffects } from '../utils/moduleEffects.js';
 const { Schema } = mongoose;
 
 const ModuleOptionSchema = new Schema({
@@ -203,7 +202,30 @@ const CharacterSchema = new Schema({
       _id: false  // Disable automatic _id for subdocuments
     }]
   },
-  // New culture format  
+  // Traits with options and subchoices
+  traits: [{
+    traitId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Trait',
+      required: true
+    },
+    selectedOptions: [{
+      name: {
+        type: String,
+        required: true
+      },
+      selectedSubchoice: {
+        type: String,
+        default: null
+      },
+      _id: false  // Disable automatic _id for subdocuments
+    }],
+    dateAdded: {
+      type: Date,
+      default: Date.now
+    }
+  }],
+  // New culture format
   characterCulture: {
     cultureId: {
       type: Schema.Types.ObjectId,
@@ -449,6 +471,17 @@ const CharacterSchema = new Schema({
   // Stats directly modified by modules
   initiative: { type: Number, default: 0 },
   movement: { type: Number, default: 5 },
+  encumbrance_penalty: { type: Number, default: 0 },
+  encumbrance_check: { type: Number, default: 0 },
+  sprint_check: { type: Number, default: 0 },
+  swim_speed: { type: Number, default: 0 },
+  climb_speed: { type: Number, default: 0 },
+  fly_speed: { type: Number, default: 0 },
+  movement_bonuses: {
+    swim: { type: Number, default: 0 },
+    climb: { type: Number, default: 0 },
+    fly: { type: Number, default: 0 }
+  },
   
   // Extra fields for module bonuses
   immunities: [String],

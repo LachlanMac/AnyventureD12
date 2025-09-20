@@ -8,9 +8,5 @@
   "mitigation": {
     "physical": 1
   },
-  "armor_penalties": {
-    "stealth": -2,
-    "sprint": -1,
-    "swim":-1
-  }
+  "encumbrance_penalty": 1
 }

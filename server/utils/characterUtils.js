@@ -28,7 +28,10 @@ export const applyModuleBonusesToCharacter = (character) => {
     immunities: [],
     vision: [],
     health: 0,
-    movement: 0,
+    movement_walk: 0,  // Separate tracking for walk speed bonuses
+    movement_swim: 0,  // Separate tracking for swim speed bonuses
+    movement_climb: 0, // Separate tracking for climb speed bonuses
+    movement_fly: 0,   // Separate tracking for fly speed bonuses
     initiative: 0,
     spellSlots: 0
   };
@@ -36,7 +39,7 @@ export const applyModuleBonusesToCharacter = (character) => {
   // Helper function to process any ability for bonuses
   const processAbilityForBonuses = (ability) => {
     if (ability.data) {
-      const { bonuses: abilityBonuses } = parseDataCodes(ability.data);
+      const { bonuses: abilityBonuses } = parseDataCodes(ability.data, character);
       // Merge bonuses into main bonuses object
       Object.keys(abilityBonuses).forEach(key => {
         if (typeof abilityBonuses[key] === 'object' && !Array.isArray(abilityBonuses[key])) {
@@ -104,7 +107,35 @@ export const applyModuleBonusesToCharacter = (character) => {
       });
     }
   }
-  
+
+  // Apply trait bonuses if present
+  if (character.traits && character.traits.length > 0) {
+    character.traits.forEach(characterTrait => {
+      if (characterTrait.traitId && characterTrait.traitId.options) {
+        characterTrait.traitId.options.forEach(option => {
+          // Find the corresponding selected option data
+          const selectedOptionData = characterTrait.selectedOptions?.find(
+            so => so.name === option.name
+          );
+
+          // Check if this option has subchoices and a selection was made
+          if (option.subchoices && selectedOptionData && selectedOptionData.selectedSubchoice) {
+            // Find the selected subchoice and apply its data
+            const selectedSubchoice = option.subchoices.find(
+              sc => sc.id === selectedOptionData.selectedSubchoice
+            );
+            if (selectedSubchoice) {
+              processAbilityForBonuses(selectedSubchoice);
+            }
+          } else {
+            // Regular option without subchoices
+            processAbilityForBonuses(option);
+          }
+        });
+      }
+    });
+  }
+
   // Skip if modules aren't populated
   if (!character.modules || character.modules.length === 0) {
     // Apply any ancestry/culture bonuses even if no modules
@@ -149,28 +180,178 @@ export const applyModuleBonusesToCharacter = (character) => {
   // Parse and apply equipment effects AFTER module bonuses
   const equipmentEffects = parseEquipmentEffects(character);
   applyEquipmentEffects(character, equipmentEffects);
-  
+
+  // Evaluate conditional bonuses based on equipped items
+  if (character.conditionals) {
+    applyEquipmentConditionals(character);
+  }
+
   // Store the module effects for reference
   character.moduleEffects = {
     applied: true,
     bonuses: bonuses,
     originalValues: originalValues
   };
-  
+
   return character;
 };
 
+// Simple function to apply conditional bonuses based on equipped armor/shields
+const applyEquipmentConditionals = (character) => {
+  if (!character.conditionals || !character.equipment || !character.inventory) {
+    return;
+  }
+
+  // Get equipped body armor and shields
+  const bodyItem = character.equipment.body ?
+    character.inventory.find(item => {
+      const itemId = item.itemId?._id || item.itemId || item.itemData?._id;
+      const equippedId = character.equipment.body.itemId || character.equipment.body;
+      return itemId && itemId.toString() === equippedId.toString();
+    }) : null;
+
+  const shieldItem = character.equipment.shield ?
+    character.inventory.find(item => {
+      const itemId = item.itemId?._id || item.itemId || item.itemData?._id;
+      const equippedId = character.equipment.shield.itemId || character.equipment.shield;
+      return itemId && itemId.toString() === equippedId.toString();
+    }) : null;
+
+  // Check body armor conditions
+  const bodyData = bodyItem ? (bodyItem.itemData || bodyItem.itemId) : null;
+
+  // Apply conditional effects based on equipment
+  const applyEffects = (effects) => {
+    for (const effect of effects) {
+      switch (effect.type) {
+        case 'skill':
+          if (!character.skills[effect.subtype]) {
+            character.skills[effect.subtype] = { value: 0, talent: 0, diceTierModifier: 0 };
+          }
+          character.skills[effect.subtype].value += effect.value;
+          break;
+
+        case 'mitigation':
+          if (!character.mitigation[effect.subtype]) {
+            character.mitigation[effect.subtype] = 0;
+          }
+          character.mitigation[effect.subtype] += effect.value;
+          break;
+      }
+    }
+  };
+
+  // Check shield conditions
+  const shieldData = shieldItem ? (shieldItem.itemData || shieldItem.itemId) : null;
+
+  // Check each conditional and apply if condition is met
+  if (!bodyData && character.conditionals.noArmor) {
+    applyEffects(character.conditionals.noArmor);
+  }
+  if (bodyData?.armor_category === 'light' && character.conditionals.lightArmor) {
+    applyEffects(character.conditionals.lightArmor);
+  }
+  if (bodyData?.armor_category === 'heavy' && character.conditionals.heavyArmor) {
+    applyEffects(character.conditionals.heavyArmor);
+  }
+  if (bodyData?.armor_category && character.conditionals.anyArmor) {
+    applyEffects(character.conditionals.anyArmor);
+  }
+  if (shieldData && character.conditionals.anyShield) {
+    applyEffects(character.conditionals.anyShield);
+  }
+  if (shieldData?.shield_category === 'light' && character.conditionals.lightShield) {
+    applyEffects(character.conditionals.lightShield);
+  }
+  if (shieldData?.shield_category === 'heavy' && character.conditionals.heavyShield) {
+    applyEffects(character.conditionals.heavyShield);
+  }
+};
 
 // Parse data string and collect bonuses
-const parseDataString = (dataString, bonuses) => {
+const parseDataString = (dataString, bonuses, character = null) => {
   if (!dataString) return;
-  
+
+  // Initialize conditionals if character provided
+  if (character && !character.conditionals) {
+    character.conditionals = {};
+  }
+
   // Split by colon for multiple effects
   const effects = dataString.split(':');
-  
+
   for (const effect of effects) {
     if (!effect.trim()) continue;
-    
+
+    // Check for conditional effects first (CC[M1=1,M7=1], CA[SSE=1], etc.)
+    const conditionalMatch = effect.match(/^C([A-G])\[([^\]]+)\]$/);
+    if (conditionalMatch && character) {
+      const [_, conditionType, effectsString] = conditionalMatch;
+
+      // Map condition type to readable name
+      const conditionMap = {
+        'A': 'noArmor',
+        'B': 'lightArmor',
+        'C': 'heavyArmor',
+        'D': 'anyArmor',
+        'E': 'anyShield',
+        'F': 'lightShield',
+        'G': 'heavyShield'
+      };
+
+      const conditionName = conditionMap[conditionType];
+      if (conditionName) {
+        // Parse effects inside brackets
+        const effects = effectsString.split(',').map(e => e.trim());
+        const parsedEffects = [];
+
+        for (const effectStr of effects) {
+          // Parse mitigation effects (M1=2, M7=1, etc.)
+          const mitigationMatch = effectStr.match(/^M([1-9A])=(\d+)$/);
+          if (mitigationMatch) {
+            const mitigationMap = {
+              '1': 'physical', '2': 'heat', '3': 'cold', '4': 'electric',
+              '5': 'dark', '6': 'divine', '7': 'aether', '8': 'psychic', '9': 'toxic', 'A': 'true'
+            };
+            parsedEffects.push({
+              type: 'mitigation',
+              subtype: mitigationMap[mitigationMatch[1]],
+              value: parseInt(mitigationMatch[2])
+            });
+          }
+
+          // Parse skill effects (SSB=1, SSE=1, etc.)
+          const skillMatch = effectStr.match(/^SS([A-T])=(\d+)$/);
+          if (skillMatch) {
+            const skillMap = {
+              'A': 'fitness', 'B': 'deflection', 'C': 'might', 'D': 'endurance',
+              'E': 'evasion', 'F': 'stealth', 'G': 'coordination', 'H': 'thievery',
+              'I': 'resilience', 'J': 'concentration', 'K': 'senses', 'L': 'logic',
+              'M': 'wildcraft', 'N': 'academics', 'O': 'magic', 'P': 'medicine',
+              'Q': 'expression', 'R': 'presence', 'S': 'insight', 'T': 'persuasion'
+            };
+            const skillName = skillMap[skillMatch[1]];
+            if (skillName) {
+              parsedEffects.push({
+                type: 'skill',
+                subtype: skillName,
+                value: parseInt(skillMatch[2])
+              });
+            }
+          }
+        }
+
+        // Store conditional effects
+        if (parsedEffects.length > 0) {
+          if (!character.conditionals[conditionName]) {
+            character.conditionals[conditionName] = [];
+          }
+          character.conditionals[conditionName].push(...parsedEffects);
+        }
+      }
+      continue;
+    }
+
     // SKILLS (S) - matching SSA=3, ST1=1, SSA=X, or SSA=Y pattern
     const skillMatch = effect.match(/^S([ST])([A-T0-9])=(-?\d+|[XY])$/);
     if (skillMatch) {
@@ -386,13 +567,32 @@ const parseDataString = (dataString, bonuses) => {
         '1': 'health',
         '2': 'resolve',
         '3': 'energy',
-        '4': 'movement',
         '9': 'spellSlots'
       };
       
       const statType = autoMappings[code];
       if (statType) {
         bonuses[statType] = (bonuses[statType] || 0) + value;
+      }
+      continue;
+    }
+
+    // MOVEMENT (K) - matching K1=2, K2=3, K3=1, K4=6 pattern
+    const movementMatch = effect.match(/^K([1-4])=(-?\d+)$/);
+    if (movementMatch) {
+      const [_, code, valueStr] = movementMatch;
+      const value = parseInt(valueStr);
+
+      const movementMappings = {
+        '1': 'movement_walk',
+        '2': 'movement_swim',
+        '3': 'movement_climb',
+        '4': 'movement_fly'
+      };
+
+      const movementType = movementMappings[code];
+      if (movementType) {
+        bonuses[movementType] = (bonuses[movementType] || 0) + value;
       }
       continue;
     }
@@ -487,10 +687,17 @@ const applyBonusesToCharacter = (character, bonuses) => {
     character.resources.health.max += bonuses.health;
   }
   
-  // Apply movement bonus
-  if (bonuses.movement) {
-    character.movement += bonuses.movement;
+  // Apply walk speed bonus (K1) - this is the only way to boost base movement now
+  if (bonuses.movement_walk) {
+    character.movement += bonuses.movement_walk;
   }
+
+  // Store separate movement bonuses for later use in swimming/climbing/flying calculations
+  character.movement_bonuses = {
+    swim: bonuses.movement_swim || 0,
+    climb: bonuses.movement_climb || 0,
+    fly: bonuses.movement_fly || 0
+  };
   
   // Apply initiative bonus
   if (bonuses.initiative) {
@@ -520,22 +727,22 @@ const applyBonusesToCharacter = (character, bonuses) => {
 };
 
 // Centralized data parsing function that extracts both bonuses and trait information
-export const parseDataCodes = (dataString) => {
+export const parseDataCodes = (dataString, character = null) => {
   if (!dataString) return { bonuses: {}, traitCategory: null };
-  
+
   const bonuses = {};
   let traitCategory = null;
-  
+
   // Check for trait codes
   if (dataString.includes('TA')) traitCategory = 'Ancestry';
   else if (dataString.includes('TG')) traitCategory = 'General';
   else if (dataString.includes('TC')) traitCategory = 'Crafting';
   else if (dataString.includes('TO')) traitCategory = 'Offensive';
   else if (dataString.includes('TD')) traitCategory = 'Defensive';
-  
+
   // Use existing parseDataString to handle all the bonus logic
-  parseDataString(dataString, bonuses);
-  
+  parseDataString(dataString, bonuses, character);
+
   return { bonuses, traitCategory };
 };
 
@@ -595,6 +802,7 @@ export const parseEquipmentEffects = (character) => {
       movement: 0,
       energy: 0
     },
+    encumbrance_penalty: 0,
     appliedItems: []
   };
 
@@ -798,26 +1006,9 @@ export const parseEquipmentEffects = (character) => {
       });
     }
 
-    // Apply penalties (typically from armor)
-    if (item.armor_penalties) {
-      Object.entries(item.armor_penalties).forEach(([penaltyType, value]) => {
-        // Handle movement penalty
-        if (penaltyType === 'movement') {
-          equipmentEffects.penalties.movement += Math.abs(value); // Convert to positive for penalty
-        }
-        // Handle energy penalty
-        else if (penaltyType === 'energy') {
-          equipmentEffects.penalties.energy += Math.abs(value);
-        }
-        // Handle skill penalties
-        else {
-          if (!equipmentEffects.penalties.skills[penaltyType]) {
-            equipmentEffects.penalties.skills[penaltyType] = 0;
-          }
-          const penaltyAmount = Math.abs(value);
-          equipmentEffects.penalties.skills[penaltyType] += penaltyAmount; // Convert to positive for penalty
-        }
-      });
+    // Add up encumbrance penalty
+    if (item.encumbrance_penalty && item.encumbrance_penalty > 0) {
+      equipmentEffects.encumbrance_penalty += item.encumbrance_penalty;
     }
   });
 
@@ -946,7 +1137,25 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
   // Calculate sprint speed: (movement * 2) - sprint penalties
   const sprintPenalty = equipmentEffects.penalties.skills['sprint'] || 0;
   character.sprintSpeed = Math.max(1, (character.movement * 2) - sprintPenalty);
-  
+
+  // Apply encumbrance penalty and calculate checks
+  // Encumbrance penalty is the sum of equipment penalties
+  character.encumbrance_penalty = equipmentEffects.encumbrance_penalty;
+
+  // Standard check equals the penalty (no +1)
+  character.encumbrance_check = character.encumbrance_penalty;
+
+  // Sprint check is penalty * 2 (or 0 if no penalty)
+  character.sprint_check = character.encumbrance_penalty > 0 ? character.encumbrance_penalty * 2 : 0;
+
+  // Calculate swimming and climbing speeds (movement / 2, rounded down, then add bonuses)
+  const baseSwimSpeed = Math.floor(character.movement / 2);
+  const baseClimbSpeed = Math.floor(character.movement / 2);
+
+  character.swim_speed = baseSwimSpeed + (character.movement_bonuses?.swim || 0);
+  character.climb_speed = baseClimbSpeed + (character.movement_bonuses?.climb || 0);
+  character.fly_speed = character.movement_bonuses?.fly || 0;
+
   // Store equipment effects for reference
   character.equipmentEffects = equipmentEffects;
 };
@@ -999,7 +1208,36 @@ export const extractTraitsFromModules = (character) => {
       });
     }
   }
-  
+
+  // Process character traits
+  if (character.traits && character.traits.length > 0) {
+    character.traits.forEach(characterTrait => {
+      if (characterTrait.traitId && characterTrait.traitId.options) {
+        characterTrait.traitId.options.forEach(option => {
+          // Find the corresponding selected option data
+          const selectedOptionData = characterTrait.selectedOptions?.find(
+            so => so.name === option.name
+          );
+
+          // Check if this option has subchoices and a selection was made
+          if (option.subchoices && selectedOptionData && selectedOptionData.selectedSubchoice) {
+            // Find the selected subchoice and add it as a trait
+            const selectedSubchoice = option.subchoices.find(
+              sc => sc.id === selectedOptionData.selectedSubchoice
+            );
+            if (selectedSubchoice) {
+              // Process subchoice as an ability
+              processAbilityForTraits(selectedSubchoice, characterTrait.traitId.name, 'trait-derived', traitCategories);
+            }
+          } else {
+            // Process regular trait option
+            processAbilityForTraits(option, characterTrait.traitId.name, 'trait-derived', traitCategories);
+          }
+        });
+      }
+    });
+  }
+
   // Process module traits
   if (character.modules && character.modules.length > 0) {
     character.modules.forEach(module => {

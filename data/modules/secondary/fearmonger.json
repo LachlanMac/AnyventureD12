@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Fearmonger",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Terrorizer",
+      "description": "Gain +1 skill with resilience. When you give a creature the afraid condition, they also take 5 psychic damage.",
+      "location": "1",
+      "data": "SSI=1:TG"
+    },
+    {
+      "name": "Morbid Zeal",
+      "description": "You take pleasure from the fear of others. Gain +2 maximum morale. Additionally, you gain 2 morale when you defeat a creature that has the afraid condition.",
+      "location": "2a",
+      "data": "A8=2:TG"
+    },
+    {
+      "name": "Master of Nightmares",
+      "description": "You are the master of your own dreams. Gain +2 psychic mitigation. Additionally, you cannot be affected by spells or other effects that influence your dreams.",
+      "location": "2b",
+      "data": "M8=2:TG"
+    },
+    {
+      "name": "Sinister",
+      "description": "You have a grim look about you that is hard to miss. Gain +1 skill with presence. When you use a presence check to intimidate a creature, you can force them to make a resilience check. Standard and lower tiered creatures become afraid if they fail the check. Your check is halved against champion or higher tiered creatures.",
+      "location": "3",
+      "data": "SSR=1:TG"
+    },
+    {
+      "name": "Reaction : Jump Scare",
+      "description": "In response to being targeted by a melee attack, you attempt to throw your attacker off by frightening them. Roll a single presence dice with your defense check. If the presence check is a higher number than the largest attack dice, that attack dice is removed from the pool.",
+      "location": "4a",
+      "data": "ZIME=1"
+    },
+    {
+     "name": "Action : Dread Strike",
+      "description": "You make an attack with a melee weapon, but instead of using your weapon skill, make an attack roll using your dark magic skill.",
+      "location": "4b",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Fear Reaper",
+      "description": "You gain a bonus dice on attack checks against creatures that have the afraid condition.",
+      "location": "5",
+      "data": "TG"
+    },
+    {
+      "name": "Channeled Terror",
+      "description": "Gain +1 skill with dark magic. When you deal dark damage to a creature that has the afraid condition, the number they must roll to recover from their check is raised by 1.",
+      "location": "6a",
+      "data": "YS1=1:TG"
+    },
+    {
+      "name": "Above Fear",
+      "description": "You are above fear. You gain immunity to the afraid condition. Despite being immune, you can still roll against effects that would fear you. If you successfully avoid the condition, recovery 1 energy.",
+      "location": "6b",
+      "data": "IA=1:TG"
+    },
+    {
+      "name": "Daily Action : Absorb Terror",
+      "description": "You reach out in a short (10 unit) radius and attempt to absorb all fear. You must make a presence check greater than the total number of afraid creatures within the radius. On a success, the afraid condition is removed from all creatures and you gain 1 morale and 1 resolve for each condition removed.",
+      "location": "7",
+      "data": "XDME=1"
+    }
+  ]
+}

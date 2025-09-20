@@ -1,0 +1,9 @@
+{
+  "name": "Smelling Salts",
+  "description": "A small vial of pungent ammonia salts that can rouse the unconscious. When applied to an unconscious creature, reduces the required check to regain consciousness by 1 and forces them to immediately attempt the check. The salts are consumed after use.",
+  "type": "adventure",
+  "subtype": "consumable",
+  "value": 10,
+  "weight": 0.1,
+  "rarity": "common"
+}  

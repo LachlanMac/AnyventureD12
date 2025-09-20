@@ -31,6 +31,12 @@ interface CharacterHeaderProps {
     };
     movement: number;
     sprintSpeed?: number;
+    swim_speed?: number;
+    climb_speed?: number;
+    fly_speed?: number;
+    encumbrance_penalty?: number;
+    encumbrance_check?: number;
+    sprint_check?: number;
     languages?: string[];
     stances?: string[];
     portraitUrl?: string | null;
@@ -141,7 +147,8 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
 
           {/* Character details - right column */}
           <div className="flex-1">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+            {/* Main character info - 3 columns */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2 mb-4">
               <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Race</div>
                 <div style={{ color: 'var(--color-white)' }}>{character.race}</div>
@@ -174,11 +181,6 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
               </div>
 
               <div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Movement</div>
-                <div style={{ color: 'var(--color-white)' }}>{character.movement} Units</div>
-              </div>
-
-              <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
                   Module Points
                 </div>
@@ -188,67 +190,282 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                     : 'Not available'}
                 </div>
               </div>
-
-              {character.languages && character.languages.length > 0 && (
-                <div>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Languages</div>
-                  <div style={{ color: 'var(--color-white)' }}>
-                    {character.languages.join(', ')}
-                  </div>
-                </div>
-              )}
-
-              {character.stances && character.stances.length > 0 && (
-                <div>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Stances</div>
-                  <div style={{ color: 'var(--color-white)' }}>{character.stances.join(', ')}</div>
-                </div>
-              )}
             </div>
+
+            {/* Movement and Encumbrance Tables */}
+            <div className="mb-4 flex flex-col md:flex-row gap-4">
+              {/* Movement Speeds Table */}
+              <div
+                style={{
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  borderRadius: '0.375rem',
+                  border: '1px solid var(--color-dark-border)',
+                  overflow: 'hidden',
+                  flex: 1,
+                }}
+              >
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr
+                      style={{
+                        backgroundColor: 'var(--color-dark-bg)',
+                        borderBottom: '1px solid var(--color-dark-border)',
+                      }}
+                    >
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.5rem',
+                          textAlign: 'left',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                      >
+                        Movement
+                      </th>
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.5rem',
+                          textAlign: 'center',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                      >
+                        Normal
+                      </th>
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.5rem',
+                          textAlign: 'center',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                      >
+                        Sprint
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid var(--color-dark-border)' }}>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          fontWeight: '500',
+                        }}
+                      >
+                        Walk
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {character.movement}
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {character.movement * 2}
+                      </td>
+                    </tr>
+                    <tr style={{ borderBottom: '1px solid var(--color-dark-border)' }}>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          fontWeight: '500',
+                        }}
+                      >
+                        Swim
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {character.swim_speed || Math.floor(character.movement / 2)}
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {(character.swim_speed || Math.floor(character.movement / 2)) * 2}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          fontWeight: '500',
+                        }}
+                      >
+                        Climb
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {character.climb_speed || Math.floor(character.movement / 2)}
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {(character.climb_speed || Math.floor(character.movement / 2)) * 2}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+
+              {/* Encumbrance Table */}
+              <div
+                style={{
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  borderRadius: '0.375rem',
+                  border: '1px solid var(--color-dark-border)',
+                  overflow: 'hidden',
+                  flex: 1,
+                }}
+              >
+                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                  <thead>
+                    <tr
+                      style={{
+                        backgroundColor: 'var(--color-dark-bg)',
+                        borderBottom: '1px solid var(--color-dark-border)',
+                      }}
+                    >
+                      <th
+                        style={{
+                          color: 'var(--color-cloud)',
+                          padding: '0.5rem',
+                          textAlign: 'left',
+                          fontSize: '0.75rem',
+                          fontWeight: '600',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.025em',
+                        }}
+                        colSpan={2}
+                      >
+                        Encumbrance
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr style={{ borderBottom: '1px solid var(--color-dark-border)' }}>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          fontWeight: '500',
+                        }}
+                      >
+                        Standard Check
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {character.encumbrance_check === 0 || !character.encumbrance_check ? 'None' : character.encumbrance_check}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          fontWeight: '500',
+                        }}
+                      >
+                        Sprint Check
+                      </td>
+                      <td
+                        style={{
+                          color: 'var(--color-white)',
+                          padding: '0.375rem 0.5rem',
+                          textAlign: 'center',
+                          fontWeight: '600',
+                        }}
+                      >
+                        {character.sprint_check === 0 || !character.sprint_check ? 'None' : character.sprint_check}
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
+            {/* Languages and Stances - if they exist */}
+            {((character.languages && character.languages.length > 0) ||
+              (character.stances && character.stances.length > 0)) && (
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
+                {character.languages && character.languages.length > 0 && (
+                  <div>
+                    <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Languages</div>
+                    <div style={{ color: 'var(--color-white)' }}>
+                      {character.languages.join(', ')}
+                    </div>
+                  </div>
+                )}
+
+                {character.stances && character.stances.length > 0 && (
+                  <div>
+                    <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Stances</div>
+                    <div style={{ color: 'var(--color-white)' }}>{character.stances.join(', ')}</div>
+                  </div>
+                )}
+              </div>
+            )}
           </div>
         </div>
 
         {/* Resources and Mitigation Section */}
         <div className="flex flex-col md:flex-row gap-6 mt-6">
-          {/* Resource bars and Movement - left column */}
+          {/* Resource bars - left column */}
           <div className="flex-1">
             <ResourceBars
               resources={character.resources}
               onResourceChange={onResourceChange}
               readOnly={!onResourceChange}
             />
-
-            {/* Movement Speeds */}
-            <div className="mt-4">
-              <div className="grid grid-cols-2 gap-3">
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
-                    Movement Speed
-                  </div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    {character.movement} Units
-                  </div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
-                    Sprint Speed
-                  </div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>
-                    {character.sprintSpeed || character.movement * 2} Units
-                  </div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
-                    Climb Speed
-                  </div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>3 Units</div>
-                </div>
-                <div style={{ textAlign: 'center' }}>
-                  <div style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>Swim Speed</div>
-                  <div style={{ color: 'var(--color-white)', fontWeight: '600' }}>3 Units</div>
-                </div>
-              </div>
-            </div>
           </div>
 
           {/* Mitigation Table - right column */}

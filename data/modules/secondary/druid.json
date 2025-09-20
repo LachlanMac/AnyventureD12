@@ -8,59 +8,59 @@
       "name": "Animal Companion",
       "description": "You gain +1 skill with wildcraft. When you have a beast or plantoid as a pet or under your command, you can experience their senses as long as they are within a moderate (20 unit) distance from you.",
       "location": "1",
-      "data": "AE=1:TG"
+      "data": "TG:SSM=1"
     },
     {
-      "name": "Beastial Spirit",
-      "description": "You are infused with the spirit of the beast. Gain +1 skill with athletics and +1 movement speed.",
+      "name": "Bestial Spirit",
+      "description": "You are infused with the spirit of the beast. Gain +1 skill with fitness and +1 movement speed.",
       "location": "2a",
-      "data": "TG"
+      "data": "SSA=1:K1=1"
     },
     {
       "name": "Natural Diet",
-      "description": "Your experience in the outdoors has given you a great eye for fungi, herbs and spices. Gain +1 health and +1 skill with cooking. Additioanally, when foraging or identifying plants or fungi, gain a bonus dice to your checks.",
+      "description": "Your experience in the outdoors has given you a great eye for fungi, herbs and spices. Gain +1 health and +1 skill with cooking. Additionally, when foraging or identifying plants or fungi, gain a bonus dice to your checks.",
       "location": "2b",
-      "data": "TD"
+      "data": "TG:A1=1:CS4=1"
     },
     {
       "name": "Action : Shapeshift",
-      "description": "You transform into a beast that you have encountered before that is of the minion or grunt tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shapeshifted, you return to your usual form with 0 health.",
+      "description": "You transform into a beast that you have encountered before that is of the minion or grunt tier with maximum health equal to either your current health or the health of the creature's statblock, whichever is lower. While transformed in this way, you retain your social, mental and knowledge skills, but use the beasts stats for everything else. If you reach 0 health while shape-shifted, you return to your usual form with 0 health.",
       "location": "3",
-      "data": "TG"
+      "data": "XIME=2"
     },
     {
-      "name": "Action : Fungal Regrowth",
-      "description": "You channel a spell that has an instantaneous effect on another creature, but heal yourself for the same amount, ignoring any threshold limitations.",
+      "name": "Daily Action : Fungal Regrowth",
+      "description": "You touch a humanoid or beast and hasten the sporing of a healing fungus that has natural healing properties, healing the target for 1 health every round. Roll a primal spell check; the spell lasts a number of rounds equal to highest dice.",
       "location": "4a",
-      "data": "TD"
+      "data": "XDME=2"
     },
     {
-      "name": "Action : Nature's Wrath",
-      "description": "You channel a primal spell from the nature subschool and increase the check to avoid it by 2.",
+      "name": "Action : Call Insect Swarm",
+      "description": "You call forth a swarm of flying insects to harry a target within a short (10 unit) distance that do a very small amount of damage, but distract the creature they are swarming. For each primal magic dice you roll, deal 1 physical damage. Any mind check the target rolls is done so with a penalty dice until the start of your next turn.",
       "location": "4b",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "Nature Magic",
       "description": "Your talent to bend the forces of nature is well documented. You gain +1 skill with primal magic.",
       "location": "5",
-      "data": "TG"
+      "data": "YS2=1"
     },
     {
       "name": "Greater Shift",
-      "description": "Your Shapeshift Action allows you to turn into standard tier beasts you have encountered. Additionally, when you are transformed, you can use your unarmed skill to replace any attack check on the beast's statblock.",
+      "description": "Your Shapeshift Action allows you to turn into standard tier beasts you have encountered. Additionally, when you are transformed, you gain a bonus dice to any melee attacks in the statblock.",
       "location": "6a",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Defiler",
       "description": "You use the dark arts to taint the natural order. Gain +1 skill with black magic and learn the Raise Beast spell which you can channel once a day with an automatic success.",
       "location": "6b",
-      "data": "TG"
+      "data": "TG:YS1=1"
     },
     {
       "name": "Archdruid",
-      "description": "You effortlessly command the power of nature, allowing you to speak to plantoids and beasts as if you were under the effect of the spells that grant that power. Additionally, you can command plants as an action, such as commanding vines or tree branches to perform simple tasks like shove, grapple or assist using your primal magic skill as a check.",
+      "description": "You effortlessly command the power of nature, allowing you to speak to plantoids and beasts as if you were under the effect of the spells that grant that power. Additionally, you can command plants as an action, such as commanding vines or tree branches to perform simple tasks like shove, grapple or assist using your primal magic skill as the check.",
       "location": "7",
       "data": "TG"
     }

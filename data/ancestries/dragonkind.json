@@ -25,19 +25,19 @@
           "id": "red",
           "name": "Red Dragon Heritage",
           "description": "Descended from red dragons, your Dragon Breath deals heat damage. Gain +1 physical mitigation and +3 heat mitigation.",
-          "data": "TA:M1=2:M2=4"
+          "data": "TA:M1=1:M2=3"
         },
         {
           "id": "blue",
           "name": "Blue Dragon Heritage",
           "description": "Descended from blue dragons, your Dragon Breath deals electric damage. Gain +1 physical mitigation and +3 electric mitigation.",
-          "data": "TA:M1=2:M4=4"
+          "data": "TA:M1=1:M4=3"
         },
         {
           "id": "white",
           "name": "White Dragon Heritage",
           "description": "Descended from white dragons, your Dragon Breath deals cold damage. Gain +1 physical mitigation and +3 cold mitigation.",
-          "data": "TA:M1=2:M3=4"
+          "data": "TA:M1=1:M3=3"
         }
       ],
       "requiresChoice": true,
@@ -46,7 +46,7 @@
     {
       "name": "Action : Dragon Breath",
       "description": "You spew damaging breath in a cone using your might as an attack check. The length of the cone is equal in units to the amount of talent dice of your check, dealing damage based on your draconic heritage.",
-      "data": "X"
+      "data": "XATK:TA"
     },
     {
       "name": "Draconic Horde",

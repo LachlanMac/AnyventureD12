@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Student of Combat",
-      "description": "On the first round of combat, you gain a bonus dice to all attack dice ",
+      "description": "You have studied countless fighting styles and martial traditions throughout history. Gain +1 skill with academics.",
       "location": "1",
-      "data": "TD"
-    },
-    {
-      "name": "Sharp Mind",
-      "description": "Gain +1 skill with logic. When you are confused and roll a 6 or 7 on the confusion table, your confusion ends.",
-      "location": "2a",
-      "data": "SSL=1:TD"
-    },
-    {
-      "name": "Focused Mind",
-      "description": "Gain +1 skill with concentration. ",
-      "location": "2b",
-      "data": "SS4=1:TD"
-    },
-    {
-      "name": "SENT TIER 3",
-      "description": "Gain +1 skill with academics.",
-      "location": "3",
-      "data": "SSN=1:TD"
+      "data": "SSN=1"
     },
     {
       "name": "Reaction : Know Thy Enemy",
-      "description": "In response to being targeted by a melee attack, you analyze your opponent's stance and technique. Roll an academics check with a single dice and add that die to your defense check pool.",
-      "location": "4a",
-      "data": "TD"
+      "description": "In response to being targeted by an attack, you analyze your opponent's stance and technique. Roll an academics check with a single dice and add that die to your defense check pool.",
+      "location": "2a",
+      "data": "ZINE=1"
     },
     {
       "name": "Action : Find Weakness",
       "description": "You make a probing attack to study your opponent's defenses. Make an academics check with a single die as your attack roll. If the attack hits, you deal damage equal to your weapon's primary damage and learn one mitigation type or immunity of your choice that the target possesses.",
+      "location": "2b",
+      "data":"XINE=1"
+    },
+    {
+      "name": "Calm in the Storm",
+      "description": "Gain +1 psychic mitigation and +1 aetheric mitigation.",
+      "location": "3",
+      "data": "M8=1:M7=1"
+    },
+    {
+      "name": "Sharp Mind",
+      "description": "Gain +1 skill with logic. You can use your logic skill to try to recover from being afraid or confused.",
+      "location": "4a",
+      "data": "SSL=1"
+    },
+    {
+      "name": "Focused Mind",
+      "description": "Gain +1 skill with concentration. When you take damage and are forced to make a concentration check, the maximum result you need to maintain concentration can never exceed 10.",
       "location": "4b",
-      "data": "TD"
+      "data": "SSJ=1"
     },
     {
-      "name": "SENT TIER 5",
-      "description": "SENT TIER 5 DESC",
+      "name": "Action : Sentinel's Stance",
+      "description": "You enter a state of perfect concentration, analyzing the flow of battle. While in this stance, you add a single academics die to all melee weapon attacks during combat. You cannot speak while maintaining this focus. The stance ends if you lose concentration, speak or gain any mental condition.",
       "location": "5",
-      "data": "TD"
+      "data": "XINE=0"
     },
     {
-      "name": "Ancient Defenses",
-      "description": "ou have studied the protective wards and divine rituals of ancient civilizations. Gain +1 skill with magic knowledge and +1 divine and +1 dark mitigation.",
+      "name": "Martial Arts",
+      "description": "Gain +1 skill with unarmed attacks. When a creature attempts to shove, grab or displace you with a melee attack, you can defend by making an unarmed check instead.",
       "location": "6a",
-      "data": "TD"
+      "data": "WS1=1"
     },
     {
-      "name": "Warrior-Scholar",
-      "description": "You combine battlefield medicine with anatomical knowledge to protect yourself and others. Gain +1 skill with medicine and +1 physical mitigation.",
+      "name": "Bastion",
+      "description": "You possess a bastion of defense. Gain +1 skill with evasion and +1 skill with deflection.",
       "location": "6b",
-      "data": "TD"
+      "data": "SSE=1:SSB=1"
     },
     {
       "name": "Daily Action : Attack of Legends",
-      "description": "You channel the legendary techniques of history's greatest warriors into a single devastating strike. Roll both an academics check and a weapon attack, discarding the lowest die from each pool before combining them. If this attack defeats an elite tier or higher creature, your resolve is completely restored.",
+      "description": "You channel the legendary techniques of history's greatest warriors into a single devastating strike against a champion tiered creature or higher. Roll both an academics check and a weapon attack, discarding the lowest die from each pool before combining them. If this attack brings an elite or higher creature to 0 health, all allies within a moderate (20 unit) distance gain 20 resolve. ",
       "location": "7",
-      "data": "SS1=1:SS3=1:SS6=1:TD"
+      "data": "XDNE=1"
     }
   ]
 }

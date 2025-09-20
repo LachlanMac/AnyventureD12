@@ -38,7 +38,6 @@
   "magic": {},
   "craft": {},
   "mitigation": {},
-  "armor_penalties": {},
   "detections": {},
   "immunities": {},
   "recipe": {
@@ -48,5 +47,6 @@
       "Point",
       "Long Shaft"
     ]
-  }
+  },
+  "encumbrance_penalty": 0
 }

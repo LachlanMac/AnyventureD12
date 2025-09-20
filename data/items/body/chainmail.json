@@ -5,16 +5,9 @@
   "weight": 12,
   "value": 100,
   "rarity": "common",
+  "armor_category": "heavy",
   "mitigation": {
     "physical": 4
   },
-  "armor_penalties": {
-    "movement": 0,
-    "energy": 0,
-    "stealth": -1,
-    "evasion": 0,
-    "coordination": -1,
-    "swim":-1,
-    "sprint": -1
-  }
+  "encumbrance_penalty": 2
 }

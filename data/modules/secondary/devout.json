@@ -8,61 +8,62 @@
       "name": "Sworn Dedication",
       "description": "You devote yourself to a divine being or sacred force, vowing to uphold its tenets. Your creed demands the destruction of undead and dark-aligned creatures. You cannot willfully aid these beings or channel dark magic without forsaking your oath. Through your faith, you gain +2 maximum resolve.",
       "location": "1",
-      "data": "AE=1:TD"
+      "data": "TG:A2=2"
     },
     {
       "name": "Sacred Vessel",
-      "description": "Your body has become a conduit for energy. Gain +2 mitigation to aether damage. When you take 5 or more divine after mitigation is calculated, you gain +2 energy.",
+      "description": "Your body has become a conduit for energy. Gain +2 mitigation to aetheric damage. When you take 5 or more divine damage after mitigation is calculated, you gain +2 energy.",
       "location": "2a",
-      "data": "TD"
+      "data": "TG:M7=2"
     },
     {
       "name": "Fortified from Darkness",
-      "description": "You gain +2 dark mitigation. When defending against a dark magic spell, gain a bonus dice.",
+      "description": "You gain +2 dark mitigation. When defending against a dark magic spell, gain a bonus dice to your check against it.",
       "location": "2b",
-      "data": "TD"
+      "data": "TG:M5=2"
     },
+   
     {
-      "name": "Divine Charge",
-      "description": "When you roll an 8 or higher on a divine magic spell check with the radiant subschool, it becomes charged. This does not work if you have broken your tenets without receiving penance",
-      "location": "3",
-      "data": "TG"
-    },
-    {
-      "name": "Advisor",
+      "name": "Holy Advisor",
       "description": "You gain +1 skill with insight. Additionally, you can grant an ally +1 resolve during each full rest.",
+      "location": "3",
+      "data": "TG:SSS=1"
+    },
+     {
+      "name": "Charge of Faith",
+      "description": "You can charge a divine spell by pure faith, skipping the component requirement. If you fail to channel the spell, the spell is lost from your spell list and you must relearn it again. If you succeed, the spell is considered fizzled, and you cannot channel it again until you complete a full rest.",
       "location": "4a",
-      "data": "TD"
+      "data": "TG"
     },
     {
       "name": "Crusader",
       "description": "You openly bear the symbol of your faith, and your words carry divine authority. Gain +1 skill with presence. Accusations you make against those who consort with darkness are taken seriously by the faithful. Institutions aligned with your deity will offer shelter, healing, and support to you and your allies, so long as you remain in good standing.",
       "location": "4b",
-      "data": "TG"
+      "data": "TG:SSR=1"
     },
     {
       "name": "Dedicated",
       "description": "Your service to the heavens has given you a closer connection to the gods. You gain +1 skill with divine magic.",
       "location": "5",
-      "data": "TG"
+      "data": "YS4=1"
     },
     {
       "name": "Action : Brand the Wicked",
-      "description": "You mark a creature, branding them and making them more suspectible to divine attacks. Any divine damage that strikes this enemy is not affected by divine mitigation.",
+      "description": "You mark a creature, branding them and making them more susceptible to divine attacks. Any divine damage that strikes this enemy is not affected by divine mitigation.",
       "location": "6a",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "Daily Reaction : Reward the Faithful",
       "description": "In response to making a resilience check, you can choose to succeed at the cost of 1 resolve. If you have broken your tenets without receiving penance, you must spend 5 resolve instead.",
       "location": "6b",
-      "data": "TD"
+      "data": "ZDNE=0"
     },
     {
       "name": "Cleansing Word",
-      "description": "When you restore health to a creature, you also cleanse them of any disease, poison or exhaustion.",
+      "description": "When you restore health to a creature with divine magic, you also cleanse them of any disease, poison or exhaustion.",
       "location": "7",
-      "data": "TD"
+      "data": "TG"
     }
   ]
 }

@@ -1,47 +1,22 @@
 {
   "id": 5,
   "name": "Klaktil Integrant",
-  "description": "You are a member of a Klaktil Hive and have been absorbed into their unified mind. While the king or queen of the hive is alive and on the same celestial body as you, you are considered permanently charmed by the hive and are immune to charm effects from other sources. You no longer have the ability to focus but are considered to be alerted when you are conscious but are immune to the confused and maddened condition.",
+  "description": "You are a member of a Klaktil Hive and have been absorbed into their unified mind. While the king or queen of the hive is alive and on the same celestial body as you, you are considered permanently charmed by the hive and are immune to charm effects from other sources. You no longer have the ability to concentrate, but become immune to the maddened and confused conditions.",
   "options": [
     {
       "name": "Hivemind",
-      "description": "Core hive integration - permanent charm by hive, charm immunity, focus restrictions, and condition immunities.",
+      "description": "You are part of a hivemind that is ruled by a central king or queen. If they are alive and on the same celestial body as you, you are considered permanently charmed by the hive and are immune to charm effects from other sources, as well as immune to the maddened and confused conditions.",
       "data": "TA"
     },
     {
-      "name": "Reaction [Daily] : Consult the Hive",
-      "description": "In response to making a Skill Check, you consult the hive and gain their combined skills to aid you, granting you a 2d4 bonus.",
-      "data": "ZD1"
-    },
-    {
       "name": "Knowledge of the Hive",
-      "description": "Gain +1 to all Knowledge Skills.",
-      "data": "AS7=1:AS8=1:AS9=1:ASA=1:ASB=1"
+      "description": "You have access to a trove of information that your hive possesses as a unified mind. All of your knowledge skills are upgraded.",
+      "data": ""
     },
     {
-      "name": "Action : Calming Pheromones",
-      "description": "For 5 turns, you emit pheromones in a 3-unit radius. At the start of their turn, humanoids and beasts within the area must make a contested Resilience check against 1d12 + half your level. On a failure, they cannot act aggressively unless they or their allies are harmed or threatened. A successful check grants immunity until their next full rest. Additionally, Gain +1d4 to social checks against affected creatures.",
-      "data": "XX3"
-    },
-    {
-      "name": "Crafting Aura",
-      "description": "Gain +1 to all Crafting Skills. You can also assist others with recipes, granting them a +1 bonus to all Craft Checks.",
-      "data": "AC1=1:AC2=1:AC3=1:AC4=1:AC5=1:AC6=1:AC7=1"
-    },
-    {
-      "name": "Party Link",
-      "description": "When you spend a full rest within an enclosed space with one or more humanoids, you can share thoughts and ideas with them telepathically within 10 units until your next full rest.",
-      "data": "TG"
-    },
-    {
-      "name": "Multifaceted Eyes",
-      "description": "Your connection to the hive has resulted in a physical evolution of your eyes granting you Ultravision.",
-      "data": "DU"
-    },
-    {
-      "name": "Feelers",
-      "description": "You have developed extrasensory feelers that grant you Tremorsense and the ability to determine if a creature or object is diseased or poisoned by touching it.",
-      "data": "DT:TG"
+      "name": "Daily Action : Assimilation Protocol",
+      "description": "",
+      "data": ""
     }
   ]
 }

@@ -8,61 +8,61 @@
       "name": "Vanquisher",
       "description": "You take pride in destroying darkness. At the end of each full rest, if you helped defeat a dark creature or a creature you witnessed channeling dark magic, you gain resolve and morale based on the highest tier defeated: Minion (1), Grunt (1), Foe (2), Champion (3), Elite (5), and Legend (8)",
       "location": "1",
-      "data": "SSO=1"
+      "data": "TG:YS4=1"
     },
     {
       "name": "Witch Hunter",
       "description": "Years of investigation have honed your instincts. Gain +1 skill with insight. When you make a successful insight check against a humanoid of 10 or higher, you can determine if they are under the effect of a divine or dark spell. You must wait until the end of your next full rest to target the same creature with this trait.",
       "location": "2a",
-      "data": "SSP=1"
+      "data": "TG:SSS=1"
     },
     {
       "name": "Prosecutor's Mind",
       "description": "Your analytical approach to hunting heretics is unmatched. Gain +1 skill with logic. When you spend at least 10 minutes investigating a small area, such as a room, you can determine if there are any objects that are under the effect of a divine or dark spell, though not which specific object.",
       "location": "2b",
-      "data": "SMJ=1"
+      "data": "TG:SSL=1"
     },
     {
       "name": "Action : Sin Hunter",
       "description": "You target a divine, dark, or humanoid creature and mark them for the next minute. The first time you deal damage on your turn to this target, deal an additional 10 aetheric damage. This damage cannot be halved and can only be reduced by complete mitigation. If a humanoid has not channeled a spell from the divine or dark schools of magic within the last day, they are not affected by this ability.",
       "location": "3",
-      "data": ""
+      "data": "TG:XINE=1"
     },
     {
       "name": "Hunter of Shadows",
       "description": "You've dedicated yourself to purging dark forces. Gain +2 dark mitigation and +1 aetheric mitigation.",
       "location": "4a",
-      "data": ""
+      "data": "TG:M5=2:M7=1"
     },
     {
       "name": "Hunter of Light",
       "description": "You have dedicated yourself to bring to justice those that corrupt the light. Gain +2 divine mitigation and +1 aetheric mitigation.",
       "location": "4b",
-      "data": ""
+      "data": "TG:M6=2:M7=1"
     },
     {
       "name": "Divine Mandate",
       "description": "You believe that your power is best exercised with holy magic to fulfil your mandate. Gain +1 skill with divine magic.",
       "location": "5",
-      "data": "MS4=1"
+      "data": "TG:YS4=1"
     },
     {
       "name": "Action: Trial by Fire",
       "description": "You target a creature that has the ignited condition and make an attack with a weapon against them. If the attack hits, it deals an additional 10 physical damage but removes the ignited condition. If a creature dies as a result of this damage, you can move the ignited flames to another creature within a very short (5 unit) radius of your initial target.",
       "location": "6a",
-      "data": ""
+      "data": "TG:XINE=1"
     },
     {
       "name": "Reaction: Counter the Sinful",
       "description": "When the target of your Sin Hunter action makes an attack or channels a spell, you can make a ranged or melee attack against them. If you have 3 or more successes on your attack against their defense check, the target must makes a resilience check of 7 or higher or become ignited.",
       "location": "6b",
-      "data": ""
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Grand Inquisitor",
       "description": "When you first apply the ignited condition to a creature, you can change the damage type from heat to either divine or dark damage.",
       "location": "7",
-      "data": ""
+      "data": "TG"
     }
   ]
 }

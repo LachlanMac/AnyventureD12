@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Frenzied Spirit",
-      "description": "When you take damage while below 10 health, you roll a resilience check. If the result is less than a 8, you enter a Frenzy which grants you a bonus dice on attack, endurance and might checks but a penalty dice on defense checks for the next minute. At the start of each of your successive turns, roll a resilience check: on a 2 or lower, you gain the maddened condition.",
+      "description": "When you lose 5 or more health, you roll a resilience check. If the result is less than a 8, you enter a Frenzy which grants you a bonus dice on attack, endurance and might checks but a penalty dice on defense checks for the next minute. At the start of each of your successive turns, roll a resilience check: on a 2 or lower, you gain the maddened condition.",
       "location": "1",
-      "data": "AE=1:TO"
+      "data": "TG"
     },
     {
       "name": "Fear Unburdened",
-      "description": "When you have morale, you are immune to the fear condition. Additionally, gain +1 psychic mitigation.",
+      "description": "When you have at least 5 morale, you are immune to the fear condition. Additionally, gain +1 psychic mitigation.",
       "location": "2a",
-      "data": "TO"
+      "data": "TG:M8=1"
     },
     {
       "name": "Pushing the Limit",
       "description": "Gain +1 skill with endurance and +2 health. ",
       "location": "2b",
-      "data": "TO"
+      "data": "TG:SSD=1:A1=2"
     },
     {
-      "name": "Reaction : Controlled Frenzy",
-      "description": "You have become skilled in controlling your frenzied rage. In response to taking damage, you may spend up to 5 resolve to intentionally enter a frenzy, gaining 1d4 morale for each spent that last for the next minute or until the frenzy ends.",
+      "name": "Action : Savage Strike",
+      "description": "While under the effects of the Frenzy action, you make a savage melee attack, doubling the primary damage on your weapon.",
       "location": "3",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
       "name": "Massive Weaponry",
       "description": "You gain +1 skill with complex melee weapons.",
       "location": "4a",
-      "data": "TO"
+      "data": "TG:WS5=1"
     },
     {
       "name": "The Old Way",
       "description": "You gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
       "location": "4b",
-      "data": "TO"
-    },
-    {
-      "name": "Action : Savage Strike",
-      "description": "While under the effects of the Frenzy action, you make a savage melee attack, doubling your primary weapon damage.",
-      "location": "5",
-      "data": "TO"
-    },
-    {
-      "name": "Mind Over Matter",
-      "description": "You gain +1 skill with resilience. When you receive a new mental condition, you can delay it taking effect until the end of your next turn.",
-      "location": "6a",
-      "data": "TO"
+      "data": "TG:WS3=1:WS2=1"
     },
     {
       "name": "Imposing",
       "description": "You are an imposing figure, especially when you're angry. You gain +1 skill with presence and +1 skill with might.",
-      "location": "6b",
-      "data": "TO"
+      "location": "5",
+      "data": "TG:SSR=1:SSC=1"
     },
     {
-      "name": "Battle Shout",
-      "description": "When you enter a frenzy with the Controlled Frenzy reaction, any ally within a short radius (10 units) gains half of the total morale you generated, lasting for a minute.",
+      "name": "Daily Action : Battle Shout",
+      "description": "While in a frenzy, you let off a vicious shout, granting allies within a moderate (20 unit) distance morale. The amount of morale granted is based on how many hostile creatures there are, up to a maximum of 10. An elite creature counts as 5 and a legendary 10.",
+      "location": "6a",
+      "data": "XDNE=0"
+    },
+    {
+      "name": "Reaction : Calm",
+      "description": "In response to either being under the effect of your Frenzied Spirit ability or acquiring the maddened condition, you can attempt to end the condition by rolling a concentration check of 5 or higher. This calm lasts for a minute, making you immune to the maddened condition, but the threshold for frenzied spirit trigger is raised to 10 health instead of 5.",
+      "location": "6b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Mind Over Matter",
+      "description": "Your control over your rage has become second nature. Gain +1 skill with resilience. Additionally, you can activate your Frenzy Spirit without requiring a trigger and can no longer become maddened by it.",
       "location": "7",
-      "data": "TO"
+      "data": "TG:SSI=1"
     }
   ]
 }

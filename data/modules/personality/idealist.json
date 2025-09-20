@@ -13,61 +13,61 @@
       "name": "Idealist",
       "description": "You are an idealist, driven by unwavering beliefs in how the world should be and refusing to compromise your vision despite the pragmatic realities others accept. Your passionate convictions inspire those around you while sometimes blinding you to practical limitations, creating both devoted followers and frustrated opponents. You value principles, vision, and integrity above all else.",
       "location": "1",
-      "data": ""
+      "data": "TP"
     },
     {
       "name": "Positive Idealism",
       "description": "You are enthusiastic to share your ideas and beliefs and present your case well. Gain +1 skill to persuasion. Additionally, gain +2 resolve.",
       "location": "2a",
-      "data": "TG:SST=1"
+      "data": "TP:SST=1:A2=2"
     },
     {
       "name": "Manifesto",
       "description": "You are a visionary and have often put your dream to quill and scroll. You gain +1 skill with academics. Additionally, when you persuasion attempts made through writing gain a bonus dice.",
       "location": "2b",
-      "data": "TG:SSN=1"
-    },
-    {
-      "name": "Downtime Action : Conversion",
-      "description": "You spend time, asserting your views in an attempt to bring a non-hostile individual along to your line of thinking. Your success is tied to a persuasion check; of an 6-9 is midly successful and suggests a good dialogue, while a 10 or higher is very successful and may convince or convert an individual. On a perfect check, the you are able to convert even the most stubborn individual.",
-      "location": "3",
-      "data": "Y"
-    },
-    {
-      "name": "Daily Reacton : Fervent Conviction",
-      "description": "In response to either losing resolve or taking psychic damage, roll a resilience check. On a 6 or higher, the loss or damage is completely mitigated, otherwise, the damage or loss of resolve is doubled.",
-      "location": "4a",
-      "data": "ZD"
-    },
-    {
-      "name": "Action : Reinforced Idealism",
-      "description": "You take the Defense action, but instead of gaining just a bonus dice to evasion and deflection, you gain a bonus dice to any contested or defensive check you make.",
-      "location": "4b",
-      "data": "XX"
+      "data": "TP:SSN=1"
     },
     {
       "name": "Shared Idealism",
       "description": "It is difficult to deny you when you get to talking about your beliefs. Gain +1 skill with persuasion. When you use a Wonder, you can choose an ally within a short (10 unit) distance to gain the same benefit you chose.",
+      "location": "3",
+      "data": "TP:SST=1"
+    },
+    {
+      "name": "Daily Reaction : Fervent Conviction",
+      "description": "In response to either losing resolve or taking psychic damage, roll a resilience check. On a 6 or higher, the loss or damage is completely mitigated, otherwise, the damage or loss of resolve is doubled.",
+      "location": "4a",
+      "data": "ZDNE=0"
+    },
+    {
+      "name": "Action : Stubborn Idealism",
+      "description": "You take the Defense action, but instead of gaining just a bonus dice to evasion and deflection, you gain a bonus dice to any contested or defensive check you make.",
+      "location": "4b",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Visionary Idealist",
+      "description": "Gain +1 talent with social",
       "location": "5",
-      "data": ""
+      "data": "ST5=1"
     },
     {
       "name": "Unshakeable Faith",
       "description": "Your core beliefs protect your mind from outside influence. When you gain either the charmed, confused, maddened, or afraid conditions, you can immediately make a resilience check. On a 10 or higher, the condition is removed without ever taking effect.",
       "location": "6a",
-      "data": ""
+      "data": "TP"
     },
     {
       "name": "Martyr",
       "description": "When you are at 0 health, and take damage that forces you to make a lifeline check, instead of rolling a d8, you can elect to roll a d4 and compare the result to the Lifeline Table. When you do this, all allies within a short (10 unit) distance immediately gain a wonder.",
       "location": "6b",
-      "data": ""
+      "data": "TP"
     },
     {
-      "name": "Visionary Idealist",
-      "description": "Gain +1 talent with social",
+      "name": "Downtime Action : Conversion",
+      "description": "You spend time, asserting your views in an attempt to bring a non-hostile individual along to your line of thinking. Your success is tied to a persuasion check; of an 6-9 is mildly successful and suggests a good dialogue, while a 10 or higher is very successful and may convince or convert an individual. On a perfect check, the you are able to convert even the most stubborn individual.",
       "location": "7",
-      "data": "ST5=1:SST=1"
+      "data": "YDNE=0"
     }
   ]
 }

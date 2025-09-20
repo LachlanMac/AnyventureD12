@@ -295,7 +295,7 @@ export interface Item {
   bonus_attack?: number;
   primary?: Damage;
   secondary?: Damage;
-  armor_penalties?: Record<string, number>;
+  encumbrance_penalty?: number;
   health: ResourceStat;
   resolve: ResourceStat;
   energy: ResourceStat;

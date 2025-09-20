@@ -2,22 +2,54 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
+const SubchoiceSchema = new Schema({
+  id: {
+    type: String,
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  description: {
+    type: String,
+    required: true
+  },
+  data: {
+    type: String,
+    default: ""
+  }
+});
+
 const TraitOptionSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true 
+  name: {
+    type: String,
+    required: true
   },
-  description: { 
-    type: String, 
-    required: true 
+  description: {
+    type: String,
+    required: true
   },
-  data: { 
-    type: String, 
-    default: "" 
+  data: {
+    type: String,
+    default: ""
   },
-  selected: { 
-    type: Boolean, 
-    default: false 
+  selected: {
+    type: Boolean,
+    default: false
+  },
+  subchoices: [SubchoiceSchema],
+  requiresChoice: {
+    type: Boolean,
+    default: false
+  },
+  choiceType: {
+    type: String,
+    default: ""
+  },
+  selectedSubchoice: {
+    type: String,
+    default: ""
   }
 });
 

@@ -23,7 +23,7 @@ export interface Item {
   magic?: any;
   craft?: any;
   mitigation?: any;
-  armor_penalties?: any;
+  encumbrance_penalty?: number;
   detections?: any;
   immunities?: any;
 }

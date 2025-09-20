@@ -5,9 +5,9 @@
   "weight": 5,
   "value": 25,
   "rarity": "common",
+  "armor_category": "light",
   "mitigation": {
     "physical": 2
   },
-  "armor_penalties": {
-  }
+  "encumbrance_penalty": 1
 }

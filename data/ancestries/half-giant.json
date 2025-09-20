@@ -24,7 +24,7 @@
     {
       "name": "Action : Giant Toss",
       "description": "You take a modified version of the Shove action against a creature smaller than you. Instead of a success or fail, you can displace the creature 2 units, plus another unit for each successful might dice against their check to avoid it. The creature takes fall damage against the total distance traveled.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
     {
       "name": "Primitive",

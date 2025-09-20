@@ -5,64 +5,64 @@
   "ruleset": 1,
   "options": [
     {
-      "name": "Longevity Training",
-      "description": "You have put in extensive training to not tire as easily on the battlefield. Gain +1 skill with endurance and +1 maximum energy.",
+      "name": "Strength of Arms",
+      "description": "Gain +1 skill with might. Whenever you use an action or reaction to attack with a weapon with the slashing property, you can spend 1 energy to gain an additional dice on the roll.",
       "location": "1",
-      "data": "SSD=1:TO"
+      "data": "TG:SSC=1"
     },
     {
       "name": "Reaction : Counter Cut",
       "description": "In response to being targeted by a melee attack, you attempt to turn your defense into damage. In addition to your defense check, roll a single attack dice with a slashing weapon. Regardless of the result of your defense check, the attacker must make a resilience check against your single attack dice, or gain the bleeding condition.",
       "location": "2a",
-      "data": "X"
+      "data": "ZINE=1"
     },
     {
       "name": "Action : Hamstring",
-      "description": "You make an attack with a slashing weapon, aiming to hinder a creature's movement. If at least 2 of your attack dice hit and the attack deals damage, the target of this ability must make an endurance check at the start of each turn until they succeed. On a failure, the creature cannot take their free movement on their turn and their sprint speed is halved.",
+      "description": "You make an attack using a melee weapon with the slashing property, aiming to hinder a creature's movement. If at least 2 of your attack dice hit and the attack deals damage, the target of this ability must make an endurance check of 6 at the start of each turn until they succeed. On a failure, the creature cannot take their free movement on their turn and their sprint speed is halved.",
       "location": "2b",
-      "data": "Z"
+      "data": "XINE=1"
     },
     {
-      "name": "Strength of Arms",
-      "description": "Your training with large and complex blades has resulted in changes to your physique. Gain +1 skill with might and +2 maximum health.",
+      "name": "Heavy Blades",
+      "description": "Your training with large and complex blades has resulted in changes to your physique. Gain +1 skill with endurance and +2 maximum health.",
       "location": "3",
-      "data": "SSG=1:TO"
+      "data": "SSD=1:A1=2"
     },
     {
       "name": "Executioner",
-      "description": "You are both ruthless and efficient. Gain +2 psychic mitigation. When you kill a creature that is a champion tier or higher with a slashing weapon, you can choose to decapitate them. Any minions or grunts within 10 units must make a resilience check of 7 or higher or become afraid of you.",
+      "description": "You are both ruthless and efficient. Gain +2 psychic mitigation. When you kill a creature that is a champion tier or higher using a weapon with the slashing property, you can choose to decapitate them. Any minions or grunts within a short (10 unit) distance must make a resilience check of 7 or higher or become afraid of you.",
       "location": "4a",
-      "data": "X"
+      "data": "TG:M8=2"
     },
     {
       "name": "Sense Weakness",
-      "description": "You have a natural sense for those who are physically impaired. Your Gain +1 skill with senses. When you make an attack against a creature with at least two physical conditions, gain a bonus dice.",
+      "description": "You have a natural sense for those who are physically impaired. Gain +1 skill with senses. When you make an attack against a creature with at least two physical conditions, gain a bonus dice.",
       "location": "4b",
-      "data": "SMG=1:TO"
+      "data": "TG:SSK=1"
     },
     {
       "name": "Master of Blades",
       "description": "Your skill with execution weapons is legendary. Gain +1 skill with complex melee weapons.",
       "location": "5",
-      "data": "WS5=1:TO"
+      "data": "WS5=1"
     },
     {
       "name": "Action : Gusher",
-      "description": "You make an attack with a weapon that has the slashing property and force the target to make a resilience check against the total physical damage dealt. On a failure, they gain the bleeding condition but it deals an extra 1 damage.",
+      "description": "You make an attack with a weapon that has the slashing property and force the target to make a resilience check against the total physical damage dealt. On a failure, they gain the bleeding condition but it deals an extra 1 damage and the check to recover from the condition starts at 12 instead of 10.",
       "location": "6a",
-      "data": "WS5=1:WA"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Guillotine",
-      "description": "You make an attack against a prone creature with a slashing weapon that deals an additional 10 damage if it hits.",
+      "description": "You make an attack against a prone creature using a weapon with the slashing property. If at least 3 dice hit, you deal an additional 10 physical damage.",
       "location": "6b",
-      "data": "WS3=1:TO"
+      "data": "XINE=1"
     },
     {
       "name": "The Final Cut",
       "description": "When you hit a minion or a grunt with a slashing weapon, you execute them if you deal at least 1 damage. A standard is executed if you have 3 critical hits in one attack roll.",
       "location": "7",
-      "data": "SSC=1:SSG=1:TO"
+      "data": "TG"
     }
   ]
 }

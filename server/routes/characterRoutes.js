@@ -12,7 +12,10 @@ import {
   equipItem,
   unequipItem,
   customizeItem,
-  updateItemQuantity
+  updateItemQuantity,
+  addTrait,
+  removeTrait,
+  updateTraitOptions
 } from '../controllers/characterController.js';
 import { protect } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
@@ -49,6 +52,14 @@ router.route('/:id/inventory/:itemId')
 router.route('/:id/equipment/:slotName')
   .put(equipItem)
   .delete(unequipItem);
+
+// Trait management routes
+router.route('/:id/traits')
+  .post(addTrait);
+
+router.route('/:id/traits/:traitId')
+  .put(updateTraitOptions)
+  .delete(removeTrait);
 
 // Item customization and quantity routes
 router.route('/:id/inventory/:index/customize')

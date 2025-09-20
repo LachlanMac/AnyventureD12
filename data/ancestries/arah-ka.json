@@ -24,7 +24,7 @@
     {
       "name": "Action : Sun-Blessed Fire",
       "description": "You make a Melee Attack, but convert all Damage to Fire. On a True Hit, the Target also becomes Ignited.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
     {
       "name": "Photosynthetic",

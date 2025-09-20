@@ -1,0 +1,20 @@
+## Stats & Rolls
+
+**Attributes (1-5):** Determine talent (# of dice)
+- **Physique**: Fitness, Deflection, Might, Endurance
+- **Finesse**: Evasion, Stealth, Coordination, Thievery  
+- **Mind**: Resilience, Concentration, Senses, Logic
+- **Knowledge**: Wildcraft, Academics, Magic, Medicine
+- **Social**: Expression, Presence, Insight, Persuasion
+
+**Skills (0-6):** Determine die size
+- 0=d4, 1=d6, 2=d8, 3=d10, 4=d12, 5=d16, 6=d20
+
+**Rolling:** [Talent]d[Skill die], take highest
+- 2 talent, 3 skill = 2d10 take highest
+- Bonus dice: add more dice
+- Penalty dice: reduce dice, then take lowest if <1
+
+**Weapon Talents:** Unarmed, Throwing, Simple/Complex Melee/Ranged
+**Magic Talents:** Black, Primal, Metamagic, Divine, Mysticism  
+**Crafting Talents:** Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping

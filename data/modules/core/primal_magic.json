@@ -18,9 +18,9 @@
     },
     {
       "name": "Reaction : Draw Nature",
-      "description": "In response to taking heat, cold or electric damage from a spell or effect, you absorb the extra energy. Until the end of your next turn, the first primal spell you channel is charged.",
+      "description": "In response to taking heat, cold or electric damage from a spell or effect, you absorb the extra energy. When taking 3 or more electric damage, your energy is completely restored. Taking heat or cold damage restores your energy by 1.",
       "location": "2b",
-      "data": "ZIME=1"
+      "data": "ZIME=0"
     },
     {
       "name": "Of the Elements",
@@ -30,7 +30,7 @@
     },
     {
       "name": "Anchored",
-      "description": "You are naturally anchored to the world, gaining +1 skill with endurance and making you immune from stun or daze conditions caused by electric effects. Additionally, you gain seismic detection when standing on natural terrain.",
+      "description": "You are naturally anchored to the world, gaining +1 skill with endurance and making you immune from stun or daze conditions caused by electric effects. Additionally, you gain seismic detection when standing on natural terrain up to a moderate (20 unit) distance.",
       "location": "4a",
       "data": "SSD=1:TG"
     },
@@ -48,13 +48,13 @@
     },
     {
       "name": "Daily Action : Primal Overcharge",
-      "description": "You channel a primal spell that deals damage, but the damage dealt and the energy required are both doubled. This ability only works in natural environments.",
+      "description": "You channel a primal spell you know by using resolve instead of energy, even if the spell is fizzled. This spell channels even if you fail your spell check.",
       "location": "6a",
-      "data": "XDME=1"
+      "data": "XDME=0"
     },
     {
       "name": "Reaction : Dampen Elements",
-      "description": "In response to an effect or spell that deals either heat, cold or electric damage, reduce the strength of the elements in a 3 unit radius around you by 2d4 damage.",
+      "description": "In response to an effect or spell that deals either heat, cold or electric damage, you create a blanket of counteracting magic within a very short (5 unit) radius, protecting anyone inside, granting them all 3 mitigation to electric, heat and cold damage. Additionally, creatures cannot become frozen, ignited, stunned or dazed from this attack.",
       "location": "6b",
       "data": "ZIME=1"
     },

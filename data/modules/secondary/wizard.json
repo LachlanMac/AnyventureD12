@@ -5,64 +5,64 @@
   "ruleset": 1,
   "options": [
     {
-      "name": "Arcane Scholar",
-      "description": "Your dedication to magical study is unmatched. Gain +1 skill with academics. Your academic foundation is so broad, when you help an ally by using your academics skill, you grant them 2 bonus dice if you are successful.",
+      "name": "Arcane Mana",
+      "description": "You've learned to tap into pure magical essence, gaining 3 'Mana Points' which can each be used to channel a spell that you know without requiring energy.",
       "location": "1",
-      "data": "SKV=1"
+      "data": "AM=3"
     },
     {
       "name": "Theoretical Mastery",
-      "description": "Your mind processes magical formulae with machine-like precision. Gain +1 skill with concentration. You can continue a ritual that you prematurely ended as long as you restart within 6 hours of ending it without a penalty.",
+      "description": "Your mind processes magical formulae with machine-like precision. Gain +1 skill with logic. You can continue a ritual that you prematurely ended as long as you restart within 6 hours of ending it without a penalty.",
       "location": "2a",
-      "data": "SMF=1"
+      "data": "TG:SSJ=1"
     },
     {
       "name": "Scribe",
-      "description": "Ancient runes and mystical symbols flow from your quill like water. Gain +1 skill with glyphcraft and become proficient in one magical language.",
+      "description": "Ancient runes and mystical symbols flow from your quill like water. Gain +1 skill with glyphcraft and become fluent in one magical language.",
       "location": "2b",
-      "data": "SMJ=1"
+      "data": "TG:CS5=1"
     },
     {
-      "name": "Arcane Mana",
-      "description": "You've learned to tap into pure magical essence. You gain 3 mana points that refresh after a full rest. When channeling a spell, you can spend 1 mana point to charge the spell.",
+      "name": "Action : Mana Burn",
+      "description": "You channel 1 or more remaining mana you have available at a creature within a short (10 unit) distance. Roll a concentration dice for each Mana Point you have as an attack check against your target's resilience check. For each success, you deal 6 aetheric damage. Critical dice deal 10 aetheric damage instead.",
       "location": "3",
-      "data": ""
+      "data": "XIME=1"
     },
     {
       "name": "Researcher",
       "description": "Your spell research is unparalleled. Gain +1 skill with magic. Once per day, when researching a spell, you do not suffer the penalty for not knowing it.",
       "location": "4a",
-      "data": "MS1=1"
+      "data": "TG:SSN=1"
     },
     {
       "name": "Structured Mind",
-      "description": "A wizard's mind must be sharp to keep a large selection of spells. Gain +1 skill with logic. You never truly forget spells; instead you can switch out spells that you know with any spell that you knew in the past at the end of a full rest.",
+      "description": "A wizard's mind must be sharp to keep a large selection of spells. Gain +1 skill with concentration. You never truly forget spells; instead you can switch out spells that you know with any spell that you knew in the past at the end of a full rest.",
       "location": "4b",
-      "data": "SKW=1"
+      "data": "TG:SSJ=1"
     },
     {
-      "name": "Action : Mana Burn",
-      "description": "You channel all remaining mana you have available, rolling a d10 for each point against a resilience defense check. For each success, you deal 5 aetheric damage and 8 damage if a 10 is rolled.",
+      "name": "Master of Schools",
+      "description": "Your mastery extends across multiple schools of magic. Gain +1 skill with primal magic and +1 skill with meta magic.",
       "location": "5",
-      "data": ""
+      "data": "YS2=1:YS3=1"
     },
     {
-      "name": "Elemental Theorist",
-      "description": "Your mastery extends to the fundamental forces. Gain +1 skill with primal magic.",
+      "name": "Arcane Scholar",
+      "description": "Your dedication to magical study is unmatched. Gain +1 skill with academics and +3 spell capacity.",
       "location": "6a",
-      "data": "MS2=1"
+      "data": "SSN=1:A9=3"
     },
     {
-      "name": "Metaphysical Study",
-      "description": "You've mastered the art of bending reality itself. Gain +1 skill with metamagic.",
+      "name": "Wizard's Meditation",
+      "description": "You spend an uninterrupted hour meditating where you cannot move or make any skill checks. Roll a concentration check; for each dice that is 10 or higher, restore a mana point. On any critical dice, you can also restore a fizzled spell.",
       "location": "6b",
-      "data": "MS3=1"
+      "data": "TG"
     },
     {
       "name": "Archmage",
-      "description": "You gain 2 additional mana points and gain +3 spell capacity. Additionally, the dice on your Mana Burn action becomes a d12.",
+      "description": "You gain 2 additional Mana Points. Using a Mana Point to channel a spell grants you a bonus dice on the spell check.",
       "location": "7",
-      "data": ""
+      "data": "TG:AM=2"
     }
   ]
 }

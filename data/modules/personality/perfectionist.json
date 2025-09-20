@@ -13,61 +13,61 @@
       "name": "Perfectionist",
       "description": "You are a perfectionist, driven by an unrelenting desire to achieve flawless results in everything you attempt, often at great personal cost. Your exacting standards push you to excel where others would settle for adequacy, though your pursuit of perfection can lead to burnout and dissatisfaction. You value excellence, precision, and mastery above all else.",
       "location": "1",
-      "data": "AE=1"
+      "data": "TP"
     },
     {
       "name": "Perfectionist's Focus",
       "description": "Perfection requires constant focus. You gain +1 skill with concentration. Additionally, once per day, you can reroll one concentration check.",
       "location": "2a",
-      "data": ""
+      "data": "TP:SSJ=1"
     },
     {
       "name": "Creative Vision",
       "description": "Gain +1 skill with expression. Additionally, once per day when you successfully craft something that you did not overcraft, you can roll an expression check in a second attempt at overcrafting.",
       "location": "2b",
-      "data": ""
+      "data": "TP:SSQ=1"
     },
     {
-      "name": "Downtime Action : Obscessive Perfection",
-      "description": "Spend 1 Resolve over the next day and make either a knowledge or craft skill check, recording the final result. After your next full rest, you may attempt to recapture that moment of inspiration. Roll a d12: on a 1, your check automatically becomes a 1; on a 12, it automatically becomes a 20. Otherwise, reuse your previously recorded check result as a static value.",
+      "name": "Expressive Perfectionist",
+      "description": "Your pursuit of perfection enhances your ability to express yourself artistically and creatively. Gain +1 skill with expression. Additionally, if you've seen art, architecture or a crafted item created by an individual, you can ",
       "location": "3",
-      "data": "Y"
+      "data": "TP:SSQ=1"
     },
     {
-      "name": "Daily Craft : Create",
-      "description": "You put your soul into the next object you craft, gaining a bonus dice on your check. If the recipe fails, you lose 5 resolve.",
+      "name": "Daily Action : Create",
+      "description": "Once per day, you can put your heart and soul into the next object you craft, gaining a bonus dice on your check. If the recipe fails, you lose 5 resolve.",
       "location": "4a",
-      "data": "CD"
+      "data": "XDNE=0"
     },
     {
       "name": "Action : Optimized Attacks",
       "description": "You make a probing attack with a weapon or spell but with a penalty dice. If the attack hits or misses, you can discover one talent, skill, mitigation or invulnerability of the creature.",
       "location": "4b",
-      "data": "XX"
+      "data": "XINE=0"
     },
     {
-      "name": "Expressive Perfectionist",
-      "description": "Your pursuit of perfection enhances your ability to express yourself artistically and creatively. Gain +1 skill with expression. Additionally, if you've seen art, architecture or a crafted item created by an individual, you can ",
+      "name": "Strive for Excellence",
+      "description": "Gain +1 talent with social.",
       "location": "5",
-      "data": "SSQ=1"
+      "data": "ST5=1"
     },
     {
       "name": "Um, Actually",
       "description": "Once per day, when another character makes a skill check for a skill you have equal or higher level in, you can immediately make the same check. If your result is higher, you gain 3 resolve as you correct their technique. The subject of this criticism can have your check replace theirs, but they lose 2 resolve.",
       "location": "6a",
-      "data": ""
+      "data": "TP"
     },
     {
       "name": "Meticulous Detail",
       "description": "Gain +1 skill with all crafting skills, but all of your crafting recipes take twice as long, and failing any recipe causes you to lose all of your morale.",
       "location": "6b",
-      "data": ""
+      "data": "CS1=1:CS2=1:CS3=1:CS4=1:CS5=1:CS6=1"
     },
     {
-      "name": "Strive for Excellence",
-      "description": "Gain +1 talent with social.",
+      "name": "Downtime Action : Obscessive Perfection",
+      "description": "Spend 1 Resolve over the next day and make either a knowledge or craft skill check, recording the final result. After your next full rest, you may attempt to recapture that moment of inspiration. Roll a d12: on a 1, your check automatically becomes a 1; on a 12, it automatically becomes a 20. Otherwise, reuse your previously recorded check result as a static value.",
       "location": "7",
-      "data": "ST5=1"
+      "data": "YDNE=0"
     }
   ]
 }

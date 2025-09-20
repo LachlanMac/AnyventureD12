@@ -24,7 +24,7 @@
     {
       "name": "Action : Echolocate",
       "description": "You emit an ultrasonic pulse that reveals hidden threats. Until the start of your next turn, you can sense the location of all creatures within a moderate (10 units) distance that don't have full cover. The range on this ability is doubled if done while submerged in water.",
-      "data": "XX3"
+      "data": "XX3:TA"
     },
     {
       "name": "Carnivorous Diet",

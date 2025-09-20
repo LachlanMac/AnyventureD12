@@ -33,6 +33,7 @@ const CharacterCreate: React.FC = () => {
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
   const [stressors, setStressors] = useState<string[]>([]);
   const [selectedTrait, setSelectedTrait] = useState<string>('');
+  const [selectedTraitOptions, setSelectedTraitOptions] = useState<any[]>([]);
   const [_traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
   const [traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
   const [previousTraitData, setPreviousTraitData] = useState<any>(null);
@@ -424,7 +425,10 @@ const CharacterCreate: React.FC = () => {
         physicalTraits: character.physicalTraits,
         stressors: stressors,
         modules: initialModules,
-        characterTrait: selectedTrait || undefined,
+        traits: selectedTrait ? [{
+          traitId: selectedTrait,
+          selectedOptions: selectedTraitOptions
+        }] : [],
         characterCreation: {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,
@@ -554,7 +558,10 @@ const CharacterCreate: React.FC = () => {
                 selectedTrait={selectedTrait}
                 traitModuleBonus={traitModuleBonus}
                 onSelectPersonality={handlePersonalitySelect}
-                onSelectTrait={setSelectedTrait}
+                onSelectTrait={(traitId, options) => {
+                  setSelectedTrait(traitId);
+                  setSelectedTraitOptions(options || []);
+                }}
                 onValidateTraitChange={validateTraitChange}
               />
             )}

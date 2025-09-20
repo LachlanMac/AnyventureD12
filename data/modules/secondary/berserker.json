@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Battle-Hardened",
-      "description": "Your body has been conditioned through countless battles and hardships. Gain +1 skill with endurance. When making a check to stay conscious, make an endurance check instead of resilience.",
+      "description": "Your body and mind have been conditioned through countless battles and hardships. Gain +1 skill with endurance and +1 resolve.",
       "location": "1",
-      "data": "SS1=1:TO"
+      "data": "SSD=1:A2=1"
     },
     {
       "name": "Last Stand",
-      "description": "Once per day, when you reach 0 health, you roll an endurance check and gain morale equal to the highest dice rolled. While you have this morale, reroll any death check that results in a 1.",
+      "description": "Once per day, when you reach 0 health, you roll an endurance check and gain morale equal to the highest dice rolled instead of entering lifeline. While in lifeline, the first time you roll a 1 on the lifeline table, you reroll.",
       "location": "2a",
-      "data": "TO"
+      "data": "TG:XDNE=0"
     },
     {
       "name": "Killing Frenzy",
       "description": "Combat invigorates you rather than wearing you down. Gain +1 skill with might. When you kill a creature with a melee weapon, gain an additional action once per turn.",
       "location": "2b",
-      "data": "SS0=1:TO"
+      "data": "TG:SSC=1"
     },
     {
-      "name": "Action : Devastating Blow",
-      "description": "You make an attack with a melee weapon, but instead of making an attack with your melee weapon skill, make it with your might skill check. All dice that hit deal damage equal to your primary weapon damage. If you are above 10 health and use this ability, you gain the winded condition.",
+      "name": "Deathless Rage",
+      "description": "While at 0 health, you completely restore your energy when you hit a creature with an action. Additionally, gain +1 maximum energy.",
       "location": "3",
-      "data": "TO"
+      "data": "TG:A3=1"
     },
     {
       "name": "Reaction : Vengeful Strike",
-      "description": "In response to taking more than 10 damage from a creature within your melee range after calculating mitigations, you can immediately make a vicious counterattack against them. Make both an attack check and a might check, then add the highest dice from your might check to your attack dice pool for this strike.",
+      "description": "In response to a creature within your melee range dealing damage to you, you make an attack against them with a melee weapon. When you make this attack, add a might dice into your weapon check pool.",
       "location": "4a",
-      "data": "TO"
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Reaction : Endure Pain",
-      "description": "In response to being targeted by an attack, you let it hit you but you make an endurance check against the attack roll. If you are successful, the damage is halved.",
+      "description": "In response to being targeted by an attack that deals physical damage, you make an endurance check instead of a defense check. If you are successful, the damage is halved before calculating mitigations.",
       "location": "4b",
-      "data": "TO"
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Weapon Master",
       "description": "Your mastery of heavy weapons has reached professional levels. Gain +1 skill with complex melee weapons.",
       "location": "5",
-      "data": "WS3=1:TO"
+      "data": "TG:WS5=1"
     },
     {
       "name": "Scarred Veteran",
       "description": "You have a reputation for being hard to take down. Gain +1 physical mitigation and +2 health.",
       "location": "6a",
-      "data": "TO"
+      "data": "TG:M1=1:A1=2"
     },
     {
       "name": "Twin Fury",
-      "description": "You have the coordination and strength to wield heavy weapons in your offhand. Gain +1 coordination. You can dual wield any one-handed melee weapon, not just light weapons.",
+      "description": "You have the coordination and strength to wield heavy weapons in your offhand. Gain +1 coordination. You can dual wield any one-handed complex melee weapon, not just simple weapons.",
       "location": "6b",
-      "data": "SSG=1:TO"
+      "data": "TG:SSG=1"
     },
     {
-      "name": "Deathless Rage",
-      "description": "While at 0 health, you completely restore your energy when you hit a creature with an action. Additionally, gain +1 maximum energy.",
+      "name": "Action : Devastating Blow",
+      "description": "You make an attack with a melee weapon, but instead of making an attack with your melee weapon skill, use a might skill check. If you are below 10 health, this attack deals extra damage equal to your primary weapon damage.",
       "location": "7",
-      "data": "TO"
+      "data": "XINE=1"
     }
   ]
 }

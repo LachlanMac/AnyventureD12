@@ -8,37 +8,37 @@
       "name": "Action : Track",
       "description": "You mark a creature you can see as your prey. While marked in this way, you roll an additional dice on wildcraft and senses skill checks against it. You cannot select a new target until your target has died or you have completed a full rest.",
       "location": "1",
-      "data": "AE=1:TG"
+      "data": "XDNE=0"
     },
     {
       "name": "Natural Camouflage",
       "description": "Gain +1 skill with stealth. When you are in natural environments, roll an extra dice when making a stealth check.",
       "location": "2a",
-      "data": "TG"
+      "data": "TG:SSF=1"
     },
     {
       "name": "Animal Companion",
       "description": "Beast pets that you are bonded with roll an extra attack dice. Additionally, when making senses checks with the assistance from an animal companion, replace your check with your companion's if it is higher.",
       "location": "2b",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Trailblazer",
-      "description": "You are experienced traveling in the most remote terrains. Gain +1 skill with fitness and gain 5 morale after spending a long rest in the wild.",
+      "description": "You are experienced traveling in the most remote terrains. Gain +1 skill with fitness. Additionally, you do not lose morale for sleeping in the wild.",
       "location": "3",
-      "data": "TD"
+      "data": "TG:SSA=1"
     },
     {
       "name": "Poacher",
       "description": "Your style of hunting involves lying in wait with strong, powerful ranged weapons. Gain +1 skill with complex ranged weapons and +1 skill with concentration.",
       "location": "4a",
-      "data": "TO"
+      "data": "WS6=1:SSJ=1"
     },
     {
       "name": "Wildchild",
       "description": "You were born to hunt and chase your prey like a beast yourself. Gain +1 skill with simple ranged weapons and +1 movement speed.",
       "location": "4b",
-      "data": "TO"
+      "data": "WS4=1:K1=1"
     },
     {
       "name": "Naturalist",
@@ -48,21 +48,21 @@
     },
     {
       "name": "Action : Heart-Piercer",
-      "description": "You attack your tracked target with a ranged weapon while within the optimal range of the weapon. If you deal damage to the creature, it gains the bleeding condition. If the creature is a beast, the damage it takes from bleeding at the end of each turn is upgraded to 2d4.",
+      "description": "You attack your tracked target with a ranged weapon while within the optimal range of the weapon. If you deal damage to the creature, it gains the bleeding condition. If the creature is a beast, the damage it takes from bleeding is upgraded to 2 instead of 1.",
       "location": "6a",
-      "data": "TO"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Wild Defense",
       "description": "In response to rolling a defense check against a beast or the target of your Track action, roll a wildcraft check and take the higher result of the two.",
       "location": "6b",
-      "data": "TD"
+      "data": "ZINE=0"
     },
     {
       "name": "The Most Dangerous Game",
       "description": "When your Track target is Large or bigger, you gain an extra dice on all attack rolls against it.",
       "location": "7",
-      "data": "TO"
+      "data": "TG"
     }
   ]
 }

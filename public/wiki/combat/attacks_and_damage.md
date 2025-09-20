@@ -56,6 +56,12 @@ The goblin has an unfortunate defense roll of 3 and the monk rolls a 6 and an 8 
 
 Anytime damage is calculated, the target of the attack can mitigate some or all of the damage. This is covered in the [Mitigation](/wiki/damage-mitigation) section.
 
+### Dual Wielding
+
+Any character can dual wield, but it is not very effective without investing in the dual wielder module. By default, when using a 1-handed weapon in their main hand, a character can equip a simple 1-handed melee weapon in their off-hand.
+
+When a character is dual wielding, once per turn, when they make a melee attack with their primary hand, they can spend one energy to make another attack with their off-hand. This attack from the off-hand is rolled with a single dice, regardless of talent. The amount of energy required is always 1 + the cost in energy to swing the weapon. For most scenarios with simple melee weapons, there is no cost to swing the weapon, so it is simply 1 energy.
+
 
 ### Critical Hits
 Critical hits add damage to your weapon attacks when you roll above a certain threshold. When you land one or more critical hits, you add the primary damage to your total calculation again. 

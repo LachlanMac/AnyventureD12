@@ -23,10 +23,10 @@
       "data": "XINE=1"
     },
     {
-      "name": "Reaction : Reactive Strike",
-      "description": "When an enemy moves within your melee range, make an attack against them with a simple or complex melee weapon.",
+      "name": "Footwork",
+      "description": "Effectiveness at melee weapons involves tactics and footwork. Gain +1 skill with coordination and +1 skill with logic.",
       "location": "3",
-      "data": "ZINE=1"
+      "data": "SSG=1:SSL=1"
     },
     {
       "name": "Conditioning",
@@ -35,10 +35,10 @@
       "data": "SSA=1:A1=2"
     },
     {
-      "name": "Parry",
-      "description": "You have trained to block attacks with your weapons. You gain +1 skill with deflection.",
+      "name": "Reactive Strikes",
+      "description": "Your attack of opportunities gain a bonus dice and are also triggered when an enemy moves into the range of your melee weapon, rather than just away.",
       "location": "4b",
-      "data": "SSB=1"
+      "data": "TG"
     },
     {
       "name": "Skilled Combatant",
@@ -47,14 +47,14 @@
       "data": "WS3=1:WS5=1"
     },
     {
-      "name": "Perfect Form",
-      "description": "",
+      "name": "Power Through",
+      "description": "If physical damage you make with a simple or complex melee weapon is completely mitigated, you still deal damage equal to the number of dice that hit the creature.",
       "location": "6a",
-      "data": "SSG=1:TG"
+      "data": "TG"
     },
     {
-      "name": "Brutal Criticals",
-      "description": "When you score any number of critical hits on a simple or complex melee weapon attack, add 5 damage to the final calculation.",
+      "name": "Parry",
+      "description": "You can use a simple or complex melee check instead of your deflection skill when defending against melee attacks from large or smaller creatures.",
       "location": "6b",
       "data": "TG"
     },

@@ -38,12 +38,12 @@
   "magic": {},
   "craft": {},
   "mitigation": {},
-  "armor_penalties": {},
   "detections": {},
   "immunities": {},
   "recipe": {
     "type": "fabrication",
     "difficulty": 5,
     "ingredients": []
-  }
+  },
+  "encumbrance_penalty": 0
 }

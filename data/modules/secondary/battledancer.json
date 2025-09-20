@@ -8,61 +8,61 @@
       "name": "Flowing Strikes",
       "description": "Your attacks are woven together in a masterclass performance. Gain +1 skill with expression. When you score a critical hit on an unarmed attack, roll an additional expression dice as if it were part of the same attack.",
       "location": "1",
-      "data": "SSG=1:TO"
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Action : Sweeping Kick",
       "description": "You make a modified shove attack against a large or smaller creature, using your expression instead of might for your check. On a success, your target is knocked prone and takes 2 fall damage.",
       "location": "2a",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Kip-Up Strike",
       "description": "While prone, you acrobatically get to your feet while simultaneously making an attack with a simple melee or unarmed strike against an adjacent creature using your expression skill as the attack roll.",
       "location": "2b",
-      "data": "Z"
+      "data": "ZINE=1"
     },
     {
       "name": "Battle Dancer",
       "description": "The battle dance lets you weave together devastating strikes with your hands, feet, and head. Gain +1 skill with unarmed strikes.",
       "location": "3",
-      "data": "SSE=1:TO"
+      "data": "TG:WS1=1"
     },
     {
       "name": "Graceful Movements",
       "description": "Your graceful movements and well-timed gestures allow you to slip beyond an opponent's reach. Gain +1 skill with fitness. When you provoke an attack of opportunity by moving outside of a creature's melee range, you can use your expression skill instead of a normal defensive roll against the attack.",
       "location": "4a",
-      "data": "SSA=1:TO"
+      "data": "TG:SSA=1"
     },
     {
       "name": "Rhythm Master",
       "description": "Battled dancing demands perfect timing. Gain +1 skill with coordination. After all combatants have rolled initiative, you can move your position to anywhere lower in the order at the start of combat.",
       "location": "4b",
-      "data": "SSB=1:TO"
+      "data": "TG:SSG=1"
     },
     {
       "name": "Action : Spinning Strikes",
       "description": "You make an attack with either a melee weapon or unarmed strike at an adjacent target, and then an attack using your expression skill as the attack roll. These two attacks can be directed at separate targets.",
       "location": "5",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Blade Dancer",
       "description": "Gain +1 skill with simple weapons. Your flowing strikes trait applies to attacks with simple weapons.",
       "location": "6a",
-      "data": "WS3=1:TO"
+      "data": "TG:WS3=1"
     },
     {
       "name": "Shadow Dancer",
       "description": "Gain +1 skill with throwing weapons. Your flowing strikes trait applies to attacks with throwing weapons.",
       "location": "6b",
-      "data": "SSF=1:TO"
+      "data": "TG:WS2=1"
     },
     {
       "name": "Dance of Defense",
       "description": "Your movements are so coordinated and precise that they make you difficult to hit. Gain +1 skill with evasion and deflection.",
       "location": "7",
-      "data": "SSG=1:SSE=1:TO"
+      "data": "TG:SSE=1:SSB=1"
     }
   ]
 }

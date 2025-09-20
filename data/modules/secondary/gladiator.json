@@ -8,61 +8,61 @@
       "name": "Pit Fighter",
       "description": "You have the aura of a combatant. Gain +1 skill with presence. When you are in a settlement, you can spend a few hours to determine if there are any sanctioned or illegal fighting leagues, clubs or competitions.",
       "location": "1",
-      "data": ""
+      "data": "TG:SSR=1"
     },
     {
       "name": "Battle Conditioning",
       "description": "You have the body of a fighter, lean from battle. Gain +1 skill with fitness. When you start your turn winded, roll a fitness check; if the result is higher than a 7, the condition is removed automatically.",
       "location": "2a",
-      "data": "SSQ=1"
+      "data": "TG:SSA=1"
     },
     {
       "name": "Javelin Master",
-      "description": "Taking down opponents before they get to you is a cherished skill in the arena. Gain +1 skill with throwing weapons.",
+      "description": "Taking down opponents before they get to you is a vital skill in the arena. Gain +1 skill with throwing weapons.",
       "location": "2b",
-      "data": "SSG=1"
+      "data": "WS2=1"
     },
     {
       "name": "Thick Skin",
       "description": "Jeering crowds do not affect you. Gain +2 maximum resolve. Additionally, you are immune from effects that would mock, provoke or taunt you.",
       "location": "3",
-      "data": "SSR=1"
+      "data": "TG:A2=2"
     },
     {
       "name": "Action : Make Space",
-      "description": "You strike and fade away in one fluid motion. Make a single attack against up to 2 adjacent creatures with a slashing melee weapon, then move 1 unit. Targets damaged by this attack cannot make attacks of opportunity against you.",
+      "description": "You strike and fade away in one fluid motion. Make a single attack against up to 2 adjacent creatures with a melee weapon with the slashing property, then move 1 unit. Targets damaged by this attack cannot take reactions against you as a response to this movement.",
       "location": "4a",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Leaping Thrust",
-      "description": "You leap through the air and drive your weapon downward with devastating force. Take the Jump action toward a creature, then make a melee attack with a piercing weapon. Deal additional damage equal to the distance jumped in units.",
+      "description": "You leap through the air and drive your weapon downward with devastating force. Take the Jump action toward a creature, then make an attack with a melee weapon with the piercing property. Deal additional damage equal to the distance jumped in units.",
       "location": "4b",
-      "data": "X"
+      "data": "XINE=1"
     },
     {
       "name": "Weapons of the Arena",
       "description": "You've mastered the tools of the gladiatorial trade. Gain +1 skill with simple melee weapons.",
       "location": "5",
-      "data": "WS2=1"
+      "data": "WS3=1"
     },
     {
-      "name": "Reaction : Combat Improv",
-      "description": "In response to rolling a 1 on an attack or defense dice, make an expression check and replace the 1 with the the result of your check.",
+      "name": "Combat Improv",
+      "description": "Part of defending yourself is being able to improvise on the fly. Gain +1 skill with expression. Whenever you roll a '1' as part of dice pool for a defense or contested check, replace that roll with an expression dice. This trait does not work if you have any mental conditions.",
       "location": "6a",
-      "data": "Z"
-    },
-    {
-      "name": "Action : Called Shot",
-      "description": "You target a limb on a large or smaller creature with a melee weapon attack, dealing damage. If 3 or more dice hit, you can target a limb to disable. At the end of each turn, the target must roll an endurance check of 7 or higher to regain function of the limb. If 3 or more dice crit, this attack amputates the chosen limb instead. This attack can be used against huge creatures, but the dice requirements are raised to 4.",
-      "location": "6b",
-      "data": "X"
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Glory Strikes",
-      "description": "When you land a killing blow against creature of a standard tier or higher with a melee or throwing attack, you gain 2 morale. If the attack was a critical hit, you gain 4 instead.",
+      "description": "When you land a killing blow against creature of a standard tier or higher with a melee or throwing attack, you gain 2 morale. Gain an additional morale for each critical hit in the attack roll.",
+      "location": "6b",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Called Shot",
+      "description": "You target a limb on a large or smaller creature with a melee weapon attack, dealing damage. If 3 or more dice hit, you can target a limb to disable. At the end of each turn, the target must roll an endurance check of 7 or higher to regain function of the limb. If 3 or more dice are critical hits, this attack amputates or mangles the chosen limb instead. This attack can be used against huge creatures, but the dice requirements are raised to 4.",
       "location": "7",
-      "data": ""
+      "data": "XINE=2"
     }
   ]
 }

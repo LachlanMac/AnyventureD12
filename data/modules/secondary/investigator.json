@@ -8,61 +8,61 @@
       "name": "Calculating Mind",
       "description": "Your analytical approach reveals hidden truths. Gain +1 skill with logic. You can accurately measure distances, sizes and weights of objects from analyzing them for a minute.",
       "location": "1",
-      "data": "SSL=1"
+      "data": "TG:SSL=1"
     },
     {
       "name": "Skeptic",
       "description": "You question everything and trust nothing, a mindset that protects both your judgment and your sanity. Gain +1 skill with insight and +1 psychic mitigation",
       "location": "2a",
-      "data": "SSS=1"
+      "data": "SSS=1:M8=1"
     },
     {
       "name": "Street Contacts",
       "description": "You cultivate informants in every shadow. Gain +1 skill with thievery. You can make an insight check to get an estimated value of if a creature can be bribed, and how much it will cost. A check of 10 or higher is considered extremely successful and will yield more accurate results, while a 6-9 will give a loose estimate.",
       "location": "2b",
-      "data": "SSP=1"
+      "data": "TG:SSH=1"
     },
     {
       "name": "Reaction : Deduction",
       "description": "You quickly analyze an opponent's patterns and weaknesses. In response to seeing a creature take an action, make a logic check against them. Until the start of your next turn, you gain a bonus die on all checks against that creature. This ability does not work on elementals, plantoids or constructs.",
       "location": "3",
-      "data": ""
+      "data": "ZINE=1"
     },
     {
       "name": "Good Cop",
       "description": "You excel at building rapport and trust. Gain +1 skill with persuasion. You gain a bonus dice on persuasion checks against any creature your ally has damaged in the last minute.",
       "location": "4a",
-      "data": "SST=1"
+      "data": "TG:SST=1"
     },
     {
       "name": "Bad Cop",
       "description": "You know how to leverage pain as an intimidation tool. Gain +1 skill with presence. You gain a bonus dice on presence checks against any creature you've damaged in the last minute.",
       "location": "4b",
-      "data": "SSR=1"
+      "data": "TG:SSR=1"
     },
     {
       "name": "Sharp Eyes",
       "description": "Nothing escapes your trained observation. Gain +1 skill with senses. You gain a bonus dice when using your senses to detect traps or hidden objects.",
       "location": "5",
-      "data": "SS5=1"
+      "data": "SSK=1"
     },
     {
       "name": "Action : Logical Choice",
       "description": "You target a creature and attempt to predict it's next move, calling out an action by name based on something you've witnessed the creature do. You make a logic check: on a result of 7 or higher, the creature suffers a penalty dice to this action if it uses it before the start of your next turn.",
       "location": "6a",
-      "data": ""
+      "data": "XINE=0"
     },
     {
       "name": "Reaction : Perfect Timing",
       "description": "In response to being forced to make a coordination check, you roll a logic check instead. If the check is contested against a humanoid, you make an insight check instead.",
       "location": "6b",
-      "data": ""
+      "data": "ZINE=0"
     },
     {
       "name": "Reconstruct Scene",
       "description": "You excel at reconstructing past events from physical evidence. At any location bearing signs of recent activity (blood stains, disturbed or broken objects, magical residue), spend 10 minutes investigating. Make a logic check: 6-9 reveals the basic nature of what occurred, while 10+ provides a detailed reconstruction including participants, methods, and timeline.",
       "location": "7",
-      "data": "SSN=1"
+      "data": "TG"
     }
   ]
 }

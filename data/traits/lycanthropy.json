@@ -1,47 +1,66 @@
 {
   "id": 2,
   "name": "Lycanthropy",
-  "description": "You are afflicted with Lycanthropy and suffer the benefits and weaknesses. Whenever you are the Target of a True Hit, you must make a Resilience Check against half the total Damage taken after Mitigation or transform into your Lycanthrope Form, gaining morale equal to your Level and losing the ability to Speak. If there is a Creature within 20 Units has the Bleeding Condition, you become Maddened, which cannot be avoided or removed by any spells, immunities or effects. You remain in this form until you reach 0 Health, at which point you revert back to your original form, gain 1 Tier of Exhaustion, and make a Lifeline Check. The Lycanthrope transformation lasts 1d6 hours and you cannot transform again until you complete a Full Rest.",
+  "description": "You are afflicted with lycanthropy and suffer the benefits and weaknesses.",
   "options": [
     {
       "name": "Lycanthrope",
-      "description": "Core lycanthropy traits - forced transformation mechanics, morale gain, and transformation limitations.",
-      "data": "TA"
+      "description": "You have the curse of lycanthropy and transform into a lycanthrope under a specific celestial condition, such as a full moon, only reverting back to your humanoid form the next day. You also automatically transform when you reach 5 health or lower, even if your health is 0. Every time you transform into a lycanthrope, you must make a resilience check of 10 or you start with the maddened condition. Falling to 0 health as a lycanthrope causes you to revert back to your humanoid form at 5 health, but unconscious until you complete a full rest. You must roll a 1d4 to determine how many days must pass before you can benefit from the health-based transformation again each time you revert back to your humanoid form.",
+      "data": "TG"
     },
     {
-      "name": "Action : Lycanthrope Bite",
-      "description": "While in Lycanthrope form, You make an Unarmed Attack against a Creature that deals an additional 1d10 Physical Damage. A Creature must make a Resilience Check against the total Physical Damage dealt after Mitigation or become Diseased. If the Disease Creature is a Humanoid and they are not cured within 1d20 days, they are inflicted with Lycanthropy.",
-      "data": "XX3"
+      "name": "Lycanthrope Weakness",
+      "description": "All lycanthropes have a specific weakness:",
+      "data": "",
+      "subchoices": [
+      {
+        "id": "weak_to_fire",
+        "name": "Weakness to Fire",
+        "description": "Your weakness is to fire, while in your lycanthrope form, you become afraid when you have the ignited condition. When in your humanoid form, you have a -2 penalty to heat mitigation.",
+        "data": "M2=-2:TG"
+      },
+      {
+        "id": "weak_to_silver",
+        "name": "Weakness to Silver",
+        "description": "Your weakness is to silver, while in your lycanthrope form, physical damage you take from silver weapons or ammunition becomes true damage. When in your humanoid form, you take 1 true damage every minute that you are in contact with silver or an object that contains it. This damage can not bring you below 5 health, but does prevent you from transforming into your lycanthrope form.",
+        "data": "TG"
+      },
+      {
+        "id": "weak_to_water",
+        "name": "Weakness to Water",
+        "description": "Your weakness is to silver, while in your lycanthrope, you cannot willfully cross bodies of water and you become afraid when submerged in water. While in your humanoid form, you have a -2 penalty to cold mitigation.",
+        "data": "M3=-2:TG"
+      }
+    ],
+    "requiresChoice": true,
+    "choiceType": "Weakness Selection"
     },
-    {
-      "name": "Tearing Claws",
-      "description": "While you are in Lycanthrope form, your claws count as Light 1 Handed Slashing Weapons and cause the Bleeding Condition on a True Hit.",
-      "data": "TA"
-    },
-    {
-      "name": "Wild Tracker",
-      "description": "Your Lycanthropy has manifested in innate hunting skills. Gain +1 senses and +1 wildcraft.",
-      "data": "ASG=1:ASB=1"
-    },
-    {
-      "name": "Beastial Manifestations",
-      "description": "Your Lycanthropy has advanced to a point where your body is subtly transformed. Gain +2 Cold Mitigation, +1 might and +1 coordination.",
-      "data": "AD5=2:AS2=1:AS3=1"
-    },
-    {
-      "name": "Action : Lunge",
-      "description": "While in Lycanthrope Form, you leap from a standing position a distance equal to your fitness modifier and make an Attack with one of your Claws.",
-      "data": "XX3"
-    },
-    {
-      "name": "Free Action : Blood Trail",
-      "description": "While in Lycanthrope Form, you Move up to your Movement Speed towards a Creature that has the Bleeding or Wounded Condition.",
-      "data": "Y"
-    },
-    {
-      "name": "Inner Beast",
-      "description": "Gain +1 Resilience, +1 fitness and +1 Damage with Slashing Weapons.",
-      "data": "AS1=1:AS6=1:AZA=1"
+     {
+      "name": "Lycanthrope Type",
+      "description": "There are various types of lycanthropes, all using a different statblock for their transformations:",
+      "data": "",
+      "subchoices": [
+      {
+        "id": "werewolf",
+        "name": "Werewolf",
+        "description": "You use the Werewolf statblock for your transformations and gain +1 skill with senses in your humanoid form.",
+        "data": "SSK=1:TG"
+      },
+      {
+         "id": "werebear",
+        "name": "Werebear",
+        "description": "You use the Wearbear statblock for your transformations and gain +1 skill with might in your humanoid form.",
+        "data": "SSC=1:TG"
+      },
+      {
+        "id": "wererat",
+        "name": "Wererat",
+        "description": "You use the Wererat statblock for your transformations and gain +1 skill with stealth in your humanoid form.",
+        "data": "SSF=1:TG"
+      }
+    ],
+    "requiresChoice": true,
+    "choiceType": "Lycanthrope Type Selection"
     }
   ]
 }

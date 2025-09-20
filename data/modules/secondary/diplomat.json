@@ -8,61 +8,61 @@
       "name": "First Impression",
       "description": "You know how profound a first impression can be and spend extra effort to ensure you leave a good one. Gain +1 skill with persuasion. The first social check you make against a creature gains a bonus dice.",
       "location": "1",
-      "data": "SST=1:TO"
+      "data": "TG:SST=1"
     },
     {
       "name": "Iron Composure",
-      "description": "Negotaiting isn't always friendly, and you have been the target of some colorful language. You gain +2 maximum resolve and +2 psychic mitigation.",
+      "description": "Negotiating isn't always friendly, and you have been the target of some colorful language. You gain +2 maximum resolve and +2 psychic mitigation.",
       "location": "2a",
-      "data": "X"
+      "data": "TG:A2=2:M8=2"
     },
     {
       "name": "Divine Patience",
       "description": "Your experience with tense mediation has cause you to have an almost supernatural level of patience. Gain +1 skill with resilience. You roll a bonus dice against checks against the becoming maddened.",
       "location": "2b",
-      "data": "Z"
+      "data": "TG:SSI=1"
     },
     {
       "name": "Reaction : Parley",
       "description": "In response to a creature that you share a language with taking a violent action, you attempt to force them to reconsider by making a contested persuasion check against their resilience. On a success, the target can still choose to take the action but with two penalty dice. If the creature elects to not take their action, they will immediately use it as a reaction without expending energy if anyone takes a hostile act towards them or their allies.",
       "location": "3",
-      "data": "SSS=1:TO"
+      "data": "ZINE=0"
     },
     {
       "name": "Cultural Knowledge",
-      "description": "You gain +1 skill with academics. When making any knowledge check involving the rituals, ceremonies or customs involving another culture, you gain a 1 bonus dice.",
+      "description": "You gain +1 skill with academics. When making any knowledge check involving the rituals, ceremonies or customs involving another culture, you gain a bonus dice.",
       "location": "4a",
-      "data": "SSR=1:TO"
+      "data": "TG:SSN=1"
     },
     {
       "name": "Travel Experience",
-      "description": "You are extremely worldly, having experienced many cultures and dealt with many negotations. Gain +4 language points. Additionally, when you spend at least a month in a settlement, you learn the local language at a basic level.",
+      "description": "You are extremely worldly, having experienced many cultures and dealt with many negotiations. Gain +4 language points. Additionally, when you spend at least a month in a settlement, you learn the local language at a basic level.",
       "location": "4b",
-      "data": "SSS=1:TO"
+      "data": "TG"
     },
     {
       "name": "Read the Room",
       "description": "You can quickly assess social dynamics. Gain +1 skill with insight. When entering a new social situation, you can determine what creature, if any, is in charge or has any authority.",
       "location": "5",
-      "data": "X"
+      "data": "TG:SSS=1"
     },
     {
       "name": "Action : Cutting Words",
-      "description": "You target an enemy that you share at least one language with that you are fluent in and make an attack roll using your persuasion skill against their insight in an attempt to influence them. You deal 5 psychic damage for each success you have. If you have 3 or more successes, you can instead choose to give the target either the confused or maddened conditions.",
+      "description": "You target an enemy that you share at least one language with that you are fluent in and make a persuasion check against their insight in an attempt to influence them. You deal 4 psychic damage for each success you have. If you have 3 or more successes, you can instead choose to give the target either the confused or maddened conditions. You cannot target the same creature twice with this ability.",
       "location": "6a",
-      "data": "SSR=1:TO"
+      "data": "XINE=1"
     },
     {
       "name": "Action : Demand Surrender",
       "description": "You target a creature that you share at least one language with that you are fluent in and force them to make a resilience check against your contested persuasion check. If the target of this ability is above 5 health, the result of their resilience check is doubled. If a creature has 0 health or 0 resolve, their resilience check is halved instead.",
       "location": "6b",
-      "data": "SSQ=1:LG"
+      "data": "XINE=1"
     },
     {
       "name": "Wordsmith",
       "description": "You seem to always know the right thing to say. You gain +1 skill with persuasion. When you make a persuasion check, the minimum dice value you can roll is a 6.",
       "location": "7",
-      "data": "SST=1:SSR=1:X"
+      "data": "TG:SST=1"
     }
   ]
 }

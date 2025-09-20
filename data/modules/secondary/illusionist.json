@@ -5,64 +5,64 @@
   "ruleset": 1,
   "options": [
     {
-      "name": "Master of Disguise",
-      "description": "You have learned to alter your appearance through magical means without effort. You can channel the Disguise Self spell at will and it does not require concentration.",
+      "name": "Magician",
+      "description": "You've perfected the art of stage magic through mundane and magical means. Gain +1 skill with expression. You can also make unequipped small objects vanish when you touch them. A search or logic check of 5 or higher can see through the trick or find the item on your person.",
       "location": "1",
-      "data": "TG"
+      "data": "TG:SSQ=1"
     },
     {
       "name": "Shadow Play",
       "description": "Shadows bend to your will through subtle magic. Gain +1 skill with stealth. You can manipulate your shadow to move independently, allowing you to hide or distort it completely, making it harder for others to track your movements or determine your exact position.",
       "location": "2a",
-      "data": "SSO=1:TG"
+      "data": "TG:SSF=1"
     },
     {
       "name": "Charlatan",
       "description": "You use your illusion skills for less honorable pursuits. Gain +1 skill with thievery. When engaged in a game of chance or some other gamble with an individual, you gain a bonus dice to any social checks against them.",
       "location": "2b",
-      "data": "SSP=1:TG"
+      "data": "TG:SSH=1"
     },
     {
       "name": "Empowered Illusions",
-      "description": "Your illusions become more convincing and harder to resist. Spells tagged as illusions gain a +2 to the required check to determine if they are real or not.",
+      "description": "Your illusions become more convincing and harder to resist. Illusion spells that require a logic check to deduce if they are real gain are more difficult to deduce, gaining a +2 to their required check.",
       "location": "3",
-      "data": "TO"
+      "data": "TG"
     },
     {
       "name": "Action : Illusory Feint",
-      "description": "You make an attack with a weapon while attempting to mask the true attack with illusion magic. Make both a weapon attack check and an alteration magic check, then add the highest dice from your alteration magic check to your weapon attack dice pool.",
+      "description": "You make an attack with a weapon while attempting to mask the true attack with illusion magic. Make an attack with a weapon while adding a meta magic dice into the attack check dice pool.",
       "location": "4a",
-      "data": "TO"
+      "data": "XIME=1"
     },
     {
       "name": "Reaction : Duplicity",
-      "description": "In response to being targeted by an attack, you create a duplicate image of yourself. Roll an alteration magic check as your defense. If successful, the attack hits the duplicate instead of you, causing it to disappear harmlessly.",
+      "description": "In response to being targeted by an attack, you create a duplicate image of yourself. Roll an alteration magic check as your defense check. If successful, the attack hits the duplicate instead of you, causing it to disappear harmlessly.",
       "location": "4b",
-      "data": "TD"
+      "data": "ZIME=1"
     },
     {
       "name": "Master Illusionist",
-      "description": "Your mastery over alteration magic has grown considerably. Gain +1 skill with alteration magic. Additionally, you can use alteration magic checks instead of logic checks when attempting to see through or detect illusions.",
+      "description": "Your mastery over illusion magic has grown considerably. Gain +1 skill with meta magic. Additionally, you can use meta magic checks instead of logic checks when attempting to see through or detect illusions.",
       "location": "5",
-      "data": "TG"
+      "data": "TG:YS3=1"
     },
     {
-      "name": "Magician",
-      "description": "You've perfected the art of stage magic through mundane and magical means. Gain +1 skill with expression. You learn the illusify spell and can use it at will without requiring your concentration.",
+      "name": "Disguiser",
+      "description": "You can channel the Magical Disguise spell without requiring a check. When channeling it this way, the spell is automatically charged but can only be used on you. The disguise lasts until a full rest or until you use the spell to take your original form.",
       "location": "6a",
-      "data": "SSS=1:TG"
+      "data": "TG"
     },
     {
       "name": "Vivid Imagination",
-      "description": "The terrors of the world are nothing compared to the horrors you have created as illusions. Gain +1 maximum resolve and +1 psychic mitigation.",
+      "description": "The terrors of the world are nothing compared to the horrors you have created using illusion magic. Gain +2 maximum resolve and +1 psychic mitigation.",
       "location": "6b",
-      "data": "SSG=1:TD"
+      "data": "TG:A2=2:M8=1"
     },
     {
-      "name": "Identity Thief",
-      "description": "Your disguise self ability also allows you to transform into non-humanoid creatures you have encountered that your size.",
+      "name": "Action : Mindbreaker",
+      "description": "You target a creature within a short (10 unit) distance and infiltrate their mind, causing them to see whatever you choose by rolling a meta magic spell attack against a contested logic or resilience check. For each dice that hits, deal 2 psychic damage. For each dice that is a critical hit, the damage is increased to 4. If they take at least 10 psychic damage after mitigation is calculated, they become confused. A creature can only be the target of this ability once until you complete a full rest.",
       "location": "7",
-      "data": "TG"
+      "data": "XIME=2"
     }
   ]
 }

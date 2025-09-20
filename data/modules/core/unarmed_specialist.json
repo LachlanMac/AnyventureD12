@@ -14,7 +14,7 @@
       "name": "Action : Reposition",
       "description": "You strike an enemy and reposition yourself to where you are still adjacent to your target. This has a limit equal to your movement speed when considering exceptionally large enemies.",
       "location": "2a",
-      "data": "XINE=1"
+      "data": "XINE=0"
     },
     {
       "name": "Action : Flurry",
@@ -29,16 +29,16 @@
       "data": "ZINE=1"
     },
     {
-      "name": "Raw Strikes",
-      "description": "Your primary damage for unarmed attacks becomes equal to your might skill instead of using the physical mitigation on your hands slot. Your extra damage becomes equal to half your might.",
+      "name": "Peak Form",
+      "description": "Exhaustive training allows you to accomplish more before getting tired. Gain +1 maximum energy.",
       "location": "4a",
-      "data": "TG"
+      "data": "A3=1"
     },
     {
       "name": "Boxer",
       "description": "You have put extensive effort into improving your stamina and avoiding being hit. Gain +1 skill with evasion and endurance.",
       "location": "4b",
-      "data": "SSE=1:SSD=1:TG"
+      "data": "SSE=1:SSD=1"
     },
     {
       "name": "Skilled Striker",
@@ -54,7 +54,7 @@
     },
     {
       "name": "Knockout",
-      "description": "When you deal damage with an unarmed attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they become unconscious for 1 minute.",
+      "description": "When you deal damage with an unarmed attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they must roll a concentration check of 7 or higher or become unconscious for 1 minute.",
       "location": "6b",
       "data": "TG"
     },

@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Kleptomania",
-      "description": "When you steal an object, you gain 1 morale after your next full rest for each 20 gold of value on the object up to a maximum of 10.",
+      "description": "When you steal an object, you gain 1 morale for each 50 gold of value on the object up to a maximum of 10. This bonus can only occur once per day.",
       "location": "1",
       "data": "TG"
     },
@@ -14,55 +14,55 @@
       "name": "Action : Sleight of Hand",
       "description": "You attempt to either steal a visible, unequipped object from an adjacent creature or plant a small object on them. Make a coordination check contested by their senses check. On success, you complete the action unnoticed. On failure, they become aware of your attempt.",
       "location": "2a",
-      "data": "TG"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Evasive Maneuvers",
-      "description": "In response to being targeted by a melee attack, you can immediately move up to 2 units without provoking reactions, gaining a bonus dice to your defense check.",
+      "description": "In response to being targeted by a melee attack, you can immediately move up to 2 units without provoking reactions, gaining a bonus dice to your next defense check.",
       "location": "2b",
-      "data": "TG"
+      "data": "ZINE=1"
     },
     {
       "name": "Skilled Thief",
-      "description": "Gain +1 skill with thievery. You have learned the fundamentals of larceny and security bypass. Your mastery with lockpicks is so refined that you can pick locks without making any noise, allowing you to work undetected.",
+      "description": "Gain +1 skill with thievery. You have learned the fundamentals of larceny and security bypass. When you fail to use a tool to open a container, door, or threshold with a thievery check, you do not trigger any traps or generate any noise.",
       "location": "3",
-      "data": "SSP=1:TG"
+      "data": "TG:SSH=1"
     },
     {
       "name": "Thrill of the Steal",
       "description": "Gain +1 skill with coordination. Once per day, when you steal an object valued at 100 gold or higher, gain +1 resolve for each 100 gold valuation of the object.",
       "location": "4a",
-      "data": "SSO=1:TG"
+      "data": "TG:SSG=1"
     },
     {
       "name": "Evasive",
       "description": "You have honed your ability to avoid attacks through quick reflexes and positioning. Gain +1 skill with evasion.",
       "location": "4b",
-      "data": "SSI=1:TG"
+      "data": "SSE=1"
     },
     {
       "name": "Shadow Step",
       "description": "You are adept at moving unseen. Gain +1 skill with stealth. Additionally, when you successfully use stealth to gain the hidden condition, the sprint action does not reveal you.",
       "location": "5",
-      "data": "SSS=1:TG"
+      "data": "TG:SSF=1"
     },
     {
       "name": "Concealed Weapons",
       "description": "You are skilled at hiding weapons on your person and using them effectively. Gain +1 skill with simple melee weapons. Simple melee weapons you carry cannot be discovered by normal searches.",
       "location": "6a",
-      "data": "WS2=1:TG"
+      "data": "TG:WS3=1"
     },
     {
       "name": "Street Connections",
-      "description": "Gain +1 skill with insight. You are skilled at reading people and identifying the right contacts for information gathering. By spending a day networking within a settlement, you can make an insight check to discover any criminal organizations operating in the area and learn how to make contact with them.",
+      "description": "Gain +1 skill with insight. You are skilled at reading people and identifying the right contacts for information gathering. By spending a day networking within a settlement, you can make an insight check to discover any criminal organizations operating in the area and learn how to make contact with them, with anything greater than 15 discovering the most secret of organizations.",
       "location": "6b",
-      "data": "SSG=1:TG"
+      "data": "TG:SSS=1"
     },
     {
       "name": "Action : Reliable Escape",
       "description": "You take a modified sprint action. If you end your movement in a location where no hostile creatures have line of sight to you, you automatically gain the hidden condition.",
       "location": "7",
-      "data": "TG"
+      "data": "XINE=1"
     }
   ]
 }

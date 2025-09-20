@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Reaction : Shield Wall",
-      "description": "In response to making a deflection check while using a shield, roll a bonus dice to add to your defense check on any deflection checks you make before the start of your next turn. However, all attacks you make have a penalty dice and you cannot take the sprint action.",
+      "description": "In response to making a deflection check while using a shield, gain a bonus dice on all deflection checks until the start of your next turn. Using another reaction ends this bonus prematurely.",
       "location": "1",
-      "data": "TD"
+      "data": "ZINE=0"
     },
     {
       "name": "Solid Footing",
       "description": "When under the effect of your Shield Wall reaction or the Defensive Action, you cannot be displaced or knocked prone.",
       "location": "2a",
-      "data": "SS1=1:TD"
+      "data": "TG"
     },
     {
       "name": "Glancing Blows",
-      "description": "You are proficient with using your shield to deflect blows. Gain +1 physical mitigation.",
+      "description": "You are proficient with using your shield to mitigate damage. Gain +1 physical mitigation.",
       "location": "2b",
-      "data": "SSG=1:TD"
+      "data": "M1=1"
     },
     {
       "name": "Action : Shield Bash",
-      "description": "You strike an adjacent enemy with your shield. Make a deflection check as your attack roll against their evasion or deflection. If you hit, the target takes physical damage as if your shield was a weapon with 3 primary and 2 secondary damage.",
+      "description": "You strike an adjacent enemy with your shield. Make a deflection check as your attack roll against their evasion or deflection. If you hit, the target takes physical damage as if your shield was a weapon with 3 primary and 2 extra damage.",
       "location": "3",
-      "data": "TD"
+      "data": "XINE=0"
     },
     {
-      "name": "Open the Gap",
+      "name": "Open a Gap",
       "description": "Gain +1 skill with coordination. When you shield bash an enemy and successfully deal damage, your next attack before the start of your next turn gains 2 bonus dice.",
       "location": "4a",
-      "data": "TD"
+      "data": "TG:SSG=1"
     },
     {
       "name": "Mighty Guard",
       "description": "Gain +1 skill with might. When you hit a medium or smaller creature with your shield bash and deal damage, you can shove them back 2 units.",
       "location": "4b",
-      "data": "TD"
+      "data": "TG:SSC=1"
     },
     {
       "name": "Master Defender",
       "description": "Your defensive skills have reached professional levels. Gain +1 skill with deflection.",
       "location": "5",
-      "data": "SSH=1:TD"
+      "data": "SSB=1"
     },
     {
       "name": "Reaction : Hold the Line",
       "description": "In response to a large or smaller creature attempting to move past you within your melee weapon's reach, you can make an attack of opportunity. If the attack hits, the creature cannot willfully move into an area where your weapon could reach it.",
       "location": "6a",
-      "data": "TD"
+      "data": "ZINE=1"
     },
     {
       "name": "Reaction : Mass Cover",
       "description": "You quickly move up to 3 units and position your shield to protect multiple allies from area effect attacks. All allies within 2 units behind you in that direction gain the benefit of your shield's protection against the next area effect that targets them this round.",
       "location": "6b",
-      "data": "TD"
+      "data": "ZINE=1"
     },
     {
       "name": "Improved Shield Bash",
-      "description": "Your shield bashes are exceptionally effective. When you get a critical hit with your Shield Slam, the target becomes dazed. If you get 2 or more critical hits, the target becomes stunned instead.",
+      "description": "Your shield bashes are exceptionally effective. When you get a critical hit with your Shield Slam, the target becomes dazed. If you get 3 or more critical hits, the target becomes stunned instead.",
       "location": "7",
-      "data": "TD"
+      "data": "TG"
     }
   ]
 }

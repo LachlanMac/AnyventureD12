@@ -14,13 +14,13 @@
       "name": "Reaction : Feign Death",
       "description": "In response to being targeted by an attack, you dramatically collapse and play dead. Make an expression check against the attacker's insight. If successful, they believe you are dead and will not target you again unless you take an action or someone else reveals your deception.",
       "location": "2a",
-      "data": "TG"
+      "data": "ZINE=0"
     },
     {
       "name": "Reaction : Mocking Taunt",
       "description": "In response to a creature starting their turn within a very short (5 unit) distance, you deliver a cutting insult. Make an expression check against their resilience. If successful, they gain a penalty dice on attacks against anyone other than you until the start of their next turn.",
       "location": "2b",
-      "data": "TG"
+      "data": "TG:ZINE=1"
     },
     {
       "name": "Penchant for Dramatics",
@@ -56,13 +56,13 @@
       "name": "Traveling Troupe",
       "description": "Your life on the road has given you skills to shine in a community. Gain +1 skill with cooking and become proficient in one musical skill.",
       "location": "6b",
-      "data": "SS6=1:TG"
+      "data": "CS4=1:TG"
     },
     {
       "name": "Reaction : Improvise",
       "description": "In response to failing any skill check while in combat, you can immediately attempt the same task using a different skill of your choice.",
       "location": "7",
-      "data": "TG"
+      "data": "TG:ZINE=1"
     }
   ]
 }

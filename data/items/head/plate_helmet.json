@@ -8,7 +8,5 @@
   "mitigation": {
     "physical": 1
   },
-  "armor_penalties": {
-    "senses": -2
-  }
+  "encumbrance_penalty": 2
 }

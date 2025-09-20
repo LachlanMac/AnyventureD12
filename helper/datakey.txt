@@ -91,14 +91,13 @@ EX. A1=1
 ##################################
 1: HEALTH
 2: RESOLVE
-3: STAMINA
-4: MOVEMENT
+3: ENERGY
+4: 
 5: HEALTH REGEN
 6: RESOLVE REGEN
-7: STAMINA REGEN
+7: ENERGY REGEN
 8: MAXIMUM MORALE
 9: SPELL CAPACITY 
-
 
 A: SIMPLE RANGED WEAPON MIN RANGE
 B: SIMPLE RANGED WEAPON MAX RANGE
@@ -106,10 +105,28 @@ C: COMPLEX RANGED WEAPON MIN RANGE
 D: COMPLEX RANGED WEAPON MAX RANGE
 E:THROWING WEAPON MIN RANGE
 F:THROWING WEAPON MAX RANGE
+G:NO ENERGY PENALTY COMPLEX MELEE
+H:NO ENERGY PENALTY COMPLEX RANGED
 
 
+M: MANA POINTS
 
+Z=1: DUAL WIELD TIER 1
+Z=2: DUAL WIELD TIER 2
 
+##############  CONDITIONAL  #################
+KEY (C)
+
+EX: CA[SSB=1]  When no armor, gain 1 deflection
+EX: CC[M1=2,SSB=1]  When heavy armor, gain 2 physical mitigation and 1 deflection
+
+A: No armor
+B: Light armor
+C: Heavy armor
+D: All armor
+E: Shield (any)
+F: Light shield
+G: Heavy shield
 
 ############## CREATURES ##############
 ### NO KEYS #####
@@ -119,6 +136,17 @@ F:THROWING WEAPON MAX RANGE
 4: Elite
 5: Legendary
 6: Mythic
+
+########## MOVEMENT ##################
+Key (K)
+EX K1=2 (+2 Walk Speed)
+EX K4=6 (+6 Fly Speed)
+
+1: Walk (Movement)
+2: Swim
+3: Climb
+4: Fly
+
 
 ########### SENSES ###################
 KEY (V)

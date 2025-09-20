@@ -92,7 +92,7 @@ const ItemManager: React.FC = () => {
     magic_skills: false,
     craft_skills: false,
     mitigation: false,
-    armor_penalties: false,
+    encumbrance: false,
     detections: false,
     immunities: false,
   });
@@ -205,16 +205,7 @@ const ItemManager: React.FC = () => {
         aether: 0,
         toxic: 0,
       },
-      armor_penalties: {
-        movement: 0,
-        energy: 0,
-        fitness: 0,
-        stealth: 0,
-        coordination: 0,
-        evasion: 0,
-        deflection: 0,
-        senses: 0,
-      },
+      encumbrance_penalty: 0,
       detections: {},
       immunities: {},
     };
@@ -2119,61 +2110,38 @@ const ItemManager: React.FC = () => {
                       </div>
                     </CollapsibleSection>
 
-                    {/* Armor Penalties */}
+                    {/* Encumbrance Penalty */}
                     <CollapsibleSection
-                      title="Armor Penalties"
-                      isOpen={sections.armor_penalties}
-                      onToggle={() => toggleSection('armor_penalties')}
+                      title="Encumbrance Penalty"
+                      isOpen={sections.encumbrance}
+                      onToggle={() => toggleSection('encumbrance')}
                     >
-                      <div
-                        style={{
-                          display: 'grid',
-                          gridTemplateColumns: 'repeat(3, 1fr)',
-                          gap: '1rem',
-                        }}
-                      >
-                        {[
-                          'movement',
-                          'energy',
-                          'fitness',
-                          'stealth',
-                          'coordination',
-                          'evasion',
-                          'deflection',
-                          'senses',
-                        ].map((penalty) => (
-                          <div key={penalty}>
-                            <label
-                              style={{
-                                color: 'var(--color-cloud)',
-                                display: 'block',
-                                marginBottom: '0.25rem',
-                                textTransform: 'capitalize',
-                              }}
-                            >
-                              {penalty}
-                            </label>
-                            <input
-                              type="number"
-                              value={editedItem.armor_penalties?.[penalty] || 0}
-                              onChange={(e) =>
-                                handleNestedFieldChange(
-                                  'armor_penalties',
-                                  penalty,
-                                  parseInt(e.target.value) || 0
-                                )
-                              }
-                              style={{
-                                width: '100%',
-                                padding: '0.5rem',
-                                backgroundColor: 'var(--color-dark-bg)',
-                                border: '1px solid var(--color-dark-border)',
-                                borderRadius: '0.25rem',
-                                color: 'var(--color-cloud)',
-                              }}
-                            />
-                          </div>
-                        ))}
+                      <div>
+                        <label
+                          style={{
+                            color: 'var(--color-cloud)',
+                            display: 'block',
+                            marginBottom: '0.25rem',
+                          }}
+                        >
+                          Penalty Value
+                        </label>
+                        <input
+                          type="number"
+                          value={editedItem.encumbrance_penalty || 0}
+                          onChange={(e) =>
+                            handleFieldChange('encumbrance_penalty', parseInt(e.target.value) || 0)
+                          }
+                          min={0}
+                          style={{
+                            width: '100%',
+                            padding: '0.5rem',
+                            backgroundColor: 'var(--color-dark-bg)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.25rem',
+                            color: 'var(--color-cloud)',
+                          }}
+                        />
                       </div>
                     </CollapsibleSection>
                   </>

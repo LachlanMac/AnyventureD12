@@ -1,0 +1,9 @@
+{
+  "name": "Medical Bandage",
+  "description": "A sterile cloth bandage treated with healing herbs and antiseptic. Can be applied to a bleeding creature as an action which grants the user a bonus dice to endurance checks to end the bleeding condition. The bandage is consumed after use.",
+  "type": "adventure",
+  "subtype": "consumable",
+  "value": 10,
+  "weight": 0.5,
+  "rarity": "common"
+}

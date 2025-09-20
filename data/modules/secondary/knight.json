@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Knight",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Knight's Order",
+      "description": "You have been formally knighted through sacred ceremony and sworn vows to an established order, bearing their heraldry as proof of your station. This initiation grants you the right to requisition basic supplies and mounts for order business, claim hospitality at their holdings and allied strongholds, speak with the authority of your order in matters of law, and receive aid from fellow knights when available. To receive these benefits, you are expected to uphold the ideals of the organization which you serve.",
+      "location": "1",
+      "data": ""
+    },
+    {
+      "name": "Reaction : In the Vanguard",
+      "description": "In response to having 2 or more adjacent enemies, you can take the Defense action as a reaction.",
+      "location": "2a",
+      "data": "ZINE=0"
+    },
+    {
+      "name": "Daily Reaction : Eternal Glory",
+      "description": "In response to being targeted by an attack from a champion tiered creature or higher, you roll a presence check and gain morale equal to the result. If you still have remaining morale after the damage is calculated, you can transfer any amount of remaining morale to a single ally within a very short (5 unit) distance.",
+      "location": "2b",
+      "data": "ZDNE=1"
+    },
+    {
+      "name": "Second Skin",
+      "description": "You are well acquainted with getting the most out of your armor. When you are wearing heavy armor, gain +1 physical and +1 aetheric mitigation.",
+      "location": "3",
+      "data": "CC[M1=1,M7=1]"
+    },
+    {
+      "name": "Noble",
+      "description": "Knights have always held a special title of nobility. You gain +1 skill with presence. You can use a presence check instead of persuasion when speaking with other nobility.",
+      "location": "4a",
+      "data": "SSR=1"
+    },
+    {
+      "name": "Bravery",
+      "description": "Knights are known as some of the most brave warriors, and are the stuff of legend. Gain +1 skill with resilience. When you recover from the afraid condition, you are immune to gaining the condition again until the end of combat.",
+      "location": "4b",
+      "data": "SSI=1"
+    },
+    {
+      "name": "Action : Knight's Mantle",
+      "description": "You designate an ally who is not impaired within a very short (5 unit) distance and bring them under your protection. Until the start of their turn, they benefit as if they had taken the Defense action on their turn. If a creature makes an attack against the target of your mantle, you gain a bonus dice on any attacks against them until the end of your next turn.",
+      "location": "5",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Squire",
+      "description": "You have access to a squire which will be appointed by your order. This servant uses the Squire statblock. If they are killed, you must spend 100 gold to your order to obtain a new one. The squire is loyal to you while you uphold the values of your order.",
+      "location": "6a",
+      "data": ""
+    },
+    {
+      "name": "Cavalier",
+      "description": "When you are mounted, you and your mount gain a bonus dice to all defense checks. Additionally, you cannot be dismounted by the shove action or any other effects that would displace you.",
+      "location": "6b",
+      "data": ""
+    },
+    {
+      "name": "Knight of the Old Order",
+      "description": "You are counted among one of the most dedicated knights in your order. Gain +2 maximum morale and +3 maximum resolve.",
+      "location": "7",
+      "data": "A8=2:A2=3"
+    }
+  ]
+}

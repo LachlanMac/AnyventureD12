@@ -6,63 +6,63 @@
   "options": [
     {
       "name": "Field Medicine",
-      "description": "You have learned battlefield first aid and emergency care. Gain +1 skill with medicine.",
+      "description": "You have learned battlefield first aid and emergency care. Gain +1 skill with medicine. When you apply a bandage to a character that is bleeding as an action, the check to stop the bleeding is decreased by 1.",
       "location": "1",
-      "data": "SS6=1:TD"
+      "data": "TG:SSP=1"
     },
     {
       "name": "Action : Triage",
-      "description": "You quickly stabilize an ally's condition to prevent further deterioration. Make a medicine check and grant morale equal to your result. This morale lasts until the end of combat. This action can only be used on each creature once per combat.",
+      "description": "You quickly evaluate a wounded ally's condition to determine how best to treat them. The next time this creature gains health before the end of their next turn, they also gain morale equal to the amount of health they recovered. This ability only works on a humanoid or beast that has 10 or less health remaining.",
       "location": "2a",
-      "data": "TD"
+      "data": "XINE=1"
     },
     {
       "name": "Reaction : Emergency Response",
-      "description": "In response to an ally within your sprint distance dropping to 0 health, you immediately move towards them and make a medicine check against the total damage dealt after mitigation. If your check is greater than or equal to the damage dealt, the ally sets their health to 1 instead, avoiding the effects of dropping to 0.",
+      "description": "In response to a humanoid within your sprint distance making a lifeline check due to taking damage, you immediately move to them. You roll a medicine check against the total damage taken after mitigation. If your check is higher, the lifeline check is rolled with a d20 instead of a d8.",
       "location": "2b",
-      "data": "TD"
+      "data": "ZINE=1"
     },
     {
       "name": "Treat Wounds",
-      "description": "You spend 5 minutes carefully treating an ally's injuries using a medicine kit, which is consumed in the process. Make a medicine check and restore health equal to the result. This ability can only target the same creature once per day.",
+      "description": "You can spend 5 minutes carefully treating an ally's injuries using a medicine kit, which is consumed in the process. Make a medicine check (with the bonus dice from the medicine kit) and restore health equal to the highest dice. This ability can only target the same creature once per day.",
       "location": "3",
-      "data": "TD"
+      "data": "TG"
     },
     {
       "name": "Combat Medic",
       "description": "You are trained to work under pressure. Gain +1 skill with concentration. When you are not dedicating your concentration to something else, you gain a bonus dice on medicine checks during combat.",
       "location": "4a",
-      "data": "SS4=1:TD"
+      "data": "TG:SSJ=1"
     },
     {
       "name": "Trauma Training",
-      "description": "You are experienced with battlefield and have witness some gruesome injuries. Gain +1 skill with resilience. Your experience has made you immune to losing resolve when allies reach 0 health or fall unconscious.",
+      "description": "You are experienced with battlefield and have witness some gruesome injuries. Gain +1 skill with resilience. When you use your Treat Wounds ability on a creature that has obtained an injury from the lifeline table within the last minute, you have a chance to reverse the damage based on a medicine check; a 5 will mitigate a cosmetic injury, lingering injury with a 7, severe wound with a 12 and a lost limb with a 15.",
       "location": "4b",
-      "data": "SSG=1:TD"
+      "data": "TG:SSI=1"
     },
     {
       "name": "Action : Stabilize",
-      "description": "You quickly treat a creature with a bandage that is unconscious, bleeding or both by making a medicine check of 5 or higher. A creature treated in this way has any bleeding condition removed and regains consciousness if they recover any health.",
+      "description": "You quickly treat an adjacent creature that is at 0 health by using a sterile bandage, removing any bleeding condition and stabilizing them. Until the character makes a check on the lifeline table, they only need to spend 1 resolve to stay conscious instead of 2.",
       "location": "5",
-      "data": "SS1=1:TD"
+      "data": "XINE=1"
     },
     {
       "name": "Improved Treat Wounds",
       "description": "When you treat someone's wounds with a medicine check, also add the second highest dice in the pool in the calculation to determine how many health they recover.",
       "location": "6a",
-      "data": "SS5=1:TD"
+      "data": "TG"
     },
     {
       "name": "Improved Stabilize",
-      "description": "When you stablize someone, you can also use an item with them as the target such as a potion, antidote or other consumable.",
+      "description": "When you use the Stabilize action, you can also administer a consumable to your target such as a potion or elixir. Additionally, the threshold for rolling on the lifeline table is raised to 7 damage instead of 5. This benefit is removed the next time the character rolls on the lifeline table.",
       "location": "6b",
-      "data": "SS7=1:TD"
+      "data": "TG"
     },
     {
       "name": "Action : Resuscitation",
-      "description": "You attempt to revive a creature that has died within the last minute. Make a medicine check of 6 or higher each round for 3 consecutive rounds. If successful all 3 times, they return to life with 1 health but remain unconscious. The attempt fails if you fail twice in a row, skip a round, or are interrupted. Failed attempts cannot be restarted on the same creature.",
+      "description": "You attempt to revive a creature that has died within the last minute. Make a medicine check of 7 or higher to determine your success. You can use this ability multiple times, but must use it at least once per round. On 5 successes, the target returns to life with 1 health but remain unconscious. This ability fails if you go two attempts without a success or skip a round. Once failed, you cannot restart this action on the same target.",
       "location": "7",
-      "data": "TD"
+      "data": "XINE=2"
     }
   ]
 }

@@ -13,61 +13,61 @@
       "name": "Empath",
       "description": "You are an empath, deeply attuned to the emotions and needs of those around you, with an innate ability to sense the unspoken feelings that others try to hide. Your empathic nature guides you to provide comfort, offer understanding, and bridge emotional divides that others cannot cross. You value compassion, authentic connection, and emotional honesty above all else.",
       "location": "1",
-      "data": ""
+      "data": "TP"
     },
     {
       "name": "Expressive",
       "description": "You are no stranger to expressing yourself, be that through art or strong emotions. Gain +1 skill with expression. Additionally, once per day, you can use an expression check instead of persuasion to appeal to someone's emotions.",
       "location": "2a",
-      "data": "TG:SSQ=1"
+      "data": "TP:SSQ=1"
     },
     {
       "name": "Insightful",
       "description": "You are especially insightful and know when someone is hurting. Gain +1 skill with insight. Additionally, once per day, you can substitute a medicine check with your insight skill if it is being used on an ally.",
       "location": "2b",
-      "data": "TG:SSS=1"
+      "data": "TP:SSS=1"
     },
     {
-      "name": "Downtime Action : Community Outreach",
-      "description": "You spend time embedding yourself in the community, offering help where you can by volunteering your time or services. This fulfilling work can help make local connections and restore your resolve. An insight check of an 6-9 is midly successful and restores 2 resolve, while a 10 or higher is very successful and restores 5 resolve. On a perfect check, you restore your resolve and all the resolve of the individuals you interacted with in your outreach.",
+      "name": "Bearer of Burdens",
+      "description": "Your empathic nature allows you to better understand others' emotional states. Gain +1 skill with insight. At the end of a full rest, you can temporarily tranfser a mental condition from an ally to yourself. If you still have that condition at the end of the day, it is transferred back.",
       "location": "3",
-      "data": "Y"
+      "data": "TP:SSS=1"
     },
     {
       "name": "Daily Action : Plea",
       "description": "When an ally is at 0 resolve, you can make a plea in a desperate attempt to keep them going. Roll an expression check; for each dice you roll over 6, they gain one resolve and any recent broken condition they received in the last minute is removed.",
       "location": "4a",
-      "data": "XD"
+      "data": "XDNE=0"
     },
     {
       "name": "Action : Read Emotions",
       "description": "You make an insight check and attempt to read the emotions or state of a creature by making an insight check, with the quality of the information learned dependent upon the result. If the creature is not a beast or humanoid, roll with a penalty dice. The information revealed may involve desires, mood or state of mind.",
       "location": "4b",
-      "data": "XX"
+      "data": "XINE=1"
     },
     {
-      "name": "Bearer of Burdens",
-      "description": "Your empathic nature allows you to better understand others' emotional states. Gain +1 skill with insight. At the end of a full rest, you can temporarily tranfser a mental condition from an ally to yourself. If you still have that condition at the end of the day, it is transfered back.",
+      "name": "Talented Empath",
+      "description": "Gain +1 talent with social skills.",
       "location": "5",
-      "data": "SSS=1"
+      "data": "ST5=1"
     },
     {
       "name": "Resonance",
       "description": "You are emotionally connected to your allies' well-being. When an ally within a short (10 unit) distance gains morale, you can spend 1 resolve to gain half that amount rounded down. When an ally loses morale, you can give up your own morale to prevent their loss - for every 1 morale you sacrifice, they lose 1 less morale",
       "location": "6a",
-      "data": ""
+      "data": "TP"
     },
     {
-      "name": "Emapthic Healing",
+      "name": "Empathic Healing",
       "description": "When you remove a condition from an ally, you and that ally gain +2 morale. This cannot be from a condition that was intentionally inflicted.",
       "location": "6b",
-      "data": ""
+      "data": "TP"
     },
     {
-      "name": "Talented Empath",
-      "description": "Gain +1 talent with social skills.",
+      "name": "Downtime Action : Community Outreach",
+      "description": "You spend time embedding yourself in the community, offering help where you can by volunteering your time or services. This fulfilling work can help make local connections and restore your resolve. An insight check of an 6-9 is mildly successful and restores 2 resolve, while a 10 or higher is very successful and restores 5 resolve. On a perfect check, you restore your resolve and all the resolve of the individuals you interacted with in your outreach.",
       "location": "7",
-      "data": "ST5=1"
+      "data": "YDNE=0"
     }
   ]
 }
