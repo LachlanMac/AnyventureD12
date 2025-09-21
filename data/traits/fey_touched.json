@@ -1,0 +1,49 @@
+{
+  "id": 12,
+  "name": "Fey Touched",
+  "description": "You have been touched by the wild magic of the Feywild, forever marking you as something between mortal and fey.",
+  "options": [
+    {
+      "name": "Fairie Magic",
+      "description": "Your connection to the Feywild has awakened your innate magical abilities. You gain +1 talent and +1 skill with meta magic and are able to learn and channel spells from the fey exotic school of magic. However, both your dark and divine magic skills are downgraded.",
+      "data": "YT3=1:YS3=1:YS1=Y:YS4=Y:TG"
+    },
+    {
+      "name": "Fey Features",
+      "description": "Your connection with the Feywild has manifested itself in physical ways. Some examples include having prominent horns or antlers, hair or hide that changes colors with the environment or exaggerated features.",
+      "data": "TG"
+    },
+    {
+      "name": "Fey Court Allegiance",
+      "description": "Your fey nature aligns you with one of three courts of the feywild. Choose your allegiance:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "thorns",
+          "name": "Court of Thorns",
+          "description": "You are allied with the Court of Thorns, ruled by the matriarch of brambles, Esidalee. This court is associated with order and corruption and considers the Court of Splendor their mortal enemies. You gain +5 maximum resolve and are immune to the afraid condition.",
+          "data": "A2=5:IA=1:TG"
+        },
+        {
+          "id": "splendor",
+          "name": "Court of Splendor",
+          "description": "You are allied with the Court of Splendor, ruled by the fairy queen, Ciriki and her council of archfey. This court is associated with whimsy and good-natured chaos, while considering the corrupted Court of Thorns their enemies. You gain +5 maximum morale and are immune to the charmed condition.",
+          "data": "A8=5:ID=1:TG"
+        },
+        {
+          "id": "wild",
+          "name": "Court of the Wild",
+          "description": "You are allied with the Court of the Wild, unruled and free. This court is unorganized, has no leader or enemies within the Feywild. You gain +1 aetheric mitigation and are immune to the confused condition.",
+          "data": "M7=1:IE=1:TG"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Fey Court"
+    },
+    {
+      "name": "Aversion to Iron",
+      "description": "Being infused with planar magic from the Feywild has also given you their aversion to iron. While in physical contact with any object, surface, or equipment that contains iron or steel in any amount, you cannot channel magic. This includes objects that you have equipped or that are in your inventory.",
+      "data": "TG"
+    }
+  ]
+}

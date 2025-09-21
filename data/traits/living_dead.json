@@ -1,0 +1,27 @@
+{
+  "id": 13,
+  "name": "Living Dead",
+  "description": "You exist in the strange state between life and death. Neither fully alive nor completely dead, you possess the resilience of the undead while retaining fragments of your former humanity.",
+  "options": [
+    {
+      "name": "Undead Nature",
+      "description": "You are considered undead and can be affected by spells that target undead creatures. You cannot recover health from any source or benefit from consumables such as a potions, food or drink, nor do you require air to breath. Instead, you regenerate an extra +7 health and +4 resolve after completing a full rest.",
+      "data": "TG"
+    },
+    {
+      "name": "Unnatural Resilience",
+      "description": "Your undead nature grants immunity to diseased, poisoned, bleeding, broken and numbed conditions. You also gain +5 dark mitigation. However, when you reach 0 resolve, you automatically become maddened which lasts until you die.",
+      "data": "IH=1:IK=1:IB=1:IP=1:IO=1:M5=5:TG"
+    },
+    {
+      "name": "Undying",
+      "description": "Your undead constitution grants you an additional +10 health, but you can no longer benefit from morale. When you reach 0 health, you cannot be stabilized, so you will naturally die when you run out of resolve to keep you in lifeline. However, you still regenerate health and resolve during a full rest even when dead, as well as regenerate any missing limbs unless your body is completely destroyed.",
+      "data": "A1=10:TG"
+    },
+    {
+      "name": "Reaction : Still As Death",
+      "description": "In response to taking damage, you fall down in a heap, indistinguishable from real death.",
+      "data": "ZINE=0"
+    }
+  ]
+}

@@ -1,0 +1,55 @@
+{
+  "id": 11,
+  "name": "Planar",
+  "description": "You have been infused with the primordial essence of one of the elemental planes, forever changing your nature. This planar connection grants you extraordinary abilities but also marks you as an outsider to the material world.",
+  "options": [
+    {
+      "name": "Planar Attunement",
+      "description": "Your body and soul have been permanently attuned to one of the four elemental planes. Choose your planar origin:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "infernal",
+          "name": "Fire (Infernal)",
+          "description": "You have been infused by magic from the Infernal Realm, also known as the Elemental Plane of Fire. You gain +1 talent with black magic and you are able to learn and channel spells from the fiend exotic school of magic. You also gain +3 heat mitigation at the expense of a -4 penalty to divine mitigation.",
+          "data": "YT1=1:M2=3:M6=-4:TG"
+        },
+        {
+          "id": "abyssal",
+          "name": "Water (Abyssal)",
+          "description": "You have been infused by magic from the Abyssal Realm, also known as the Elemental Plane of Water. You gain +1 talent with black magic and you are able to learn and channel spells from the fiend exotic school of magic. You also gain +3 cold mitigation at the expense of a -4 penalty to divine mitigation.",
+          "data": "YT1=1:M3=3:M6=-4:TG"
+        },
+        {
+          "id": "aeron",
+          "name": "Sky (Aeron)",
+          "description": "You have been infused by magic from the Plane of Aeron, also known as the Elemental Plane of Sky. You gain +1 talent with divine magic and you are able to learn and channel spells from the celestial exotic school of magic. You also gain +3 electric mitigation at the expense of a -4 penalty to dark mitigation.",
+          "data": "YT4=1:M4=3:M5=-4:TG"
+        },
+        {
+          "id": "okkor",
+          "name": "Earth (Okkor)",
+          "description": "You have been infused by magic from the Plane of Okkor, also known as the Elemental Plane of Earth. You gain +1 talent with divine magic and you are able to learn and channel spells from the celestial exotic school of magic. You also gain +1 physical mitigation at the expense of a -4 penalty to dark mitigation.",
+          "data": "YT4=1:M1=1:M5=-4:TG"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Planar Origin"
+    },
+    {
+      "name": "Physical Manifestations",
+      "description": "The influence your home plane has imparted physical traits on you in subtle or more dramatic ways. For example, an individual from the lower planes may have fiendish horns, while someone infused with magic from the earthen plane may have sapphire eyes and rough, stoney skin. You choose how this magic is displayed on you physically.",
+      "data": "TG"
+    },
+    {
+      "name": "Primal Magic",
+      "description": "Being infused with power from the planes has given you a natural understanding of magic. Gain +1 talent with primal magic.",
+      "data": "YT2=1:TG"
+    },
+    {
+      "name": "Elemental Weaknesses",
+      "description": "While not a full elemental, you share some of their weaknesses. When you take physical damage from a source with the blackened property, it becomes true damage instead. Additionally, you can be affected by spells that target elementals and your original plane is considered to be your planar selection.",
+      "data": "TG"
+    }
+  ]
+}

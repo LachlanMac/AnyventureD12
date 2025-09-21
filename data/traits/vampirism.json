@@ -43,7 +43,7 @@
     {
       "name": "Action : Vampiric Bite",
       "description": "You make an unarmed attack against a creature, dealing 3 physical damage for each dice that hit. If the target is a humanoid and take damage after mitigation, they must make a resilience of check of 5 after their next full rest, or they become infected with vampirism. Each full rest, they can make this check again to clear the infection. If the target dies while infected, they must make a final resilience check; on a 9 or lower, they rise as a mindless vampire spawn, otherwise, they gain the vampirism trait. If this action is used against a willing or unconscious target, the attack roll is not necessary and the bite deals 3 true damage.",
-      "data": "XIME=1:TA"
+      "data": "XIME=1"
     },
     {
       "name": "Vampire Bloodline",
@@ -72,7 +72,7 @@
           "id": "dracul",
           "name": "Dracul Bloodline",
           "description": "Dracul are regal warlords and aristocrats of the night, embodying command, charisma, and the dark majesty of the vampire lord. Your Transform action allows you to turn into a bat. Your persuasion and logic skills are upgraded and you gain +3 psychic mitigation. If you start your turn in direct sunlight, you take 1 true damage.",
-          "data": "SST=X:SSL=X:M8=2:TG"
+          "data": "SST=X:SSL=X:M8=3:TG"
         }
       ],
       "requiresChoice": true,

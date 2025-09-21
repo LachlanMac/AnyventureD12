@@ -5,7 +5,7 @@
   "options": [
     {
       "name": "Adventurer's Spirit",
-      "description": "You gain +5 maximum morale and +5 maximum health.",
+      "description": "You gain +5 maximum morale, +5 maximum resolve and +5 maximum health.",
       "data": "A1=5:A8=5:TA"
     }
   ]
