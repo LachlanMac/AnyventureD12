@@ -15,5 +15,6 @@
       "Bundle of Sage"
     ]
   },
-  "side_effect": "After the potion wears off, the consumer becomes winded for an hour if they fail an endurance check of 4. This condition cannot be ended prematurely by natural means."
+  "side_effect": "After the potion wears off, the consumer becomes winded for an hour if they fail an endurance check of 4. This condition cannot be ended prematurely by natural means.",
+  "foundry_icon": "icons/consumables/potions/bottle-corked-blue.webp"
 }

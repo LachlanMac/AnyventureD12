@@ -19,7 +19,8 @@
       "difficulty": 6,
       "type": "fabrication"
     },
-    "properties": "Standard piercing damage with no special effects"
+    "properties": "Standard piercing damage with no special effects",
+    "foundry_icon": "icons/commodities/metal/arrowhead-steel.webp"
   },
   {
     "name": "Steel Point",
@@ -41,7 +42,8 @@
       "difficulty": 10,
       "type": "fabrication"
     },
-    "properties": "Standard piercing damage with enhanced durability"
+    "properties": "Standard piercing damage with enhanced durability",
+    "foundry_icon": "icons/commodities/metal/arrowhead-steel.webp"
   },
   {
     "name": "True Steel Point",
@@ -63,7 +65,8 @@
       "difficulty": 12,
       "type": "fabrication"
     },
-    "properties": "Piercing attacks gain +1  damage"
+    "properties": "Piercing attacks gain +1  damage",
+    "foundry_icon": "icons/commodities/metal/arrowhead-steel.webp"
   },
   {
     "name": "Aetherium Point",
@@ -86,7 +89,8 @@
       "difficulty": 14,
       "type": "fabrication"
     },
-    "properties": "Piercing attacks require no energy cost to perform"
+    "properties": "Piercing attacks require no energy cost to perform",
+    "foundry_icon": "icons/commodities/metal/arrowhead-steel.webp"
   },
   {
     "name": "Starsteel Point",
@@ -109,6 +113,7 @@
       "difficulty": 16,
       "type": "fabrication"
     },
-    "properties": "Piercing attacks gain +2  damage and +1 extra damage"
+    "properties": "Piercing attacks gain +2  damage and +1 extra damage",
+    "foundry_icon": "icons/commodities/metal/arrowhead-steel.webp"
   }
 ]

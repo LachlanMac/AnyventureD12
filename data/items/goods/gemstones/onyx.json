@@ -2,8 +2,11 @@
   "name": "Onyx",
   "description": "A black stone with white bands and polished surface",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 180,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-round-black.webp"
 }

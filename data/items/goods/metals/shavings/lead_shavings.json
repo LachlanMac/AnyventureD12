@@ -2,8 +2,11 @@
   "name": "Lead Shavings",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.275,
   "value": 20,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/metal/fragments-steel-ring.webp"
 }

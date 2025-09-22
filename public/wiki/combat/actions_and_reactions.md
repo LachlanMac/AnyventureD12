@@ -29,7 +29,7 @@ The character attempt to grab another creature and hold onto them until the star
 The character attempts to channel a spell. The energy cost varies by the spell.
 
 ### Defend - 0 Energy
-The character 
+The character preemptively defends themselves, gaining a bonus dice to all defense and contested checks. After using a reaction, this benefit is lost.
 
 ### Shove - 1 Energy
 The character attempts to shove another character that is the same size, knocking them prone or pushing them 1 unit away. This is done by making a contested might check against the target's fitness or coordination.

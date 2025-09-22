@@ -2,7 +2,10 @@
   "name": "Ember Dust",
   "description": "A fine, glowing orange-red powder that radiates gentle warmth and occasionally releases tiny sparks. Created through careful alchemical mixing of combustible elements, this dust maintains a constant internal heat that makes it useful for both magical and practical applications. When sprinkled, it leaves behind faint scorch marks and the acrid scent of sulfur. This recipe yields 5 doses.",
   "type": "goods",
-  "tags": ["component", "alchemical"],
+  "tags": [
+    "component",
+    "alchemical"
+  ],
   "weight": 0.1,
   "value": 220,
   "rarity": "common",
@@ -13,5 +16,6 @@
       "2x Pinch of Sulfur",
       "2x Pinch of Phosphorus"
     ]
-  }
+  },
+  "foundry_icon": "icons/commodities/materials/powder-red-green-yellow.webp"
 }

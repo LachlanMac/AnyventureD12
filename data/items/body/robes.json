@@ -5,5 +5,6 @@
   "weight": 2,
   "value": 5,
   "rarity": "common",
-  "armor_category": "none"
+  "armor_category": "none",
+  "foundry_icon": "icons/equipment/chest/robe-layered-blue.webp"
 }

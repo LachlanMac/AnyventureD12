@@ -92,6 +92,13 @@ const AncestrySchema = new Schema({
     type: String,
     required: false
   },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
+  },
   options: [AncestryOptionSchema]
 }, {
   timestamps: true

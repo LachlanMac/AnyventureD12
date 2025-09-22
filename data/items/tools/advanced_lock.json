@@ -1,8 +1,8 @@
 {
   "name": "Advanced Lock",
   "description": "A sophisticated lock requiring a Thievery check of 12 or higher to pick without the key",
-  "type": "tools",
-  "weight": 1.0,
+  "type": "tool",
+  "weight": 1,
   "value": 2250,
   "rarity": "common",
   "recipe": {
@@ -14,5 +14,6 @@
       "Steel Sheet",
       "Bindings"
     ]
-  }
+  },
+  "foundry_icon": "icons/sundries/misc/lock-bronze-reinforced.webp"
 }

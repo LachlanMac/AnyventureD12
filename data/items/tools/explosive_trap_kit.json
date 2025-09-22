@@ -1,8 +1,8 @@
 {
   "name": "Explosive Trap Kit",
   "description": "A trip wire mechanism that detonates a placed explosive when triggered dealing 3d8 fire damage to anyone within a 2 unit radius if they fail a defense check of 9. The individual who triggers the trap automatically fails this check.",
-  "type": "tools",
-  "weight": 2.0,
+  "type": "tool",
+  "weight": 2,
   "value": 1150,
   "rarity": "uncommon",
   "recipe": {
@@ -17,5 +17,6 @@
       "Bindings",
       "Flint"
     ]
-  }
+  },
+  "foundry_icon": "icons/weapons/thrown/bomb-detonator.webp"
 }

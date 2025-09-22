@@ -24,13 +24,11 @@ interface TraitsTabProps {
   };
   characterId: string;
   personality?: string;
-  stressors?: string[];
 }
 
 const TraitsTab: React.FC<TraitsTabProps> = ({
   character,
   personality: _personality,
-  stressors: _stressors = [],
 }) => {
   const traitCategories = character.derivedTraits || {
     General: [],

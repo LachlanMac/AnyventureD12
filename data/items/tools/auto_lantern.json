@@ -1,8 +1,8 @@
 {
   "name": "Clockwork Lantern",
   "description": "A lantern that is powered by the residual energy of a crystal or gem to give off a steady light. This lantern has 3 settings; On, 5-unit light range and 10 unit light range. The color of the light is based on the type of gem or crystal used.",
-  "type": "tools",
-  "weight": 3.0,
+  "type": "tool",
+  "weight": 3,
   "value": 1350,
   "rarity": "uncommon",
   "recipe": {
@@ -14,5 +14,6 @@
       "Brass Fittings",
       "Any Gem"
     ]
-  }
+  },
+  "foundry_icon": "icons/sundries/lights/lantern-steel.webp"
 }

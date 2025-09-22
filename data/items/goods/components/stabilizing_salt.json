@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.2,
   "value": 150,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/consumables/food/salt-seasoning-spice-pink.webp"
 }

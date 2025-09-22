@@ -187,40 +187,6 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
               </div>
             </div>
 
-            {/* Show related skills */}
-            <div
-              style={{
-                marginTop: '0.5rem',
-                paddingLeft: '0.5rem',
-                borderLeft: '2px solid var(--color-dark-border)',
-              }}
-            >
-              <div
-                style={{
-                  color: 'var(--color-cloud)',
-                  fontSize: '0.875rem',
-                  marginBottom: '0.5rem',
-                }}
-              >
-                Related skills:
-              </div>
-              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
-                {skills.map((skill) => (
-                  <div
-                    key={skill.id}
-                    style={{
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      padding: '0.25rem 0.75rem',
-                      borderRadius: '9999px',
-                      fontSize: '0.75rem',
-                      color: 'var(--color-white)',
-                    }}
-                  >
-                    {skill.name} ({attributes[attributeId as keyof Attributes]} dice)
-                  </div>
-                ))}
-              </div>
-            </div>
           </div>
         ))}
       </div>
@@ -233,19 +199,6 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
           marginTop: '2rem',
         }}
       >
-        <h3
-          style={{
-            color: 'var(--color-metal-gold)',
-            fontWeight: 'bold',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Dice System
-        </h3>
-        <p style={{ color: 'var(--color-cloud)' }}>
-          For skill checks, you'll roll a number of dice equal to your attribute value (1-3). Each
-          skill has a die type from 1d4 to 1d20 that you'll set in the next step.
-        </p>
       </div>
     </div>
   );

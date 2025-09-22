@@ -4,5 +4,6 @@
   "type": "adventure",
   "weight": 0.5,
   "value": 60,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/cooking/knife-chef-steel-black.webp"
 }

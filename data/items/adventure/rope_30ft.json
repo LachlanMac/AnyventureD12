@@ -2,7 +2,8 @@
   "name": "30 ft. Rope [10 Units]",
   "description": "A 10 unit rope, essential for longer climbs or more complex tasks requiring more length",
   "type": "adventure",
-  "weight": 5.0,
+  "weight": 5,
   "value": 120,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/rope-coiled-brown.webp"
 }

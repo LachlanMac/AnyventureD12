@@ -2,8 +2,11 @@
   "name": "Gold Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.9,
   "value": 500,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-pile-nuggets-gold.webp"
 }

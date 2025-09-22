@@ -16,5 +16,6 @@
       "Vial of Quicksilver"
     ]
   },
-  "side_effect": ""
+  "side_effect": "",
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-purple.webp"
 }

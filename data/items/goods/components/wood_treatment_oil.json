@@ -2,8 +2,12 @@
   "name": "Wood Treatment Oil",
   "description": "A blend of linseed and other natural oils used to seal and preserve wood, preventing moisture damage and maintaining flexibility in wooden weapons and tools",
   "type": "goods",
-  "tags": ["component", "crafting_material"],
+  "tags": [
+    "component",
+    "crafting_material"
+  ],
   "weight": 0.5,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/finger/ring-band-engraved-spirals-wood.webp"
 }

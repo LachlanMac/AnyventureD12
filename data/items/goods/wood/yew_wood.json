@@ -2,8 +2,14 @@
   "name": "Yew Wood",
   "description": "A premium hardwood featuring exceptional natural elasticity and strength. Its unique grain structure provides superior performance in flexible applications and fine craftsmanship",
   "type": "goods",
-  "tags": ["wood", "crafting_material", "bow_material", "premium"],
-  "weight": 3.0,
+  "tags": [
+    "wood",
+    "crafting_material",
+    "bow_material",
+    "premium"
+  ],
+  "weight": 3,
   "value": 45,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/commodities/wood/log-cut-walnut.webp"
 }

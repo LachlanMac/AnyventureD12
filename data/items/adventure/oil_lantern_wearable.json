@@ -4,5 +4,6 @@
   "type": "adventure",
   "weight": 1.5,
   "value": 120,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/lights/lantern-iron-yellow.webp"
 }

@@ -163,7 +163,7 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
             ))}
           </div>
 
-          {/* Personality description and stressors */}
+          {/* Personality description */}
           <div
             style={{
               backgroundColor: 'var(--color-dark-elevated)',
@@ -199,39 +199,6 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
                   </div>
                 )}
 
-                {/* Display stressors */}
-                {selectedPersonality && (
-                  <div style={{ marginTop: '1rem' }}>
-                    <h4
-                      style={{
-                        color: 'var(--color-metal-gold)',
-                        fontSize: '1rem',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Stressors
-                    </h4>
-                    <div>
-                      {personalityModules
-                        .find((module) => module.name === selectedPersonality)
-                        ?.stressors?.map((stressor, index) => (
-                          <div
-                            key={index}
-                            style={{
-                              backgroundColor: 'rgba(85, 65, 130, 0.2)',
-                              padding: '0.5rem',
-                              borderRadius: '0.25rem',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                              {stressor}
-                            </div>
-                          </div>
-                        ))}
-                    </div>
-                  </div>
-                )}
               </>
             ) : (
               <p style={{ color: 'var(--color-cloud)' }}>Select a personality to see information</p>

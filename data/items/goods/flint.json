@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.5,
   "value": 100,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-grey.webp"
 }

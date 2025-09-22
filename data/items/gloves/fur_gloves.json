@@ -8,5 +8,6 @@
   "mitigation": {
     "cold": 1
   },
-  "encumbrance_penalty": 0
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/equipment/hand/gloves-leather-tan.webp"
 }

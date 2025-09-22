@@ -19,7 +19,8 @@
       "difficulty": 4,
       "type": "fabrication"
     },
-    "properties": "Standard material with no special effects"
+    "properties": "Standard material with no special effects",
+    "foundry_icon": "icons/equipment/feet/boots-armored-leather-brown.webp"
   },
   {
     "name": "Studded Hide",
@@ -43,6 +44,7 @@
       "difficulty": 6,
       "type": "fabrication"
     },
-    "properties": "reinforced material that adds +1 physical mitigation when fabricated into armor."
+    "properties": "reinforced material that adds +1 physical mitigation when fabricated into armor.",
+    "foundry_icon": "icons/equipment/feet/boots-armored-leather-brown.webp"
   }
 ]

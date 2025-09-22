@@ -3,6 +3,7 @@
   "description": "A heavy crossbow that is capable at a variety of ranges and relatively easy to operate compared to a drawn bow.",
   "type": "weapon",
   "weapon_category": "complexRanged",
+  "hands": 2,
   "weight": 2,
   "value": 1340,
   "bonus_attack": 0,
@@ -51,5 +52,6 @@
       "Bindings"
     ]
   },
-  "encumbrance_penalty": 0
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/crossbows/crossbow-heavy-black.webp"
 }

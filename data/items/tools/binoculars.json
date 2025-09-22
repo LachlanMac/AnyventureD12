@@ -1,8 +1,8 @@
 {
   "name": "Binoculars",
   "description": "Twin telescopes mounted side-by-side for enhanced depth perception and wider field of view that have an adjustable control to shift the lenses, granting better zoom and focus. Grants 2 bonus dice to senses checks for spotting distant details.",
-  "type": "tools",
-  "weight": 2.0,
+  "type": "tool",
+  "weight": 2,
   "value": 2000,
   "rarity": "uncommon",
   "recipe": {
@@ -14,5 +14,6 @@
       "Brass Fittings",
       "Bindings"
     ]
-  }
+  },
+  "foundry_icon": "icons/tools/navigation/spyglass-telescope-blue.webp"
 }

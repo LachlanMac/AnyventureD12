@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.1,
   "value": 3,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/lights/candle-unlit-yellow.webp"
 }

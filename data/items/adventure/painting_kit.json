@@ -2,8 +2,13 @@
   "name": "Painting Kit",
   "description": "A leather satchel containing an assortment of pigments, brushes, and mixing tools. Includes vials of various colored paints derived from minerals and plants, fine-tipped brushes made from sable hair, palette knives, and a mixing board. Essential for artists, scribes, and those who work with glyphs and magical inscriptions.",
   "type": "adventure",
-  "tags": ["tool", "art", "crafting"],
+  "tags": [
+    "tool",
+    "art",
+    "crafting"
+  ],
   "weight": 2,
   "value": 50,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/hand/brush-paint-brown-white.webp"
 }

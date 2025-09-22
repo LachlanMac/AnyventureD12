@@ -18,18 +18,18 @@
     },
     {
       "name": "Eye of the Veth",
-      "description": "You can communicate telepathically to a Creature within a moderate (20 units) distance who shares a Language with you. They cannot communicate verbally, but can give a response of either affirmation, denial or indifference.",
+      "description": "You can communicate telepathically to a creature within a moderate (20 units) distance who shares a language with you. They cannot communicate verbally, but can give a response of either affirmation, denial or indifference.",
       "data": "TA"
     },
     {
       "name": "Daily Action : Third Eye",
       "description": "You unleash the power of your Third Eye towards a creature within a short (10 units) distance by making an attack with concentration against your target's resilience. For each dice that hits, deal 4 psychic damage. This disables your Eye of the Veth trait until you complete the next Full Rest.",
-      "data": "XX3:TA"
+      "data": "XDME=2"
     },
     {
       "name": "Intrinsic Guilt",
-      "description": "The Vethi are burdened by the sins of their ancestors. You suffer a penalty of 3 to your maximum resolve.",
-      "data": "R=-3:TA"
+      "description": "The Vethi are burdened by the sins of their ancestors. You suffer a -3 penalty to your maximum resolve.",
+      "data": "A2=-3:TA"
     }
   ]
 }

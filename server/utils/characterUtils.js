@@ -864,31 +864,31 @@ export const parseEquipmentEffects = (character) => {
     // Apply positive bonuses from item
     
     // Weapon bonuses
-    if (item.bonus_attack) {
+    if (item && item.bonus_attack) {
       equipmentEffects.bonuses.bonusAttack += item.bonus_attack;
     }
 
     // Resource bonuses
-    if (item.health) {
+    if (item && item.health && item.health.max !== undefined) {
       equipmentEffects.bonuses.health.max += item.health.max || 0;
       equipmentEffects.bonuses.health.recovery += item.health.recovery || 0;
     }
-    if (item.energy) {
+    if (item && item.energy && item.energy.max !== undefined) {
       equipmentEffects.bonuses.energy.max += item.energy.max || 0;
       equipmentEffects.bonuses.energy.recovery += item.energy.recovery || 0;
     }
-    if (item.resolve) {
+    if (item && item.resolve && item.resolve.max !== undefined) {
       equipmentEffects.bonuses.resolve.max += item.resolve.max || 0;
       equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
     }
 
     // Movement bonus
-    if (item.movement) {
+    if (item && item.movement) {
       equipmentEffects.bonuses.movement += item.movement;
     }
 
     // Attribute bonuses
-    if (item.attributes) {
+    if (item && item.attributes) {
       Object.entries(item.attributes).forEach(([attr, bonus]) => {
         if (bonus.add_talent) {
           if (!equipmentEffects.bonuses.attributes[attr]) {
@@ -906,7 +906,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Skill bonuses
-    if (item.basic) {
+    if (item && item.basic) {
       Object.entries(item.basic).forEach(([skill, bonus]) => {
         if (!equipmentEffects.bonuses.skills[skill]) {
           equipmentEffects.bonuses.skills[skill] = { value: 0, talent: 0 };
@@ -933,7 +933,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Weapon skill bonuses
-    if (item.weapon) {
+    if (item && item.weapon) {
       Object.entries(item.weapon).forEach(([weaponType, bonus]) => {
         if (!equipmentEffects.bonuses.weaponSkills[weaponType]) {
           equipmentEffects.bonuses.weaponSkills[weaponType] = { value: 0, talent: 0 };
@@ -948,7 +948,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Magic skill bonuses
-    if (item.magic) {
+    if (item && item.magic) {
       Object.entries(item.magic).forEach(([magicType, bonus]) => {
         if (!equipmentEffects.bonuses.magicSkills[magicType]) {
           equipmentEffects.bonuses.magicSkills[magicType] = { value: 0, talent: 0 };
@@ -963,7 +963,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Crafting skill bonuses
-    if (item.craft) {
+    if (item && item.craft) {
       Object.entries(item.craft).forEach(([craftType, bonus]) => {
         if (!equipmentEffects.bonuses.craftingSkills[craftType]) {
           equipmentEffects.bonuses.craftingSkills[craftType] = { value: 0, talent: 0 };
@@ -978,7 +978,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Mitigation bonuses
-    if (item.mitigation) {
+    if (item && item.mitigation) {
       Object.entries(item.mitigation).forEach(([damageType, value]) => {
         if (!equipmentEffects.bonuses.mitigation[damageType]) {
           equipmentEffects.bonuses.mitigation[damageType] = 0;
@@ -988,7 +988,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Detection bonuses
-    if (item.detections) {
+    if (item && item.detections) {
       Object.entries(item.detections).forEach(([detectionType, value]) => {
         if (!equipmentEffects.bonuses.detections[detectionType]) {
           equipmentEffects.bonuses.detections[detectionType] = 0;
@@ -998,7 +998,7 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Immunities
-    if (item.immunities) {
+    if (item && item.immunities) {
       Object.entries(item.immunities).forEach(([immunityType, hasImmunity]) => {
         if (hasImmunity && !equipmentEffects.bonuses.immunities.includes(immunityType)) {
           equipmentEffects.bonuses.immunities.push(immunityType);
@@ -1007,7 +1007,151 @@ export const parseEquipmentEffects = (character) => {
     }
 
     // Add up encumbrance penalty
-    if (item.encumbrance_penalty && item.encumbrance_penalty > 0) {
+    if (item && item.encumbrance_penalty && item.encumbrance_penalty > 0) {
+      equipmentEffects.encumbrance_penalty += item.encumbrance_penalty;
+    }
+  });
+
+  // Process new weapon slots (main_hand, off_hand, extra_weapons)
+  const weaponSlots = [];
+
+  // Add main_hand and off_hand if they exist
+  if (character.main_hand) {
+    weaponSlots.push({ slot: character.main_hand, name: 'main_hand' });
+  }
+  if (character.off_hand) {
+    weaponSlots.push({ slot: character.off_hand, name: 'off_hand' });
+  }
+
+  // Add extra_weapons if they exist
+  if (character.extra_weapons && Array.isArray(character.extra_weapons)) {
+    character.extra_weapons.forEach((weaponSlot, index) => {
+      if (weaponSlot) {
+        weaponSlots.push({ slot: weaponSlot, name: `extra_weapons[${index}]` });
+      }
+    });
+  }
+
+  weaponSlots.forEach(({ slot, name }) => {
+    if (!slot || !slot.itemId) {
+      return;
+    }
+
+    const item = getItemFromInventory(slot.itemId);
+    console.log(`[DEBUG] Processing weapon slot ${name}, itemId: ${slot.itemId}, found item:`, item ? item.name : 'null');
+    if (!item) {
+      console.log(`[DEBUG] No item found for weapon slot ${name} with itemId ${slot.itemId}`);
+      return;
+    }
+
+    // Additional safety check to ensure item is still defined
+    if (!item) {
+      console.log(`[DEBUG] Item became undefined after initial check for slot ${name}`);
+      return;
+    }
+
+    equipmentEffects.appliedItems.push({
+      name: item.name,
+      slot: name,
+      type: item.type
+    });
+
+    // Apply the same item effects as regular equipment
+    // This is the same logic from the equipment processing above
+
+    // Weapon bonuses
+    if (item && item.bonus_attack) {
+      equipmentEffects.bonuses.bonusAttack += item.bonus_attack;
+    }
+
+    // Resource bonuses - add extra safety check for item
+    if (item && item.health && item.health.max !== undefined) {
+      equipmentEffects.bonuses.health.max += item.health.max || 0;
+      equipmentEffects.bonuses.health.recovery += item.health.recovery || 0;
+    }
+    if (item && item.energy && item.energy.max !== undefined) {
+      equipmentEffects.bonuses.energy.max += item.energy.max || 0;
+      equipmentEffects.bonuses.energy.recovery += item.energy.recovery || 0;
+    }
+    if (item && item.resolve && item.resolve.max !== undefined) {
+      equipmentEffects.bonuses.resolve.max += item.resolve.max || 0;
+      equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
+    }
+
+    // Movement bonus
+    if (item && item.movement) {
+      equipmentEffects.bonuses.movement += item.movement;
+    }
+
+    // Attribute bonuses
+    if (item && item.attributes) {
+      Object.entries(item.attributes).forEach(([attr, bonusData]) => {
+        if (!equipmentEffects.bonuses.attributes[attr]) {
+          equipmentEffects.bonuses.attributes[attr] = 0;
+        }
+        if (bonusData.add_talent) {
+          equipmentEffects.bonuses.attributes[attr] += bonusData.add_talent;
+        }
+        if (bonusData.set_talent !== undefined) {
+          equipmentEffects.bonuses.attributes[attr] = bonusData.set_talent;
+        }
+      });
+    }
+
+    // Skill bonuses (basic, craft, magic, weapon)
+    ['basic', 'craft', 'magic', 'weapon'].forEach(skillCategory => {
+      if (item[skillCategory]) {
+        Object.entries(item[skillCategory]).forEach(([skill, bonusData]) => {
+          if (!equipmentEffects.bonuses.skills[skill]) {
+            equipmentEffects.bonuses.skills[skill] = { value: 0, talent: 0 };
+          }
+          if (bonusData.add_bonus) {
+            equipmentEffects.bonuses.skills[skill].value += bonusData.add_bonus;
+          }
+          if (bonusData.set_bonus !== undefined) {
+            equipmentEffects.bonuses.skills[skill].value = bonusData.set_bonus;
+          }
+          if (bonusData.add_talent) {
+            equipmentEffects.bonuses.skills[skill].talent += bonusData.add_talent;
+          }
+          if (bonusData.set_talent !== undefined) {
+            equipmentEffects.bonuses.skills[skill].talent = bonusData.set_talent;
+          }
+        });
+      }
+    });
+
+    // Mitigation bonuses
+    if (item && item.mitigation) {
+      Object.entries(item.mitigation).forEach(([damageType, value]) => {
+        if (!equipmentEffects.bonuses.mitigation[damageType]) {
+          equipmentEffects.bonuses.mitigation[damageType] = 0;
+        }
+        equipmentEffects.bonuses.mitigation[damageType] += value;
+      });
+    }
+
+    // Detection bonuses
+    if (item && item.detections) {
+      Object.entries(item.detections).forEach(([detectionType, value]) => {
+        if (!equipmentEffects.bonuses.detections[detectionType]) {
+          equipmentEffects.bonuses.detections[detectionType] = 0;
+        }
+        equipmentEffects.bonuses.detections[detectionType] += value;
+      });
+    }
+
+    // Immunities
+    if (item && item.immunities) {
+      Object.entries(item.immunities).forEach(([immunityType, hasImmunity]) => {
+        if (hasImmunity && !equipmentEffects.bonuses.immunities.includes(immunityType)) {
+          equipmentEffects.bonuses.immunities.push(immunityType);
+        }
+      });
+    }
+
+    // Add up encumbrance penalty
+    if (item && item.encumbrance_penalty && item.encumbrance_penalty > 0) {
       equipmentEffects.encumbrance_penalty += item.encumbrance_penalty;
     }
   });

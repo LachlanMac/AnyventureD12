@@ -2,7 +2,8 @@
   "name": "Smithing Hammer",
   "description": "A specialized hammer for shaping hot metal on an anvil",
   "type": "adventure",
-  "weight": 4.0,
+  "weight": 4,
   "value": 100,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/smithing/hammer-sledge-steel-grey.webp"
 }

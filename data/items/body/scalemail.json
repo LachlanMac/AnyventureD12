@@ -9,5 +9,6 @@
   "mitigation": {
     "physical": 5
   },
-  "encumbrance_penalty": 3
+  "encumbrance_penalty": 3,
+  "foundry_icon": "icons/equipment/chest/breastplate-metal-scaled-grey.webp"
 }

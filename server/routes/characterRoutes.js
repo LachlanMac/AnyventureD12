@@ -15,7 +15,8 @@ import {
   updateItemQuantity,
   addTrait,
   removeTrait,
-  updateTraitOptions
+  updateTraitOptions,
+  exportCharacterToFoundry
 } from '../controllers/characterController.js';
 import { protect } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
@@ -24,52 +25,50 @@ import Character from '../models/Character.js';
 
 const router = express.Router();
 
-// Apply authentication middleware to all character routes
-router.use(protect);
-
-// Mount the module routes
-router.use('/:characterId/modules', characterModuleRoutes);
-router.use('/:characterId/spells', characterSpellRoutes);
+// Mount the module routes (these need authentication)
+router.use('/:characterId/modules', protect, characterModuleRoutes);
+router.use('/:characterId/spells', protect, characterSpellRoutes);
 
 // Routes for /api/characters
 router.route('/')
-  .get(getCharacters)
-  .post(createCharacter);
+  .get(protect, getCharacters)
+  .post(protect, createCharacter);
 
+// Character view route (public access for public characters)
 router.route('/:id')
-  .get(getCharacter)
-  .put(updateCharacter)
-  .delete(deleteCharacter);
+  .get(getCharacter) // No protect middleware - handled in controller
+  .put(protect, updateCharacter)
+  .delete(protect, deleteCharacter);
 
 // Inventory management routes
 router.route('/:id/inventory')
-  .post(addItemToInventory);
+  .post(protect, addItemToInventory);
 
 router.route('/:id/inventory/:itemId')
-  .delete(removeItemFromInventory);
+  .delete(protect, removeItemFromInventory);
 
 // Equipment management routes
 router.route('/:id/equipment/:slotName')
-  .put(equipItem)
-  .delete(unequipItem);
+  .put(protect, equipItem)
+  .delete(protect, unequipItem);
 
 // Trait management routes
 router.route('/:id/traits')
-  .post(addTrait);
+  .post(protect, addTrait);
 
 router.route('/:id/traits/:traitId')
-  .put(updateTraitOptions)
-  .delete(removeTrait);
+  .put(protect, updateTraitOptions)
+  .delete(protect, removeTrait);
 
 // Item customization and quantity routes
 router.route('/:id/inventory/:index/customize')
-  .post(customizeItem);
+  .post(protect, customizeItem);
 
 router.route('/:id/inventory/:index/quantity')
-  .put(updateItemQuantity);
+  .put(protect, updateItemQuantity);
 
 // Music skills update route
-router.patch('/:id/music-skills', async (req, res) => {
+router.patch('/:id/music-skills', protect, async (req, res) => {
   try {
     const { musicSkills } = req.body;
     
@@ -109,7 +108,7 @@ router.patch('/:id/music-skills', async (req, res) => {
 });
 
 // Language skills update route
-router.patch('/:id/language-skills', async (req, res) => {
+router.patch('/:id/language-skills', protect, async (req, res) => {
   try {
     const { languageSkills } = req.body;
     
@@ -150,7 +149,7 @@ router.patch('/:id/language-skills', async (req, res) => {
 });
 
 // Resources update route
-router.patch('/:id/resources', async (req, res) => {
+router.patch('/:id/resources', protect, async (req, res) => {
   try {
     const { resources } = req.body;
     
@@ -199,12 +198,7 @@ router.patch('/:id/resources', async (req, res) => {
         max: resources.morale.max
       }
     };
-    
-    console.log(`Resource validation: Health ${resources.health.current} -> ${validatedResources.health.current} (max: ${effectiveMaxHealth})`);
-    console.log(`Resource validation: Energy ${resources.energy.current} -> ${validatedResources.energy.current} (max: ${effectiveMaxEnergy})`);
-    console.log(`Resource validation: Resolve ${resources.resolve.current} -> ${validatedResources.resolve.current} (max: ${effectiveMaxResolve})`);
-    console.log(`Resource validation: Morale ${resources.morale.current} -> ${validatedResources.morale.current} (max: ${effectiveMaxMorale})`);
-    
+
     // Update the resources with validated values
     character.resources = validatedResources;
     await character.save();
@@ -227,5 +221,36 @@ router.patch('/:id/resources', async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+// Public visibility update route
+router.patch('/:id/public', protect, async (req, res) => {
+  try {
+    const { public: isPublic } = req.body;
+
+    // First find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+
+    // Update the public field
+    character.public = isPublic;
+    await character.save();
+
+    res.json({ message: 'Character visibility updated successfully', public: character.public });
+  } catch (error) {
+    console.error('Error updating character visibility:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// FoundryVTT export route
+router.get('/:id/export-foundry', protect, exportCharacterToFoundry);
 
 export default router;

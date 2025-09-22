@@ -2,14 +2,23 @@
   "name": "Tarot Card",
   "description": "One of many mystical cards depicting archetypal symbols and figures. Each card is meticulously painted with silver-infused inks on treated parchment, allowing it to channel divinatory energies. These cards are commonly used in fortune-telling rituals and as components for divination spells.",
   "type": "goods",
-  "tags": ["component", "divination", "magical"],
+  "tags": [
+    "component",
+    "divination",
+    "magical"
+  ],
   "weight": 0.05,
   "value": 200,
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
     "difficulty": 5,
-    "ingredients": ["Scroll", "Silver Shavings", "Painting Kit"],
+    "ingredients": [
+      "Scroll",
+      "Silver Shavings",
+      "Painting Kit"
+    ],
     "yield": 5
-  }
+  },
+  "foundry_icon": "icons/sundries/gaming/playing-cards-black.webp"
 }

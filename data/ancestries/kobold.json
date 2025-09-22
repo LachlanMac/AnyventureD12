@@ -19,17 +19,17 @@
     {
       "name": "Born to Fight",
       "description": "Kobolds are born for battle. You gain +1 skill with simple melee and simple ranged weapons and +1 skill with evasion.",
-      "data": "WTA=1:WTB=1:SSF=1:TA"
+      "data": "WS3=1:WS4=1:SSE=1:TA"
     },
     {
       "name": "Reaction : Play Dead",
-      "description": "In response to taking damage, you fall prone and convincingly play dead. A creature cannot deduce that you are alive unless making a contested senses check against your expression if they have reason to suspect.",
-      "data": "ZX2:TA"
+      "description": "In response to taking damage, you fall prone and convincingly play dead. A creature cannot deduce that you are alive unless making a contested senses or medicine check against your expression if they have reason to suspect.",
+      "data": "ZINE=0"
     },
     {
       "name": "Fragile",
       "description": "Kobolds are naturally fragile creatures. You suffer a -5 penalty to your maximum health and a -1 penalty to your physical mitigation.",
-      "data": "H=-5:M1=-1:TA"
+      "data": "A1=-5:M1=-1:TA"
     }
   ]
 }

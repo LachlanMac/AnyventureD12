@@ -2,7 +2,8 @@
   "name": "Grappling Hook",
   "description": "A four-pronged metal hook designed to catch on edges when thrown",
   "type": "adventure",
-  "weight": 4.0,
+  "weight": 4,
   "value": 100,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/hook-multi-steel-grey.webp"
 }

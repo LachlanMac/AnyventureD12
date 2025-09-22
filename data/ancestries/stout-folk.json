@@ -40,7 +40,7 @@
     {
       "name": "Reaction : Strong Chin",
       "description": "In response to failing a check that results in you becoming dazed or stunned, roll a d20. On a 12 or higher, you ignore the condition.",
-      "data": "ZX2:TA"
+      "data": "ZINE=1"
     },
     {
       "name": "Sunblind",

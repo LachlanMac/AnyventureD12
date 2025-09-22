@@ -2,8 +2,11 @@
   "name": "Flint",
   "description": "A hard stone that produces sparks when struck against metal",
   "type": "goods",
-"tags": ["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.2,
   "value": 5,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-grey.webp"
 }

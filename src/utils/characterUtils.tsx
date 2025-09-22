@@ -86,7 +86,6 @@ export const createDefaultCharacter = (userId: string): Character => {
       knowledge: 1,
       social: 1,
     },
-    stressors: [],
     skills: initializeSkills(),
     weaponSkills: initializeWeaponSkills(),
     magicSkills: initializeMagicSkills(),

@@ -2,8 +2,11 @@
   "name": "Charcoal",
   "description": "Activated carbon from burned wood, used to absorb toxins and purify liquids in alchemical preparations",
   "type": "goods",
-  "tags": ["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.1,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-black.webp"
 }

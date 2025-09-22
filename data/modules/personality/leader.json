@@ -3,11 +3,6 @@
   "name": "Leader",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors": [
-    "Your plan fails",
-    "You witness an ally die",
-    "You abandon an ally"
-  ],
   "options": [
     {
       "name": "Leader",

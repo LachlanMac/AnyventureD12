@@ -2,8 +2,11 @@
   "name": "Bundle of Saffron",
   "description": "Delicate red threads from crocus flowers, a rare and valuable spice with coloring properties",
   "type": "goods",
-"tags":["ingredient"],
-  "weight": 1.0,
+  "tags": [
+    "ingredient"
+  ],
+  "weight": 1,
   "value": 150,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/plants/dried-herb-bundle-brown.webp"
 }

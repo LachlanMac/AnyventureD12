@@ -26,22 +26,29 @@ const ModuleOptionSchema = new Schema({
 });
 
 const ModuleSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true 
+  name: {
+    type: String,
+    required: true
   },
-  mtype: { 
-    type: String, 
+  mtype: {
+    type: String,
     required: true,
     enum: ['core', 'secondary', 'planar', 'personality']
   },
-  ruleset: { 
-    type: Number, 
-    default: 0 
+  ruleset: {
+    type: Number,
+    default: 0
   },
   description: {
     type: String,
     required: false
+  },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
   },
   options: [ModuleOptionSchema]
 }, {

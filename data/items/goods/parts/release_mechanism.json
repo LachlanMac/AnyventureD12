@@ -2,8 +2,13 @@
   "name": "Release Mechanism",
   "description": "A standard trigger component for crossbows and complex ranged weapons, providing basic functionality for releasing stored energy",
   "type": "goods",
-  "tags": ["parts", "weapon_component", "mechanism"],
+  "tags": [
+    "parts",
+    "weapon_component",
+    "mechanism"
+  ],
   "weight": 0.5,
   "value": 20,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/tech/lever.webp"
 }

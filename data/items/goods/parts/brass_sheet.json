@@ -2,8 +2,12 @@
   "name": "Brass Sheet",
   "description": "A hammered sheet of brass alloy, combining the malleability of copper with the strength of tin. Ideal for precision components and decorative elements",
   "type": "goods",
-  "tags": ["part", "crafting_material"],
+  "tags": [
+    "part",
+    "crafting_material"
+  ],
   "weight": 0.7,
   "value": 100,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/metal/ingot-stamped-spiral.webp"
 }

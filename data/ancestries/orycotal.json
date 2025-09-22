@@ -23,12 +23,12 @@
     },
     {
       "name": "Action : Hop-Skip",
-      "description": "You use the Jump action without having a running start. Your maximum jump distance is 6 units, and you gain a bonus die on your fitness check for the jump.",
-      "data": "XX3:TA"
+      "description": "You use a modified version of the jump action which allows you to jump from a standing position without the penalty for not having a running start. If you jump a distance equal to your movement speed, you also get credit as if you had used the Defend action.",
+      "data": "XINE=1"
     },
     {
       "name": "Easily Startled",
-      "description": "The orycotal are jumpy creatures, and startle easily. When making a check against the afraid condition, roll with a penalty dice.",
+      "description": "The orycotal are jumpy creatures, and startle easily. When you have the afraid condition, the required check for recovering from it is a 12 instead of a 10.",
       "data": "TA"
     }
   ]

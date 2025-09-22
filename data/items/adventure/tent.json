@@ -2,7 +2,8 @@
   "name": "Tent",
   "description": "A basic canvas shelter that sleeps two people",
   "type": "adventure",
-  "weight": 10.0,
+  "weight": 10,
   "value": 200,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/bedroll-brown.webp"
 }

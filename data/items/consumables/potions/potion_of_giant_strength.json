@@ -16,5 +16,6 @@
       "Iron Shavings"
     ]
   },
-  "side_effect": "After the potion wears off, the consumer rolls a d4 for any might checks until they complete a full rest."
+  "side_effect": "After the potion wears off, the consumer rolls a d4 for any might checks until they complete a full rest.",
+  "foundry_icon": "icons/consumables/potions/bottle-round-corked-orange.webp"
 }

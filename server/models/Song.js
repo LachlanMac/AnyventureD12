@@ -16,6 +16,13 @@ const SongSchema = new Schema({
   effect: { type: String, default: '' },
   harmony_1: { type: HarmonySchema, default: null },
   harmony_2: { type: HarmonySchema, default: null },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
+  }
 }, { timestamps: true });
 
 const Song = mongoose.model('Song', SongSchema);

@@ -2,8 +2,11 @@
   "name": "Shadow Onyx",
   "description": "A jet-black onyx that absorbs light and radiates dark energy, casting unnatural shadows",
   "type": "goods",
-  "tags": ["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 700,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-round-black.webp"
 }

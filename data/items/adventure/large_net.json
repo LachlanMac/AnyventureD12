@@ -2,7 +2,8 @@
   "name": "Large Net",
   "description": "A large square net that is 3 units wide and long, designed for trapping large creatures or catching large quantities of fish.",
   "type": "adventure",
-  "weight": 6.0,
+  "weight": 6,
   "value": 120,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/net-tan.webp"
 }

@@ -2,8 +2,11 @@
   "name": "Moonstone",
   "description": "A milky white stone with blue flashes that shimmer like moonlight",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 700,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-round-white.webp"
 }

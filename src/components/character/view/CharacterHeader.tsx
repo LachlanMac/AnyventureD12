@@ -12,6 +12,7 @@ interface CharacterHeaderProps {
     name: string;
     race: string;
     culture: string;
+    public?: boolean;
     characterCulture?: {
       cultureId: any;
       selectedRestriction?: any;
@@ -65,6 +66,8 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
   onResourceChange,
 }) => {
   const [portraitUrl, setPortraitUrl] = useState<string | null>(character.portraitUrl || null);
+  const [isPublic, setIsPublic] = useState(character.public ?? true);
+  const [isUpdatingVisibility, setIsUpdatingVisibility] = useState(false);
   const { showError } = useToast();
 
   const handlePortraitChange = async (file: File) => {
@@ -96,6 +99,33 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
     }
   };
 
+  const handlePublicToggle = async () => {
+    const newValue = !isPublic;
+    setIsUpdatingVisibility(true);
+    try {
+      const response = await fetch(`/api/characters/${character._id}/public`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        credentials: 'include',
+        body: JSON.stringify({ public: newValue }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update character visibility');
+      }
+
+      setIsPublic(newValue);
+    } catch (error) {
+      console.error('Error updating character visibility:', error);
+      showError('Failed to update character visibility. Please try again.');
+      // Don't revert on error since we want to show the failed state
+    } finally {
+      setIsUpdatingVisibility(false);
+    }
+  };
+
   return (
     <Card variant="default">
       {/* Header with character name and action buttons */}
@@ -120,6 +150,29 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
           </h1>
 
           <div className="flex gap-2">
+            {/* Visibility Toggle */}
+            {onDelete && (
+              <button
+                onClick={handlePublicToggle}
+                disabled={isUpdatingVisibility}
+                style={{
+                  padding: '0.375rem 0.75rem',
+                  borderRadius: '0.25rem',
+                  fontSize: '0.875rem',
+                  fontWeight: '500',
+                  border: '1px solid',
+                  cursor: isUpdatingVisibility ? 'not-allowed' : 'pointer',
+                  transition: 'all 0.2s ease',
+                  backgroundColor: isPublic ? 'var(--color-green-600)' : 'var(--color-sunset)',
+                  borderColor: isPublic ? 'var(--color-green-600)' : 'var(--color-sunset)',
+                  color: 'white',
+                  opacity: isUpdatingVisibility ? 0.7 : 1,
+                }}
+                title={isPublic ? 'Click to make private' : 'Click to make public'}
+              >
+                {isUpdatingVisibility ? '...' : (isPublic ? 'Public' : 'Private')}
+              </button>
+            )}
             <Link to={`/characters/${character._id}/edit`}>
               <Button variant="secondary" size="sm">
                 Edit

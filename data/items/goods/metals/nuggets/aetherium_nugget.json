@@ -2,8 +2,11 @@
   "name": "Aetherium Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.1,
   "value": 2000,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-fragments-teal.webp"
 }

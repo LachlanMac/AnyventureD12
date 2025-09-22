@@ -2,8 +2,14 @@
   "name": "Gold Idol",
   "description": "An exquisite figurine crafted from pure gold, depicting a radiant deity with wings spread wide. The idol's surface is polished to a mirror finish and inscribed with ancient holy symbols that pulse with divine power when touched by the faithful.",
   "type": "goods",
-  "tags": ["component", "metal", "divine", "precious"],
+  "tags": [
+    "component",
+    "metal",
+    "divine",
+    "precious"
+  ],
   "weight": 0.5,
   "value": 1000,
-  "rarity": "rare"
+  "rarity": "rare",
+  "foundry_icon": "icons/commodities/treasure/figurine-idol.webp"
 }

@@ -1,8 +1,8 @@
 {
   "name": "Snare Trap Kit",
   "description": "A tension spring mechanism that captures and hoists a medium or smaller target when triggered if they fail a fitness check of 8.",
-  "type": "tools",
-  "weight": 4.0,
+  "type": "tool",
+  "weight": 4,
   "value": 900,
   "rarity": "common",
   "recipe": {
@@ -15,5 +15,6 @@
       "Pine Resin",
       "Rope (30 ft)"
     ]
-  }
+  },
+  "foundry_icon": "icons/sundries/survival/rope-noose-brown.webp"
 }

@@ -2,7 +2,8 @@
   "name": "90 ft. Spool of Invisible String [30 Units]",
   "description": "String that is so thin, it is nearly invisible to the eye, making it an idea material for creating traps.",
   "type": "adventure",
-  "weight": 3.0,
+  "weight": 3,
   "value": 400,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/reel-simple-string-tan.webp"
 }

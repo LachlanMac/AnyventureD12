@@ -9,5 +9,6 @@
   "mitigation": {
     "physical": 1
   },
-  "encumbrance_penalty": 2
+  "encumbrance_penalty": 2,
+  "foundry_icon": "icons/equipment/shield/kite-bronze-boss-brown.webp"
 }

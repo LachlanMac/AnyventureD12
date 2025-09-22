@@ -2,7 +2,8 @@
   "name": "Lead Weight",
   "description": "A heavy weight for fishing lines, creating traps or measuring depths",
   "type": "adventure",
-  "weight": 2.0,
+  "weight": 2,
   "value": 50,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/weight-steel-iron.webp"
 }

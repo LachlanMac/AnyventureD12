@@ -2,8 +2,11 @@
   "name": "Cooking Oil",
   "description": "A bottle of refined oil extracted from plants, used for frying and cooking",
   "type": "goods",
-"tags":["ingredient"],
-  "weight": 1.0,
+  "tags": [
+    "ingredient"
+  ],
+  "weight": 1,
   "value": 40,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-yellow.webp"
 }

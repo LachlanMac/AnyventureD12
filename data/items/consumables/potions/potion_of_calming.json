@@ -15,5 +15,6 @@
       "Bundle of Valerian Root"
     ]
   },
-  "side_effect": "The consumer gains the numbed condition when the effects of this potion wear off."
+  "side_effect": "The consumer gains the numbed condition when the effects of this potion wear off.",
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-purple.webp"
 }

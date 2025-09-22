@@ -75,6 +75,13 @@ const CultureSchema = new Schema({
   options: {
     type: [CultureOptionSchema],
     default: []
+  },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
   }
 }, {
   timestamps: true

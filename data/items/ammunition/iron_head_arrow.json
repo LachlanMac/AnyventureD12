@@ -4,5 +4,6 @@
   "type": "ammunition",
   "weight": 0.1,
   "value": 20,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/weapons/ammunition/arrow-broadhead.webp"
 }

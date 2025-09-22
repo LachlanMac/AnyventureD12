@@ -8,5 +8,6 @@
   "mitigation": {
     "physical": 1
   },
-  "encumbrance_penalty": 1
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/equipment/feet/boots-armored-leather-brown.webp"
 }

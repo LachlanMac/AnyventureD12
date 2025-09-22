@@ -2,8 +2,11 @@
   "name": "Copper Shavings",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.2,
   "value": 2,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/metal/fragments-steel-barbed.webp"
 }

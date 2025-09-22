@@ -2,8 +2,11 @@
   "name": "Topaz",
   "description": "A golden-yellow crystal with exceptional brilliance and hardness",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 800,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-trillion-orange.webp"
 }

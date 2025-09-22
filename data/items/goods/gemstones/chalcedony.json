@@ -2,8 +2,11 @@
   "name": "Chalcedony",
   "description": "A translucent stone with waxy luster and pale colors",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 90,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-blue.webp"
 }

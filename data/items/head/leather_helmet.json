@@ -7,5 +7,6 @@
   "rarity": "common",
   "mitigation": {
     "physical": 1
-  }
+  },
+  "foundry_icon": "icons/equipment/head/hood-leather-fur-brown.webp"
 }

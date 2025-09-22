@@ -2,8 +2,11 @@
   "name": "Fresh Milk",
   "description": "A pitcher of creamy milk from farm animals, used for drinking and cooking",
   "type": "goods",
-"tags":["ingredient"],
-  "weight": 2.0,
+  "tags": [
+    "ingredient"
+  ],
+  "weight": 2,
   "value": 30,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/drinks/coconut-fruit-milk.webp"
 }

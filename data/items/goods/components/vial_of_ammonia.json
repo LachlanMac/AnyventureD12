@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.1,
   "value": 80,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/potions/vial-cork-blue.webp"
 }

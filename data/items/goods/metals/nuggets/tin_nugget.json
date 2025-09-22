@@ -2,8 +2,11 @@
   "name": "Tin Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.2,
   "value": 1,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-grey.webp"
 }

@@ -3,11 +3,6 @@
   "name": "Perfectionist",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors": [
-    "You fail a crucial check",
-    "You fail to craft an item",
-    "You lose a competition"
-  ],
   "options": [
     {
       "name": "Perfectionist",

@@ -2,12 +2,15 @@
   "name": "Lead Ingot",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 5.5,
   "value": 400,
   "rarity": "common",
   "crafting": {
     "difficulty_modifier": 1,
     "properties": "Infuse a component with lead, which causes the object it is part of to become completely immutable."
-  }
+  },
+  "foundry_icon": "icons/commodities/metal/ingot-worn-iron.webp"
 }

@@ -2,8 +2,11 @@
   "name": "Pearl",
   "description": "A smooth white sphere with lustrous surface and natural shine",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 600,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/pearl-natural.webp"
 }

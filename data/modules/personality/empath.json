@@ -3,11 +3,6 @@
   "name": "Empath",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors": [
-    "You witness suffering of the vulnerable",
-    "Your actions cause an ally harm",
-    "You witness an ally break"
-  ],
   "options": [
     {
       "name": "Empath",

@@ -2,8 +2,13 @@
   "name": "Bundle of Silk",
   "description": "Luxurious silk fabric pieces prized for their softness, strength, and lustrous appearance. Essential for high-quality clothing and premium textile applications",
   "type": "goods",
-  "tags": ["textiles", "luxury", "crafting_material"],
-  "weight": 1.0,
+  "tags": [
+    "textiles",
+    "luxury",
+    "crafting_material"
+  ],
+  "weight": 1,
   "value": 85,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/commodities/cloth/cloth-bolt-gold.webp"
 }

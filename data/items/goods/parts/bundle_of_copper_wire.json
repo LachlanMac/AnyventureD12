@@ -2,8 +2,11 @@
   "name": "Bundle of Copper Wire",
   "description": "Flexible copper strands useful in crafting jewelry and electrical conduits for magical devices. This wire can be created by cutting a copper sheet into strips and combining them through heat.",
   "type": "goods",
-  "tags":["parts"],
-  "weight": 2.0,
+  "tags": [
+    "parts"
+  ],
+  "weight": 2,
   "value": 20,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/tech/wire-spool-thin.webp"
 }

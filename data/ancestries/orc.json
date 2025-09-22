@@ -23,8 +23,8 @@
     },
     {
       "name": "Daily Action : Endure",
-      "description": "You attempt to shake off any poisons, harmful substances in your body or remove the bleeding condition by rolling an endurance check. On a 6 or higher, you are successfully cleansed. On an 11 or higher, you also gain 5 morale which last until you complete your next full rest.",
-      "data": "XD1:TA"
+      "description": "You attempt to shake off any bleeding, poisons, or other harmful substances in your body by rolling an endurance check. On a 6 or higher, you are successfully cleansed. On an 11 or higher, you also gain 5 morale if a condition was removed.",
+      "data": "XDNE=2"
     },
     {
       "name": "Innate Rage",

@@ -32,6 +32,19 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
         }
         const data = await response.json();
         setTraits(data);
+
+        // Auto-select "Born to Adventure" as default if no trait is selected
+        if (!selectedTrait) {
+          const bornToAdventure = data.find((trait: any) => trait.name === 'Born to Adventure');
+          if (bornToAdventure) {
+            const selectedOptions = bornToAdventure.options?.map((option: any) => ({
+              name: option.name,
+              selectedSubchoice: null,
+            })) || [];
+            onSelectTrait(bornToAdventure._id, selectedOptions);
+          }
+        }
+
         setLoading(false);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load traits');
@@ -53,6 +66,7 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
       setSubchoiceSelections({});
       return;
     }
+
 
     // If validation function exists
     if (onValidateTraitChange) {

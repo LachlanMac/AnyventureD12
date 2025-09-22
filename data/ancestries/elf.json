@@ -24,7 +24,7 @@
     {
       "name": "Action : Nebulous Eyes",
       "description": "Your eyes glow with the power of the cosmos, allowing you to focus and improve your vision capabilities. While you maintain your concentration, you have darksight in a moderate (20 unit) distance.",
-      "data": "XINE=1:V2=5:TA"
+      "data": "XIME=1"
     },
     {
       "name": "Born of Starlight",

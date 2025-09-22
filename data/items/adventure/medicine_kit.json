@@ -5,5 +5,6 @@
   "subtype": "consumable",
   "value": 50,
   "weight": 1,
- "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/laboratory/vials-blue-pink.webp"
 }

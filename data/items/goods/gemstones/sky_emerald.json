@@ -2,8 +2,11 @@
   "name": "Sky Emerald",
   "description": "A pale blue-green crystal with ethereal clarity and sky-like hues",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 14000,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-teardrop-blue.webp"
 }

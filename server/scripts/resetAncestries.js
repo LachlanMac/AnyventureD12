@@ -1,7 +1,7 @@
 // server/scripts/resetAncestries.js
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
-import { purgeAllAncestries, initializeAncestries } from '../utils/ancestrySeeder.js';
+import { resetAndReseedAncestries } from '../utils/ancestrySeeder.js';
 
 // Load environment variables
 dotenv.config();
@@ -33,21 +33,10 @@ const main = async () => {
   }
   
   try {
-    // Reset and reseed ancestries
+    // Reset and reseed ancestries (preserving references)
     console.log('Starting ancestry reset and reseed process...');
-    
-    // First purge all existing ancestries
-    console.log('Step 1: Purging all ancestries from database...');
-    const purged = await purgeAllAncestries();
-    
-    if (!purged) {
-      console.log('❌ Failed to purge ancestries.');
-      process.exit(1);
-    }
-    
-    // Then initialize ancestries from JSON files
-    console.log('Step 2: Reinitializing ancestries from JSON files...');
-    const success = await initializeAncestries();
+
+    const success = await resetAndReseedAncestries();
     
     if (success) {
       console.log('✅ Ancestry reset and reseed completed successfully!');

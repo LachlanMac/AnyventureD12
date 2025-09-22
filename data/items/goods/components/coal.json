@@ -2,8 +2,11 @@
   "name": "Coal",
   "description": "A black combustible rock that burns with intense heat and flame",
   "type": "goods",
-"tags":["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.5,
   "value": 20,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-black.webp"
 }

@@ -2,7 +2,8 @@
   "name": "90 ft. Spool of String [30 Units]",
   "description": "Thin but durable string useful for setting trap triggers or marking paths",
   "type": "adventure",
-  "weight": 3.0,
+  "weight": 3,
   "value": 40,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/reel-simple-string-tan.webp"
 }

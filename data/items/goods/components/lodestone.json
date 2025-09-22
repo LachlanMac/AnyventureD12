@@ -2,8 +2,13 @@
   "name": "Lodestone",
   "description": "A naturally magnetized piece of iron ore that attracts metallic objects. The stone emanates a subtle field that causes nearby metal shavings to align in patterns around it. Prized by navigators and mages alike for its repelling and attracting properties.",
   "type": "goods",
-  "tags": ["component", "mineral", "magnetic"],
+  "tags": [
+    "component",
+    "mineral",
+    "magnetic"
+  ],
   "weight": 0.3,
   "value": 30,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-black.webp"
 }

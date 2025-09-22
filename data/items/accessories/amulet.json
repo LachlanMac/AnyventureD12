@@ -4,5 +4,6 @@
   "type": "accessory",
   "weight": 0.2,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/neck/amulet-carved-runed-othila-fehu-grey.webp"
 }

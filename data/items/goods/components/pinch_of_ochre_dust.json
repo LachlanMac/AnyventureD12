@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.05,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/materials/powder-grey.webp"
 }

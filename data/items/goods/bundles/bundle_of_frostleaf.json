@@ -2,8 +2,11 @@
   "name": "Bundle of Frostleaf",
   "description": "Thin pale blue leaves that shimmer with frost even in warm climates",
   "type": "goods",
-"tags":["ingredient"],
-  "weight": 1.0,
+  "tags": [
+    "ingredient"
+  ],
+  "weight": 1,
   "value": 500,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/plants/dried-herb-bundle-brown.webp"
 }

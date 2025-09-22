@@ -2,8 +2,11 @@
   "name": "Pinch of Sugar",
   "description": "A pinch of sugar used to sweeten foods and beverages",
   "type": "goods",
-"tags":["ingredient"],
+  "tags": [
+    "ingredient"
+  ],
   "weight": 0.1,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/materials/bowl-powder-gold.webp"
 }

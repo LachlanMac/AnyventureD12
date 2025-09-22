@@ -2,8 +2,11 @@
   "name": "Platinum Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
-  "weight": 1.0,
+  "tags": [
+    "metal"
+  ],
+  "weight": 1,
   "value": 1000,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-grey.webp"
 }

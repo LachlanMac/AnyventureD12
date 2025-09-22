@@ -2,7 +2,8 @@
   "name": "Smithing Bellows",
   "description": "Leather bellows for stoking forge fires to proper temperature",
   "type": "adventure",
-  "weight": 5.0,
+  "weight": 5,
   "value": 120,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/cooking/oven-stone-grey.webp"
 }

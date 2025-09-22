@@ -4,5 +4,6 @@
   "type": "accessory",
   "weight": 0.1,
   "value": 5,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/finger/ring-band-engraved-silver.webp"
 }

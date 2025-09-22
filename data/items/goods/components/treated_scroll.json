@@ -2,8 +2,13 @@
   "name": "Treated Scroll",
   "description": "An expensive scroll that has been specially prepared with alchemical treatments and magical primers. The parchment shimmers faintly and can hold powerful magical inscriptions that would destroy lesser materials.",
   "type": "goods",
-  "tags": ["component", "paper", "magical"],
+  "tags": [
+    "component",
+    "paper",
+    "magical"
+  ],
   "weight": 0.1,
   "value": 1000,
-  "rarity": "rare"
+  "rarity": "rare",
+  "foundry_icon": "icons/sundries/scrolls/scroll-bound-gold.webp"
 }

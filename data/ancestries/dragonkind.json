@@ -45,8 +45,8 @@
     },
     {
       "name": "Action : Dragon Breath",
-      "description": "You spew damaging breath in a cone using your might as an attack check. The length of the cone is equal in units to the amount of talent dice of your check, dealing damage based on your draconic heritage.",
-      "data": "XATK:TA"
+      "description": "You spew damaging breath in a cone using your might as an attack check against a contested resilience check of any creature within the area. The length of the cone is equal in units to the amount of talent dice of your check, dealing 4 damage per successful dice of a type based on your draconic heritage.",
+      "data": "XIME=3"
     },
     {
       "name": "Draconic Horde",

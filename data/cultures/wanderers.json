@@ -5,11 +5,11 @@
   "culturalRestrictions": [
     {
       "name": "The Neverending Road",
-      "description": "Being incapable of travel is one of the worst fates you can imagine. If you go a complete day without being able to move due to an injury or disgurement, you lose 1 resolve."
+      "description": "Being incapable of travel is one of the worst fates you can imagine. If you go a complete day without being able to move due to an injury or disfigurement, you lose 1 resolve."
     },
     {
       "name": "Restless Spirit",
-      "description": "When you spend more than 7 days withint he same settlement or camp, you lose 3 resolve and you no longer can benefit from a favorable rest until you complete a rest in a different camp or settlement."
+      "description": "When you spend more than 7 days within the same settlement or camp, you lose 3 resolve and you no longer can benefit from a favorable rest until you complete a rest in a different camp or settlement."
     }
   ],
   "benefits": [
@@ -19,7 +19,7 @@
     },
     {
       "name": "Wandering Musicians",
-      "description": "Your people use song to pass the time on the road. You automatially learn the song of travel and gain 2 skill points in a single musical skill."
+      "description": "Your people use song to pass the time on the road. You automatically learn the ballad of respite and become an expert at one musical skill."
     }
   ],
   "startingItems": [

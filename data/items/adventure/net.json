@@ -2,7 +2,8 @@
   "name": "Net",
   "description": "A square net made of rope that can be used for fishing or trapping medium or smaller creatures.",
   "type": "adventure",
-  "weight": 3.0,
+  "weight": 3,
   "value": 60,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/net-simple-brown.webp"
 }

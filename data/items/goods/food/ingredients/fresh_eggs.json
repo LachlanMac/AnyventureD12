@@ -2,8 +2,11 @@
   "name": "Fresh Eggs",
   "description": "A dozen farm-fresh eggs essential for baking and cooking protein-rich meals",
   "type": "goods",
-"tags":["ingredient"],
+  "tags": [
+    "ingredient"
+  ],
   "weight": 1.5,
   "value": 40,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/eggs/egg-nest-pink.webp"
 }

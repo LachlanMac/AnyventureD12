@@ -2,8 +2,11 @@
   "name": "Diamond",
   "description": "A brilliant clear crystal known for its hardness and light refraction",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 10000,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-diamond-silver-.webp"
 }

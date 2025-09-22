@@ -2,8 +2,11 @@
   "name": "Copper Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.4,
   "value": 4,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-copper-orange.webp"
 }

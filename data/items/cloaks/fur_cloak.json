@@ -7,5 +7,6 @@
   "rarity": "common",
   "mitigation": {
     "cold": 2
-  }
+  },
+  "foundry_icon": "icons/equipment/back/cloak-fur-brown.webp"
 }

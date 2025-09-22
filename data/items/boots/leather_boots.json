@@ -6,6 +6,6 @@
   "value": 15,
   "rarity": "common",
   "movement": 1,
-  "basic": {
-  }
+  "basic": {},
+  "foundry_icon": "icons/equipment/feet/boots-leather-simple-brown.webp"
 }

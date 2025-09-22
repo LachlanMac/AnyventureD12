@@ -2,8 +2,11 @@
   "name": "Amber",
   "description": "A fossilized resin with golden color and transparent appearance",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 200,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-amber-insect-orange.webp"
 }

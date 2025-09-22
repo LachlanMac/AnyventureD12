@@ -4,5 +4,6 @@
   "type": "boots",
   "weight": 0.5,
   "value": 3,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/feet/shoes-leather-simple-brown.webp"
 }

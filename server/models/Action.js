@@ -62,6 +62,13 @@ const ActionSchema = new Schema({
     perCombat: Number, // Max uses per combat
     perTarget: Boolean, // Can only use once per target
     circumstances: String // Special circumstances text
+  },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
   }
 }, {
   timestamps: true

@@ -191,7 +191,6 @@ export interface Module {
   ruleset: number;
   options: ModuleOption[];
   description?: string;
-  stressors?: string[];
 }
 
 // Character module structure
@@ -294,6 +293,7 @@ export interface Item {
     | 'complexRanged'
     | 'unarmed'
     | 'throwing';
+  hands?: number; // Number of hands required (1 or 2)
   shield_category?: 'light' | 'heavy';
   consumable_category?:
     | 'poisons'
@@ -356,10 +356,6 @@ export interface Equipment {
   accessory2: EquipmentSlot;
   accessory3: EquipmentSlot;
   accessory4: EquipmentSlot;
-  weapon1: EquipmentSlot;
-  weapon2: EquipmentSlot;
-  weapon3: EquipmentSlot;
-  weapon4: EquipmentSlot;
 }
 
 // Music skills structure
@@ -409,6 +405,7 @@ export interface Character {
   _id?: string;
   userId: string;
   name: string;
+  public: boolean;
   race: string; // Deprecated - use ancestry instead
   culture: string; // Deprecated - use characterCulture instead
   ancestry?: CharacterAncestry;
@@ -434,10 +431,12 @@ export interface Character {
   characterTrait?: string; // ID of selected character creation trait
   level: number;
   experience: number;
-  stressors: string[];
   movement: number;
   inventory: CharacterItem[];
   equipment: Equipment;
+  main_hand: EquipmentSlot;
+  off_hand: EquipmentSlot;
+  extra_weapons: EquipmentSlot[];
   spells: CharacterSpell[];
   spellSlots: number;
   characterCreation?: {

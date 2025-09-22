@@ -20,6 +20,43 @@ interface WikiStructure {
   pages: WikiPage[];
 }
 
+// Function to process language table placeholder
+const processLanguageTable = async (content: string): Promise<string> => {
+  try {
+    const response = await fetch('/data/languages/languages.json');
+    if (!response.ok) {
+      throw new Error('Failed to load languages data');
+    }
+    const languages = await response.json();
+
+    // Generate markdown table
+    let table = `
+| Name | Type | Description | Magical |
+|------|------|-------------|---------|
+`;
+
+    languages.forEach((lang: any) => {
+      const magicalIcon = lang.magic ? '✓' : '✗';
+      const type = lang.magic ? 'Magical' : (lang.id.includes('_') ? 'Regional' : 'Common');
+      // Escape pipes in descriptions for markdown table
+      const description = lang.description.replace(/\|/g, '\\|');
+      table += `| ${lang.name} | ${type} | ${description} | ${magicalIcon} |\n`;
+    });
+
+    // Replace the placeholder with the generated table
+    return content.replace(
+      /<!-- LANGUAGE_TABLE_START -->[\s\S]*?<!-- LANGUAGE_TABLE_END -->/,
+      table
+    );
+  } catch (error) {
+    console.error('Error processing language table:', error);
+    return content.replace(
+      /<!-- LANGUAGE_TABLE_START -->[\s\S]*?<!-- LANGUAGE_TABLE_END -->/,
+      '*Error loading language data*'
+    );
+  }
+};
+
 const WikiPage = () => {
   const { pageId } = useParams<{ pageId: string }>();
   const [content, setContent] = useState<string>('');
@@ -53,7 +90,13 @@ const WikiPage = () => {
         if (!contentRes.ok) {
           throw new Error('Failed to load page content');
         }
-        const contentText = await contentRes.text();
+        let contentText = await contentRes.text();
+
+        // Process language table if present
+        if (contentText.includes('<!-- LANGUAGE_TABLE_START -->')) {
+          contentText = await processLanguageTable(contentText);
+        }
+
         setContent(contentText);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load page');

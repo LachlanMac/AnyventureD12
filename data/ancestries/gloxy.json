@@ -23,8 +23,8 @@
     },
     {
       "name": "Action : Burrow",
-      "description": "You burrow into soft ground such as loose rocks, dirt, snow or sand and move up to 3 Units. While Burrowed in this way, you have a Burrow Speed equal to your Movement Speed and do not leave any noticeable marks on your entry point. This Action can be used again to Unburrow.",
-      "data": "XX3:TA"
+      "description": "You burrow into soft ground such as loose rocks, dirt, snow or sand and move up to 3 units. This Action can be used again to Unburrow.",
+      "data": "XINE=1"
     },
     {
       "name": "Weakness for Compliments",

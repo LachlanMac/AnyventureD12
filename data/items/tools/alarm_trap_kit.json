@@ -1,7 +1,7 @@
 {
   "name": "Alarm Trap Kit",
   "description": "A motion-triggered mechanism that sounds a loud bell or whistle, alerting everyone within a moderate (20 unit) distance when activated",
-  "type": "tools",
+  "type": "tool",
   "weight": 1.5,
   "value": 750,
   "rarity": "common",
@@ -14,5 +14,6 @@
       "Spool of Invisible String",
       "Bindings"
     ]
-  }
+  },
+  "foundry_icon": "icons/tools/instruments/bell-brass.webp"
 }

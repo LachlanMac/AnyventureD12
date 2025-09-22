@@ -1,7 +1,7 @@
 {
   "name": "Lock Pick",
   "description": "A thin piece of metal used for picking locks which is destroyed on a failure. The recipe for this item creates 4 picks.",
-  "type": "tools",
+  "type": "tool",
   "weight": 0.5,
   "value": 200,
   "rarity": "common",
@@ -12,5 +12,6 @@
       "Steel Sheet",
       "Bindings"
     ]
-  }
+  },
+  "foundry_icon": "icons/tools/hand/lockpicks-steel-grey.webp"
 }

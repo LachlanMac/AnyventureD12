@@ -48,5 +48,6 @@
       "Long Shaft"
     ]
   },
-  "encumbrance_penalty": 0
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/polearms/spear-barbed-silver.webp"
 }

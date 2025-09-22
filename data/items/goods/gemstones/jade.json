@@ -2,8 +2,11 @@
   "name": "Jade",
   "description": "A smooth green stone with waxy luster and tough composition",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 700,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-cut-square-green.webp"
 }

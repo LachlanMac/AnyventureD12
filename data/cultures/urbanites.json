@@ -19,7 +19,7 @@
     },
     {
       "name": "Cultural Sophistication",
-      "description": "Living in an urban environement exposes you to all sorts of types of people, allowing you to have picked up basic parts of languages. You learn two additional languages at a basic level."
+      "description": "Living in an urban environment exposes you to all sorts of types of people, allowing you to have picked up basic parts of languages. You gain +2 language points which must be used to gain basic skill in 2 separate languages you do not know."
     }
   ],
   "startingItems": [
@@ -33,7 +33,7 @@
     },
     {
       "name": "Crowd Cloak",
-      "description": "A reversible cloak with different colors/patterns on each side, plus a hood that can dramatically change your silhouette. When you make a stealth check in an urban environement like a large town or city, you gain a bonus dice on that check."
+      "description": "A reversible cloak with different colors/patterns on each side, plus a hood that can dramatically change your silhouette. When you make a stealth check in an urban environment like a large town or city, you gain a bonus dice on that check."
     }
   ],
   "options": [],

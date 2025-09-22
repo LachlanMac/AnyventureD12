@@ -31,7 +31,6 @@ const CharacterCreate: React.FC = () => {
   const [selectedCulture, setSelectedCulture] = useState<Culture | null>(null);
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
-  const [stressors, setStressors] = useState<string[]>([]);
   const [selectedTrait, setSelectedTrait] = useState<string>('');
   const [selectedTraitOptions, setSelectedTraitOptions] = useState<any[]>([]);
   const [_traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
@@ -73,7 +72,6 @@ const CharacterCreate: React.FC = () => {
   const handlePersonalitySelect = (personalityName: string, personalityModule: Module) => {
     setSelectedPersonality(personalityName);
     setSelectedPersonalityModule(personalityModule);
-    setStressors(personalityModule.stressors || []);
   };
 
   // Validate trait change
@@ -423,7 +421,6 @@ const CharacterCreate: React.FC = () => {
         biography: character.biography,
         appearance: character.appearance,
         physicalTraits: character.physicalTraits,
-        stressors: stressors,
         modules: initialModules,
         traits: selectedTrait ? [{
           traitId: selectedTrait,
@@ -554,7 +551,6 @@ const CharacterCreate: React.FC = () => {
             {step === 3 && (
               <PersonalityCreatorTab
                 selectedPersonality={selectedPersonality}
-                stressors={stressors}
                 selectedTrait={selectedTrait}
                 traitModuleBonus={traitModuleBonus}
                 onSelectPersonality={handlePersonalitySelect}

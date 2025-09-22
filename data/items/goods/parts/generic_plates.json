@@ -19,7 +19,8 @@
       "difficulty": 7,
       "type": "fabrication"
     },
-    "properties": "Standard physical mitigation with heavy weight"
+    "properties": "Standard physical mitigation with heavy weight",
+    "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
     "name": "Steel Plates",
@@ -41,7 +42,8 @@
       "difficulty": 10,
       "type": "fabrication"
     },
-    "properties": "Enhanced physical mitigation with improved durability"
+    "properties": "Enhanced physical mitigation with improved durability",
+    "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
     "name": "True Steel Plates",
@@ -63,7 +65,8 @@
       "difficulty": 12,
       "type": "fabrication"
     },
-    "properties": "Physical mitigation gains +1 effectiveness"
+    "properties": "Physical mitigation gains +1 effectiveness",
+    "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
     "name": "Aetherium Plates",
@@ -86,7 +89,8 @@
       "difficulty": 14,
       "type": "fabrication"
     },
-    "properties": "No movement penalty from armor weight"
+    "properties": "No movement penalty from armor weight",
+    "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
     "name": "Starsteel Plates",
@@ -109,6 +113,7 @@
       "difficulty": 16,
       "type": "fabrication"
     },
-    "properties": "Physical mitigation gains +2 effectiveness and immunity to armor sundering"
+    "properties": "Physical mitigation gains +2 effectiveness and immunity to armor sundering",
+    "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   }
 ]

@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
 import MusicTalentDisplay from '../MusicTalentDisplay';
-import EquipmentEffectsPanel from './EquipmentEffectsPanel';
 import { Character, Language } from '../../../types/character';
 import { getModifiedDiceType, getDiceTierModifierIndicator } from '../../../utils/diceUtils';
 
@@ -593,8 +592,6 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
         </CardBody>
       </Card>
 
-      {/* Equipment Effects */}
-      <EquipmentEffectsPanel character={character} />
     </div>
   );
 };

@@ -3,11 +3,6 @@
   "name": "Socialite",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors": [
-    "You face public mockery or accusation",
-    "You fail a social check severely",
-    "You experience betrayal from an ally"
-  ],
   "options": [
     {
       "name": "Socialite",

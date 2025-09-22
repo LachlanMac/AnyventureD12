@@ -20,7 +20,8 @@
       "difficulty": 8,
       "type": "fabrication"
     },
-    "properties": "Balanced protection and mobility"
+    "properties": "Balanced protection and mobility",
+    "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
     "name": "Steel Mail",
@@ -43,7 +44,8 @@
       "difficulty": 11,
       "type": "fabrication"
     },
-    "properties": "Enhanced protection with maintained flexibility"
+    "properties": "Enhanced protection with maintained flexibility",
+    "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
     "name": "True Steel Mail",
@@ -66,7 +68,8 @@
       "difficulty": 13,
       "type": "fabrication"
     },
-    "properties": "Slashing resistance gains +1 effectiveness"
+    "properties": "Slashing resistance gains +1 effectiveness",
+    "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
     "name": "Aetherium Mail",
@@ -90,7 +93,8 @@
       "difficulty": 15,
       "type": "fabrication"
     },
-    "properties": "No dexterity penalties from armor"
+    "properties": "No dexterity penalties from armor",
+    "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
     "name": "Starsteel Mail",
@@ -114,6 +118,7 @@
       "difficulty": 17,
       "type": "fabrication"
     },
-    "properties": "All physical damage types resistance gains +1 effectiveness"
+    "properties": "All physical damage types resistance gains +1 effectiveness",
+    "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   }
 ]

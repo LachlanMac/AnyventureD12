@@ -13,9 +13,10 @@ export type TabType =
 interface TabNavigationProps {
   activeTab: TabType;
   setActiveTab: (tab: TabType) => void;
+  canEdit?: boolean;
 }
 
-const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab }) => {
+const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab, canEdit = false }) => {
   const tabs: { id: TabType; label: string }[] = [
     { id: 'info', label: 'Character Info' },
     { id: 'modules', label: 'Modules' },

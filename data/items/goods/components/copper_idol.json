@@ -2,8 +2,13 @@
   "name": "Copper Idol",
   "description": "A small idol crafted from burnished copper, showing a figure in meditation. The copper has developed a distinctive green patina in places, giving it an ancient appearance. Commonly used in healing and restoration magic.",
   "type": "goods",
-  "tags": ["component", "metal", "healing"],
+  "tags": [
+    "component",
+    "metal",
+    "healing"
+  ],
   "weight": 0.6,
   "value": 60,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/treasure/figurine-idol.webp"
 }

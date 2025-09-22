@@ -3,8 +3,13 @@
     "name": "Wooden Long Shaft",
     "description": "A sturdy wooden shaft component measuring 6+ feet, crafted for polearms and two-handed weapons such as pikes, halberds, glaives, and quarterstaffs.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "shaft", "wood"],
-    "weight": 3.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "shaft",
+      "wood"
+    ],
+    "weight": 3,
     "value": 15,
     "rarity": "common",
     "properties": "Standard reach weapon shaft with no special effects"
@@ -13,8 +18,13 @@
     "name": "Metal Long Shaft",
     "description": "A lengthy metal shaft component providing superior strength and durability for heavy polearms requiring maximum reliability.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "shaft", "metal"],
-    "weight": 6.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "shaft",
+      "metal"
+    ],
+    "weight": 6,
     "value": 60,
     "rarity": "common",
     "properties": "Standard reach weapon shaft with enhanced durability"
@@ -23,7 +33,12 @@
     "name": "Reinforced Long Shaft",
     "description": "A lengthy reinforced shaft component offering exceptional strength and balance for premium polearms and two-handed weapons.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "shaft", "reinforced"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "shaft",
+      "reinforced"
+    ],
     "weight": 4.5,
     "value": 120,
     "rarity": "uncommon",

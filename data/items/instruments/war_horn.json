@@ -2,8 +2,11 @@
   "name": "War Horn",
   "description": "A curved horn made from brass or animal horn, used to signal troops in battle. Its powerful blast can rally allies or strike fear into enemies.",
   "type": "instrument",
-  "tags": ["brass"],
+  "tags": [
+    "brass"
+  ],
   "weight": 1.5,
   "value": 30,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/tools/instruments/horn-red-brown.webp"
 }

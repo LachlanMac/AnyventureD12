@@ -2,8 +2,11 @@
   "name": "Lapis Lazuli",
   "description": "A deep blue stone with gold flecks and opaque surface",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 400,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-blue.webp"
 }

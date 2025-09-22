@@ -2,8 +2,11 @@
   "name": "Aquamarine",
   "description": "A pale blue crystal with sea-like transparency and clarity",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 500,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-trillion-blue.webp"
 }

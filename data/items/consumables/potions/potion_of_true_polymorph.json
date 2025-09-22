@@ -16,5 +16,6 @@
       "Hair, Scale or Blood of targeted creature"
     ]
   },
-  "side_effect": "The consumer of this potion becomes confused immediately after the transformation if they fail a concentration check of 4."
+  "side_effect": "The consumer of this potion becomes confused immediately after the transformation if they fail a concentration check of 4.",
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
 }

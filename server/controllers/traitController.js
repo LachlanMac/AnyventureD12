@@ -7,6 +7,14 @@ import Trait from '../models/Trait.js';
 export const getTraits = async (req, res) => {
   try {
     const traits = await Trait.find({});
+
+    // Sort traits to put "Born to Adventure" first
+    traits.sort((a, b) => {
+      if (a.name === 'Born to Adventure') return -1;
+      if (b.name === 'Born to Adventure') return 1;
+      return a.name.localeCompare(b.name);
+    });
+
     res.json(traits);
   } catch (error) {
     console.error('Error fetching traits:', error);

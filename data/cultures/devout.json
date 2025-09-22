@@ -9,7 +9,7 @@
     },
     {
       "name": "Temperance",
-      "description": "Your faith does not allow you to partake in certain activities such as consuming mind-alterting substances, gambling or lying. If you do so, you lose 1 resolve."
+      "description": "Your faith does not allow you to partake in certain activities such as consuming mind-altering substances, gambling or lying. If you do so, you lose 1 resolve."
     }
   ],
   "benefits": [
@@ -33,7 +33,7 @@
     },
     {
       "name": "Pilgrim's Cloak",
-      "description": "A cloak that identifies you as a relgious traveler. Most cultures consider it dishonorable to attack a pilgrim, but it is equally dishonorable to start a conflict while wearing the pilgrim's cloak."
+      "description": "A cloak that identifies you as a religious traveler. Most cultures consider it dishonorable to attack a pilgrim, but it is equally dishonorable to start a conflict while wearing the pilgrim's cloak."
     }
   ],
   "options": [],

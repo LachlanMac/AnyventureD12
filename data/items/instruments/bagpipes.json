@@ -2,8 +2,11 @@
   "name": "Bagpipes",
   "description": "A complex wind instrument with an air reservoir and multiple pipes. Its distinctive drone and piercing melody can stir hearts or clear taverns.",
   "type": "instrument",
-  "tags": ["wind"],
+  "tags": [
+    "wind"
+  ],
   "weight": 2,
   "value": 40,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/tools/instruments/pipe-flue-tan.webp"
 }

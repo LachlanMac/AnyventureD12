@@ -19,7 +19,8 @@
       "difficulty": 5,
       "type": "fabrication"
     },
-    "properties": "Standard material damage with no special effects"
+    "properties": "Standard material damage with no special effects",
+    "foundry_icon": "icons/commodities/metal/barstock-heated-steel.webp"
   },
   {
     "name": "Steel Heavy Blade",
@@ -41,7 +42,8 @@
       "difficulty": 7,
       "type": "fabrication"
     },
-    "properties": "Standard material damage with no special effects"
+    "properties": "Standard material damage with no special effects",
+    "foundry_icon": "icons/commodities/metal/barstock-heated-steel.webp"
   },
   {
     "name": "True Steel Heavy Blade",
@@ -63,7 +65,8 @@
       "difficulty": 9,
       "type": "fabrication"
     },
-    "properties": "Adds +1  damage when fabricated into an item."
+    "properties": "Adds +1  damage when fabricated into an item.",
+    "foundry_icon": "icons/commodities/metal/barstock-heated-steel.webp"
   },
   {
     "name": "Starsteel Heavy Blade",
@@ -86,6 +89,7 @@
       "difficulty": 15,
       "type": "fabrication"
     },
-    "properties": "Adds +2 damage and +1 extra damage when fabricated into an item."
+    "properties": "Adds +2 damage and +1 extra damage when fabricated into an item.",
+    "foundry_icon": "icons/commodities/metal/barstock-heated-steel.webp"
   }
 ]

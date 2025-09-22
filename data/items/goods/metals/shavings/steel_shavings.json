@@ -2,8 +2,11 @@
   "name": "Steel Shavings",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.175,
   "value": 15,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/metal/fragments-sword-steel.webp"
 }

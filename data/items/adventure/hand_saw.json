@@ -2,7 +2,8 @@
   "name": "Hand Saw",
   "description": "A portable saw with sharp teeth for cutting wood or bone",
   "type": "adventure",
-  "weight": 2.0,
+  "weight": 2,
   "value": 80,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/hand/saw-steel-grey.webp"
 }

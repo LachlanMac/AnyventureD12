@@ -2,8 +2,11 @@
   "name": "Emerald",
   "description": "A rich green crystal with deep color and natural inclusions",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 4000,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-cut-square-green.webp"
 }

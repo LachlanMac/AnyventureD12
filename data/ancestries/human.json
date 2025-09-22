@@ -23,8 +23,8 @@
     },
     {
       "name": "Daily Reaction : Human Destiny",
-      "description": "The threads of destiny bend around humans, allowing them the opportunity to defy fate. Once per day, you can convert any amount of resolve into morale that lasts until the end of the day. If you use this reaction in response to taking damage that causes you to reach 0 health, you gain this as health instead.",
-      "data": "ZDNE=0:TA"
+      "description": "The threads of destiny bend around humans, allowing them the opportunity to defy fate. In response to rolling on the lifeline table after knowing the result, you replace the result of the roll with one of the other options on the table.",
+      "data": "ZDNE=0"
     }
   ]
 }

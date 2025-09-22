@@ -19,12 +19,12 @@
     {
       "name": "Giant's Blood",
       "description": "Half-Giants have the blood of their ancestors flowing through their veins. Gain +3 health and +2 cold mitigation.",
-      "data": "H=3:M3=2:TA"
+      "data": "A1=3:M3=2:TA"
     },
     {
       "name": "Action : Giant Toss",
-      "description": "You take a modified version of the Shove action against a creature smaller than you. Instead of a success or fail, you can displace the creature 2 units, plus another unit for each successful might dice against their check to avoid it. The creature takes fall damage against the total distance traveled.",
-      "data": "XX3:TA"
+      "description": "You take a modified version of the shove action against a creature smaller than you. Instead of a success or fail, you can displace the creature 2 units, plus another unit for each successful might dice against their check to avoid it. The creature takes fall damage against the total distance traveled.",
+      "data": "XINE=1"
     },
     {
       "name": "Primitive",

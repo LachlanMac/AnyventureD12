@@ -18,13 +18,13 @@
     },
     {
       "name": "Dual Synapses",
-      "description": "Gnomes have a talent for focusing on spells and other complex tasks, gaining a +1 Bonus to Concentration. Additionally, Gnomes maintain their concentration while unconscious or sleeping.",
-      "data": "TG:SSJ=1"
+      "description": "Gnomes have a talent for focusing on spells and other complex tasks, gaining +1 skill with concentration. Additionally, Gnomes maintain their concentration while unconscious or sleeping.",
+      "data": "SSJ=1:TG"
     },
     {
       "name": "Daily Action : Gnomish Touch",
-      "description": "You touch an object and reveal any magical properties on it. Additionally, you can make an academics check to appraise an item and determine its approximate value.",
-      "data": "XD1:TA"
+      "description": "You touch an object and reveal any magical properties on it. When you identify an object in this way, you can also make an academics check to appraise it and determine the approximate value.",
+      "data": "XDME=0"
     },
     {
       "name": "Fractured Minds",

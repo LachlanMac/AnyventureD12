@@ -38,6 +38,36 @@ const Characters: React.FC = () => {
     return biography.length > 50 ? biography.substring(0, 50) + '...' : biography;
   };
 
+  // Export character to FoundryVTT format
+  const exportToFoundry = async (characterId: string, characterName: string) => {
+    try {
+      const response = await fetch(`/api/characters/${characterId}/export-foundry`, {
+        headers: {
+          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to export character');
+      }
+
+      // Create a blob from the response and trigger download
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = `${characterName.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_foundry.json`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('Error exporting character:', error);
+      alert('Failed to export character. Please try again.');
+    }
+  };
+
   if (loading) {
     return <LoadingSpinner size="lg" message="Loading your characters..." />;
   }
@@ -286,43 +316,84 @@ const Characters: React.FC = () => {
                     <span style={{ color: 'var(--color-cloud)' }}>
                       {getBiographyExcerpt(character.biography)}
                     </span>
-                    <button
-                      className="flex items-center justify-center w-8 h-8 rounded-full"
-                      style={{
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: 'none',
-                        transition: 'background-color 0.2s ease',
-                      }}
-                      onMouseOver={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--color-stormy)';
-                        e.stopPropagation();
-                      }}
-                      onMouseOut={(e) => {
-                        e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)';
-                        e.stopPropagation();
-                      }}
-                      onClick={(e) => {
-                        e.preventDefault();
-                        // Navigate to character view
-                        window.location.href = `/characters/${character._id}`;
-                      }}
-                    >
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        strokeWidth={2}
-                        stroke="currentColor"
-                        className="w-4 h-4"
+                    <div style={{ display: 'flex', gap: '0.5rem' }}>
+                      <button
+                        className="flex items-center justify-center w-8 h-8 rounded-full"
+                        style={{
+                          backgroundColor: 'var(--color-accent)',
+                          color: 'var(--color-white)',
+                          border: 'none',
+                          transition: 'background-color 0.2s ease',
+                        }}
+                        title="Export to FoundryVTT"
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.backgroundColor = 'var(--color-accent-dark)';
+                          e.stopPropagation();
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.backgroundColor = 'var(--color-accent)';
+                          e.stopPropagation();
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          e.stopPropagation();
+                          exportToFoundry(character._id, character.name);
+                        }}
                       >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          d="M8.25 4.5l7.5 7.5-7.5 7.5"
-                        />
-                      </svg>
-                    </button>
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M3 16.5v2.25A2.25 2.25 0 005.25 21h13.5A2.25 2.25 0 0021 18.75V16.5M16.5 12L12 16.5m0 0L7.5 12m4.5 4.5V3"
+                          />
+                        </svg>
+                      </button>
+                      <button
+                        className="flex items-center justify-center w-8 h-8 rounded-full"
+                        style={{
+                          backgroundColor: 'var(--color-dark-elevated)',
+                          color: 'var(--color-white)',
+                          border: 'none',
+                          transition: 'background-color 0.2s ease',
+                        }}
+                        title="View Character"
+                        onMouseOver={(e) => {
+                          e.currentTarget.style.backgroundColor = 'var(--color-stormy)';
+                          e.stopPropagation();
+                        }}
+                        onMouseOut={(e) => {
+                          e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)';
+                          e.stopPropagation();
+                        }}
+                        onClick={(e) => {
+                          e.preventDefault();
+                          // Navigate to character view
+                          window.location.href = `/characters/${character._id}`;
+                        }}
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          fill="none"
+                          viewBox="0 0 24 24"
+                          strokeWidth={2}
+                          stroke="currentColor"
+                          className="w-4 h-4"
+                        >
+                          <path
+                            strokeLinecap="round"
+                            strokeLinejoin="round"
+                            d="M8.25 4.5l7.5 7.5-7.5 7.5"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>

@@ -417,7 +417,9 @@ const Bestiary: React.FC = () => {
                             </div>
                           </div>
                           <div style={{ textAlign: 'right' }}>
-                            <TalentDisplay talent={creature.challenge_rating} size="sm" />
+                            {(creature.tier === 'elite' || creature.tier === 'legend' || creature.tier === 'mythic') && (
+                              <TalentDisplay talent={creature.challenge_rating} size="sm" />
+                            )}
                           </div>
                         </div>
 

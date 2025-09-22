@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.2,
   "value": 1,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/meat/side-pork-fat-skin-pink.webp"
 }

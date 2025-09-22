@@ -2,7 +2,8 @@
   "name": "Disguise Kit",
   "description": "Contains makeup, wigs, and prosthetics for altering one's appearance",
   "type": "adventure",
-  "weight": 3.0,
+  "weight": 3,
   "value": 250,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/head/mask-carved-face-orange.webp"
 }

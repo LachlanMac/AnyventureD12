@@ -45,8 +45,8 @@
     },
     {
       "name": "Action : Snapjaw",
-      "description": "You make a modified unarmed attack against a creature with a bonus dice, dealing 3 physical damage for the primary dice and any extra dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
-      "data": "XX3:TA"
+      "description": "You make a modified unarmed attack against a creature with a bonus dice, dealing 3 physical damage for each dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
+      "data": "XINE=1"
     },
     {
       "name": "Cold Blooded",

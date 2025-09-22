@@ -4,5 +4,6 @@
   "type": "goods",
   "weight": 0.1,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/back/cape-layered-blue-accent.webp"
 }

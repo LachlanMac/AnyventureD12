@@ -19,7 +19,7 @@
     {
       "name": "Action : Bullcharge",
       "description": "You take a modified version of the Sprint action, which allows you to shove a creature your size or smaller if you travel at least half of your total sprint speed. If the shove is successful, the creature takes 2 physical damage for each unit you traveled during your sprint.",
-      "data": "XX3:TA"
+      "data": "XINE=1"
     },
     {
       "name": "Dark Blood of the Ancients",

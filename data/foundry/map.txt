@@ -1,0 +1,362 @@
+15 ft. Rope [5 Units]->
+30 ft. Rope [10 Units]->
+40-Page Journal->
+45 ft. Rope [15 Units]->
+60 ft. Rope [20 Units]->
+90 ft. Spool of Invisible String [30 Units]->
+90 ft. Spool of String [30 Units]->
+Advanced Lock->
+Advanced Lock Pick->
+Aetherium Ingot->
+Aetherium Nugget->
+Aetherium Shavings->
+Agate->
+Alarm Trap Kit->
+Alexandrite->
+Amber->
+Amethyst->
+Amulet->
+Animal Fat->
+Aquamarine->
+Arbalest->
+Armored Boots->
+Armored Helmet->
+Ash Wood->
+Azurite->
+Bagpipes->
+Basilisk Poison->
+Battleaxe->
+Beast's Eyeball->
+Beeswax->
+Belt->
+Bindings->
+Binoculars->
+Black Diamond->
+Black Pearl->
+Bloodstone->
+Bone Dust->
+Bottle of Vinegar->
+Bracer->
+Brass Fittings->
+Brass Idol->
+Brass Ingot->
+Brass Sheet->
+Buckler->
+Bundle of Bloodthorn->
+Bundle of Cloth->
+Bundle of Copper Wire->
+Bundle of Echinacea->
+Bundle of Embervine->
+Bundle of Eyestalk->
+Bundle of Frostleaf->
+Bundle of Gingko->
+Bundle of Ginseng->
+Bundle of Golden Poppy->
+Bundle of Grave Moss->
+Bundle of Guarana->
+Bundle of Heavy Leather->
+Bundle of Incense->
+Bundle of Licorice->
+Bundle of Light Leather->
+Bundle of Lion's Mane->
+Bundle of Mandrake->
+Bundle of Mint->
+Bundle of Mugwort->
+Bundle of Nightshade->
+Bundle of Peppermint->
+Bundle of Rosemary->
+Bundle of Saffron->
+Bundle of Sage->
+Bundle of Silk->
+Bundle of Valerian Root->
+Bundle of Yarrow->
+Carnelian->
+Chainmail->
+Chalcedony->
+Chalk Powder->
+Charcoal->
+Citrine->
+Clockwork Gears->
+Clockwork Lantern->
+Cloth Gloves->
+Club->
+Coal->
+Cobalt Ingot->
+Cobalt Nugget->
+Cobalt Shavings->
+Cooking Oil->
+Copper Idol->
+Copper Ingot->
+Copper Nugget->
+Copper Shavings->
+Copper Sheet->
+Crossbow->
+Dagger->
+Deadly Poison->
+Diamond->
+Disguise Kit->
+Dried Herbs->
+Dried Meat->
+Earthen Staff->
+Earthen Wand->
+Electrum Ingot->
+Electrum Nugget->
+Electrum Shavings->
+Elixir of Antidote->
+Elixir of Awakening->
+Elixir of Healing->
+Elixir of Rejuvenation->
+Elixir of Restoration->
+Ember Dust->
+Emerald->
+Explosive Trap Kit->
+Falchion->
+Fire Bomb->
+Fire Opal->
+Fishing Pole->
+Flail->
+Flame Emerald->
+Flame Staff->
+Flame Wand->
+Flash Bomb->
+Flint->
+Flint->
+Fresh Eggs->
+Fresh Milk->
+Frost Dust->
+Frost Sapphire->
+Fruit->
+Fur Boots->
+Fur Cloak->
+Fur Gloves->
+Fur Hat->
+Garnet->
+Glaive->
+Gold Idol->
+Gold Ingot->
+Gold Nugget->
+Gold Shavings->
+Grappling Hook->
+Great-Axe->
+Great-Hammer->
+Great-Sword->
+Grinding File->
+Halberd->
+Hand Crossbow->
+Hand Saw->
+Handaxe->
+Hematite->
+Hickory Wood->
+Human Skull->
+Hunting Horn->
+Ice Staff->
+Ice Wand->
+Iron Idol->
+Iron Ingot->
+Iron Nugget->
+Iron Pan->
+Iron Pot->
+Iron Shavings->
+Iron-Head Arrow->
+Ironwood->
+Jade->
+Jar of Honey->
+Jasper->
+Jolting Staff->
+Jolting Wand->
+Kite Shield->
+Lapis Lazuli->
+Large Net->
+Lead Ingot->
+Lead Nugget->
+Lead Shavings->
+Lead Weight->
+Leather Armor->
+Leather Boots->
+Leather Gloves->
+Leather Helmet->
+Lock Pick->
+Lodestone->
+Long Chain->
+Longbow->
+Longsword->
+Lute->
+Luxurious Tent->
+Lyre->
+Malachite->
+Mark of Innate Talent->
+Mechanical Lockpick->
+Medical Bandage->
+Medicine Kit->
+Mind Staff->
+Mind Wand->
+Moonstone->
+Mortar and Pestle->
+Needle->
+Net->
+Nickel Nugget->
+Nickel Nugget->
+Nickel Shavings->
+Nuts->
+Obsidian->
+Oil Lantern->
+Onyx->
+Opal->
+Painting Kit->
+Paralytic Venom->
+Pearl->
+Peridot->
+Pickled Vegetables->
+Pike->
+Pinch of Ash->
+Pinch of Crystal Dust->
+Pinch of Gypsum Powder->
+Pinch of Ochre Dust->
+Pinch of Phosphorus->
+Pinch of Potash Powder->
+Pinch of Salt->
+Pinch of Saltpeter->
+Pinch of Spices->
+Pinch of Sugar->
+Pinch of Sulfur->
+Pinch of Talc Powder->
+Pine Resin->
+Pixie Dust->
+Plate Armor->
+Plate Helmet->
+Platinum Ingot->
+Platinum Nugget->
+Platinum Shavings->
+Potion of Big Mind->
+Potion of Calming->
+Potion of Forgetting->
+Potion of Luck->
+Potion of Polymorph->
+Potion of Quick Tongue->
+Potion of Rage->
+Potion of Reflex->
+Potion of Serpent Sight->
+Potion of Sleep->
+Potion of True Form->
+Potion of True Polymorph->
+Potion of the Leviathan->
+Potion of the Spider->
+Potion of the Titan->
+Prayer Staff->
+Prayer Wand->
+Quarterstaff->
+Quartz->
+Rapier->
+Release Mechanism->
+Ring->
+Robes->
+Round Shield->
+Rubber Sap->
+Ruby->
+Rune of Minor Alarm->
+Rune of Minor Light->
+Rune of Minor Preservation->
+Rune of Minor Return->
+Rune of Minor Sealing->
+Rune of Minor Silence->
+Sack of Beans->
+Sack of Flour->
+Sack of Rice->
+Sack of Sugar->
+Sapphire->
+Scale Mail->
+Scimitar->
+Scout's Cloak->
+Scroll->
+Set of Manacles->
+Shadow Onyx->
+Shard of Obsidian->
+Sharpening Stone->
+Shooting Trap Kit->
+Short Metal Chain->
+Shortbow->
+Shortsword->
+Shovel->
+Shrapnel Bomb->
+Silver Idol->
+Silver Ingot->
+Silver Nugget->
+Silver Shavings->
+Simple Lock->
+Simple Shoes->
+Skinning Knife->
+Sky Emerald->
+Sling->
+Smelling Salts->
+Smithing Bellows->
+Smithing Hammer->
+Smithing Tongs->
+Smoke Bomb->
+Smoked Fish->
+Snare Trap Kit->
+Spark Dust->
+Spear->
+Spices (Tier 1)->
+Spices (Tier 2)->
+Spices (Tier 3)->
+Spirit Moonstone->
+Spirit Staff->
+Spirit Wand->
+Spyglass->
+Stabilizing Salt->
+Star Ruby->
+Starsteel Ingot->
+Starsteel Nugget->
+Starsteel Shavings->
+Steel Gauntlets->
+Steel Ingot->
+Steel Nugget->
+Steel Shavings->
+Steel Sheet->
+Sticky Bomb->
+Storm Topaz->
+Studded Leather->
+Tambourine->
+Tarot Card->
+Tent->
+Tin Ingot->
+Tin Nugget->
+Tin Shavings->
+Tin Sheet->
+Topaz->
+Torch->
+Tower Shield->
+Tranquilizer Serum->
+Traveler's Cloak->
+Treated Scroll->
+True Steel Ingot->
+Turquoise->
+Twisted Staff->
+Twisted Wand->
+Vegetable->
+Vial of Acid->
+Vial of Alchemist's Spirits->
+Vial of Ammonia->
+Vial of Blight->
+Vial of Caustic Lye->
+Vial of Dried Blood->
+Vial of Holy Water->
+Vial of Pitch->
+Vial of Quicksilver->
+Vial of Venom->
+Void Amethyst->
+Voodoo Doll->
+War Drum->
+War Horn->
+War Mace->
+Warbow->
+Warhammer->
+Wearable Oil Lantern->
+Wheel of Cheese->
+Whip->
+Wood Treatment Oil->
+Wooden Arrow->
+Wooden Flute->
+Yeast->
+Yew Wood->
+Zephyr Dust->

@@ -16,5 +16,6 @@
       "Vial of Alchemist's Spirits"
     ]
   },
-  "side_effect": "The consumer takes 10 toxic damage if they fail an endurance check of 6."
+  "side_effect": "The consumer takes 10 toxic damage if they fail an endurance check of 6.",
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
 }

@@ -2,7 +2,8 @@
   "name": "60 ft. Rope [20 Units]",
   "description": "A substantial 20 unit length of rope, ideal for challenging climbs or significant distances",
   "type": "adventure",
-  "weight": 10.0,
+  "weight": 10,
   "value": 300,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/rope-coiled-brown.webp"
 }

@@ -3,6 +3,7 @@
   "description": "A simple but effective bludgeon made from heavy wood or stone.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
+  "hands": 1,
   "weight": 0.5,
   "value": 50,
   "bonus_attack": 0,
@@ -45,5 +46,6 @@
     "difficulty": 5,
     "ingredients": []
   },
-  "encumbrance_penalty": 0
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/clubs/club-barbed.webp"
 }

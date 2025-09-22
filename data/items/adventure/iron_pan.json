@@ -2,7 +2,8 @@
   "name": "Iron Pan",
   "description": "A heavy skillet for cooking over open flames",
   "type": "adventure",
-  "weight": 3.0,
+  "weight": 3,
   "value": 30,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/cooking/pot-camping-iron-black.webp"
 }

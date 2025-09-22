@@ -2,8 +2,11 @@
   "name": "Spirit Moonstone",
   "description": "A luminous moonstone that phases between the material and ethereal planes, pulsing with mystical energy",
   "type": "goods",
-  "tags": ["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 6500,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-round-white.webp"
 }

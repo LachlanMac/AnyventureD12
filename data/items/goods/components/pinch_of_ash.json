@@ -2,8 +2,11 @@
   "name": "Pinch of Ash",
   "description": "Fine gray powder left behind after wood or bone has burned completely",
   "type": "goods",
-"tags": ["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.1,
   "value": 1,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/materials/powder-grey.webp"
 }

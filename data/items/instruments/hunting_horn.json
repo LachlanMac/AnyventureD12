@@ -2,8 +2,11 @@
   "name": "Hunting Horn",
   "description": "A small curved horn traditionally used during hunts to coordinate riders and hounds. Its clear, carrying notes can communicate complex messages across great distances.",
   "type": "instrument",
-  "tags": ["brass"],
+  "tags": [
+    "brass"
+  ],
   "weight": 0.8,
   "value": 15,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/instruments/horn-flared-wood.webp"
 }

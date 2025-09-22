@@ -2,8 +2,11 @@
   "name": "Electrum Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 0.75,
   "value": 300,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-pile-nuggets-gold.webp"
 }

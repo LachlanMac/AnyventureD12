@@ -3,7 +3,12 @@
     "name": "Wooden Short Shaft",
     "description": "A compact wooden shaft component shorter than 1 unit in length, suitable for crafting one-handed weapons and shorter implements.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "shaft", "wood"],
+    "tags": [
+      "parts",
+      "weapon_component",
+      "shaft",
+      "wood"
+    ],
     "weight": 1.5,
     "value": 8,
     "rarity": "common",
@@ -13,10 +18,16 @@
     "name": "Metal Short Shaft",
     "description": "A compact metal shaft shorter than 1 unit in length providing superior durability for one-handed weapons requiring maximum strength.",
     "type": "goods",
-    "tags": ["parts", "weapon_component", "shaft", "metal"],
-    "weight": 3.0,
+    "tags": [
+      "parts",
+      "weapon_component",
+      "shaft",
+      "metal"
+    ],
+    "weight": 3,
     "value": 35,
     "rarity": "common",
-    "properties": "Standard one-handed weapon shaft with no special effects or benefits"
+    "properties": "Standard one-handed weapon shaft with no special effects or benefits",
+    "foundry_icon": "icons/weapons/staves/staff-animal-bird.webp"
   }
 ]

@@ -2,8 +2,11 @@
   "name": "Platinum Ingot",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
+  "tags": [
+    "metal"
+  ],
   "weight": 10,
   "value": 10000,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/metal/ingot-engraved-silver.webp"
 }

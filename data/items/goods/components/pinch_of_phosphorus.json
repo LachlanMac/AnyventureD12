@@ -2,8 +2,11 @@
   "name": "Pinch of Phosphorus",
   "description": "White powder that glows faintly and ignites spontaneously in air",
   "type": "goods",
-"tags": ["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.1,
   "value": 300,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/materials/powder-yellow.webp"
 }

@@ -4,5 +4,6 @@
   "type": "adventure",
   "weight": 2.5,
   "value": 60,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/rope-coiled-brown.webp"
 }

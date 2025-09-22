@@ -2,8 +2,11 @@
   "name": "Pickled Vegetables",
   "description": "Vegetables preserved in brine that add tangy flavor to meals",
   "type": "goods",
-"tags":["ingredient"],
+  "tags": [
+    "ingredient"
+  ],
   "weight": 1.5,
   "value": 40,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/vegetable/cucumber-pickle-green.webp"
 }

@@ -58,9 +58,15 @@ const ItemSchema = new Schema({
     required: true 
   },
 
-  weapon_category: { 
-      type: String, 
+  weapon_category: {
+      type: String,
       enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
+  },
+  hands: {
+      type: Number,
+      min: 1,
+      max: 2,
+      default: 1 // Default to 1-handed
   },
   shield_category: { 
       type: String, 
@@ -244,7 +250,18 @@ const ItemSchema = new Schema({
   
   // Metadata
   createdAt: { type: Date, default: Date.now },
-  updatedAt: { type: Date, default: Date.now }
+  updatedAt: { type: Date, default: Date.now },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
+  },
+  foundry_icon: {
+    type: String,
+    default: ""
+  }
 }, {
   timestamps: true // Automatically handle createdAt and updatedAt
 });

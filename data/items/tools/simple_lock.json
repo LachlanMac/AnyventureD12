@@ -1,8 +1,8 @@
 {
   "name": "Simple Lock",
   "description": "A simple lock requiring a Thievery check of 8 or higher to pick without the key",
-  "type": "tools",
-  "weight": 1.0,
+  "type": "tool",
+  "weight": 1,
   "value": 300,
   "rarity": "common",
   "recipe": {
@@ -13,5 +13,6 @@
       "Bindings",
       "Pine Resin"
     ]
-  }
+  },
+  "foundry_icon": "icons/sundries/misc/lock-steel-blue.webp"
 }

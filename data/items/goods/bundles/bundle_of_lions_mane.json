@@ -2,8 +2,13 @@
   "name": "Bundle of Lion's Mane",
   "description": "A collection of golden-brown mane hair taken from a lion, tied with red thread. The hair seems to radiate warmth and courage, stirring feelings of bravery in those who hold it. Prized by warriors and clerics alike for spells that inspire valor and fearlessness.",
   "type": "goods",
-  "tags": ["bundle", "organic", "animal"],
+  "tags": [
+    "bundle",
+    "organic",
+    "animal"
+  ],
   "weight": 0.2,
   "value": 150,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/consumables/plants/dried-herb-bundle-brown.webp"
 }

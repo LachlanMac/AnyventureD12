@@ -2392,7 +2392,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           <option value="electric">Electric</option>
                           <option value="dark">Dark</option>
                           <option value="divine">Divine</option>
-                          <option value="aether">Aether</option>
+                          <option value="aether">Aetheric</option>
                           <option value="psychic">Psychic</option>
                           <option value="toxic">Toxic</option>
                         </select>

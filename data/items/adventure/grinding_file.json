@@ -2,7 +2,8 @@
   "name": "Grinding File",
   "description": "A metal file for shaping metal or removing rust",
   "type": "adventure",
-  "weight": 1.0,
+  "weight": 1,
   "value": 40,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/smithing/hammer-maul-steel-grey.webp"
 }

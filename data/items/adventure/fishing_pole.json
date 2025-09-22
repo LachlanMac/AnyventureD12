@@ -2,7 +2,8 @@
   "name": "Fishing Pole",
   "description": "A collapsible rod with line and hooks for catching fish",
   "type": "adventure",
-  "weight": 2.0,
+  "weight": 2,
   "value": 50,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/tools/fishing/rod-simple-bamboo.webp"
 }

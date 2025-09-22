@@ -4,5 +4,6 @@
   "type": "accessory",
   "weight": 0.5,
   "value": 8,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/equipment/wrist/bracer-armored-steel-blue.webp"
 }

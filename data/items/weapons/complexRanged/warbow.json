@@ -49,5 +49,6 @@
       "Bindings"
     ]
   },
-  "encumbrance_penalty": 0
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/bows/longbow-recurve-leather-brown.webp"
 }

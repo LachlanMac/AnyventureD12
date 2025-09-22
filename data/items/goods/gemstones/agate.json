@@ -2,8 +2,11 @@
   "name": "Agate",
   "description": "A banded stone with layers of different colors and patterns",
   "type": "goods",
-"tags":["gemstone"],
+  "tags": [
+    "gemstone"
+  ],
   "weight": 0.1,
   "value": 80,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-yellow.webp"
 }

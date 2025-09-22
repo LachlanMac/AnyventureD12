@@ -2,8 +2,13 @@
   "name": "Voodoo Doll",
   "description": "A small humanoid figure crafted from cloth and stuffed with herbs, bound with dark thread and pierced with pins. Used in sympathetic magic rituals to establish connections with distant targets. The doll's crude features seem to shift in the shadows.",
   "type": "goods",
-  "tags": ["component", "dark", "ritual"],
+  "tags": [
+    "component",
+    "dark",
+    "ritual"
+  ],
   "weight": 0.2,
   "value": 100,
-  "rarity": "rare"
+  "rarity": "rare",
+  "foundry_icon": "icons/commodities/treasure/doll-voodoo.webp"
 }

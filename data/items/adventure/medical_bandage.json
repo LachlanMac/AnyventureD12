@@ -5,5 +5,6 @@
   "subtype": "consumable",
   "value": 10,
   "weight": 0.5,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/cloth/cloth-roll-tan.webp"
 }

@@ -2,8 +2,11 @@
   "name": "Nickel Nugget",
   "description": "",
   "type": "goods",
-"tags": ["metal"],
-  "weight": 1.0,
+  "tags": [
+    "metal"
+  ],
+  "weight": 1,
   "value": 200,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/stone/ore-chunk-green.webp"
 }

@@ -2,8 +2,11 @@
   "name": "Pinch of Saltpeter",
   "description": "White crystalline powder that burns rapidly when ignited",
   "type": "goods",
-"tags": ["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.1,
   "value": 200,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/gems/powder-raw-white.webp"
 }

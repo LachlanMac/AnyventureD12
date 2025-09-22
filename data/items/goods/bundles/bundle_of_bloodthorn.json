@@ -2,8 +2,11 @@
   "name": "Bundle of Bloodthorn",
   "description": "Thorny vines that cause anger and intense emotions when touched, often found growing around corpses",
   "type": "goods",
-"tags":["ingredient"],
-  "weight": 1.0,
+  "tags": [
+    "ingredient"
+  ],
+  "weight": 1,
   "value": 400,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/plants/dried-herb-bundle-brown.webp"
 }

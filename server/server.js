@@ -26,6 +26,7 @@ import homebrewSpellRoutes from './routes/homebrewSpellRoutes.js';
 import homebrewCreatureRoutes from './routes/homebrewCreatureRoutes.js';
 import creatureRoutes from './routes/creatureRoutes.js';
 import songRoutes from './routes/songRoutes.js';
+import foundryRoutes from './routes/foundryRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -50,8 +51,24 @@ dotenv.config();
 const app = express();
 
 // Middleware
+// Configure CORS to allow both React frontend and FoundryVTT
+const allowedOrigins = [
+  process.env.FRONTEND_URL || 'http://localhost:5174',
+  'http://localhost:30000', // FoundryVTT default port
+  'http://localhost:5174'   // React dev server
+];
+
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:4000',
+  origin: function(origin, callback) {
+    // Allow requests with no origin (like mobile apps or curl requests)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(null, true); // For development, allow all origins. Change to callback(new Error('Not allowed by CORS')) for production
+    }
+  },
   credentials: true  // Allow cookies to be sent
 }));
 app.use(express.json());
@@ -123,6 +140,7 @@ app.use('/api/homebrew/creatures', homebrewCreatureRoutes);
 app.use('/api/creatures', creatureRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 app.use('/api/characters/:characterId/songs', characterSongRoutes);
+app.use('/fvtt', foundryRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {
   res.json({ message: 'API is running' });

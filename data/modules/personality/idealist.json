@@ -3,11 +3,6 @@
   "name": "Idealist",
   "mtype": "personality",
   "ruleset": 1,
-  "stressors": [
-    "Your core beliefs face challenge",
-    "You witness injustice",
-    "You violate your oath or personal code"
-  ],
   "options": [
     {
       "name": "Idealist",

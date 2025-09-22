@@ -2,7 +2,8 @@
   "name": "Short Metal Chain",
   "description": "A short length of chain ideal for manacles or securing small items.",
   "type": "adventure",
-  "weight": 4.0,
+  "weight": 4,
   "value": 100,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/metal/chain-steel.webp"
 }

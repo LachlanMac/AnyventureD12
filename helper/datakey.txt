@@ -80,7 +80,7 @@ EX. M1=1 MITIGATION
 4: Electric
 5: Dark
 6: Divine
-7: Aether
+7: Aetheric
 8: Psychic
 9: Toxic
 A: True

@@ -2,7 +2,8 @@
   "name": "Set of Manacles",
   "description": "Metal restraints that can bind a creature's arms or legs that require a thievery check of 8 to open with the correct tools.",
   "type": "adventure",
-  "weight": 6.0,
+  "weight": 6,
   "value": 200,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/cuffs-shackles-steel.webp"
 }

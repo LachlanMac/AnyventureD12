@@ -2,8 +2,11 @@
   "name": "Pinch of Spices",
   "description": "A mixture of various spices used to enhance the flavor of numerous dishes",
   "type": "goods",
-"tags":["ingredient"],
+  "tags": [
+    "ingredient"
+  ],
   "weight": 0.1,
   "value": 40,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/food/spice-anise-pod.webp"
 }

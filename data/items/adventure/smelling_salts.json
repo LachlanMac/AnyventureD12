@@ -5,5 +5,6 @@
   "subtype": "consumable",
   "value": 10,
   "weight": 0.1,
-  "rarity": "common"
-}  
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/potions/vial-ornet-silver-black.webp"
+}

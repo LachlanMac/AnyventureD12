@@ -2,8 +2,13 @@
   "name": "Silver Ingot",
   "description": "A precious metal ingot with a brilliant white luster. Silver is highly valued for currency, jewelry, and decorative items. It is also known for its conductivity and resistance to corrosion.",
   "type": "goods",
-  "tags": ["metal", "ingot", "precious"],
+  "tags": [
+    "metal",
+    "ingot",
+    "precious"
+  ],
   "weight": 5,
   "value": 500,
-  "rarity": "uncommon"
+  "rarity": "uncommon",
+  "foundry_icon": "icons/commodities/metal/ingot-silver.webp"
 }

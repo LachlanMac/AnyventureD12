@@ -2,7 +2,8 @@
   "name": "40-Page Journal",
   "description": "A sturdy bound journal containing 40 blank pages, ideal for recording adventures or sketching",
   "type": "adventure",
-  "weight": 1.0,
+  "weight": 1,
   "value": 80,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/books/book-embossed-gold-green.webp"
 }

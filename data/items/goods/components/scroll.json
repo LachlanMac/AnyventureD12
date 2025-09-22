@@ -2,8 +2,12 @@
   "name": "Scroll",
   "description": "A blank parchment scroll made from quality vellum, suitable for writing spells, contracts, or important documents. The surface is smooth and receptive to both ink and magical inscriptions.",
   "type": "goods",
-  "tags": ["component", "paper"],
+  "tags": [
+    "component",
+    "paper"
+  ],
   "weight": 0.1,
   "value": 100,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/scrolls/scroll-bound-black-brown.webp"
 }

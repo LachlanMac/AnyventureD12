@@ -15,5 +15,6 @@
       "Vial of Quicksilver"
     ]
   },
-  "side_effect": "The consumer loses 3 resolve after the potion wears off."
+  "side_effect": "The consumer loses 3 resolve after the potion wears off.",
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
 }

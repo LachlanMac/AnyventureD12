@@ -2,7 +2,11 @@
   "name": "Clockwork Gears",
   "description": "A set of precisely cut interlocking gears made from steel sheets. Essential for any clockwork mechanism",
   "type": "goods",
-  "tags": ["part", "crafting_material", "clockwork"],
+  "tags": [
+    "part",
+    "crafting_material",
+    "clockwork"
+  ],
   "weight": 0.3,
   "value": 150,
   "rarity": "common",
@@ -14,5 +18,6 @@
       "Vial of Acid",
       "Pinch of Crystal Dust"
     ]
-  }
+  },
+  "foundry_icon": "icons/commodities/tech/cog-steel.webp"
 }

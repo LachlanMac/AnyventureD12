@@ -63,7 +63,14 @@ const TraitSchema = new Schema({
     type: String,
     required: true
   },
-  options: [TraitOptionSchema]
+  options: [TraitOptionSchema],
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
+  }
 }, {
   timestamps: true
 });

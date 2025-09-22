@@ -168,6 +168,13 @@ const SpellSchema = new Schema({
   updatedAt: {
     type: Date,
     default: Date.now
+  },
+  foundry_id: {
+    type: String,
+    required: true,
+    unique: true,
+    minlength: 16,
+    maxlength: 16
   }
 }, {
   timestamps: true // Automatically handle createdAt and updatedAt

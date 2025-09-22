@@ -83,11 +83,15 @@ const CharacterView: React.FC = () => {
       try {
         setLoading(true);
 
-        // Fetch character data
+        // Fetch character data (public characters don't need auth token)
+        const headers: any = {};
+        const token = localStorage.getItem('token');
+        if (token) {
+          headers.Authorization = `Bearer ${token}`;
+        }
+
         const characterResponse = await fetch(`/api/characters/${id}`, {
-          headers: {
-            Authorization: `Bearer ${localStorage.getItem('token')}`,
-          },
+          headers,
         });
 
         if (!characterResponse.ok) {
@@ -101,21 +105,21 @@ const CharacterView: React.FC = () => {
         setCharacter(characterData);
 
         // Determine if user can edit this character
-        const isCharacterOwner = characterData.userId === user?.id;
+        const isCharacterOwner = user && characterData.userId === user.id;
         let isCampaignOwner = false;
 
-        // If coming from a campaign, fetch campaign data to check ownership
-        if (campaignId) {
+        // If coming from a campaign and user is logged in, fetch campaign data to check ownership
+        if (campaignId && user && token) {
           try {
             const campaignResponse = await fetch(`/api/campaigns/${campaignId}`, {
               headers: {
-                Authorization: `Bearer ${localStorage.getItem('token')}`,
+                Authorization: `Bearer ${token}`,
               },
             });
             if (campaignResponse.ok) {
               const campaignData = await campaignResponse.json();
               setCampaign(campaignData);
-              isCampaignOwner = campaignData.owner._id === user?.id;
+              isCampaignOwner = campaignData.owner._id === user.id;
             }
           } catch (err) {
             console.warn('Could not fetch campaign data:', err);
@@ -132,9 +136,8 @@ const CharacterView: React.FC = () => {
       }
     };
 
-    if (user) {
-      fetchData();
-    }
+    // Always fetch data - public characters can be viewed without authentication
+    fetchData();
   }, [id, user, campaignId]);
 
   const handleDelete = async () => {
@@ -357,7 +360,7 @@ const CharacterView: React.FC = () => {
 
         {/* Tab navigation */}
         <div style={{ marginTop: '2rem' }}>
-          <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} />
+          <TabNavigation activeTab={activeTab} setActiveTab={setActiveTab} canEdit={canEdit} />
         </div>
 
         {/* Tab content */}
@@ -384,7 +387,6 @@ const CharacterView: React.FC = () => {
               character={character}
               characterId={character._id}
               personality={personalityName}
-              stressors={character.stressors || []}
             />
           )}
           {activeTab === 'spells' && (
@@ -417,6 +419,7 @@ const CharacterView: React.FC = () => {
               portraitUrl={character.portraitUrl}
             />
           )}
+
         </div>
 
         <div

@@ -2,7 +2,8 @@
   "name": "Torch",
   "description": "A wooden stick with cloth soaked in pitch, burns for 1 hour",
   "type": "adventure",
-  "weight": 1.0,
+  "weight": 1,
   "value": 10,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/lights/torch-brown-lit.webp"
 }

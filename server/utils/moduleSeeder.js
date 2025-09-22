@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Module from '../models/Module.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -107,22 +108,33 @@ export const seedModules = async () => {
           console.log(`Updating existing module: ${data.name}`);
         }
         
+        // Generate foundry_id if existing module doesn't have one
+        const updateData = {
+          mtype: data.mtype,
+          ruleset: data.ruleset,
+          options: data.options,
+          description: data.description || existingModule.description
+        };
+
+        if (!existingModule.foundry_id) {
+          updateData.foundry_id = generateFoundryId();
+        }
+
         await Module.updateOne(
           { _id: existingModule._id },
-          { 
-            $set: {
-              mtype: data.mtype,
-              ruleset: data.ruleset,
-              options: data.options,
-              description: data.description || existingModule.description
-            }
-          }
+          { $set: updateData }
         );
       } else {
         // Create new module
         if (VERBOSE_LOGGING) {
           console.log(`Creating new module: ${data.name}`);
         }
+
+        // Add foundry_id if not present
+        if (!data.foundry_id) {
+          data.foundry_id = generateFoundryId();
+        }
+
         await Module.create(data);
       }
     }

@@ -19,7 +19,8 @@
       "difficulty": 3,
       "type": "fabrication"
     },
-    "properties": "Standard material with no special effects"
+    "properties": "Standard material with no special effects",
+    "foundry_icon": "icons/weapons/misc/whip-red-yellow.webp"
   },
   {
     "name": "Truesteel Chainlinked Lash",

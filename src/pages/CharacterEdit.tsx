@@ -32,13 +32,14 @@ const CharacterEdit: React.FC = () => {
   const [selectedCulture, setSelectedCulture] = useState<Culture | null>(null);
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
-  const [stressors, setStressors] = useState<string[]>([]);
+  const [selectedTrait, setSelectedTrait] = useState<string>('');
+  const [selectedTraitOptions, setSelectedTraitOptions] = useState<any[]>([]);
 
   // Track invested points to prevent going negative
   const [investedTalentStars, setInvestedTalentStars] = useState<number>(0);
 
   // Define steps
-  const steps = ['Basic Info', 'Attributes', 'Talents', 'Personality', 'Background'];
+  const steps = ['Basic Info', 'Attributes', 'Personality & Trait', 'Talents', 'Background'];
 
   // Initialize character state using the utility function
   const [character, setCharacter] = useState<Character>(createDefaultCharacter(''));
@@ -119,9 +120,6 @@ const CharacterEdit: React.FC = () => {
         if (charData.culture) {
           setSelectedCulture(charData.culture);
         }
-        if (charData.stressors) {
-          setStressors(charData.stressors);
-        }
 
         // Find and set personality module from character's modules
         if (charData.modules && Array.isArray(charData.modules)) {
@@ -146,6 +144,15 @@ const CharacterEdit: React.FC = () => {
             }
           } catch (err) {
             console.error('Error fetching personality modules:', err);
+          }
+        }
+
+        // Load the character's selected trait
+        if (charData.traits && charData.traits.length > 0) {
+          const trait = charData.traits[0];
+          if (trait.traitId) {
+            setSelectedTrait(typeof trait.traitId === 'string' ? trait.traitId : trait.traitId._id);
+            setSelectedTraitOptions(trait.selectedOptions || []);
           }
         }
 
@@ -218,7 +225,6 @@ const CharacterEdit: React.FC = () => {
   const handlePersonalitySelect = (personalityName: string, personalityModule: Module) => {
     setSelectedPersonality(personalityName);
     setSelectedPersonalityModule(personalityModule);
-    setStressors(personalityModule.stressors || []);
   };
 
   const handleRaceChange = (raceName: string, ancestry: Ancestry) => {
@@ -382,7 +388,7 @@ const CharacterEdit: React.FC = () => {
         }
         return true;
       case 4:
-        if (!selectedPersonality && !character.stressors?.length) {
+        if (!selectedPersonality) {
           setError('Please select a personality for your character');
           return false;
         }
@@ -394,6 +400,11 @@ const CharacterEdit: React.FC = () => {
 
   const handlePortraitUpdate = (file: File) => {
     setPortraitFile(file);
+  };
+
+  const handleTraitSelect = (traitId: string, selectedOptions?: any[]) => {
+    setSelectedTrait(traitId);
+    setSelectedTraitOptions(selectedOptions || []);
   };
 
   const handleStartingTalentsChange = (newStartingTalents: number) => {
@@ -536,12 +547,16 @@ const CharacterEdit: React.FC = () => {
         biography: character.biography,
         appearance: character.appearance,
         physicalTraits: character.physicalTraits,
-        stressors: stressors.length > 0 ? stressors : character.stressors,
         characterCreation: {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,
         },
         modules: updatedModules,
+        traits: selectedTrait ? [{
+          traitId: selectedTrait,
+          selectedOptions: selectedTraitOptions,
+          dateAdded: new Date().toISOString()
+        }] : [],
       };
 
       const response = await fetch(`/api/characters/${id}`, {
@@ -684,6 +699,14 @@ const CharacterEdit: React.FC = () => {
             />
           )}
           {step === 3 && (
+            <PersonalityCreatorTab
+              selectedPersonality={selectedPersonality || ''}
+              selectedTrait={selectedTrait}
+              onSelectPersonality={handlePersonalitySelect}
+              onSelectTrait={handleTraitSelect}
+            />
+          )}
+          {step === 4 && (
             <TalentsTab
               weaponSkills={character.weaponSkills}
               magicSkills={character.magicSkills}
@@ -692,15 +715,6 @@ const CharacterEdit: React.FC = () => {
               onUpdateSpecializedSkillTalent={updateWeaponSkillTalent}
               onUpdateMagicSkillTalent={updateMagicSkillTalent}
               onUpdateCraftingSkillTalent={updateCraftingSkillTalent}
-            />
-          )}
-          {step === 4 && (
-            <PersonalityCreatorTab
-              selectedPersonality={selectedPersonality || ''}
-              stressors={stressors}
-              selectedTrait={''}
-              onSelectPersonality={handlePersonalitySelect}
-              onSelectTrait={() => {}}
             />
           )}
           {step === 5 && (

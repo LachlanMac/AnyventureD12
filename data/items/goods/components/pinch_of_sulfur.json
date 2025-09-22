@@ -2,8 +2,11 @@
   "name": "Pinch of Sulfur",
   "description": "Yellow powder with a distinctive acrid smell that burns blue",
   "type": "goods",
-"tags": ["component"],
+  "tags": [
+    "component"
+  ],
   "weight": 0.1,
   "value": 150,
-  "rarity": "common"
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/materials/powder-yellow.webp"
 }
