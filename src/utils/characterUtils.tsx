@@ -127,11 +127,15 @@ export const createDefaultCharacter = (userId: string): Character => {
       accessory2: { itemId: null, equippedAt: null },
       accessory3: { itemId: null, equippedAt: null },
       accessory4: { itemId: null, equippedAt: null },
-      weapon1: { itemId: null, equippedAt: null },
-      weapon2: { itemId: null, equippedAt: null },
-      weapon3: { itemId: null, equippedAt: null },
-      weapon4: { itemId: null, equippedAt: null },
     },
+    public: false,
+    main_hand: { itemId: null, equippedAt: null },
+    off_hand: { itemId: null, equippedAt: null },
+    extra_weapons: [
+      { itemId: null, equippedAt: null },
+      { itemId: null, equippedAt: null },
+      { itemId: null, equippedAt: null }
+    ],
     musicSkills: {
       vocal: 0,
       percussion: 0,

@@ -93,11 +93,18 @@
       "order": 8
     },
     {
+      "id": "languages",
+      "title": "Languages",
+      "path": "core-mechanics/languages.md",
+      "category": "Core Mechanics",
+      "order": 9
+    },
+    {
       "id": "narrative-dice",
       "title": "Narrative Dice",
       "path": "core-mechanics/narrative_dice.md",
       "category": "Core Mechanics",
-      "order": 9
+      "order": 10
     },
     {
       "id": "tracking-combat",

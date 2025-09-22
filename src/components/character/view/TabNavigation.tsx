@@ -16,7 +16,7 @@ interface TabNavigationProps {
   canEdit?: boolean;
 }
 
-const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab, canEdit = false }) => {
+const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab }) => {
   const tabs: { id: TabType; label: string }[] = [
     { id: 'info', label: 'Character Info' },
     { id: 'modules', label: 'Modules' },

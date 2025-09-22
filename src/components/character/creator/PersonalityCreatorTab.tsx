@@ -2,7 +2,6 @@ import React from 'react';
 import PersonalitySelection from '../PersonalitySelection';
 import CharacterTraitSelectionWithSubchoices from '../CharacterTraitSelectionWithSubchoices';
 import { Module } from '../../../types/character';
-import Card, { CardHeader, CardBody } from '../../ui/Card';
 
 interface PersonalityCreatorTabProps {
   selectedPersonality: string;
@@ -83,7 +82,7 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
           onValidateTraitChange={onValidateTraitChange}
         />
 
-        {traitModuleBonus > 0 && (
+        {traitModuleBonus && traitModuleBonus > 0 && (
           <div
             style={{
               padding: '1rem',

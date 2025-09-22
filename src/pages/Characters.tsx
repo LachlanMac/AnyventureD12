@@ -337,7 +337,9 @@ const Characters: React.FC = () => {
                         onClick={(e) => {
                           e.preventDefault();
                           e.stopPropagation();
-                          exportToFoundry(character._id, character.name);
+                          if (character._id) {
+                            exportToFoundry(character._id, character.name);
+                          }
                         }}
                       >
                         <svg
