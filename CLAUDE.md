@@ -21,6 +21,7 @@ npm run reset-modules   # Reseed modules/spells from JSON files (preserves Objec
 npm run reset-items     # Reseed items from JSON files
 npm run reset-traits    # Reseed traits from JSON files
 npm run reset-ancestries # Reseed ancestries/races from JSON files
+npm run reset-languages # Reseed languages from JSON files (preserves ObjectIds)
 npm run fix-module-refs # Fix broken module references in characters
 npm run kill-ports      # Kill processes on ports 5173 and 4000
 npm run fix-campaign-index  # Fix MongoDB index issues for campaigns
@@ -248,3 +249,4 @@ Legend
 Mythic
 Cultural Ideas
 Bonus social dice with different groups, like merchants, nobles, soldiers, etc.
+- NEVER COMPILE CSS, ALWAYS WRITE TO SCSS FILES, NEVER CSS. I WILL COMPILE CSS, JUST TELL ME TO.

@@ -8,11 +8,11 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "4",
+    "damage": "6",
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "ranged",
-    "energy": 0,
+    "energy": 2,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",

@@ -30,6 +30,7 @@ class AnyventureSyncUtility {
       await this.updateCompendium('character-traits', data.traits);
       await this.updateCompendium('items', data.items);
       await this.updateCompendium('spells', data.spells);
+      await this.updateCompendium('languages', data.languages);
 
       ui.notifications.info(`Sync complete! Updated ${Object.keys(data).length} compendiums.`);
       console.log("Anyventure sync metadata:", result.metadata);

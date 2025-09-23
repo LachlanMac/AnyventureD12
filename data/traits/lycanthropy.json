@@ -2,6 +2,7 @@
   "id": 2,
   "name": "Lycanthropy",
   "description": "You are afflicted with lycanthropy and suffer the benefits and weaknesses.",
+  "foundry_icon":"icons/creatures/mammals/wolf-howl-moon-gray.webp",
   "options": [
     {
       "name": "Lycanthrope",

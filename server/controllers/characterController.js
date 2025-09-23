@@ -91,8 +91,12 @@ export const createCharacter = async (req, res) => {
       ...req.body,
       userId: userId.toString() // Set the user ID from the authenticated user as string
     };
-    
-    
+
+    // Ensure languageSkills default is preserved if not provided
+    if (!characterData.languageSkills) {
+      characterData.languageSkills = new Map([['common', 2]]);
+    }
+
     const character = new Character(characterData);
     
     // If a trait is selected, populate it before saving so trait effects apply
@@ -538,8 +542,8 @@ const convertToFoundryId = (mongoId) => {
 
 // Helper function to get icon based on type and properties (reuse from foundryRoutes.js)
 const getGenericIcon = (data, type) => {
-  // For items, check for foundry_icon first
-  if (type === 'item' && data.foundry_icon && data.foundry_icon.trim() !== '') {
+  // For items, traits, and modules, check for foundry_icon first
+  if ((type === 'item' || type === 'trait' || type === 'module') && data.foundry_icon && data.foundry_icon.trim() !== '') {
     return data.foundry_icon;
   }
 
@@ -646,11 +650,36 @@ export const exportCharacterToFoundry = async (req, res) => {
       system: {
         // Core attributes
         attributes: {
-          physique: { value: character.attributes.physique, min: 1, max: 5 },
-          finesse: { value: character.attributes.finesse, min: 1, max: 5 },
-          mind: { value: character.attributes.mind, min: 1, max: 5 },
-          knowledge: { value: character.attributes.knowledge, min: 1, max: 5 },
-          social: { value: character.attributes.social, min: 1, max: 5 }
+          physique: {
+            value: character.attributes.physique,
+            min: 1,
+            max: 5,
+            baseValue: character.attributes.basePhysique || character.attributes.physique
+          },
+          finesse: {
+            value: character.attributes.finesse,
+            min: 1,
+            max: 5,
+            baseValue: character.attributes.baseFinesse || character.attributes.finesse
+          },
+          mind: {
+            value: character.attributes.mind,
+            min: 1,
+            max: 5,
+            baseValue: character.attributes.baseMind || character.attributes.mind
+          },
+          knowledge: {
+            value: character.attributes.knowledge,
+            min: 1,
+            max: 5,
+            baseValue: character.attributes.baseKnowledge || character.attributes.knowledge
+          },
+          social: {
+            value: character.attributes.social,
+            min: 1,
+            max: 5,
+            baseValue: character.attributes.baseSocial || character.attributes.social
+          }
         },
 
         // Resources - preserve current values, max will be calculated in FoundryVTT
@@ -679,8 +708,7 @@ export const exportCharacterToFoundry = async (req, res) => {
 
         // Movement - base value only, bonuses will be calculated in FoundryVTT
         movement: {
-          standard: 5, // Base movement, bonuses will be added in FoundryVTT
-          current: 5,
+          walk: 5, // Base movement, bonuses will be added in FoundryVTT
           swim: 0,
           climb: 0,
           fly: 0
@@ -727,27 +755,33 @@ export const exportCharacterToFoundry = async (req, res) => {
         weapon: {
           unarmed: {
             value: character.weaponSkills?.unarmed?.value || 0,
-            talent: character.weaponSkills?.unarmed?.talent || 1
+            talent: character.weaponSkills?.unarmed?.talent || 1,
+            baseTalent: character.weaponSkills?.unarmed?.baseTalent || character.weaponSkills?.unarmed?.talent || 1
           },
           throwing: {
             value: character.weaponSkills?.throwing?.value || 0,
-            talent: character.weaponSkills?.throwing?.talent || 1
+            talent: character.weaponSkills?.throwing?.talent || 1,
+            baseTalent: character.weaponSkills?.throwing?.baseTalent || character.weaponSkills?.throwing?.talent || 1
           },
           simpleMeleeWeapons: {
             value: character.weaponSkills?.simpleMeleeWeapons?.value || 0,
-            talent: character.weaponSkills?.simpleMeleeWeapons?.talent || 1
+            talent: character.weaponSkills?.simpleMeleeWeapons?.talent || 1,
+            baseTalent: character.weaponSkills?.simpleMeleeWeapons?.baseTalent || character.weaponSkills?.simpleMeleeWeapons?.talent || 1
           },
           simpleRangedWeapons: {
             value: character.weaponSkills?.simpleRangedWeapons?.value || 0,
-            talent: character.weaponSkills?.simpleRangedWeapons?.talent || 1
+            talent: character.weaponSkills?.simpleRangedWeapons?.talent || 1,
+            baseTalent: character.weaponSkills?.simpleRangedWeapons?.baseTalent || character.weaponSkills?.simpleRangedWeapons?.talent || 1
           },
           complexMeleeWeapons: {
             value: character.weaponSkills?.complexMeleeWeapons?.value || 0,
-            talent: character.weaponSkills?.complexMeleeWeapons?.talent || 0
+            talent: character.weaponSkills?.complexMeleeWeapons?.talent || 0,
+            baseTalent: character.weaponSkills?.complexMeleeWeapons?.baseTalent || character.weaponSkills?.complexMeleeWeapons?.talent || 0
           },
           complexRangedWeapons: {
             value: character.weaponSkills?.complexRangedWeapons?.value || 0,
-            talent: character.weaponSkills?.complexRangedWeapons?.talent || 0
+            talent: character.weaponSkills?.complexRangedWeapons?.talent || 0,
+            baseTalent: character.weaponSkills?.complexRangedWeapons?.baseTalent || character.weaponSkills?.complexRangedWeapons?.talent || 0
           }
         },
 
@@ -755,23 +789,28 @@ export const exportCharacterToFoundry = async (req, res) => {
         magic: {
           black: {
             value: character.magicSkills?.black?.value || 0,
-            talent: character.magicSkills?.black?.talent || 0
+            talent: character.magicSkills?.black?.talent || 0,
+            baseTalent: character.magicSkills?.black?.baseTalent || character.magicSkills?.black?.talent || 0
           },
           primal: {
             value: character.magicSkills?.primal?.value || 0,
-            talent: character.magicSkills?.primal?.talent || 0
+            talent: character.magicSkills?.primal?.talent || 0,
+            baseTalent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0
           },
           metamagic: {
             value: character.magicSkills?.metamagic?.value || 0,
-            talent: character.magicSkills?.metamagic?.talent || 0
+            talent: character.magicSkills?.metamagic?.talent || 0,
+            baseTalent: character.magicSkills?.metamagic?.baseTalent || character.magicSkills?.metamagic?.talent || 0
           },
           divine: {
             value: character.magicSkills?.divine?.value || 0,
-            talent: character.magicSkills?.divine?.talent || 0
+            talent: character.magicSkills?.divine?.talent || 0,
+            baseTalent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0
           },
           mysticism: {
             value: character.magicSkills?.mysticism?.value || 0,
-            talent: character.magicSkills?.mysticism?.talent || 0
+            talent: character.magicSkills?.mysticism?.talent || 0,
+            baseTalent: character.magicSkills?.mysticism?.baseTalent || character.magicSkills?.mysticism?.talent || 0
           }
         },
 
@@ -779,52 +818,63 @@ export const exportCharacterToFoundry = async (req, res) => {
         crafting: {
           engineering: {
             value: character.craftingSkills?.engineering?.value || 0,
-            talent: character.craftingSkills?.engineering?.talent || 0
+            talent: character.craftingSkills?.engineering?.talent || 0,
+            baseTalent: character.craftingSkills?.engineering?.baseTalent || character.craftingSkills?.engineering?.talent || 0
           },
           fabrication: {
             value: character.craftingSkills?.fabrication?.value || 0,
-            talent: character.craftingSkills?.fabrication?.talent || 0
+            talent: character.craftingSkills?.fabrication?.talent || 0,
+            baseTalent: character.craftingSkills?.fabrication?.baseTalent || character.craftingSkills?.fabrication?.talent || 0
           },
           alchemy: {
             value: character.craftingSkills?.alchemy?.value || 0,
-            talent: character.craftingSkills?.alchemy?.talent || 0
+            talent: character.craftingSkills?.alchemy?.talent || 0,
+            baseTalent: character.craftingSkills?.alchemy?.baseTalent || character.craftingSkills?.alchemy?.talent || 0
           },
           cooking: {
             value: character.craftingSkills?.cooking?.value || 0,
-            talent: character.craftingSkills?.cooking?.talent || 0
+            talent: character.craftingSkills?.cooking?.talent || 0,
+            baseTalent: character.craftingSkills?.cooking?.baseTalent || character.craftingSkills?.cooking?.talent || 0
           },
           glyphcraft: {
             value: character.craftingSkills?.glyphcraft?.value || 0,
-            talent: character.craftingSkills?.glyphcraft?.talent || 0
+            talent: character.craftingSkills?.glyphcraft?.talent || 0,
+            baseTalent: character.craftingSkills?.glyphcraft?.baseTalent || character.craftingSkills?.glyphcraft?.talent || 0
           },
           bioshaping: {
             value: character.craftingSkills?.bioshaping?.value || 0,
-            talent: character.craftingSkills?.bioshaping?.talent || 0
+            talent: character.craftingSkills?.bioshaping?.talent || 0,
+            baseTalent: character.craftingSkills?.bioshaping?.baseTalent || character.craftingSkills?.bioshaping?.talent || 0
           }
         },
 
-        // Language skills
-        language: {
-          common: { value: 3, talent: 0 }
-        },
 
         // Music skills
         music: {
           percussion: {
-            value: character.musicSkills?.percussion || 0,
-            talent: 0
+            value: 0,
+            talent: character.musicSkills?.percussion || 0,
+            baseTalent: character.musicSkills?.percussion || 0
           },
           strings: {
-            value: character.musicSkills?.strings || 0,
-            talent: 0
+            value: 0,
+            talent: character.musicSkills?.strings || 0,
+            baseTalent: character.musicSkills?.strings || 0
           },
           wind: {
-            value: character.musicSkills?.wind || 0,
-            talent: 0
+            value: 0,
+            talent: character.musicSkills?.wind || 0,
+            baseTalent: character.musicSkills?.wind || 0
           },
           vocals: {
-            value: character.musicSkills?.vocal || 0,
-            talent: 0
+            value: 0,
+            talent: character.musicSkills?.vocal || 0,
+            baseTalent: character.musicSkills?.vocal || 0
+          },
+          brass: {
+            value: 0,
+            talent: character.musicSkills?.brass || 0,
+            baseTalent: character.musicSkills?.brass || 0
           }
         },
 
@@ -856,8 +906,6 @@ export const exportCharacterToFoundry = async (req, res) => {
           max: character.spellSlots || 10
         },
 
-        // Languages array
-        languages: character.languages || [],
         immunities: [],
         vision: [],
 
@@ -900,6 +948,20 @@ export const exportCharacterToFoundry = async (req, res) => {
     if (character.modules) {
       for (const charModule of character.modules) {
         if (charModule.moduleId) {
+          // Process options to mark selected ones - use toObject() to avoid Mongoose properties
+          const selectedLocations = new Set((charModule.selectedOptions || []).map(opt => opt.location));
+          const processedOptions = (charModule.moduleId.options || []).map(option => {
+            const plainOption = option.toObject ? option.toObject() : option;
+            return {
+              _id: plainOption._id,
+              name: plainOption.name,
+              description: plainOption.description,
+              location: plainOption.location,
+              data: plainOption.data,
+              selected: selectedLocations.has(plainOption.location)
+            };
+          });
+
           const moduleItem = {
             _id: charModule.moduleId.foundry_id,
             name: charModule.moduleId.name,
@@ -909,7 +971,7 @@ export const exportCharacterToFoundry = async (req, res) => {
               description: charModule.moduleId.description || "",
               mtype: charModule.moduleId.mtype || "core",
               ruleset: charModule.moduleId.ruleset || 1,
-              options: charModule.moduleId.options || []
+              options: processedOptions
             },
             effects: [],
             flags: {
@@ -1023,6 +1085,24 @@ export const exportCharacterToFoundry = async (req, res) => {
 
     // Add ancestry and culture as items if they exist
     if (character.ancestry?.ancestryId) {
+      // Process ancestry options to mark selected ones
+      const selectedLocations = new Set((character.ancestry.selectedOptions || []).map(opt => opt.location));
+      const processedAncestryOptions = (character.ancestry.ancestryId.options || []).map(option => {
+        const plainOption = option.toObject ? option.toObject() : option;
+        return {
+          _id: plainOption._id,
+          name: plainOption.name,
+          description: plainOption.description,
+          location: plainOption.location,
+          data: plainOption.data,
+          selected: selectedLocations.has(plainOption.location),
+          // Include subchoices for options that have them
+          subchoices: plainOption.subchoices || [],
+          requiresChoice: plainOption.requiresChoice || false,
+          choiceType: plainOption.choiceType || ""
+        };
+      });
+
       const ancestryItem = {
         _id: character.ancestry.ancestryId.foundry_id,
         name: character.ancestry.ancestryId.name,
@@ -1037,7 +1117,7 @@ export const exportCharacterToFoundry = async (req, res) => {
           size: character.ancestry.ancestryId.size || "",
           home: character.ancestry.ancestryId.home || "",
           language: character.ancestry.ancestryId.language || "",
-          options: character.ancestry.ancestryId.options || []
+          options: processedAncestryOptions
         },
         flags: {
           anyventure: {
@@ -1074,6 +1154,90 @@ export const exportCharacterToFoundry = async (req, res) => {
         ownership: { default: 0 }
       };
       foundryActor.items.push(cultureItem);
+    }
+
+    // Add traits as items if they exist
+    if (character.traits) {
+      for (const charTrait of character.traits) {
+        if (charTrait.traitId) {
+          // Process trait options to mark selected ones
+          const selectedLocations = new Set((charTrait.selectedOptions || []).map(opt => opt.location));
+          const processedTraitOptions = (charTrait.traitId.options || []).map(option => {
+            const plainOption = option.toObject ? option.toObject() : option;
+            return {
+              _id: plainOption._id,
+              name: plainOption.name,
+              description: plainOption.description,
+              location: plainOption.location,
+              data: plainOption.data,
+              selected: selectedLocations.has(plainOption.location)
+            };
+          });
+
+          const traitItem = {
+            _id: charTrait.traitId.foundry_id,
+            name: charTrait.traitId.name,
+            type: "trait",
+            img: getGenericIcon(charTrait.traitId, 'trait'),
+            system: {
+              description: charTrait.traitId.description || "",
+              category: charTrait.traitId.category || "",
+              rarity: charTrait.traitId.rarity || "",
+              effects: charTrait.traitId.effects || [],
+              options: processedTraitOptions
+            },
+            flags: {
+              anyventure: {
+                originalId: charTrait.traitId._id.toString(),
+                selectedOptions: charTrait.selectedOptions || []
+              }
+            },
+            ownership: { default: 0 }
+          };
+          foundryActor.items.push(traitItem);
+        }
+      }
+    }
+
+    // Add languages as items if they exist
+    if (character.languageSkills) {
+      // Import Language model to get the foundry_id
+      const Language = (await import('../models/Language.js')).default;
+
+      // Get all languages from database to match with character's languages
+      const allLanguages = await Language.find({});
+      const languageMap = new Map(allLanguages.map(l => [l.id, l]));
+
+      // Convert languageSkills to language items
+      const languageEntries = character.languageSkills instanceof Map
+        ? Array.from(character.languageSkills.entries())
+        : Object.entries(character.languageSkills);
+
+      for (const [langId, talent] of languageEntries) {
+        const languageData = languageMap.get(langId);
+
+        if (languageData) {
+          const languageItem = {
+            _id: languageData.foundry_id,
+            name: languageData.name,
+            type: "language",
+            img: languageData.foundry_icon || getGenericIcon(languageData, 'language'),
+            system: {
+              description: languageData.description || "",
+              magic: languageData.magic || 0,
+              talent: talent || 0
+            },
+            flags: {
+              anyventure: {
+                originalId: languageData._id.toString(),
+                characterTalent: talent // Store the character's specific talent level
+              }
+            },
+            ownership: { default: 0 }
+          };
+          foundryActor.items.push(languageItem);
+        }
+      }
     }
 
     // Set response headers for file download

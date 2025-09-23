@@ -8,6 +8,7 @@ import Culture from '../models/Culture.js';
 import Trait from '../models/Trait.js';
 import Item from '../models/Item.js';
 import Spell from '../models/Spell.js';
+import Language from '../models/Language.js';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -23,8 +24,8 @@ const convertToFoundryId = (mongoId) => {
 
 // Helper function to get icon based on type and properties
 const getGenericIcon = (data, type) => {
-  // If this is an item and it has a foundry_icon, use that first
-  if (type === 'item' && data.foundry_icon && data.foundry_icon.trim() !== '') {
+  // If this is an item, trait, module, or language and it has a foundry_icon, use that first
+  if ((type === 'item' || type === 'trait' || type === 'module' || type === 'language') && data.foundry_icon && data.foundry_icon.trim() !== '') {
     return data.foundry_icon;
   }
 
@@ -129,6 +130,15 @@ const getGenericIcon = (data, type) => {
       // Default for unknown items
       return `${iconBase}goods1.webp`;
 
+    case 'language':
+      // Language icons are already handled by foundry_icon field check above
+      // But provide fallback based on magic property
+      if (data.magic === 1) {
+        return 'icons/sundries/scrolls/scroll-writing-orange-black.webp';
+      } else {
+        return 'icons/sundries/scrolls/scroll-plain-tan.webp';
+      }
+
     default:
       return `${iconBase}goods1.webp`;
   }
@@ -138,7 +148,7 @@ const getGenericIcon = (data, type) => {
 const convertToFoundryFormat = (data, type) => {
   // No mapping needed - our system now matches exactly!
   const baseFoundryDoc = {
-    _id: convertToFoundryId(data._id),
+    _id: data.foundry_id || convertToFoundryId(data._id), // Use foundry_id if available (languages)
     name: data.name,
     type: type, // Use the type directly - no mapping needed
     img: getGenericIcon(data, type), // Use generalized icon mapping
@@ -235,6 +245,14 @@ const convertToFoundryFormat = (data, type) => {
         components: data.components,
         damage: data.damage,
         effects: data.effects
+      };
+      break;
+
+    case 'language':
+      baseFoundryDoc.system = {
+        description: data.description,
+        magic: data.magic,
+        talent: 0 // Default talent level
       };
       break;
 
@@ -377,16 +395,39 @@ router.get('/spells', async (req, res) => {
   }
 });
 
+// Get all languages for Foundry
+router.get('/languages', async (req, res) => {
+  try {
+    const languages = await Language.find({});
+    const foundryLanguages = languages.map(language => convertToFoundryFormat(language.toObject(), 'language'));
+
+    res.json({
+      type: 'compendium-data',
+      documentType: 'Item',
+      data: foundryLanguages,
+      metadata: {
+        count: foundryLanguages.length,
+        version: "1.0.0",
+        lastUpdated: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching languages for Foundry:', error);
+    res.status(500).json({ error: 'Failed to fetch languages' });
+  }
+});
+
 // Get all data in one call (for bulk updates)
 router.get('/all', async (req, res) => {
   try {
-    const [modules, ancestries, cultures, traits, items, spells] = await Promise.all([
+    const [modules, ancestries, cultures, traits, items, spells, languages] = await Promise.all([
       Module.find({}),
       Ancestry.find({}),
       Culture.find({}),
       Trait.find({}),
       Item.find({}),
-      Spell.find({})
+      Spell.find({}),
+      Language.find({})
     ]);
 
     const foundryData = {
@@ -395,7 +436,8 @@ router.get('/all', async (req, res) => {
       cultures: cultures.map(c => convertToFoundryFormat(c.toObject(), 'culture')),
       traits: traits.map(t => convertToFoundryFormat(t.toObject(), 'trait')),
       items: items.map(i => convertToFoundryFormat(i.toObject(), 'item')),
-      spells: spells.map(s => convertToFoundryFormat(s.toObject(), 'spell'))
+      spells: spells.map(s => convertToFoundryFormat(s.toObject(), 'spell')),
+      languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language'))
     };
 
     res.json({
@@ -408,7 +450,8 @@ router.get('/all', async (req, res) => {
           cultures: foundryData.cultures.length,
           traits: foundryData.traits.length,
           items: foundryData.items.length,
-          spells: foundryData.spells.length
+          spells: foundryData.spells.length,
+          languages: foundryData.languages.length
         },
         version: "1.0.0",
         lastUpdated: new Date().toISOString()
@@ -452,6 +495,7 @@ router.get('/', (req, res) => {
       '/fvtt/traits',
       '/fvtt/items',
       '/fvtt/spells',
+      '/fvtt/languages',
       '/fvtt/all',
       '/fvtt/datakey'
     ]

@@ -82,6 +82,17 @@
         "PLAYER": "OBSERVER",
         "ASSISTANT": "OWNER"
       }
+    },
+    {
+      "name": "languages",
+      "label": "Anyventure Languages",
+      "path": "packs/languages",
+      "type": "Item",
+      "system": "anyventure",
+      "ownership": {
+        "PLAYER": "OBSERVER",
+        "ASSISTANT": "OWNER"
+      }
     }
   ],
   "url": "https://github.com/yourusername/anyventure-foundry-data",

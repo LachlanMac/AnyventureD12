@@ -2,6 +2,7 @@
   "id": 12,
   "name": "Fey Touched",
   "description": "You have been touched by the wild magic of the Feywild, forever marking you as something between mortal and fey.",
+  "foundry_icon":"icons/magic/nature/beam-hand-leaves-green.webp",
   "options": [
     {
       "name": "Fairie Magic",

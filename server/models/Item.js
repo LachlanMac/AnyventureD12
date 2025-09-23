@@ -26,12 +26,13 @@ const SkillTalentBonusSchema = new Schema({
 const DamageSchema = new Schema({
   damage: { type: String, default: "0" },           // Base damage value as string to allow dice notation
   damage_extra: { type: String, default: "0" },     // Additional damage as string
-  damage_type: { type: String, default: "physical" }, 
-  category: { 
-    type: String, 
+  damage_type: { type: String, default: "physical" },
+  category: {
+    type: String,
     enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "divine_magic", "mysticism_magic", "meta_magic"],
-    default: "blunt" 
+    default: "blunt"
   },
+  energy: { type: Number, default: 0 },             // Energy cost for this attack
   secondary_damage: { type: Number, default: 0 },
   secondary_damage_extra: { type: Number, default: 0 },
   secondary_damage_type: { type: String, default: "none" },

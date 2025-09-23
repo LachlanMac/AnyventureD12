@@ -50,6 +50,10 @@ const ModuleSchema = new Schema({
     minlength: 16,
     maxlength: 16
   },
+  foundry_icon: {
+    type: String,
+    default: ""
+  },
   options: [ModuleOptionSchema]
 }, {
   timestamps: true

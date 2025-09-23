@@ -1,4 +1,5 @@
 
+
 export const applyModuleBonusesToCharacter = (character) => {
   // Initialize mitigation if it doesn't exist
   if (!character.mitigation) {
@@ -357,7 +358,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
     if (skillMatch) {
       const [_, type, code, valueStr] = skillMatch;
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
-      
+
       if (type === 'S') { // Skill value or dice tier modifier
         if (/^[1-5]$/.test(code)) {
           // Attribute skill (e.g. SS1=1 for Physique)
@@ -426,17 +427,17 @@ const parseDataString = (dataString, bonuses, character = null) => {
             if (!bonuses.attributeTalents) bonuses.attributeTalents = {};
             bonuses.attributeTalents[attributeName] = (bonuses.attributeTalents[attributeName] || 0) + value;
           }
-        } 
+        }
       }
       continue;
     }
-    
+
     // WEAPONS (W) - matching WS1=1, WT3=1, WS1=X, or WS1=Y pattern
     const weaponMatch = effect.match(/^W([ST])([1-6])=(-?\d+|[XY])$/);
     if (weaponMatch) {
       const [_, type, code, valueStr] = weaponMatch;
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
-      
+
       const weaponMappings = {
         '1': 'unarmed',
         '2': 'throwing',
@@ -445,13 +446,13 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '5': 'complexMeleeWeapons',
         '6': 'complexRangedWeapons'
       };
-      
+
       const weaponName = weaponMappings[code];
-      
+
       if (weaponName) {
         if (!bonuses.weaponSkills) bonuses.weaponSkills = {};
         if (!bonuses.weaponSkills[weaponName]) bonuses.weaponSkills[weaponName] = {};
-        
+
         if (type === 'S') { // Skill value or dice tier modifier
           if (typeof value === 'string' && (value === 'X' || value === 'Y')) {
             // Handle dice tier modifications
@@ -466,13 +467,13 @@ const parseDataString = (dataString, bonuses, character = null) => {
       }
       continue;
     }
-    
-    // MAGIC (M) - matching MS1=1 or MT3=1 pattern
-    const magicMatch = effect.match(/^M([ST])([1-5])=(-?\d+)$/);
+
+    // MAGIC (Y) - matching YS1=1 or YT3=1 pattern
+    const magicMatch = effect.match(/^Y([ST])([1-5])=(-?\d+)$/);
     if (magicMatch) {
       const [_, type, code, valueStr] = magicMatch;
       const value = parseInt(valueStr);
-      
+
       const magicMappings = {
         '1': 'black',
         '2': 'primal',
@@ -480,12 +481,12 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '4': 'divine',
         '5': 'mystic'
       };
-      
+
       const magicName = magicMappings[code];
       if (magicName) {
         if (!bonuses.magicSkills) bonuses.magicSkills = {};
         if (!bonuses.magicSkills[magicName]) bonuses.magicSkills[magicName] = {};
-        
+
         if (type === 'S') { // Skill value
           bonuses.magicSkills[magicName].value = (bonuses.magicSkills[magicName].value || 0) + value;
         } else if (type === 'T') { // Talent value
@@ -494,13 +495,13 @@ const parseDataString = (dataString, bonuses, character = null) => {
       }
       continue;
     }
-    
+
     // CRAFTING (C) - matching CS1=1, CT3=1, CS1=X, or CS1=Y pattern
     const craftingMatch = effect.match(/^C([ST])([1-6])=(-?\d+|[XY])$/);
     if (craftingMatch) {
       const [_, type, code, valueStr] = craftingMatch;
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
-      
+
       const craftingMappings = {
         '1': 'engineering',
         '2': 'fabrication',
@@ -509,12 +510,12 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '5': 'glyphcraft',
         '6': 'bioshaping'
       };
-      
+
       const craftingName = craftingMappings[code];
       if (craftingName) {
         if (!bonuses.craftingSkills) bonuses.craftingSkills = {};
         if (!bonuses.craftingSkills[craftingName]) bonuses.craftingSkills[craftingName] = {};
-        
+
         if (type === 'S') { // Skill value or dice tier modifier
           if (typeof value === 'string' && (value === 'X' || value === 'Y')) {
             // Handle dice tier modifications
@@ -529,14 +530,14 @@ const parseDataString = (dataString, bonuses, character = null) => {
       }
       continue;
     }
-    
+
     // MITIGATIONS (M) - matching M1=1 pattern
     // Since Magic and Mitigation both use M, we differentiate by checking if the second character is a number
     const mitigationMatch = effect.match(/^M([1-9])=(-?\d+)$/);
     if (mitigationMatch) {
       const [_, code, valueStr] = mitigationMatch;
       const value = parseInt(valueStr);
-      
+
       const mitigationMappings = {
         '1': 'physical',
         '2': 'heat',
@@ -548,7 +549,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '8': 'psychic',
         '9': 'toxic'
       };
-      
+
       const mitigationType = mitigationMappings[code];
       if (mitigationType) {
         if (!bonuses.mitigation) bonuses.mitigation = {};
@@ -556,20 +557,20 @@ const parseDataString = (dataString, bonuses, character = null) => {
       }
       continue;
     }
-    
+
     // AUTO stats (A) - matching A1=1 pattern (now includes A9 for spell slots)
     const autoMatch = effect.match(/^A([1-49])=(-?\d+)$/);
     if (autoMatch) {
       const [_, code, valueStr] = autoMatch;
       const value = parseInt(valueStr);
-      
+
       const autoMappings = {
         '1': 'health',
         '2': 'resolve',
         '3': 'energy',
         '9': 'spellSlots'
       };
-      
+
       const statType = autoMappings[code];
       if (statType) {
         bonuses[statType] = (bonuses[statType] || 0) + value;

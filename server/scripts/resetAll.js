@@ -11,6 +11,7 @@ import { resetAndReseedSpells } from '../utils/spellSeeder.js';
 import { resetAndReseedItems } from '../utils/itemSeeder.js';
 import { loadCreaturesFromJson } from '../utils/creatureSeeder.js';
 import { seedSongs } from '../utils/songSeeder.js';
+import { resetAndReseedLanguages } from '../utils/languageSeeder.js';
 
 // Load environment variables
 dotenv.config();
@@ -128,7 +129,7 @@ const main = async () => {
     }
 
     // 8. Songs (independent)
-    console.log('\n[8/8] Resetting Songs...');
+    console.log('\n[8/9] Resetting Songs...');
     console.log('----------------------------------------');
     const songSuccess = await seedSongs();
     if (!songSuccess) {
@@ -136,6 +137,17 @@ const main = async () => {
       allSuccess = false;
     } else {
       console.log('✅ Songs reset successfully');
+    }
+
+    // 9. Languages (independent)
+    console.log('\n[9/9] Resetting Languages...');
+    console.log('----------------------------------------');
+    const languageSuccess = await resetAndReseedLanguages();
+    if (!languageSuccess) {
+      console.error('❌ Language reset failed');
+      allSuccess = false;
+    } else {
+      console.log('✅ Languages reset successfully');
     }
 
     // Final summary

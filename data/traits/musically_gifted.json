@@ -2,6 +2,7 @@
   "id": 10,
   "name": "Musically Gifted",
   "description": "You are a once in a generation talent with an extraordinary gift with music.",
+  "foundry_icon":"icons/tools/instruments/harp-gold-glowing.webp",
   "options": [
      {
       "name": "Prodigy",

@@ -18,6 +18,7 @@
     "reset-traits": "node server/scripts/resetTraits.js",
     "reset-cultures": "node server/scripts/resetCultures.js",
     "reset-ancestries": "node server/scripts/resetAncestries.js",
+    "reset-languages": "node server/scripts/resetLanguages.js",
     "fix-module-refs": "node server/scripts/fixBrokenModuleRefs.js",
     "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",
     "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\"",

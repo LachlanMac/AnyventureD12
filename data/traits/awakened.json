@@ -2,6 +2,7 @@
   "id": 9,
   "name": "Awakened",
   "description": "Your mind has been awakened to its psionic potential.",
+  "foundry_icon":"icons/magic/perception/third-eye-blue-red.webp",
   "options": [
     {
       "name": "Action : Telekinesis",

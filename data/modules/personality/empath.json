@@ -2,6 +2,7 @@
   "id": 105,
   "name": "Empath",
   "mtype": "personality",
+  "foundry_icon":"icons/tools/fasteners/chain-steel-blue.webp",
   "ruleset": 1,
   "options": [
     {

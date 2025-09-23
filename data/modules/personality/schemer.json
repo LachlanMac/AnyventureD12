@@ -2,6 +2,7 @@
   "id": 105,
   "name": "Schemer",
   "mtype": "personality",
+  "foundry_icon":"icons/skills/social/theft-pickpocket-bribery-brown.webp",
   "ruleset": 1,
   "options": [
     {

@@ -2,6 +2,7 @@
   "id": 11,
   "name": "Planar",
   "description": "You have been infused with the primordial essence of one of the elemental planes, forever changing your nature. This planar connection grants you extraordinary abilities but also marks you as an outsider to the material world.",
+  "foundry_icon":"icons/magic/symbols/elements-air-earth-fire-water.webp",
   "options": [
     {
       "name": "Planar Attunement",

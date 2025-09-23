@@ -12,11 +12,11 @@
     "damage_extra": "3",
     "damage_type": "aetheric",
     "category": "mysticism_magic",
-    "energy": 1,
+    "energy": 2,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
-    "min_range": 1,
+    "min_range": 2,
     "max_range": 4
   },
   "secondary": {

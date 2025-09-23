@@ -26,7 +26,7 @@
       "name": "Student of the Gods",
       "description": "You gain +1 to your magic skill and +1 to your academics skill.",
       "location": "3",
-      "data": "SSO=1:SSN=1:TG"
+      "data": "SSO=1:SSN=1"
     },
     {
       "name": "Ancient Scripture",

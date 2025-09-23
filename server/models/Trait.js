@@ -70,6 +70,10 @@ const TraitSchema = new Schema({
     unique: true,
     minlength: 16,
     maxlength: 16
+  },
+  foundry_icon: {
+    type: String,
+    default: ""
   }
 }, {
   timestamps: true

@@ -2,6 +2,7 @@
   "id": 6,
   "name": "Born to Adventure",
   "description": "You were born with an adventurer's spirit and natural talents that set you apart from others. Your destiny calls you to greatness.",
+  "foundry_icon":"icons/environment/people/infantry.webp",
   "options": [
     {
       "name": "Adventurer's Spirit",

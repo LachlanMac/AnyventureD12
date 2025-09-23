@@ -113,7 +113,8 @@ export const seedModules = async () => {
           mtype: data.mtype,
           ruleset: data.ruleset,
           options: data.options,
-          description: data.description || existingModule.description
+          description: data.description || existingModule.description,
+          foundry_icon: data.foundry_icon || existingModule.foundry_icon || ""
         };
 
         if (!existingModule.foundry_id) {

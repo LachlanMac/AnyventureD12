@@ -12,7 +12,7 @@
     "damage_extra": "3",
     "damage_type": "psychic",
     "category": "mysticism_magic",
-    "energy": 1,
+    "energy": 2,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",

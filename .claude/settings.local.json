@@ -66,7 +66,11 @@
       "Bash(git checkout:*)",
       "Read(//mnt/c/Users/lachl/OneDrive/Desktop/**)",
       "Read(//tmp/**)",
-      "Bash(sass:*)"
+      "Bash(sass:*)",
+      "WebSearch",
+      "Read(///**)",
+      "Read(//mnt/c/Users/lachl/AppData/Local/FoundryVTT/Data/modules/anyventure-core-data/**)",
+      "Read(//mnt/c/Users/lachl/AppData/Local/FoundryVTT/Data/modules/**)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

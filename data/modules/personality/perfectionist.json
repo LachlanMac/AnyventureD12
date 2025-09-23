@@ -2,6 +2,7 @@
   "id": 105,
   "name": "Perfectionist",
   "mtype": "personality",
+  "foundry_icon":"icons/skills/ranged/target-bullseye-arrow-green.webp",
   "ruleset": 1,
   "options": [
     {

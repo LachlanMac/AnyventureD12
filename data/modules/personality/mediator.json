@@ -2,6 +2,7 @@
   "id": 105,
   "name": "Mediator",
   "mtype": "personality",
+  "foundry_icon":"icons/skills/social/diplomacy-handandshake.webp",
   "ruleset": 1,
   "options": [
     {

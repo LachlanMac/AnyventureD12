@@ -12,7 +12,7 @@
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "ranged",
-    "energy": 0,
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
