@@ -1,15 +1,18 @@
 {
-    "name": "Jinx",
-    "description": "You target a creature within a short (10 unit) distance and show them their future failures. While you concentrate on this spell, any time the creature fails to deal damage with an attack check, they take 4 psychic damage.",
-    "charge":"The first attack roll of the target's turn is rolled with a penalty dice.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 5,
-    "components": ["Gold Coin"],
-    "ritualDuration": "1 hour",
-    "concentration": true,
-    "reaction": false,
-    "energy": 1,
-    "damage": 4,
-    "damageType": "Psychic"
+  "name": "Jinx",
+  "description": "You target a creature within a short (10 unit) distance and show them their future failures. While you concentrate on this spell, any time the creature fails to deal damage with an attack check, they take 4 psychic damage.",
+  "charge": "The first attack roll of the target's turn is rolled with a penalty dice.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 5,
+  "components": [
+    "Gold Coin"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 1,
+  "damage": 4,
+  "damageType": "Psychic",
+  "foundry_id": "voisjaxn5jcvm3c6"
 }

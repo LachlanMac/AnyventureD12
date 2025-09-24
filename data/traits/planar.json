@@ -2,7 +2,7 @@
   "id": 11,
   "name": "Planar",
   "description": "You have been infused with the primordial essence of one of the elemental planes, forever changing your nature. This planar connection grants you extraordinary abilities but also marks you as an outsider to the material world.",
-  "foundry_icon":"icons/magic/symbols/elements-air-earth-fire-water.webp",
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
   "options": [
     {
       "name": "Planar Attunement",
@@ -52,5 +52,6 @@
       "description": "While not a full elemental, you share some of their weaknesses. When you take physical damage from a source with the blackened property, it becomes true damage instead. Additionally, you can be affected by spells that target elementals and your original plane is considered to be your planar selection.",
       "data": "TG"
     }
-  ]
+  ],
+  "foundry_id": "46hh455jma3obr8c"
 }

@@ -1,15 +1,18 @@
 {
-    "name": "Rake",
-    "description": "You swipe at an adjacent creature, magically sprouting sharp claws that rake the target, dealing 6 physical damage if the they fail a defense check of 7.",
-    "charge":"You make two swipes instead of one.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 3,
-    "components": ["Iron Nugget"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 6,
-    "damageType": "Physical"
+  "name": "Rake",
+  "description": "You swipe at an adjacent creature, magically sprouting sharp claws that rake the target, dealing 6 physical damage if the they fail a defense check of 7.",
+  "charge": "You make two swipes instead of one.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 3,
+  "components": [
+    "Iron Nugget"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 6,
+  "damageType": "Physical",
+  "foundry_id": "nm2n1okz311cu93f"
 }

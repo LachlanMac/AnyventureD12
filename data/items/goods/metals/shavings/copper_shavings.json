@@ -8,5 +8,6 @@
   "weight": 0.2,
   "value": 2,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/fragments-steel-barbed.webp"
+  "foundry_icon": "icons/commodities/metal/fragments-steel-barbed.webp",
+  "foundry_id": "myrp2ien5ne5666e"
 }

@@ -12,6 +12,7 @@ import { resetAndReseedItems } from '../utils/itemSeeder.js';
 import { loadCreaturesFromJson } from '../utils/creatureSeeder.js';
 import { seedSongs } from '../utils/songSeeder.js';
 import { resetAndReseedLanguages } from '../utils/languageSeeder.js';
+import { resetAndReseedInjuries } from '../utils/injurySeeder.js';
 
 // Load environment variables
 dotenv.config();
@@ -52,7 +53,7 @@ const main = async () => {
     // Order matters! Some data depends on others
 
     // 1. Ancestries (independent)
-    console.log('\n[1/8] Resetting Ancestries...');
+    console.log('\n[1/10] Resetting Ancestries...');
     console.log('----------------------------------------');
     const ancestrySuccess = await resetAndReseedAncestries();
     if (!ancestrySuccess) {
@@ -63,7 +64,7 @@ const main = async () => {
     }
 
     // 2. Cultures (independent)
-    console.log('\n[2/8] Resetting Cultures...');
+    console.log('\n[2/10] Resetting Cultures...');
     console.log('----------------------------------------');
     const cultureSuccess = await resetAndReseedCultures();
     if (!cultureSuccess) {
@@ -74,7 +75,7 @@ const main = async () => {
     }
 
     // 3. Traits (independent)
-    console.log('\n[3/8] Resetting Traits...');
+    console.log('\n[3/10] Resetting Traits...');
     console.log('----------------------------------------');
     const traitSuccess = await resetAndReseedTraits();
     if (!traitSuccess) {
@@ -85,7 +86,7 @@ const main = async () => {
     }
 
     // 4. Modules (independent)
-    console.log('\n[4/8] Resetting Modules...');
+    console.log('\n[4/10] Resetting Modules...');
     console.log('----------------------------------------');
     const moduleSuccess = await resetAndReseedModules();
     if (!moduleSuccess) {
@@ -96,7 +97,7 @@ const main = async () => {
     }
 
     // 5. Spells (independent)
-    console.log('\n[5/8] Resetting Spells...');
+    console.log('\n[5/10] Resetting Spells...');
     console.log('----------------------------------------');
     const spellSuccess = await resetAndReseedSpells();
     if (!spellSuccess) {
@@ -107,7 +108,7 @@ const main = async () => {
     }
 
     // 6. Items (independent)
-    console.log('\n[6/8] Resetting Items...');
+    console.log('\n[6/10] Resetting Items...');
     console.log('----------------------------------------');
     const itemSuccess = await resetAndReseedItems();
     if (!itemSuccess) {
@@ -118,7 +119,7 @@ const main = async () => {
     }
 
     // 7. Creatures (independent)
-    console.log('\n[7/8] Resetting Creatures...');
+    console.log('\n[7/10] Resetting Creatures...');
     console.log('----------------------------------------');
     const creatureSuccess = await loadCreaturesFromJson();
     if (!creatureSuccess) {
@@ -129,7 +130,7 @@ const main = async () => {
     }
 
     // 8. Songs (independent)
-    console.log('\n[8/9] Resetting Songs...');
+    console.log('\n[8/10] Resetting Songs...');
     console.log('----------------------------------------');
     const songSuccess = await seedSongs();
     if (!songSuccess) {
@@ -140,7 +141,7 @@ const main = async () => {
     }
 
     // 9. Languages (independent)
-    console.log('\n[9/9] Resetting Languages...');
+    console.log('\n[9/10] Resetting Languages...');
     console.log('----------------------------------------');
     const languageSuccess = await resetAndReseedLanguages();
     if (!languageSuccess) {
@@ -148,6 +149,17 @@ const main = async () => {
       allSuccess = false;
     } else {
       console.log('✅ Languages reset successfully');
+    }
+
+    // 10. Injuries (independent)
+    console.log('\n[10/10] Resetting Injuries...');
+    console.log('----------------------------------------');
+    const injurySuccess = await resetAndReseedInjuries();
+    if (!injurySuccess) {
+      console.error('❌ Injury reset failed');
+      allSuccess = false;
+    } else {
+      console.log('✅ Injuries reset successfully');
     }
 
     // Final summary

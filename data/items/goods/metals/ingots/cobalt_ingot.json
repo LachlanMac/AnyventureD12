@@ -8,5 +8,6 @@
   "weight": 4,
   "value": 10000,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/ingot-teal.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-teal.webp",
+  "foundry_id": "yyplhii07q0frm0d"
 }

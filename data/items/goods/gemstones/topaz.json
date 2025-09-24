@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 800,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-trillion-orange.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-trillion-orange.webp",
+  "foundry_id": "ovzqqcaalfpgi8ur"
 }

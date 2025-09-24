@@ -2,7 +2,7 @@
   "id": 9,
   "name": "Awakened",
   "description": "Your mind has been awakened to its psionic potential.",
-  "foundry_icon":"icons/magic/perception/third-eye-blue-red.webp",
+  "foundry_icon": "icons/magic/perception/third-eye-blue-red.webp",
   "options": [
     {
       "name": "Action : Telekinesis",
@@ -19,5 +19,6 @@
       "description": "Your mind is incredibly sensitive to psychic stimuli. Your concentration skill is upgraded. You have a -3 penalty to your maximum resolve and a -3 penalty to psychic mitigation.",
       "data": "A2=-3:M8=-3:SSJ=X:TA"
     }
-  ]
+  ],
+  "foundry_id": "5fg6ncvsfln195zq"
 }

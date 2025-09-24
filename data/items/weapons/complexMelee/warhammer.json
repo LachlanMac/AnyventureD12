@@ -50,5 +50,6 @@
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/hammers/hammer-war-spiked.webp"
+  "foundry_icon": "icons/weapons/hammers/hammer-war-spiked.webp",
+  "foundry_id": "fc4sn9yqzjq12ngm"
 }

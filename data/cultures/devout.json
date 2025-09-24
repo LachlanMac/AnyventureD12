@@ -5,35 +5,42 @@
   "culturalRestrictions": [
     {
       "name": "Guaranteed Mercy",
-      "description": "Your faith demands compassion - even for enemies. If you or your allies kill a helpless or surrendering opponent or refuse a plea for mercy, you lose 2 resolve."
+      "description": "Your faith demands compassion - even for enemies. If you or your allies kill a helpless or surrendering opponent or refuse a plea for mercy, you lose 2 resolve.",
+      "data": "TX"
     },
     {
       "name": "Temperance",
-      "description": "Your faith does not allow you to partake in certain activities such as consuming mind-altering substances, gambling or lying. If you do so, you lose 1 resolve."
+      "description": "Your faith does not allow you to partake in certain activities such as consuming mind-altering substances, gambling or lying. If you do so, you lose 1 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
     {
       "name": "Blessing Ceremony",
-      "description": "When you would and your allies would eat a meal that causes a morale increase, you can bless it causing it to grant an additional morale for you and those who participate in the ceremony."
+      "description": "When you would and your allies would eat a meal that causes a morale increase, you can bless it causing it to grant an additional morale for you and those who participate in the ceremony.",
+      "data": "TX"
     },
     {
       "name": "Donation",
-      "description": "When you have at least 5 resolve, you can donate either money or valuable items to an institution or shrine of your faith. For each 100 gold of valuation you donate, you gain 1 resolve."
+      "description": "When you have at least 5 resolve, you can donate either money or valuable items to an institution or shrine of your faith. For each 100 gold of valuation you donate, you gain 1 resolve.",
+      "data": "TX"
     }
   ],
   "startingItems": [
     {
       "name": "Holy Icon",
-      "description": "A minor relic of your faith that can be used to replace a spell component in any spell, but it is consumed in the process. This icon can also be shown to validate you as a member of your faith or culture."
+      "description": "A minor relic of your faith that can be used to replace a spell component in any spell, but it is consumed in the process. This icon can also be shown to validate you as a member of your faith or culture.",
+      "data": ""
     },
     {
       "name": "Book of Hymns",
-      "description": "You have a hymn book which allows you to automatically learn the song of worship."
+      "description": "You have a hymn book which allows you to automatically learn the song of worship.",
+      "data": ""
     },
     {
       "name": "Pilgrim's Cloak",
-      "description": "A cloak that identifies you as a religious traveler. Most cultures consider it dishonorable to attack a pilgrim, but it is equally dishonorable to start a conflict while wearing the pilgrim's cloak."
+      "description": "A cloak that identifies you as a religious traveler. Most cultures consider it dishonorable to attack a pilgrim, but it is equally dishonorable to start a conflict while wearing the pilgrim's cloak.",
+      "data": ""
     }
   ],
   "options": [],

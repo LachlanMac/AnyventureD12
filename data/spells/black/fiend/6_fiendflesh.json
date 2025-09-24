@@ -1,15 +1,18 @@
 {
-    "name": "Fiendflesh",
-    "description": "Your skin takes on a sulfuric taint, granting you 5 additional mitigation to heat and dark damage while you maintain concentration on this spell.",
-    "charge":"The spell instead sets your heat and dark mitigation to 9 instead of adding to it.",
-    "duration": "Concentration",
-    "range": 0,
-    "checkToCast": 6,
-    "components": ["Ember Dust"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 0,
-    "damageType": null
+  "name": "Fiendflesh",
+  "description": "Your skin takes on a sulfuric taint, granting you 5 additional mitigation to heat and dark damage while you maintain concentration on this spell.",
+  "charge": "The spell instead sets your heat and dark mitigation to 9 instead of adding to it.",
+  "duration": "Concentration",
+  "range": 0,
+  "checkToCast": 6,
+  "components": [
+    "Ember Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "irodta7rxavf6gm3"
 }

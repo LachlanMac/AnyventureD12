@@ -294,22 +294,22 @@ const App: React.FC = () => {
                       </MainLayout>
                     }
                   />
-                <Route
-                  path="/characters/:id/spells"
-                  element={
-                    <MainLayout>
-                      <SpellsPage />
-                    </MainLayout>
-                  }
-                />
-                <Route
-                  path="/characters/:id/songs"
-                  element={
-                    <MainLayout>
-                      <SongsPage />
-                    </MainLayout>
-                  }
-                />
+                  <Route
+                    path="/characters/:id/spells"
+                    element={
+                      <MainLayout>
+                        <SpellsPage />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/characters/:id/songs"
+                    element={
+                      <MainLayout>
+                        <SongsPage />
+                      </MainLayout>
+                    }
+                  />
                   <Route
                     path="/characters/:id/edit"
                     element={

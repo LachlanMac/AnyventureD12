@@ -49,5 +49,6 @@
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/bows/shortbow-recurve.webp"
+  "foundry_icon": "icons/weapons/bows/shortbow-recurve.webp",
+  "foundry_id": "ny95c92542mbzfk0"
 }

@@ -5,5 +5,6 @@
   "weight": 10,
   "value": 200,
   "rarity": "common",
-  "foundry_icon": "icons/sundries/survival/bedroll-brown.webp"
+  "foundry_icon": "icons/sundries/survival/bedroll-brown.webp",
+  "foundry_id": "e49xoke7238ulug2"
 }

@@ -10,5 +10,6 @@
   "weight": 5,
   "value": 45,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/leather/leather-pelt-cured.webp"
+  "foundry_icon": "icons/commodities/leather/leather-pelt-cured.webp",
+  "foundry_id": "osbfb4yabcxjpowr"
 }

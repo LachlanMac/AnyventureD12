@@ -5,35 +5,42 @@
   "culturalRestrictions": [
     {
       "name": "The Neverending Road",
-      "description": "Being incapable of travel is one of the worst fates you can imagine. If you go a complete day without being able to move due to an injury or disfigurement, you lose 1 resolve."
+      "description": "Being incapable of travel is one of the worst fates you can imagine. If you go a complete day without being able to move due to an injury or disfigurement, you lose 1 resolve.",
+      "data": "TX"
     },
     {
       "name": "Restless Spirit",
-      "description": "When you spend more than 7 days within the same settlement or camp, you lose 3 resolve and you no longer can benefit from a favorable rest until you complete a rest in a different camp or settlement."
+      "description": "When you spend more than 7 days within the same settlement or camp, you lose 3 resolve and you no longer can benefit from a favorable rest until you complete a rest in a different camp or settlement.",
+      "data": "TX"
     }
   ],
   "benefits": [
     {
       "name": "Traveler's Network",
-      "description": "You know the signs of your traveling group, and can leave signs yourself. This can be encoded messages that only members of your group can decipher."
+      "description": "You know the signs of your traveling group, and can leave signs yourself. This can be encoded messages that only members of your group can decipher.",
+      "data": "TX"
     },
     {
       "name": "Wandering Musicians",
-      "description": "Your people use song to pass the time on the road. You automatically learn the ballad of respite and become an expert at one musical skill."
+      "description": "Your people use song to pass the time on the road. You automatically learn the ballad of respite and become an expert at one musical skill.",
+      "data": "TX"
     }
   ],
   "startingItems": [
     {
       "name": "Trade Tokens",
-      "description": "You have three very valuable tokens of trade that can be used to trade with members of your traveling group if you encounter them."
+      "description": "You have three very valuable tokens of trade that can be used to trade with members of your traveling group if you encounter them.",
+      "data": ""
     },
     {
       "name": "Traveler's Map",
-      "description": "You have a map, that when used, will give directions to the closest camp of travelers from your culture. This map can only be used once."
+      "description": "You have a map, that when used, will give directions to the closest camp of travelers from your culture. This map can only be used once.",
+      "data": ""
     },
     {
       "name": "Tinkerer's Kit",
-      "description": "You have a bag of odds and ends that has three items in it which are only determined when you pull them out. You can decide what these items are as you pull them, as long as their value is worth less than 10 gold."
+      "description": "You have a bag of odds and ends that has three items in it which are only determined when you pull them out. You can decide what these items are as you pull them, as long as their value is worth less than 10 gold.",
+      "data": ""
     }
   ],
   "options": [],

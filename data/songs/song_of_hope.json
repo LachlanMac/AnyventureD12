@@ -6,6 +6,13 @@
   "difficulty": 7,
   "description": "A steadfast melody that steels the spirit and clears the mind, lifting allies beyond despair",
   "effect": "Allies double the result of their Resilience checks (rounded down)",
-  "harmony_1": { "instrument": "strings", "effect": "+5 psychic mitigation" },
-  "harmony_2": { "instrument": "brass", "effect": "Immunity to the afraid condition" }
+  "harmony_1": {
+    "instrument": "strings",
+    "effect": "+5 psychic mitigation"
+  },
+  "harmony_2": {
+    "instrument": "brass",
+    "effect": "Immunity to the afraid condition"
+  },
+  "foundry_id": "cd0f129qyb1k6w11"
 }

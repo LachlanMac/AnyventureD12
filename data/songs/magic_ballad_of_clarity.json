@@ -6,5 +6,9 @@
   "difficulty": 6,
   "description": "A lucid refrain that recalls lost threads of spells",
   "effect": "Recover 1 fizzled spell",
-  "harmony_1": { "instrument": "any", "effect": "Each harmony recovers +1 additional fizzled spell" }
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Each harmony recovers +1 additional fizzled spell"
+  },
+  "foundry_id": "j8afafjc30329fyz"
 }

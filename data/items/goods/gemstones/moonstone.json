@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 700,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-round-white.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-round-white.webp",
+  "foundry_id": "77j0uburjmjybr1v"
 }

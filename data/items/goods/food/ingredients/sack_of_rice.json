@@ -8,5 +8,6 @@
   "weight": 5,
   "value": 100,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/grains/sack-rice-open-brown.webp"
+  "foundry_icon": "icons/consumables/grains/sack-rice-open-brown.webp",
+  "foundry_id": "2iw54mb34q8gpt2i"
 }

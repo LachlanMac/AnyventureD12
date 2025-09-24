@@ -9,5 +9,6 @@
   "weight": 3.5,
   "value": 500,
   "rarity": "uncommon",
-  "foundry_icon": "icons/commodities/metal/ingot-plain-steel.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-plain-steel.webp",
+  "foundry_id": "motux2o6mev9xze7"
 }

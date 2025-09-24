@@ -6,35 +6,42 @@
   "culturalRestrictions": [
     {
       "name": "Respect of Elders",
-      "description": "You must show proper deference to anyone signficiantly older or of a higher generational standing. Directly contradicting an elder causes you to lose 1 resolve."
+      "description": "You must show proper deference to anyone significantly older or of a higher generational standing. Directly contradicting an elder causes you to lose 1 resolve.",
+      "data": "TX"
     },
     {
       "name": "Daily Ritual",
-      "description": "Your culture has a ritual that you must perform for at least 1 hour a day or you lose 2 resolve."
+      "description": "Your culture has a ritual that you must perform for at least 1 hour a day or you lose 2 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
     {
       "name": "Generational Recall",
-      "description": "You have perfect recall of all stories, customs and oral traditions passed down through your culture. You automatically know historical information relevant to your culture in the way they have told it."
+      "description": "You have perfect recall of all stories, customs and oral traditions passed down through your culture. You automatically know historical information relevant to your culture in the way they have told it.",
+      "data": "TX"
     },
     {
       "name": "Ancestral Pride",
-      "description": "Your pride in those who have come before you is one you wear proudly. You gain +2 maximum resolve."
+      "description": "Your pride in those who have come before you is one you wear proudly. You gain +2 maximum resolve.",
+      "data": "TX:A2=2"
     }
   ],
   "startingItems": [
     {
       "name": "Dreamcatcher",
-      "description": "When you hang your dreamcatcher within a very short (5 unit) distance of you, you gain +5 psychic mitigation and +2 resilience against attacks that target you while you are sleeping. Normal nightmares are also mitigated by this item."
+      "description": "When you hang your dreamcatcher within a very short (5 unit) distance of you, you gain +5 psychic mitigation and +2 resilience against attacks that target you while you are sleeping. Normal nightmares are also mitigated by this item.",
+      "data": ""
     },
     {
       "name": "Lineage Ring",
-      "description": "An ancient ring bearing the sigil of your family line, passed down through generations. This ring serves as irrefutable proof of your heritage and bloodline. When convincing a member of any ancestral culture of your standing, you gain a bonus dice to any persuasion checks."
+      "description": "An ancient ring bearing the sigil of your family line, passed down through generations. This ring serves as irrefutable proof of your heritage and bloodline. When convincing a member of any ancestral culture of your standing, you gain a bonus dice to any persuasion checks.",
+      "data": ""
     },
     {
       "name": "Traditional Garb",
-      "description": "Sacred vestments that mark your status within the ancestral hierarchy. Members of your culture will be much more willing to engage and trust you."
+      "description": "Sacred vestments that mark your status within the ancestral hierarchy. Members of your culture will be much more willing to engage and trust you.",
+      "data": ""
     }
   ],
   "options": []

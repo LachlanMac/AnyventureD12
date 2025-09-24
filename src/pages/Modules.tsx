@@ -294,10 +294,7 @@ const ModulesPage: React.FC = () => {
 
     filteredModules = filteredModules.filter((module) => {
       // Always show personality modules if they're selected
-      if (
-        module.mtype === 'personality' &&
-        isModuleSelected(module._id)
-      ) {
+      if (module.mtype === 'personality' && isModuleSelected(module._id)) {
         return true;
       }
 
@@ -753,19 +750,22 @@ const ModulesPage: React.FC = () => {
                                       return (
                                         <div
                                           style={{
-                                            backgroundColor: energyCost === 0 
-                                              ? 'var(--color-dark-elevated)' 
-                                              : 'rgba(59, 130, 246, 0.2)',
-                                            color: energyCost === 0 
-                                              ? 'var(--color-cloud)' 
-                                              : 'rgb(147, 197, 253)',
+                                            backgroundColor:
+                                              energyCost === 0
+                                                ? 'var(--color-dark-elevated)'
+                                                : 'rgba(59, 130, 246, 0.2)',
+                                            color:
+                                              energyCost === 0
+                                                ? 'var(--color-cloud)'
+                                                : 'rgb(147, 197, 253)',
                                             padding: '0.125rem 0.375rem',
                                             borderRadius: '0.25rem',
                                             fontSize: '0.75rem',
                                             fontWeight: 'bold',
-                                            border: energyCost === 0 
-                                              ? '1px solid var(--color-dark-border)' 
-                                              : '1px solid rgba(59, 130, 246, 0.3)',
+                                            border:
+                                              energyCost === 0
+                                                ? '1px solid var(--color-dark-border)'
+                                                : '1px solid rgba(59, 130, 246, 0.3)',
                                           }}
                                         >
                                           {getEnergyDisplay(energyCost)}
@@ -774,7 +774,7 @@ const ModulesPage: React.FC = () => {
                                     }
                                     return null;
                                   })()}
-                                  
+
                                   {/* Tier indicator */}
                                   <div
                                     style={{

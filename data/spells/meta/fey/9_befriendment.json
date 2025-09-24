@@ -1,15 +1,18 @@
 {
-    "name": "Befriendment",
-    "description": "You target an adjacent creature and charm them for the next minute if they fail a resilience check of 9. If this spell fails, both you and the target take 5 psychic damage. A creature can only be the target of this spell once per day.",
-    "charge":"If this spell fails, no damage is done and the target is not aware you channeled a spell unless they make a magic or logic check of 10.",
-    "duration": "1 minute",
-    "range": 1,
-    "checkToCast": 9,
-    "components": ["Jar of Honey"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Befriendment",
+  "description": "You target an adjacent creature and charm them for the next minute if they fail a resilience check of 9. If this spell fails, both you and the target take 5 psychic damage. A creature can only be the target of this spell once per day.",
+  "charge": "If this spell fails, no damage is done and the target is not aware you channeled a spell unless they make a magic or logic check of 10.",
+  "duration": "1 minute",
+  "range": 1,
+  "checkToCast": 9,
+  "components": [
+    "Jar of Honey"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "cp08ndh9hfhxp2sr"
 }

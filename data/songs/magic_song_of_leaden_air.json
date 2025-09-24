@@ -6,5 +6,9 @@
   "difficulty": 6,
   "description": "A dampening hush that causes the air to grow heavy around enemies, slowing projectiles",
   "effect": "Ranged and throwing attacks made by enemies are rolled with a penalty die",
-  "harmony_1": { "instrument": "any", "effect": "Enemies roll a penalty die on finesse checks" }
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Enemies roll a penalty die on finesse checks"
+  },
+  "foundry_id": "llcng4q3eanlowsx"
 }

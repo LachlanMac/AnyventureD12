@@ -1,15 +1,18 @@
 {
-    "name": "Nature Sense",
-    "description": "You reach out magically and detect if any beasts or plantoids are within a moderate (20 unit) distance. You can also use this spell to determine what direction a beast or plantoid is that you have seen within the last hour.",
-    "charge":"When you detect plantoids and beasts, you are also aware of what the highest tier creature is.",
-    "duration": "Instantaneous",
-    "range": 5,
-    "checkToCast": 3,
-    "components": ["Pinch of Crystal Dust"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Nature Sense",
+  "description": "You reach out magically and detect if any beasts or plantoids are within a moderate (20 unit) distance. You can also use this spell to determine what direction a beast or plantoid is that you have seen within the last hour.",
+  "charge": "When you detect plantoids and beasts, you are also aware of what the highest tier creature is.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 3,
+  "components": [
+    "Pinch of Crystal Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "lcvx60ke7k90iir5"
 }

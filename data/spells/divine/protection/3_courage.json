@@ -1,17 +1,18 @@
 {
-    "name": "Courage",
-    "description": "You touch a creature and rid them of any fear they may be experiencing, removing the afraid condition.",
-    "charge":"The spell also prevents grants them immunity to the afraid condition for the next minute",
-    "duration": "1 minute",
-    "range": 0,
-    "checkToCast": 3,
-    "components": [
-      "Copper Idol"
-    ],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Courage",
+  "description": "You touch a creature and rid them of any fear they may be experiencing, removing the afraid condition.",
+  "charge": "The spell also prevents grants them immunity to the afraid condition for the next minute",
+  "duration": "1 minute",
+  "range": 0,
+  "checkToCast": 3,
+  "components": [
+    "Copper Idol"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "uhzdjc58fp33ilrk"
 }

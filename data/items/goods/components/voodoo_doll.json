@@ -10,5 +10,6 @@
   "weight": 0.2,
   "value": 100,
   "rarity": "rare",
-  "foundry_icon": "icons/commodities/treasure/doll-voodoo.webp"
+  "foundry_icon": "icons/commodities/treasure/doll-voodoo.webp",
+  "foundry_id": "8xba0hyy3p8f397f"
 }

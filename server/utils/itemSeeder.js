@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Item from '../models/Item.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -139,10 +140,16 @@ export const seedItems = async (purgeFirst = false) => {
       } else {
         // Create new item
         console.log(`Creating new item: ${data.name}`);
-        
+
         // Remove the _source metadata when saving to the database
         const { _source, ...itemData } = data;
-        
+
+        // Generate foundry_id if missing
+        if (!itemData.foundry_id) {
+          itemData.foundry_id = generateFoundryId();
+          console.log(`  Generated foundry_id: ${itemData.foundry_id}`);
+        }
+
         await Item.create(itemData);
         createdCount++;
       }

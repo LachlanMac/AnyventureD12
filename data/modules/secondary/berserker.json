@@ -56,7 +56,7 @@
       "name": "Twin Fury",
       "description": "You have the coordination and strength to wield heavy weapons in your offhand. Gain +1 coordination. You can dual wield any one-handed complex melee weapon, not just simple weapons.",
       "location": "6b",
-      "data": "TG:SSG=1"
+      "data": "TG:SSG=1:FF"
     },
     {
       "name": "Action : Devastating Blow",

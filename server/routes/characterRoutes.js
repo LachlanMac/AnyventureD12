@@ -16,6 +16,7 @@ import {
   addTrait,
   removeTrait,
   updateTraitOptions,
+  updateCultureSelections,
   exportCharacterToFoundry
 } from '../controllers/characterController.js';
 import { protect } from '../middleware/auth.js';
@@ -249,6 +250,9 @@ router.patch('/:id/public', protect, async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 });
+
+// Culture selection route
+router.put('/:id/culture-selections', protect, updateCultureSelections);
 
 // FoundryVTT export route
 router.get('/:id/export-foundry', protect, exportCharacterToFoundry);

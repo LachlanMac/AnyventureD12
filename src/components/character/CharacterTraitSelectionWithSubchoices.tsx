@@ -9,12 +9,14 @@ interface CharacterTraitSelectionProps {
     fromTraitId: string,
     toTraitId: string
   ) => Promise<{ valid: boolean; error?: string }>;
+  initialSelectedOptions?: { name: string; selectedSubchoice?: string | null }[];
 }
 
 const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionProps> = ({
   selectedTrait,
   onSelectTrait,
   onValidateTraitChange,
+  initialSelectedOptions,
 }) => {
   const [traits, setTraits] = useState<CharacterTrait[]>([]);
   const [loading, setLoading] = useState(true);
@@ -37,11 +39,13 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
         if (!selectedTrait) {
           const bornToAdventure = data.find((trait: any) => trait.name === 'Born to Adventure');
           if (bornToAdventure) {
-            const selectedOptions = bornToAdventure.options?.map((option: any) => ({
-              name: option.name,
-              selectedSubchoice: null,
-            })) || [];
-            onSelectTrait(bornToAdventure._id, selectedOptions);
+            const selectedOptions =
+              bornToAdventure.options?.map((option: any) => ({
+                name: option.name,
+                selectedSubchoice: null,
+              })) || [];
+            // Defer parent update to avoid setState during render of another component
+            setTimeout(() => onSelectTrait(bornToAdventure._id, selectedOptions), 0);
           }
         }
 
@@ -55,6 +59,16 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
     fetchTraits();
   }, []);
 
+  // Seed saved subchoice selections for the selected trait (edit mode)
+  useEffect(() => {
+    if (!initialSelectedOptions || initialSelectedOptions.length === 0) return;
+    const map: Record<string, string> = {};
+    initialSelectedOptions.forEach((opt) => {
+      if (opt.selectedSubchoice) map[opt.name] = opt.selectedSubchoice;
+    });
+    if (Object.keys(map).length > 0) setSubchoiceSelections(map);
+  }, [initialSelectedOptions]);
+
   const toggleExpanded = () => {
     setExpanded(!expanded);
   };
@@ -67,7 +81,6 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
       return;
     }
 
-
     // If validation function exists
     if (onValidateTraitChange) {
       const validation = await onValidateTraitChange(selectedTrait, traitId);
@@ -78,15 +91,16 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
     }
 
     // Get selected trait options with subchoices
-    const trait = traits.find(t => t._id === traitId);
+    const trait = traits.find((t) => t._id === traitId);
     if (trait) {
-      const selectedOptions = trait.options?.map(option => {
-        const subchoiceValue = subchoiceSelections[option.name];
-        return {
-          name: option.name,
-          selectedSubchoice: subchoiceValue || null,
-        };
-      }) || [];
+      const selectedOptions =
+        trait.options?.map((option) => {
+          const subchoiceValue = subchoiceSelections[option.name];
+          return {
+            name: option.name,
+            selectedSubchoice: subchoiceValue || null,
+          };
+        }) || [];
 
       onSelectTrait(traitId, selectedOptions);
     } else {
@@ -103,17 +117,19 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
 
       // Re-trigger trait selection to update with new subchoice
       if (selectedTrait) {
-        const trait = traits.find(t => t._id === selectedTrait);
+        const trait = traits.find((t) => t._id === selectedTrait);
         if (trait) {
-          const selectedOptions = trait.options?.map(option => {
-            const subchoiceValue = newSelections[option.name];
-            return {
-              name: option.name,
-              selectedSubchoice: subchoiceValue || null,
-            };
-          }) || [];
+          const selectedOptions =
+            trait.options?.map((option) => {
+              const subchoiceValue = newSelections[option.name];
+              return {
+                name: option.name,
+                selectedSubchoice: subchoiceValue || null,
+              };
+            }) || [];
 
-          onSelectTrait(selectedTrait, selectedOptions);
+          // Defer to next tick to avoid parent update during render warnings
+          setTimeout(() => onSelectTrait(selectedTrait, selectedOptions), 0);
         }
       }
 

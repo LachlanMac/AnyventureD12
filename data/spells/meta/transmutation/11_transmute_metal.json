@@ -1,15 +1,18 @@
 {
-    "name": "Transmute Metal",
-    "description": "You touch a metal object or surface that can fit within a 1 cubic unit and transmute it into water, ice or steam. Lead alloys, aetherium and starsteel are not affected by this spell. If this spell targets an object equipped or held by a creature, they must make a coordination check of 10 to avoid the effects.",
-    "charge":"This spell also works on natural materials such as dirt, stone or wood.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 11,
-    "components": ["Vial of Quicksilver"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Transmute Metal",
+  "description": "You touch a metal object or surface that can fit within a 1 cubic unit and transmute it into water, ice or steam. Lead alloys, aetherium and starsteel are not affected by this spell. If this spell targets an object equipped or held by a creature, they must make a coordination check of 10 to avoid the effects.",
+  "charge": "This spell also works on natural materials such as dirt, stone or wood.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 11,
+  "components": [
+    "Vial of Quicksilver"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "5b8xy240dh4bod4i"
 }

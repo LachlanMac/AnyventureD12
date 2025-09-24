@@ -8,5 +8,6 @@
   "weight": 0.25,
   "value": 25,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/fragments-steel-ring.webp"
+  "foundry_icon": "icons/commodities/metal/fragments-steel-ring.webp",
+  "foundry_id": "xwr0w4mam00p1sum"
 }

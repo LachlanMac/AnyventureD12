@@ -5,35 +5,42 @@
   "culturalRestrictions": [
     {
       "name": "Historical Conscience",
-      "description": "You cannot willingly destroy artifacts, texts, or structures with historical significance, believing all knowledge and cultural heritage should be preserved for future generations. Deliberately damaging or destroying items of historical, cultural, or scholarly value causes you to lose 3 resolve."
+      "description": "You cannot willingly destroy artifacts, texts, or structures with historical significance, believing all knowledge and cultural heritage should be preserved for future generations. Deliberately damaging or destroying items of historical, cultural, or scholarly value causes you to lose 3 resolve.",
+      "data": "TX"
     },
     {
       "name": "Words Before Swords",
-      "description": "You believe problems should be solved through intellect and discourse. Resorting to violence without first attempting negotiation, debate, or clever solutions causes you to lose 1 resolve."
+      "description": "You believe problems should be solved through intellect and discourse. Resorting to violence without first attempting negotiation, debate, or clever solutions causes you to lose 1 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
     {
       "name": "Encyclopedic Fixation",
-      "description": "You pick a single knowledge skill; any information you learn in that category can always be recalled perfectly."
+      "description": "You pick a single knowledge skill; any information you learn in that category can always be recalled perfectly.",
+      "data": "TX"
     },
     {
       "name": "Awe of Discovery",
-      "description": "When you contribute to discovering an artifact, ruins or other forgotten knowledge, you gain 3 morale."
+      "description": "When you contribute to discovering an artifact, ruins or other forgotten knowledge, you gain 3 morale.",
+      "data": "TX"
     }
   ],
   "startingItems": [
     {
       "name": "Scholar's Journal",
-      "description": "A meticulously maintained journal where you record daily observations, interesting discoveries, and theoretical notes. Once per day, when investigating a mystery or trying to solve a complex problem, you can consult your accumulated observations to make a Logic check and gain a helpful clue or insight based on the quality of the check."
+      "description": "A meticulously maintained journal where you record daily observations, interesting discoveries, and theoretical notes. Once per day, when investigating a mystery or trying to solve a complex problem, you can consult your accumulated observations to make a Logic check and gain a helpful clue or insight based on the quality of the check.",
+      "data": ""
     },
     {
       "name": "Letter of Referral",
-      "description": "A formal letter of introduction from a respected mentor, professor, or academic authority vouching for your scholarly credentials and character. This letter can be presented to gain access to libraries, universities, research facilities, or scholarly gatherings."
+      "description": "A formal letter of introduction from a respected mentor, professor, or academic authority vouching for your scholarly credentials and character. This letter can be presented to gain access to libraries, universities, research facilities, or scholarly gatherings.",
+      "data": ""
     },
     {
       "name": "Mark of Knowledge",
-      "description": "A distinctive piece of jewelry, pin, or emblem that identifies you as a member of a recognized scholarly institution or academic society. Fellow scholars immediately recognize your credentials and will extend professional courtesy, while educated members of other cultures often show respect for your academic standing and expertise."
+      "description": "A distinctive piece of jewelry, pin, or emblem that identifies you as a member of a recognized scholarly institution or academic society. Fellow scholars immediately recognize your credentials and will extend professional courtesy, while educated members of other cultures often show respect for your academic standing and expertise.",
+      "data": ""
     }
   ],
   "options": [],

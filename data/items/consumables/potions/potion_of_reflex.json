@@ -17,5 +17,6 @@
     ]
   },
   "side_effect": "After wearing off, the potion has the opposite effect and causes the consumer to suffer a penalty dice to all finesse checks until they complete their next full rest. This side effect can be neutralized by consuming an additional potion of reflex.",
-  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+  "foundry_id": "xkc4sk2h8ytld9u4"
 }

@@ -6,9 +6,9 @@
   "options": [
     {
       "name": "Weapon Collector",
-      "description": "You are adept at managing multiple weapons in combat. You can carry an additional weapon that can be drawn and equipped without using an action. Additionally, you can switch between carried weapons as part of any attack action.",
+      "description": "You are adept at managing multiple weapons in combat. You can use complex weapons in your extra weapon slots. Additionally, you can make an attack with an item in your extra weapon slot that requires 2-hands while your offhand is holding something else.",
       "location": "1",
-      "data": "TG"
+      "data": "TG:FE"
     },
     {
       "name": "Action : Disarm",

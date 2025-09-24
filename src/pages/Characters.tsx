@@ -43,7 +43,7 @@ const Characters: React.FC = () => {
     try {
       const response = await fetch(`/api/characters/${characterId}/export-foundry`, {
         headers: {
-          'Authorization': `Bearer ${localStorage.getItem('token')}`,
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
         },
       });
 

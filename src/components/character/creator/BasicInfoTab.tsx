@@ -15,6 +15,12 @@ interface BasicInfoTabProps {
   onModulePointsChange?: (points: number) => void;
   onStartingTalentsChange: (talents: number) => void;
   hideModulePoints?: boolean;
+  selectedAncestry?: Ancestry | null;
+  selectedCultureSelections?: {
+    restriction?: any;
+    benefit?: any;
+    startingItem?: any;
+  };
 }
 
 const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
@@ -29,6 +35,8 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
   onModulePointsChange,
   onStartingTalentsChange,
   hideModulePoints = false,
+  selectedAncestry,
+  selectedCultureSelections,
 }) => {
   return (
     <div>
@@ -70,10 +78,23 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
       </div>
 
       {/* Race Selection Component */}
-      <RaceSelection selectedRace={race} onSelectRace={onRaceChange} />
+      <RaceSelection
+        selectedRace={race || (selectedAncestry?.name ?? '')}
+        onSelectRace={onRaceChange}
+        initialSelectedSubchoices={
+          selectedAncestry?.options?.reduce((acc: Record<string, string>, opt: any) => {
+            if (opt.selectedSubchoice) acc[opt.name] = opt.selectedSubchoice;
+            return acc;
+          }, {})
+        }
+      />
 
       {/* Culture Selection Component */}
-      <CultureSelection selectedCulture={culture} onSelectCulture={onCultureChange} />
+      <CultureSelection
+        selectedCulture={culture}
+        onSelectCulture={onCultureChange}
+        initialSelections={selectedCultureSelections}
+      />
 
       {!hideModulePoints && modulePoints !== undefined && onModulePointsChange && (
         <div style={{ marginBottom: '1.5rem' }}>
@@ -127,7 +148,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
             marginBottom: '0.5rem',
           }}
         >
-        Starting Talents
+          Starting Talents
         </label>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
           <input
@@ -157,7 +178,8 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
             marginTop: '0.5rem',
           }}
         >
-        How many Talent points you start with to distribute among weapon, magic, and crafting skills. Default is 8.
+          How many Talent points you start with to distribute among weapon, magic, and crafting
+          skills. Default is 8.
         </p>
       </div>
     </div>

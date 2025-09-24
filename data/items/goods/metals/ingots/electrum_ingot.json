@@ -8,5 +8,6 @@
   "weight": 7.5,
   "value": 3000,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/ingot-engraved-gold.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-engraved-gold.webp",
+  "foundry_id": "ynyf6pn2zynq6g04"
 }

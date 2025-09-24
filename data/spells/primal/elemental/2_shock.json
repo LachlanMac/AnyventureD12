@@ -1,15 +1,18 @@
 {
-    "name": "Shock",
-    "description": "You send a burst of electricity towards a nearby creature, dealing 4 electric damage if the target fails a resilience check of 5. If the target is wearing or wielding metal, they roll with a penalty dice on their defense check.",
-    "charge":"A creature wearing or wielding metal takes an additional 4 electric damage.",
-    "duration": "Instantaneous",
-    "range": 2,
-    "checkToCast": 2,
-    "components": ["copper shavings"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 4,
-    "damageType": "Electric"
+  "name": "Shock",
+  "description": "You send a burst of electricity towards a nearby creature, dealing 4 electric damage if the target fails a resilience check of 5. If the target is wearing or wielding metal, they roll with a penalty dice on their defense check.",
+  "charge": "A creature wearing or wielding metal takes an additional 4 electric damage.",
+  "duration": "Instantaneous",
+  "range": 2,
+  "checkToCast": 2,
+  "components": [
+    "copper shavings"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 4,
+  "damageType": "Electric",
+  "foundry_id": "hs3fllv42jwyvixt"
 }

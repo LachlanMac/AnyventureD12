@@ -1,15 +1,18 @@
 {
-    "name": "Faith Shield",
-    "description": "In response to yourself or an ally being the target of an attack, protect them with a shimmering shield of radiant energy, granting them an additional 5 dark mitigation. When you are the target of this spell, the dark mitigation is increased to 8.",
-    "charge":"The shield extends in a very short (5 unit) radius around you, offering the mitigation benefits to anyone within the area.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 3,
-    "components": ["Iron Nugget"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": true,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Faith Shield",
+  "description": "In response to yourself or an ally being the target of an attack, protect them with a shimmering shield of radiant energy, granting them an additional 5 dark mitigation. When you are the target of this spell, the dark mitigation is increased to 8.",
+  "charge": "The shield extends in a very short (5 unit) radius around you, offering the mitigation benefits to anyone within the area.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 3,
+  "components": [
+    "Iron Nugget"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": true,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "pvyrrtdr7fjpmo0n"
 }

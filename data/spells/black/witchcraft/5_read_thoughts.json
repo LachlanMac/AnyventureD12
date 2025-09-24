@@ -1,15 +1,18 @@
 {
-    "name": "Read Thoughts",
-    "description": "You target an adjacent creature and attempt to read their most immediate thoughts for the next minute if they fail a concentration check of 7. They have no recollection of you doing so once the spell ends, but they will be aware that you were using magic on them if you should fail. A creature can only be the target of this spell once per day.",
-    "charge":"The range of this spell becomes distant (100 units) and does not require line of sight.",
-    "duration": "1 Minute",
-    "range": 1,
-    "checkToCast": 5,
-    "components": ["Azurite"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Read Thoughts",
+  "description": "You target an adjacent creature and attempt to read their most immediate thoughts for the next minute if they fail a concentration check of 7. They have no recollection of you doing so once the spell ends, but they will be aware that you were using magic on them if you should fail. A creature can only be the target of this spell once per day.",
+  "charge": "The range of this spell becomes distant (100 units) and does not require line of sight.",
+  "duration": "1 Minute",
+  "range": 1,
+  "checkToCast": 5,
+  "components": [
+    "Azurite"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "xazmaoyn6ed750vz"
 }

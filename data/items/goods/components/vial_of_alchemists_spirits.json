@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 200,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+  "foundry_id": "ks2g7gm5ecexx5qp"
 }

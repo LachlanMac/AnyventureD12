@@ -522,18 +522,21 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
               <h3 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Inventory</h3>
               <div
                 style={{
-                  color: getCurrentInventoryWeight() > getMaxCarryWeight()
-                    ? 'var(--color-white)'
-                    : 'var(--color-cloud)',
+                  color:
+                    getCurrentInventoryWeight() > getMaxCarryWeight()
+                      ? 'var(--color-white)'
+                      : 'var(--color-cloud)',
                   fontSize: '0.9rem',
                   padding: '0.25rem 0.75rem',
-                  backgroundColor: getCurrentInventoryWeight() > getMaxCarryWeight()
-                    ? 'rgba(152, 94, 109, 0.3)'
-                    : 'var(--color-dark-elevated)',
+                  backgroundColor:
+                    getCurrentInventoryWeight() > getMaxCarryWeight()
+                      ? 'rgba(152, 94, 109, 0.3)'
+                      : 'var(--color-dark-elevated)',
                   borderRadius: '6px',
-                  border: getCurrentInventoryWeight() > getMaxCarryWeight()
-                    ? '1px solid var(--color-sunset)'
-                    : '1px solid var(--color-dark-border)',
+                  border:
+                    getCurrentInventoryWeight() > getMaxCarryWeight()
+                      ? '1px solid var(--color-sunset)'
+                      : '1px solid var(--color-dark-border)',
                   fontWeight: getCurrentInventoryWeight() > getMaxCarryWeight() ? 'bold' : 'normal',
                 }}
                 title="Carry weight excludes equipped items"

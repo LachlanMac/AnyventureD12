@@ -62,5 +62,6 @@
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/staves/staff-forest-jewel.webp"
+  "foundry_icon": "icons/weapons/staves/staff-forest-jewel.webp",
+  "foundry_id": "tm9brlwpbsc5n2ds"
 }

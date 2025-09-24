@@ -2,6 +2,45 @@ import Character from '../models/Character.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
 import { v4 as uuidv4 } from 'uuid';
 
+// Helper function to expand trait/ancestry options with subchoices
+const expandTraitOptions = (options) => {
+  if (!options) return [];
+
+  const expandedOptions = [];
+
+  for (const option of options) {
+    // Add the main option
+    const plainOption = option.toObject ? option.toObject() : option;
+    const mainOption = {
+      _id: plainOption._id,
+      name: plainOption.name,
+      description: plainOption.description,
+      data: plainOption.data,
+      selected: plainOption.selected || false,
+      requiresChoice: plainOption.requiresChoice || false,
+      choiceType: plainOption.choiceType || ""
+    };
+    expandedOptions.push(mainOption);
+
+    // Add subchoices as separate options
+    if (plainOption.subchoices && plainOption.subchoices.length > 0) {
+      for (const subchoice of plainOption.subchoices) {
+        const subchoiceOption = {
+          _id: subchoice.id || subchoice._id,
+          name: subchoice.name,
+          description: subchoice.description,
+          data: subchoice.data || "",
+          selected: false,
+          isSubchoice: true,
+          parentOption: plainOption.name
+        };
+        expandedOptions.push(subchoiceOption);
+      }
+    }
+  }
+
+  return expandedOptions;
+};
 
 // @desc    Get all characters for a user
 // @route   GET /api/characters
@@ -615,10 +654,53 @@ const getGenericIcon = (data, type) => {
   }
 };
 
+// @desc    Update character culture selections
+// @route   PUT /api/characters/:id/culture-selections
+// @access  Private
+export const updateCultureSelections = async (req, res) => {
+  try {
+    const { cultureId, selectedRestriction, selectedBenefit, selectedStartingItem } = req.body;
+
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check if user owns this character
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to modify this character' });
+    }
+
+    // Update culture selections
+    character.characterCulture = {
+      cultureId: cultureId,
+      selectedRestriction: selectedRestriction,
+      selectedBenefit: selectedBenefit,
+      selectedStartingItem: selectedStartingItem
+    };
+
+    await character.save();
+
+    // Return the updated character with populated culture
+    const updatedCharacter = await Character.findById(character._id)
+      .populate('characterCulture.cultureId');
+
+    res.json({
+      message: 'Culture selections updated successfully',
+      character: updatedCharacter
+    });
+  } catch (error) {
+    console.error('Error updating culture selections:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // @desc    Export character to FoundryVTT JSON format
 // @route   GET /api/characters/:id/export-foundry
 // @access  Private
 export const exportCharacterToFoundry = async (req, res) => {
+  console.log('🔥 EXPORT CALLED - Character ID:', req.params.id);
   try {
     const character = await Character.findById(req.params.id)
       .populate('modules.moduleId')
@@ -1085,21 +1167,38 @@ export const exportCharacterToFoundry = async (req, res) => {
 
     // Add ancestry and culture as items if they exist
     if (character.ancestry?.ancestryId) {
-      // Process ancestry options to mark selected ones
-      const selectedLocations = new Set((character.ancestry.selectedOptions || []).map(opt => opt.location));
-      const processedAncestryOptions = (character.ancestry.ancestryId.options || []).map(option => {
-        const plainOption = option.toObject ? option.toObject() : option;
+      // Process ancestry options (flatten subchoices, remove location) and mark selections by name
+      const norm = (v) => (v || "").toString().trim().toLowerCase();
+      const selectedOptionNames = new Set((character.ancestry.selectedOptions || []).map(opt => norm(opt.name)));
+      const selectedSubchoices = {};
+      (character.ancestry.selectedOptions || []).forEach(opt => {
+        if (opt.selectedSubchoice) {
+          selectedSubchoices[opt.name] = opt.selectedSubchoice;
+        }
+      });
+
+      const expandedAncestryOptions = expandTraitOptions(character.ancestry.ancestryId.options || []);
+      const processedAncestryOptions = expandedAncestryOptions.map(option => {
+        if (!option.isSubchoice) {
+          return {
+            _id: option._id,
+            name: option.name,
+            description: option.description,
+            data: option.data,
+            selected: selectedOptionNames.has(norm(option.name)),
+            requiresChoice: option.requiresChoice || false,
+            choiceType: option.choiceType || ""
+          };
+        }
+        const isSelectedSubchoice = selectedSubchoices[option.parentOption] === option._id;
         return {
-          _id: plainOption._id,
-          name: plainOption.name,
-          description: plainOption.description,
-          location: plainOption.location,
-          data: plainOption.data,
-          selected: selectedLocations.has(plainOption.location),
-          // Include subchoices for options that have them
-          subchoices: plainOption.subchoices || [],
-          requiresChoice: plainOption.requiresChoice || false,
-          choiceType: plainOption.choiceType || ""
+          _id: option._id,
+          name: option.name,
+          description: option.description,
+          data: option.data,
+          selected: !!isSelectedSubchoice,
+          isSubchoice: true,
+          parentOption: option.parentOption
         };
       });
 
@@ -1121,8 +1220,7 @@ export const exportCharacterToFoundry = async (req, res) => {
         },
         flags: {
           anyventure: {
-            originalId: character.ancestry.ancestryId._id.toString(),
-            selectedOptions: character.ancestry.selectedOptions || []
+            originalId: character.ancestry.ancestryId._id.toString()
           }
         },
         ownership: { default: 0 }
@@ -1131,6 +1229,132 @@ export const exportCharacterToFoundry = async (req, res) => {
     }
 
     if (character.characterCulture?.cultureId) {
+      // Build a complete list of culture options (selected and unselected)
+      const cultureOptions = [];
+
+      // Helper: robust normalize (case/whitespace/punctuation-insensitive)
+      const norm = (v) => (v || "")
+        .toString()
+        .normalize('NFKC')
+        .toLowerCase()
+        .replace(/[^a-z0-9]+/g, ' ')
+        .trim();
+
+      // Normalize selected names from character (support string or object)
+      const selectedRestrictionObj = character.characterCulture.selectedRestriction;
+      const selectedBenefitObj = character.characterCulture.selectedBenefit;
+      const selectedStartingItemObj = character.characterCulture.selectedStartingItem;
+      const selectedRitualObj = character.characterCulture.selectedRitual;
+
+      const selectedRestrictionName = selectedRestrictionObj
+        ? norm(typeof selectedRestrictionObj === 'string' ? selectedRestrictionObj : selectedRestrictionObj.name)
+        : null;
+      const selectedRestrictionDesc = selectedRestrictionObj && typeof selectedRestrictionObj !== 'string'
+        ? norm(selectedRestrictionObj.description)
+        : null;
+
+      const selectedBenefitName = selectedBenefitObj
+        ? norm(typeof selectedBenefitObj === 'string' ? selectedBenefitObj : selectedBenefitObj.name)
+        : null;
+      const selectedBenefitDesc = selectedBenefitObj && typeof selectedBenefitObj !== 'string'
+        ? norm(selectedBenefitObj.description)
+        : null;
+
+      const selectedStartingItemName = selectedStartingItemObj
+        ? norm(typeof selectedStartingItemObj === 'string' ? selectedStartingItemObj : selectedStartingItemObj.name)
+        : null;
+      const selectedStartingItemDesc = selectedStartingItemObj && typeof selectedStartingItemObj !== 'string'
+        ? norm(selectedStartingItemObj.description)
+        : null;
+
+      const selectedRitualName = selectedRitualObj
+        ? norm(typeof selectedRitualObj === 'string' ? selectedRitualObj : selectedRitualObj.name)
+        : null;
+      const selectedRitualDesc = selectedRitualObj && typeof selectedRitualObj !== 'string'
+        ? norm(selectedRitualObj.description)
+        : null;
+
+      // Include all restrictions
+      (character.characterCulture.cultureId.culturalRestrictions || []).forEach(r => {
+        const name = r?.name || '';
+        cultureOptions.push({
+          _id: `restriction_${name.toLowerCase().replace(/\s+/g, '_')}`,
+          name,
+          description: r?.description || '',
+          data: (r && r.data != null ? r.data : 'TX'),
+          selected: !!(
+            (selectedRestrictionName && norm(name) === selectedRestrictionName) ||
+            (selectedRestrictionDesc && norm(r?.description || '') === selectedRestrictionDesc)
+          ),
+          requiresChoice: false,
+          choiceType: '',
+          isSubchoice: false,
+          parentOption: ''
+        });
+      });
+
+      // Include all benefits
+      (character.characterCulture.cultureId.benefits || []).forEach(b => {
+        const name = b?.name || '';
+        cultureOptions.push({
+          _id: `benefit_${name.toLowerCase().replace(/\s+/g, '_')}`,
+          name,
+          description: b?.description || '',
+          data: (b && b.data != null ? b.data : 'TX'),
+          selected: !!(
+            (selectedBenefitName && norm(name) === selectedBenefitName) ||
+            (selectedBenefitDesc && norm(b?.description || '') === selectedBenefitDesc)
+          ),
+          requiresChoice: false,
+          choiceType: '',
+          isSubchoice: false,
+          parentOption: ''
+        });
+      });
+
+      // Include all starting items
+      (character.characterCulture.cultureId.startingItems || []).forEach(s => {
+        const name = s?.name || '';
+        cultureOptions.push({
+          _id: `item_${name.toLowerCase().replace(/\s+/g, '_')}`,
+          name,
+          description: s?.description || '',
+          data: (s && s.data != null ? s.data : ''), // Use provided data if any
+          selected: !!(
+            (selectedStartingItemName && norm(name) === selectedStartingItemName) ||
+            (selectedStartingItemDesc && norm(s?.description || '') === selectedStartingItemDesc)
+          ),
+          requiresChoice: false,
+          choiceType: '',
+          isSubchoice: false,
+          parentOption: ''
+        });
+      });
+
+      // Include selected ritual (if any) as a distinct option entry
+      if (character.characterCulture.selectedRitual) {
+        const ritual = typeof character.characterCulture.selectedRitual === 'string'
+          ? { name: character.characterCulture.selectedRitual, description: '' }
+          : character.characterCulture.selectedRitual;
+        const rName = ritual?.name || '';
+        if (norm(rName)) {
+          cultureOptions.push({
+            _id: `ritual_${rName.toLowerCase().replace(/\s+/g, '_')}`,
+            name: rName,
+            description: ritual?.description || '',
+            data: 'TX',
+            selected: !!(
+              (selectedRitualName && norm(rName) === selectedRitualName) ||
+              (selectedRitualDesc && norm(ritual?.description || '') === selectedRitualDesc)
+            ),
+            requiresChoice: false,
+            choiceType: '',
+            isSubchoice: false,
+            parentOption: ''
+          });
+        }
+      }
+
       const cultureItem = {
         _id: character.characterCulture.cultureId.foundry_id,
         name: character.characterCulture.cultureId.name,
@@ -1138,17 +1362,11 @@ export const exportCharacterToFoundry = async (req, res) => {
         img: getGenericIcon(character.characterCulture.cultureId, 'culture'),
         system: {
           description: character.characterCulture.cultureId.description || "",
-          culturalRestrictions: character.characterCulture.cultureId.culturalRestrictions || [],
-          benefits: character.characterCulture.cultureId.benefits || [],
-          startingItems: character.characterCulture.cultureId.startingItems || [],
-          options: character.characterCulture.cultureId.options || []
+          options: cultureOptions
         },
         flags: {
           anyventure: {
-            originalId: character.characterCulture.cultureId._id.toString(),
-            selectedRestriction: character.characterCulture.selectedRestriction,
-            selectedBenefit: character.characterCulture.selectedBenefit,
-            selectedStartingItem: character.characterCulture.selectedStartingItem
+            originalId: character.characterCulture.cultureId._id.toString()
           }
         },
         ownership: { default: 0 }
@@ -1160,17 +1378,43 @@ export const exportCharacterToFoundry = async (req, res) => {
     if (character.traits) {
       for (const charTrait of character.traits) {
         if (charTrait.traitId) {
-          // Process trait options to mark selected ones
-          const selectedLocations = new Set((charTrait.selectedOptions || []).map(opt => opt.location));
-          const processedTraitOptions = (charTrait.traitId.options || []).map(option => {
-            const plainOption = option.toObject ? option.toObject() : option;
+          // Process trait options to include subchoices and mark selected ones (name-based)
+          const norm = (v) => (v || "").toString().trim().toLowerCase();
+          const selectedNames = new Set((charTrait.selectedOptions || []).map(opt => norm(opt.name)));
+
+          // Create a map of selected subchoices for each parent option
+          const selectedSubchoices = {};
+          (charTrait.selectedOptions || []).forEach(opt => {
+            if (opt.selectedSubchoice) {
+              selectedSubchoices[opt.name] = opt.selectedSubchoice;
+            }
+          });
+
+          const expandedOptions = expandTraitOptions(charTrait.traitId.options || []);
+          const processedTraitOptions = expandedOptions.map(option => {
+            // Main option
+            if (!option.isSubchoice) {
+              return {
+                _id: option._id,
+                name: option.name,
+                description: option.description,
+                data: option.data,
+                selected: selectedNames.has(norm(option.name)),
+                requiresChoice: option.requiresChoice || false,
+                choiceType: option.choiceType || ""
+              };
+            }
+
+            // Subchoice
+            const isSelectedSubchoice = selectedSubchoices[option.parentOption] === option._id;
             return {
-              _id: plainOption._id,
-              name: plainOption.name,
-              description: plainOption.description,
-              location: plainOption.location,
-              data: plainOption.data,
-              selected: selectedLocations.has(plainOption.location)
+              _id: option._id,
+              name: option.name,
+              description: option.description,
+              data: option.data,
+              selected: !!isSelectedSubchoice,
+              isSubchoice: true,
+              parentOption: option.parentOption
             };
           });
 
@@ -1188,8 +1432,7 @@ export const exportCharacterToFoundry = async (req, res) => {
             },
             flags: {
               anyventure: {
-                originalId: charTrait.traitId._id.toString(),
-                selectedOptions: charTrait.selectedOptions || []
+                originalId: charTrait.traitId._id.toString()
               }
             },
             ownership: { default: 0 }

@@ -1,15 +1,18 @@
 {
-    "name": "Witch Brew",
-    "description": "You create a ritual area for brewing potions by using a small cauldron, allowing you to make special potions for the next hour.",
-    "charge":"The effect becomes permanent, but requires a large cauldron.",
-    "duration": "1 hour",
-    "range": 0,
-    "checkToCast": 7,
-    "components": ["Shadow Onyx"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Witch Brew",
+  "description": "You create a ritual area for brewing potions by using a small cauldron, allowing you to make special potions for the next hour.",
+  "charge": "The effect becomes permanent, but requires a large cauldron.",
+  "duration": "1 hour",
+  "range": 0,
+  "checkToCast": 7,
+  "components": [
+    "Shadow Onyx"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "ll9kp77old58cfcd"
 }

@@ -1,15 +1,18 @@
 {
-    "name": "Elastic Limbs",
-    "description": "You target an adjacent creature and cause their limbs to be able to stretch and distort beyond their normal means. For the next minute, this creature can make melee attacks at a nearby (1 unit) range.",
-    "charge":"The target of this spell also gains a bonus dice to all physique checks.",
-    "duration": "1 Minute",
-    "range": 1,
-    "checkToCast": 3,
-    "components": ["Rubber Sap"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Elastic Limbs",
+  "description": "You target an adjacent creature and cause their limbs to be able to stretch and distort beyond their normal means. For the next minute, this creature can make melee attacks at a nearby (1 unit) range.",
+  "charge": "The target of this spell also gains a bonus dice to all physique checks.",
+  "duration": "1 Minute",
+  "range": 1,
+  "checkToCast": 3,
+  "components": [
+    "Rubber Sap"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "fd2k9p1pol5a6xnn"
 }

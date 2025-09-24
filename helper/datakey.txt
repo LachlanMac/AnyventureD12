@@ -190,6 +190,17 @@ A: ANCESTRY
 P: PERSONALITY
 C: CRAFTING
 
+###########  FLAGS #######################
+KEY (F)
+##########################################
+
+A: NO_COMFORTS [no morale for fav. rest or food and drink, no morale loss when unfavorable rest]
+B: EMBRACE_SUFFERING [bonus dice for for physical condition (not if have mental condition)]
+C: URBAN_COMFORT [lose 1 resolve when unfavorable rest]
+D: BADGE_OF_HONOR [each cosmetic injury gives +1 max morale]
+E: WEAPON_COLLECTOR [complex weapons in extra slots, attack with 2-handed extra weapon even when offhand full. ]
+F: TWIN_FURY [dual wield complex melee weapons]
+
 ########### IMMUNITIES ###################
 KEY (I)
 ##########################################

@@ -5,35 +5,42 @@
   "culturalRestrictions": [
     {
       "name": "Urban Comforts",
-      "description": "You are used to having solid walls around you and a proper bed to sleep in. When you complete a full rest that is not favorable, you lose 1 resolve."
+      "description": "You are used to having solid walls around you and a proper bed to sleep in. When you complete a full rest that is not favorable, you lose 1 resolve.",
+      "data": "TX:FC"
     },
     {
       "name": "Code of Civility",
-      "description": "You solve problems through negotiation and social maneuvering, not violence. If you or your allies use intimidation or attack someone before attempting to talk or negotiate, you lose 2 resolve."
+      "description": "You solve problems through negotiation and social maneuvering, not violence. If you or your allies use intimidation or attack someone before attempting to talk or negotiate, you lose 2 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
     {
       "name": "Street Smarts",
-      "description": "While in larger settlements, such as big towns or cities, you can instinctively tell if an area is dangerous by observing it. You also gain a bonus to all insight checks made against humanoids who dwell within those settlements."
+      "description": "While in larger settlements, such as big towns or cities, you can instinctively tell if an area is dangerous by observing it. You also gain a bonus to all insight checks made against humanoids who dwell within those settlements.",
+      "data": "TX"
     },
     {
       "name": "Cultural Sophistication",
-      "description": "Living in an urban environment exposes you to all sorts of types of people, allowing you to have picked up basic parts of languages. You gain +2 language points which must be used to gain basic skill in 2 separate languages you do not know."
+      "description": "Living in an urban environment exposes you to all sorts of types of people, allowing you to have picked up basic parts of languages. You gain +2 language points which must be used to gain basic skill in 2 separate languages you do not know.",
+      "data": "TX"
     }
   ],
   "startingItems": [
     {
       "name": "Pocket Watch",
-      "description": "A precise timekeeper essential for city life's scheduling demands. This cherished mechanical creation does not stop ticking unless it is destroyed, allowing you to always tell the precise time of day as well as determine how much time has passed."
+      "description": "A precise timekeeper essential for city life's scheduling demands. This cherished mechanical creation does not stop ticking unless it is destroyed, allowing you to always tell the precise time of day as well as determine how much time has passed.",
+      "data": ""
     },
     {
       "name": "Secret Pocket",
-      "description": "You have a secret pocket embedded into either a piece of clothing or armor that can fit a small item. This pocket can only be discovered by a search check of 12 or higher."
+      "description": "You have a secret pocket embedded into either a piece of clothing or armor that can fit a small item. This pocket can only be discovered by a search check of 12 or higher.",
+      "data": ""
     },
     {
       "name": "Crowd Cloak",
-      "description": "A reversible cloak with different colors/patterns on each side, plus a hood that can dramatically change your silhouette. When you make a stealth check in an urban environment like a large town or city, you gain a bonus dice on that check."
+      "description": "A reversible cloak with different colors/patterns on each side, plus a hood that can dramatically change your silhouette. When you make a stealth check in an urban environment like a large town or city, you gain a bonus dice on that check.",
+      "data": ""
     }
   ],
   "options": [],

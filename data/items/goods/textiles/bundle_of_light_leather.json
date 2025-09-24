@@ -10,5 +10,6 @@
   "weight": 3,
   "value": 25,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/leather/leather-patch-tan.webp"
+  "foundry_icon": "icons/commodities/leather/leather-patch-tan.webp",
+  "foundry_id": "7e8q95h0qsblooa9"
 }

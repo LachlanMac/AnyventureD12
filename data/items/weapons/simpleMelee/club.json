@@ -47,5 +47,6 @@
     "ingredients": []
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/clubs/club-barbed.webp"
+  "foundry_icon": "icons/weapons/clubs/club-barbed.webp",
+  "foundry_id": "ar5tg331ynq75k81"
 }

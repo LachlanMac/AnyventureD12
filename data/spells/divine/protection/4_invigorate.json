@@ -1,15 +1,18 @@
 {
-    "name": "Invigorate",
-    "description": "You target a creature within a short (10 unit) distance and grant them 1 energy and remove the winded condition from them.",
-    "charge":"Their energy is instead restored to full.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 4,
-    "components": ["Bundle of Mint"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 0,
-    "damageType": null
+  "name": "Invigorate",
+  "description": "You target a creature within a short (10 unit) distance and grant them 1 energy and remove the winded condition from them.",
+  "charge": "Their energy is instead restored to full.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 4,
+  "components": [
+    "Bundle of Mint"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "fbxvqsyb3y0s2lru"
 }

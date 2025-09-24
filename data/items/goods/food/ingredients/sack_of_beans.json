@@ -8,5 +8,6 @@
   "weight": 5,
   "value": 100,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/vegetable/lima-beans-pod-brown.webp"
+  "foundry_icon": "icons/consumables/vegetable/lima-beans-pod-brown.webp",
+  "foundry_id": "a2antdq5k9ayyupp"
 }

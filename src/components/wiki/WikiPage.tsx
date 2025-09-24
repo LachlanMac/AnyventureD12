@@ -37,7 +37,7 @@ const processLanguageTable = async (content: string): Promise<string> => {
 
     languages.forEach((lang: any) => {
       const magicalIcon = lang.magic ? '✓' : '✗';
-      const type = lang.magic ? 'Magical' : (lang.id.includes('_') ? 'Regional' : 'Common');
+      const type = lang.magic ? 'Magical' : lang.id.includes('_') ? 'Regional' : 'Common';
       // Escape pipes in descriptions for markdown table
       const description = lang.description.replace(/\|/g, '\\|');
       table += `| ${lang.name} | ${type} | ${description} | ${magicalIcon} |\n`;

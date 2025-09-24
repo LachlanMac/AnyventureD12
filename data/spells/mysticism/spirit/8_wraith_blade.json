@@ -1,15 +1,18 @@
 {
-    "name": "Wraith Blade",
-    "description": "You shape a blade out of spectral energy, making a perfect aetheric copy that shares the same damage and quality as the original that lasts for an hour. Instead of physical damage, the wraith blade deals aetheric damage.",
-    "charge":"The blade is permanent unless you channel this spell again to create a new wraith blade.",
-    "duration": "1 hour",
-    "range": 0,
-    "checkToCast": 8,
-    "components": ["Iron Ingot"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Wraith Blade",
+  "description": "You shape a blade out of spectral energy, making a perfect aetheric copy that shares the same damage and quality as the original that lasts for an hour. Instead of physical damage, the wraith blade deals aetheric damage.",
+  "charge": "The blade is permanent unless you channel this spell again to create a new wraith blade.",
+  "duration": "1 hour",
+  "range": 0,
+  "checkToCast": 8,
+  "components": [
+    "Iron Ingot"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "xbu38xk4imcvbzlq"
 }

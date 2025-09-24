@@ -1,15 +1,18 @@
 {
-    "name": "Curse",
-    "description": "You target a creature within a short (10 unit) distance and place a curse on them if they fail a resilience check of 7. While you concentrate on this spell, your target must remake the resilience check again at the start of each turn if they are still within a moderate (20 unit) range, or they take 5 dark damage.",
-    "charge":"Deal 7 initial dark damage if the spell succeeds.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 4,
-    "components": ["Vial of Dried Blood"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 5,
-    "damageType": "Dark"
+  "name": "Curse",
+  "description": "You target a creature within a short (10 unit) distance and place a curse on them if they fail a resilience check of 7. While you concentrate on this spell, your target must remake the resilience check again at the start of each turn if they are still within a moderate (20 unit) range, or they take 5 dark damage.",
+  "charge": "Deal 7 initial dark damage if the spell succeeds.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 4,
+  "components": [
+    "Vial of Dried Blood"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 5,
+  "damageType": "Dark",
+  "foundry_id": "2kd4wezi4bjikz3g"
 }

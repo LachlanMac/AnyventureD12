@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 200,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-amber-insect-orange.webp"
+  "foundry_icon": "icons/commodities/gems/gem-amber-insect-orange.webp",
+  "foundry_id": "pcso32d3o1ea4y0k"
 }

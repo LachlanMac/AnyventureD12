@@ -2,7 +2,7 @@
   "id": 13,
   "name": "Living Dead",
   "description": "You exist in the strange state between life and death. Neither fully alive nor completely dead, you possess the resilience of the undead while retaining fragments of your former humanity.",
-  "foundry_icon":"icons/creatures/magical/spirit-undead-masked-blue.webp",
+  "foundry_icon": "icons/creatures/magical/spirit-undead-masked-blue.webp",
   "options": [
     {
       "name": "Undead Nature",
@@ -24,5 +24,6 @@
       "description": "In response to taking damage, you fall down in a heap, indistinguishable from real death.",
       "data": "ZINE=0"
     }
-  ]
+  ],
+  "foundry_id": "3c0gg4q2td73osz3"
 }

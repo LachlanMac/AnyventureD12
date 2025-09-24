@@ -9,5 +9,6 @@
   "weight": 0.7,
   "value": 100,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/ingot-stamped-spiral.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-stamped-spiral.webp",
+  "foundry_id": "plkrq3t6rxci01ds"
 }

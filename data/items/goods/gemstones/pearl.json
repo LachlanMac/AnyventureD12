@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 600,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/pearl-natural.webp"
+  "foundry_icon": "icons/commodities/gems/pearl-natural.webp",
+  "foundry_id": "5cnu275ktztc2fua"
 }

@@ -170,7 +170,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                 }}
                 title={isPublic ? 'Click to make private' : 'Click to make public'}
               >
-                {isUpdatingVisibility ? '...' : (isPublic ? 'Public' : 'Private')}
+                {isUpdatingVisibility ? '...' : isPublic ? 'Public' : 'Private'}
               </button>
             )}
             <Link to={`/characters/${character._id}/edit`}>
@@ -210,7 +210,9 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
               <div>
                 <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Culture</div>
                 <div style={{ color: 'var(--color-white)' }}>
-                  {character.characterCulture?.cultureId?.name || character.culture || 'Not specified'}
+                  {character.characterCulture?.cultureId?.name ||
+                    character.culture ||
+                    'Not specified'}
                 </div>
                 {character.characterCulture && (
                   <div style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>
@@ -457,7 +459,9 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                           fontWeight: '600',
                         }}
                       >
-                        {character.encumbrance_check === 0 || !character.encumbrance_check ? 'None' : character.encumbrance_check}
+                        {character.encumbrance_check === 0 || !character.encumbrance_check
+                          ? 'None'
+                          : character.encumbrance_check}
                       </td>
                     </tr>
                     <tr>
@@ -478,7 +482,9 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                           fontWeight: '600',
                         }}
                       >
-                        {character.sprint_check === 0 || !character.sprint_check ? 'None' : character.sprint_check}
+                        {character.sprint_check === 0 || !character.sprint_check
+                          ? 'None'
+                          : character.sprint_check}
                       </td>
                     </tr>
                   </tbody>
@@ -492,7 +498,9 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
               <div className="grid grid-cols-1 md:grid-cols-2 gap-x-4 gap-y-2">
                 {character.languages && character.languages.length > 0 && (
                   <div>
-                    <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Languages</div>
+                    <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+                      Languages
+                    </div>
                     <div style={{ color: 'var(--color-white)' }}>
                       {character.languages.join(', ')}
                     </div>
@@ -502,7 +510,9 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                 {character.stances && character.stances.length > 0 && (
                   <div>
                     <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Stances</div>
-                    <div style={{ color: 'var(--color-white)' }}>{character.stances.join(', ')}</div>
+                    <div style={{ color: 'var(--color-white)' }}>
+                      {character.stances.join(', ')}
+                    </div>
                   </div>
                 )}
               </div>

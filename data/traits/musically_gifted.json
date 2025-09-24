@@ -2,9 +2,9 @@
   "id": 10,
   "name": "Musically Gifted",
   "description": "You are a once in a generation talent with an extraordinary gift with music.",
-  "foundry_icon":"icons/tools/instruments/harp-gold-glowing.webp",
+  "foundry_icon": "icons/tools/instruments/harp-gold-glowing.webp",
   "options": [
-     {
+    {
       "name": "Prodigy",
       "description": "You are a prodigy. Your expression skill is upgraded. You choose one musical talent to become a master in, one musical talent to become an expert, and become novice in all other musical talents.",
       "data": "SSQ=X:TG"
@@ -14,5 +14,6 @@
       "description": "You are recognized as an accredited musician without having to prove yourself. Places of entertainment will not refuse your services if you offer unless you have done something to wrong them.",
       "data": "TG"
     }
-  ]
+  ],
+  "foundry_id": "x325xhmbs94ogw9v"
 }

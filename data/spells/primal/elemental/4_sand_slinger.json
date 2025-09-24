@@ -1,15 +1,18 @@
 {
-    "name": "Sand Slinger",
-    "description": "You fling sand at a creature within a very short (5 unit) distance, blinding them until the end of their next turn if they fail a coordination check of 6.",
-    "charge":"The spell becomes a cone, using you as the origin.",
-    "duration": "Instantaneous",
-    "range": 3,
-    "checkToCast": 4,
-    "components": ["Agate"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 0,
-    "damageType": null
+  "name": "Sand Slinger",
+  "description": "You fling sand at a creature within a very short (5 unit) distance, blinding them until the end of their next turn if they fail a coordination check of 6.",
+  "charge": "The spell becomes a cone, using you as the origin.",
+  "duration": "Instantaneous",
+  "range": 3,
+  "checkToCast": 4,
+  "components": [
+    "Agate"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "23hd67v9zqmiau3r"
 }

@@ -2,12 +2,13 @@
   "id": 7,
   "name": "Talented",
   "description": "You possess natural talents that others must work years to develop. Your innate abilities set you apart from the common folk.",
-  "foundry_icon":"icons/sundries/gaming/chess-knight-white-glass.webp",
+  "foundry_icon": "icons/sundries/gaming/chess-knight-white-glass.webp",
   "options": [
     {
       "name": "Talented",
       "description": "You gain +2 Talent Points and start as an expert in one Musical Talent and fluency in an additional non-magical language.",
       "data": "TP=2"
     }
-  ]
+  ],
+  "foundry_id": "0y5ax19timrt4sj5"
 }

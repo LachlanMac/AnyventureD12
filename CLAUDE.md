@@ -250,3 +250,5 @@ Mythic
 Cultural Ideas
 Bonus social dice with different groups, like merchants, nobles, soldiers, etc.
 - NEVER COMPILE CSS, ALWAYS WRITE TO SCSS FILES, NEVER CSS. I WILL COMPILE CSS, JUST TELL ME TO.
+- when you run my server (backend or front end) kill it after you are done testing. Do not leave it running as a background process
+- anyventure-core-data is located in the %Appdata%/Local/FoundryVTT folder

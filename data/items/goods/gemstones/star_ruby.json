@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 12000,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-red.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-red.webp",
+  "foundry_id": "0qkqaen82spqvjes"
 }

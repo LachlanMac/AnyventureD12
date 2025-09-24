@@ -30,6 +30,11 @@ const CharacterEdit: React.FC = () => {
   const [_cultures, setCultures] = useState<Culture[]>([]);
   const [selectedAncestry, setSelectedAncestry] = useState<Ancestry | null>(null);
   const [selectedCulture, setSelectedCulture] = useState<Culture | null>(null);
+  const [initialCultureSelections, setInitialCultureSelections] = useState<{
+    restriction?: any;
+    benefit?: any;
+    startingItem?: any;
+  } | undefined>(undefined);
   const [selectedPersonality, setSelectedPersonality] = useState<string>('');
   const [selectedPersonalityModule, setSelectedPersonalityModule] = useState<Module | null>(null);
   const [selectedTrait, setSelectedTrait] = useState<string>('');
@@ -165,27 +170,34 @@ const CharacterEdit: React.FC = () => {
         setAncestries(ancestryData);
 
         // Find and set the selected ancestry with subchoice selections
-        if (charData.race) {
-          const ancestry = ancestryData.find((a: Ancestry) => a.name === charData.race);
-          if (ancestry) {
-            // If we have saved ancestry data with subchoices, apply them
-            if (charData.ancestry && charData.ancestry.selectedOptions) {
-              const ancestryWithSubchoices = {
-                ...ancestry,
-                options: ancestry.options.map((option: any) => {
-                  const savedOption = charData.ancestry.selectedOptions.find(
-                    (saved: any) => saved.name === option.name
-                  );
-                  return {
-                    ...option,
-                    selectedSubchoice: savedOption?.selectedSubchoice || undefined,
-                  };
-                }),
-              };
-              setSelectedAncestry(ancestryWithSubchoices);
-            } else {
-              setSelectedAncestry(ancestry);
-            }
+        const ancestryByName = charData.race
+          ? ancestryData.find((a: Ancestry) => a.name === charData.race)
+          : undefined;
+        const ancestryId = charData.ancestry?.ancestryId && typeof charData.ancestry.ancestryId !== 'string'
+          ? charData.ancestry.ancestryId._id
+          : (typeof charData.ancestry?.ancestryId === 'string' ? charData.ancestry?.ancestryId : undefined);
+        const ancestryById = ancestryId
+          ? ancestryData.find((a: any) => a._id === ancestryId)
+          : undefined;
+        const ancestry = ancestryById || ancestryByName;
+        if (ancestry) {
+          // If we have saved ancestry data with subchoices, apply them
+          if (charData.ancestry && charData.ancestry.selectedOptions) {
+            const ancestryWithSubchoices = {
+              ...ancestry,
+              options: ancestry.options.map((option: any) => {
+                const savedOption = charData.ancestry.selectedOptions.find(
+                  (saved: any) => saved.name === option.name
+                );
+                return {
+                  ...option,
+                  selectedSubchoice: savedOption?.selectedSubchoice || undefined,
+                };
+              }),
+            };
+            setSelectedAncestry(ancestryWithSubchoices);
+          } else {
+            setSelectedAncestry(ancestry);
           }
         }
 
@@ -197,10 +209,37 @@ const CharacterEdit: React.FC = () => {
         setCultures(cultureData);
 
         // Find and set the selected culture
-        if (charData.culture) {
-          const culture = cultureData.find((c: Culture) => c.name === charData.culture);
+        if (charData.culture || (charData.characterCulture && charData.characterCulture.cultureId)) {
+          // Prefer matching by populated characterCulture if available
+          let culture: any = null;
+          if (charData.characterCulture && charData.characterCulture.cultureId) {
+            const cultureId = typeof charData.characterCulture.cultureId === 'string'
+              ? charData.characterCulture.cultureId
+              : charData.characterCulture.cultureId._id;
+            culture = cultureData.find((c: any) => c._id === cultureId);
+          }
+          if (!culture && charData.culture) {
+            culture = cultureData.find((c: Culture) => c.name === charData.culture);
+          }
           if (culture) {
             setSelectedCulture(culture);
+
+            // Seed initial selections from saved characterCulture
+            const sel = charData.characterCulture || {};
+            const restriction = sel.selectedRestriction
+              ? (culture.culturalRestrictions || []).find((r: any) => r.name === (sel.selectedRestriction.name || sel.selectedRestriction)) || sel.selectedRestriction
+              : undefined;
+            const benefit = sel.selectedBenefit
+              ? (culture.benefits || []).find((b: any) => b.name === (sel.selectedBenefit.name || sel.selectedBenefit)) || sel.selectedBenefit
+              : undefined;
+            const startingItem = sel.selectedStartingItem
+              ? (culture.startingItems || []).find((s: any) => s.name === (sel.selectedStartingItem.name || sel.selectedStartingItem)) || sel.selectedStartingItem
+              : undefined;
+            setInitialCultureSelections({
+              restriction,
+              benefit,
+              startingItem,
+            });
           }
         }
 
@@ -218,7 +257,17 @@ const CharacterEdit: React.FC = () => {
   }, [id]);
 
   const handleCultureChange = (cultureName: string, culture: Culture) => {
+    // Keep legacy field in sync
     updateCharacter('culture', cultureName);
+
+    // Persist new-format culture selections for export
+    updateCharacter('characterCulture', {
+      cultureId: (culture as any)._id,
+      selectedRestriction: (culture as any).selectedRestriction || null,
+      selectedBenefit: (culture as any).selectedBenefit || null,
+      selectedStartingItem: (culture as any).selectedStartingItem || null,
+    });
+
     setSelectedCulture(culture);
   };
 
@@ -448,11 +497,13 @@ const CharacterEdit: React.FC = () => {
           }
         : null;
 
-      // Prepare culture data (all 3 options are automatically selected)
+      // Prepare culture data with explicit selections
       const cultureData = selectedCulture
         ? {
             cultureId: selectedCulture._id,
-            selectedOptions: selectedCulture.options?.map((option) => option.name) || [],
+            selectedRestriction: (selectedCulture as any).selectedRestriction || null,
+            selectedBenefit: (selectedCulture as any).selectedBenefit || null,
+            selectedStartingItem: (selectedCulture as any).selectedStartingItem || null,
           }
         : null;
 
@@ -552,11 +603,15 @@ const CharacterEdit: React.FC = () => {
           talentStarsRemaining: talentStarsRemaining,
         },
         modules: updatedModules,
-        traits: selectedTrait ? [{
-          traitId: selectedTrait,
-          selectedOptions: selectedTraitOptions,
-          dateAdded: new Date().toISOString()
-        }] : [],
+        traits: selectedTrait
+          ? [
+              {
+                traitId: selectedTrait,
+                selectedOptions: selectedTraitOptions,
+                dateAdded: new Date().toISOString(),
+              },
+            ]
+          : [],
       };
 
       const response = await fetch(`/api/characters/${id}`, {
@@ -682,13 +737,15 @@ const CharacterEdit: React.FC = () => {
             <BasicInfoTab
               name={character.name}
               race={character.race}
-              culture={character.culture}
+              culture={character.culture || (selectedCulture?.name || '')}
               startingTalents={startingTalents}
               onNameChange={(name) => updateCharacter('name', name)}
               onRaceChange={handleRaceChange}
               onCultureChange={handleCultureChange}
               onStartingTalentsChange={handleStartingTalentsChange}
               hideModulePoints={true}
+              selectedAncestry={selectedAncestry}
+              selectedCultureSelections={initialCultureSelections}
             />
           )}
           {step === 2 && (
@@ -702,6 +759,7 @@ const CharacterEdit: React.FC = () => {
             <PersonalityCreatorTab
               selectedPersonality={selectedPersonality || ''}
               selectedTrait={selectedTrait}
+              selectedTraitOptions={selectedTraitOptions}
               onSelectPersonality={handlePersonalitySelect}
               onSelectTrait={handleTraitSelect}
             />

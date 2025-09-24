@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 50,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/stone-white-quartz-ball.webp"
+  "foundry_icon": "icons/commodities/stone/stone-white-quartz-ball.webp",
+  "foundry_id": "9ogs1d8dbwwbwzon"
 }

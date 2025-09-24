@@ -9,5 +9,6 @@
   "weight": 4,
   "value": 40,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/ingot-copper.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-copper.webp",
+  "foundry_id": "ssom9s8typinw2w4"
 }

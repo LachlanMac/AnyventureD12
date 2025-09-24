@@ -1,0 +1,53 @@
+{
+  "name": "Chakram",
+  "description": "A circular throwing weapon with a sharpened outer edge. This ancient disc weapon spins through the air with deadly precision, capable of slicing through targets at moderate range.",
+  "type": "weapon",
+  "weapon_category": "throwing",
+  "weight": 1,
+  "value": 275,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "4",
+    "damage_extra": "4",
+    "damage_type": "physical",
+    "category": "slash",
+    "energy": 0,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 2,
+    "max_range": 4
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 5,
+    "ingredients": [
+      "Blade",
+      "Brass Fittings"
+    ]
+  },
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/thrown/shuriken-triple-purple.webp"
+}

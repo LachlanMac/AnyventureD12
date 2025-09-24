@@ -2,7 +2,7 @@
   "id": 12,
   "name": "Fey Touched",
   "description": "You have been touched by the wild magic of the Feywild, forever marking you as something between mortal and fey.",
-  "foundry_icon":"icons/magic/nature/beam-hand-leaves-green.webp",
+  "foundry_icon": "icons/magic/nature/beam-hand-leaves-green.webp",
   "options": [
     {
       "name": "Fairie Magic",
@@ -46,5 +46,6 @@
       "description": "Being infused with planar magic from the Feywild has also given you their aversion to iron. While in physical contact with any object, surface, or equipment that contains iron or steel in any amount, you cannot channel magic. This includes objects that you have equipped or that are in your inventory.",
       "data": "TG"
     }
-  ]
+  ],
+  "foundry_id": "c0h5sck6shksc5v8"
 }

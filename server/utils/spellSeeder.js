@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Spell from '../models/Spell.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -58,6 +59,10 @@ export const seedSpells = async () => {
               await Spell.findByIdAndUpdate(existingSpell._id, spellData);
             } else {
               // Create new spell
+              // Generate foundry_id if missing
+              if (!spellData.foundry_id) {
+                spellData.foundry_id = generateFoundryId();
+              }
               await Spell.create(spellData);
               spellCount++;
             }

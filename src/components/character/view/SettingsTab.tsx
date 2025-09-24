@@ -53,8 +53,8 @@ const SettingsTab: React.FC<SettingsTabProps> = ({ character }) => {
         <CardBody>
           <div className="space-y-4">
             <p style={{ color: 'var(--color-cloud)' }}>
-              Control who can view this character. Public characters can be viewed by anyone
-              with the character link, while private characters can only be viewed by you.
+              Control who can view this character. Public characters can be viewed by anyone with
+              the character link, while private characters can only be viewed by you.
             </p>
 
             <div className="flex items-center space-x-4">
@@ -84,9 +84,7 @@ const SettingsTab: React.FC<SettingsTabProps> = ({ character }) => {
             </div>
 
             {isUpdating && (
-              <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                Updating...
-              </div>
+              <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Updating...</div>
             )}
 
             <div className="mt-6 p-4 bg-dark-elevated rounded-lg">

@@ -1,15 +1,18 @@
 {
-    "name": "Project",
-    "description": "You attempt to project yourself to the location of a specific creature that you have seen in person. For the duration of this spell, your body is in a stasis but your astral form is transported within a short (10 unit) distance of the targeted creature. You cannot be physically harmed, but you can still be targeted by effects that damage your resolve or mental state. If you reach 0 resolve, this spell ends early.",
-    "charge":"Your astral form is invisible for the duration of the spell.",
-    "duration": "10 minutes",
-    "range": 8,
-    "checkToCast": 10,
-    "components": ["Shadow Onyx"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Project",
+  "description": "You attempt to project yourself to the location of a specific creature that you have seen in person. For the duration of this spell, your body is in a stasis but your astral form is transported within a short (10 unit) distance of the targeted creature. You cannot be physically harmed, but you can still be targeted by effects that damage your resolve or mental state. If you reach 0 resolve, this spell ends early.",
+  "charge": "Your astral form is invisible for the duration of the spell.",
+  "duration": "10 minutes",
+  "range": 8,
+  "checkToCast": 10,
+  "components": [
+    "Shadow Onyx"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "w5ek1xj2h0kfs0dx"
 }

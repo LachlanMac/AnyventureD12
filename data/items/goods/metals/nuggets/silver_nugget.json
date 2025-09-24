@@ -8,5 +8,6 @@
   "weight": 0.5,
   "value": 50,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/stone-nugget-gold.webp"
+  "foundry_icon": "icons/commodities/stone/stone-nugget-gold.webp",
+  "foundry_id": "i75gcsjzo3q3mlcj"
 }

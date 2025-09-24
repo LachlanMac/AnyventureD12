@@ -50,5 +50,6 @@
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/wands/wand-star-gold.webp"
+  "foundry_icon": "icons/weapons/wands/wand-star-gold.webp",
+  "foundry_id": "gt43zgaihpam80da"
 }

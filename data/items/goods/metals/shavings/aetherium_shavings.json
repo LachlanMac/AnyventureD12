@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 1000,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/fragments-sword-steel.webp"
+  "foundry_icon": "icons/commodities/metal/fragments-sword-steel.webp",
+  "foundry_id": "q51khjkfvsstwc9u"
 }

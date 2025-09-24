@@ -8,5 +8,6 @@
   "weight": 0.4,
   "value": 4,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/ore-chunk-copper-orange.webp"
+  "foundry_icon": "icons/commodities/stone/ore-chunk-copper-orange.webp",
+  "foundry_id": "116up2pgdngdhk63"
 }

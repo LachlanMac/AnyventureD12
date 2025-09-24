@@ -6,5 +6,9 @@
   "difficulty": 4,
   "description": "A sad ode to an ideal or individual that trades resolve for morale",
   "effect": "Exchange 2 resolve for 2 morale",
-  "harmony_1": { "instrument": "any", "effect": "Each harmony converts an additional resolve to morale" }
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Each harmony converts an additional resolve to morale"
+  },
+  "foundry_id": "thqfysp54tmj25f9"
 }

@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "For an hour after the potion wears off, all knowledge and mind checks become a single d4 dice while the consumer recalibrates to their original body.",
-  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+  "foundry_id": "fwt1djodyza7rwnx"
 }

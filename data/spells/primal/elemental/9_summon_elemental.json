@@ -1,15 +1,18 @@
 {
-    "name": "Summon Elemental",
-    "description": "You summon a grunt tier elemental to aid you in battle for the next minute or until it reaches 0 health.",
-    "charge":"You summon a standard tier elemental which lasts until it reaches 0 health. The elemental cannot recover or gain health.",
-    "duration": "Instantaneous",
-    "range": 0,
-    "checkToCast": 9,
-    "components": ["Diamond"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 4,
-    "damage": 0,
-    "damageType": null
+  "name": "Summon Elemental",
+  "description": "You summon a grunt tier elemental to aid you in battle for the next minute or until it reaches 0 health.",
+  "charge": "You summon a standard tier elemental which lasts until it reaches 0 health. The elemental cannot recover or gain health.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 9,
+  "components": [
+    "Diamond"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "c1ao9s5wn41iqpwf"
 }

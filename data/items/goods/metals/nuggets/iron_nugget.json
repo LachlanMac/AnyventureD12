@@ -8,5 +8,6 @@
   "weight": 0.35,
   "value": 20,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/ore-chunk-iron-black.webp"
+  "foundry_icon": "icons/commodities/stone/ore-chunk-iron-black.webp",
+  "foundry_id": "e39fheozwh6k79fm"
 }

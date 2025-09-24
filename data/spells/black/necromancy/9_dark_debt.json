@@ -1,15 +1,18 @@
 {
-    "name": "Dark Debt",
-    "description": "You touch an allied creature and alter their fate. Until the end of their next full rest, the first time the creature reaches 0 health, they instantly recover 8 health. If the creature dies before they complete their next full rest, they must roll a 1d4. On a 1, they reanimate as a standard level undead creature of your choice and are permanently maddened unless controlled by the Command Undead action or similar ability.",
-    "charge":"You channel this spell in an area, affecting up to 8 allied creatures, including yourself. The health recovered upon reaching 0 health becomes 12.",
-    "duration": "1 day",
-    "range": 1,
-    "checkToCast": 9,
-    "components": ["Bundle of Nightshade"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Dark Debt",
+  "description": "You touch an allied creature and alter their fate. Until the end of their next full rest, the first time the creature reaches 0 health, they instantly recover 8 health. If the creature dies before they complete their next full rest, they must roll a 1d4. On a 1, they reanimate as a standard level undead creature of your choice and are permanently maddened unless controlled by the Command Undead action or similar ability.",
+  "charge": "You channel this spell in an area, affecting up to 8 allied creatures, including yourself. The health recovered upon reaching 0 health becomes 12.",
+  "duration": "1 day",
+  "range": 1,
+  "checkToCast": 9,
+  "components": [
+    "Bundle of Nightshade"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "i9xn5kqv2khvr1fn"
 }

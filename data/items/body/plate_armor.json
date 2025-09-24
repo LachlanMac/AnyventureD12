@@ -7,8 +7,9 @@
   "rarity": "uncommon",
   "armor_category": "heavy",
   "mitigation": {
-    "physical": 7
+    "physical": 6
   },
-  "encumbrance_penalty": 4,
-  "foundry_icon": "icons/equipment/chest/breastplate-banded-steel.webp"
+  "encumbrance_penalty": 5,
+  "foundry_icon": "icons/equipment/chest/breastplate-banded-steel.webp",
+  "foundry_id": "z6if9p40xi0nsh4i"
 }

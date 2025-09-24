@@ -17,5 +17,6 @@
     ]
   },
   "side_effect": "The consumer of this potion becomes confused immediately after the transformation if they fail a concentration check of 4.",
-  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+  "foundry_id": "qg6129x12srs09xc"
 }

@@ -1,15 +1,18 @@
 {
-    "name": "Impending Doom",
-    "description": "You target a creature within a moderate (20 unit) range and fill them with a sense of impending doom. While you concentrate on this spell, your target takes multiplying psychic damage at the start of each turn. The damage starts at 2 and increases by 2 each round up to a maximum of 16 at which point the spell ends, unless the creature has the afraid condition.",
-    "charge":"The damage starts at 6 and ends at 20. The type of skull used as a component must be of the same creature type as the target.",
-    "duration": "Concentration",
-    "range": 4,
-    "checkToCast": 9,
-    "components": ["Skull"],
-    "ritualDuration": "1 hour",
-    "concentration": true,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Impending Doom",
+  "description": "You target a creature within a moderate (20 unit) range and fill them with a sense of impending doom. While you concentrate on this spell, your target takes multiplying psychic damage at the start of each turn. The damage starts at 2 and increases by 2 each round up to a maximum of 16 at which point the spell ends, unless the creature has the afraid condition.",
+  "charge": "The damage starts at 6 and ends at 20. The type of skull used as a component must be of the same creature type as the target.",
+  "duration": "Concentration",
+  "range": 4,
+  "checkToCast": 9,
+  "components": [
+    "Skull"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "0ry1g7slzgsww995"
 }

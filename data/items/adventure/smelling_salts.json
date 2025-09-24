@@ -6,5 +6,6 @@
   "value": 10,
   "weight": 0.1,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/potions/vial-ornet-silver-black.webp"
+  "foundry_icon": "icons/consumables/potions/vial-ornet-silver-black.webp",
+  "foundry_id": "9ts7gyo8rhiizrrw"
 }

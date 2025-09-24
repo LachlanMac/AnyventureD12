@@ -1,15 +1,18 @@
 {
-    "name": "Omen",
-    "description": "You can send a feeling, like a warning or emotion, to someone on the same plane whom you know by name or have seen in person. The receiver is aware that the omen is from you if they have met you.",
-    "charge":"In additional to the feeling, you can send a single word that will be clear to the receiver. The omen also transcends planes if you know the plane your target is on.",
-    "duration": "Instantaneous",
-    "range": 8,
-    "checkToCast": 3,
-    "components": ["Bird Feather"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Omen",
+  "description": "You can send a feeling, like a warning or emotion, to someone on the same plane whom you know by name or have seen in person. The receiver is aware that the omen is from you if they have met you.",
+  "charge": "In additional to the feeling, you can send a single word that will be clear to the receiver. The omen also transcends planes if you know the plane your target is on.",
+  "duration": "Instantaneous",
+  "range": 8,
+  "checkToCast": 3,
+  "components": [
+    "Bird Feather"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "54w5qm2k6qkd1xf7"
 }

@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 5000,
   "rarity": "uncommon",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-teardrop-blue.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-teardrop-blue.webp",
+  "foundry_id": "ey3k6vzbia474h99"
 }

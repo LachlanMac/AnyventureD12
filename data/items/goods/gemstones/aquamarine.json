@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 500,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-trillion-blue.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-trillion-blue.webp",
+  "foundry_id": "abt48wx9a3gcek5q"
 }

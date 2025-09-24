@@ -70,7 +70,13 @@
       "WebSearch",
       "Read(///**)",
       "Read(//mnt/c/Users/lachl/AppData/Local/FoundryVTT/Data/modules/anyventure-core-data/**)",
-      "Read(//mnt/c/Users/lachl/AppData/Local/FoundryVTT/Data/modules/**)"
+      "Read(//mnt/c/Users/lachl/AppData/Local/FoundryVTT/Data/modules/**)",
+      "Bash(lsof:*)",
+      "Bash(xargs kill:*)",
+      "Bash(netstat:*)",
+      "Bash(ss:*)",
+      "Bash(xargs -r kill -9)",
+      "WebFetch(domain:foundryvtt.com)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

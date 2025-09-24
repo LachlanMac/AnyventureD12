@@ -1,15 +1,18 @@
 {
-    "name": "Ward the Dead",
-    "description": "You target an undead creature within a moderate (20 unit) distance and deal 15 divine damage to it. Minions and grunts are automatically destroyed by this spell.",
-    "charge":"The spell instead affects all creatures within 2-unit radius area centered at a point you can see within a short (10 unit) distance.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 7,
-    "components": ["Silver Nugget"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 15,
-    "damageType": "Divine"
+  "name": "Ward the Dead",
+  "description": "You target an undead creature within a moderate (20 unit) distance and deal 15 divine damage to it. Minions and grunts are automatically destroyed by this spell.",
+  "charge": "The spell instead affects all creatures within 2-unit radius area centered at a point you can see within a short (10 unit) distance.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 7,
+  "components": [
+    "Silver Nugget"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 15,
+  "damageType": "Divine",
+  "foundry_id": "knmm85o0kzmmulxh"
 }

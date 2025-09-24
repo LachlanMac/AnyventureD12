@@ -2,7 +2,7 @@
   "id": 2,
   "name": "Lycanthropy",
   "description": "You are afflicted with lycanthropy and suffer the benefits and weaknesses.",
-  "foundry_icon":"icons/creatures/mammals/wolf-howl-moon-gray.webp",
+  "foundry_icon": "icons/creatures/mammals/wolf-howl-moon-gray.webp",
   "options": [
     {
       "name": "Lycanthrope",
@@ -14,54 +14,55 @@
       "description": "All lycanthropes have a specific weakness:",
       "data": "",
       "subchoices": [
-      {
-        "id": "weak_to_fire",
-        "name": "Weakness to Fire",
-        "description": "Your weakness is to fire, while in your lycanthrope form, you become afraid when you have the ignited condition. When in your humanoid form, you have a -2 penalty to heat mitigation.",
-        "data": "M2=-2:TG"
-      },
-      {
-        "id": "weak_to_silver",
-        "name": "Weakness to Silver",
-        "description": "Your weakness is to silver, while in your lycanthrope form, physical damage you take from silver weapons or ammunition becomes true damage. When in your humanoid form, you take 1 true damage every minute that you are in contact with silver or an object that contains it. This damage can not bring you below 5 health, but does prevent you from transforming into your lycanthrope form.",
-        "data": "TG"
-      },
-      {
-        "id": "weak_to_water",
-        "name": "Weakness to Water",
-        "description": "Your weakness is to silver, while in your lycanthrope, you cannot willfully cross bodies of water and you become afraid when submerged in water. While in your humanoid form, you have a -2 penalty to cold mitigation.",
-        "data": "M3=-2:TG"
-      }
-    ],
-    "requiresChoice": true,
-    "choiceType": "Weakness Selection"
+        {
+          "id": "weak_to_fire",
+          "name": "Weakness to Fire",
+          "description": "Your weakness is to fire, while in your lycanthrope form, you become afraid when you have the ignited condition. When in your humanoid form, you have a -2 penalty to heat mitigation.",
+          "data": "M2=-2:TG"
+        },
+        {
+          "id": "weak_to_silver",
+          "name": "Weakness to Silver",
+          "description": "Your weakness is to silver, while in your lycanthrope form, physical damage you take from silver weapons or ammunition becomes true damage. When in your humanoid form, you take 1 true damage every minute that you are in contact with silver or an object that contains it. This damage can not bring you below 5 health, but does prevent you from transforming into your lycanthrope form.",
+          "data": "TG"
+        },
+        {
+          "id": "weak_to_water",
+          "name": "Weakness to Water",
+          "description": "Your weakness is to silver, while in your lycanthrope, you cannot willfully cross bodies of water and you become afraid when submerged in water. While in your humanoid form, you have a -2 penalty to cold mitigation.",
+          "data": "M3=-2:TG"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Weakness Selection"
     },
-     {
+    {
       "name": "Lycanthrope Type",
       "description": "There are various types of lycanthropes, all using a different statblock for their transformations:",
       "data": "",
       "subchoices": [
-      {
-        "id": "werewolf",
-        "name": "Werewolf",
-        "description": "You use the Werewolf statblock for your transformations and gain +1 skill with senses in your humanoid form.",
-        "data": "SSK=1:TG"
-      },
-      {
-         "id": "werebear",
-        "name": "Werebear",
-        "description": "You use the Wearbear statblock for your transformations and gain +1 skill with might in your humanoid form.",
-        "data": "SSC=1:TG"
-      },
-      {
-        "id": "wererat",
-        "name": "Wererat",
-        "description": "You use the Wererat statblock for your transformations and gain +1 skill with stealth in your humanoid form.",
-        "data": "SSF=1:TG"
-      }
-    ],
-    "requiresChoice": true,
-    "choiceType": "Lycanthrope Type Selection"
+        {
+          "id": "werewolf",
+          "name": "Werewolf",
+          "description": "You use the Werewolf statblock for your transformations and gain +1 skill with senses in your humanoid form.",
+          "data": "SSK=1:TG"
+        },
+        {
+          "id": "werebear",
+          "name": "Werebear",
+          "description": "You use the Wearbear statblock for your transformations and gain +1 skill with might in your humanoid form.",
+          "data": "SSC=1:TG"
+        },
+        {
+          "id": "wererat",
+          "name": "Wererat",
+          "description": "You use the Wererat statblock for your transformations and gain +1 skill with stealth in your humanoid form.",
+          "data": "SSF=1:TG"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Lycanthrope Type Selection"
     }
-  ]
+  ],
+  "foundry_id": "0x0b9uwjykeex7sh"
 }

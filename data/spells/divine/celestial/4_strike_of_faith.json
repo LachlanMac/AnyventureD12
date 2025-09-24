@@ -1,15 +1,18 @@
 {
-    "name": "Strike of Faith",
-    "description": "You target a weapon or piece of ammunition within a short (10 unit) distance and enhance it with holy energy. The next time this weapon or piece of ammunition deals damage within the next minute, all damage is converted to divine.",
-    "charge":"The attacker using the enchanted weapon or ammunition rolls with a bonus dice.",
-    "duration": "1 minute",
-    "range": 4,
-    "checkToCast": 4,
-    "components": ["Silver Nugget"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Strike of Faith",
+  "description": "You target a weapon or piece of ammunition within a short (10 unit) distance and enhance it with holy energy. The next time this weapon or piece of ammunition deals damage within the next minute, all damage is converted to divine.",
+  "charge": "The attacker using the enchanted weapon or ammunition rolls with a bonus dice.",
+  "duration": "1 minute",
+  "range": 4,
+  "checkToCast": 4,
+  "components": [
+    "Silver Nugget"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "3uwrs8erxs3674ri"
 }

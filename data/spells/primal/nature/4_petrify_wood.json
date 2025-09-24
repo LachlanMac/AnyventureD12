@@ -1,15 +1,18 @@
 {
-    "name": "Petrify Wood",
-    "description": "You touch a piece of wood such as a branch, and harden it into an effective weapon with the same stats as a quaterstaff. This enchantment lasts until the end of a full rest, at which point the weapon reverts to it's original form.",
-    "charge":"The weapon gains a bonus attack of +1",
-    "duration": "1 day",
-    "range": 1,
-    "checkToCast": 4,
-    "components": ["Pine Resin"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Petrify Wood",
+  "description": "You touch a piece of wood such as a branch, and harden it into an effective weapon with the same stats as a quaterstaff. This enchantment lasts until the end of a full rest, at which point the weapon reverts to it's original form.",
+  "charge": "The weapon gains a bonus attack of +1",
+  "duration": "1 day",
+  "range": 1,
+  "checkToCast": 4,
+  "components": [
+    "Pine Resin"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "f0xzdw46i2danxsq"
 }

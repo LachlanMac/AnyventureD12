@@ -186,7 +186,6 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                 />
               </div>
             </div>
-
           </div>
         ))}
       </div>
@@ -198,8 +197,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
           padding: '1.5rem',
           marginTop: '2rem',
         }}
-      >
-      </div>
+      ></div>
     </div>
   );
 };

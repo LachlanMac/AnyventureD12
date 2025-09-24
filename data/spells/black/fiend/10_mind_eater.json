@@ -1,15 +1,18 @@
 {
-    "name": "Mind Eater",
-    "description": "You target a creature within a short (10 unit) distance and force them to make a concentration check of 8 or higher or they take 10 psychic damage. A sleeping, afraid, charmed or unconscious target fails this check automatically and takes double damage. A creature bought to 0 resolve by this spell falls unconscious.",
-    "charge":"The spell targets an additional creature.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 10,
-    "components": ["Opal"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 10,
-    "damageType": "Psychic"
+  "name": "Mind Eater",
+  "description": "You target a creature within a short (10 unit) distance and force them to make a concentration check of 8 or higher or they take 10 psychic damage. A sleeping, afraid, charmed or unconscious target fails this check automatically and takes double damage. A creature bought to 0 resolve by this spell falls unconscious.",
+  "charge": "The spell targets an additional creature.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 10,
+  "components": [
+    "Opal"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 10,
+  "damageType": "Psychic",
+  "foundry_id": "crnsvpcp6dkjgxmn"
 }

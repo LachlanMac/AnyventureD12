@@ -1,15 +1,18 @@
 {
-    "name": "Gathering Shadows",
-    "description": "You target up to three creatures with a very short (5 unit) range and cause the shadows to coalesce around them. For the next hour, these creatures gain a bonus dice to stealth checks and can roll their stealth check with a 2d8 instead of using their skill.",
-    "charge":"You target an additional three creatures.",
-    "duration": "1 hour",
-    "range": 1,
-    "checkToCast": 5,
-    "components": ["Bundle of Nightshade"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 0,
-    "damageType": null
+  "name": "Gathering Shadows",
+  "description": "You target up to three creatures with a very short (5 unit) range and cause the shadows to coalesce around them. For the next hour, these creatures gain a bonus dice to stealth checks and can roll their stealth check with a 2d8 instead of using their skill.",
+  "charge": "You target an additional three creatures.",
+  "duration": "1 hour",
+  "range": 1,
+  "checkToCast": 5,
+  "components": [
+    "Bundle of Nightshade"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "euuoy8oaazac9qdg"
 }

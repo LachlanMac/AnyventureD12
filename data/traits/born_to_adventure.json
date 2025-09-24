@@ -2,12 +2,13 @@
   "id": 6,
   "name": "Born to Adventure",
   "description": "You were born with an adventurer's spirit and natural talents that set you apart from others. Your destiny calls you to greatness.",
-  "foundry_icon":"icons/environment/people/infantry.webp",
+  "foundry_icon": "icons/environment/people/infantry.webp",
   "options": [
     {
       "name": "Adventurer's Spirit",
       "description": "You gain +5 maximum morale, +5 maximum resolve and +5 maximum health.",
       "data": "A1=5:A8=5:TA"
     }
-  ]
+  ],
+  "foundry_id": "0ybp15p8esih86kk"
 }

@@ -1,15 +1,18 @@
 {
-    "name": "Earthen Pocket",
-    "description": "You touch a stone surface, causing a small hole to open up which can store one item. When this spell is channeled again, you access that same pocket from any other location that meets the requirements of this spell, retrieving or exchanging the stored item. If the character dies, the pocket collapses and the item is lost.",
-    "charge":"When you cast this spell charged, it opens a separate pocket that can hold a different item, allowing you to maintain two pockets at the same time.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 6,
-    "components": ["Malachite"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Earthen Pocket",
+  "description": "You touch a stone surface, causing a small hole to open up which can store one item. When this spell is channeled again, you access that same pocket from any other location that meets the requirements of this spell, retrieving or exchanging the stored item. If the character dies, the pocket collapses and the item is lost.",
+  "charge": "When you cast this spell charged, it opens a separate pocket that can hold a different item, allowing you to maintain two pockets at the same time.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 6,
+  "components": [
+    "Malachite"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "g7ltbwwex1vpw014"
 }

@@ -10,5 +10,6 @@
   "weight": 5,
   "value": 500,
   "rarity": "uncommon",
-  "foundry_icon": "icons/commodities/metal/ingot-silver.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-silver.webp",
+  "foundry_id": "ksd87dtijtb26flt"
 }

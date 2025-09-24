@@ -9,5 +9,6 @@
     "physical": 1
   },
   "encumbrance_penalty": 2,
-  "foundry_icon": "icons/equipment/head/greathelm-reticulated-steel.webp"
+  "foundry_icon": "icons/equipment/head/greathelm-reticulated-steel.webp",
+  "foundry_id": "s5supvgcvntftjve"
 }

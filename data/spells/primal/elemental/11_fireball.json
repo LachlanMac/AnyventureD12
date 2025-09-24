@@ -1,15 +1,18 @@
 {
-    "name": "Fireball",
-    "description": "You target a point you can see within a moderate (20 unit) distance and cause an outward explosion of fire to blossom. Creatures within a 2 unit radius of the blast take 15 heat damage if upon failing a defense check of 10 and 5 heat damage upon succeeding. Medium and smaller creatures are shoved 2 units outwards from the center of the impact.",
-    "charge":"The radius is increased to 3 units.",
-    "duration": "Instantaneous",
-    "range": 5,
-    "checkToCast": 11,
-    "components": ["Garnet"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 4,
-    "damage": 15,
-    "damageType": "Heat"
+  "name": "Fireball",
+  "description": "You target a point you can see within a moderate (20 unit) distance and cause an outward explosion of fire to blossom. Creatures within a 2 unit radius of the blast take 15 heat damage if upon failing a defense check of 10 and 5 heat damage upon succeeding. Medium and smaller creatures are shoved 2 units outwards from the center of the impact.",
+  "charge": "The radius is increased to 3 units.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 11,
+  "components": [
+    "Garnet"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 15,
+  "damageType": "Heat",
+  "foundry_id": "6mmhft2g74yfe8ug"
 }

@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "The consumer of the potion becomes muted after the potion wears off, lasting until the next time they complete a full rest.",
-  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-yellow.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-yellow.webp",
+  "foundry_id": "nelb9te3uwlvqhvl"
 }

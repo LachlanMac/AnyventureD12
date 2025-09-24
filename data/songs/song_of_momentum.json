@@ -6,6 +6,13 @@
   "difficulty": 5,
   "description": "Springy accents that keep pressure after every strike",
   "effect": "+2 energy regeneration",
-  "harmony_1": { "instrument": "percussion", "effect": "+1 bonus die to unarmed attacks" },
-  "harmony_2": { "instrument": "brass", "effect": "+1 bonus die to endurance and might checks" }
+  "harmony_1": {
+    "instrument": "percussion",
+    "effect": "+1 bonus die to unarmed attacks"
+  },
+  "harmony_2": {
+    "instrument": "brass",
+    "effect": "+1 bonus die to endurance and might checks"
+  },
+  "foundry_id": "6ad4mvwltpi8074n"
 }

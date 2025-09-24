@@ -9,6 +9,7 @@ import Trait from '../models/Trait.js';
 import Item from '../models/Item.js';
 import Spell from '../models/Spell.js';
 import Language from '../models/Language.js';
+import Injury from '../models/Injury.js';
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -22,10 +23,49 @@ const convertToFoundryId = (mongoId) => {
   return idString.substring(0, 16);
 };
 
+// Helper function to expand trait options with subchoices
+const expandTraitOptions = (options) => {
+  if (!options) return [];
+
+  const expandedOptions = [];
+
+  for (const option of options) {
+    // Add the main option
+    const mainOption = {
+      _id: option._id,
+      name: option.name,
+      description: option.description,
+      data: option.data,
+      selected: option.selected || false,
+      requiresChoice: option.requiresChoice || false,
+      choiceType: option.choiceType || ""
+    };
+    expandedOptions.push(mainOption);
+
+    // Add subchoices as separate options
+    if (option.subchoices && option.subchoices.length > 0) {
+      for (const subchoice of option.subchoices) {
+        const subchoiceOption = {
+          _id: subchoice.id || subchoice._id,
+          name: subchoice.name,
+          description: subchoice.description,
+          data: subchoice.data || "",
+          selected: false,
+          isSubchoice: true,
+          parentOption: option.name
+        };
+        expandedOptions.push(subchoiceOption);
+      }
+    }
+  }
+
+  return expandedOptions;
+};
+
 // Helper function to get icon based on type and properties
 const getGenericIcon = (data, type) => {
-  // If this is an item, trait, module, or language and it has a foundry_icon, use that first
-  if ((type === 'item' || type === 'trait' || type === 'module' || type === 'language') && data.foundry_icon && data.foundry_icon.trim() !== '') {
+  // If this is an item, trait, module, language, or injury and it has a foundry_icon, use that first
+  if ((type === 'item' || type === 'trait' || type === 'module' || type === 'language' || type === 'injury') && data.foundry_icon && data.foundry_icon.trim() !== '') {
     return data.foundry_icon;
   }
 
@@ -139,6 +179,21 @@ const getGenericIcon = (data, type) => {
         return 'icons/sundries/scrolls/scroll-plain-tan.webp';
       }
 
+    case 'injury':
+      // Map injury icons based on type
+      switch (data.type) {
+        case 'cosmetic_injury':
+          return 'icons/skills/wounds/injury-face-mask-red.webp';
+        case 'missing_part':
+          return 'icons/skills/wounds/bone-broken-marrow-yellow.webp';
+        case 'lingering_injury':
+          return 'icons/skills/wounds/blood-cells-vessel-red.webp';
+        case 'severe_wound':
+          return 'icons/skills/wounds/injury-triple-slash-blood.webp';
+        default:
+          return 'icons/skills/wounds/injury-pain-body-orange.webp';
+      }
+
     default:
       return `${iconBase}goods1.webp`;
   }
@@ -198,7 +253,7 @@ const convertToFoundryFormat = (data, type) => {
       baseFoundryDoc.system = {
         type: data.type,
         description: data.description,
-        options: data.options || []
+        options: expandTraitOptions(data.options)
       };
       break;
 
@@ -253,6 +308,15 @@ const convertToFoundryFormat = (data, type) => {
         description: data.description,
         magic: data.magic,
         talent: 0 // Default talent level
+      };
+      break;
+
+    case 'injury':
+      baseFoundryDoc.system = {
+        description: data.description,
+        injuryType: data.type,
+        cause: "",
+        data: data.data || ""
       };
       break;
 
@@ -417,17 +481,40 @@ router.get('/languages', async (req, res) => {
   }
 });
 
+// Get all injuries for Foundry
+router.get('/injuries', async (req, res) => {
+  try {
+    const injuries = await Injury.find({});
+    const foundryInjuries = injuries.map(injury => convertToFoundryFormat(injury.toObject(), 'injury'));
+
+    res.json({
+      type: 'compendium-data',
+      documentType: 'Item',
+      data: foundryInjuries,
+      metadata: {
+        count: foundryInjuries.length,
+        version: "1.0.0",
+        lastUpdated: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching injuries for Foundry:', error);
+    res.status(500).json({ error: 'Failed to fetch injuries' });
+  }
+});
+
 // Get all data in one call (for bulk updates)
 router.get('/all', async (req, res) => {
   try {
-    const [modules, ancestries, cultures, traits, items, spells, languages] = await Promise.all([
+    const [modules, ancestries, cultures, traits, items, spells, languages, injuries] = await Promise.all([
       Module.find({}),
       Ancestry.find({}),
       Culture.find({}),
       Trait.find({}),
       Item.find({}),
       Spell.find({}),
-      Language.find({})
+      Language.find({}),
+      Injury.find({})
     ]);
 
     const foundryData = {
@@ -437,7 +524,8 @@ router.get('/all', async (req, res) => {
       traits: traits.map(t => convertToFoundryFormat(t.toObject(), 'trait')),
       items: items.map(i => convertToFoundryFormat(i.toObject(), 'item')),
       spells: spells.map(s => convertToFoundryFormat(s.toObject(), 'spell')),
-      languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language'))
+      languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language')),
+      injuries: injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury'))
     };
 
     res.json({
@@ -451,7 +539,8 @@ router.get('/all', async (req, res) => {
           traits: foundryData.traits.length,
           items: foundryData.items.length,
           spells: foundryData.spells.length,
-          languages: foundryData.languages.length
+          languages: foundryData.languages.length,
+          injuries: foundryData.injuries.length
         },
         version: "1.0.0",
         lastUpdated: new Date().toISOString()
@@ -496,6 +585,7 @@ router.get('/', (req, res) => {
       '/fvtt/items',
       '/fvtt/spells',
       '/fvtt/languages',
+      '/fvtt/injuries',
       '/fvtt/all',
       '/fvtt/datakey'
     ]

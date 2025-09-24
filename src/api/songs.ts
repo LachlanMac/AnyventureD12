@@ -1,6 +1,9 @@
 import { apiClient } from './client';
 
-export interface Harmony { instrument: string; effect: string }
+export interface Harmony {
+  instrument: string;
+  effect: string;
+}
 export interface Song {
   _id: string;
   id?: number;
@@ -23,6 +26,8 @@ export interface SongFilters {
 export const songsApi = {
   getAll: () => apiClient.get<Song[]>('/songs'),
   getById: (id: string) => apiClient.get<Song>(`/songs/${id}`),
-  addToCharacter: (characterId: string, songId: string, notes?: string) => apiClient.post(`/characters/${characterId}/songs/${songId}`, { notes }),
-  removeFromCharacter: (characterId: string, songId: string) => apiClient.delete(`/characters/${characterId}/songs/${songId}`),
+  addToCharacter: (characterId: string, songId: string, notes?: string) =>
+    apiClient.post(`/characters/${characterId}/songs/${songId}`, { notes }),
+  removeFromCharacter: (characterId: string, songId: string) =>
+    apiClient.delete(`/characters/${characterId}/songs/${songId}`),
 };

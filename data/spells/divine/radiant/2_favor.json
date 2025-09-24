@@ -1,15 +1,18 @@
 {
-    "name": "Favor",
-    "description": "You touch an adjacent creature and ask the heavens to grant them a blessing. At any point until your target's next full rest, they can attempt to benefit from this blessing after making a skill check by rolling a 1d12. On a result of 12, the skill check can be completely rerolled. On a 5 or higher, a single dice can be rerolled from the skill check. The favor is only consumed on a success, but can only be attempted once per skill check. You cannot target yourself for this spell.",
-    "charge":"This spell affects anyone within a very short (5 unit) radius.",
-    "duration": "1 day",
-    "range": 1,
-    "checkToCast": 2,
-    "components": ["Pinch of Crystal Dust"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Favor",
+  "description": "You touch an adjacent creature and ask the heavens to grant them a blessing. At any point until your target's next full rest, they can attempt to benefit from this blessing after making a skill check by rolling a 1d12. On a result of 12, the skill check can be completely rerolled. On a 5 or higher, a single dice can be rerolled from the skill check. The favor is only consumed on a success, but can only be attempted once per skill check. You cannot target yourself for this spell.",
+  "charge": "This spell affects anyone within a very short (5 unit) radius.",
+  "duration": "1 day",
+  "range": 1,
+  "checkToCast": 2,
+  "components": [
+    "Pinch of Crystal Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "xskmwpmdod4ujqn4"
 }

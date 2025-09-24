@@ -8,5 +8,6 @@
   "weight": 2,
   "value": 20,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/tech/wire-spool-thin.webp"
+  "foundry_icon": "icons/commodities/tech/wire-spool-thin.webp",
+  "foundry_id": "zi250ghvf13onokk"
 }

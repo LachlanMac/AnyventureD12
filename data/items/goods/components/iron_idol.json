@@ -10,5 +10,6 @@
   "weight": 0.8,
   "value": 80,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/treasure/figurine-idol.webp"
+  "foundry_icon": "icons/commodities/treasure/figurine-idol.webp",
+  "foundry_id": "730z5ny6jih4etm7"
 }

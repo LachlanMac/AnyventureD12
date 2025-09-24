@@ -1,15 +1,18 @@
 {
-    "name": "Shift",
-    "description": "You target an adjacent creature and cause their form to shift unpredictably, granting them a bonus dice to their evasion skill while you concentrate on this spell.",
-    "charge":"The target of this spell does not halve their evasion checks when rolling against area attacks.",
-    "duration": "Concentration",
-    "range": 1,
-    "checkToCast": 7,
-    "components": ["Citrine"],
-    "ritualDuration": "1 hour",
-    "concentration": true,
-    "reaction": false,
-    "energy": 2,
-    "damage": 0,
-    "damageType": null
+  "name": "Shift",
+  "description": "You target an adjacent creature and cause their form to shift unpredictably, granting them a bonus dice to their evasion skill while you concentrate on this spell.",
+  "charge": "The target of this spell does not halve their evasion checks when rolling against area attacks.",
+  "duration": "Concentration",
+  "range": 1,
+  "checkToCast": 7,
+  "components": [
+    "Citrine"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "2inriqmqixsadany"
 }

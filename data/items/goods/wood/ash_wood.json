@@ -10,5 +10,6 @@
   "weight": 2.5,
   "value": 15,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/wood/log-cut-ash-brown.webp"
+  "foundry_icon": "icons/commodities/wood/log-cut-ash-brown.webp",
+  "foundry_id": "y057w0ehxssre28z"
 }

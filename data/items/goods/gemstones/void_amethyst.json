@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 6500,
   "rarity": "uncommon",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-purple.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-purple.webp",
+  "foundry_id": "a410xieg9d3e1met"
 }

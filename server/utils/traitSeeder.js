@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Trait from '../models/Trait.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -46,6 +47,10 @@ export const seedTraits = async () => {
           console.log(`Updated trait: ${traitData.name}`);
         } else {
           // Create new trait
+          // Generate foundry_id if missing
+          if (!traitData.foundry_id) {
+            traitData.foundry_id = generateFoundryId();
+          }
           await Trait.create(traitData);
           console.log(`Created trait: ${traitData.name}`);
           traitCount++;

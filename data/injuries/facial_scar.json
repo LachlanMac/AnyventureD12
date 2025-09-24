@@ -1,0 +1,8 @@
+{
+  "id": "facial_scar",
+  "type": "cosmetic_injury",
+  "name": "Facial Scar",
+  "description": "A prominent scar runs across your face, marking you as someone who has seen violence. While it doesn't impair your function, it's immediately noticeable and may affect how others perceive you.",
+  "data": "",
+  "foundry_icon": "icons/skills/melee/blood-slash-foam-red.webp"
+}

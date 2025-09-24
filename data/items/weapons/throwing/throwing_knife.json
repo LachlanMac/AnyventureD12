@@ -1,0 +1,53 @@
+{
+  "name": "Throwing Knife",
+  "description": "A well-balanced blade specifically designed for throwing. Its weight distribution and grip make it ideal for accurate throws at short to medium range.",
+  "type": "weapon",
+  "weapon_category": "throwing",
+  "weight": 1,
+  "value": 125,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "3",
+    "damage_extra": "3",
+    "damage_type": "physical",
+    "category": "pierce",
+    "energy": 0,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 2,
+    "max_range": 3
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 3,
+    "ingredients": [
+      "Blade",
+      "Handle"
+    ]
+  },
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/thrown/dagger-ringed-steel.webp"
+}

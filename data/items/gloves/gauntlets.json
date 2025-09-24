@@ -8,6 +8,7 @@
   "mitigation": {
     "physical": 1
   },
-  "encumbrance_penalty": 1,
-  "foundry_icon": "icons/equipment/hand/gauntlet-armored-steel-grey.webp"
+  "encumbrance_penalty": 2,
+  "foundry_icon": "icons/equipment/hand/gauntlet-armored-steel-grey.webp",
+  "foundry_id": "4ro4nuam6r0mj5f0"
 }

@@ -1,15 +1,18 @@
 {
-    "name": "Sunder",
-    "description": "You tear at the fabric of a creature's essence with a very short (5 unit) distance, dealing 10 true damage if they fail a resilience check of 8. If a creature succeeds on this check, they cannot be the target of it again until they complete a full rest.",
-    "charge":"The check required is increased to 9, and causes a creature who is dropped to 0 health as a result of this spell to die instantly.",
-    "duration": "Instantaneous",
-    "range": 3,
-    "checkToCast": 10,
-    "components": ["Onyx"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 10,
-    "damageType": null
+  "name": "Sunder",
+  "description": "You tear at the fabric of a creature's essence with a very short (5 unit) distance, dealing 10 true damage if they fail a resilience check of 8. If a creature succeeds on this check, they cannot be the target of it again until they complete a full rest.",
+  "charge": "The check required is increased to 9, and causes a creature who is dropped to 0 health as a result of this spell to die instantly.",
+  "duration": "Instantaneous",
+  "range": 3,
+  "checkToCast": 10,
+  "components": [
+    "Onyx"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 10,
+  "damageType": null,
+  "foundry_id": "6389hiusd8pes8ly"
 }

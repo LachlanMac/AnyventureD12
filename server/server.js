@@ -39,6 +39,7 @@ import { initializeSongs } from './utils/songSeeder.js';
 import { initializeAncestries } from './utils/ancestrySeeder.js';
 import { initializeCultures } from './utils/cultureSeeder.js';
 import { initializeTraits } from './utils/traitSeeder.js';
+import { initializeInjuries } from './utils/injurySeeder.js';
 import { loadCreaturesFromJson } from './utils/creatureSeeder.js';
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -113,6 +114,8 @@ const connectDB = async () => {
     await initializeCultures();
     console.log('Initializing traits...');
     await initializeTraits();
+    console.log('Initializing injuries...');
+    await initializeInjuries();
     console.log('Initializing creatures...');
     await loadCreaturesFromJson();
   } catch (error) {

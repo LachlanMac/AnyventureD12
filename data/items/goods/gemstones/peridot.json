@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 550,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-yellow.webp"
+  "foundry_icon": "icons/commodities/gems/gem-faceted-rough-yellow.webp",
+  "foundry_id": "v0zxue6jxk8qqhhm"
 }

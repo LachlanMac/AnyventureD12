@@ -1,17 +1,18 @@
 {
-    "name": "Detect Evil",
-    "description": "You expand your senses with divine magic, allowing you to detect if there are any dark creatures within a moderate (20 unit) radius.",
-    "charge":"The spell also detects any creature who has channeled a dark spell within the last day.",
-    "duration": "Instantaneous",
-    "range": 5,
-    "checkToCast": 2,
-    "components": [
-      "Vial of Holy Water"
-    ],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Detect Evil",
+  "description": "You expand your senses with divine magic, allowing you to detect if there are any dark creatures within a moderate (20 unit) radius.",
+  "charge": "The spell also detects any creature who has channeled a dark spell within the last day.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 2,
+  "components": [
+    "Vial of Holy Water"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "m2lvyuuwovehebwg"
 }

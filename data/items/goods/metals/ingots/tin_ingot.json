@@ -8,5 +8,6 @@
   "weight": 2,
   "value": 10,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/ingot-stamped-silver.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-stamped-silver.webp",
+  "foundry_id": "q45amr1a26i93eek"
 }

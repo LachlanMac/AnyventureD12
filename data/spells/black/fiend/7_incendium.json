@@ -1,15 +1,18 @@
 {
-    "name": "Incendium",
-    "description": "You target a creature within a moderate (20 unit) distance and deal 14 heat damage to them if they fail a resilience check of 8. If the target of this spell is ignited, the flames turn into hellfire instead.",
-    "charge":"The spell targets an additional creature.",
-    "duration": "Instantaneous",
-    "range": 5,
-    "checkToCast": 7,
-    "components": ["Spark Dust"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 14,
-    "damageType": "Heat"
+  "name": "Incendium",
+  "description": "You target a creature within a moderate (20 unit) distance and deal 14 heat damage to them if they fail a resilience check of 8. If the target of this spell is ignited, the flames turn into hellfire instead.",
+  "charge": "The spell targets an additional creature.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 7,
+  "components": [
+    "Spark Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 14,
+  "damageType": "Heat",
+  "foundry_id": "9804rc9ve2pmygi1"
 }

@@ -8,5 +8,6 @@
   "weight": 1,
   "value": 60,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/food/dried-meat-jerky-fish-red.webp"
+  "foundry_icon": "icons/consumables/food/dried-meat-jerky-fish-red.webp",
+  "foundry_id": "v18chflrb7k7xwz0"
 }

@@ -8,5 +8,6 @@
   "weight": 0.75,
   "value": 300,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/ore-pile-nuggets-gold.webp"
+  "foundry_icon": "icons/commodities/stone/ore-pile-nuggets-gold.webp",
+  "foundry_id": "50bna0f2c5519j1k"
 }

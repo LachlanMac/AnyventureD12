@@ -1,15 +1,18 @@
 {
-    "name": "Awaken",
-    "description": "You touch a small plant and give it sentience, choosing a minion tier plantoid to create that does not have any allegiance. The targeted plant and plantoid should be reasonably similar.",
-    "charge":"The plantoid is permanenty charmed by you, breakable only by dispelling magic.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 10,
-    "components": ["Emerald"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 5,
-    "damage": 0,
-    "damageType": null
+  "name": "Awaken",
+  "description": "You touch a small plant and give it sentience, choosing a minion tier plantoid to create that does not have any allegiance. The targeted plant and plantoid should be reasonably similar.",
+  "charge": "The plantoid is permanenty charmed by you, breakable only by dispelling magic.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 10,
+  "components": [
+    "Emerald"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "fu2y1p4dxmcfeith"
 }

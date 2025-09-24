@@ -1,15 +1,18 @@
 {
-    "name": "Dazzle",
-    "description": "You create an explosion of sparkling colors within a 3 unit radius of you, forcing all creatures within the area to make a concentration check of 8 or higher or become dazed.",
-    "charge":"If a creature rolls under a 5 on their concentration check to avoid becoming dazed, they instead become stunned.",
-    "duration": "Instantaneous",
-    "range": 0,
-    "checkToCast": 8,
-    "components": ["Opal"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Dazzle",
+  "description": "You create an explosion of sparkling colors within a 3 unit radius of you, forcing all creatures within the area to make a concentration check of 8 or higher or become dazed.",
+  "charge": "If a creature rolls under a 5 on their concentration check to avoid becoming dazed, they instead become stunned.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 8,
+  "components": [
+    "Opal"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "sbl26ya7ddbjcowl"
 }

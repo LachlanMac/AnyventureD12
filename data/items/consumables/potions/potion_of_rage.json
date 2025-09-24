@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "If the consumer takes more than 10 damage after calculating mitigations, they become maddened.",
-  "foundry_icon": "icons/consumables/potions/bottle-round-corked-orange.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-round-corked-orange.webp",
+  "foundry_id": "l83qi29o3nyvme8u"
 }

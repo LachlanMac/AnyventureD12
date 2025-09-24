@@ -5,7 +5,11 @@
   "weight": 1,
   "value": 15,
   "rarity": "common",
-  "movement": 1,
+    "mitigation": {
+    "heat": 1,
+    "cold": 1
+  },
   "basic": {},
-  "foundry_icon": "icons/equipment/feet/boots-leather-simple-brown.webp"
+  "foundry_icon": "icons/equipment/feet/boots-leather-simple-brown.webp",
+  "foundry_id": "5aduard6tn76slzw"
 }

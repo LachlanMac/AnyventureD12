@@ -2,7 +2,7 @@
   "id": 1,
   "name": "Vampirism",
   "description": "You are afflicted with vampirism and suffer the benefits and weaknesses of the undead curse.",
-  "foundry_icon":"icons/skills/wounds/blood-drip-droplet-red.webp",
+  "foundry_icon": "icons/skills/wounds/blood-drip-droplet-red.webp",
   "options": [
     {
       "name": "Vampire",
@@ -79,5 +79,6 @@
       "requiresChoice": true,
       "choiceType": "Bloodline Selection"
     }
-  ]
+  ],
+  "foundry_id": "xbt7xx9c9g96fmao"
 }

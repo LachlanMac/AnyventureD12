@@ -66,7 +66,17 @@ const CharacterCreate: React.FC = () => {
   }, []);
 
   const handleCultureChange = (cultureName: string, culture: Culture) => {
+    // Update the old culture field for backward compatibility
     updateCharacter('culture', cultureName);
+
+    // Update the new characterCulture object with selections
+    updateCharacter('characterCulture', {
+      cultureId: culture._id,
+      selectedRestriction: culture.selectedRestriction || null,
+      selectedBenefit: culture.selectedBenefit || null,
+      selectedStartingItem: culture.selectedStartingItem || null,
+    });
+
     setSelectedCulture(culture);
   };
   const handlePersonalitySelect = (personalityName: string, personalityModule: Module) => {
@@ -377,11 +387,13 @@ const CharacterCreate: React.FC = () => {
           }
         : null;
 
-      // Prepare culture data (all 3 options are automatically selected)
+      // Prepare culture data with explicit selections
       const cultureData = selectedCulture
         ? {
             cultureId: selectedCulture._id,
-            selectedOptions: selectedCulture.options?.map((option) => option.name) || [],
+            selectedRestriction: (selectedCulture as any).selectedRestriction || null,
+            selectedBenefit: (selectedCulture as any).selectedBenefit || null,
+            selectedStartingItem: (selectedCulture as any).selectedStartingItem || null,
           }
         : null;
 
@@ -422,10 +434,14 @@ const CharacterCreate: React.FC = () => {
         appearance: character.appearance,
         physicalTraits: character.physicalTraits,
         modules: initialModules,
-        traits: selectedTrait ? [{
-          traitId: selectedTrait,
-          selectedOptions: selectedTraitOptions
-        }] : [],
+        traits: selectedTrait
+          ? [
+              {
+                traitId: selectedTrait,
+                selectedOptions: selectedTraitOptions,
+              },
+            ]
+          : [],
         characterCreation: {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,

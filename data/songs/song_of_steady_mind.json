@@ -6,6 +6,13 @@
   "difficulty": 4,
   "description": "A calm measure that centers thoughts and steadies aim",
   "effect": "Allies roll a bonus die on concentration checks",
-  "harmony_1": { "instrument": "strings", "effect": "+1 bonus die to ranged attacks" },
-  "harmony_2": { "instrument": "wind", "effect": "Double defensive concentration checks (rounded down)" }
+  "harmony_1": {
+    "instrument": "strings",
+    "effect": "+1 bonus die to ranged attacks"
+  },
+  "harmony_2": {
+    "instrument": "wind",
+    "effect": "Double defensive concentration checks (rounded down)"
+  },
+  "foundry_id": "3u1lfujfq5rtpa70"
 }

@@ -247,24 +247,9 @@ const Home: React.FC = () => {
           className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-6 gap-6"
           style={{ maxWidth: '1200px', margin: '0 auto' }}
         >
-          <ResourceCard
-            title="Item Compendium"
-            linkText="View Items"
-            linkTo="/items"
-            icon="🗡️"
-          />
-          <ResourceCard
-            title="Spell Library"
-            linkText="View Spells"
-            linkTo="/spells"
-            icon="📜"
-          />
-          <ResourceCard
-            title="Song Compendium"
-            linkText="View Songs"
-            linkTo="/songs"
-            icon="🎵"
-          />
+          <ResourceCard title="Item Compendium" linkText="View Items" linkTo="/items" icon="🗡️" />
+          <ResourceCard title="Spell Library" linkText="View Spells" linkTo="/spells" icon="📜" />
+          <ResourceCard title="Song Compendium" linkText="View Songs" linkTo="/songs" icon="🎵" />
           <ResourceCard
             title="Module Directory"
             linkText="View Modules"

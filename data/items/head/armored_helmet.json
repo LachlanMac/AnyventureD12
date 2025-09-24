@@ -9,5 +9,6 @@
     "physical": 1
   },
   "encumbrance_penalty": 1,
-  "foundry_icon": "icons/equipment/head/greathelm-banded-steel.webp"
+  "foundry_icon": "icons/equipment/head/greathelm-banded-steel.webp",
+  "foundry_id": "behr1bez74t3u14h"
 }

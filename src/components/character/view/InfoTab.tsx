@@ -591,7 +591,6 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
           </div>
         </CardBody>
       </Card>
-
     </div>
   );
 };

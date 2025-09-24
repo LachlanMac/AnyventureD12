@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "The consumer gains the numbed condition when the effects of this potion wear off.",
-  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-purple.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-purple.webp",
+  "foundry_id": "p5uqsnxjacho95nx"
 }

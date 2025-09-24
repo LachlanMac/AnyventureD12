@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 16000,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-cut-square-green.webp"
+  "foundry_icon": "icons/commodities/gems/gem-cut-square-green.webp",
+  "foundry_id": "25fmprdbss1qr1b2"
 }

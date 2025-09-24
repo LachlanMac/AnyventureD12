@@ -140,13 +140,7 @@ const ItemCompendium: React.FC = () => {
     'throwing',
   ];
 
-  const consumableCategories = [
-    'all',
-    'poisons',
-    'elixirs',
-    'potions',
-    'explosives',
-  ];
+  const consumableCategories = ['all', 'poisons', 'elixirs', 'potions', 'explosives'];
 
   if (loading) {
     return (

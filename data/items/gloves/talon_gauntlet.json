@@ -1,0 +1,55 @@
+{
+  "name": "Talon Gauntlet",
+  "description": "A formidable gauntlet with razor-sharp claws extending from each finger. These fearsome weapons transform the wearer's hands into deadly talons capable of rending flesh and armor alike.",
+  "type": "gloves",
+  "weapon_category": "unarmed",
+  "weight": 3,
+  "value": 550,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "6",
+    "damage_extra": "3",
+    "damage_type": "physical",
+    "category": "pierce",
+    "energy": 1,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 1
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 6,
+    "ingredients": [
+      "Point",
+      "Bundle of Heavy Leather",
+      "Brass Fittings",
+      "Small Iron Plate"
+    ]
+  },
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/weapons/fist/claw-gauntlet-gray.webp"
+}

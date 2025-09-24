@@ -6,6 +6,13 @@
   "difficulty": 6,
   "description": "A driving rhythm that synchronizes allies' attacks, granting them enhanced combat prowess",
   "effect": "Allies gain an additional action that can only be used to make a melee attack",
-  "harmony_1": { "instrument": "percussion", "effect": "+1 bonus dice to all attack checks" },
-  "harmony_2": { "instrument": "strings", "effect": "+2 units of additional free movement" }
+  "harmony_1": {
+    "instrument": "percussion",
+    "effect": "+1 bonus dice to all attack checks"
+  },
+  "harmony_2": {
+    "instrument": "strings",
+    "effect": "+2 units of additional free movement"
+  },
+  "foundry_id": "9wx8nefsds3i26fb"
 }

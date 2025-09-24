@@ -6,6 +6,7 @@ import { Module } from '../../../types/character';
 interface PersonalityCreatorTabProps {
   selectedPersonality: string;
   selectedTrait: string;
+  selectedTraitOptions?: any[];
   traitModuleBonus?: number;
   onSelectPersonality: (personality: string, personalityModule: Module) => void;
   onSelectTrait: (traitId: string, selectedOptions?: any[]) => void;
@@ -18,6 +19,7 @@ interface PersonalityCreatorTabProps {
 const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
   selectedPersonality,
   selectedTrait,
+  selectedTraitOptions,
   traitModuleBonus,
   onSelectPersonality,
   onSelectTrait,
@@ -71,8 +73,9 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
         >
           <p>
             Choose a character trait that represents your character's unique nature or background.
-            Traits provide special abilities, bonuses, and sometimes drawbacks that make your character
-            distinct. The default trait is "Born to Adventure" which grants bonus health, resolve, and morale.
+            Traits provide special abilities, bonuses, and sometimes drawbacks that make your
+            character distinct. The default trait is "Born to Adventure" which grants bonus health,
+            resolve, and morale.
           </p>
         </div>
 
@@ -80,6 +83,7 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
           selectedTrait={selectedTrait}
           onSelectTrait={onSelectTrait}
           onValidateTraitChange={onValidateTraitChange}
+          initialSelectedOptions={selectedTraitOptions}
         />
 
         {traitModuleBonus && traitModuleBonus > 0 && (

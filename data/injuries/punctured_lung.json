@@ -1,0 +1,8 @@
+{
+  "id": "punctured_lung",
+  "type": "severe_wound",
+  "name": "Punctured Lung",
+  "description": "A severe chest injury has damaged your lung, making breathing difficult and painful. You suffer from reduced stamina and may experience sudden breathing difficulties during physical exertion. Medical intervention is critical to prevent further complications.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/injury-triple-slash-bleed.webp"
+}

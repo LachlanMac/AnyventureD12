@@ -6,5 +6,9 @@
   "difficulty": 4,
   "description": "A hopeful refrain that lifts spirits back to center",
   "effect": "Reduce the check to recover from numbed or broken by 1",
-  "harmony_1": { "instrument": "any", "effect": "Each harmony reduces the check by 1 more" }
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Each harmony reduces the check by 1 more"
+  },
+  "foundry_id": "qwdw5zf4kqkvxzyy"
 }

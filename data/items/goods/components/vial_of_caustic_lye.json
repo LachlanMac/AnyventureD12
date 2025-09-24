@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 150,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-yellow.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-yellow.webp",
+  "foundry_id": "3laqkkgtvc19oj9k"
 }

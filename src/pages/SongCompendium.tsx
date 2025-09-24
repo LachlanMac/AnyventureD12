@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import Card, { CardBody } from '../components/ui/Card';
 
-interface Harmony { instrument: string; effect: string }
+interface Harmony {
+  instrument: string;
+  effect: string;
+}
 interface SongRow {
   id?: number;
   name: string;
@@ -98,7 +101,9 @@ const SongCompendium: React.FC = () => {
   if (error) {
     return (
       <div className="container mx-auto px-4 py-8">
-        <Card variant="default"><CardBody>error: {error}</CardBody></Card>
+        <Card variant="default">
+          <CardBody>error: {error}</CardBody>
+        </Card>
       </div>
     );
   }
@@ -106,8 +111,20 @@ const SongCompendium: React.FC = () => {
   return (
     <div className="container mx-auto px-4 py-8">
       <div style={{ marginBottom: '2rem' }}>
-        <h1 style={{ color: 'var(--color-white)', fontFamily: 'var(--font-display)', fontSize: '2.5rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>Song Compendium</h1>
-        <p style={{ color: 'var(--color-cloud)', fontSize: '1.125rem' }}>Browse songs and ballads</p>
+        <h1
+          style={{
+            color: 'var(--color-white)',
+            fontFamily: 'var(--font-display)',
+            fontSize: '2.5rem',
+            fontWeight: 'bold',
+            marginBottom: '0.5rem',
+          }}
+        >
+          Song Compendium
+        </h1>
+        <p style={{ color: 'var(--color-cloud)', fontSize: '1.125rem' }}>
+          Browse songs and ballads
+        </p>
       </div>
 
       <Card variant="default" style={{ marginBottom: '2rem' }}>
@@ -120,31 +137,91 @@ const SongCompendium: React.FC = () => {
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
                 style={{
-                  width: '100%', backgroundColor: 'var(--color-dark-elevated)', color: 'var(--color-white)', border: '1px solid var(--color-dark-border)', borderRadius: '0.375rem', padding: '0.75rem 1rem', paddingLeft: '2.5rem'
+                  width: '100%',
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  color: 'var(--color-white)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '0.375rem',
+                  padding: '0.75rem 1rem',
+                  paddingLeft: '2.5rem',
                 }}
               />
-              <div style={{ position: 'absolute', left: '0.75rem', top: '50%', transform: 'translateY(-50%)', color: 'var(--color-cloud)' }}>🔎</div>
+              <div
+                style={{
+                  position: 'absolute',
+                  left: '0.75rem',
+                  top: '50%',
+                  transform: 'translateY(-50%)',
+                  color: 'var(--color-cloud)',
+                }}
+              >
+                🔎
+              </div>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
               <div>
-                <label htmlFor="type-filter" style={{ display: 'block', color: 'var(--color-cloud)', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Type</label>
-                <select id="type-filter" value={typeFilter} onChange={(e) => setTypeFilter(e.target.value as any)}
-                  style={{ width: '100%', backgroundColor: 'var(--color-dark-elevated)', color: 'var(--color-white)', border: '1px solid var(--color-dark-border)', borderRadius: '0.375rem', padding: '0.5rem' }}>
+                <label
+                  htmlFor="type-filter"
+                  style={{
+                    display: 'block',
+                    color: 'var(--color-cloud)',
+                    marginBottom: '0.5rem',
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  Type
+                </label>
+                <select
+                  id="type-filter"
+                  value={typeFilter}
+                  onChange={(e) => setTypeFilter(e.target.value as any)}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: '1px solid var(--color-dark-border)',
+                    borderRadius: '0.375rem',
+                    padding: '0.5rem',
+                  }}
+                >
                   <option value="all">Any</option>
                   <option value="song">Song</option>
                   <option value="ballad">Ballad</option>
                 </select>
               </div>
               <div>
-                <label htmlFor="magical-filter" style={{ display: 'block', color: 'var(--color-cloud)', marginBottom: '0.5rem', fontSize: '0.875rem' }}>Magical</label>
-                <select id="magical-filter" value={magicalFilter} onChange={(e) => setMagicalFilter(e.target.value as any)}
-                  style={{ width: '100%', backgroundColor: 'var(--color-dark-elevated)', color: 'var(--color-white)', border: '1px solid var(--color-dark-border)', borderRadius: '0.375rem', padding: '0.5rem' }}>
+                <label
+                  htmlFor="magical-filter"
+                  style={{
+                    display: 'block',
+                    color: 'var(--color-cloud)',
+                    marginBottom: '0.5rem',
+                    fontSize: '0.875rem',
+                  }}
+                >
+                  Magical
+                </label>
+                <select
+                  id="magical-filter"
+                  value={magicalFilter}
+                  onChange={(e) => setMagicalFilter(e.target.value as any)}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: '1px solid var(--color-dark-border)',
+                    borderRadius: '0.375rem',
+                    padding: '0.5rem',
+                  }}
+                >
                   <option value="all">Any</option>
                   <option value="yes">Yes</option>
                   <option value="no">No</option>
                 </select>
               </div>
-              <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', alignSelf: 'end' }}>Found {filtered.length} {filtered.length === 1 ? 'song' : 'songs'}</div>
+              <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', alignSelf: 'end' }}>
+                Found {filtered.length} {filtered.length === 1 ? 'song' : 'songs'}
+              </div>
             </div>
           </div>
         </CardBody>
@@ -166,16 +243,61 @@ const SongCompendium: React.FC = () => {
                 alignItems: 'center',
               }}
             >
-              <button onClick={() => handleSort('name')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: sortField === 'name' ? 'var(--color-metal-gold)' : 'var(--color-cloud)', fontWeight: 'bold', fontSize: '0.875rem', textAlign: 'left' }}>
+              <button
+                onClick={() => handleSort('name')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: sortField === 'name' ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+                  fontWeight: 'bold',
+                  fontSize: '0.875rem',
+                  textAlign: 'left',
+                }}
+              >
                 name {sortField === 'name' ? (sortDirection === 'asc' ? '▲' : '▼') : ''}
               </button>
-              <button onClick={() => handleSort('type')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: sortField === 'type' ? 'var(--color-metal-gold)' : 'var(--color-cloud)', fontWeight: 'bold', fontSize: '0.875rem', textAlign: 'center' }}>
+              <button
+                onClick={() => handleSort('type')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: sortField === 'type' ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+                  fontWeight: 'bold',
+                  fontSize: '0.875rem',
+                  textAlign: 'center',
+                }}
+              >
                 type {sortField === 'type' ? (sortDirection === 'asc' ? '▲' : '▼') : ''}
               </button>
-              <button onClick={() => handleSort('difficulty')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: sortField === 'difficulty' ? 'var(--color-metal-gold)' : 'var(--color-cloud)', fontWeight: 'bold', fontSize: '0.875rem', textAlign: 'center' }}>
+              <button
+                onClick={() => handleSort('difficulty')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color:
+                    sortField === 'difficulty' ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+                  fontWeight: 'bold',
+                  fontSize: '0.875rem',
+                  textAlign: 'center',
+                }}
+              >
                 difficulty {sortField === 'difficulty' ? (sortDirection === 'asc' ? '▲' : '▼') : ''}
               </button>
-              <button onClick={() => handleSort('magical')} style={{ background: 'none', border: 'none', cursor: 'pointer', color: sortField === 'magical' ? 'var(--color-metal-gold)' : 'var(--color-cloud)', fontWeight: 'bold', fontSize: '0.875rem', textAlign: 'center' }}>
+              <button
+                onClick={() => handleSort('magical')}
+                style={{
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  color: sortField === 'magical' ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+                  fontWeight: 'bold',
+                  fontSize: '0.875rem',
+                  textAlign: 'center',
+                }}
+              >
                 magical {sortField === 'magical' ? (sortDirection === 'asc' ? '▲' : '▼') : ''}
               </button>
             </div>
@@ -188,7 +310,8 @@ const SongCompendium: React.FC = () => {
                   gridTemplateColumns: 'minmax(260px,1fr) 160px 140px 140px',
                   alignItems: 'center',
                   padding: '0.75rem 1rem',
-                  borderBottom: idx < filtered.length - 1 ? '1px solid var(--color-dark-border)' : 'none',
+                  borderBottom:
+                    idx < filtered.length - 1 ? '1px solid var(--color-dark-border)' : 'none',
                   gap: '0.5rem',
                   cursor: 'pointer',
                 }}
@@ -207,7 +330,7 @@ const SongCompendium: React.FC = () => {
                       fontSize: '0.75rem',
                       padding: '0.125rem 0.5rem',
                       borderRadius: '9999px',
-                      border: '1px solid var(--color-dark-border)'
+                      border: '1px solid var(--color-dark-border)',
                     }}
                   >
                     {s.type}
@@ -222,7 +345,7 @@ const SongCompendium: React.FC = () => {
                       padding: '0.125rem 0.5rem',
                       borderRadius: '0.25rem',
                       backgroundColor: 'rgba(255,255,255,0.06)',
-                      border: '1px solid var(--color-dark-border)'
+                      border: '1px solid var(--color-dark-border)',
                     }}
                   >
                     {s.difficulty ?? '-'}
@@ -235,8 +358,12 @@ const SongCompendium: React.FC = () => {
                       fontSize: '0.75rem',
                       padding: '0.125rem 0.5rem',
                       borderRadius: '9999px',
-                      backgroundColor: s.magical ? 'rgba(215, 183, 64, 0.15)' : 'rgba(255,255,255,0.04)',
-                      border: s.magical ? '1px solid rgba(215, 183, 64, 0.35)' : '1px solid var(--color-dark-border)'
+                      backgroundColor: s.magical
+                        ? 'rgba(215, 183, 64, 0.15)'
+                        : 'rgba(255,255,255,0.04)',
+                      border: s.magical
+                        ? '1px solid rgba(215, 183, 64, 0.35)'
+                        : '1px solid var(--color-dark-border)',
                     }}
                   >
                     {s.magical ? 'yes' : 'no'}

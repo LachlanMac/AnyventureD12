@@ -198,7 +198,6 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
                       ))}
                   </div>
                 )}
-
               </>
             ) : (
               <p style={{ color: 'var(--color-cloud)' }}>Select a personality to see information</p>

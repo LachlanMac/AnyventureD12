@@ -24,7 +24,7 @@
     },
     {
       "name": "Action : Shield Bash",
-      "description": "You strike an adjacent enemy with your shield. Make a deflection check as your attack roll against their evasion or deflection. If you hit, the target takes physical damage as if your shield was a weapon with 3 primary and 2 extra damage.",
+      "description": "You strike an adjacent enemy with your shield. Make a deflection check as your attack roll against their evasion or deflection. If you hit, the target takes physical damage as if your shield was a weapon with 3 primary and 3 extra damage.",
       "location": "3",
       "data": "XINE=0"
     },

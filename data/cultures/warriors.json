@@ -5,35 +5,42 @@
   "culturalRestrictions": [
     {
       "name": "Honor-Bound",
-      "description": "A warrior is bound to their honor and does not use poisons, traps or attacking from stealth while in combat. If the warrior employs any of these methods, they lose 1 resolve."
+      "description": "A warrior is bound to their honor and does not use poisons, traps or attacking from stealth while in combat. If the warrior employs any of these methods, they lose 1 resolve.",
+      "data": "TX"
     },
     {
       "name": "Debt of Blood",
-      "description": "When you or an ally is brought to 0 health by a creature, you make a vow of blood against the creature that did it. Until this creature is defeated or brought to justice, you lose 1 resolve every day. If you become broken as a result of this loss, the vow ends."
+      "description": "When you or an ally is brought to 0 health by a creature, you make a vow of blood against the creature that did it. Until this creature is defeated or brought to justice, you lose 1 resolve every day. If you become broken as a result of this loss, the vow ends.",
+      "data": "TX"
     }
   ],
   "benefits": [
     {
       "name": "Tests of Mettle",
-      "description": "When engaged in an honorable contest such as a competition, trial or duel, you gain a bonus dice to all physique and finesse checks."
+      "description": "When engaged in an honorable contest such as a competition, trial or duel, you gain a bonus dice to all physique and finesse checks.",
+      "data": "TX"
     },
     {
       "name": "Badge of Honor",
-      "description": "You start with one cosmetic injury. For each cosmetic injury that you have obtained by rolling a lifeline check, your maximum morale is increased by 1."
+      "description": "You start with one cosmetic injury. For each cosmetic injury that you have obtained by rolling a lifeline check, your maximum morale is increased by 1.",
+      "data": "TX:FD"
     }
   ],
   "startingItems": [
     {
       "name": "Honor Blade",
-      "description": "A dagger that is used to grant a humanoid or beast an honorable death if they have surrendered or can no longer fight back. If this blade is used dishonorably, the wielder loses 1 resolve."
+      "description": "A dagger that is used to grant a humanoid or beast an honorable death if they have surrendered or can no longer fight back. If this blade is used dishonorably, the wielder loses 1 resolve.",
+      "data": ""
     },
     {
       "name": "Tribal Emblem",
-      "description": "An emblem affixed to a piece of equipment that identifies you as a member of a group of warriors. Other warriors in this group will take this as an indisputible sign that you belong to that group."
+      "description": "An emblem affixed to a piece of equipment that identifies you as a member of a group of warriors. Other warriors in this group will take this as an indisputible sign that you belong to that group.",
+      "data": ""
     },
     {
       "name": "Woad Kit",
-      "description": "A kit that allows the warrior to paint their face and body before an important battle. When painted in this way, the warrior recovers 3 resolve after their next battle if it contained a champion or higher tiered creature. The woad wears off after a full rest, causing the warrior to lose 3 resolve if they did not fight a battle with a champion tiered creature or higher."
+      "description": "A kit that allows the warrior to paint their face and body before an important battle. When painted in this way, the warrior recovers 3 resolve after their next battle if it contained a champion or higher tiered creature. The woad wears off after a full rest, causing the warrior to lose 3 resolve if they did not fight a battle with a champion tiered creature or higher.",
+      "data": ""
     }
   ],
   "options": [],

@@ -1,13 +1,14 @@
 // src/components/character/RaceSelection.tsx (Modified)
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Ancestry } from '../../types/character';
 
 interface RaceSelectionProps {
   selectedRace: string;
   onSelectRace: (race: string, ancestry: Ancestry) => void;
+  initialSelectedSubchoices?: Record<string, string>;
 }
 
-const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRace }) => {
+const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRace, initialSelectedSubchoices }) => {
   const [ancestries, setAncestries] = useState<Ancestry[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
@@ -36,6 +37,18 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
 
     fetchAncestries();
   }, []);
+
+  // Apply initial selected subchoices when provided (e.g., in edit mode)
+  const seededRef = useRef(false);
+  useEffect(() => {
+    if (seededRef.current) return;
+    if (!initialSelectedSubchoices) return;
+    // Only seed once when we have data and ancestries are loaded
+    if (ancestries.length === 0) return;
+    setSubchoiceSelections(initialSelectedSubchoices);
+    // Do not notify parent here to avoid cross-render updates; parent already owns saved state
+    seededRef.current = true;
+  }, [initialSelectedSubchoices, selectedRace, ancestries, onSelectRace]);
 
   // Handler for race selection
   const handleRaceSelect = (raceName: string) => {
@@ -78,7 +91,8 @@ const RaceSelection: React.FC<RaceSelectionProps> = ({ selectedRace, onSelectRac
               };
             }),
           };
-          onSelectRace(selectedRace, ancestryWithSubchoices);
+          // Defer state sync to parent to avoid updating parent during render cycle
+          setTimeout(() => onSelectRace(selectedRace, ancestryWithSubchoices), 0);
         }
       }
 

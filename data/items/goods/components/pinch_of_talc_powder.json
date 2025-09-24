@@ -5,5 +5,6 @@
   "weight": 0.05,
   "value": 20,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/powder-raw-white.webp"
+  "foundry_icon": "icons/commodities/gems/powder-raw-white.webp",
+  "foundry_id": "opt4q4jl92g3lr50"
 }

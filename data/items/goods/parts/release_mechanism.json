@@ -10,5 +10,6 @@
   "weight": 0.5,
   "value": 20,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/tech/lever.webp"
+  "foundry_icon": "icons/commodities/tech/lever.webp",
+  "foundry_id": "v9rbj4eih1j0ypdx"
 }

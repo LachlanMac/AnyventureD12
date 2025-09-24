@@ -1,15 +1,18 @@
 {
-    "name": "Prayer",
-    "description": "You say a short prayer, granting any nearby ally 6 morale and restoring +1 resolve. This prayer can only be channeled once per day, even if the spell fails.",
-    "charge":"The spell grants 10 morale, instead of 6 and restores 5 resolve.",
-    "duration": "Instantaneous",
-    "range": 2,
-    "checkToCast": 6,
-    "components": ["Treated Scroll"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 3,
-    "damage": 0,
-    "damageType": null
+  "name": "Prayer",
+  "description": "You say a short prayer, granting any nearby ally 6 morale and restoring +1 resolve. This prayer can only be channeled once per day, even if the spell fails.",
+  "charge": "The spell grants 10 morale, instead of 6 and restores 5 resolve.",
+  "duration": "Instantaneous",
+  "range": 2,
+  "checkToCast": 6,
+  "components": [
+    "Treated Scroll"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "w1d5ztiz0c50h8l4"
 }

@@ -1,15 +1,18 @@
 {
-    "name": "Dragon Raystrike",
-    "description": "You fire a ray of primal energy at a creature within a short (10 unit) distance, dealing 14 aetheric damage if the target fails a defense check of 8.",
-    "charge":"The spell deals damage to all creatures within in a small area within a 1 unit radius that fail their defense check.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 8,
-    "components": ["Carnelian"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 14,
-    "damageType": "Aetheric"
+  "name": "Dragon Raystrike",
+  "description": "You fire a ray of primal energy at a creature within a short (10 unit) distance, dealing 14 aetheric damage if the target fails a defense check of 8.",
+  "charge": "The spell deals damage to all creatures within in a small area within a 1 unit radius that fail their defense check.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 8,
+  "components": [
+    "Carnelian"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 14,
+  "damageType": "Aetheric",
+  "foundry_id": "a08ep9t6ukrumaaa"
 }

@@ -17,5 +17,6 @@
     ]
   },
   "side_effect": "After the potion wears off, the consumer rolls a d4 for any might checks until they complete a full rest.",
-  "foundry_icon": "icons/consumables/potions/bottle-round-corked-orange.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-round-corked-orange.webp",
+  "foundry_id": "4hftv6i8b5jsw3xj"
 }

@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "The next time the consumer completes a full rest, they must make a resilience check of 5 or higher, or they do not get credit for the rest.",
-  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-purple.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-conical-corked-purple.webp",
+  "foundry_id": "sdd34njddmnl0f4g"
 }

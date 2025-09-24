@@ -12,5 +12,6 @@
     "difficulty_modifier": 1,
     "properties": "Infuse a component with lead, which causes the object it is part of to become completely immutable."
   },
-  "foundry_icon": "icons/commodities/metal/ingot-worn-iron.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-worn-iron.webp",
+  "foundry_id": "c43zmdv8ckikcqzb"
 }

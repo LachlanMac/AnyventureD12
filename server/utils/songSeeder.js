@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Song from '../models/Song.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -36,6 +37,10 @@ export const seedSongs = async () => {
       if (existing) {
         await Song.findByIdAndUpdate(existing._id, s);
       } else {
+        // Generate foundry_id if missing
+        if (!s.foundry_id) {
+          s.foundry_id = generateFoundryId();
+        }
         await Song.create(s);
         created++;
       }

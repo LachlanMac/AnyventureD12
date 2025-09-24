@@ -396,9 +396,7 @@ const CharacterView: React.FC = () => {
               spellSlots={character.spellSlots || 10}
             />
           )}
-          {activeTab === 'songs' && (
-            <SongsTab characterId={character._id} />
-          )}
+          {activeTab === 'songs' && <SongsTab characterId={character._id} />}
 
           {/* Inventory Tab */}
           {activeTab === 'inventory' && (
@@ -419,7 +417,6 @@ const CharacterView: React.FC = () => {
               portraitUrl={character.portraitUrl}
             />
           )}
-
         </div>
 
         <div

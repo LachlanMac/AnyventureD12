@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 20,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/geode-raw-black.webp"
+  "foundry_icon": "icons/commodities/stone/geode-raw-black.webp",
+  "foundry_id": "ez32yt3fhhkpfwzj"
 }

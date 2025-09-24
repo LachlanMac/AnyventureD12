@@ -1,17 +1,18 @@
 {
-    "name": "Mend Wounds",
-    "description": "You touch a humanoid or beast and attempt to close their wounds, restoring their health by 2. A creature cannot be brought above half their maximum health by this spell.",
-    "charge":"Any bleeding condition the target has is also removed.",
-    "duration": "Instantaneous",
-    "range": 0,
-    "checkToCast": 4,
-    "components": [
-      "silver shavings"
-    ],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Mend Wounds",
+  "description": "You touch a humanoid or beast and attempt to close their wounds, restoring their health by 2. A creature cannot be brought above half their maximum health by this spell.",
+  "charge": "Any bleeding condition the target has is also removed.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 4,
+  "components": [
+    "silver shavings"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "2dtmynmna2mlt2ax"
 }

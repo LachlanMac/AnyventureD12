@@ -53,7 +53,7 @@ const RecipeCompendium: React.FC = () => {
       filtered = filtered.filter(
         (item) =>
           item.name.toLowerCase().includes(term) ||
-          (item.recipe?.ingredients?.some(ing => ing.toLowerCase().includes(term)) ?? false)
+          (item.recipe?.ingredients?.some((ing) => ing.toLowerCase().includes(term)) ?? false)
       );
     }
 
@@ -67,11 +67,11 @@ const RecipeCompendium: React.FC = () => {
       // First by crafting type
       const typeCompare = (a.recipe?.type || '').localeCompare(b.recipe?.type || '');
       if (typeCompare !== 0) return typeCompare;
-      
+
       // Then by difficulty
       const diffCompare = (a.recipe?.difficulty || 0) - (b.recipe?.difficulty || 0);
       if (diffCompare !== 0) return diffCompare;
-      
+
       // Finally by name
       return a.name.localeCompare(b.name);
     });
@@ -91,7 +91,7 @@ const RecipeCompendium: React.FC = () => {
   const craftingTypes = [
     'all',
     'alchemy',
-    'cooking', 
+    'cooking',
     'engineering',
     'fabrication',
     'glyphcraft',
@@ -218,7 +218,9 @@ const RecipeCompendium: React.FC = () => {
               >
                 {craftingTypes.map((type) => (
                   <option key={type} value={type}>
-                    {type === 'all' ? 'All Crafting Types' : type.charAt(0).toUpperCase() + type.slice(1)}
+                    {type === 'all'
+                      ? 'All Crafting Types'
+                      : type.charAt(0).toUpperCase() + type.slice(1)}
                   </option>
                 ))}
               </select>
@@ -253,7 +255,7 @@ const RecipeCompendium: React.FC = () => {
             <div>Ingredients</div>
             <div>Properties</div>
           </div>
-          
+
           <div style={{ display: 'flex', flexDirection: 'column', gap: '0' }}>
             {filteredItems.map((item, index) => (
               <div
@@ -273,12 +275,20 @@ const RecipeCompendium: React.FC = () => {
                   e.currentTarget.style.backgroundColor = 'var(--color-dark-border)';
                 }}
                 onMouseLeave={(e) => {
-                  e.currentTarget.style.backgroundColor = index % 2 === 0 ? 'transparent' : 'var(--color-dark-elevated)';
+                  e.currentTarget.style.backgroundColor =
+                    index % 2 === 0 ? 'transparent' : 'var(--color-dark-elevated)';
                 }}
               >
                 {/* Name Column */}
                 <div style={{ minWidth: 0 }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem', marginBottom: '0.25rem' }}>
+                  <div
+                    style={{
+                      display: 'flex',
+                      alignItems: 'center',
+                      gap: '0.5rem',
+                      marginBottom: '0.25rem',
+                    }}
+                  >
                     <h3
                       style={{
                         color: 'var(--color-white)',
@@ -315,7 +325,8 @@ const RecipeCompendium: React.FC = () => {
                       marginBottom: '0.25rem',
                     }}
                   >
-                    {item.recipe?.type && item.recipe.type.charAt(0).toUpperCase() + item.recipe.type.slice(1)}
+                    {item.recipe?.type &&
+                      item.recipe.type.charAt(0).toUpperCase() + item.recipe.type.slice(1)}
                   </div>
                   <div style={{ color: 'var(--color-gray)', fontSize: '0.75rem' }}>
                     Difficulty: {item.recipe?.difficulty}
@@ -341,7 +352,13 @@ const RecipeCompendium: React.FC = () => {
                       {item.recipe.ingredients.join(', ')}
                     </div>
                   ) : (
-                    <div style={{ color: 'var(--color-gray)', fontSize: '0.875rem', fontStyle: 'italic' }}>
+                    <div
+                      style={{
+                        color: 'var(--color-gray)',
+                        fontSize: '0.875rem',
+                        fontStyle: 'italic',
+                      }}
+                    >
                       No ingredients required
                     </div>
                   )}

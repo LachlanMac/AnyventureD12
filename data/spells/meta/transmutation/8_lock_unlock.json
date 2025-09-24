@@ -1,15 +1,18 @@
 {
-    "name": "Lock / Unlock",
-    "description": "You target an adjacent object that can open and close and attempt to either lock or unlock it. If using this spell to unlock an object, this action is the equivalent of a 10 thievery check. An object locked by this spell requires a 10 thievery check to open.",
-    "charge":"The thievery check becomes a 14 when unlocking or locking an object.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 8,
-    "components": ["Brass Fittings"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 0,
-    "damageType": null
+  "name": "Lock / Unlock",
+  "description": "You target an adjacent object that can open and close and attempt to either lock or unlock it. If using this spell to unlock an object, this action is the equivalent of a 10 thievery check. An object locked by this spell requires a 10 thievery check to open.",
+  "charge": "The thievery check becomes a 14 when unlocking or locking an object.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 8,
+  "components": [
+    "Brass Fittings"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "jwxeq6h22lnzlc5z"
 }

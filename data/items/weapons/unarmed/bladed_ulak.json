@@ -1,0 +1,54 @@
+{
+  "name": "Bladed Ulak",
+  "description": "A traditional curved blade weapon designed to be gripped in the fist with the blade extending from the pinky side. This ancient design allows for devastating slashing attacks in close combat.",
+  "type": "weapon",
+  "weapon_category": "unarmed",
+  "weight": 1,
+  "value": 425,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "5",
+    "damage_extra": "4",
+    "damage_type": "physical",
+    "category": "slash",
+    "energy": 0,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 1
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 5,
+    "ingredients": [
+      "Blade",
+      "Handle",
+      "Bindings"
+    ]
+  },
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/fist/fist-katar-gold.webp"
+}

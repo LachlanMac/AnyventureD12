@@ -68,5 +68,6 @@
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/swords/shortsword-guard.webp"
+  "foundry_icon": "icons/weapons/swords/shortsword-guard.webp",
+  "foundry_id": "qalcedcg8adyiswr"
 }

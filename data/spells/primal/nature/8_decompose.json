@@ -1,15 +1,18 @@
 {
-    "name": "Decompose",
-    "description": "You touch a creature and cause them to rot, dealing 12 dark damage if they fail a resilience check of 8.  This spell does not affect constructs or elementals, but plantoids and undead take 20 dark damage instead.",
-    "charge":"Any creature besides yourself within a nearby (1 unit) distance of the initial target must make the same check, or take damage as well.",
-    "duration": "Instantaneous",
-    "range": 1,
-    "checkToCast": 8,
-    "components": ["Bundle of Grave Moss"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 12,
-    "damageType": "Dark"
+  "name": "Decompose",
+  "description": "You touch a creature and cause them to rot, dealing 12 dark damage if they fail a resilience check of 8.  This spell does not affect constructs or elementals, but plantoids and undead take 20 dark damage instead.",
+  "charge": "Any creature besides yourself within a nearby (1 unit) distance of the initial target must make the same check, or take damage as well.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 8,
+  "components": [
+    "Bundle of Grave Moss"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 12,
+  "damageType": "Dark",
+  "foundry_id": "j7tsnmjmyysuw2od"
 }

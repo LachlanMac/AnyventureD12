@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "The consumer loses 3 resolve after the potion wears off.",
-  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
+  "foundry_id": "rlsvbsfnqx4o7kkt"
 }

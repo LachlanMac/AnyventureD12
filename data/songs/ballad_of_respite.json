@@ -6,5 +6,9 @@
   "difficulty": 4,
   "description": "A gentle lay that turns poor sleep into true rest",
   "effect": "Treat an unfavorable rest as favorable and remove its penalties",
-  "harmony_1": { "instrument": "any", "effect": "Each harmony reduces the required sleep by 1 hour (minimum 4 hours)" }
+  "harmony_1": {
+    "instrument": "any",
+    "effect": "Each harmony reduces the required sleep by 1 hour (minimum 4 hours)"
+  },
+  "foundry_id": "tlgxineaaqzxynwt"
 }

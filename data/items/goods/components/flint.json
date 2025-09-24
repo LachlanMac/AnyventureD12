@@ -8,5 +8,6 @@
   "weight": 0.2,
   "value": 5,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/stone/ore-chunk-grey.webp"
+  "foundry_icon": "icons/commodities/stone/ore-chunk-grey.webp",
+  "foundry_id": "xvapazoux4utd4yp"
 }

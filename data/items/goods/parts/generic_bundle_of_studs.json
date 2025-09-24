@@ -1,0 +1,95 @@
+[
+  {
+    "name": "Bundle Iron of Studs",
+    "description": "A collection of iron studs and reinforcing spikes designed for adding protective elements to armor and clothing. These reliable components provide affordable defensive enhancement for leather armor, belts, and bracers.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "studs",
+      "iron"
+    ],
+    "weight": 2,
+    "value": 350,
+    "rarity": "common",
+    "recipe": {
+      "ingredients": [
+        "Iron Ingot"
+      ],
+      "difficulty": 2,
+      "type": "fabrication"
+    },
+    "properties": "Standard material protection with no special effects",
+    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+  },
+  {
+    "name": "Bundle of Steel Studs",
+    "description": "A collection of steel studs and reinforcing spikes designed for adding protective elements to armor and clothing. These durable components offer improved defensive capabilities over iron alternatives.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "studs",
+      "steel"
+    ],
+    "weight": 2,
+    "value": 550,
+    "rarity": "common",
+    "recipe": {
+      "ingredients": [
+        "Steel Ingot"
+      ],
+      "difficulty": 4,
+      "type": "fabrication"
+    },
+    "properties": "Standard material protection with no special effects",
+    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+  },
+  {
+    "name": "Bundle of True Steel Studs",
+    "description": "A collection of true steel studs and reinforcing spikes crafted for superior armor enhancement. These masterwork components deliver exceptional protective qualities through advanced metallurgical techniques.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "studs",
+      "truesteel"
+    ],
+    "weight": 2,
+    "value": 950,
+    "rarity": "uncommon",
+    "recipe": {
+      "ingredients": [
+        "True Steel Ingot"
+      ],
+      "difficulty": 6,
+      "type": "fabrication"
+    },
+    "properties": "Adds +1 physical mitigation when crafted into armor, and adds +2 damage and +1 extra damage to unarmed attacks when crafted into boots or gloves.",
+    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+  },
+  {
+    "name": "Bundle of Starsteel Studs",
+    "description": "A collection of starsteel studs and reinforcing spikes forged from legendary celestial metal. These otherworldly components channel divine protection through their supernatural properties.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "studs",
+      "starsteel",
+      "legendary"
+    ],
+    "weight": 1,
+    "value": 95350,
+    "rarity": "legendary",
+    "recipe": {
+      "ingredients": [
+        "Starsteel Ingot"
+      ],
+      "difficulty": 12,
+      "type": "fabrication"
+    },
+    "properties": "Adds +2 physical mitigation when crafted into armor, and adds +2 damage and +2 extra damage to unarmed attacks when crafted into boots or gloves.",
+    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+  }
+]

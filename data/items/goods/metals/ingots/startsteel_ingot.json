@@ -10,5 +10,6 @@
   "weight": 2.5,
   "value": 50000,
   "rarity": "legendary",
-  "foundry_icon": "icons/commodities/metal/ingot-stamped-steel-purple.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-stamped-steel-purple.webp",
+  "foundry_id": "ujhgwocltav820v6"
 }

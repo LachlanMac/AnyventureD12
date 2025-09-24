@@ -1,15 +1,18 @@
 {
-    "name": "Polarity",
-    "description": "You target two creatures within a moderate (20 unit) distance and bind them together with gravitational forces. While you concentrate on this spell, at the start of each of your turns, both creatures must make a fitness check of 8 or be pulled 2 units towards each other. If this movement causes the creatures to collide, they both take 10 physical damage, ending the spell. This spell ends prematurely if both creatures succeed on their check.",
-    "charge":"the creatures are pulled 3 units instead and the collision deals 15 physical damage.",
-    "duration": "Concentration",
-    "range": 5,
-    "checkToCast": 6,
-    "components": ["Lodestone"],
-    "ritualDuration": "1 hour",
-    "concentration": true,
-    "reaction": false,
-    "energy": 3,
-    "damage": 10,
-    "damageType": "Physical"
+  "name": "Polarity",
+  "description": "You target two creatures within a moderate (20 unit) distance and bind them together with gravitational forces. While you concentrate on this spell, at the start of each of your turns, both creatures must make a fitness check of 8 or be pulled 2 units towards each other. If this movement causes the creatures to collide, they both take 10 physical damage, ending the spell. This spell ends prematurely if both creatures succeed on their check.",
+  "charge": "the creatures are pulled 3 units instead and the collision deals 15 physical damage.",
+  "duration": "Concentration",
+  "range": 5,
+  "checkToCast": 6,
+  "components": [
+    "Lodestone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 3,
+  "damage": 10,
+  "damageType": "Physical",
+  "foundry_id": "zo7g075qi6pmay21"
 }

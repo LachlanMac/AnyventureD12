@@ -203,7 +203,14 @@ const ItemDetail: React.FC = () => {
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Properties</h2>
               </CardHeader>
               <CardBody>
-                <p style={{ color: 'var(--color-sky)', lineHeight: '1.6', margin: 0, fontSize: '1.1rem' }}>
+                <p
+                  style={{
+                    color: 'var(--color-sky)',
+                    lineHeight: '1.6',
+                    margin: 0,
+                    fontSize: '1.1rem',
+                  }}
+                >
                   {item.properties}
                 </p>
               </CardBody>
@@ -345,18 +352,31 @@ const ItemDetail: React.FC = () => {
               </CardHeader>
               <CardBody>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                  <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))', gap: '1rem' }}>
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+                      gap: '1rem',
+                    }}
+                  >
                     <div style={{ color: 'var(--color-cloud)' }}>
-                      <strong>Crafting Skill:</strong> {item.recipe.type.charAt(0).toUpperCase() + item.recipe.type.slice(1)}
+                      <strong>Crafting Skill:</strong>{' '}
+                      {item.recipe.type.charAt(0).toUpperCase() + item.recipe.type.slice(1)}
                     </div>
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Difficulty:</strong> {item.recipe.difficulty}
                     </div>
                   </div>
-                  
+
                   {item.recipe.ingredients && item.recipe.ingredients.length > 0 && (
                     <div>
-                      <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem', fontSize: '1rem' }}>
+                      <h3
+                        style={{
+                          color: 'var(--color-white)',
+                          marginBottom: '0.5rem',
+                          fontSize: '1rem',
+                        }}
+                      >
                         Required Ingredients
                       </h3>
                       <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
@@ -369,7 +389,7 @@ const ItemDetail: React.FC = () => {
                               padding: '0.25rem 0.5rem',
                               borderRadius: '0.25rem',
                               fontSize: '0.875rem',
-                              textTransform: 'capitalize'
+                              textTransform: 'capitalize',
                             }}
                           >
                             {ingredient.replace(/_/g, ' ')}

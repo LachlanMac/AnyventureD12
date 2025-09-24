@@ -8,5 +8,6 @@
   "weight": 0.1,
   "value": 2000,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/gems/gem-fragments-teal.webp"
+  "foundry_icon": "icons/commodities/gems/gem-fragments-teal.webp",
+  "foundry_id": "qp0mg7iun8ard2yh"
 }

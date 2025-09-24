@@ -3,6 +3,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Language from '../models/Language.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 // Get __dirname equivalent in ES modules
 const __filename = fileURLToPath(import.meta.url);
@@ -45,7 +46,11 @@ export const seedLanguages = async () => {
           await Language.findByIdAndUpdate(existingLanguage._id, updateData);
           console.log(`Updated language: ${langData.name}`);
         } else {
-          // Create new language - foundry_id will be auto-generated
+          // Create new language
+          // Generate foundry_id if missing
+          if (!langData.foundry_id) {
+            langData.foundry_id = generateFoundryId();
+          }
           await Language.create(langData);
           console.log(`Created language: ${langData.name}`);
           languageCount++;

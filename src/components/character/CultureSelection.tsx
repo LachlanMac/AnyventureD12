@@ -1,19 +1,28 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Culture } from '../../types/character';
 
 interface CultureSelectionProps {
   selectedCulture: string;
-  onSelectCulture: (culture: string, cultureData: Culture & { 
-    selectedRestriction?: any;
-    selectedBenefit?: any;
-    selectedStartingItem?: any;
-    selectedOption?: any;
-  }) => void;
+  onSelectCulture: (
+    culture: string,
+    cultureData: Culture & {
+      selectedRestriction?: any;
+      selectedBenefit?: any;
+      selectedStartingItem?: any;
+      selectedOption?: any;
+    }
+  ) => void;
+  initialSelections?: {
+    restriction?: any;
+    benefit?: any;
+    startingItem?: any;
+  };
 }
 
 const CultureSelection: React.FC<CultureSelectionProps> = ({
   selectedCulture,
   onSelectCulture,
+  initialSelections,
 }) => {
   const [cultures, setCultures] = useState<Culture[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
@@ -49,13 +58,35 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
     fetchCultures();
   }, []);
 
+  // Seed initial selections in edit mode
+  const seededRef = useRef(false);
+  useEffect(() => {
+    if (seededRef.current) return;
+    if (!initialSelections) return;
+    const toObj = (v: any) =>
+      typeof v === 'string' || typeof v === 'number'
+        ? { name: String(v), description: '' }
+        : v;
+
+    // Only seed once when we have the cultures list
+    if (cultures.length === 0) return;
+    setCultureSelections({
+      restriction: toObj(initialSelections.restriction),
+      benefit: toObj(initialSelections.benefit),
+      startingItem: toObj(initialSelections.startingItem),
+    });
+
+    // Do not notify parent here; parent already owns saved selections
+    seededRef.current = true;
+  }, [initialSelections, selectedCulture, cultures, onSelectCulture]);
+
   // Handler for culture selection
   const handleCultureSelect = (cultureName: string) => {
     const selectedCultureData = cultures.find((culture) => culture.name === cultureName);
     if (selectedCultureData) {
       // Reset selections when changing cultures
       setCultureSelections({});
-      
+
       const cultureWithSelections = {
         ...selectedCultureData,
         selectedRestriction: cultureSelections.restriction,
@@ -307,7 +338,13 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                         <div style={{ display: 'grid', gap: '1rem' }}>
                           {/* Cultural Restrictions */}
                           <div>
-                            <h4 style={{ color: 'var(--color-danger)', fontSize: '1rem', marginBottom: '0.5rem' }}>
+                            <h4
+                              style={{
+                                color: 'var(--color-danger)',
+                                fontSize: '1rem',
+                                marginBottom: '0.5rem',
+                              }}
+                            >
                               Cultural Restriction
                             </h4>
                             <div
@@ -347,11 +384,13 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                                 }}
                               >
                                 <option value="">Select...</option>
-                                {culture.culturalRestrictions?.map((restriction: any, index: number) => (
-                                  <option key={index} value={restriction.name}>
-                                    {restriction.name}
-                                  </option>
-                                ))}
+                                {culture.culturalRestrictions?.map(
+                                  (restriction: any, index: number) => (
+                                    <option key={index} value={restriction.name}>
+                                      {restriction.name}
+                                    </option>
+                                  )
+                                )}
                               </select>
                               {cultureSelections.restriction && (
                                 <div
@@ -370,7 +409,13 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
 
                           {/* Benefits */}
                           <div>
-                            <h4 style={{ color: 'var(--color-success)', fontSize: '1rem', marginBottom: '0.5rem' }}>
+                            <h4
+                              style={{
+                                color: 'var(--color-success)',
+                                fontSize: '1rem',
+                                marginBottom: '0.5rem',
+                              }}
+                            >
                               Cultural Benefit
                             </h4>
                             <div
@@ -433,7 +478,13 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
 
                           {/* Starting Items */}
                           <div>
-                            <h4 style={{ color: 'var(--color-metal-gold)', fontSize: '1rem', marginBottom: '0.5rem' }}>
+                            <h4
+                              style={{
+                                color: 'var(--color-metal-gold)',
+                                fontSize: '1rem',
+                                marginBottom: '0.5rem',
+                              }}
+                            >
                               Starting Equipment
                             </h4>
                             <div

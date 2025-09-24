@@ -8,5 +8,6 @@
   "weight": 5,
   "value": 300,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/grains/sack-grain-open-white.webp"
+  "foundry_icon": "icons/consumables/grains/sack-grain-open-white.webp",
+  "foundry_id": "ffnyqias8hqqda3o"
 }

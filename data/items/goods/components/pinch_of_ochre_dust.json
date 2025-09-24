@@ -5,5 +5,6 @@
   "weight": 0.05,
   "value": 10,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/materials/powder-grey.webp"
+  "foundry_icon": "icons/commodities/materials/powder-grey.webp",
+  "foundry_id": "dia9yaty4j1wvroh"
 }

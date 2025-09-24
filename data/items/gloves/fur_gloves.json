@@ -6,8 +6,9 @@
   "value": 20,
   "rarity": "common",
   "mitigation": {
-    "cold": 1
+    "cold": 2
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/equipment/hand/gloves-leather-tan.webp"
+  "foundry_icon": "icons/equipment/hand/gloves-leather-tan.webp",
+  "foundry_id": "c7kmsi087y2v15t9"
 }

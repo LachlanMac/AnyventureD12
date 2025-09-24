@@ -9,5 +9,6 @@
   "weight": 0.8,
   "value": 80,
   "rarity": "common",
-  "foundry_icon": "icons/commodities/metal/ingot-stamped-copper.webp"
+  "foundry_icon": "icons/commodities/metal/ingot-stamped-copper.webp",
+  "foundry_id": "cnpip0pyeoe2ixcy"
 }

@@ -44,7 +44,9 @@ const TraitSelectionWithOptions: React.FC<TraitSelectionProps> = ({
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [subchoiceSelections, setSubchoiceSelections] = useState<Record<string, Record<string, string>>>({});
+  const [subchoiceSelections, setSubchoiceSelections] = useState<
+    Record<string, Record<string, string>>
+  >({});
 
   // Fetch traits data
   useEffect(() => {
@@ -460,7 +462,8 @@ const TraitSelectionWithOptions: React.FC<TraitSelectionProps> = ({
                                 >
                                   {
                                     option.subchoices.find(
-                                      (sc) => sc.id === subchoiceSelections[trait._id]?.[option.name]
+                                      (sc) =>
+                                        sc.id === subchoiceSelections[trait._id]?.[option.name]
                                     )?.description
                                   }
                                 </div>

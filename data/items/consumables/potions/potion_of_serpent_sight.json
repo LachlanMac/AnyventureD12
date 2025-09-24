@@ -16,5 +16,6 @@
     ]
   },
   "side_effect": "After the potion wears off, the consumer goes blind for 1 hour.",
-  "foundry_icon": "icons/consumables/potions/bottle-corked-green.webp"
+  "foundry_icon": "icons/consumables/potions/bottle-corked-green.webp",
+  "foundry_id": "b7has42ved6kckee"
 }

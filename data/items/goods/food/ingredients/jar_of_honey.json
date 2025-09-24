@@ -8,5 +8,6 @@
   "weight": 2,
   "value": 80,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/food/honey-beehive-brown.webp"
+  "foundry_icon": "icons/consumables/food/honey-beehive-brown.webp",
+  "foundry_id": "cirv3tgs0jm18heo"
 }

@@ -26,10 +26,7 @@ interface TraitsTabProps {
   personality?: string;
 }
 
-const TraitsTab: React.FC<TraitsTabProps> = ({
-  character,
-  personality: _personality,
-}) => {
+const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality: _personality }) => {
   const traitCategories = character.derivedTraits || {
     General: [],
     Crafting: [],

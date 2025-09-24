@@ -8,5 +8,6 @@
   "weight": 1,
   "value": 100,
   "rarity": "common",
-  "foundry_icon": "icons/consumables/plants/dried-herb-bundle-brown.webp"
+  "foundry_icon": "icons/consumables/plants/dried-herb-bundle-brown.webp",
+  "foundry_id": "gbx4i4lwyfxeypow"
 }

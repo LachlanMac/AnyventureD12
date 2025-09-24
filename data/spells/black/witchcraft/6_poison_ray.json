@@ -1,15 +1,18 @@
 {
-    "name": "Poison Bolt",
-    "description": "You shoot a bolt of poison a moderate (20 unit) distance at a target, dealing 8 toxic damage if they fail a defense check of 9.",
-    "charge":"Instead of dealing initial damage, the target takes 6 toxic damage at the start of each of their next 3 turns.",
-    "duration": "Instantaneous",
-    "range": 4,
-    "checkToCast": 6,
-    "components": ["Vial of Venom"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 1,
-    "damage": 8,
-    "damageType": "Toxic"
+  "name": "Poison Bolt",
+  "description": "You shoot a bolt of poison a moderate (20 unit) distance at a target, dealing 8 toxic damage if they fail a defense check of 9.",
+  "charge": "Instead of dealing initial damage, the target takes 6 toxic damage at the start of each of their next 3 turns.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 6,
+  "components": [
+    "Vial of Venom"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 8,
+  "damageType": "Toxic",
+  "foundry_id": "4og1j8279lit3wpf"
 }

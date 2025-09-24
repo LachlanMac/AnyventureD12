@@ -1,15 +1,18 @@
 {
-    "name": "Flamewhorl",
-    "description": "You mix fire and wind to hurl a mass of flame up to a moderate (20 unit) distance towards a creature, dealing 16 heat damage if the target fails a defense check of 9. If the whorl travels at least a short (10 unit) distance, the target and any adjacent creatures who are medium size or smaller must make a fitness check of 8 or be knocked prone.",
-    "charge":"The spell becomes a moderate (20 unit) line, forcing all creatures within the area to make the defense check. Instead of being knocked prone, any medium or smaller creature that is hit by the whorl is pushed an adjacent square not within the line.",
-    "duration": "Instantaneous",
-    "range": 5,
-    "checkToCast": 8,
-    "components": ["Ember Dust"],
-    "ritualDuration": "1 hour",
-    "concentration": false,
-    "reaction": false,
-    "energy": 2,
-    "damage": 16,
-    "damageType": "Heat"
+  "name": "Flamewhorl",
+  "description": "You mix fire and wind to hurl a mass of flame up to a moderate (20 unit) distance towards a creature, dealing 16 heat damage if the target fails a defense check of 9. If the whorl travels at least a short (10 unit) distance, the target and any adjacent creatures who are medium size or smaller must make a fitness check of 8 or be knocked prone.",
+  "charge": "The spell becomes a moderate (20 unit) line, forcing all creatures within the area to make the defense check. Instead of being knocked prone, any medium or smaller creature that is hit by the whorl is pushed an adjacent square not within the line.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 8,
+  "components": [
+    "Ember Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 16,
+  "damageType": "Heat",
+  "foundry_id": "b6n3h8031szpqreo"
 }
