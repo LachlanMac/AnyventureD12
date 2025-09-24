@@ -229,7 +229,8 @@ const ItemSchema = new Schema({
       enum: ["alchemy", "cooking", "engineering", "fabrication", "glyphcraft", "bioshaping"]
     },
     difficulty: { type: Number, default: 0 },
-    ingredients: [{ type: String }]
+    ingredients: [{ type: String }],
+    output: { type: Number, default: 1 }
   },
   
   // Properties description for items (e.g., special effects, bonuses)

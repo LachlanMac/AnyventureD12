@@ -130,7 +130,12 @@ export const seedItems = async (purgeFirst = false) => {
         
         // Remove the _source metadata when updating the database
         const { _source, ...updateData } = data;
-        
+
+        // Ensure recipe.output has a default value if missing
+        if (updateData.recipe && !updateData.recipe.hasOwnProperty('output')) {
+          updateData.recipe.output = 1;
+        }
+
         await Item.updateOne(
           { _id: existingItem._id },
           { $set: updateData }
@@ -143,6 +148,11 @@ export const seedItems = async (purgeFirst = false) => {
 
         // Remove the _source metadata when saving to the database
         const { _source, ...itemData } = data;
+
+        // Ensure recipe.output has a default value if missing
+        if (itemData.recipe && !itemData.recipe.hasOwnProperty('output')) {
+          itemData.recipe.output = 1;
+        }
 
         // Generate foundry_id if missing
         if (!itemData.foundry_id) {
