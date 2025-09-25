@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 3,
   "damageType": "Psychic",
-  "foundry_id": "v6o0kat63vfehqtg"
+  "foundry_id": "v6o0kat63vfehqtg",
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
 }

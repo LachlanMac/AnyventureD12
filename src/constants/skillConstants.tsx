@@ -37,7 +37,7 @@ export const ATTRIBUTE_SKILLS = {
 
 // Weapon skills
 export const SPECIALIZED_SKILLS = [
-  { id: 'unarmed', name: 'Unarmed', defaultTalent: 1 },
+  { id: 'brawling', name: 'Brawling', defaultTalent: 1 },
   { id: 'throwing', name: 'Throwing', defaultTalent: 1 },
   { id: 'simpleRangedWeapons', name: 'Simple Ranged Weapons', defaultTalent: 1 },
   { id: 'simpleMeleeWeapons', name: 'Simple Melee Weapons', defaultTalent: 1 },

@@ -24,7 +24,7 @@ Tier 7: [Single Choice - Capstone]
 
 ### Core Modules
 Fundamental archetypes that define major playstyles:
-- **Combat**: Melee Specialist, Marksman, Unarmed Specialist
+- **Combat**: Melee Specialist, Marksman, Brawling Specialist
 - **Magic**: Divine, Primal, Black, Mysticism, Alteration
 - **Crafting**: Alchemist, Engineer, Fabricator, Chef, Glyphcraft
 

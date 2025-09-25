@@ -1,0 +1,88 @@
+{
+  "id": 105,
+  "name": "Pavise Specialist",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Pavise Training",
+      "description": "You have trained extensively with the large pavise shield, learning to deploy and fight from behind portable cover. You can set up or stow your pavise as a free action. When using a pavise, you gain the benefits of a heavy shield even while making ranged attacks.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "name": "Mobile Fortress",
+      "description": "You have mastered moving with your pavise for tactical advantage. Gain +1 skill with coordination. You can move your pavise 1 unit as part of any movement without penalty, repositioning your cover.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "Crossbow Synergy",
+      "description": "Your training focused on the classic pavise and crossbow combination. Gain +1 skill with engineering. When making ranged attacks from behind your pavise, you can reload without exposing yourself to return fire.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "CS1=1:TG"
+    },
+    {
+      "name": "Action : Pavise Wall",
+      "description": "You quickly deploy your pavise to create mobile cover. Your pavise provides heavy shield benefits to you and grants half-cover to any ally within 1 unit behind it until you move or stow it.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Emergency Cover",
+      "description": "In response to being targeted by a ranged attack while your pavise is stowed, you can immediately deploy it and gain the benefits of a heavy shield for that attack. Your pavise remains deployed afterward.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Action : Covering Fire",
+      "description": "You provide suppressive fire from behind your pavise. Make a ranged attack with a penalty dice. If it hits, the target cannot make ranged attacks until the start of their next turn as they take cover from your barrage.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Pavise Mastery",
+      "description": "Your expertise with portable fortifications has reached professional levels. Gain +1 skill with deflection. Your pavise never breaks from normal use and provides +1 additional physical mitigation while deployed.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "SSB=1:TG"
+    },
+    {
+      "name": "Marksman's Refuge",
+      "description": "Your pavise becomes a precision firing platform. Gain +1 skill with complex ranged weapons. When you don't move on your turn while behind your pavise, your next ranged attack gains a bonus dice.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "WS6=1:TG"
+    },
+    {
+      "name": "Field Fortification",
+      "description": "You can quickly establish defensive positions. Gain +1 skill with simple ranged weapons. During a short rest, you can set up a fortified position that grants heavy shield benefits to up to 3 allies within a 3-unit radius.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "WS4=1:TG"
+    },
+    {
+      "name": "Master of Mobile Defense",
+      "description": "You have achieved legendary status in portable battlefield fortification. Your pavise grants an additional +1 deflection to you and allies benefiting from your cover. Additionally, you can deploy/stow your pavise without using a free action.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "TG"
+    }
+  ]
+}

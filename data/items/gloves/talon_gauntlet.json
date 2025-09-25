@@ -2,7 +2,7 @@
   "name": "Talon Gauntlet",
   "description": "A formidable gauntlet with razor-sharp claws extending from each finger. These fearsome weapons transform the wearer's hands into deadly talons capable of rending flesh and armor alike.",
   "type": "gloves",
-  "weapon_category": "unarmed",
+  "weapon_category": "brawling",
   "weight": 3,
   "value": 550,
   "bonus_attack": 0,

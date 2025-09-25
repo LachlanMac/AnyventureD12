@@ -10,5 +10,6 @@
     "instrument": "any",
     "effect": "Enemies roll a penalty die on finesse checks"
   },
-  "foundry_id": "llcng4q3eanlowsx"
+  "foundry_id": "llcng4q3eanlowsx",
+  "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
 }

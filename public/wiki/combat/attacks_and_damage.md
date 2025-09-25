@@ -12,7 +12,7 @@ As with normal skill checks, the character rolls a number of dice equal to their
 
 The default value for the weapon skills a player character has are the following, representing a beginner adventurer:
 
-- **Unarmed**: +1 Talent
+- **Brawling**: +1 Talent
 - **Throwing**: +1 Talent 
 - **Simple Melee**: +1 Talent
 - **Simple Ranged**: +1 Talent

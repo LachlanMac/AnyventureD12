@@ -2,7 +2,7 @@
   "name": "Bladed Ulak",
   "description": "A traditional curved blade weapon designed to be gripped in the fist with the blade extending from the pinky side. This ancient design allows for devastating slashing attacks in close combat.",
   "type": "weapon",
-  "weapon_category": "unarmed",
+  "weapon_category": "brawling",
   "weight": 1,
   "value": 425,
   "bonus_attack": 0,

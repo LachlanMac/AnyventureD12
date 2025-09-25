@@ -835,10 +835,10 @@ export const exportCharacterToFoundry = async (req, res) => {
 
         // Weapon skills
         weapon: {
-          unarmed: {
-            value: character.weaponSkills?.unarmed?.value || 0,
-            talent: character.weaponSkills?.unarmed?.talent || 1,
-            baseTalent: character.weaponSkills?.unarmed?.baseTalent || character.weaponSkills?.unarmed?.talent || 1
+          brawling: {
+            value: character.weaponSkills?.brawling?.value || 0,
+            talent: character.weaponSkills?.brawling?.talent || 1,
+            baseTalent: character.weaponSkills?.brawling?.baseTalent || character.weaponSkills?.brawling?.talent || 1
           },
           throwing: {
             value: character.weaponSkills?.throwing?.value || 0,

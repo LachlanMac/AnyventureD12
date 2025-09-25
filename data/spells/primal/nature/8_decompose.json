@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 12,
   "damageType": "Dark",
-  "foundry_id": "j7tsnmjmyysuw2od"
+  "foundry_id": "j7tsnmjmyysuw2od",
+  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp"
 }

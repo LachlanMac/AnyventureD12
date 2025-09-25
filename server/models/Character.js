@@ -265,26 +265,29 @@ const CharacterSchema = new Schema({
   // Inventory system
   inventory: [CharacterItemSchema],
   
-  // Equipment slots
+  // Equipment slots (matching FoundryVTT structure)
   equipment: {
     // Gear slots
-    hands: { type: EquipmentSlotSchema, default: () => ({}) },
-    feet: { type: EquipmentSlotSchema, default: () => ({}) },
-    body: { type: EquipmentSlotSchema, default: () => ({}) },
-    head: { type: EquipmentSlotSchema, default: () => ({}) },
-    cloak: { type: EquipmentSlotSchema, default: () => ({}) },
-    shield: { type: EquipmentSlotSchema, default: () => ({}) },
+    hand: { type: EquipmentSlotSchema, default: () => ({}) }, // gloves/gauntlets
+    boots: { type: EquipmentSlotSchema, default: () => ({}) }, // footwear
+    body: { type: EquipmentSlotSchema, default: () => ({}) }, // armor
+    head: { type: EquipmentSlotSchema, default: () => ({}) }, // headwear
+    back: { type: EquipmentSlotSchema, default: () => ({}) }, // cloaks
     accessory1: { type: EquipmentSlotSchema, default: () => ({}) },
-    accessory2: { type: EquipmentSlotSchema, default: () => ({}) }
+    accessory2: { type: EquipmentSlotSchema, default: () => ({}) },
+    // Weapon and shield slots
+    mainhand: { type: EquipmentSlotSchema, default: () => ({}) },
+    offhand: { type: EquipmentSlotSchema, default: () => ({}) }, // shields or weapons
+    extra1: { type: EquipmentSlotSchema, default: () => ({}) },
+    extra2: { type: EquipmentSlotSchema, default: () => ({}) },
+    extra3: { type: EquipmentSlotSchema, default: () => ({}) }
   },
 
-  // Weapon equipment (new system)
-  main_hand: { type: EquipmentSlotSchema, default: () => ({}) },
-  off_hand: { type: EquipmentSlotSchema, default: () => ({}) },
-  extra_weapons: {
-    type: [EquipmentSlotSchema],
-    default: function() {
-      return [{ itemId: null, equippedAt: null }]; // One slot by default
+  // Conditional flags for special abilities (matching FoundryVTT)
+  conditionals: {
+    flags: {
+      WEAPON_COLLECTOR: { type: Boolean, default: false }, // Allows complex weapons in extra slots
+      PASSIVE_SHELL: { type: Boolean, default: false }, // Allows shields with 2-handed weapons
     }
   },
   // Core Attributes (each now starts at 1 and has max of 3)
@@ -377,7 +380,7 @@ const CharacterSchema = new Schema({
 
   // Specialized skills that don't depend on attributes
   weaponSkills: {
-    unarmed: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
+    brawling: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
     throwing: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
     simpleRangedWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
     complexRangedWeapons: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) },
@@ -572,15 +575,58 @@ CharacterSchema.pre('save', function(next) {
   // Apply trait effects (non-async version)
   this.applyTraitEffectsSync();
 
-  // Initialize weapon fields for existing characters
-  if (!this.main_hand) {
-    this.main_hand = { itemId: null, equippedAt: null };
+  // Initialize equipment for existing characters (migrate old structure)
+  if (!this.equipment) {
+    this.equipment = {};
   }
-  if (!this.off_hand) {
-    this.off_hand = { itemId: null, equippedAt: null };
+
+  // Migrate old weapon slots to new structure
+  if (this.main_hand && this.main_hand.itemId && !this.equipment.mainhand?.itemId) {
+    this.equipment.mainhand = this.main_hand;
+    this.main_hand = undefined;
   }
-  if (!this.extra_weapons) {
-    this.extra_weapons = [{ itemId: null, equippedAt: null }];
+  if (this.off_hand && this.off_hand.itemId && !this.equipment.offhand?.itemId) {
+    this.equipment.offhand = this.off_hand;
+    this.off_hand = undefined;
+  }
+  if (this.extra_weapons && this.extra_weapons.length > 0) {
+    if (this.extra_weapons[0]?.itemId && !this.equipment.extra1?.itemId) {
+      this.equipment.extra1 = this.extra_weapons[0];
+    }
+    if (this.extra_weapons[1]?.itemId && !this.equipment.extra2?.itemId) {
+      this.equipment.extra2 = this.extra_weapons[1];
+    }
+    if (this.extra_weapons[2]?.itemId && !this.equipment.extra3?.itemId) {
+      this.equipment.extra3 = this.extra_weapons[2];
+    }
+    this.extra_weapons = undefined;
+  }
+
+  // Migrate old slot names
+  if (this.equipment.hands && !this.equipment.hand) {
+    this.equipment.hand = this.equipment.hands;
+    this.equipment.hands = undefined;
+  }
+  if (this.equipment.feet && !this.equipment.boots) {
+    this.equipment.boots = this.equipment.feet;
+    this.equipment.feet = undefined;
+  }
+  if (this.equipment.cloak && !this.equipment.back) {
+    this.equipment.back = this.equipment.cloak;
+    this.equipment.cloak = undefined;
+  }
+  if (this.equipment.shield && !this.equipment.offhand?.itemId) {
+    // Only migrate shield if offhand is empty
+    this.equipment.offhand = this.equipment.shield;
+    this.equipment.shield = undefined;
+  }
+
+  // Initialize conditional flags
+  if (!this.conditionals) {
+    this.conditionals = { flags: {} };
+  }
+  if (!this.conditionals.flags) {
+    this.conditionals.flags = {};
   }
 
   next();
@@ -828,7 +874,6 @@ CharacterSchema.methods.unequipItemFromAllSlots = function(itemId) {
     Object.keys(this.equipment).forEach(slotName => {
       if (this.equipment[slotName]?.itemId?.toString() === itemId.toString()) {
         this.equipment[slotName] = { itemId: null, equippedAt: null };
-        console.log(`[DEBUG] Unequipped item ${itemId} from equipment slot ${slotName}`);
       }
     });
   }
@@ -836,12 +881,10 @@ CharacterSchema.methods.unequipItemFromAllSlots = function(itemId) {
   // Check weapon slots
   if (this.main_hand?.itemId?.toString() === itemId.toString()) {
     this.main_hand = { itemId: null, equippedAt: null };
-    console.log(`[DEBUG] Unequipped item ${itemId} from main_hand`);
   }
 
   if (this.off_hand?.itemId?.toString() === itemId.toString()) {
     this.off_hand = { itemId: null, equippedAt: null };
-    console.log(`[DEBUG] Unequipped item ${itemId} from off_hand`);
   }
 
   // Check extra weapon slots
@@ -849,115 +892,110 @@ CharacterSchema.methods.unequipItemFromAllSlots = function(itemId) {
     this.extra_weapons.forEach((slot, index) => {
       if (slot?.itemId?.toString() === itemId.toString()) {
         this.extra_weapons[index] = { itemId: null, equippedAt: null };
-        console.log(`[DEBUG] Unequipped item ${itemId} from extra_weapons[${index}]`);
       }
     });
   }
 };
 
-// Helper method for weapon equipment logic
-CharacterSchema.methods.equipWeapon = async function(itemId, slotName, isTwoHanded = false) {
-  try {
-    const maxExtraWeaponSlots = 1; // Default: 1 extra weapon slot
+// Validate if an item can be equipped to a specific slot (matching FoundryVTT logic)
+CharacterSchema.methods.validateItemSlot = function(item, slotName) {
+  const itemType = item.type;
+  const weaponCategory = item.weapon_category || '';
+  const isComplexWeapon = weaponCategory === 'complexMeleeWeapons' || weaponCategory === 'complexRangedWeapons' ||
+                         weaponCategory === 'complexMelee' || weaponCategory === 'complexRanged';
+  const isTwoHanded = item.hands === 2;
+  const conditionalFlags = this.conditionals?.flags || {};
 
-    if (slotName === 'main_hand') {
-      // Initialize equipment if it doesn't exist
-      if (!this.equipment) {
-        this.equipment = {};
-      }
+  // Strict slot validation for non-weapons
+  const slotRestrictions = {
+    'body': ['body'],
+    'headwear': ['head'],
+    'cloak': ['back'],
+    'gloves': ['hand'],
+    'boots': ['boots'],
+    'accessory': ['accessory1', 'accessory2']
+  };
 
-      // If equipping 2H weapon to main hand, clear both main and off hand AND shield
-      if (isTwoHanded) {
-        this.main_hand = { itemId: null, equippedAt: null };
-        this.off_hand = { itemId: null, equippedAt: null };
-
-        // Also unequip shield since you can't use a 2H weapon with a shield
-        if (this.equipment.shield?.itemId) {
-          console.log(`[DEBUG] Unequipping shield when equipping 2-handed weapon to main hand`);
-          this.equipment.shield = { itemId: null, equippedAt: null };
-        }
-      } else {
-        // 1H weapon - just clear main hand
-        this.main_hand = { itemId: null, equippedAt: null };
-      }
-
-      // Equip to main hand
-      this.main_hand = {
-        itemId: itemId,
-        equippedAt: Date.now()
-      };
-
-    } else if (slotName === 'off_hand') {
-      // Can't equip 2H weapons in off hand
-      if (isTwoHanded) {
-        return { success: false, message: 'Two-handed weapons cannot be equipped in off hand' };
-      }
-
-      // Initialize equipment if it doesn't exist
-      if (!this.equipment) {
-        this.equipment = {};
-      }
-
-      // If there's a shield equipped, unequip it first
-      if (this.equipment.shield?.itemId) {
-        console.log(`[DEBUG] Unequipping shield to make room for off-hand weapon`);
-        this.equipment.shield = { itemId: null, equippedAt: null };
-      }
-
-      this.off_hand = {
-        itemId: itemId,
-        equippedAt: Date.now()
-      };
-
-    } else if (slotName === 'extra_weapons') {
-      // Validate: No 2H weapons in extra_weapons if off_hand is occupied
-      if (isTwoHanded && this.off_hand?.itemId) {
-        return { success: false, message: 'Cannot store two-handed weapons in extra weapons when off hand is occupied' };
-      }
-
-      // Initialize extra_weapons array if it doesn't exist
-      if (!this.extra_weapons) {
-        this.extra_weapons = [{ itemId: null, equippedAt: null }];
-      }
-
-      // Smart replacement logic
-      const currentExtraWeapons = this.extra_weapons.length;
-
-      if (currentExtraWeapons >= maxExtraWeaponSlots) {
-        // Replace the first weapon (FIFO replacement)
-        this.extra_weapons[0] = {
-          itemId: itemId,
-          equippedAt: Date.now()
-        };
-      } else {
-        // Add new weapon to array
-        this.extra_weapons.push({
-          itemId: itemId,
-          equippedAt: Date.now()
-        });
-      }
-    } else {
-      return { success: false, message: 'Invalid weapon slot' };
+  // Handle weapons
+  if (itemType === 'weapon') {
+    const weaponSlots = ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
+    if (!weaponSlots.includes(slotName)) {
+      return { valid: false, message: 'Weapons can only be equipped in weapon slots' };
     }
 
-    return { success: true, message: 'Weapon equipped successfully' };
-  } catch (error) {
-    console.error('Error in equipWeapon:', error);
-    return { success: false, message: error.message };
+    // Check complex weapon restrictions for extra slots
+    if (isComplexWeapon && ['extra1', 'extra2', 'extra3'].includes(slotName)) {
+      if (!conditionalFlags.WEAPON_COLLECTOR) {
+        return { valid: false, message: 'Complex weapons cannot be equipped to extra slots without Weapon Collector trait' };
+      }
+    }
+
+    // Two-handed weapons can only go in mainhand or extra slots
+    if (isTwoHanded && slotName === 'offhand') {
+      return { valid: false, message: 'Two-handed weapons cannot be equipped in offhand' };
+    }
+
+    return { valid: true };
   }
+
+  // Handle shields
+  if (itemType === 'shield') {
+    if (slotName !== 'offhand') {
+      return { valid: false, message: 'Shields can only be equipped in offhand slot' };
+    }
+
+    // Check if a 2-handed weapon is equipped in mainhand
+    const mainhandItem = this.equipment.mainhand?.itemId;
+    if (mainhandItem) {
+      // Get item data to check if it's 2-handed
+      const mainhandItemData = this.getEquippedItemData(mainhandItem);
+      if (mainhandItemData && mainhandItemData.hands === 2) {
+        if (!conditionalFlags.PASSIVE_SHELL) {
+          return { valid: false, message: 'Cannot equip shield with 2-handed weapon without Passive Shell trait' };
+        }
+      }
+    }
+
+    return { valid: true };
+  }
+
+  // Check other item types
+  const allowedSlots = slotRestrictions[itemType];
+  if (allowedSlots) {
+    if (!allowedSlots.includes(slotName)) {
+      return { valid: false, message: `${itemType} items can only be equipped to ${allowedSlots.join(', ')} slots` };
+    }
+    return { valid: true };
+  }
+
+  // Default to accessory slots for unknown types
+  if (['accessory1', 'accessory2'].includes(slotName)) {
+    return { valid: true };
+  }
+
+  return { valid: false, message: 'Invalid item type for this slot' };
+};
+
+// Helper method to get item data from equipped item (handles both populated and unpopulated items)
+CharacterSchema.methods.getEquippedItemData = function(itemId) {
+  if (!itemId) return null;
+
+  // Find in inventory
+  const inventoryItem = this.inventory.find(i => {
+    const invItemId = typeof i.itemId === 'object' && i.itemId._id ? i.itemId._id.toString() : i.itemId.toString();
+    const targetId = typeof itemId === 'object' && itemId._id ? itemId._id.toString() : itemId.toString();
+    return invItemId === targetId;
+  });
+
+  if (inventoryItem) {
+    return inventoryItem.isCustomized ? inventoryItem.itemData : inventoryItem.itemId;
+  }
+
+  return null;
 };
 
 CharacterSchema.methods.equipItem = async function(itemId, slotName) {
   try {
-    console.log(`[DEBUG] equipItem called with itemId: ${itemId}, slotName: ${slotName}`);
-    console.log(`[DEBUG] Inventory items:`, this.inventory.map(i => {
-      const actualId = typeof i.itemId === 'object' && i.itemId._id ? i.itemId._id.toString() : i.itemId.toString();
-      return {
-        itemId: actualId,
-        isCustomized: i.isCustomized,
-        itemName: i.itemId?.name || 'Unknown'
-      };
-    }));
 
     // Check if item exists in inventory
     const inventoryItem = this.inventory.find(i => {
@@ -965,109 +1003,61 @@ CharacterSchema.methods.equipItem = async function(itemId, slotName) {
       return inventoryItemId === itemId.toString();
     });
     if (!inventoryItem) {
-      console.log(`[DEBUG] Item not found in inventory: ${itemId}`);
       return { success: false, message: 'Item not found in inventory' };
     }
 
-    // Get item data to check if it's a weapon and if it's 2-handed
+    // Get item data
     const itemData = inventoryItem.isCustomized ? inventoryItem.itemData : inventoryItem.itemId;
-    const isWeapon = itemData && itemData.type === 'weapon';
-    const isTwoHanded = isWeapon && ((itemData.hands && itemData.hands === 2) || itemData.weapon_category === 'complexRanged'); // Use hands field if available, fallback to old logic
-
-    console.log(`[DEBUG] Item data: isWeapon=${isWeapon}, isTwoHanded=${isTwoHanded}, itemType=${itemData?.type}`);
-
-    // Handle weapon slots
-    if (['main_hand', 'off_hand', 'extra_weapons'].includes(slotName)) {
-      console.log(`[DEBUG] Handling weapon slot: ${slotName}`);
-
-      if (!isWeapon) {
-        console.log(`[DEBUG] Non-weapon item attempted for weapon slot`);
-        return { success: false, message: 'Only weapons can be equipped in weapon slots' };
-      }
-
-      // Initialize weapon fields if they don't exist
-      if (!this.main_hand) {
-        this.main_hand = { itemId: null, equippedAt: null };
-        console.log(`[DEBUG] Initialized main_hand`);
-      }
-      if (!this.off_hand) {
-        this.off_hand = { itemId: null, equippedAt: null };
-        console.log(`[DEBUG] Initialized off_hand`);
-      }
-      if (!this.extra_weapons) {
-        this.extra_weapons = [{ itemId: null, equippedAt: null }];
-        console.log(`[DEBUG] Initialized extra_weapons`);
-      }
-
-      const result = await this.equipWeapon(itemId, slotName, isTwoHanded);
-      console.log(`[DEBUG] equipWeapon result:`, result);
-      if (!result.success) {
-        return result;
-      }
-    } else {
-      console.log(`[DEBUG] Handling regular equipment slot: ${slotName}`);
-
-      // Handle regular equipment slots
-      if (!this.equipment[slotName]) {
-        console.log(`[DEBUG] Invalid equipment slot: ${slotName}`);
-        return { success: false, message: 'Invalid equipment slot' };
-      }
-
-      // Special handling for shields
-      if (slotName === 'shield' && itemData && itemData.type === 'shield') {
-        console.log(`[DEBUG] Equipping shield - checking for weapon conflicts`);
-
-        // Initialize weapon fields if they don't exist
-        if (!this.main_hand) {
-          this.main_hand = { itemId: null, equippedAt: null };
-        }
-        if (!this.off_hand) {
-          this.off_hand = { itemId: null, equippedAt: null };
-        }
-
-        // Rule 1: If there's an off-hand weapon, unequip it
-        if (this.off_hand?.itemId) {
-          console.log(`[DEBUG] Unequipping off-hand weapon to make room for shield`);
-          this.off_hand = { itemId: null, equippedAt: null };
-        }
-
-        // Rule 2: If there's a 2-handed weapon in main hand, unequip it
-        if (this.main_hand?.itemId) {
-          // Get the main hand weapon data to check if it's 2-handed
-          const mainHandItem = this.inventory.find(i => {
-            const inventoryItemId = typeof i.itemId === 'object' && i.itemId._id ? i.itemId._id.toString() : i.itemId.toString();
-            const mainHandItemId = typeof this.main_hand.itemId === 'object' && this.main_hand.itemId._id ? this.main_hand.itemId._id.toString() : this.main_hand.itemId.toString();
-            return inventoryItemId === mainHandItemId;
-          });
-
-          if (mainHandItem) {
-            const mainHandItemData = mainHandItem.isCustomized ? mainHandItem.itemData : mainHandItem.itemId;
-            const isMainHandTwoHanded = mainHandItemData && mainHandItemData.type === 'weapon' &&
-              ((mainHandItemData.hands && mainHandItemData.hands === 2) || mainHandItemData.weapon_category === 'complexRanged');
-
-            if (isMainHandTwoHanded) {
-              console.log(`[DEBUG] Unequipping 2-handed weapon from main hand to make room for shield`);
-              this.main_hand = { itemId: null, equippedAt: null };
-            }
-          }
-        }
-      }
-
-      // If slot is occupied, unequip current item first
-      if (this.equipment[slotName].itemId) {
-        await this.unequipItem(slotName);
-      }
-
-      // Equip the item
-      this.equipment[slotName] = {
-        itemId: itemId,
-        equippedAt: Date.now()
-      };
+    if (!itemData) {
+      return { success: false, message: 'Invalid item data' };
     }
 
-    console.log(`[DEBUG] Saving character...`);
+
+    // Validate the item can be equipped to this slot
+    const validation = this.validateItemSlot(itemData, slotName);
+    if (!validation.valid) {
+      return { success: false, message: validation.message };
+    }
+
+    // Initialize equipment if it doesn't exist
+    if (!this.equipment) {
+      this.equipment = {};
+    }
+
+    // Handle special equipping logic
+    const conditionalFlags = this.conditionals?.flags || {};
+
+    // Special handling for 2-handed weapons
+    if (itemData.type === 'weapon' && itemData.hands === 2 && slotName === 'mainhand') {
+      const offhandItem = this.equipment.offhand?.itemId;
+
+      // Check if a shield is equipped in offhand
+      if (offhandItem) {
+        const offhandItemData = this.getEquippedItemData(offhandItem);
+        if (offhandItemData && offhandItemData.type === 'shield') {
+          if (!conditionalFlags.PASSIVE_SHELL) {
+            return { success: false, message: 'Cannot equip 2-handed weapon with shield equipped without Passive Shell trait' };
+          }
+          // With PASSIVE_SHELL, shield can stay equipped
+        } else {
+          // Unequip non-shield offhand item when equipping 2-handed weapon
+          this.equipment.offhand = { itemId: null, equippedAt: null };
+        }
+      }
+    }
+
+    // If slot is occupied, unequip current item first
+    if (this.equipment[slotName]?.itemId) {
+      await this.unequipItem(slotName);
+    }
+
+    // Equip the item
+    this.equipment[slotName] = {
+      itemId: itemId,
+      equippedAt: new Date().toISOString()
+    };
+
     await this.save();
-    console.log(`[DEBUG] Character saved successfully`);
     return { success: true, message: 'Item equipped successfully' };
   } catch (error) {
     console.error('Error equipping item:', error);
@@ -1077,36 +1067,26 @@ CharacterSchema.methods.equipItem = async function(itemId, slotName) {
 
 CharacterSchema.methods.unequipItem = async function(slotName) {
   try {
-    // Handle weapon slots
-    if (slotName === 'main_hand') {
-      this.main_hand = { itemId: null, equippedAt: null };
-    } else if (slotName === 'off_hand') {
-      this.off_hand = { itemId: null, equippedAt: null };
-    } else if (slotName.startsWith('extra_weapons[') && slotName.endsWith(']')) {
-      // Handle extra_weapons[index] format
-      const indexMatch = slotName.match(/extra_weapons\[(\d+)\]/);
-      if (indexMatch) {
-        const index = parseInt(indexMatch[1]);
-        if (this.extra_weapons && this.extra_weapons[index]) {
-          this.extra_weapons[index] = { itemId: null, equippedAt: null };
-        } else {
-          return { success: false, message: 'Invalid extra weapon slot index' };
-        }
-      } else {
-        return { success: false, message: 'Invalid extra weapon slot format' };
-      }
-    } else {
-      // Handle regular equipment slots
-      if (!this.equipment[slotName]) {
-        return { success: false, message: 'Invalid equipment slot' };
-      }
-
-      // Clear the slot
-      this.equipment[slotName] = {
-        itemId: null,
-        equippedAt: null
-      };
+    // Initialize equipment if it doesn't exist
+    if (!this.equipment) {
+      this.equipment = {};
     }
+
+    // Check if it's a valid equipment slot
+    const validSlots = [
+      'hand', 'boots', 'body', 'head', 'back', 'accessory1', 'accessory2',
+      'mainhand', 'offhand', 'extra1', 'extra2', 'extra3'
+    ];
+
+    if (!validSlots.includes(slotName)) {
+      return { success: false, message: 'Invalid equipment slot' };
+    }
+
+    // Clear the slot
+    this.equipment[slotName] = {
+      itemId: null,
+      equippedAt: null
+    };
 
     await this.save();
     return { success: true, message: 'Item unequipped successfully' };
@@ -1359,7 +1339,6 @@ CharacterSchema.methods.applyTraitEffects = async function() {
 CharacterSchema.pre('save', function(next) {
   if (this.ancestry && this.ancestry.selectedOptions) {
     this.ancestry.selectedOptions.forEach((opt, index) => {
-      //console.log(`Pre-save - Option ${index} (${opt.name}):`, opt.selectedSubchoice);
     });
   }
   next();

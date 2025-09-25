@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Weapon Collector",
-      "description": "You are adept at managing multiple weapons in combat. You can use complex weapons in your extra weapon slots. Additionally, you can make an attack with an item in your extra weapon slot that requires 2-hands while your offhand is holding something else.",
+      "description": "You are adept at managing multiple weapons in combat. You can use complex weapons in your extra weapon slots.",
       "location": "1",
       "data": "TG:FE"
     },
@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Follow-Through",
-      "description": "You make a combination attack with two different weapons. First make an attack with a complex weapon, then immediately make an attack against the same target with a unarmed attack, throwing weapon or simple weapon as part of the same action. Both attacks are mitigated separately.",
+      "description": "You make a combination attack with two different weapons. First make an attack with a complex weapon, then immediately make an attack against the same target with a brawling attack, throwing weapon or simple weapon as part of the same action. Both attacks are mitigated separately.",
       "location": "2b",
       "data": "XINE=1"
     },

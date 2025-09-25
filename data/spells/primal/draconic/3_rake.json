@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 6,
   "damageType": "Physical",
-  "foundry_id": "nm2n1okz311cu93f"
+  "foundry_id": "nm2n1okz311cu93f",
+  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"
 }

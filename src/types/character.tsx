@@ -237,7 +237,7 @@ export interface WeaponData {
     | 'simpleRanged'
     | 'complexMelee'
     | 'complexRanged'
-    | 'unarmed'
+    | 'brawling'
     | 'throwing';
   primary: Damage;
   secondary: Damage;
@@ -291,9 +291,11 @@ export interface Item {
     | 'simpleRanged'
     | 'complexMelee'
     | 'complexRanged'
-    | 'unarmed'
+    | 'brawling'
     | 'throwing';
   hands?: number; // Number of hands required (1 or 2)
+  holdable?: boolean; // Whether non-equipment items can be held/equipped (default: false)
+  stack_limit?: number; // Stack limit for FoundryVTT balancing (default: 0 = ignored)
   shield_category?: 'light' | 'heavy';
   consumable_category?:
     | 'poisons'
@@ -346,16 +348,30 @@ export interface EquipmentSlot {
 }
 
 export interface Equipment {
-  hands: EquipmentSlot;
-  feet: EquipmentSlot;
-  body: EquipmentSlot;
-  head: EquipmentSlot;
-  cloak: EquipmentSlot;
-  shield: EquipmentSlot;
+  // Gear slots (matching FoundryVTT)
+  hand: EquipmentSlot; // gloves/gauntlets
+  boots: EquipmentSlot; // footwear
+  body: EquipmentSlot; // armor
+  head: EquipmentSlot; // headwear
+  back: EquipmentSlot; // cloaks
   accessory1: EquipmentSlot;
   accessory2: EquipmentSlot;
-  accessory3: EquipmentSlot;
-  accessory4: EquipmentSlot;
+  // Weapon and shield slots
+  mainhand: EquipmentSlot;
+  offhand: EquipmentSlot; // shields or weapons
+  extra1: EquipmentSlot;
+  extra2: EquipmentSlot;
+  extra3: EquipmentSlot;
+}
+
+// Conditional flags for special abilities
+export interface ConditionalFlags {
+  WEAPON_COLLECTOR?: boolean; // Allows complex weapons in extra slots
+  PASSIVE_SHELL?: boolean; // Allows shields with 2-handed weapons
+}
+
+export interface Conditionals {
+  flags: ConditionalFlags;
 }
 
 // Music skills structure
@@ -434,9 +450,7 @@ export interface Character {
   movement: number;
   inventory: CharacterItem[];
   equipment: Equipment;
-  main_hand: EquipmentSlot;
-  off_hand: EquipmentSlot;
-  extra_weapons: EquipmentSlot[];
+  conditionals?: Conditionals;
   spells: CharacterSpell[];
   spellSlots: number;
   characterCreation?: {

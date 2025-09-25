@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 4,
   "damageType": "Dark",
-  "foundry_id": "sfai0hbjiqlqrf2h"
+  "foundry_id": "sfai0hbjiqlqrf2h",
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
 }

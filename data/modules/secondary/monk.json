@@ -36,7 +36,7 @@
     },
     {
       "name": "Action : Palm Strike",
-      "description": "You strike a creature with an unarmed attack that deals no damage, but forces the target to make a concentration or endurance check, or they become stunned. The check required is equal to 2 times the total amount of dice that hit the target.",
+      "description": "You strike a creature with a brawling attack that deals no damage, but forces the target to make a concentration or endurance check, or they become stunned. The check required is equal to 2 times the total amount of dice that hit the target.",
       "location": "4b",
       "data": "XINE=1"
     },
@@ -54,7 +54,7 @@
     },
     {
       "name": "Master of Fists",
-      "description": "Gain +1 skill with unarmed attacks and +1 evasion while not wearing armor.",
+      "description": "Gain +1 skill with brawling attacks and +1 evasion while not wearing armor.",
       "location": "6b",
       "data": "WS1=1:CB=1"
     },

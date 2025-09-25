@@ -42,6 +42,7 @@
       "difficulty": 7,
       "type": "fabrication"
     },
+    "foundry_icon": "icons/commodities/metal/chain-steel.webp",
     "properties": "Adds +1  damage when fabricated into an item."
   }
 ]

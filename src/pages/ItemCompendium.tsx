@@ -136,7 +136,7 @@ const ItemCompendium: React.FC = () => {
     'simpleRanged',
     'complexMelee',
     'complexRanged',
-    'unarmed',
+    'brawling',
     'throwing',
   ];
 

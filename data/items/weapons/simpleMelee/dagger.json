@@ -3,6 +3,7 @@
   "description": "A small, simple blade.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
+  "hands": 1,
   "weight": 0.5,
   "value": 305,
   "bonus_attack": 0,

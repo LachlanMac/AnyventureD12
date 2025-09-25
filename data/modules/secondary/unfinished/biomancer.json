@@ -12,7 +12,7 @@
     },
     {
       "name": "Action : Plague Touch",
-      "description": "You inflict a minor disease with your touch. Make an unarmed attack that deals no damage. If it hits, the target must make a resilience check (DC 8) or suffer -1 die on all fitness and endurance checks for the next hour.",
+      "description": "You inflict a minor disease with your touch. Make a brawling attack that deals no damage. If it hits, the target must make a resilience check (DC 8) or suffer -1 die on all fitness and endurance checks for the next hour.",
       "location": "2a",
       "data": "X"
     },
@@ -54,7 +54,7 @@
     },
     {
       "name": "Master Biomancer",
-      "description": "You can shape willing creatures temporarily. Gain +1 skill with primal magic. As an action, grant an ally one mutation for 1 hour: +1 physical mitigation, claws (d6 unarmed damage), or +2 movement speed.",
+      "description": "You can shape willing creatures temporarily. Gain +1 skill with primal magic. As an action, grant an ally one mutation for 1 hour: +1 physical mitigation, claws (d6 brawling damage), or +2 movement speed.",
       "location": "6b",
       "data": "YS2=1:TO"
     },

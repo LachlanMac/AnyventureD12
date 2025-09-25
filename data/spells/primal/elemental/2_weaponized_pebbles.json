@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 2,
   "damageType": "Physical",
-  "foundry_id": "8lonellxh28a8w6n"
+  "foundry_id": "8lonellxh28a8w6n",
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
 }

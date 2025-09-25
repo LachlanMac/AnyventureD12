@@ -14,5 +14,6 @@
   "energy": 3,
   "damage": 10,
   "damageType": "Physical",
-  "foundry_id": "zo7g075qi6pmay21"
+  "foundry_id": "zo7g075qi6pmay21",
+  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp"
 }

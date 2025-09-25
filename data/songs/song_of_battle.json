@@ -14,5 +14,6 @@
     "instrument": "strings",
     "effect": "+2 units of additional free movement"
   },
-  "foundry_id": "9wx8nefsds3i26fb"
+  "foundry_id": "9wx8nefsds3i26fb",
+  "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
 }

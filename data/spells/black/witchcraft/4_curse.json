@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 5,
   "damageType": "Dark",
-  "foundry_id": "2kd4wezi4bjikz3g"
+  "foundry_id": "2kd4wezi4bjikz3g",
+  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"
 }

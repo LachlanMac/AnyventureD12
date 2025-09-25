@@ -10,7 +10,7 @@ Many actions are obtained through modules and are more powerful than the standar
 The character moves up to double their movement speed in a straight line.
 
 ### Attack - 0 Energy
-The character makes an attack with a simple weapon, unarmed strike or throwing weapon.
+The character makes an attack with a simple weapon, brawling attack or throwing weapon.
 
 ### Attack (Complex Weapon) - 1 Energy
 The character makes an attack with a complex weapon.
@@ -48,7 +48,7 @@ The character gains the obscured condition described in [Conditions](/wiki/condi
 ## Reactions
 
 ### Attack of Opportunity - 0 Energy
-The character makes an attack with a simple weapon or unarmed strike against a creature that willfully moves out of their melee range.
+The character makes an attack with a simple weapon or brawling attack against a creature that willfully moves out of their melee range.
 
 ### Attack of Opportunity (Complex Weapon) - 1 Energy
 The character makes an attack with a complex weapon against a creature that willfully moves out of their melee range.

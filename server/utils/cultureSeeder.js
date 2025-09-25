@@ -82,14 +82,18 @@ const seedCultures = async (cultures) => {
           cultureData.foundry_id = existingCulture.foundry_id; // Keep existing foundry_id
         }
 
-        const updatedCulture = await Culture.findOneAndUpdate(
-          { name: cultureData.name },
-          cultureData,
-          { new: true, upsert: true }
+        // Preserve critical fields that should never change
+        cultureData._id = existingCulture._id;
+        cultureData.foundry_id = existingCulture.foundry_id;
+
+        // Replace the entire document to ensure removed properties are actually removed
+        await Culture.replaceOne(
+          { _id: existingCulture._id },
+          cultureData
         );
 
         if (VERBOSE_LOGGING) {
-          console.log(`Updated culture: ${updatedCulture.name}`);
+          console.log(`Updated culture: ${cultureData.name}`);
         }
         updated++;
       } else {

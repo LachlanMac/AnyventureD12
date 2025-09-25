@@ -21,6 +21,7 @@
       "difficulty": 6,
       "type": "engineering"
     },
+    "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Standard material damage with no special effects"
   },
   {
@@ -45,6 +46,7 @@
       "difficulty": 8,
       "type": "engineering"
     },
+        "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +1 maximum range at the expense of adding +1 minimum range."
   },
   {
@@ -69,6 +71,7 @@
       "difficulty": 10,
       "type": "engineering"
     },
+        "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +1 maximum range and +1  damage when fabricated into a ranged weapon"
   },
   {
@@ -91,6 +94,7 @@
       "difficulty": 10,
       "type": "fabrication"
     },
+     "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +1 extra damage when fabricated into a ranged weapon"
   },
   {
@@ -114,6 +118,7 @@
       "difficulty": 14,
       "type": "fabrication"
     },
+     "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +2  damage and +1 extra damage when fabricated into a ranged weapon"
   }
 ]

@@ -56,10 +56,19 @@ const readModulesFromFS = async () => {
         
         try {
           const moduleData = JSON.parse(fileContent);
-          
+
+          // console.log(`Processing file: ${filePath}`);
+          // console.log(`Module data name: ${moduleData.name}`);
+
           // Ensure the module has the correct type based on directory
           moduleData.mtype = moduleType;
-          
+
+          // Check if module has a name
+          if (!moduleData.name) {
+            console.error(`Module in ${filePath} is missing a name property:`, moduleData);
+            continue; // Skip this module
+          }
+
           modules.push(moduleData);
           moduleNames.push(moduleData.name.toLowerCase()); // Store lowercase name for case-insensitive comparison
         } catch (err) {
@@ -99,17 +108,35 @@ export const seedModules = async () => {
     
     // Process each module
     for (const data of moduleData) {
-      // Look for existing module with the same name
-      const existingModule = await Module.findOne({ name: data.name });
-      
-      if (existingModule) {
-        // Update existing module without changing _id
-        if (VERBOSE_LOGGING) {
-          console.log(`Updating existing module: ${data.name}`);
+      try {
+        // CRITICAL VALIDATION: Fail hard if required fields are missing
+        if (!data.name || data.name.trim() === '') {
+          console.error(`❌ SEEDER VALIDATION FAILED: Module is missing required 'name' field`);
+          console.error(`📁 File data:`, JSON.stringify(data, null, 2));
+          console.error(`🔧 Action required: Check the JSON file for this module and ensure it has a valid 'name' property`);
+          throw new Error(`Module seeding failed: Module is missing required 'name' field. Check console for details.`);
         }
+
+        if (typeof data.name !== 'string') {
+          console.error(`❌ SEEDER VALIDATION FAILED: Module name must be a string`);
+          console.error(`📝 Found name:`, data.name, `(type: ${typeof data.name})`);
+          console.error(`📁 File data:`, JSON.stringify(data, null, 2));
+          console.error(`🔧 Action required: Ensure the 'name' property is a valid string in the JSON file`);
+          throw new Error(`Module seeding failed: Module name must be a string. Check console for details.`);
+        }
+
+        // Look for existing module with the same name
+        const existingModule = await Module.findOne({ name: data.name });
+
+        if (existingModule) {
+          // Update existing module without changing _id
+          if (VERBOSE_LOGGING) {
+            console.log(`Updating existing module: ${data.name}`);
+          }
         
         // Generate foundry_id if existing module doesn't have one
         const updateData = {
+          name: data.name,  // CRITICAL: Include the name field!
           mtype: data.mtype,
           ruleset: data.ruleset,
           options: data.options,
@@ -119,11 +146,17 @@ export const seedModules = async () => {
 
         if (!existingModule.foundry_id) {
           updateData.foundry_id = generateFoundryId();
+        } else {
+          updateData.foundry_id = existingModule.foundry_id;
         }
 
-        await Module.updateOne(
+        // Preserve critical fields that should never change
+        updateData._id = existingModule._id;
+
+        // Replace the entire document to ensure removed properties are actually removed
+        await Module.replaceOne(
           { _id: existingModule._id },
-          { $set: updateData }
+          updateData
         );
       } else {
         // Create new module
@@ -138,12 +171,16 @@ export const seedModules = async () => {
 
         await Module.create(data);
       }
+    } catch (error) {
+        console.error(`Error processing module ${data?.name || 'unknown'}:`, error.message);
+        continue;
+      }
     }
     
     // Find and delete modules that don't exist in JSON files
     const allDbModules = await Module.find({});
     const modulesToDelete = allDbModules.filter(
-      module => !moduleNames.includes(module.name.toLowerCase())
+      module => module.name && !moduleNames.includes(module.name.toLowerCase())
     );
     
     if (modulesToDelete.length > 0) {
@@ -259,8 +296,25 @@ export const resetAndReseedModules = async () => {
     
     // Process each module - update existing or create new
     for (const data of moduleData) {
-      // Look for existing module with the same name
-      const existingModule = await Module.findOne({ name: data.name });
+      try {
+        // CRITICAL VALIDATION: Fail hard if required fields are missing
+        if (!data.name || data.name.trim() === '') {
+          console.error(`❌ SEEDER VALIDATION FAILED: Module is missing required 'name' field`);
+          console.error(`📁 File data:`, JSON.stringify(data, null, 2));
+          console.error(`🔧 Action required: Check the JSON file for this module and ensure it has a valid 'name' property`);
+          throw new Error(`Module seeding failed: Module is missing required 'name' field. Check console for details.`);
+        }
+
+        if (typeof data.name !== 'string') {
+          console.error(`❌ SEEDER VALIDATION FAILED: Module name must be a string`);
+          console.error(`📝 Found name:`, data.name, `(type: ${typeof data.name})`);
+          console.error(`📁 File data:`, JSON.stringify(data, null, 2));
+          console.error(`🔧 Action required: Ensure the 'name' property is a valid string in the JSON file`);
+          throw new Error(`Module seeding failed: Module name must be a string. Check console for details.`);
+        }
+
+        // Look for existing module with the same name
+        const existingModule = await Module.findOne({ name: data.name });
       
       if (existingModule) {
         // Update existing module without changing _id
@@ -268,31 +322,54 @@ export const resetAndReseedModules = async () => {
           console.log(`Updating existing module: ${data.name}`);
         }
         
-        await Module.updateOne(
+        // Generate foundry_id if existing module doesn't have one
+        const updateData = {
+          name: data.name,  // CRITICAL: Include the name field!
+          mtype: data.mtype,
+          ruleset: data.ruleset,
+          options: data.options,
+          description: data.description || existingModule.description,
+          stressors: data.stressors || existingModule.stressors,
+          foundry_icon: data.foundry_icon || existingModule.foundry_icon || ""
+        };
+
+        if (!existingModule.foundry_id) {
+          updateData.foundry_id = generateFoundryId();
+        } else {
+          updateData.foundry_id = existingModule.foundry_id;
+        }
+
+        // Preserve critical fields that should never change
+        updateData._id = existingModule._id;
+
+        // Replace the entire document to ensure removed properties are actually removed
+        await Module.replaceOne(
           { _id: existingModule._id },
-          { 
-            $set: {
-              mtype: data.mtype,
-              ruleset: data.ruleset,
-              options: data.options,
-              description: data.description || existingModule.description,
-              stressors: data.stressors || existingModule.stressors
-            }
-          }
+          updateData
         );
       } else {
         // Create new module only if it doesn't exist
         if (VERBOSE_LOGGING) {
           console.log(`Creating new module: ${data.name}`);
         }
+
+        // Add foundry_id if not present
+        if (!data.foundry_id) {
+          data.foundry_id = generateFoundryId();
+        }
+
         await Module.create(data);
+      }
+    } catch (error) {
+        console.error(`Error processing module ${data?.name || 'unknown'}:`, error.message);
+        continue;
       }
     }
     
     // Find and delete modules that don't exist in JSON files
     const allDbModules = await Module.find({});
     const modulesToDelete = allDbModules.filter(
-      module => !moduleNames.includes(module.name.toLowerCase())
+      module => module.name && !moduleNames.includes(module.name.toLowerCase())
     );
     
     if (modulesToDelete.length > 0) {

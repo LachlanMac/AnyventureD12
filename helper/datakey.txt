@@ -36,7 +36,7 @@ KEY (W)
 EX. WS1=1 SKILL  WT1=1 TALENT
 
 ###############################
-1: Unarmed
+1: Brawling
 2: Throwing
 3: Simple Melee Weapons
 4: Simple Ranged Weapons
@@ -198,8 +198,9 @@ A: NO_COMFORTS [no morale for fav. rest or food and drink, no morale loss when u
 B: EMBRACE_SUFFERING [bonus dice for for physical condition (not if have mental condition)]
 C: URBAN_COMFORT [lose 1 resolve when unfavorable rest]
 D: BADGE_OF_HONOR [each cosmetic injury gives +1 max morale]
-E: WEAPON_COLLECTOR [complex weapons in extra slots, attack with 2-handed extra weapon even when offhand full. ]
+E: WEAPON_COLLECTOR [complex weapons in extra slots ]
 F: TWIN_FURY [dual wield complex melee weapons]
+G: PASSIVE_SHELL [can use shields in  secondary slot]
 
 ########### IMMUNITIES ###################
 KEY (I)

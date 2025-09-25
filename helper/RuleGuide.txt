@@ -18,7 +18,7 @@ Character Creation (Summary)
    - Start at 1 each; distribute 6 points; normal max 4 at creation; attributes never below 1.
    - Attribute “Talent” value (0–4) sets number of dice for skills under that attribute.
 4) Derived stats: Health (default 20 unless modified), Resolve (default 20), Energy (default 5), Movement (default 4 units for Medium; 3 for Small, ancestry/items may modify).
-5) Weapon Talents: Unarmed, Throwing, Simple Melee, Simple Ranged start at +1 Talent; Complex Melee and Complex Ranged start at +0 Talent (unless ancestry/module modifies).
+5) Weapon Talents: Brawling, Throwing, Simple Melee, Simple Ranged start at +1 Talent; Complex Melee and Complex Ranged start at +0 Talent (unless ancestry/module modifies).
 6) Languages and Personality/module choices as allowed by the campaign.
 
 Attributes and Skills
@@ -91,7 +91,7 @@ Combat Structure
 
 Default Actions (examples; 0 unless noted)
 - Sprint (2 Energy): Move up to double movement in a straight line (unless modified).
-- Attack (Simple/Unarmed/Throwing 0; Complex 1 Energy): Make a weapon attack.
+- Attack (Simple/Brawling/Throwing 0; Complex 1 Energy): Make a weapon attack.
 - Jump (1 Energy): Declare units ≤ movement; roll Fitness. With running start (moved ≥2 or Sprint), must meet units; without, distance = Fitness/2 (floor).
 - Grab (1 Energy): Contested Fitness vs target’s Fitness or Coordination; holds until start of your next turn.
 - Channel (X Energy): Cast a spell (see Magic).

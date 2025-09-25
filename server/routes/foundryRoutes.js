@@ -8,6 +8,7 @@ import Culture from '../models/Culture.js';
 import Trait from '../models/Trait.js';
 import Item from '../models/Item.js';
 import Spell from '../models/Spell.js';
+import Song from '../models/Song.js';
 import Language from '../models/Language.js';
 import Injury from '../models/Injury.js';
 
@@ -64,8 +65,8 @@ const expandTraitOptions = (options) => {
 
 // Helper function to get icon based on type and properties
 const getGenericIcon = (data, type) => {
-  // If this is an item, trait, module, language, or injury and it has a foundry_icon, use that first
-  if ((type === 'item' || type === 'trait' || type === 'module' || type === 'language' || type === 'injury') && data.foundry_icon && data.foundry_icon.trim() !== '') {
+  // If this is an item, trait, module, language, injury, spell, or song and it has a foundry_icon, use that first
+  if ((type === 'item' || type === 'trait' || type === 'module' || type === 'language' || type === 'injury' || type === 'spell' || type === 'song') && data.foundry_icon && data.foundry_icon.trim() !== '') {
     return data.foundry_icon;
   }
 
@@ -77,6 +78,14 @@ const getGenericIcon = (data, type) => {
 
     case 'spell':
       return `${iconBase}spell1.webp`;
+
+    case 'song':
+      // Fallback icons if foundry_icon isn't set
+      if (data.type === 'ballad') {
+        return 'icons/sundries/scrolls/scroll-writing-silver-brown.webp';
+      } else {
+        return 'icons/tools/instruments/harp-yellow-teal.webp';
+      }
 
     case 'ancestry':
       // Map to specific ancestry icon based on name
@@ -201,6 +210,25 @@ const getGenericIcon = (data, type) => {
 
 // Helper function to convert web data to Foundry format
 const convertToFoundryFormat = (data, type) => {
+  // Validate that essential fields exist
+  if (!data || !data.name || data.name.trim() === '') {
+    console.error(`[FoundryAPI] Item missing or empty name field:`, {
+      _id: data?._id,
+      type,
+      hasName: !!data?.name,
+      nameValue: JSON.stringify(data?.name),
+      nameType: typeof data?.name,
+      data: JSON.stringify(data, null, 2)
+    });
+    throw new Error(`Item ${data?._id || 'unknown'} has invalid name field`);
+  }
+
+  // Additional validation for critical fields
+  if (!data._id) {
+    console.error(`[FoundryAPI] Item missing _id field:`, { type, data: JSON.stringify(data, null, 2) });
+    throw new Error(`Item is missing _id field`);
+  }
+
   // No mapping needed - our system now matches exactly!
   const baseFoundryDoc = {
     _id: data.foundry_id || convertToFoundryId(data._id), // Use foundry_id if available (languages)
@@ -266,6 +294,8 @@ const convertToFoundryFormat = (data, type) => {
         rarity: data.rarity,
         weapon_category: data.weapon_category,
         hands: data.hands,
+        stack_limit: data.stack_limit,
+        holdable: data.holdable,
         shield_category: data.shield_category,
         consumable_category: data.consumable_category,
         primary: data.primary,
@@ -293,13 +323,34 @@ const convertToFoundryFormat = (data, type) => {
       baseFoundryDoc.system = {
         description: data.description,
         school: data.school,
-        level: data.level,
-        castingTime: data.castingTime,
-        range: data.range,
+        subschool: data.subschool,
+        charge: data.charge,
         duration: data.duration,
+        range: data.range,
+        checkToCast: data.checkToCast,
         components: data.components,
+        ritualDuration: data.ritualDuration,
+        concentration: data.concentration,
+        reaction: data.reaction,
+        energy: data.energy,
         damage: data.damage,
-        effects: data.effects
+        damageType: data.damageType,
+        fizzled: false, // Default for FoundryVTT
+        foundry_icon: data.foundry_icon || ''
+      };
+      break;
+
+    case 'song':
+      baseFoundryDoc.system = {
+        description: data.description,
+        type: data.type,
+        magical: data.magical,
+        difficulty: data.difficulty,
+        effect: data.effect,
+        harmony_1: data.harmony_1,
+        harmony_2: data.harmony_2,
+        used: false, // Default for FoundryVTT
+        foundry_icon: data.foundry_icon || ''
       };
       break;
 
@@ -419,7 +470,22 @@ router.get('/traits', async (req, res) => {
 router.get('/items', async (req, res) => {
   try {
     const items = await Item.find({});
-    const foundryItems = items.map(item => convertToFoundryFormat(item.toObject(), 'item'));
+    const foundryItems = [];
+    const errorItems = [];
+
+    for (const item of items) {
+      try {
+        const foundryItem = convertToFoundryFormat(item.toObject(), 'item');
+        foundryItems.push(foundryItem);
+      } catch (itemError) {
+        console.error(`Error converting item ${item._id}:`, itemError.message);
+        errorItems.push({ _id: item._id, name: item.name, error: itemError.message });
+      }
+    }
+
+    if (errorItems.length > 0) {
+      console.error(`Failed to convert ${errorItems.length} items:`, errorItems);
+    }
 
     res.json({
       type: 'compendium-data',
@@ -428,7 +494,8 @@ router.get('/items', async (req, res) => {
       metadata: {
         count: foundryItems.length,
         version: "1.0.0",
-        lastUpdated: new Date().toISOString()
+        lastUpdated: new Date().toISOString(),
+        errors: errorItems.length > 0 ? errorItems : undefined
       }
     });
   } catch (error) {
@@ -456,6 +523,28 @@ router.get('/spells', async (req, res) => {
   } catch (error) {
     console.error('Error fetching spells for Foundry:', error);
     res.status(500).json({ error: 'Failed to fetch spells' });
+  }
+});
+
+// Get all songs for Foundry
+router.get('/songs', async (req, res) => {
+  try {
+    const songs = await Song.find({});
+    const foundrySongs = songs.map(song => convertToFoundryFormat(song.toObject(), 'song'));
+
+    res.json({
+      type: 'compendium-data',
+      documentType: 'Item',
+      data: foundrySongs,
+      metadata: {
+        count: foundrySongs.length,
+        version: "1.0.0",
+        lastUpdated: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching songs for Foundry:', error);
+    res.status(500).json({ error: 'Failed to fetch songs' });
   }
 });
 
@@ -506,13 +595,14 @@ router.get('/injuries', async (req, res) => {
 // Get all data in one call (for bulk updates)
 router.get('/all', async (req, res) => {
   try {
-    const [modules, ancestries, cultures, traits, items, spells, languages, injuries] = await Promise.all([
+    const [modules, ancestries, cultures, traits, items, spells, songs, languages, injuries] = await Promise.all([
       Module.find({}),
       Ancestry.find({}),
       Culture.find({}),
       Trait.find({}),
       Item.find({}),
       Spell.find({}),
+      Song.find({}),
       Language.find({}),
       Injury.find({})
     ]);
@@ -522,8 +612,9 @@ router.get('/all', async (req, res) => {
       ancestries: ancestries.map(a => convertToFoundryFormat(a.toObject(), 'ancestry')),
       cultures: cultures.map(c => convertToFoundryFormat(c.toObject(), 'culture')),
       traits: traits.map(t => convertToFoundryFormat(t.toObject(), 'trait')),
-      items: items.map(i => convertToFoundryFormat(i.toObject(), 'item')),
+      items: items.filter(i => i.name).map(i => convertToFoundryFormat(i.toObject(), 'item')),
       spells: spells.map(s => convertToFoundryFormat(s.toObject(), 'spell')),
+      songs: songs.map(s => convertToFoundryFormat(s.toObject(), 'song')),
       languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language')),
       injuries: injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury'))
     };
@@ -539,6 +630,7 @@ router.get('/all', async (req, res) => {
           traits: foundryData.traits.length,
           items: foundryData.items.length,
           spells: foundryData.spells.length,
+          songs: foundryData.songs.length,
           languages: foundryData.languages.length,
           injuries: foundryData.injuries.length
         },
@@ -584,6 +676,7 @@ router.get('/', (req, res) => {
       '/fvtt/traits',
       '/fvtt/items',
       '/fvtt/spells',
+      '/fvtt/songs',
       '/fvtt/languages',
       '/fvtt/injuries',
       '/fvtt/all',

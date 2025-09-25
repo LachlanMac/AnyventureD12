@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Flowing Strikes",
-      "description": "Your attacks are woven together in a masterclass performance. Gain +1 skill with expression. When you score a critical hit on an unarmed attack, roll an additional expression dice as if it were part of the same attack.",
+      "description": "Your attacks are woven together in a masterclass performance. Gain +1 skill with expression. When you score a critical hit on a brawling attack, roll an additional expression dice as if it were part of the same attack.",
       "location": "1",
       "data": "TG:SSQ=1"
     },
@@ -18,13 +18,13 @@
     },
     {
       "name": "Reaction : Kip-Up Strike",
-      "description": "While prone, you acrobatically get to your feet while simultaneously making an attack with a simple melee or unarmed strike against an adjacent creature using your expression skill as the attack roll.",
+      "description": "While prone, you acrobatically get to your feet while simultaneously making an attack with a simple melee or brawling attack against an adjacent creature using your expression skill as the attack roll.",
       "location": "2b",
       "data": "ZINE=1"
     },
     {
       "name": "Battle Dancer",
-      "description": "The battle dance lets you weave together devastating strikes with your hands, feet, and head. Gain +1 skill with unarmed strikes.",
+      "description": "The battle dance lets you weave together devastating strikes with your hands, feet, and head. Gain +1 skill with brawling attacks.",
       "location": "3",
       "data": "TG:WS1=1"
     },
@@ -42,7 +42,7 @@
     },
     {
       "name": "Action : Spinning Strikes",
-      "description": "You make an attack with either a melee weapon or unarmed strike at an adjacent target, and then an attack using your expression skill as the attack roll. These two attacks can be directed at separate targets.",
+      "description": "You make an attack with either a melee weapon or brawling attack at an adjacent target, and then an attack using your expression skill as the attack roll. These two attacks can be directed at separate targets.",
       "location": "5",
       "data": "XINE=1"
     },

@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 0,
   "damageType": null,
-  "foundry_id": "gxvy47a39si13kfb"
+  "foundry_id": "gxvy47a39si13kfb",
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
 }

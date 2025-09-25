@@ -23,7 +23,7 @@
     },
     {
       "name": "Action : Gnoll Bite",
-      "description": "You make a modified unarmed attack against a creature with a bonus dice, dealing 3 physical damage for the primary dice and any extra dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
+      "description": "You make a modified brawling attack against a creature with a bonus dice, dealing 3 physical damage for the primary dice and any extra dice that hit. If this attack deals 6 or more damage after calculating mitigation, the target gains the bleeding condition.",
       "data": "XINE=1"
     },
     {

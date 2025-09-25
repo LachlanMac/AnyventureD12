@@ -8,8 +8,8 @@ If it is a secondary module, we need to make sure we don't have overlap between 
 For instance, we don't want a module that gives the same action or passive trait as another module. For things like +1 increases to skill, we obviously will have overlap here.
 
 We should only give the big skill bonuses (weapon/magic skills) at either tier 5 if the module is very specific, or as a choice in tier 6.
-These skills are the weapon skills: Complex Melee, Simple Melee, Simple Ranged, Complex Ranged, Unarmed, Throwing, Black Magic, Primal Magic, Divine Magic, Meta Magic, Mysticism Magic.
-For example, the Monk module gives Unarmed at tier 5. Another module, like BattleDancer may have more than one theme, where you can choose between taking Throwing or Simple Melee skills. 
+These skills are the weapon skills: Complex Melee, Simple Melee, Simple Ranged, Complex Ranged, Brawling, Throwing, Black Magic, Primal Magic, Divine Magic, Meta Magic, Mysticism Magic.
+For example, the Monk module gives Brawling at tier 5. Another module, like BattleDancer may have more than one theme, where you can choose between taking Throwing or Simple Melee skills. 
 Another example: The shaman module may get a choice at tier 6 to go primal spell path or mysticism spell path because either could work with the theme.
 
 When we give +1 to a skill (not a big skill referenced earlier), we should include a passive effect with it. These include the skills:

@@ -12,7 +12,7 @@
     },
     {
       "name": "Slugger",
-      "description": "Once per round, on any Action or Reaction, when you make a melee attack, you can also make an unarmed attack. The round resets at the start of your turn.",
+      "description": "Once per round, on any Action or Reaction, when you make a melee attack, you can also make a brawling attack. The round resets at the start of your turn.",
       "location": "2a",
       "data": "TG"
     },
@@ -30,13 +30,13 @@
     },
     {
       "name": "Action : Body Blow",
-      "description": "You make an unarmed attack at a creature that is your size or smaller. If the attack hits, the target must make an endurance check against half the damage dealt after mitigation or become winded.",
+      "description": "You make a brawling attack at a creature that is your size or smaller. If the attack hits, the target must make an endurance check against half the damage dealt after mitigation or become winded.",
       "location": "4a",
       "data": "XINE=1"
     },
     {
       "name": "Action : Power Pummel",
-      "description": "You make a vicious attack with either an unarmed or melee weapon that has the blunt property. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",
+      "description": "You make a vicious attack with either a brawling or melee weapon that has the blunt property. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",
       "location": "4b",
       "data": "XINE=2"
     },
@@ -54,7 +54,7 @@
     },
     {
       "name": "Street Fighter",
-      "description": "Gain +1 skill with unarmed attacks.",
+      "description": "Gain +1 skill with brawling attacks.",
       "location": "6b",
       "data": "WS1=1"
     },

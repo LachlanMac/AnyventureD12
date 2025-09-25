@@ -1,0 +1,56 @@
+{
+  "name": "Bola",
+  "description": "A set of weighted balls connected by cords, designed to entangle and trip medium or smaller targets. Instead of dealing damage, if there are two successes, the target cannot move until the bola is removed. On three successes, the target becomes impaired while the bola is attached. A beast can break free by using an action to make a might check of 5, while any other intelligent creature requires a coordination check of 3.",
+  "type": "weapon",
+  "weapon_category": "throwing",
+  "hands": 1,
+  "stack_limit": 1,
+  "weight": 2,
+  "value": 50,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "0",
+    "damage_extra": "0",
+    "damage_type": "physical",
+    "category": "blunt",
+    "energy": 0,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 3,
+    "max_range": 4
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 3,
+    "ingredients": [
+      "Weighted Balls",
+      "Rope",
+      "Bindings"
+    ]
+  },
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/thrown/bolas-stone.webp"
+}

@@ -1,0 +1,88 @@
+{
+  "id": 106,
+  "name": "Sniper",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Long Range Training",
+      "description": "You have specialized in extreme-distance precision shooting with bows and crossbows. Your optimal range for all ranged weapons is extended by one category (Short becomes Moderate, Moderate becomes Distant, etc.).",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "ABCD=1:TG"
+    },
+    {
+      "name": "Patient Hunter",
+      "description": "Sniping requires exceptional patience and stillness. Gain +1 skill with concentration. When you remain stationary for a full round, your next ranged attack gains a bonus dice.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "SSJ=1:TG"
+    },
+    {
+      "name": "Wind Reader",
+      "description": "You can read environmental conditions to improve your shots. Gain +1 skill with senses. You automatically know wind direction and strength, and can ignore weather penalties to ranged attacks.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "SSK=1:TG"
+    },
+    {
+      "name": "Action : Aimed Shot",
+      "description": "You take careful aim at a distant target. Make a ranged attack with a penalty dice, but if it hits, roll an additional damage dice and add it to your total damage.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Action : Precision Shot",
+      "description": "You target a specific weak point or gap in armor. Make a ranged attack that ignores physical mitigation if it hits, but you roll with two penalty dice.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "X"
+    },
+    {
+      "name": "Reaction : Opportunity Shot",
+      "description": "In response to a creature moving into your optimal range, you can immediately make a ranged attack against them with a bonus dice if you haven't moved this round.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "Z"
+    },
+    {
+      "name": "Master Sniper",
+      "description": "Your precision with ranged weapons at extreme distances is unmatched. Gain +1 skill with complex ranged weapons. You can attack targets up to two range categories beyond your optimal range (with normal penalties).",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "WS6=1:TG"
+    },
+    {
+      "name": "Killing Shot",
+      "description": "Your shots at weak targets are devastatingly effective. When you deal damage to a minion or grunt tier creature with a ranged attack, they must make an endurance check of 8 or be instantly killed regardless of remaining health.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "name": "Suppressing Fire",
+      "description": "You can control the battlefield through sustained fire. Gain +1 skill with simple ranged weapons. When you make ranged attacks against multiple targets in the same round, each target after the first has a penalty dice on their next action.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "WS4=1:TG"
+    },
+    {
+      "name": "Legendary Marksman",
+      "description": "You have achieved legendary accuracy at impossible ranges. Your ranged attacks can target creatures up to three range categories beyond optimal range. When you score a critical hit with a ranged weapon, the target must make a resilience check of 10 or become stunned from shock.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "TG"
+    }
+  ]
+}

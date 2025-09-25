@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 4,
   "damageType": "Psychic",
-  "foundry_id": "y1fw2epfd0v2ngpb"
+  "foundry_id": "y1fw2epfd0v2ngpb",
+  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"
 }

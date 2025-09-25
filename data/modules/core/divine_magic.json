@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Smite",
-      "description": "You imbue a melee or unarmed attack with radiant energy. If the attack hits, make a Divine Magic check against the same defense the weapon targeted. On success, the target takes additional divine damage equal to the weapon's extra damage. If the target is an undead or dark creature, deal divine damage equal to the weapon's primary damage instead.",
+      "description": "You imbue a melee or brawling attack with radiant energy. If the attack hits, make a Divine Magic check against the same defense the weapon targeted. On success, the target takes additional divine damage equal to the weapon's extra damage. If the target is an undead or dark creature, deal divine damage equal to the weapon's primary damage instead.",
       "location": "2b",
       "data": "XIME=1"
     },

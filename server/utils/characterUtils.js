@@ -439,7 +439,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
 
       const weaponMappings = {
-        '1': 'unarmed',
+        '1': 'brawling',
         '2': 'throwing',
         '3': 'simpleMeleeWeapons',
         '4': 'simpleRangedWeapons',

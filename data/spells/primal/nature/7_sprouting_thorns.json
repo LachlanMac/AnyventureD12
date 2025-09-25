@@ -1,6 +1,6 @@
 {
   "name": "Sprouting Thorns",
-  "description": "You cause thorns to sprout on a very close (5 unit) creature's armor or skin for the next minute. Whenever this creature is hit by an unarmed attack or melee attack that uses a body part instead of a weapon, the attacking creature takes 4 physical damage.",
+  "description": "You cause thorns to sprout on a very close (5 unit) creature's armor or skin for the next minute. Whenever this creature is hit by a brawling or melee attack that uses a body part instead of a weapon, the attacking creature takes 4 physical damage.",
   "charge": "The thorns cannot be mitigated to 0 damage, and instead always deal at least 2 physical damage.",
   "duration": "1 minute",
   "range": 0,
@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 3,
   "damageType": "Physical",
-  "foundry_id": "m3zryclu5muuwczz"
+  "foundry_id": "m3zryclu5muuwczz",
+  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp"
 }

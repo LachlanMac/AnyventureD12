@@ -216,11 +216,11 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         description="Weapon skills have their own talent values that determine how many dice you roll for attacks."
         skills={[
           {
-            id: 'unarmed',
-            name: 'Unarmed',
-            value: character.weaponSkills.unarmed.value,
-            talent: character.weaponSkills.unarmed.talent,
-            diceTierModifier: character.weaponSkills.unarmed.diceTierModifier,
+            id: 'brawling',
+            name: 'Brawling',
+            value: character.weaponSkills.brawling.value,
+            talent: character.weaponSkills.brawling.talent,
+            diceTierModifier: character.weaponSkills.brawling.diceTierModifier,
           },
           {
             id: 'throwing',

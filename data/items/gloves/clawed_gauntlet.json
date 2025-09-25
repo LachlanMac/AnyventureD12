@@ -2,7 +2,7 @@
   "name": "Clawed Gauntlet",
   "description": "A heavy gauntlet with curved blades extending from each finger. These menacing weapons transform the wearer's hands into slashing claws capable of tearing through flesh and light armor.",
   "type": "gloves",
-  "weapon_category": "unarmed",
+  "weapon_category": "brawling",
   "weight": 3,
   "value": 550,
   "bonus_attack": 0,

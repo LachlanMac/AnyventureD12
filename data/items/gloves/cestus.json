@@ -2,7 +2,7 @@
   "name": "Cestus",
   "description": "Leather fighting gloves reinforced with metal studs and protective plates. These combat gauntlets turn the wearer's fists into devastating weapons while providing hand protection.",
   "type": "gloves",
-  "weapon_category": "unarmed",
+  "weapon_category": "brawling",
   "weight": 2,
   "value": 450,
   "bonus_attack": 0,

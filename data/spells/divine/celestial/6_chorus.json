@@ -14,5 +14,6 @@
   "energy": 3,
   "damage": 6,
   "damageType": "Divine",
-  "foundry_id": "ad4d9p4etidmoebs"
+  "foundry_id": "ad4d9p4etidmoebs",
+  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp"
 }

@@ -14,5 +14,6 @@
     "instrument": "wind",
     "effect": "double endurance checks (rounded down)"
   },
-  "foundry_id": "kmka99agh2nl423r"
+  "foundry_id": "kmka99agh2nl423r",
+  "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
 }

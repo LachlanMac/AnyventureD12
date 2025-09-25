@@ -2,6 +2,8 @@
   "name": "Torch",
   "description": "A wooden stick with cloth soaked in pitch, burns for 1 hour",
   "type": "adventure",
+  "holdable": true,
+  "stack_limit": 10,
   "weight": 1,
   "value": 10,
   "rarity": "common",

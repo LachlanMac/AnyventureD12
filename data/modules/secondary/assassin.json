@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Silencing Strike",
-      "description": "You make a precise attack designed to prevent your target from calling for help. You make an unarmed attack that deals no damage, but strikes in a way that the target cannot speak or make noise until the end of their next turn if at least 3 of the dice hit.",
+      "description": "You make a precise attack designed to prevent your target from calling for help. You make a brawling attack that deals no damage, but strikes in a way that the target cannot speak or make noise until the end of their next turn if at least 3 of the dice hit.",
       "location": "2b",
       "data": "XINE=1"
     },

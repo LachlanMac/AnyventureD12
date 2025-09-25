@@ -19,6 +19,7 @@
       "difficulty": 5,
       "type": "fabrication"
     },
+    "foundry_icon": "icons/commodities/metal/ingot-stamped-steel.webp",
     "properties": "Standard material damage with no special effects"
   },
   {
@@ -41,6 +42,7 @@
       "difficulty": 7,
       "type": "fabrication"
     },
+    "foundry_icon": "icons/commodities/metal/ingot-stamped-steel.webp",
     "properties": "Standard material damage with no special effects"
   },
   {
@@ -63,6 +65,7 @@
       "difficulty": 9,
       "type": "fabrication"
     },
+    "foundry_icon": "icons/commodities/metal/ingot-stamped-steel.webp",
     "properties": "Adds +1  damage when fabricated into an item."
   },
   {
@@ -86,6 +89,7 @@
       "difficulty": 15,
       "type": "fabrication"
     },
+    "foundry_icon": "icons/commodities/metal/ingot-stamped-steel.webp",
     "properties": "Adds +2 damage and +1 extra damage when fabricated into an item."
   }
 ]

@@ -43,7 +43,21 @@ export const seedTraits = async () => {
         
         if (existingTrait) {
           // Update existing trait
-          await Trait.findByIdAndUpdate(existingTrait._id, traitData);
+          // Preserve critical fields that should never change
+          traitData._id = existingTrait._id;
+
+          // Generate foundry_id if existing trait doesn't have one, otherwise preserve it
+          if (!existingTrait.foundry_id) {
+            traitData.foundry_id = generateFoundryId();
+          } else {
+            traitData.foundry_id = existingTrait.foundry_id;
+          }
+
+          // Replace the entire document to ensure removed properties are actually removed
+          await Trait.replaceOne(
+            { _id: existingTrait._id },
+            traitData
+          );
           console.log(`Updated trait: ${traitData.name}`);
         } else {
           // Create new trait

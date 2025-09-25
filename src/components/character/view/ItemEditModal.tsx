@@ -724,7 +724,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                         <option value="simpleRanged">Simple Ranged</option>
                         <option value="complexMelee">Complex Melee</option>
                         <option value="complexRanged">Complex Ranged</option>
-                        <option value="unarmed">Unarmed</option>
+                        <option value="brawling">Brawling</option>
                         <option value="throwing">Throwing</option>
                       </select>
                     </div>

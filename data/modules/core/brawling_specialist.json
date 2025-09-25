@@ -1,12 +1,12 @@
 {
   "id": 105,
-  "name": "Unarmed Specialist",
+  "name": "Brawling Specialist",
   "mtype": "core",
   "ruleset": 1,
   "options": [
     {
       "name": "Fledgling Striker",
-      "description": "You are well trained in using your fists as a weapon. Gain +1 skill with unarmed attacks.",
+      "description": "You are well trained in using your fists as a weapon. Gain +1 skill with brawling attacks.",
       "location": "1",
       "data": "WS1=1"
     },
@@ -18,13 +18,13 @@
     },
     {
       "name": "Action : Flurry",
-      "description": "You make an unarmed attack, but treat each dice as it's own separate attack that is mitigated separately. Each attack deals only the primary damage. If all attacks hit, even if they do no damage, the enemy becomes dazed.",
+      "description": "You make a brawling attack, but treat each dice as it's own separate attack that is mitigated separately. Each attack deals only the primary damage. If all attacks hit, even if they do no damage, the enemy becomes dazed.",
       "location": "2b",
       "data": "XINE=1"
     },
     {
       "name": "Reaction : Disrupting Strike",
-      "description": "When an enemy makes an attack against you while adjacent, make an unarmed attack against them. If all of your attack dice hit, their attack is rolled with only 1 dice.",
+      "description": "When an enemy makes an attack against you while adjacent, make a brawling attack against them. If all of your attack dice hit, their attack is rolled with only 1 dice.",
       "location": "3",
       "data": "ZINE=1"
     },
@@ -42,25 +42,25 @@
     },
     {
       "name": "Skilled Striker",
-      "description": "You are well trained in using your body as a weapon. Gain +1 skill with unarmed attacks.",
+      "description": "You are well trained in using your body as a weapon. Gain +1 skill with brawling attacks.",
       "location": "5",
       "data": "WS1=1"
     },
     {
       "name": "Advantageous Blows",
-      "description": "Whenever you make an unarmed attack against an enemy that is dazed or stunned, physical mitigation cannot mitigate your unarmed attacks.",
+      "description": "Whenever you make a brawling attack against an enemy that is dazed or stunned, physical mitigation cannot mitigate your brawling attacks.",
       "location": "6a",
       "data": "TG"
     },
     {
       "name": "Knockout",
-      "description": "When you deal damage with an unarmed attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they must roll a concentration check of 7 or higher or become unconscious for 1 minute.",
+      "description": "When you deal damage with a brawling attack that brings an enemy that is not immune to the unconscious condition to 10 or less health, they must roll a concentration check of 7 or higher or become unconscious for 1 minute.",
       "location": "6b",
       "data": "TG"
     },
     {
       "name": "Talented Striker",
-      "description": "Your relentless training has resulted in +1 talent with unarmed attacks.",
+      "description": "Your relentless training has resulted in +1 talent with brawling attacks.",
       "location": "7",
       "data": "WT1=1"
     }

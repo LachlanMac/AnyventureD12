@@ -20,7 +20,7 @@
       "type": "fabrication"
     },
     "properties": "Standard material protection with no special effects",
-    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+    "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   },
   {
     "name": "Bundle of Steel Studs",
@@ -43,7 +43,7 @@
       "type": "fabrication"
     },
     "properties": "Standard material protection with no special effects",
-    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+    "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   },
   {
     "name": "Bundle of True Steel Studs",
@@ -65,8 +65,8 @@
       "difficulty": 6,
       "type": "fabrication"
     },
-    "properties": "Adds +1 physical mitigation when crafted into armor, and adds +2 damage and +1 extra damage to unarmed attacks when crafted into boots or gloves.",
-    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+    "properties": "Adds +1 physical mitigation when crafted into armor, and adds +2 damage and +1 extra damage to brawling attacks when crafted into boots or gloves.",
+  "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   },
   {
     "name": "Bundle of Starsteel Studs",
@@ -89,7 +89,7 @@
       "difficulty": 12,
       "type": "fabrication"
     },
-    "properties": "Adds +2 physical mitigation when crafted into armor, and adds +2 damage and +2 extra damage to unarmed attacks when crafted into boots or gloves.",
-    "foundry_icon": "icons/commodities/metal/nails-iron.webp"
+    "properties": "Adds +2 physical mitigation when crafted into armor, and adds +2 damage and +2 extra damage to brawling attacks when crafted into boots or gloves.",
+    "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   }
 ]

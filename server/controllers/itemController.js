@@ -66,7 +66,7 @@ export const getWeaponsByCategoryRoute = async (req, res) => {
     
     // Validate category
     const validCategories = [
-      'simpleMelee', 'simpleRanged', 'complexMelee', 'complexRanged', 'unarmed', 'throwing'
+      'simpleMelee', 'simpleRanged', 'complexMelee', 'complexRanged', 'brawling', 'throwing'
     ];
     if (!validCategories.includes(category)) {
       return res.status(400).json({ message: 'Invalid weapon category' });

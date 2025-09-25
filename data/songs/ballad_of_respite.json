@@ -10,5 +10,6 @@
     "instrument": "any",
     "effect": "Each harmony reduces the required sleep by 1 hour (minimum 4 hours)"
   },
-  "foundry_id": "tlgxineaaqzxynwt"
+  "foundry_id": "tlgxineaaqzxynwt",
+  "foundry_icon": "icons/sundries/scrolls/scroll-writing-silver-brown.webp"
 }

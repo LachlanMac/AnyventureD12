@@ -3,6 +3,8 @@
   "description": "A small, lightweight projectile with a sharp point and stabilizing fletching. Designed for precision throwing at short range with minimal effort, often used to administer a poison.",
   "type": "weapon",
   "weapon_category": "throwing",
+  "hands": 1,
+  "stack_limit": 20,
   "weight": 0,
   "value": 50,
   "bonus_attack": 0,
@@ -17,7 +19,7 @@
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 2,
-    "max_range": 2
+    "max_range": 4
   },
   "health": {
     "max": 0,

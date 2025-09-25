@@ -10,5 +10,6 @@
     "instrument": "any",
     "effect": "Affected characters also start their turn silenced and invisible; anything but movement breaks this effect"
   },
-  "foundry_id": "6bmvz0iou7zvexm7"
+  "foundry_id": "6bmvz0iou7zvexm7",
+  "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
 }

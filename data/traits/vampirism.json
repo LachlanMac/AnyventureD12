@@ -43,7 +43,7 @@
     },
     {
       "name": "Action : Vampiric Bite",
-      "description": "You make an unarmed attack against a creature, dealing 3 physical damage for each dice that hit. If the target is a humanoid and take damage after mitigation, they must make a resilience of check of 5 after their next full rest, or they become infected with vampirism. Each full rest, they can make this check again to clear the infection. If the target dies while infected, they must make a final resilience check; on a 9 or lower, they rise as a mindless vampire spawn, otherwise, they gain the vampirism trait. If this action is used against a willing or unconscious target, the attack roll is not necessary and the bite deals 3 true damage.",
+      "description": "You make a brawling attack against a creature, dealing 3 physical damage for each dice that hit. If the target is a humanoid and take damage after mitigation, they must make a resilience of check of 5 after their next full rest, or they become infected with vampirism. Each full rest, they can make this check again to clear the infection. If the target dies while infected, they must make a final resilience check; on a 9 or lower, they rise as a mindless vampire spawn, otherwise, they gain the vampirism trait. If this action is used against a willing or unconscious target, the attack roll is not necessary and the bite deals 3 true damage.",
       "data": "XIME=1"
     },
     {

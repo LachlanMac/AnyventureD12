@@ -14,5 +14,6 @@
   "energy": 2,
   "damage": 0,
   "damageType": null,
-  "foundry_id": "fbxvqsyb3y0s2lru"
+  "foundry_id": "fbxvqsyb3y0s2lru",
+  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp"
 }

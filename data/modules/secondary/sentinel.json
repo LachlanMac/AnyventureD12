@@ -48,7 +48,7 @@
     },
     {
       "name": "Martial Arts",
-      "description": "Gain +1 skill with unarmed attacks. When a creature attempts to shove, grab or displace you with a melee attack, you can defend by making an unarmed check instead.",
+      "description": "Gain +1 skill with brawling attacks. When a creature attempts to shove, grab or displace you with a melee attack, you can defend by making a brawling check instead.",
       "location": "6a",
       "data": "WS1=1"
     },

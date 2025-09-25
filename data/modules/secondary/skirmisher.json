@@ -36,7 +36,7 @@
     },
     {
       "name": "Action : Skirmish",
-      "description": "You make a weapon attack with a simple melee weapon or an unarmed strike, then immediately move up to 3 units without provoking reactions.",
+      "description": "You make a weapon attack with a simple melee weapon or a brawling strike, then immediately move up to 3 units without provoking reactions.",
       "location": "4b",
       "data": "XINE=1"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Flow of Battle",
-      "description": "After you make an attack with a simple melee weapon, an unarmed strike, or a throwing weapon, you may move 1 unit. This movement does not provoke reactions. You can use this feature up to 3 times per round.",
+      "description": "After you make an attack with a simple melee weapon, a brawling strike, or a throwing weapon, you may move 1 unit. This movement does not provoke reactions. You can use this feature up to 3 times per round.",
       "location": "7",
       "data": "TG"
     }

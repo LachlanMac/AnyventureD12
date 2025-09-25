@@ -14,5 +14,6 @@
   "energy": 3,
   "damage": 8,
   "damageType": "Toxic",
-  "foundry_id": "cir1ix2xqhyubi8v"
+  "foundry_id": "cir1ix2xqhyubi8v",
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
 }

@@ -10,5 +10,6 @@
     "instrument": "any",
     "effect": "Upgrade mitigation one step for heat, cold, and electric (none → partial, partial → full)"
   },
-  "foundry_id": "acyj9t7sl8r3qn5i"
+  "foundry_id": "acyj9t7sl8r3qn5i",
+  "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
 }

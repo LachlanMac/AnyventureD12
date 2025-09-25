@@ -45,7 +45,7 @@ function mapWeaponIcon(item) {
       'simpleRanged': ['shortbow', 'sling'],
       'complexRanged': ['longbow', 'crossbow'],
       'throwing': ['dagger', 'javelin', 'throwing'],
-      'unarmed': ['claw', 'fist', 'knuckles']
+      'brawling': ['claw', 'fist', 'knuckles']
     };
     if (categoryMap[weapon_category]) {
       searchTerms.push(...categoryMap[weapon_category]);

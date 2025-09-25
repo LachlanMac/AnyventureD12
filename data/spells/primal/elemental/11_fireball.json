@@ -14,5 +14,6 @@
   "energy": 4,
   "damage": 15,
   "damageType": "Heat",
-  "foundry_id": "6mmhft2g74yfe8ug"
+  "foundry_id": "6mmhft2g74yfe8ug",
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
 }

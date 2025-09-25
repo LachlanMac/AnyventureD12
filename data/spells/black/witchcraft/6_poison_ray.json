@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 8,
   "damageType": "Toxic",
-  "foundry_id": "4og1j8279lit3wpf"
+  "foundry_id": "4og1j8279lit3wpf",
+  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"
 }

@@ -61,13 +61,22 @@ const ItemSchema = new Schema({
 
   weapon_category: {
       type: String,
-      enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "unarmed", "throwing"],
+      enum: ["simpleMelee", "simpleRanged", "complexMelee", "complexRanged", "brawling", "throwing"],
   },
   hands: {
       type: Number,
       min: 1,
       max: 2,
       default: 1 // Default to 1-handed
+  },
+  holdable: {
+      type: Boolean,
+      default: false // Whether non-equipment items can be held/equipped
+  },
+  stack_limit: {
+      type: Number,
+      default: 0, // 0 means ignore stacking (for FoundryVTT balancing)
+      min: 0
   },
   shield_category: { 
       type: String, 
@@ -166,7 +175,7 @@ const ItemSchema = new Schema({
   
   // Weapon skill bonuses
   weapon: {
-    unarmed: { type: SkillTalentBonusSchema, default: () => ({}) },
+    brawling: { type: SkillTalentBonusSchema, default: () => ({}) },
     throwing: { type: SkillTalentBonusSchema, default: () => ({}) },
     simpleRangedWeapons: { type: SkillTalentBonusSchema, default: () => ({}) },
     simpleMeleeWeapons: { type: SkillTalentBonusSchema, default: () => ({}) },

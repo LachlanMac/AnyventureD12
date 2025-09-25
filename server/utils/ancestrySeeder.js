@@ -82,14 +82,18 @@ const seedAncestries = async (ancestries) => {
           ancestryData.foundry_id = existingAncestry.foundry_id; // Keep existing foundry_id
         }
 
-        const updatedAncestry = await Ancestry.findOneAndUpdate(
-          { name: ancestryData.name },
-          ancestryData,
-          { new: true, upsert: true }
+        // Preserve critical fields that should never change
+        ancestryData._id = existingAncestry._id;
+        ancestryData.foundry_id = existingAncestry.foundry_id;
+
+        // Replace the entire document to ensure removed properties are actually removed
+        await Ancestry.replaceOne(
+          { _id: existingAncestry._id },
+          ancestryData
         );
 
         if (VERBOSE_LOGGING) {
-          console.log(`Updated ancestry: ${updatedAncestry.name}`);
+          console.log(`Updated ancestry: ${ancestryData.name}`);
         }
         updated++;
       } else {

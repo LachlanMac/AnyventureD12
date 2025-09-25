@@ -442,7 +442,7 @@ const getSkillMapping = (code) => {
 
 const mapWeaponCode = (code) => {
   const map = {
-    '1': 'unarmed',
+    '1': 'brawling',
     '2': 'throwing',
     '3': 'simpleMeleeWeapons',
     '4': 'simpleRangedWeapons',

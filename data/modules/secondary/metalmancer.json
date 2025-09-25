@@ -42,7 +42,7 @@
     },
     {
       "name": "Daily Action : Splinter Metal",
-      "description": "You touch a mutable metal object and splinter it into shards. If the object is equipped, this action requires a successful unarmed attack. Items crafted with ingots create 10 shards per ingot used. Before you take a full rest, you can spend a minute reassembling the shards into their original form.",
+      "description": "You touch a mutable metal object and splinter it into shards. If the object is equipped, this action requires a successful brawling attack. Items crafted with ingots create 10 shards per ingot used. Before you take a full rest, you can spend a minute reassembling the shards into their original form.",
       "location": "5",
       "data": "XDNE=0"
     },

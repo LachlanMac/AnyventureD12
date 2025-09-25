@@ -22,6 +22,11 @@ const SongSchema = new Schema({
     unique: true,
     minlength: 16,
     maxlength: 16
+  },
+  foundry_icon: {
+    type: String,
+    required: false,
+    default: ''
   }
 }, { timestamps: true });
 

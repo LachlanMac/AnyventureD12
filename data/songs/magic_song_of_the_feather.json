@@ -10,5 +10,6 @@
     "instrument": "any",
     "effect": "Affected characters can use their free movement each round as a fly speed instead and do not sink or fall"
   },
-  "foundry_id": "hshjm8ptfk9172lu"
+  "foundry_id": "hshjm8ptfk9172lu",
+  "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
 }

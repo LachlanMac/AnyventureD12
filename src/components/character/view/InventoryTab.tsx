@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Character, Item, CharacterItem } from '../../../types/character';
 import ItemEditModal from './ItemEditModal';
+import { useToast } from '../../../context/ToastContext';
 
 interface InventoryTabProps {
   character: Character;
@@ -12,6 +13,7 @@ interface InventoryItemProps {
   item: Item;
   inventoryItem: CharacterItem;
   inventoryIndex: number;
+  character: Character;
   onRemove: (index: number) => void;
   onEquip: (itemId: string, slotName: string) => void;
   onUnequip: (slotName: string) => void;
@@ -21,12 +23,25 @@ interface InventoryItemProps {
   isEquipped: boolean;
   equippedSlot?: string;
   canEquip: boolean;
+  showError: (message: string) => void;
 }
+
+// Helper function to get item data from hybrid inventory item
+const getItemFromInventory = (invItem: CharacterItem | undefined): Item | null => {
+  if (!invItem) return null;
+  if (invItem.isCustomized && invItem.itemData) {
+    return invItem.itemData;
+  } else if (invItem.itemId && typeof invItem.itemId === 'object') {
+    return invItem.itemId as Item;
+  }
+  return null;
+};
 
 const InventoryItem: React.FC<InventoryItemProps> = ({
   item,
   inventoryItem,
   inventoryIndex,
+  character,
   onRemove,
   onEquip,
   onUnequip,
@@ -36,39 +51,179 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   isEquipped,
   equippedSlot,
   canEquip,
+  showError,
 }) => {
-  const getAvailableSlot = (): string | null => {
-    // Map item types to equipment slots
-    const typeToSlotMap: Record<string, string[]> = {
-      weapon: ['weapon1', 'weapon2', 'weapon3', 'weapon4'],
+  const getAvailableSlots = (): string[] => {
+    // Equipment types that have dedicated slots
+    const equipmentTypeToSlotMap: Record<string, string[]> = {
+      weapon: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
       headwear: ['head'],
       body: ['body'],
-      cloak: ['cloak'],
-      boots: ['feet'],
-      gloves: ['hands'],
-      shield: ['shield'],
-      accessory: ['accessory1', 'accessory2', 'accessory3', 'accessory4'],
+      cloak: ['back'],
+      boots: ['boots'],
+      gloves: ['hand'],
+      shield: ['offhand'],
+      accessory: ['accessory1', 'accessory2'],
+      ammunition: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'], // Can be held
     };
 
-    const availableSlots = typeToSlotMap[item.type];
-    if (!availableSlots) return null;
+    // Determine potential slots based on item type
+    let potentialSlots: string[] = [];
 
-    // For weapons and accessories, unlimited equipping is allowed
-    if (item.type === 'weapon') {
-      return 'weapon1'; // Backend will handle finding next available slot
-    }
-    if (item.type === 'accessory') {
-      return 'accessory1'; // Backend will handle finding next available slot
+    if (equipmentTypeToSlotMap[item.type]) {
+      potentialSlots = equipmentTypeToSlotMap[item.type];
+    } else {
+      // For non-equipment items, check if they're holdable
+      const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+      if (isNonEquipment && item.holdable) {
+        potentialSlots = ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
+      } else {
+        return []; // Not equippable
+      }
     }
 
-    // For other gear, only one can be equipped
-    return availableSlots[0];
+    if (!potentialSlots.length) return [];
+
+    // Check if there's a two-handed weapon equipped in mainhand
+    const mainhandSlot = character.equipment?.mainhand;
+    let mainhandItem: Item | null = null;
+    if (mainhandSlot?.itemId) {
+      // Find the equipped item in inventory to check its hands requirement
+      const equippedInvItem = character.inventory?.find(invItem => {
+        const invItemData = getItemFromInventory(invItem);
+        return invItemData?._id === mainhandSlot.itemId;
+      });
+      mainhandItem = getItemFromInventory(equippedInvItem);
+    }
+
+    const isTwoHandedEquipped = mainhandItem?.hands === 2;
+
+    // Filter to only show truly available slots
+    return potentialSlots.filter(slotName => {
+      const slot = character.equipment?.[slotName as keyof typeof character.equipment];
+
+      // Slot must be empty
+      if (slot?.itemId) return false;
+
+      // Two-handed weapons can ONLY go in mainhand
+      if (item.hands === 2 && slotName !== 'mainhand') {
+        return false;
+      }
+
+      // If we're trying to equip a two-handed weapon in mainhand, offhand must be empty
+      if (item.hands === 2 && slotName === 'mainhand') {
+        const offhandSlot = character.equipment?.offhand;
+        if (offhandSlot?.itemId) return false;
+      }
+
+      // If a two-handed weapon is equipped, offhand is not available (but extra slots still are)
+      if (isTwoHandedEquipped && slotName === 'offhand') {
+        return false;
+      }
+
+      // Complex weapons in extra slots require WEAPON_COLLECTOR trait
+      if (item.type === 'weapon' && ['extra1', 'extra2', 'extra3'].includes(slotName)) {
+        const isComplexWeapon = item.weapon_category === 'complexMelee' ||
+                               item.weapon_category === 'complexRanged' ||
+                               item.weapon_category === 'complexMeleeWeapons' ||
+                               item.weapon_category === 'complexRangedWeapons';
+
+        if (isComplexWeapon && !character.conditionals?.flags?.WEAPON_COLLECTOR) {
+          return false;
+        }
+      }
+
+      // Shields can only go in offhand and not with two-handed weapons
+      if (item.type === 'shield') {
+        if (slotName !== 'offhand') return false;
+        if (isTwoHandedEquipped && !character.conditionals?.flags?.PASSIVE_SHELL) return false;
+      }
+
+      // Holdable items cannot be equipped in offhand when a two-handed weapon is equipped
+      const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+      if (isNonEquipment && item.holdable && slotName === 'offhand' && isTwoHandedEquipped) {
+        return false;
+      }
+
+      return true;
+    });
+  };
+
+  const getFirstAvailableSlot = (): string | null => {
+    const availableSlots = getAvailableSlots();
+    return availableSlots.length > 0 ? availableSlots[0] : null;
+  };
+
+  const [selectedSlot, setSelectedSlot] = useState<string>('');
+  const [showSlotSelector, setShowSlotSelector] = useState(false);
+
+  const getSlotDisplayName = (slotName: string): string => {
+    const slotDisplayMap: Record<string, string> = {
+      mainhand: 'Main Hand',
+      offhand: 'Off Hand',
+      extra1: 'Extra 1',
+      extra2: 'Extra 2',
+      extra3: 'Extra 3',
+      accessory1: 'Accessory 1',
+      accessory2: 'Accessory 2'
+    };
+    return slotDisplayMap[slotName] || slotName;
+  };
+
+  const getAllPotentialSlots = (): string[] => {
+    // Equipment types that have dedicated slots
+    const equipmentTypeToSlotMap: Record<string, string[]> = {
+      weapon: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
+      headwear: ['head'],
+      body: ['body'],
+      cloak: ['back'],
+      boots: ['boots'],
+      gloves: ['hand'],
+      shield: ['offhand'],
+      accessory: ['accessory1', 'accessory2'],
+      ammunition: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
+    };
+
+    if (equipmentTypeToSlotMap[item.type]) {
+      return equipmentTypeToSlotMap[item.type];
+    } else {
+      // For non-equipment items, check if they're holdable
+      const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+      if (isNonEquipment && item.holdable) {
+        return ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
+      }
+    }
+
+    return [];
   };
 
   const handleEquip = () => {
-    const slot = getAvailableSlot();
-    if (slot && item._id) {
-      onEquip(item._id, slot);
+    const availableSlots = getAvailableSlots();
+
+    // If only one slot available, equip directly
+    if (availableSlots.length === 1 && item._id) {
+      onEquip(item._id, availableSlots[0]);
+      return;
+    }
+
+    // If multiple slots available, show selector
+    if (availableSlots.length > 1) {
+      setSelectedSlot(availableSlots[0]);
+      setShowSlotSelector(true);
+      return;
+    }
+
+    // No valid slots available - show toast message
+    if (availableSlots.length === 0) {
+      showError('There are no valid slots to equip that item');
+      return;
+    }
+  };
+
+  const handleSlotConfirm = () => {
+    if (selectedSlot && item._id) {
+      onEquip(item._id, selectedSlot);
+      setShowSlotSelector(false);
     }
   };
 
@@ -107,7 +262,14 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       >
         {/* Left: Name and Quantity */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-          <span style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>{item.name}</span>
+          <span style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
+            {item.name}
+            {isEquipped && equippedSlot && ['weapon', 'shield', 'accessory'].includes(item.type) && (
+              <span style={{ color: 'var(--color-metal-gold)', fontSize: '0.8em' }}>
+                {' '}[{getSlotDisplayName(equippedSlot)}]
+              </span>
+            )}
+          </span>
           {inventoryItem.quantity > 1 && (
             <span style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold' }}>
               x{inventoryItem.quantity}
@@ -262,12 +424,100 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
           Remove
         </button>
       </div>
+
+      {/* Slot Selection Modal */}
+      {showSlotSelector && (
+        <div
+          style={{
+            position: 'fixed',
+            top: 0,
+            left: 0,
+            right: 0,
+            bottom: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.7)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+          }}
+          onClick={() => setShowSlotSelector(false)}
+        >
+          <div
+            style={{
+              backgroundColor: 'var(--color-dark-elevated)',
+              border: '1px solid var(--color-dark-border)',
+              borderRadius: '6px',
+              padding: '1rem',
+              minWidth: '300px',
+            }}
+            onClick={(e) => e.stopPropagation()}
+          >
+            <h3 style={{ color: 'var(--color-cloud)', marginBottom: '1rem' }}>
+              Choose Equipment Slot
+            </h3>
+            <p style={{ color: 'var(--color-muted)', fontSize: '0.875rem', marginBottom: '1rem' }}>
+              Select where to equip "{item.name}":
+            </p>
+
+            <select
+              value={selectedSlot}
+              onChange={(e) => setSelectedSlot(e.target.value)}
+              style={{
+                width: '100%',
+                padding: '0.5rem',
+                backgroundColor: 'var(--color-dark-bg)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '4px',
+                color: 'var(--color-cloud)',
+                marginBottom: '1rem',
+              }}
+            >
+              {getAvailableSlots().map((slot) => (
+                <option key={slot} value={slot}>
+                  {getSlotDisplayName(slot)}
+                </option>
+              ))}
+            </select>
+
+            <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'flex-end' }}>
+              <button
+                onClick={() => setShowSlotSelector(false)}
+                style={{
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '4px',
+                  padding: '0.5rem 1rem',
+                  color: 'var(--color-cloud)',
+                  cursor: 'pointer',
+                }}
+              >
+                Cancel
+              </button>
+              <button
+                onClick={handleSlotConfirm}
+                style={{
+                  backgroundColor: 'var(--color-metal-gold)',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '0.5rem 1rem',
+                  color: 'white',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                }}
+              >
+                Equip
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
 
 const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdate }) => {
   const navigate = useNavigate();
+  const { showError } = useToast();
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [equippedFilter, setEquippedFilter] = useState('all');
@@ -275,16 +525,6 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     null
   );
 
-  // Helper function to get item data from hybrid inventory item
-  const getItemFromInventory = (invItem: CharacterItem | undefined): Item | null => {
-    if (!invItem) return null;
-    if (invItem.isCustomized && invItem.itemData) {
-      return invItem.itemData;
-    } else if (invItem.itemId && typeof invItem.itemId === 'object') {
-      return invItem.itemId as Item;
-    }
-    return null;
-  };
 
   const handleAddItem = () => {
     navigate(`/character/${character._id}/items`);
@@ -446,8 +686,15 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
     if (!character.equipment) return { equipped: false };
 
-    for (const [slotName, slot] of Object.entries(character.equipment)) {
-      if (slot.itemId === item._id) {
+    // Check all equipment slots including new structure
+    const allSlots = [
+      'hand', 'boots', 'body', 'head', 'back', 'accessory1', 'accessory2',
+      'mainhand', 'offhand', 'extra1', 'extra2', 'extra3'
+    ];
+
+    for (const slotName of allSlots) {
+      const slot = character.equipment[slotName as keyof typeof character.equipment];
+      if (slot?.itemId === item._id) {
         return { equipped: true, slot: slotName };
       }
     }
@@ -465,8 +712,21 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
       'gloves',
       'shield',
       'accessory',
+      'ammunition'
     ];
-    return equipableTypes.includes(item.type);
+
+    // Check standard equipment types
+    if (equipableTypes.includes(item.type)) {
+      return true;
+    }
+
+    // Check if it's a holdable non-equipment item
+    const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+    if (isNonEquipment && item.holdable) {
+      return true;
+    }
+
+    return false;
   };
 
   // Filter and sort inventory items
@@ -665,6 +925,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                     item={item}
                     inventoryItem={invItem}
                     inventoryIndex={originalIndex}
+                    character={character}
                     onRemove={handleRemoveItem}
                     onEquip={handleEquipItem}
                     onUnequip={handleUnequipItem}
@@ -674,6 +935,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                     isEquipped={equipmentStatus.equipped}
                     equippedSlot={equipmentStatus.slot}
                     canEquip={canEquip}
+                    showError={showError}
                   />
                 );
               })

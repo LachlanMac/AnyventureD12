@@ -3,35 +3,47 @@ import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
 const CultureRestrictionSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true 
+  name: {
+    type: String,
+    required: true
   },
-  description: { 
-    type: String, 
-    required: true 
+  description: {
+    type: String,
+    required: true
+  },
+  data: {
+    type: String,
+    default: ""
   }
 }, { _id: false });
 
 const CultureBenefitSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true 
+  name: {
+    type: String,
+    required: true
   },
-  description: { 
-    type: String, 
-    required: true 
+  description: {
+    type: String,
+    required: true
+  },
+  data: {
+    type: String,
+    default: ""
   }
 }, { _id: false });
 
 const CultureStartingItemSchema = new Schema({
-  name: { 
-    type: String, 
-    required: true 
+  name: {
+    type: String,
+    required: true
   },
-  description: { 
-    type: String, 
-    required: true 
+  description: {
+    type: String,
+    required: true
+  },
+  data: {
+    type: String,
+    default: ""
   }
 }, { _id: false });
 

@@ -35,7 +35,7 @@ Based on your attributes:
 
 ## Step 5: Assign Weapon Talents
 You have **3 points** to distribute among weapon skills:
-- Unarmed (starts at +1)
+- Brawling (starts at +1)
 - Throwing (starts at +1)
 - Simple Melee (starts at +1)
 - Simple Ranged (starts at +1)

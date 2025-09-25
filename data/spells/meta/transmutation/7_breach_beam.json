@@ -14,5 +14,6 @@
   "energy": 1,
   "damage": 10,
   "damageType": "Aetheric",
-  "foundry_id": "zk8bt36a762cvtpl"
+  "foundry_id": "zk8bt36a762cvtpl",
+  "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
 }

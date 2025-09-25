@@ -121,13 +121,36 @@ export const seedItems = async (purgeFirst = false) => {
     let updatedCount = 0;
     
     for (const data of itemsData) {
+      // CRITICAL VALIDATION: Fail hard if required fields are missing
+      const filePath = data._source?.path || 'unknown file';
+      const fileName = data._source?.filename || 'unknown';
+
+      if (!data.name || data.name.trim() === '') {
+        console.error(`❌ SEEDER VALIDATION FAILED: Item is missing required 'name' field`);
+        console.error(`📂 File: ${filePath}`);
+        console.error(`📄 Filename: ${fileName}`);
+        console.error(`📁 Full item data:`, JSON.stringify(data, null, 2));
+        console.error(`🔧 Action required: Open file 'data/items/${filePath}' and ensure it has a valid 'name' property`);
+        throw new Error(`Item seeding failed: Item in '${fileName}' is missing required 'name' field. Check console for file path.`);
+      }
+
+      if (typeof data.name !== 'string') {
+        console.error(`❌ SEEDER VALIDATION FAILED: Item name must be a string`);
+        console.error(`📂 File: ${filePath}`);
+        console.error(`📄 Filename: ${fileName}`);
+        console.error(`📝 Found name:`, data.name, `(type: ${typeof data.name})`);
+        console.error(`📁 Full item data:`, JSON.stringify(data, null, 2));
+        console.error(`🔧 Action required: Open file 'data/items/${filePath}' and ensure 'name' property is a valid string`);
+        throw new Error(`Item seeding failed: Item in '${fileName}' has invalid name type. Check console for file path.`);
+      }
+
       // Use item name as a unique identifier
       const existingItem = await Item.findOne({ name: data.name });
       
       if (existingItem) {
-        // Update existing item
+        // Update existing item - completely replace content while preserving IDs
         console.log(`Updating existing item: ${data.name}`);
-        
+
         // Remove the _source metadata when updating the database
         const { _source, ...updateData } = data;
 
@@ -136,11 +159,16 @@ export const seedItems = async (purgeFirst = false) => {
           updateData.recipe.output = 1;
         }
 
-        await Item.updateOne(
+        // Preserve critical fields that should never change
+        updateData._id = existingItem._id;
+        updateData.foundry_id = existingItem.foundry_id;
+
+        // Replace the entire document to ensure removed properties are actually removed
+        await Item.replaceOne(
           { _id: existingItem._id },
-          { $set: updateData }
+          updateData
         );
-        
+
         updatedCount++;
       } else {
         // Create new item

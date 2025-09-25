@@ -81,7 +81,7 @@ const CharacterEdit: React.FC = () => {
 
         // Count spent talent points from weapon skills (excluding free talents)
         const freeWeaponTalents: { [key: string]: number } = {
-          unarmed: 1,
+          brawling: 1,
           throwing: 1,
           simpleRangedWeapons: 1,
           simpleMeleeWeapons: 1,
