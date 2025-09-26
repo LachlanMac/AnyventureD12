@@ -466,15 +466,24 @@ const convertToFoundryFormat = (data, type) => {
               used: false,
               anyventure_id: "",
               magic: action.magic || false,
-              abilityType: "action"
+              abilityType: "action",
+              // Add attackData to system section
+              roll: action.attack?.roll || "2d6",
+              damage: action.attack?.damage || "0",
+              damage_extra: action.attack?.damage_extra || "0",
+              damage_type: action.attack?.damage_type || "physical",
+              secondary_damage: action.attack?.secondary_damage || "0",
+              secondary_damage_extra: action.attack?.secondary_damage_extra || "0",
+              secondary_damage_type: action.attack?.secondary_damage_type || "",
+              category: action.attack?.category || "slash",
+              min_range: action.attack?.min_range || 1,
+              max_range: action.attack?.max_range || 1
             },
             flags: {
               anyventure: {
                 version: "1.0.0",
                 isCreatureAction: true,
-                actionType: action.type || "utility",
-                attackData: action.attack || null,
-                spellData: action.spell || null
+                actionType: action.type || "utility"
               }
             }
           };
@@ -499,7 +508,17 @@ const convertToFoundryFormat = (data, type) => {
               used: false,
               anyventure_id: "",
               magic: false,
-              abilityType: "reaction"
+              abilityType: "reaction",
+              roll: reaction.attack?.roll || "2d6",
+              damage: reaction.attack?.damage || "0",
+              damage_extra: reaction.attack?.damage_extra || "0",
+              damage_type: reaction.attack?.damage_type || "physical",
+              secondary_damage: reaction.attack?.secondary_damage || "0",
+              secondary_damage_extra: reaction.attack?.secondary_damage_extra || "0",
+              secondary_damage_type: reaction.attack?.secondary_damage_type || "",
+              category: reaction.attack?.category || "slash",
+              min_range: reaction.attack?.min_range || 1,
+              max_range: reaction.attack?.max_range || 1
             },
             flags: {
               anyventure: {
