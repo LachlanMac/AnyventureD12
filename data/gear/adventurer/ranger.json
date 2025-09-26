@@ -1,0 +1,36 @@
+{
+  "name": "Ranger",
+  "description": "A wilderness expert skilled in tracking, archery, and survival. Equipped for long expeditions in dangerous terrain.",
+  "gold": 5,
+  "silver": 18,
+  "items": [
+    {
+      "base_item": "longbow",
+      "quantity": 1
+    },
+    {
+      "base_item": "arrows",
+      "quantity": 40
+    },
+    {
+      "base_item": "scimitar",
+      "quantity": 1
+    },
+    {
+      "base_item": "studded_leather",
+      "quantity": 1
+    },
+    {
+      "base_item": "survival_kit",
+      "quantity": 1
+    },
+    {
+      "base_item": "rope",
+      "quantity": 1
+    },
+    {
+      "base_item": "ranger_pack",
+      "quantity": 1
+    }
+  ]
+}

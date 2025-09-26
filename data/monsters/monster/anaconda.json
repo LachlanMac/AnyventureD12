@@ -5,6 +5,7 @@
   "tier": "standard",
   "type": "monster",
   "size": "large",
+  "foundry_portrait": "anaconda.png",
   "health": {
     "max": 28,
     "current": 28
@@ -19,7 +20,12 @@
     "current": 10,
     "recovery": 1
   },
-  "movement": 8,
+  "movement": {
+    "walk": 8,
+    "climb": 0,
+    "swim": 8,
+    "fly": 0
+  },
   "attributes": {
     "physique": {
       "talent": 2

@@ -264,7 +264,13 @@ const CharacterSchema = new Schema({
   
   // Inventory system
   inventory: [CharacterItemSchema],
-  
+
+  // Wealth/Currency
+  wealth: {
+    gold: { type: Number, default: 0 },
+    silver: { type: Number, default: 0 }
+  },
+
   // Equipment slots (matching FoundryVTT structure)
   equipment: {
     // Gear slots
@@ -299,17 +305,9 @@ const CharacterSchema = new Schema({
     social: { type: Number, default: 1, min: 1, max: 4 }
   },
 
-  /* Numbers coorespond to ranges: 
-  1 Adjacent	0	Literally touching
-  2 Nearby	1	Just out of arm’s reach
-  3 Very Short 2-5  Close AF
-  4 Short	6–10	Easily reached with effort
-  5  Moderate	11–20	Noticeable gap; needs focus
-  6 Distant	21–40	Clearly far; limited detail
-  7 Remote	41–100	Hard to perceive clearly
-  8 Unlimited */
+
     detection :{
-    normal:  { type: Number, default: 8 },
+    normal:  { type: Number, default: 9 },
     darksight:  { type: Number, default: 0 }, 
     infravision:  { type: Number, default: 0 }, 
     deadsight:  { type: Number, default: 0 },    

@@ -3,6 +3,7 @@ import path from 'path';
 import { fileURLToPath } from 'url';
 import Creature from '../models/Creature.js';
 import Spell from '../models/Spell.js';
+import { generateFoundryId } from './foundryIdGenerator.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -12,7 +13,7 @@ const loadCreaturesFromJson = async () => {
     console.log('🦄 Loading creatures from JSON files...');
     
     const dataPath = path.join(__dirname, '../../data/monsters');
-    const creatureTypes = ['fiend', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental'];
+    const creatureTypes = ['dark', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental', 'beast'];
     
     let loadedCount = 0;
     let updatedCount = 0;
@@ -61,13 +62,30 @@ const loadCreaturesFromJson = async () => {
           });
 
           if (existingCreature) {
-            // Update existing creature while preserving ObjectId
-            await Creature.findByIdAndUpdate(existingCreature._id, creatureData, {
+            // Update existing creature but preserve foundry_id and _id
+            const updateData = {
+              ...creatureData,
+              foundry_id: existingCreature.foundry_id // Preserve existing foundry_id
+            };
+
+            // Generate foundry_id if existing creature doesn't have one
+            if (!existingCreature.foundry_id) {
+              updateData.foundry_id = generateFoundryId();
+              console.log(`  Generated foundry_id for existing creature: ${updateData.foundry_id}`);
+            }
+
+            await Creature.findByIdAndUpdate(existingCreature._id, updateData, {
               runValidators: true
             });
             updatedCount++;
             console.log(`✅ Updated creature: ${creatureData.name} (${type})`);
           } else {
+            // Generate foundry_id if missing
+            if (!creatureData.foundry_id) {
+              creatureData.foundry_id = generateFoundryId();
+              console.log(`  Generated foundry_id: ${creatureData.foundry_id}`);
+            }
+
             // Create new creature
             const creature = new Creature(creatureData);
             await creature.save();

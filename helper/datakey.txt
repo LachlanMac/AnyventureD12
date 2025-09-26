@@ -152,14 +152,15 @@ EX K4=6 (+6 Fly Speed)
 KEY (V)
 EX. V2=5 is DARKSIGHT equal to MODERATE 
   0=None
-  1=Adjacent	
-  2=Nearby	
-  3=Very Short
-  4=Short
-  5=Moderate
-  6=Distant
-  7=Remote
-  8=Unlimited
+  1=Adjacent	    (0 unit)
+  2=Nearby	      (1 unit)
+  3=Very Short    (2-5 units)
+  4=Short         (6-10 units)
+  5=Moderate      (11-20 units)
+  6=Far           (21-40 units)
+  7=Very Far      (41-60 units)
+  8=Distant       (61-100 units)
+  9=Unlimited     
 #####################################
 
 1: NORMAL

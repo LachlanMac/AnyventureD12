@@ -11,6 +11,32 @@ import Spell from '../models/Spell.js';
 import Song from '../models/Song.js';
 import Language from '../models/Language.js';
 import Injury from '../models/Injury.js';
+import Creature from '../models/Creature.js';
+import { generateFoundryId } from '../utils/foundryIdGenerator.js';
+
+// Helper function to generate a deterministic 16-character alphanumeric ID from a seed
+const generateDeterministicFoundryId = (seed) => {
+  // Create a simple hash from the seed string
+  let hash = 0;
+  for (let i = 0; i < seed.length; i++) {
+    const char = seed.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash; // Convert to 32bit integer
+  }
+
+  // Use the hash as a seed for a simple PRNG
+  const chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+  let result = '';
+  let currentSeed = Math.abs(hash);
+
+  for (let i = 0; i < 16; i++) {
+    // Simple LCG (Linear Congruential Generator) for deterministic randomness
+    currentSeed = (currentSeed * 1664525 + 1013904223) % Math.pow(2, 32);
+    result += chars.charAt(currentSeed % chars.length);
+  }
+
+  return result;
+};
 
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
@@ -203,6 +229,18 @@ const getGenericIcon = (data, type) => {
           return 'icons/skills/wounds/injury-pain-body-orange.webp';
       }
 
+    case 'creature':
+      // Generic creature icon - could be customized based on creature type
+      return 'icons/creatures/abilities/bear-roar-red-brown.webp';
+
+    case 'action':
+      // Generic action icon
+      return 'icons/skills/melee/sword-damaged-broken-glow-red.webp';
+
+    case 'reaction':
+      // Generic reaction icon
+      return 'icons/skills/movement/arrow-upward-yellow.webp';
+
     default:
       return `${iconBase}goods1.webp`;
   }
@@ -368,6 +406,483 @@ const convertToFoundryFormat = (data, type) => {
         injuryType: data.type,
         cause: "",
         data: data.data || ""
+      };
+      break;
+
+    case 'creature':
+      baseFoundryDoc.type = 'npc'; // Foundry uses 'npc' type for creatures
+      // Convert foundry_portrait filename to full URL
+      let portraitUrl = '';
+      if (data.foundry_portrait && data.foundry_portrait.trim() !== '') {
+        const assetsBaseUrl = process.env.ASSETS_BASE_URL || 'http://localhost:4000';
+        portraitUrl = `${assetsBaseUrl}/assets/monsters/${data.foundry_portrait}`;
+      }
+
+      baseFoundryDoc.img = portraitUrl || getGenericIcon(data, 'creature');
+
+      // Initialize the items array for the creature
+      baseFoundryDoc.items = [];
+
+      // Convert creature traits to trait items
+      if (data.traits && data.traits.length > 0) {
+        for (const trait of data.traits) {
+          // Create a unique seed for this trait based on creature and trait name
+          const seed = `${data.name}-trait-${trait.name}`;
+          const traitItem = {
+            _id: generateDeterministicFoundryId(seed),
+            name: trait.name,
+            type: "trait",
+            img: getGenericIcon({ type: 'supernatural' }, 'trait'),
+            system: {
+              description: trait.description || "",
+              type: "supernatural",
+              options: []
+            },
+            flags: {
+              anyventure: {
+                version: "1.0.0",
+                isCreatureTrait: true
+              }
+            }
+          };
+          baseFoundryDoc.items.push(traitItem);
+        }
+      }
+
+      // Convert creature actions to action items
+      if (data.actions && data.actions.length > 0) {
+        for (const action of data.actions) {
+          // Create a unique seed for this action based on creature and action name
+          const seed = `${data.name}-action-${action.name}`;
+          const actionItem = {
+            _id: generateDeterministicFoundryId(seed),
+            name: action.name,
+            type: "action",
+            img: getGenericIcon(action, 'action'),
+            system: {
+              description: action.description || "",
+              energy: action.cost || 0,
+              daily: false,
+              used: false,
+              anyventure_id: "",
+              magic: action.magic || false,
+              abilityType: "action"
+            },
+            flags: {
+              anyventure: {
+                version: "1.0.0",
+                isCreatureAction: true,
+                actionType: action.type || "utility",
+                attackData: action.attack || null,
+                spellData: action.spell || null
+              }
+            }
+          };
+          baseFoundryDoc.items.push(actionItem);
+        }
+      }
+
+      // Convert creature reactions to reaction items
+      if (data.reactions && data.reactions.length > 0) {
+        for (const reaction of data.reactions) {
+          // Create a unique seed for this reaction based on creature and reaction name
+          const seed = `${data.name}-reaction-${reaction.name}`;
+          const reactionItem = {
+            _id: generateDeterministicFoundryId(seed),
+            name: reaction.name,
+            type: "reaction",
+            img: getGenericIcon(reaction, 'reaction'),
+            system: {
+              description: reaction.description || "",
+              energy: reaction.cost || 0,
+              daily: false,
+              used: false,
+              anyventure_id: "",
+              magic: false,
+              abilityType: "reaction"
+            },
+            flags: {
+              anyventure: {
+                version: "1.0.0",
+                isCreatureReaction: true,
+                trigger: reaction.trigger || ""
+              }
+            }
+          };
+          baseFoundryDoc.items.push(reactionItem);
+        }
+      }
+
+      // Add spells as spell items (if creature has spells)
+      if (data.spells && data.spells.length > 0) {
+        // Note: This assumes data.spells contains populated spell objects
+        // If they're just IDs, we'd need to populate them first
+        for (const spell of data.spells) {
+          if (spell && spell.name) {
+            const spellItem = {
+              _id: spell.foundry_id || convertToFoundryId(spell._id),
+              name: spell.name,
+              type: "spell",
+              img: spell.foundry_icon || getGenericIcon(spell, 'spell'),
+              system: {
+                description: spell.description || "",
+                school: spell.school || "",
+                subschool: spell.subschool || "",
+                charge: spell.charge || "",
+                duration: spell.duration || "Instantaneous",
+                range: spell.range || "Self",
+                checkToCast: spell.checkToCast || 4,
+                components: spell.components || [],
+                ritualDuration: spell.ritualDuration || "",
+                concentration: spell.concentration || false,
+                reaction: spell.reaction || false,
+                energy: spell.energy || 1,
+                damage: spell.damage || 0,
+                damageType: spell.damageType || "",
+                fizzled: false,
+                foundry_icon: spell.foundry_icon || ''
+              },
+              flags: {
+                anyventure: {
+                  version: "1.0.0",
+                  originalId: spell._id ? spell._id.toString() : ""
+                }
+              }
+            };
+            baseFoundryDoc.items.push(spellItem);
+          }
+        }
+      }
+
+      baseFoundryDoc.system = {
+        // Creature-specific fields
+        creatureTier: data.tier || "standard",
+        challengeRating: data.challenge_rating || 1,
+        modules: [],
+        actions: [], // Keep empty - actions are now items
+        conditions: [],
+        physicalTraits: {
+          size: data.size || "medium",
+          creatureType: data.type || "",
+          description: data.description || "",
+          appearance: data.tactics || ""
+        },
+        loot: {
+          coins: {
+            copper: 0,
+            silver: 0,
+            gold: 0
+          },
+          items: data.loot || []
+        },
+        behavior: {
+          aggressive: true,
+          territorial: false,
+          pack: false,
+          intelligent: data.attributes?.knowledge?.talent > 0 || true
+        },
+        biography: data.tactics || "",
+        spells: [], // Keep empty - spells are now items
+
+        // Base template fields (inherited by NPCs)
+        attributes: {
+          physique: {
+            value: data.attributes?.physique?.talent || 1,
+            min: 1,
+            max: 5
+          },
+          finesse: {
+            value: data.attributes?.finesse?.talent || 1,
+            min: 1,
+            max: 5
+          },
+          mind: {
+            value: data.attributes?.mind?.talent || 1,
+            min: 1,
+            max: 5
+          },
+          knowledge: {
+            value: data.attributes?.knowledge?.talent || 1,
+            min: 1,
+            max: 5
+          },
+          social: {
+            value: data.attributes?.social?.talent || 1,
+            min: 1,
+            max: 5
+          }
+        },
+        resources: {
+          health: {
+            value: data.health?.current || 10,
+            max: data.health?.max || 10,
+            temp: 0
+          },
+          resolve: {
+            value: data.resolve?.current || 5,
+            max: data.resolve?.max || 5,
+            temp: 0
+          },
+          morale: {
+            value: 0,
+            max: 0,
+            temp: 0
+          },
+          energy: {
+            value: data.energy?.current || 5,
+            max: data.energy?.max || 5,
+            temp: 0
+          }
+        },
+        movement: {
+          walk: data.movement?.walk || data.movement || 5,
+          swim: data.movement?.swim || 0,
+          climb: data.movement?.climb || 0,
+          fly: data.movement?.fly || 0
+        },
+        mitigation: data.mitigation || {
+          physical: 0,
+          heat: 0,
+          cold: 0,
+          electric: 0,
+          dark: 0,
+          divine: 0,
+          aether: 0,
+          psychic: 0,
+          toxic: 0
+        },
+        detection: data.detections || {
+          normal: 8,
+          darksight: 0,
+          infravision: 0,
+          deadsight: 0,
+          echolocation: 0,
+          tremorsense: 0,
+          truesight: 0,
+          aethersight: 0
+        },
+        immunity: data.immunities || {
+          afraid: false,
+          bleeding: false,
+          blinded: false,
+          broken: false,
+          charmed: false,
+          confused: false,
+          dazed: false,
+          deafened: false,
+          diseased: false,
+          hidden: false,
+          ignited: false,
+          impaired: false,
+          incapacitated: false,
+          maddened: false,
+          muted: false,
+          numbed: false,
+          poisoned: false,
+          prone: false,
+          stunned: false,
+          winded: false
+        },
+
+        // Skills template fields (flattened into system, matching character export)
+        basic: {
+          fitness: {
+            value: data.skills?.fitness?.value || data.skills?.fitness || 0,
+            tier: data.skills?.fitness?.tier || 0,
+            attribute: "physique"
+          },
+          deflection: {
+            value: data.skills?.deflection?.value || data.skills?.deflection || 0,
+            tier: data.skills?.deflection?.tier || 0,
+            attribute: "physique"
+          },
+          might: {
+            value: data.skills?.might?.value || data.skills?.might || 0,
+            tier: data.skills?.might?.tier || 0,
+            attribute: "physique"
+          },
+          endurance: {
+            value: data.skills?.endurance?.value || data.skills?.endurance || 0,
+            tier: data.skills?.endurance?.tier || 0,
+            attribute: "physique"
+          },
+          evasion: {
+            value: data.skills?.evasion?.value || data.skills?.evasion || 0,
+            tier: data.skills?.evasion?.tier || 0,
+            attribute: "finesse"
+          },
+          stealth: {
+            value: data.skills?.stealth?.value || data.skills?.stealth || 0,
+            tier: data.skills?.stealth?.tier || 0,
+            attribute: "finesse"
+          },
+          coordination: {
+            value: data.skills?.coordination?.value || data.skills?.coordination || 0,
+            tier: data.skills?.coordination?.tier || 0,
+            attribute: "finesse"
+          },
+          thievery: {
+            value: data.skills?.thievery?.value || data.skills?.thievery || 0,
+            tier: data.skills?.thievery?.tier || 0,
+            attribute: "finesse"
+          },
+          resilience: {
+            value: data.skills?.resilience?.value || data.skills?.resilience || 0,
+            tier: data.skills?.resilience?.tier || 0,
+            attribute: "mind"
+          },
+          concentration: {
+            value: data.skills?.concentration?.value || data.skills?.concentration || 0,
+            tier: data.skills?.concentration?.tier || 0,
+            attribute: "mind"
+          },
+          senses: {
+            value: data.skills?.senses?.value || data.skills?.senses || 0,
+            tier: data.skills?.senses?.tier || 0,
+            attribute: "mind"
+          },
+          logic: {
+            value: data.skills?.logic?.value || data.skills?.logic || 0,
+            tier: data.skills?.logic?.tier || 0,
+            attribute: "mind"
+          },
+          wildcraft: {
+            value: data.skills?.wildcraft?.value || data.skills?.wildcraft || 0,
+            tier: data.skills?.wildcraft?.tier || 0,
+            attribute: "knowledge"
+          },
+          academics: {
+            value: data.skills?.academics?.value || data.skills?.academics || 0,
+            tier: data.skills?.academics?.tier || 0,
+            attribute: "knowledge"
+          },
+          magic: {
+            value: data.skills?.magic?.value || data.skills?.magic || 0,
+            tier: data.skills?.magic?.tier || 0,
+            attribute: "knowledge"
+          },
+          medicine: {
+            value: data.skills?.medicine?.value || data.skills?.medicine || 0,
+            tier: data.skills?.medicine?.tier || 0,
+            attribute: "knowledge"
+          },
+          expression: {
+            value: data.skills?.expression?.value || data.skills?.expression || 0,
+            tier: data.skills?.expression?.tier || 0,
+            attribute: "social"
+          },
+          presence: {
+            value: data.skills?.presence?.value || data.skills?.presence || 0,
+            tier: data.skills?.presence?.tier || 0,
+            attribute: "social"
+          },
+          insight: {
+            value: data.skills?.insight?.value || data.skills?.insight || 0,
+            tier: data.skills?.insight?.tier || 0,
+            attribute: "social"
+          },
+          persuasion: {
+            value: data.skills?.persuasion?.value || data.skills?.persuasion || 0,
+            tier: data.skills?.persuasion?.tier || 0,
+            attribute: "social"
+          }
+        },
+        weapon: {
+          brawling: {
+            value: 0,
+            talent: 1
+          },
+          throwing: {
+            value: 0,
+            talent: 1
+          },
+          simpleMeleeWeapons: {
+            value: 0,
+            talent: 1
+          },
+          simpleRangedWeapons: {
+            value: 0,
+            talent: 1
+          },
+          complexMeleeWeapons: {
+            value: 0,
+            talent: 0
+          },
+          complexRangedWeapons: {
+            value: 0,
+            talent: 0
+          }
+        },
+        magic: {
+          black: {
+            value: 0,
+            talent: 0
+          },
+          primal: {
+            value: 0,
+            talent: 0
+          },
+          metamagic: {
+            value: 0,
+            talent: 0
+          },
+          divine: {
+            value: 0,
+            talent: 0
+          },
+          mysticism: {
+            value: 0,
+            talent: 0
+          }
+        },
+        crafting: {
+          engineering: {
+            value: 0,
+            talent: 0
+          },
+          fabrication: {
+            value: 0,
+            talent: 0
+          },
+          alchemy: {
+            value: 0,
+            talent: 0
+          },
+          cooking: {
+            value: 0,
+            talent: 0
+          },
+          glyphcraft: {
+            value: 0,
+            talent: 0
+          },
+          bioshaping: {
+            value: 0,
+            talent: 0
+          }
+        },
+        music: {
+          percussion: {
+            value: 0,
+            talent: 0
+          },
+          strings: {
+            value: 0,
+            talent: 0
+          },
+          wind: {
+            value: 0,
+            talent: 0
+          },
+          vocals: {
+            value: 0,
+            talent: 0
+          },
+          brass: {
+            value: 0,
+            talent: 0
+          }
+        }
       };
       break;
 
@@ -592,10 +1107,32 @@ router.get('/injuries', async (req, res) => {
   }
 });
 
+// Get all creatures for Foundry
+router.get('/creatures', async (req, res) => {
+  try {
+    const creatures = await Creature.find({}).populate('spells');
+    const foundryCreatures = creatures.map(creature => convertToFoundryFormat(creature.toObject(), 'creature'));
+
+    res.json({
+      type: 'compendium-data',
+      documentType: 'Actor',
+      data: foundryCreatures,
+      metadata: {
+        count: foundryCreatures.length,
+        version: "1.0.0",
+        lastUpdated: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching creatures for Foundry:', error);
+    res.status(500).json({ error: 'Failed to fetch creatures' });
+  }
+});
+
 // Get all data in one call (for bulk updates)
 router.get('/all', async (req, res) => {
   try {
-    const [modules, ancestries, cultures, traits, items, spells, songs, languages, injuries] = await Promise.all([
+    const [modules, ancestries, cultures, traits, items, spells, songs, languages, injuries, creatures] = await Promise.all([
       Module.find({}),
       Ancestry.find({}),
       Culture.find({}),
@@ -604,7 +1141,8 @@ router.get('/all', async (req, res) => {
       Spell.find({}),
       Song.find({}),
       Language.find({}),
-      Injury.find({})
+      Injury.find({}),
+      Creature.find({}).populate('spells')
     ]);
 
     const foundryData = {
@@ -616,7 +1154,8 @@ router.get('/all', async (req, res) => {
       spells: spells.map(s => convertToFoundryFormat(s.toObject(), 'spell')),
       songs: songs.map(s => convertToFoundryFormat(s.toObject(), 'song')),
       languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language')),
-      injuries: injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury'))
+      injuries: injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury')),
+      creatures: creatures.map(c => convertToFoundryFormat(c.toObject(), 'creature'))
     };
 
     res.json({
@@ -632,7 +1171,8 @@ router.get('/all', async (req, res) => {
           spells: foundryData.spells.length,
           songs: foundryData.songs.length,
           languages: foundryData.languages.length,
-          injuries: foundryData.injuries.length
+          injuries: foundryData.injuries.length,
+          creatures: foundryData.creatures.length
         },
         version: "1.0.0",
         lastUpdated: new Date().toISOString()
@@ -679,6 +1219,7 @@ router.get('/', (req, res) => {
       '/fvtt/songs',
       '/fvtt/languages',
       '/fvtt/injuries',
+      '/fvtt/creatures',
       '/fvtt/all',
       '/fvtt/datakey'
     ]

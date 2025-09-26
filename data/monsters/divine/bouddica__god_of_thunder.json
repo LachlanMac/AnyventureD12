@@ -1,0 +1,303 @@
+{
+  "name": "Bouddica, God of Thunder",
+  "description": "The Goddess of Thunder takes many forms...",
+  "tactics": "Bouddica opens combat from the air, unleashing storms while keeping distance. She crashes down with thunderous strikes only after softening foes with lightning and charm magic, using her mobility to stay out of reach and punish clustered enemies.",
+  "tier": "legend",
+  "type": "divine",
+  "size": "huge",
+  "foundry_portrait": "bouddica.png",
+  "health": {
+    "max": 100,
+    "current": 15
+  },
+  "energy": {
+    "max": 10,
+    "current": 5,
+    "recovery": 7
+  },
+  "resolve": {
+    "max": 50,
+    "current": 5,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 8,
+    "climb": 0,
+    "swim": 0,
+    "fly": 12
+  },
+  "attributes": {
+    "physique": {
+      "talent": 4
+    },
+    "finesse": {
+      "talent": 3
+    },
+    "mind": {
+      "talent": 4
+    },
+    "knowledge": {
+      "talent": 3
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 4,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 4,
+      "tier": 0
+    },
+    "might": {
+      "value": 6,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 4,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 3,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 0,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 5,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 1,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 5,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 6,
+      "tier": 0
+    },
+    "senses": {
+      "value": 4,
+      "tier": 0
+    },
+    "logic": {
+      "value": 3,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 1,
+      "tier": 0
+    },
+    "academics": {
+      "value": 3,
+      "tier": 0
+    },
+    "magic": {
+      "value": 5,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 1,
+      "tier": 0
+    },
+    "expression": {
+      "value": 1,
+      "tier": 0
+    },
+    "presence": {
+      "value": 5,
+      "tier": 0
+    },
+    "insight": {
+      "value": 4,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 3,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 15,
+    "cold": 8,
+    "heat": 8,
+    "electric": 8,
+    "psychic": 8,
+    "dark": 10,
+    "divine": 20,
+    "aether": 8,
+    "toxic": 10
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {},
+  "actions": [
+    {
+      "name": "Lightning Slash",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "This is a basic attack",
+      "reaction": false,
+      "basic": true,
+      "attack": {
+        "roll": "2d6",
+        "damage": "8",
+        "damage_extra": "5",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1,
+        "secondary_damage": "4",
+        "secondary_damage_extra": "4",
+        "secondary_damage_type": "electric"
+      }
+    },
+    {
+      "name": "Befriendment",
+      "cost": 3,
+      "type": "spell",
+      "magic": true,
+      "description": "You target an adjacent creature and charm them for the next minute if they fail a resilience check of 9. If this spell fails, both you and the target take 5 psychic damage. A creature can only be the target of this spell once per day.",
+      "reaction": false,
+      "basic": false,
+      "spell": {
+        "roll": "2d8",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "dark",
+        "target_defense": "evasion",
+        "defense_difficulty": 6,
+        "min_range": 0,
+        "max_range": 3,
+        "charge": "If this spell fails, no damage is done and the target is not aware you channeled a spell unless they make a magic or logic check of 10.",
+        "duration": "1 minute",
+        "range": "1",
+        "school": "meta",
+        "subschool": "fey",
+        "checkToCast": 9,
+        "components": [
+          "Jar of Honey"
+        ],
+        "ritualDuration": "1 hour",
+        "concentration": false,
+        "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"
+      }
+    },
+    {
+      "name": "Utility",
+      "cost": 1,
+      "type": "utility",
+      "magic": false,
+      "description": "This is just a utility",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Elastic Limbs",
+      "cost": 1,
+      "type": "spell",
+      "magic": true,
+      "description": "You target an adjacent creature and cause their limbs to be able to stretch and distort beyond their normal means. For the next minute, this creature can make melee attacks at a nearby (1 unit) range.",
+      "reaction": false,
+      "basic": false,
+      "spell": {
+        "roll": "2d8",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "dark",
+        "target_defense": "evasion",
+        "defense_difficulty": 6,
+        "min_range": 0,
+        "max_range": 3,
+        "charge": "The target of this spell also gains a bonus dice to all physique checks.",
+        "duration": "1 Minute",
+        "range": "1",
+        "school": "meta",
+        "subschool": "transmutation",
+        "checkToCast": 3,
+        "components": [
+          "Rubber Sap"
+        ],
+        "ritualDuration": "1 hour",
+        "concentration": false,
+        "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
+      }
+    },
+    {
+      "name": "EEEbers",
+      "cost": 4,
+      "type": "attack",
+      "magic": false,
+      "description": "Okay dudoe",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Jackup",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "This is a death sentence",
+      "reaction": true,
+      "basic": false,
+      "attack": {
+        "roll": "1d12",
+        "damage": "4",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 1
+      },
+      "trigger": "asfsdaf"
+    }
+  ],
+  "traits": [
+    {
+      "name": "ThE GOD OF THUNDER",
+      "description": "Kills everyone"
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 4,
+  "source": "Official",
+  "isHomebrew": false
+}

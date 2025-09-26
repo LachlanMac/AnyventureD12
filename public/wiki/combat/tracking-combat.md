@@ -25,7 +25,7 @@ When all participants have taken their turns, the round is over and the next beg
 ### Initiative
 
 At the start of combat, player characters and significant enemies roll an initiative check to determine what phase they act in. Minions and grunts do not roll initiative and always act in the late phase. 
-An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiatve is decide the order the characters act in.
+An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiate is decide the order the characters act in.
 After rolling an initiative check, compare the result to this table to decide where the characters act.
 
 <br>

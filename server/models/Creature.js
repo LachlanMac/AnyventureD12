@@ -55,6 +55,53 @@ const actionSchema = new mongoose.Schema({
   }
 }, { _id: false });
 
+const movementSchema = new mongoose.Schema({
+  walk: { type: Number, min: 0, required: true },
+  climb: { type: Number, min: 0, default: 0 },
+  swim: { type: Number, min: 0, default: 0 },
+  fly: { type: Number, min: 0, default: 0 }
+}, { _id: false });
+
+const toNonNegativeNumber = (value, fallback = 0) => {
+  const parsed = Number(value);
+  if (!Number.isFinite(parsed) || parsed < 0) {
+    return fallback;
+  }
+  return parsed;
+};
+
+const normalizeMovement = (movement) => {
+  if (movement == null) {
+    return movement;
+  }
+
+  if (typeof movement === 'number') {
+    const normalized = toNonNegativeNumber(movement, 0);
+    return {
+      walk: normalized,
+      climb: 0,
+      swim: 0,
+      fly: 0
+    };
+  }
+
+  if (typeof movement === 'object') {
+    return {
+      walk: toNonNegativeNumber(movement.walk, 0),
+      climb: toNonNegativeNumber(movement.climb, 0),
+      swim: toNonNegativeNumber(movement.swim, 0),
+      fly: toNonNegativeNumber(movement.fly, 0)
+    };
+  }
+
+  return {
+    walk: 0,
+    climb: 0,
+    swim: 0,
+    fly: 0
+  };
+};
+
 const reactionSchema = new mongoose.Schema({
   name: { type: String, required: true },
   cost: { type: Number, required: true },
@@ -79,7 +126,7 @@ const creatureSchema = new mongoose.Schema({
   type: {
     type: String,
     required: true,
-    enum: ['fiend', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental']
+    enum: ['dark', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental', 'beast']
   },
   size: {
     type: String,
@@ -100,7 +147,7 @@ const creatureSchema = new mongoose.Schema({
     current: { type: Number, required: true },
     recovery: { type: Number, default: 1 }
   },
-  movement: { type: Number, required: true },
+  movement: { type: movementSchema, required: true },
   
   // Attributes
   attributes: {
@@ -121,28 +168,88 @@ const creatureSchema = new mongoose.Schema({
     }
   },
 
-  // Skills (basic only, no weapon/magic/craft)
+  // Skills (basic only, no weapon/magic/craft) - now with nested structure
   skills: {
-    fitness: { type: Number, min: 0, max: 6, default: 0 },
-    deflection: { type: Number, min: 0, max: 6, default: 0 },
-    might: { type: Number, min: 0, max: 6, default: 0 },
-    endurance: { type: Number, min: 0, max: 6, default: 0 },
-    evasion: { type: Number, min: 0, max: 6, default: 0 },
-    stealth: { type: Number, min: 0, max: 6, default: 0 },
-    coordination: { type: Number, min: 0, max: 6, default: 0 },
-    thievery: { type: Number, min: 0, max: 6, default: 0 },
-    resilience: { type: Number, min: 0, max: 6, default: 0 },
-    concentration: { type: Number, min: 0, max: 6, default: 0 },
-    senses: { type: Number, min: 0, max: 6, default: 0 },
-    logic: { type: Number, min: 0, max: 6, default: 0 },
-    wildcraft: { type: Number, min: 0, max: 6, default: 0 },
-    academics: { type: Number, min: 0, max: 6, default: 0 },
-    magic: { type: Number, min: 0, max: 6, default: 0 },
-    medicine: { type: Number, min: 0, max: 6, default: 0 },
-    expression: { type: Number, min: 0, max: 6, default: 0 },
-    presence: { type: Number, min: 0, max: 6, default: 0 },
-    insight: { type: Number, min: 0, max: 6, default: 0 },
-    persuasion: { type: Number, min: 0, max: 6, default: 0 }
+    fitness: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    deflection: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    might: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    endurance: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    evasion: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    stealth: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    coordination: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    thievery: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    resilience: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    concentration: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    senses: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    logic: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    wildcraft: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    academics: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    magic: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    medicine: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    expression: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    presence: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    insight: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    },
+    persuasion: {
+      value: { type: Number, min: 0, max: 6, default: 0 },
+      tier: { type: Number, min: -1, max: 1, default: 0 }
+    }
   },
 
   // Defenses
@@ -210,6 +317,17 @@ const creatureSchema = new mongoose.Schema({
     description: { type: String }
   }],
 
+  // Foundry integration
+  foundry_id: {
+    type: String,
+    unique: true,
+    sparse: true
+  },
+  foundry_portrait: {
+    type: String,
+    default: ''
+  },
+
   // Metadata
   source: { type: String, default: 'Official' },
   creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
@@ -233,6 +351,9 @@ const creatureSchema = new mongoose.Schema({
 }, {
   timestamps: true
 });
+
+creatureSchema.path('movement').set(normalizeMovement);
+creatureSchema.path('movement').get((movement) => normalizeMovement(movement));
 
 // Index for searching
 creatureSchema.index({ name: 'text', description: 'text' });

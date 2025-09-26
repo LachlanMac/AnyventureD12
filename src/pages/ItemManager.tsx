@@ -105,9 +105,10 @@ const ItemManager: React.FC = () => {
     { value: 3, label: 'Very Short' },
     { value: 4, label: 'Short' },
     { value: 5, label: 'Moderate' },
-    { value: 6, label: 'Distant' },
-    { value: 7, label: 'Remote' },
-    { value: 8, label: 'Unlimited' },
+    { value: 6, label: 'Far' },
+    { value: 7, label: 'Very Far' },
+    { value: 8, label: 'Distant' },
+    { value: 9, label: 'Unlimited' },
   ];
 
   const detectionTypes = [

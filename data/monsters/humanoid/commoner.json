@@ -5,6 +5,7 @@
   "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
+  "foundry_portrait": "scoundrel.png",
   "health": {
     "max": 15,
     "current": 15
@@ -19,7 +20,12 @@
     "current": 8,
     "recovery": 1
   },
-  "movement": 5,
+  "movement": {
+    "walk": 5,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
   "attributes": {
     "physique": {
       "talent": 1

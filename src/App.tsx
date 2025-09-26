@@ -41,6 +41,7 @@ import HomebrewSpellBrowser from './pages/HomebrewSpellBrowser';
 import HomebrewSpellCreator from './pages/HomebrewSpellCreator';
 import HomebrewCreatureBrowser from './pages/HomebrewCreatureBrowser';
 import HomebrewCreatureCreator from './pages/HomebrewCreatureCreator';
+import DevCreatureDesigner from './pages/DevCreatureDesigner';
 import Bestiary from './pages/Bestiary';
 import CreatureDetail from './pages/CreatureDetail';
 import Profile from './pages/Profile';
@@ -387,6 +388,14 @@ const App: React.FC = () => {
                     element={
                       <MainLayout>
                         <HomebrewCreatureCreator />
+                      </MainLayout>
+                    }
+                  />
+                  <Route
+                    path="/dev/creature-designer"
+                    element={
+                      <MainLayout>
+                        <DevCreatureDesigner />
                       </MainLayout>
                     }
                   />

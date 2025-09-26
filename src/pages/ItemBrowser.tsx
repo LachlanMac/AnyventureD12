@@ -25,9 +25,10 @@ const getRangeDescription = (minRange: number, maxRange: number): string => {
     3: 'Very Short',
     4: 'Short',
     5: 'Moderate',
-    6: 'Distant',
-    7: 'Remote',
-    8: 'Unlimited',
+    6: 'Far',
+    7: 'Very Far',
+    8: 'Distant',
+    9: 'Unlimited',
   };
 
   // Get descriptive names

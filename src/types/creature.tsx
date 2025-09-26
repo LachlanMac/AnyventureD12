@@ -76,6 +76,13 @@ export interface CreatureCustomSpell {
   max_range: number;
 }
 
+export interface CreatureMovement {
+  walk: number;
+  climb: number;
+  swim: number;
+  fly: number;
+}
+
 export interface CreatureAttributes {
   physique: { talent: number };
   finesse: { talent: number };
@@ -106,7 +113,7 @@ export interface Creature {
     current: number;
     recovery: number;
   };
-  movement: number;
+  movement: CreatureMovement;
   attributes: CreatureAttributes;
   skills: Record<string, number>;
   mitigation: Record<string, number>;

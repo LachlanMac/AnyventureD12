@@ -1,0 +1,32 @@
+{
+  "name": "Hunter",
+  "description": "A skilled tracker and archer who lives off the land. Equipped for wilderness survival and ranged combat.",
+  "gold": 1,
+  "silver": 15,
+  "items": [
+    {
+      "base_item": "Short Bow",
+      "quantity": 1
+    },
+    {
+      "base_item": "arrows",
+      "quantity": 30
+    },
+    {
+      "base_item": "Skinning Knife",
+      "quantity": 1
+    },
+    {
+      "base_item": "Leather Armor",
+      "quantity": 1
+    },
+    {
+      "base_item": "hunting_trap",
+      "quantity": 3
+    },
+    {
+      "base_item": "wilderness_pack",
+      "quantity": 1
+    }
+  ]
+}

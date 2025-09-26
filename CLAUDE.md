@@ -137,8 +137,9 @@ Nearby	1	Just out of arm’s reach
 Very Short 2-5  Close AF
 Short	6–10	Easily reached with effort
 Moderate	11–20	Noticeable gap; needs focus
-Distant	21–40	Clearly far; limited detail
-Remote	41–100	Hard to perceive clearly
+Far	21–40	Clearly far; limited detail
+Very Far	41–60	Clearly far; limited detail
+Distant	61–100	Hard to perceive clearly
 A longbow may have a Distant range, giving a penalty for anything outside of it. 
 Spells work in a similar way.  here are the types of magic:
 Magic Types: Black, Primal, Metamagic, Divine, Mysticism

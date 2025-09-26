@@ -834,6 +834,45 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
             </button>
           </div>
 
+          {/* Wealth Display */}
+          <div style={{
+            marginBottom: '1rem',
+            padding: '0.75rem',
+            backgroundColor: 'var(--color-dark-elevated)',
+            borderRadius: '6px',
+            border: '1px solid var(--color-dark-border)'
+          }}>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+              <h4 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Wealth</h4>
+              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{
+                    color: '#FFD700',
+                    fontWeight: 'bold',
+                    fontSize: '1rem'
+                  }}>
+                    ⚜
+                  </span>
+                  <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                    {character.wealth?.gold || 0} Gold
+                  </span>
+                </div>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span style={{
+                    color: '#C0C0C0',
+                    fontWeight: 'bold',
+                    fontSize: '1rem'
+                  }}>
+                    ◉
+                  </span>
+                  <span style={{ color: 'var(--color-cloud)' }}>
+                    {character.wealth?.silver || 0} Silver
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Filters */}
           <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
             <input

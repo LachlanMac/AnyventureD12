@@ -1,5 +1,5 @@
 import { apiClient } from './client';
-import type { Creature } from '../types/creature';
+import type { Creature, CreatureMovement } from '../types/creature';
 
 export interface CreatureFilters {
   search?: string;
@@ -27,7 +27,7 @@ export interface CreateCreatureData {
   health: { max: number; current: number };
   energy: { max: number; current: number; recovery: number };
   resolve: { max: number; current: number; recovery: number };
-  movement: number;
+  movement: CreatureMovement;
   attributes: Record<string, { talent: number }>;
   skills: Record<string, number>;
   mitigation: Record<string, number>;

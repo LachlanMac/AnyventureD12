@@ -435,8 +435,10 @@ const HomebrewSpellCreator: React.FC = () => {
                       <option value="Very Short">Very Short</option>
                       <option value="Short">Short</option>
                       <option value="Moderate">Moderate</option>
+                      <option value="Far">Far</option>
+                      <option value="Very Far">Far</option>
                       <option value="Distant">Distant</option>
-                      <option value="Remote">Remote</option>
+                    
                     </select>
                   </div>
 

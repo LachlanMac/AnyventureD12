@@ -1,0 +1,36 @@
+{
+  "name": "Soldier",
+  "description": "A trained military fighter with quality equipment and combat experience. Well-armed and armored for frontline warfare.",
+  "gold": 15,
+  "silver": 35,
+  "items": [
+    {
+      "base_item": "longsword",
+      "quantity": 1
+    },
+    {
+      "base_item": "crossbow",
+      "quantity": 1
+    },
+    {
+      "base_item": "bolts",
+      "quantity": 20
+    },
+    {
+      "base_item": "chain_mail",
+      "quantity": 1
+    },
+    {
+      "base_item": "heavy_shield",
+      "quantity": 1
+    },
+    {
+      "base_item": "military_pack",
+      "quantity": 1
+    },
+    {
+      "base_item": "field_rations",
+      "quantity": 5
+    }
+  ]
+}

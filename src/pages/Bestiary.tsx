@@ -6,6 +6,18 @@ import ErrorState from '../components/ui/ErrorState';
 import EmptyState from '../components/ui/EmptyState';
 import TalentDisplay from '../components/character/TalentDisplay';
 import { useCreatures, useCreatureStats } from '../hooks/useCreatures';
+import type { CreatureMovement } from '../types/creature';
+
+const formatMovementSpeeds = (movement: CreatureMovement) => {
+  const segments = [
+    `Walk ${movement.walk}`,
+    movement.climb > 0 ? `Climb ${movement.climb}` : null,
+    movement.swim > 0 ? `Swim ${movement.swim}` : null,
+    movement.fly > 0 ? `Fly ${movement.fly}` : null,
+  ].filter(Boolean);
+
+  return segments.join(' · ');
+};
 
 const Bestiary: React.FC = () => {
   const [currentPage, setCurrentPage] = useState(1);
@@ -464,7 +476,7 @@ const Bestiary: React.FC = () => {
                                 Move:{' '}
                               </span>
                               <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                                {creature.movement}
+                                {formatMovementSpeeds(creature.movement)}
                               </span>
                             </div>
                           </div>

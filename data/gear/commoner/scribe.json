@@ -1,0 +1,32 @@
+{
+  "name": "Scribe",
+  "description": "A learned individual who records information and maintains written records. Equipped with writing tools and scholarly materials.",
+  "gold": 5,
+  "silver": 20,
+  "items": [
+    {
+      "base_item": "writing_kit",
+      "quantity": 1
+    },
+    {
+      "base_item": "ink_and_quill",
+      "quantity": 3
+    },
+    {
+      "base_item": "blank_parchment",
+      "quantity": 20
+    },
+    {
+      "base_item": "seal_and_wax",
+      "quantity": 1
+    },
+    {
+      "base_item": "simple_robes",
+      "quantity": 1
+    },
+    {
+      "base_item": "scholar_pack",
+      "quantity": 1
+    }
+  ]
+}

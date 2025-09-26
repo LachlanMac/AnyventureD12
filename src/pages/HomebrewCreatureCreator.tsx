@@ -4,6 +4,7 @@ import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
+import type { CreatureMovement } from '../types/creature';
 
 interface CreatureAction {
   name: string;
@@ -35,6 +36,18 @@ interface CreatureAction {
     defense_difficulty: number;
     min_range: number;
     max_range: number;
+    // Full spell fields
+    charge?: string;
+    duration?: string;
+    range?: string;
+    school?: 'meta' | 'black' | 'divine' | 'mysticism' | 'primal';
+    subschool?: string;
+    checkToCast?: number;
+    components?: string[];
+    ritualDuration?: string;
+    concentration?: boolean;
+    reaction?: boolean;
+    foundry_icon?: string;
   };
 }
 
@@ -49,6 +62,51 @@ interface CreatureTrait {
   name: string;
   description: string;
 }
+
+const defaultCreatureMovement: CreatureMovement = {
+  walk: 5,
+  climb: 0,
+  swim: 0,
+  fly: 0,
+};
+
+const normalizeMovement = (
+  movement?: Partial<CreatureMovement> | number | null
+): CreatureMovement => {
+  if (movement == null) {
+    return { ...defaultCreatureMovement };
+  }
+
+  if (typeof movement === 'number') {
+    return {
+      walk: movement,
+      climb: 0,
+      swim: 0,
+      fly: 0,
+    };
+  }
+
+  return {
+    walk: typeof movement.walk === 'number' ? Math.max(0, movement.walk) : 0,
+    climb: typeof movement.climb === 'number' ? Math.max(0, movement.climb) : 0,
+    swim: typeof movement.swim === 'number' ? Math.max(0, movement.swim) : 0,
+    fly: typeof movement.fly === 'number' ? Math.max(0, movement.fly) : 0,
+  };
+};
+
+type ResourceState = {
+  health: { max: number; current: number };
+  energy: { max: number; current: number; recovery: number };
+  resolve: { max: number; current: number; recovery: number };
+  movement: CreatureMovement;
+};
+
+const defaultResourceState: ResourceState = {
+  health: { max: 15, current: 15 },
+  energy: { max: 5, current: 5, recovery: 2 },
+  resolve: { max: 10, current: 10, recovery: 1 },
+  movement: { ...defaultCreatureMovement },
+};
 
 const HomebrewCreatureCreator: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -75,7 +133,7 @@ const HomebrewCreatureCreator: React.FC = () => {
       | 'legend'
       | 'mythic',
     type: 'humanoid' as
-      | 'fiend'
+      | 'dark'
       | 'undead'
       | 'divine'
       | 'monster'
@@ -83,7 +141,8 @@ const HomebrewCreatureCreator: React.FC = () => {
       | 'construct'
       | 'plantoid'
       | 'fey'
-      | 'elemental',
+      | 'elemental'
+      | 'beast',
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
     languages: [] as string[],
@@ -95,12 +154,14 @@ const HomebrewCreatureCreator: React.FC = () => {
   });
 
   // Resources
-  const [resources, setResources] = useState({
-    health: { max: 15, current: 15 },
-    energy: { max: 5, current: 5, recovery: 2 },
-    resolve: { max: 10, current: 10, recovery: 1 },
-    movement: 5,
-  });
+  const [resources, setResources] = useState<ResourceState>(
+    {
+      health: { ...defaultResourceState.health },
+      energy: { ...defaultResourceState.energy },
+      resolve: { ...defaultResourceState.resolve },
+      movement: { ...defaultCreatureMovement },
+    }
+  );
 
   // Attributes
   const [attributes, setAttributes] = useState({
@@ -208,6 +269,13 @@ const HomebrewCreatureCreator: React.FC = () => {
 
       const creature = await response.json();
 
+      const resolvedResources: ResourceState = {
+        health: creature.health ? { ...creature.health } : { ...defaultResourceState.health },
+        energy: creature.energy ? { ...creature.energy } : { ...defaultResourceState.energy },
+        resolve: creature.resolve ? { ...creature.resolve } : { ...defaultResourceState.resolve },
+        movement: normalizeMovement(creature.movement || creature.resources?.movement),
+      };
+
       // Populate form with existing data
       setCreatureData({
         name: creature.name,
@@ -225,7 +293,12 @@ const HomebrewCreatureCreator: React.FC = () => {
         balanceNotes: creature.balanceNotes || '',
       });
 
-      setResources(creature.resources || resources);
+      setResources({
+        health: { ...resolvedResources.health },
+        energy: { ...resolvedResources.energy },
+        resolve: { ...resolvedResources.resolve },
+        movement: { ...resolvedResources.movement },
+      });
       setAttributes(creature.attributes || attributes);
       setSkills(creature.skills || skills);
       setMitigation(creature.mitigation || mitigation);
@@ -266,7 +339,7 @@ const HomebrewCreatureCreator: React.FC = () => {
         health: resources.health,
         energy: resources.energy,
         resolve: resources.resolve,
-        movement: resources.movement,
+        movement: { ...resources.movement },
         attributes,
         skills,
         mitigation,
@@ -950,27 +1023,164 @@ const HomebrewCreatureCreator: React.FC = () => {
                       marginBottom: '0.5rem',
                     }}
                   >
-                    Movement
+                    Movement Speeds
                   </label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={resources.movement}
-                    onChange={(e) =>
-                      setResources((prev) => ({
-                        ...prev,
-                        movement: parseInt(e.target.value) || 0,
-                      }))
-                    }
+                  <div
                     style={{
-                      width: '100%',
-                      padding: '0.75rem',
-                      backgroundColor: 'var(--color-dark-surface)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                      color: 'var(--color-white)',
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(2, 1fr)',
+                      gap: '0.75rem',
                     }}
-                  />
+                  >
+                    <div>
+                      <label
+                        style={{
+                          color: 'var(--color-cloud)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.75rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                        }}
+                      >
+                        Walk
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={resources.movement.walk}
+                        onChange={(e) => {
+                          const value = Math.max(0, parseInt(e.target.value, 10) || 0);
+                          setResources((prev) => ({
+                            ...prev,
+                            movement: {
+                              ...prev.movement,
+                              walk: value,
+                            },
+                          }));
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '0.75rem',
+                          backgroundColor: 'var(--color-dark-surface)',
+                          border: '1px solid var(--color-dark-border)',
+                          borderRadius: '0.375rem',
+                          color: 'var(--color-white)',
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        style={{
+                          color: 'var(--color-cloud)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.75rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                        }}
+                      >
+                        Climb
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={resources.movement.climb}
+                        onChange={(e) => {
+                          const value = Math.max(0, parseInt(e.target.value, 10) || 0);
+                          setResources((prev) => ({
+                            ...prev,
+                            movement: {
+                              ...prev.movement,
+                              climb: value,
+                            },
+                          }));
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '0.75rem',
+                          backgroundColor: 'var(--color-dark-surface)',
+                          border: '1px solid var(--color-dark-border)',
+                          borderRadius: '0.375rem',
+                          color: 'var(--color-white)',
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        style={{
+                          color: 'var(--color-cloud)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.75rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                        }}
+                      >
+                        Swim
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={resources.movement.swim}
+                        onChange={(e) => {
+                          const value = Math.max(0, parseInt(e.target.value, 10) || 0);
+                          setResources((prev) => ({
+                            ...prev,
+                            movement: {
+                              ...prev.movement,
+                              swim: value,
+                            },
+                          }));
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '0.75rem',
+                          backgroundColor: 'var(--color-dark-surface)',
+                          border: '1px solid var(--color-dark-border)',
+                          borderRadius: '0.375rem',
+                          color: 'var(--color-white)',
+                        }}
+                      />
+                    </div>
+                    <div>
+                      <label
+                        style={{
+                          color: 'var(--color-cloud)',
+                          display: 'block',
+                          marginBottom: '0.25rem',
+                          fontSize: '0.75rem',
+                          textTransform: 'uppercase',
+                          letterSpacing: '0.05em',
+                        }}
+                      >
+                        Fly
+                      </label>
+                      <input
+                        type="number"
+                        min="0"
+                        value={resources.movement.fly}
+                        onChange={(e) => {
+                          const value = Math.max(0, parseInt(e.target.value, 10) || 0);
+                          setResources((prev) => ({
+                            ...prev,
+                            movement: {
+                              ...prev.movement,
+                              fly: value,
+                            },
+                          }));
+                        }}
+                        style={{
+                          width: '100%',
+                          padding: '0.75rem',
+                          backgroundColor: 'var(--color-dark-surface)',
+                          border: '1px solid var(--color-dark-border)',
+                          borderRadius: '0.375rem',
+                          color: 'var(--color-white)',
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
 

@@ -1,0 +1,36 @@
+{
+  "name": "Mercenary",
+  "description": "A battle-hardened fighter for hire with versatile equipment. Well-funded and equipped for various combat situations.",
+  "gold": 20,
+  "silver": 30,
+  "items": [
+    {
+      "base_item": "bastard_sword",
+      "quantity": 1
+    },
+    {
+      "base_item": "crossbow",
+      "quantity": 1
+    },
+    {
+      "base_item": "bolts",
+      "quantity": 15
+    },
+    {
+      "base_item": "chain_mail",
+      "quantity": 1
+    },
+    {
+      "base_item": "buckler",
+      "quantity": 1
+    },
+    {
+      "base_item": "thieves_tools",
+      "quantity": 1
+    },
+    {
+      "base_item": "adventurer_pack",
+      "quantity": 1
+    }
+  ]
+}

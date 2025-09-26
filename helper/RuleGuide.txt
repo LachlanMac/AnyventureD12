@@ -73,7 +73,16 @@ Vision and Senses
 - Special senses: Darksight, Infravision, Deadsight, Echolocation, Tremorsense, Truesight (see wiki for definitions and detection ranges by category).
 
 Ranges and Distances
-- Range bands: Adjacent (0), Nearby (1), Very Short (2–5), Short (6–10), Moderate (11–20), Distant (21–40), Remote (41–100), Planar (Unlimited).
+- KEY  |  DESCRIPTION |  IN UNITS
+  1=Adjacent	    (0 unit)
+  2=Nearby	      (1 unit)
+  3=Very Short    (2-5 units)
+  4=Short         (6-10 units)
+  5=Moderate      (11-20 units)
+  6=Far           (21-40 units)
+  7=Very Far      (41-60 units)
+  8=Distant       (61-100 units)
+  9=Unlimited     
 - Optimal ranges: Ranged/throwing weapons list optimal min/max bands. One band outside optimal imposes 2 penalty dice. Cannot attack beyond one band outside maximum; minimum can be attempted with penalty as above.
 
 Combat Structure

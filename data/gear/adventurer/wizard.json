@@ -1,0 +1,36 @@
+{
+  "name": "Wizard",
+  "description": "A learned spellcaster with arcane knowledge and magical implements. Equipped with spell components and scholarly tools.",
+  "gold": 12,
+  "silver": 40,
+  "items": [
+    {
+      "base_item": "quarterstaff",
+      "quantity": 1
+    },
+    {
+      "base_item": "dagger",
+      "quantity": 2
+    },
+    {
+      "base_item": "wizard_robes",
+      "quantity": 1
+    },
+    {
+      "base_item": "spellbook",
+      "quantity": 1
+    },
+    {
+      "base_item": "spell_components_pouch",
+      "quantity": 1
+    },
+    {
+      "base_item": "arcane_focus",
+      "quantity": 1
+    },
+    {
+      "base_item": "scholar_pack",
+      "quantity": 1
+    }
+  ]
+}

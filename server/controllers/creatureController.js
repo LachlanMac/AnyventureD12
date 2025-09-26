@@ -157,7 +157,7 @@ const getCreaturesByType = async (req, res) => {
     const { type } = req.params;
     const { page = 1, limit = 20 } = req.query;
 
-    const validTypes = ['fiend', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental'];
+    const validTypes = ['dark', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental', 'beast'];
     if (!validTypes.includes(type)) {
       return res.status(400).json({ message: 'Invalid creature type' });
     }

@@ -1,0 +1,28 @@
+{
+  "name": "Thug",
+  "description": "A street-wise criminal who relies on intimidation and crude weapons. Has basic gear for survival and simple combat.",
+  "gold": 2,
+  "silver": 8,
+  "items": [
+    {
+      "base_item": "club",
+      "quantity": 1
+    },
+    {
+      "base_item": "dagger",
+      "quantity": 1
+    },
+    {
+      "base_item": "leather_armor",
+      "quantity": 1
+    },
+    {
+      "base_item": "crude_lockpicks",
+      "quantity": 1
+    },
+    {
+      "base_item": "traveler_pack",
+      "quantity": 1
+    }
+  ]
+}

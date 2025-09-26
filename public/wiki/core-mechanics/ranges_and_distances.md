@@ -16,8 +16,9 @@ When ranges are listed, for instance how far a ranged weapon can shoot or large 
 | Very Short| 2-5 |
 | Short     | 6-10 | 
 | Moderate  | 11-20 |
-| Distant   | 21-40 |  
-| Remote    | 40-100 |
+| Far       | 21-40 | 
+| Very Far  | 41-60 |
+| Distant    | 61-100 |
 | Planar    | Unlimited |
 
 ### Optimal Ranges

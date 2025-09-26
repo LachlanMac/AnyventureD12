@@ -16,9 +16,10 @@ export const RANGE_DEFINITIONS: RangeDefinition[] = [
   { id: 3, name: 'Very Short', units: '2-5 Units', minUnits: 2, maxUnits: 5 },
   { id: 4, name: 'Short', units: '6-10 Units', minUnits: 6, maxUnits: 10 },
   { id: 5, name: 'Moderate', units: '11-20 Units', minUnits: 11, maxUnits: 20 },
-  { id: 6, name: 'Distant', units: '21-40 Units', minUnits: 21, maxUnits: 40 },
-  { id: 7, name: 'Remote', units: '41-100 Units', minUnits: 41, maxUnits: 100 },
-  { id: 8, name: 'Planar', units: '101+ Units', minUnits: 101, maxUnits: Infinity },
+  { id: 6, name: 'Far', units: '21-40 Units', minUnits: 21, maxUnits: 40 },
+  { id: 7, name: 'Very Far', units: '41-60 Units', minUnits: 41, maxUnits: 60 },
+  { id: 8, name: 'Distant', units: '61-100 Units', minUnits: 61, maxUnits: 100 },
+  { id: 9, name: 'Planar', units: '101+ Units', minUnits: 101, maxUnits: Infinity },
 ];
 
 /**
@@ -37,9 +38,10 @@ export function unitToRangeId(units: number): number {
   if (units >= 2 && units <= 5) return 3; // Very Short
   if (units >= 6 && units <= 10) return 4; // Short
   if (units >= 11 && units <= 20) return 5; // Moderate
-  if (units >= 21 && units <= 40) return 6; // Distant
-  if (units >= 41 && units <= 100) return 7; // Remote
-  return 8; // Unlimited
+  if (units >= 21 && units <= 40) return 6; // Far
+  if (units >= 41 && units <= 60) return 7; // Very Far
+   if (units >= 61 && units <= 100) return 8; // Distant
+  return 9; // Unlimited
 }
 
 /**

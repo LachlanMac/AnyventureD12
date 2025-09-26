@@ -1,0 +1,36 @@
+{
+  "name": "Priest",
+  "description": "A devoted cleric with divine magic and healing abilities. Equipped with religious symbols and protective gear.",
+  "gold": 8,
+  "silver": 25,
+  "items": [
+    {
+      "base_item": "war_hammer",
+      "quantity": 1
+    },
+    {
+      "base_item": "holy_symbol",
+      "quantity": 1
+    },
+    {
+      "base_item": "scale_mail",
+      "quantity": 1
+    },
+    {
+      "base_item": "light_shield",
+      "quantity": 1
+    },
+    {
+      "base_item": "healing_potion",
+      "quantity": 3
+    },
+    {
+      "base_item": "prayer_book",
+      "quantity": 1
+    },
+    {
+      "base_item": "priest_pack",
+      "quantity": 1
+    }
+  ]
+}

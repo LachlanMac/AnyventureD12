@@ -36,6 +36,8 @@ const CharacterCreate: React.FC = () => {
   const [_traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
   const [traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
   const [previousTraitData, setPreviousTraitData] = useState<any>(null);
+  const [startingGearTier, setStartingGearTier] = useState<string>('');
+  const [startingGearPack, setStartingGearPack] = useState<string>('');
   // Define steps
   const steps = ['Basic Info', 'Attributes', 'Personality & Trait', 'Talents', 'Background'];
 
@@ -352,6 +354,11 @@ const CharacterCreate: React.FC = () => {
     setTalentStarsRemaining(newStartingTalents - currentSpentTalents);
   };
 
+  const handleStartingGearChange = (tier: string, pack: string) => {
+    setStartingGearTier(tier);
+    setStartingGearPack(pack);
+  };
+
   // Handle next step
   const handleNextStep = () => {
     if (validateStep()) {
@@ -446,6 +453,8 @@ const CharacterCreate: React.FC = () => {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,
         },
+        startingGearTier: startingGearTier,
+        startingGearPack: startingGearPack,
       };
 
       const response = await fetch(`/api/characters`, {
@@ -544,6 +553,8 @@ const CharacterCreate: React.FC = () => {
                 culture={character.culture}
                 modulePoints={character.modulePoints.total}
                 startingTalents={startingTalents}
+                startingGearTier={startingGearTier}
+                startingGearPack={startingGearPack}
                 onNameChange={(name) => updateCharacter('name', name)}
                 onRaceChange={handleRaceChange}
                 onCultureChange={handleCultureChange}
@@ -551,6 +562,7 @@ const CharacterCreate: React.FC = () => {
                   updateNestedField('modulePoints', 'total', points);
                 }}
                 onStartingTalentsChange={handleStartingTalentsChange}
+                onStartingGearChange={handleStartingGearChange}
               />
             )}
 

@@ -1,6 +1,9 @@
 import Character from '../models/Character.js';
+import Item from '../models/Item.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
 import { v4 as uuidv4 } from 'uuid';
+import fs from 'fs';
+import path from 'path';
 
 // Helper function to expand trait/ancestry options with subchoices
 const expandTraitOptions = (options) => {
@@ -112,6 +115,76 @@ export const getCharacter = async (req, res) => {
     res.status(500).json({ message: error.message });
   }
 };
+
+// Helper function to load starting gear pack
+const loadStartingGear = async (tier, pack) => {
+  if (!tier || !pack) return null;
+
+  try {
+    const gearFilePath = path.join(process.cwd(), 'data', 'gear', tier, `${pack}.json`);
+
+    if (!fs.existsSync(gearFilePath)) {
+      console.error(`Gear file not found: ${gearFilePath}`);
+      return null;
+    }
+
+    const gearData = JSON.parse(fs.readFileSync(gearFilePath, 'utf8'));
+    return gearData;
+  } catch (error) {
+    console.error('Error loading starting gear:', error);
+    return null;
+  }
+};
+
+// Helper function to apply starting gear to character
+const applyStartingGear = async (character, startingGearTier, startingGearPack) => {
+  const gearData = await loadStartingGear(startingGearTier, startingGearPack);
+
+  if (!gearData) return character;
+
+  console.log(`Applying starting gear: ${gearData.name}`);
+
+  // Add coins
+  if (gearData.gold) character.wealth.gold += gearData.gold;
+  if (gearData.silver) character.wealth.silver += gearData.silver;
+
+  // Process items
+  if (gearData.items && gearData.items.length > 0) {
+    for (const gearItem of gearData.items) {
+      try {
+        // Find the item in the database by name
+        const dbItem = await Item.findOne({ name: gearItem.base_item });
+
+        if (dbItem) {
+          // Create character item with the found database item
+          const characterItem = {
+            _id: uuidv4(),
+            name: dbItem.name,
+            description: dbItem.description,
+            type: dbItem.type,
+            subtype: dbItem.subtype,
+            price: dbItem.price,
+            weight: dbItem.weight,
+            data: dbItem.data,
+            quantity: gearItem.quantity || 1,
+            equipped: false,
+            source: 'starting_gear'
+          };
+
+          character.inventory.push(characterItem);
+          console.log(`Added item: ${characterItem.name} (x${characterItem.quantity})`);
+        } else {
+          console.warn(`Item not found in database: ${gearItem.base_item}`);
+        }
+      } catch (error) {
+        console.error(`Error adding item ${gearItem.base_item}:`, error);
+      }
+    }
+  }
+
+  return character;
+};
+
 // @desc    Create a new character
 // @route   POST /api/characters
 // @access  Private
@@ -125,19 +198,28 @@ export const createCharacter = async (req, res) => {
       return res.status(401).json({ message: 'Not authorized' });
     }
     
-    // Create a new character
-    const characterData = {
-      ...req.body,
+    // Extract starting gear from request body
+    const { startingGearTier, startingGearPack, ...characterData } = req.body;
+
+    // Create character data with user ID
+    const finalCharacterData = {
+      ...characterData,
       userId: userId.toString() // Set the user ID from the authenticated user as string
     };
 
     // Ensure languageSkills default is preserved if not provided
-    if (!characterData.languageSkills) {
-      characterData.languageSkills = new Map([['common', 2]]);
+    if (!finalCharacterData.languageSkills) {
+      finalCharacterData.languageSkills = new Map([['common', 2]]);
     }
 
-    const character = new Character(characterData);
-    
+    const character = new Character(finalCharacterData);
+
+    // Apply starting gear if provided (before saving)
+    // TODO: Implement starting gear system
+    // if (startingGearTier && startingGearPack) {
+    //   await applyStartingGear(character, startingGearTier, startingGearPack);
+    // }
+
     // If a trait is selected, populate it before saving so trait effects apply
     if (character.characterTrait) {
       await character.populate('characterTrait');

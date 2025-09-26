@@ -5,6 +5,7 @@
   "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
+  "foundry_portrait": "umbral_adherent.png",
   "health": {
     "max": 18,
     "current": 18
@@ -19,7 +20,12 @@
     "current": 12,
     "recovery": 2
   },
-  "movement": 4,
+  "movement": {
+    "walk": 4,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
   "attributes": {
     "physique": {
       "talent": 1
@@ -82,8 +88,8 @@
       "description": "The acolyte strikes with their wooden staff.",
       "attack": {
         "roll": "2d6",
-        "damage": "2",
-        "damage_extra": "1",
+        "damage": "3",
+        "damage_extra": "2",
         "damage_type": "physical",
         "category": "blunt",
         "min_range": 1,

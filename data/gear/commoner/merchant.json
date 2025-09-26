@@ -1,0 +1,32 @@
+{
+  "name": "Merchant",
+  "description": "A traveling trader with goods and coins to make deals. Well-equipped for social encounters and negotiations.",
+  "gold": 25,
+  "silver": 12,
+  "items": [
+    {
+      "base_item": "fine_clothes",
+      "quantity": 1
+    },
+    {
+      "base_item": "walking_stick",
+      "quantity": 1
+    },
+    {
+      "base_item": "merchant_scales",
+      "quantity": 1
+    },
+    {
+      "base_item": "ledger",
+      "quantity": 1
+    },
+    {
+      "base_item": "coin_purse",
+      "quantity": 1
+    },
+    {
+      "base_item": "trade_goods_bundle",
+      "quantity": 2
+    }
+  ]
+}

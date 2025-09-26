@@ -1,0 +1,36 @@
+{
+  "name": "Guard",
+  "description": "A professional watchman trained in basic combat and security. Equipped with standard protective gear and weapons.",
+  "gold": 3,
+  "silver": 12,
+  "items": [
+    {
+      "base_item": "Spear",
+      "quantity": 1
+    },
+    {
+      "base_item": "Short Sword",
+      "quantity": 1
+    },
+    {
+      "base_item": "Round Shield",
+      "quantity": 1
+    },
+    {
+      "base_item": "Studded Leather",
+      "quantity": 1
+    },
+    {
+      "base_item": "Torch",
+      "quantity": 1
+    },
+    {
+      "base_item": "Manacles",
+      "quantity": 1
+    },
+     {
+      "base_item": "Ration",
+      "quantity": 5
+    }
+  ]
+}

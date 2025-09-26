@@ -504,14 +504,14 @@ const HomebrewItemCreator: React.FC = () => {
       case 2:
         if (itemData.type === 'weapon') {
           const rangeOptions = [
-            { label: 'Adjacent', value: 0 },
-            { label: 'Nearby', value: 1 },
-            { label: 'Very Short', value: 2 },
-            { label: 'Short', value: 3 },
-            { label: 'Moderate', value: 4 },
-            { label: 'Distant', value: 5 },
-            { label: 'Remote', value: 6 },
-            { label: 'Very Far', value: 7 },
+            { label: 'Adjacent', value: 1 },
+            { label: 'Nearby', value: 2 },
+            { label: 'Very Short', value: 3 },
+            { label: 'Short', value: 4 },
+            { label: 'Moderate', value: 5 },
+            { label: 'Far', value: 6 },
+            { label: 'Very Far', value: 6 },
+            { label: 'Distant', value: 8 },
           ];
 
           return (

@@ -30,7 +30,7 @@
     },
     {
       "name": "Distant Theft",
-      "description": "Your understanding of magic empowers your thief slot spells. Gain +1 skill with magic knowledge. Your Spell Steal reaction now works at short range (10 units) instead of 5.",
+      "description": "Your understanding of magic empowers your thief slot spells. Gain +1 skill with magic knowledge. Your Spell Steal reaction now works at short range (10 units) instead of a very short (5 unit) range.",
       "location": "4a",
       "data": "SSO=1:TG"
     },
