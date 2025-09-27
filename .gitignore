@@ -9,6 +9,7 @@ lerna-debug.log*
 uploads/portraits
 node_modules
 training/
+dist/
 dist
 dist-ssr
 *.local
