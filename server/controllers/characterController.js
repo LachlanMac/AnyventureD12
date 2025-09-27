@@ -978,33 +978,33 @@ export const exportCharacterToFoundry = async (req, res) => {
         // Weapon skills
         weapon: {
           brawling: {
-            value: character.weaponSkills?.brawling?.value || 0,
-            talent: character.weaponSkills?.brawling?.talent || 1,
+            value: characterWithBonuses.weaponSkills?.brawling?.value || 0,
+            talent: characterWithBonuses.weaponSkills?.brawling?.talent || 1,
             baseTalent: character.weaponSkills?.brawling?.baseTalent || character.weaponSkills?.brawling?.talent || 1
           },
           throwing: {
-            value: character.weaponSkills?.throwing?.value || 0,
-            talent: character.weaponSkills?.throwing?.talent || 1,
+            value: characterWithBonuses.weaponSkills?.throwing?.value || 0,
+            talent: characterWithBonuses.weaponSkills?.throwing?.talent || 1,
             baseTalent: character.weaponSkills?.throwing?.baseTalent || character.weaponSkills?.throwing?.talent || 1
           },
           simpleMeleeWeapons: {
-            value: character.weaponSkills?.simpleMeleeWeapons?.value || 0,
-            talent: character.weaponSkills?.simpleMeleeWeapons?.talent || 1,
+            value: characterWithBonuses.weaponSkills?.simpleMeleeWeapons?.value || 0,
+            talent: characterWithBonuses.weaponSkills?.simpleMeleeWeapons?.talent || 1,
             baseTalent: character.weaponSkills?.simpleMeleeWeapons?.baseTalent || character.weaponSkills?.simpleMeleeWeapons?.talent || 1
           },
           simpleRangedWeapons: {
-            value: character.weaponSkills?.simpleRangedWeapons?.value || 0,
-            talent: character.weaponSkills?.simpleRangedWeapons?.talent || 1,
+            value: characterWithBonuses.weaponSkills?.simpleRangedWeapons?.value || 0,
+            talent: characterWithBonuses.weaponSkills?.simpleRangedWeapons?.talent || 1,
             baseTalent: character.weaponSkills?.simpleRangedWeapons?.baseTalent || character.weaponSkills?.simpleRangedWeapons?.talent || 1
           },
           complexMeleeWeapons: {
-            value: character.weaponSkills?.complexMeleeWeapons?.value || 0,
-            talent: character.weaponSkills?.complexMeleeWeapons?.talent || 0,
+            value: characterWithBonuses.weaponSkills?.complexMeleeWeapons?.value || 0,
+            talent: characterWithBonuses.weaponSkills?.complexMeleeWeapons?.talent || 0,
             baseTalent: character.weaponSkills?.complexMeleeWeapons?.baseTalent || character.weaponSkills?.complexMeleeWeapons?.talent || 0
           },
           complexRangedWeapons: {
-            value: character.weaponSkills?.complexRangedWeapons?.value || 0,
-            talent: character.weaponSkills?.complexRangedWeapons?.talent || 0,
+            value: characterWithBonuses.weaponSkills?.complexRangedWeapons?.value || 0,
+            talent: characterWithBonuses.weaponSkills?.complexRangedWeapons?.talent || 0,
             baseTalent: character.weaponSkills?.complexRangedWeapons?.baseTalent || character.weaponSkills?.complexRangedWeapons?.talent || 0
           }
         },
