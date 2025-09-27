@@ -9,14 +9,14 @@ interface BasicInfoTabProps {
   culture: string;
   modulePoints?: number;
   startingTalents: number;
-  startingGearTier: string;
-  startingGearPack: string;
+  // startingGearTier: string; // DISABLED: Starting gear logic not implemented
+  // startingGearPack: string; // DISABLED: Starting gear logic not implemented
   onNameChange: (name: string) => void;
   onRaceChange: (race: string, ancestry: Ancestry) => void;
   onCultureChange: (culture: string, cultureData: Culture) => void;
   onModulePointsChange?: (points: number) => void;
   onStartingTalentsChange: (talents: number) => void;
-  onStartingGearChange: (tier: string, pack: string) => void;
+  // onStartingGearChange: (tier: string, pack: string) => void; // DISABLED: Starting gear logic not implemented
   hideModulePoints?: boolean;
   selectedAncestry?: Ancestry | null;
   selectedCultureSelections?: {
@@ -32,14 +32,14 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
   culture,
   modulePoints,
   startingTalents,
-  startingGearTier,
-  startingGearPack,
+  // startingGearTier, // DISABLED: Starting gear logic not implemented
+  // startingGearPack, // DISABLED: Starting gear logic not implemented
   onNameChange,
   onRaceChange,
   onCultureChange,
   onModulePointsChange,
   onStartingTalentsChange,
-  onStartingGearChange,
+  // onStartingGearChange, // DISABLED: Starting gear logic not implemented
   hideModulePoints = false,
   selectedAncestry,
   selectedCultureSelections,

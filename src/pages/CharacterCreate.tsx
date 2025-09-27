@@ -37,8 +37,9 @@ const CharacterCreate: React.FC = () => {
   const [traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
   const [previousTraitData, setPreviousTraitData] = useState<any>(null);
   const [previousAncestryData, setPreviousAncestryData] = useState<any>(null);
-  const [startingGearTier, setStartingGearTier] = useState<string>('');
-  const [startingGearPack, setStartingGearPack] = useState<string>('');
+  // DISABLED: Starting gear logic not implemented
+  // const [startingGearTier, setStartingGearTier] = useState<string>('');
+  // const [startingGearPack, setStartingGearPack] = useState<string>('');
   // Define steps
   const steps = ['Basic Info', 'Attributes', 'Personality & Trait', 'Talents', 'Background'];
 
@@ -374,10 +375,11 @@ const CharacterCreate: React.FC = () => {
     setTalentStarsRemaining(newStartingTalents - currentSpentTalents);
   };
 
-  const handleStartingGearChange = (tier: string, pack: string) => {
-    setStartingGearTier(tier);
-    setStartingGearPack(pack);
-  };
+  // DISABLED: Starting gear logic not implemented
+  // const handleStartingGearChange = (tier: string, pack: string) => {
+  //   setStartingGearTier(tier);
+  //   setStartingGearPack(pack);
+  // };
 
   // Handle next step
   const handleNextStep = () => {
@@ -473,8 +475,9 @@ const CharacterCreate: React.FC = () => {
           attributePointsRemaining: attributePointsRemaining,
           talentStarsRemaining: talentStarsRemaining,
         },
-        startingGearTier: startingGearTier,
-        startingGearPack: startingGearPack,
+        // DISABLED: Starting gear logic not implemented
+        // startingGearTier: startingGearTier,
+        // startingGearPack: startingGearPack,
       };
 
       const response = await fetch(`/api/characters`, {
@@ -573,8 +576,6 @@ const CharacterCreate: React.FC = () => {
                 culture={character.culture}
                 modulePoints={character.modulePoints.total}
                 startingTalents={startingTalents}
-                startingGearTier={startingGearTier}
-                startingGearPack={startingGearPack}
                 onNameChange={(name) => updateCharacter('name', name)}
                 onRaceChange={handleRaceChange}
                 onCultureChange={handleCultureChange}
@@ -582,7 +583,6 @@ const CharacterCreate: React.FC = () => {
                   updateNestedField('modulePoints', 'total', points);
                 }}
                 onStartingTalentsChange={handleStartingTalentsChange}
-                onStartingGearChange={handleStartingGearChange}
               />
             )}
 

@@ -739,13 +739,10 @@ const CharacterEdit: React.FC = () => {
               race={character.race}
               culture={character.culture || (selectedCulture?.name || '')}
               startingTalents={startingTalents}
-              startingGearTier=""
-              startingGearPack=""
               onNameChange={(name) => updateCharacter('name', name)}
               onRaceChange={handleRaceChange}
               onCultureChange={handleCultureChange}
               onStartingTalentsChange={handleStartingTalentsChange}
-              onStartingGearChange={() => {}}
               hideModulePoints={true}
               selectedAncestry={selectedAncestry}
               selectedCultureSelections={initialCultureSelections}
