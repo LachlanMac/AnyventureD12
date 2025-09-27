@@ -1271,6 +1271,8 @@ export const exportCharacterToFoundry = async (req, res) => {
               weight: item.weight || 0,
               value: item.value || 0,
               rarity: item.rarity || "common",
+              quantity: invItem.quantity || 1,
+              stack_limit: item.stack_limit || 0,
               weapon_category: item.weapon_category,
               hands: item.hands,
               shield_category: item.shield_category,
