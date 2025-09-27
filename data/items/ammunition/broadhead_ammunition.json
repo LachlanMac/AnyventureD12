@@ -1,0 +1,20 @@
+{
+  "name": "Broadhead Ammunition",
+  "description": "Specialized ammunition with a head composed of wide, cutting blades that can shred a target. Whenever dealing at least 8 physical damage to a creature with this ammunition, that target also gains the bleeding condition.",
+  "type": "ammunition",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "common",
+  "foundry_icon": "icons/weapons/ammunition/arrow-broadhead.webp",
+  "foundry_id": "njyyzt5dw7gqa982",
+   "recipe": {
+    "type": "engineering",
+    "difficulty": 3,
+    "output":10,
+    "ingredients": [
+      "2x Ash Wood",
+      "40x Steel Shavings",
+      "10x Bindings"
+    ]
+  }
+}

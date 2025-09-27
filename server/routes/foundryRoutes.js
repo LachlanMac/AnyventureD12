@@ -44,9 +44,30 @@ const __dirname = path.dirname(__filename);
 
 // Helper function to convert MongoDB ObjectId to Foundry-compatible 16-char ID
 const convertToFoundryId = (mongoId) => {
+  const idString = mongoId.toString();
+
+  // Handle temporary IDs from DevCreatureDesigner
+  if (idString.startsWith('temp')) {
+    // Generate a deterministic but valid 16-character alphanumeric ID
+    // Use a hash-like approach to ensure consistency
+    let hash = 0;
+    for (let i = 0; i < idString.length; i++) {
+      const char = idString.charCodeAt(i);
+      hash = ((hash << 5) - hash) + char;
+      hash = hash & hash; // Convert to 32bit integer
+    }
+
+    // Convert to base 36 and pad/truncate to 16 characters
+    const base36 = Math.abs(hash).toString(36);
+    const timestamp = Date.now().toString(36).slice(-8);
+    const combined = (base36 + timestamp + '0000000000000000').slice(0, 16);
+
+    // Ensure the ID starts with a letter (Foundry requirement)
+    return 'c' + combined.slice(1);
+  }
+
   // Take the first 16 characters of the hex string
   // MongoDB ObjectIds are 24 hex chars, Foundry wants 16
-  const idString = mongoId.toString();
   return idString.substring(0, 16);
 };
 
@@ -420,6 +441,39 @@ const convertToFoundryFormat = (data, type) => {
 
       baseFoundryDoc.img = portraitUrl || getGenericIcon(data, 'creature');
 
+      // Add prototypeToken based on creature size
+      const getSizeFromCreature = (size) => {
+        const sizeMap = {
+          'tiny': { width: 0.5, height: 0.5 },
+          'small': { width: 1, height: 1 },
+          'medium': { width: 1, height: 1 },
+          'large': { width: 2, height: 2 },
+          'huge': { width: 4, height: 4 },
+          'gargantuan': { width: 8, height: 8 }
+        };
+        return sizeMap[size?.toLowerCase()] || { width: 1, height: 1 };
+      };
+
+      const tokenSize = getSizeFromCreature(data.size);
+      baseFoundryDoc.prototypeToken = {
+        actorLink: false,
+        width: tokenSize.width,
+        height: tokenSize.height,
+        texture: {
+          src: portraitUrl || "icons/svg/mystery-man.svg",
+          anchorX: 0.5,
+          anchorY: 0.5,
+          offsetX: 0,
+          offsetY: 0,
+          fit: "contain",
+          scaleX: 1,
+          scaleY: 1,
+          rotation: 0,
+          tint: "#ffffff",
+          alphaThreshold: 0.75
+        }
+      };
+
       // Initialize the items array for the creature
       baseFoundryDoc.items = [];
 
@@ -466,7 +520,7 @@ const convertToFoundryFormat = (data, type) => {
               used: false,
               anyventure_id: "",
               magic: action.magic || false,
-              abilityType: "action",
+              abilityType: action.type || "action",
               // Add attackData to system section
               roll: action.attack?.roll || "2d6",
               damage: action.attack?.damage || "0",
@@ -508,7 +562,7 @@ const convertToFoundryFormat = (data, type) => {
               used: false,
               anyventure_id: "",
               magic: false,
-              abilityType: "reaction",
+              abilityType: reaction.type || "reaction",
               roll: reaction.attack?.roll || "2d6",
               damage: reaction.attack?.damage || "0",
               damage_extra: reaction.attack?.damage_extra || "0",
@@ -1145,6 +1199,25 @@ router.get('/creatures', async (req, res) => {
   } catch (error) {
     console.error('Error fetching creatures for Foundry:', error);
     res.status(500).json({ error: 'Failed to fetch creatures' });
+  }
+});
+
+// Convert a single creature to Foundry format (for DevCreatureDesigner)
+router.post('/convert-creature', async (req, res) => {
+  try {
+    const creatureData = req.body;
+
+    if (!creatureData || !creatureData.name) {
+      return res.status(400).json({ error: 'Invalid creature data' });
+    }
+
+    // Convert the creature to Foundry format
+    const foundryCreature = convertToFoundryFormat(creatureData, 'creature');
+
+    res.json(foundryCreature);
+  } catch (error) {
+    console.error('Error converting creature to Foundry format:', error);
+    res.status(500).json({ error: 'Failed to convert creature to Foundry format' });
   }
 });
 

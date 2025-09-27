@@ -3,7 +3,7 @@
   "description": "A protective band worn around the forearm.",
   "type": "accessory",
   "weight": 0.5,
-  "value": 8,
+  "value": 50,
   "rarity": "common",
   "foundry_icon": "icons/equipment/wrist/bracer-armored-steel-blue.webp",
   "foundry_id": "o0flrz1uba8ulttd"

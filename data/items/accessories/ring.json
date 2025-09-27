@@ -3,7 +3,7 @@
   "description": "A simple band of metal worn on the finger.",
   "type": "accessory",
   "weight": 0.1,
-  "value": 5,
+  "value": 400,
   "rarity": "common",
   "foundry_icon": "icons/equipment/finger/ring-band-engraved-silver.webp",
   "foundry_id": "0rqe0ljhfstpnsk4"

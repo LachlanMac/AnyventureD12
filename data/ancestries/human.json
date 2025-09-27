@@ -18,13 +18,46 @@
     },
     {
       "name": "Versatile",
-      "description": "Humans are incredibly adaptable to many types of environments and conditions. Gain +1 skill with resilience and +1 heat and cold mitigation.",
-      "data": "SSI=1:M2=1:M3=1:TA"
+      "description": "Humans are known for their incredible adaptability. You start with an additional talent point.",
+      "data": "TA:TP=1"
     },
     {
       "name": "Daily Reaction : Human Destiny",
       "description": "The threads of destiny bend around humans, allowing them the opportunity to defy fate. In response to rolling on the lifeline table after knowing the result, you replace the result of the roll with one of the other options on the table.",
       "data": "ZDNE=0"
+    },
+      {
+      "name": "Human Bloodline",
+      "description": "Humans have adapted at mixing their bloodline with other ancestries. Choose your bloodline:",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "pure",
+          "name": "Pureblooded",
+          "description": "You are a pure-blooded human and are especially adaptable. Gain +1 skill with resilience.",
+          "data": "TA:SSI=1"
+        },
+        {
+          "id": "orcblood",
+          "name": "Half-Orc",
+          "description": "You are a mixture of orc and human, sharing a mix of physical traits that makes your lineage easily identifiable. Your skin is tougher, granting you +1 physical mitigation and causing you to be immune to cosmetic injuries.",
+          "data": "TA:M1=1"
+        },
+        {
+          "id": "elfblood",
+          "name": "Half-Elf",
+          "description": "You are a mixture of elf and human, sharing a mix of physical traits that makes your lineage easily identifiable. You are less likely to be affected by both light and dark magic, granting you +2 mitigation to dark and divine damage.",
+        "data": "TA:M5=2:M6=2"
+        },
+        {
+          "id": "redelfblood",
+          "name": "Half-Arakhan",
+          "description": "You are a mixture of arah-ka and human, sharing a mix of physical traits that you makes your lineage easily identifiable. Your skin is especially suited for warm environments, granting you +3 heat mitigation.",
+          "data": "TA:M2=3"
+        }
+      ],
+      "requiresChoice": true,
+      "choiceType": "Dragon Heritage Selection"
     }
   ]
 }

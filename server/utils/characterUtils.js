@@ -5,6 +5,14 @@ export const applyModuleBonusesToCharacter = (character) => {
   if (!character.mitigation) {
     character.mitigation = {};
   }
+
+  // Set default size if not present
+  if (!character.physicalTraits) {
+    character.physicalTraits = {};
+  }
+  if (!character.physicalTraits.size) {
+    character.physicalTraits.size = 'medium';
+  }
   
   // Store original values to track changes
   const originalValues = {
@@ -353,6 +361,22 @@ const parseDataString = (dataString, bonuses, character = null) => {
       continue;
     }
 
+    // SIZE (B) - matching B1 through B6 for size changes
+    const sizeMatch = effect.match(/^B([1-6])$/);
+    if (sizeMatch) {
+      const sizeValue = parseInt(sizeMatch[1]);
+      const sizeMap = {
+        1: 'tiny',
+        2: 'small',
+        3: 'medium',
+        4: 'large',
+        5: 'huge',
+        6: 'gargantuan'
+      };
+      bonuses.size = sizeMap[sizeValue] || 'medium';
+      continue;
+    }
+
     // SKILLS (S) - matching SSA=3, ST1=1, SSA=X, or SSA=Y pattern
     const skillMatch = effect.match(/^S([ST])([A-T0-9])=(-?\d+|[XY])$/);
     if (skillMatch) {
@@ -602,6 +626,14 @@ const parseDataString = (dataString, bonuses, character = null) => {
 
 // Apply collected bonuses to character
 const applyBonusesToCharacter = (character, bonuses) => {
+  // Apply size if present
+  if (bonuses.size) {
+    if (!character.physicalTraits) {
+      character.physicalTraits = {};
+    }
+    character.physicalTraits.size = bonuses.size;
+  }
+
   // Apply skill bonuses
   if (bonuses.skills) {
     for (const [skill, value] of Object.entries(bonuses.skills)) {

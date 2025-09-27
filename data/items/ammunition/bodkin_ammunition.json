@@ -1,0 +1,20 @@
+{
+  "name": "Bodkin Ammunition",
+  "description": "Specialized ammunition with a steel head that is shaped specifically to pierce armor. While this ammunition can still be completely mitigated, the damage done is not halved by being inside the resisted threshold.",
+  "type": "ammunition",
+  "weight": 0.1,
+  "value": 20,
+  "rarity": "common",
+  "foundry_icon": "icons/weapons/ammunition/arrow-broadhead.webp",
+  "foundry_id": "njyyzt5dw7gqa982",
+   "recipe": {
+    "type": "engineering",
+    "difficulty": 3,
+    "output":10,
+    "ingredients": [
+      "2x Ash Wood",
+      "20x Steel Shavings",
+      "10x Bindings"
+    ]
+  }
+}

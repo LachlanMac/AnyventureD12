@@ -18,13 +18,13 @@
     },
     {
       "name": "Raised in Flames",
-      "description": "Arah-Ka have the fire of the sun within their blood as well as traces of Keydaran ancestry. Gain +3 heat mitigation and become immune to effects that would prematurely age you.",
-      "data": "M2=3:TA"
+      "description": "Arah-Ka have the fire of the sun within their blood as well as traces of Keydaran ancestry. Gain +5 heat mitigation and become immune to effects that would prematurely age you.",
+      "data": "M2=5:TA"
     },
     {
       "name": "Action : Sun-Blessed Fire",
-      "description": "You make a Melee Attack, but convert all Damage to Fire. On a True Hit, the Target also becomes Ignited.",
-      "data": "XIME=1"
+      "description": "You make a melee attack, but convert all of the physical damage to heat damage. If you deal at least 10 heat damage, the target also becomes ignited.",
+      "data": "XIME=2"
     },
     {
       "name": "Photosynthetic",

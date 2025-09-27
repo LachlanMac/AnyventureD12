@@ -212,6 +212,14 @@ export const createCharacter = async (req, res) => {
       finalCharacterData.languageSkills = new Map([['common', 2]]);
     }
 
+    // Ensure default size is set
+    if (!finalCharacterData.physicalTraits) {
+      finalCharacterData.physicalTraits = {};
+    }
+    if (!finalCharacterData.physicalTraits.size) {
+      finalCharacterData.physicalTraits.size = 'medium';
+    }
+
     const character = new Character(finalCharacterData);
 
     // Apply starting gear if provided (before saving)
@@ -805,12 +813,48 @@ export const exportCharacterToFoundry = async (req, res) => {
     const characterWithBonuses = character.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
 
+    // Helper function to get size dimensions
+    const getSizeFromCharacter = (size) => {
+      const sizeMap = {
+        'tiny': { width: 0.5, height: 0.5 },
+        'small': { width: 1, height: 1 },
+        'medium': { width: 1, height: 1 },
+        'large': { width: 2, height: 2 },
+        'huge': { width: 4, height: 4 },
+        'gargantuan': { width: 8, height: 8 }
+      };
+      return sizeMap[size?.toLowerCase()] || { width: 1, height: 1 };
+    };
+
+    const tokenSize = getSizeFromCharacter(character.physicalTraits?.size);
+
+    // Use the portrait URL for both img and token texture
+    const portraitUrl = character.portraitUrl || "icons/svg/mystery-man.svg";
+
     // Create FoundryVTT actor structure matching our new template.json
     const foundryActor = {
       _id: character.foundry_id || convertToFoundryId(character._id),
       name: character.name,
       type: "character",
-      img: character.portraitUrl || "icons/svg/mystery-man.svg",
+      img: portraitUrl,
+      prototypeToken: {
+        actorLink: true,
+        width: tokenSize.width,
+        height: tokenSize.height,
+        texture: {
+          src: portraitUrl,
+          anchorX: 0.5,
+          anchorY: 0.5,
+          offsetX: 0,
+          offsetY: 0,
+          fit: "contain",
+          scaleX: 1,
+          scaleY: 1,
+          rotation: 0,
+          tint: "#ffffff",
+          alphaThreshold: 0.75
+        }
+      },
       system: {
         // Core attributes
         attributes: {
@@ -893,26 +937,26 @@ export const exportCharacterToFoundry = async (req, res) => {
 
         // Skills (now matching template.json structure)
         basic: {
-          fitness: { value: character.skills?.fitness?.value || 0, attribute: "physique" },
-          deflection: { value: character.skills?.deflection?.value || 0, attribute: "physique" },
-          might: { value: character.skills?.might?.value || 0, attribute: "physique" },
-          endurance: { value: character.skills?.endurance?.value || 0, attribute: "physique" },
-          evasion: { value: character.skills?.evasion?.value || 0, attribute: "finesse" },
-          stealth: { value: character.skills?.stealth?.value || 0, attribute: "finesse" },
-          coordination: { value: character.skills?.coordination?.value || 0, attribute: "finesse" },
-          thievery: { value: character.skills?.thievery?.value || 0, attribute: "finesse" },
-          resilience: { value: character.skills?.resilience?.value || 0, attribute: "mind" },
-          concentration: { value: character.skills?.concentration?.value || 0, attribute: "mind" },
-          senses: { value: character.skills?.senses?.value || 0, attribute: "mind" },
-          logic: { value: character.skills?.logic?.value || 0, attribute: "mind" },
-          wildcraft: { value: character.skills?.wildcraft?.value || 0, attribute: "knowledge" },
-          academics: { value: character.skills?.academics?.value || 0, attribute: "knowledge" },
-          magic: { value: character.skills?.magic?.value || 0, attribute: "knowledge" },
-          medicine: { value: character.skills?.medicine?.value || 0, attribute: "knowledge" },
-          expression: { value: character.skills?.expression?.value || 0, attribute: "social" },
-          presence: { value: character.skills?.presence?.value || 0, attribute: "social" },
-          insight: { value: character.skills?.insight?.value || 0, attribute: "social" },
-          persuasion: { value: character.skills?.persuasion?.value || 0, attribute: "social" }
+          fitness: { value: characterWithBonuses.skills?.fitness?.value || 0, tier: characterWithBonuses.skills?.fitness?.diceTierModifier || 0, attribute: "physique" },
+          deflection: { value: characterWithBonuses.skills?.deflection?.value || 0, tier: characterWithBonuses.skills?.deflection?.diceTierModifier || 0, attribute: "physique" },
+          might: { value: characterWithBonuses.skills?.might?.value || 0, tier: characterWithBonuses.skills?.might?.diceTierModifier || 0, attribute: "physique" },
+          endurance: { value: characterWithBonuses.skills?.endurance?.value || 0, tier: characterWithBonuses.skills?.endurance?.diceTierModifier || 0, attribute: "physique" },
+          evasion: { value: characterWithBonuses.skills?.evasion?.value || 0, tier: characterWithBonuses.skills?.evasion?.diceTierModifier || 0, attribute: "finesse" },
+          stealth: { value: characterWithBonuses.skills?.stealth?.value || 0, tier: characterWithBonuses.skills?.stealth?.diceTierModifier || 0, attribute: "finesse" },
+          coordination: { value: characterWithBonuses.skills?.coordination?.value || 0, tier: characterWithBonuses.skills?.coordination?.diceTierModifier || 0, attribute: "finesse" },
+          thievery: { value: characterWithBonuses.skills?.thievery?.value || 0, tier: characterWithBonuses.skills?.thievery?.diceTierModifier || 0, attribute: "finesse" },
+          resilience: { value: characterWithBonuses.skills?.resilience?.value || 0, tier: characterWithBonuses.skills?.resilience?.diceTierModifier || 0, attribute: "mind" },
+          concentration: { value: characterWithBonuses.skills?.concentration?.value || 0, tier: characterWithBonuses.skills?.concentration?.diceTierModifier || 0, attribute: "mind" },
+          senses: { value: characterWithBonuses.skills?.senses?.value || 0, tier: characterWithBonuses.skills?.senses?.diceTierModifier || 0, attribute: "mind" },
+          logic: { value: characterWithBonuses.skills?.logic?.value || 0, tier: characterWithBonuses.skills?.logic?.diceTierModifier || 0, attribute: "mind" },
+          wildcraft: { value: characterWithBonuses.skills?.wildcraft?.value || 0, tier: characterWithBonuses.skills?.wildcraft?.diceTierModifier || 0, attribute: "knowledge" },
+          academics: { value: characterWithBonuses.skills?.academics?.value || 0, tier: characterWithBonuses.skills?.academics?.diceTierModifier || 0, attribute: "knowledge" },
+          magic: { value: characterWithBonuses.skills?.magic?.value || 0, tier: characterWithBonuses.skills?.magic?.diceTierModifier || 0, attribute: "knowledge" },
+          medicine: { value: characterWithBonuses.skills?.medicine?.value || 0, tier: characterWithBonuses.skills?.medicine?.diceTierModifier || 0, attribute: "knowledge" },
+          expression: { value: characterWithBonuses.skills?.expression?.value || 0, tier: characterWithBonuses.skills?.expression?.diceTierModifier || 0, attribute: "social" },
+          presence: { value: characterWithBonuses.skills?.presence?.value || 0, tier: characterWithBonuses.skills?.presence?.diceTierModifier || 0, attribute: "social" },
+          insight: { value: characterWithBonuses.skills?.insight?.value || 0, tier: characterWithBonuses.skills?.insight?.diceTierModifier || 0, attribute: "social" },
+          persuasion: { value: characterWithBonuses.skills?.persuasion?.value || 0, tier: characterWithBonuses.skills?.persuasion?.diceTierModifier || 0, attribute: "social" }
         },
 
         // Weapon skills

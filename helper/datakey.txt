@@ -31,6 +31,21 @@ R: Presence
 S: Insight
 T: Persuasion
 
+
+########### SIZE ##############
+Key (B)
+EX B3 = Medium
+
+1: Tiny
+2: Small
+3: Medium
+4: Large
+5: Huge
+6: Gargantuan
+
+###############################
+
+
 ########### WEAPONS ###########
 KEY (W)
 EX. WS1=1 SKILL  WT1=1 TALENT

@@ -267,6 +267,80 @@ const DevCreatureDesigner: React.FC = () => {
     showSuccess(`Creature JSON downloaded: ${exportFileDefaultName}`);
   };
 
+  const downloadFoundryJSON = async () => {
+    if (!creatureData.name.trim()) {
+      showError('Creature name is required');
+      return;
+    }
+
+    try {
+      // Generate a proper temporary ID that can be converted to 16 chars
+      const timestamp = Date.now().toString();
+      const randomSuffix = Math.random().toString(36).substring(2, 6);
+      const tempId = `temp${timestamp}${randomSuffix}`.substring(0, 24);
+
+      // Prepare creature data in the format expected by the API
+      const creatureForFoundry = {
+        _id: tempId, // Temporary ID for conversion
+        name: creatureData.name,
+        description: creatureData.description,
+        tactics: creatureData.tactics,
+        tier: creatureData.tier,
+        type: creatureData.type,
+        size: creatureData.size,
+        foundry_portrait: creatureData.foundry_portrait || '',
+        health: resources.health,
+        energy: resources.energy,
+        resolve: resources.resolve,
+        movement,
+        attributes,
+        skills,
+        mitigation,
+        detections: {
+          ...detections,
+          normal: Math.max(0, Math.min(8, detections.normal)),
+        },
+        immunities: {},
+        actions: abilities.filter(a => !a.reaction),
+        reactions: abilities.filter(a => a.reaction),
+        traits,
+        loot: creatureData.loot,
+        languages: creatureData.languages,
+        spells: [], // Empty for now, could be populated if needed
+      };
+
+      // Make API call to convert to Foundry format
+      const response = await fetch('/fvtt/convert-creature', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(creatureForFoundry),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to convert to Foundry format');
+      }
+
+      const foundryData = await response.json();
+
+      // Download the Foundry JSON
+      const dataStr = JSON.stringify(foundryData, null, 2);
+      const dataUri = 'data:application/json;charset=utf-8,'+ encodeURIComponent(dataStr);
+      const exportFileDefaultName = `${creatureData.name.toLowerCase().replace(/[^a-z0-9]/g, '_')}_foundry.json`;
+
+      const linkElement = document.createElement('a');
+      linkElement.setAttribute('href', dataUri);
+      linkElement.setAttribute('download', exportFileDefaultName);
+      linkElement.click();
+
+      showSuccess(`Foundry JSON downloaded: ${exportFileDefaultName}`);
+    } catch (error) {
+      console.error('Error converting to Foundry format:', error);
+      showError('Failed to convert creature to Foundry format');
+    }
+  };
+
   const loadFromJSON = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
     if (!file) return;
@@ -492,6 +566,10 @@ const DevCreatureDesigner: React.FC = () => {
         <div className="flex gap-4 mb-6">
           <Button onClick={downloadJSON} variant="primary">
             📥 Download JSON
+          </Button>
+
+          <Button onClick={downloadFoundryJSON} variant="accent">
+            🎲 Download Foundry JSON
           </Button>
 
           <label className="cursor-pointer inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none px-4 py-2 text-white border-none"

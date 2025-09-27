@@ -3,7 +3,7 @@
   "description": "A sturdy leather belt worn around the waist.",
   "type": "accessory",
   "weight": 0.3,
-  "value": 6,
+  "value": 30,
   "rarity": "common",
   "foundry_icon": "icons/equipment/chest/breastplate-leather-brown-belted.webp",
   "foundry_id": "to4a2wv6pl5hntll"

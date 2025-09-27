@@ -36,6 +36,7 @@ const CharacterCreate: React.FC = () => {
   const [_traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
   const [traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
   const [previousTraitData, setPreviousTraitData] = useState<any>(null);
+  const [previousAncestryData, setPreviousAncestryData] = useState<any>(null);
   const [startingGearTier, setStartingGearTier] = useState<string>('');
   const [startingGearPack, setStartingGearPack] = useState<string>('');
   // Define steps
@@ -160,8 +161,27 @@ const CharacterCreate: React.FC = () => {
     // Update the race in character state
     updateCharacter('race', raceName);
 
+    const characterContext = {
+      talentStarsRemaining,
+      setTalentStarsRemaining,
+      setTraitTalentBonus,
+      setTraitModuleBonus,
+    };
+
+    // Remove effects from previous ancestry if any
+    if (previousAncestryData) {
+      removeTraitEffects(previousAncestryData, characterContext);
+      setPreviousAncestryData(null);
+    }
+
     // Store the ancestry directly
     setSelectedAncestry(ancestry);
+
+    // Apply ancestry effects (like talent points from "Versatile" option)
+    if (ancestry?.options) {
+      applyTraitEffects(ancestry, characterContext);
+      setPreviousAncestryData(ancestry);
+    }
   };
 
   // Update basic character field

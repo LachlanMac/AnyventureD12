@@ -35,32 +35,38 @@ export function parseTraitEffects(traitData: TraitData): TraitEffect[] {
   for (const option of traitData.options) {
     if (!option.data) continue;
 
+    // First split by comma, then by colon to handle formats like "TA:TP=1" or "TA,TP=1"
     const dataParts = option.data.includes(',') ? option.data.split(',') : [option.data];
 
     for (const part of dataParts) {
       const trimmed = part.trim();
-      const match = trimmed.match(/^(\w+)=(-?\d+)$/);
+      // Split by colon to handle ancestry/trait format like "TA:TP=1"
+      const colonParts = trimmed.includes(':') ? trimmed.split(':') : [trimmed];
 
-      if (match) {
-        const [, key, value] = match;
-        const numValue = parseInt(value) || 0;
+      for (const subPart of colonParts) {
+        const match = subPart.trim().match(/^(\w+)=(-?\d+)$/);
 
-        switch (key) {
-          case 'TP':
-            effects.push({ type: 'talent_points', value: numValue });
-            break;
-          case 'MP':
-            effects.push({ type: 'module_points', value: numValue });
-            break;
-          case 'H':
-            effects.push({ type: 'health', value: numValue });
-            break;
-          case 'E':
-            effects.push({ type: 'energy', value: numValue });
-            break;
-          case 'R':
-            effects.push({ type: 'resolve', value: numValue });
-            break;
+        if (match) {
+          const [, key, value] = match;
+          const numValue = parseInt(value) || 0;
+
+          switch (key) {
+            case 'TP':
+              effects.push({ type: 'talent_points', value: numValue });
+              break;
+            case 'MP':
+              effects.push({ type: 'module_points', value: numValue });
+              break;
+            case 'H':
+              effects.push({ type: 'health', value: numValue });
+              break;
+            case 'E':
+              effects.push({ type: 'energy', value: numValue });
+              break;
+            case 'R':
+              effects.push({ type: 'resolve', value: numValue });
+              break;
+          }
         }
       }
     }

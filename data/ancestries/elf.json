@@ -18,18 +18,38 @@
     },
     {
       "name": "Keydaran Blood",
-      "description": "The blood of the first Keyadar runs through the Elves, granting them +1 skill with resilience. They are also immune to effects that would prematurely age them.",
+      "description": "The blood of the first Keyadar runs through the Elves, granting +4 mitigation to both dark and divine damage. They are also immune to effects that would prematurely age them, but take double damage from aetheric sources before calculating mitigation.",
       "data": "SSI=1:TA"
     },
     {
-      "name": "Action : Nebulous Eyes",
-      "description": "Your eyes glow with the power of the cosmos, allowing you to focus and improve your vision capabilities. While you maintain your concentration, you have darksight in a moderate (20 unit) distance.",
-      "data": "XIME=1"
+      "name": "Daily Action : Silver Eater",
+      "description": "You consume up to 5 silver shards, granting you one health for each shard consumed. Each shard also counts as a full meal and removes the penalty you receive from aetheric sources until you complete a full rest.",
+      "data": "XDME=1"
     },
     {
-      "name": "Born of Starlight",
-      "description": "The power of the celestials flows through your veins, making you especially susceptible to the dark forces of the world. You suffer a -3 penalty to dark mitigation.",
-      "data": "M5=-3:TA"
+      "name": "Cosmic Lineage",
+      "description": "Elves are descended from an ancient race of complex breeding castes that have cultivated specific traits for millennia.",
+      "data": "",
+      "subchoices": [
+        {
+          "id": "starelf",
+          "name": "Star Elf",
+          "description": "Your lineage ties you directly to the castes that bred the star-shaman, those who unlocked the mysteries of the cosmos in ancient times. You can research and channel spells from the exotic cosmic subschool.",
+          "data": "TA"
+        },
+        {
+          "id": "sunelf",
+          "name": "Sun Elf",
+          "description": "Your lineage ties you directly to the castes that bred the sun-knife, those who served the vanguard in ancient times. Your coordination is unmatched, upgrading the skill.",
+          "data": "TA:SSG=X"
+        },
+        {
+          "id": "moonelf",
+          "name": "Moon Elf",
+          "description": "Your lineage ties you directly to the castes that bred the moon-sculptors, those who shaped beasts and elves alike to serve them in ancient times. Your biosculpting skill is upgraded.",
+          "data": "TA:CS6=X"
+        }
+      ]
     }
   ]
 }

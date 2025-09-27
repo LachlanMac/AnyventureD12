@@ -20,7 +20,7 @@
           "id": "small_size",
           "name": "Small",
           "description": "You are a small creature. All of your finesse skills are upgraded and your physique skills downgraded. You also have a -1 penalty to movement speed.",
-          "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:K1=-1:TA"
+          "data": "SSA=Y:SSB=Y:SSC=Y:SSD=Y:SSE=X:SSF=X:SSG=X:SSH=X:K1=-1:TA:B2"
         },
         {
           "id": "medium_size",

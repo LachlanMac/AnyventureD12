@@ -35,10 +35,18 @@ export const applyDataEffects = (character, dataString) => {
       continue;
     }
     
+    // Check for size effect (B1-B6)
+    const sizeMatch = effect.match(/^B(\d)$/);
+    if (sizeMatch) {
+      const sizeValue = parseInt(sizeMatch[1]);
+      handleSizeEffect(character, sizeValue);
+      continue;
+    }
+
     // Parse the effect code - handle both numeric values and X/Y for dice tier modifications
     const match = effect.match(/([A-Z])([ST])([0-9A-Z])=([+-]?\d+|[XY])/);
     if (!match) continue;
-    
+
     const [_, category, type, code, valueStr] = match;
     const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
     
@@ -243,6 +251,32 @@ const handleAutoEffect = (character, code, value) => {
       character.spellSlots += value;
       break;
   }
+};
+
+const handleSizeEffect = (character, sizeValue) => {
+  // Map size value to size name
+  const sizeMap = {
+    1: 'tiny',
+    2: 'small',
+    3: 'medium',
+    4: 'large',
+    5: 'huge',
+    6: 'gargantuan'
+  };
+
+  const size = sizeMap[sizeValue] || 'medium';
+
+  // Initialize physicalTraits if not exists
+  if (!character.physicalTraits) {
+    character.physicalTraits = {};
+  }
+
+  // Set the character's size
+  character.physicalTraits.size = size;
+
+  // Also track in moduleBonuses for reference
+  if (!character.moduleBonuses) character.moduleBonuses = {};
+  character.moduleBonuses.size = size;
 };
 
 const handleActionEffect = (character, type, frequency, magic, energy) => {

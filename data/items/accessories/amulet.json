@@ -3,7 +3,7 @@
   "description": "A pendant worn around the neck on a chain or cord.",
   "type": "accessory",
   "weight": 0.2,
-  "value": 10,
+  "value": 100,
   "rarity": "common",
   "foundry_icon": "icons/equipment/neck/amulet-carved-runed-othila-fehu-grey.webp",
   "foundry_id": "zj6a27pdukxsj8fj"

@@ -22,6 +22,11 @@ export default defineConfig({
         changeOrigin: true,
         secure: false
       },
+      '/fvtt': {
+        target: 'http://localhost:4000',
+        changeOrigin: true,
+        secure: false
+      },
     },
   },
   resolve: {
