@@ -380,22 +380,21 @@ const convertToFoundryFormat = (data, type) => {
 
     case 'spell':
       baseFoundryDoc.system = {
-        description: data.description,
         school: data.school,
         subschool: data.subschool,
-        charge: data.charge,
+        charge: data.charge || "",
         duration: data.duration,
         range: data.range,
         checkToCast: data.checkToCast,
-        components: data.components,
-        ritualDuration: data.ritualDuration,
+        components: data.components || [],
+        ritualDuration: data.ritualDuration || "",
         concentration: data.concentration,
         reaction: data.reaction,
         energy: data.energy,
         damage: data.damage,
-        damageType: data.damageType,
-        fizzled: false, // Default for FoundryVTT
-        foundry_icon: data.foundry_icon || ''
+        damageType: data.damageType || "",
+        fizzled: false,
+        foundry_icon: data.foundry_icon || ""
       };
       break;
 

@@ -55,7 +55,10 @@ export const seedSpells = async () => {
             const existingSpell = await Spell.findOne({ name: spellData.name });
             
             if (existingSpell) {
-              // Update existing spell
+              // Update existing spell, preserving only foundry_id
+              if (!spellData.foundry_id && existingSpell.foundry_id) {
+                spellData.foundry_id = existingSpell.foundry_id;
+              }
               await Spell.findByIdAndUpdate(existingSpell._id, spellData);
             } else {
               // Create new spell
