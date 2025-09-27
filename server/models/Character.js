@@ -1278,7 +1278,7 @@ CharacterSchema.methods.applyTraitEffectsSync = function() {
     for (const option of trait.options) {
       if (!option.data) continue;
       
-      // Parse the data string (e.g., "H=5", "R=10", "MP=3", "TP=2")
+      // Parse the data string (e.g., "H=5", "R=10", "MP=3", "UT=2")
       // Handle both comma-separated and single values
       const dataParts = option.data.includes(',') ? option.data.split(',') : [option.data];
       
@@ -1300,7 +1300,7 @@ CharacterSchema.methods.applyTraitEffectsSync = function() {
           case 'MP': // Module Points
             this.modulePoints.total += numValue;
             break;
-          case 'TP': // Talent Points
+          case 'UT': // Talent Points (User Talent points)
             // Note: Talent points would need to be handled during character creation
             // This is stored for reference but applied elsewhere
             break;

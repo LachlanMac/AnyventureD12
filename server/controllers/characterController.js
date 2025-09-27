@@ -680,8 +680,8 @@ const convertToFoundryId = (mongoId) => {
 
 // Helper function to get icon based on type and properties (reuse from foundryRoutes.js)
 const getGenericIcon = (data, type) => {
-  // For items, traits, and modules, check for foundry_icon first
-  if ((type === 'item' || type === 'trait' || type === 'module') && data.foundry_icon && data.foundry_icon.trim() !== '') {
+  // For items, traits, modules, and spells, check for foundry_icon first
+  if ((type === 'item' || type === 'trait' || type === 'module' || type === 'spell') && data.foundry_icon && data.foundry_icon.trim() !== '') {
     return data.foundry_icon;
   }
 
@@ -822,9 +822,6 @@ export const exportCharacterToFoundry = async (req, res) => {
     const characterWithBonuses = character.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
 
-    console.log(`🏛️ FOUNDRY EXPORT: After applyModuleBonusesToCharacter for ${characterWithBonuses.name}`);
-    console.log(`🏛️ FOUNDRY EXPORT: magicSkills:`, JSON.stringify(characterWithBonuses.magicSkills, null, 2));
-    console.log(`🏛️ FOUNDRY EXPORT: moduleBonuses.magicSkills:`, JSON.stringify(characterWithBonuses.moduleBonuses?.magicSkills, null, 2));
 
     // Helper function to get size dimensions
     const getSizeFromCharacter = (size) => {
@@ -1215,7 +1212,7 @@ export const exportCharacterToFoundry = async (req, res) => {
       }
     }
 
-    // Convert spells to items using new format
+    // Convert spells to items using correct template format
     if (character.spells) {
       for (const charSpell of character.spells) {
         if (charSpell.spellId) {
@@ -1225,17 +1222,23 @@ export const exportCharacterToFoundry = async (req, res) => {
             type: "spell",
             img: getGenericIcon(charSpell.spellId, 'spell'),
             system: {
-              description: charSpell.spellId.description || "",
-              school: charSpell.spellId.school || "",
-              level: charSpell.spellId.level || 1,
-              castingTime: charSpell.spellId.castingTime || "",
-              range: charSpell.spellId.range || "",
-              duration: charSpell.spellId.duration || "",
-              components: charSpell.spellId.components || "",
-              damage: charSpell.spellId.damage || "",
-              effects: charSpell.spellId.effects || []
+              description: charSpell.spellId.description,
+              school: charSpell.spellId.school,
+              subschool: charSpell.spellId.subschool,
+              charge: charSpell.spellId.charge || "",
+              duration: charSpell.spellId.duration,
+              range: charSpell.spellId.range,
+              checkToCast: charSpell.spellId.checkToCast,
+              components: charSpell.spellId.components || [],
+              ritualDuration: charSpell.spellId.ritualDuration || "",
+              concentration: charSpell.spellId.concentration,
+              reaction: charSpell.spellId.reaction,
+              energy: charSpell.spellId.energy,
+              damage: charSpell.spellId.damage,
+              damageType: charSpell.spellId.damageType || "",
+              fizzled: false,
+              foundry_icon: charSpell.spellId.foundry_icon || ""
             },
-            effects: [],
             flags: {
               anyventure: {
                 originalId: charSpell.spellId._id.toString(),

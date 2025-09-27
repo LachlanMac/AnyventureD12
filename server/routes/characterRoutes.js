@@ -257,4 +257,36 @@ router.put('/:id/culture-selections', protect, updateCultureSelections);
 // FoundryVTT export route
 router.get('/:id/export-foundry', protect, exportCharacterToFoundry);
 
+// Debug route for foundry export (no auth for testing)
+router.get('/:id/debug-foundry', async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.id)
+      .populate('ancestry.ancestryId')
+      .populate('culture.cultureId')
+      .populate('traits.traitId')
+      .populate('modules.moduleId')
+      .populate('spells.spellId')
+      .populate('inventory.itemId');
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const spellInfo = character.spells?.map(spell => ({
+      name: spell.spellId?.name,
+      foundry_icon: spell.spellId?.foundry_icon,
+      school: spell.spellId?.school,
+      subschool: spell.spellId?.subschool
+    })) || [];
+
+    res.json({
+      characterName: character.name,
+      spellCount: character.spells?.length || 0,
+      spells: spellInfo
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
 export default router;

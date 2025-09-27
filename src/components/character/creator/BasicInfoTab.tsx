@@ -102,7 +102,8 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
         initialSelections={selectedCultureSelections}
       />
 
-      {/* Starting Gear Selection */}
+      {/* Starting Gear Selection - DISABLED: Logic not implemented */}
+      {/*
       <div style={{ marginBottom: '1.5rem' }}>
         <h3 style={{
           color: 'var(--color-white)',
@@ -193,6 +194,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
           Choose starting gear to automatically equip your character with items and coins.
         </p>
       </div>
+      */}
 
       {!hideModulePoints && modulePoints !== undefined && onModulePointsChange && (
         <div style={{ marginBottom: '1.5rem' }}>
