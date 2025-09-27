@@ -1,6 +1,8 @@
 
+import { applyDataEffects } from './moduleEffects.js';
 
 export const applyModuleBonusesToCharacter = (character) => {
+
   // Initialize mitigation if it doesn't exist
   if (!character.mitigation) {
     character.mitigation = {};
@@ -98,10 +100,12 @@ export const applyModuleBonusesToCharacter = (character) => {
           );
           if (selectedSubchoice) {
             processAbilityForBonuses(selectedSubchoice);
+            applyDataEffects(character, selectedSubchoice.data);
           }
         } else {
           // Regular option without subchoices
           processAbilityForBonuses(option);
+          applyDataEffects(character, option.data);
         }
       });
     }
@@ -135,10 +139,12 @@ export const applyModuleBonusesToCharacter = (character) => {
             );
             if (selectedSubchoice) {
               processAbilityForBonuses(selectedSubchoice);
+              applyDataEffects(character, selectedSubchoice.data);
             }
           } else {
             // Regular option without subchoices
             processAbilityForBonuses(option);
+            applyDataEffects(character, option.data);
           }
         });
       }
@@ -177,8 +183,11 @@ export const applyModuleBonusesToCharacter = (character) => {
       const option = module.options.find(opt => opt.location === selected.location);
       
       if (option) {
-        // Use centralized processing
+        // Use centralized processing for general bonuses
         processAbilityForBonuses(option);
+
+        // ALSO apply data effects for magic skills and other effects not handled by parseDataCodes
+        applyDataEffects(character, option.data);
       }
     }
   }
@@ -1071,15 +1080,12 @@ export const parseEquipmentEffects = (character) => {
     }
 
     const item = getItemFromInventory(slot.itemId);
-    console.log(`[DEBUG] Processing weapon slot ${name}, itemId: ${slot.itemId}, found item:`, item ? item.name : 'null');
     if (!item) {
-      console.log(`[DEBUG] No item found for weapon slot ${name} with itemId ${slot.itemId}`);
       return;
     }
 
     // Additional safety check to ensure item is still defined
     if (!item) {
-      console.log(`[DEBUG] Item became undefined after initial check for slot ${name}`);
       return;
     }
 

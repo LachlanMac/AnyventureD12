@@ -7,11 +7,13 @@
 // server/utils/moduleEffects.js - Updated parsing logic
 
 export const applyDataEffects = (character, dataString) => {
-  if (!dataString) return;
-  
+  if (!dataString) {
+    return;
+  }
+
   // Initialize module bonuses if not exists
   if (!character.moduleBonuses) character.moduleBonuses = {};
-  
+
   // Split the data string by colon for multiple effects
   const effects = dataString.split(':');
   
@@ -49,7 +51,8 @@ export const applyDataEffects = (character, dataString) => {
 
     const [_, category, type, code, valueStr] = match;
     const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
-    
+
+
     switch(category) {
       case 'S': // Skills
         handleSkillEffect(character, type, code, value);
@@ -156,14 +159,18 @@ const handleWeaponEffect = (character, type, code, value) => {
 };
 
 const handleMagicEffect = (character, type, code, value) => {
+
   const magicSkill = mapMagicCode(code);
-  if (!magicSkill) return;
-  
+
+  if (!magicSkill) {
+    return;
+  }
+
   if (!character.moduleBonuses.magicSkills) character.moduleBonuses.magicSkills = {};
   if (!character.moduleBonuses.magicSkills[magicSkill]) {
     character.moduleBonuses.magicSkills[magicSkill] = { value: 0, talent: 0 };
   }
-  
+
   if (type === 'S') { // Skill increase
     character.moduleBonuses.magicSkills[magicSkill].value += value;
     if (!character.magicSkills[magicSkill]) {

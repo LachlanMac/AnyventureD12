@@ -822,6 +822,10 @@ export const exportCharacterToFoundry = async (req, res) => {
     const characterWithBonuses = character.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
 
+    console.log(`🏛️ FOUNDRY EXPORT: After applyModuleBonusesToCharacter for ${characterWithBonuses.name}`);
+    console.log(`🏛️ FOUNDRY EXPORT: magicSkills:`, JSON.stringify(characterWithBonuses.magicSkills, null, 2));
+    console.log(`🏛️ FOUNDRY EXPORT: moduleBonuses.magicSkills:`, JSON.stringify(characterWithBonuses.moduleBonuses?.magicSkills, null, 2));
+
     // Helper function to get size dimensions
     const getSizeFromCharacter = (size) => {
       const sizeMap = {
@@ -1011,29 +1015,29 @@ export const exportCharacterToFoundry = async (req, res) => {
         // Magic skills
         magic: {
           black: {
-            value: character.magicSkills?.black?.value || 0,
-            talent: character.magicSkills?.black?.talent || 0,
-            baseTalent: character.magicSkills?.black?.baseTalent || character.magicSkills?.black?.talent || 0
+            value: characterWithBonuses.magicSkills?.black?.value || 0,
+            talent: characterWithBonuses.magicSkills?.black?.talent || 0,
+            baseTalent: characterWithBonuses.magicSkills?.black?.baseTalent || characterWithBonuses.magicSkills?.black?.talent || 0
           },
           primal: {
-            value: character.magicSkills?.primal?.value || 0,
-            talent: character.magicSkills?.primal?.talent || 0,
-            baseTalent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0
+            value: characterWithBonuses.magicSkills?.primal?.value || 0,
+            talent: characterWithBonuses.magicSkills?.primal?.talent || 0,
+            baseTalent: characterWithBonuses.magicSkills?.primal?.baseTalent || characterWithBonuses.magicSkills?.primal?.talent || 0
           },
           metamagic: {
-            value: character.magicSkills?.meta?.value || 0,
-            talent: character.magicSkills?.meta?.talent || 0,
-            baseTalent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0
+            value: characterWithBonuses.magicSkills?.meta?.value || 0,
+            talent: characterWithBonuses.magicSkills?.meta?.talent || 0,
+            baseTalent: characterWithBonuses.magicSkills?.meta?.baseTalent || characterWithBonuses.magicSkills?.meta?.talent || 0
           },
           divine: {
-            value: character.magicSkills?.divine?.value || 0,
-            talent: character.magicSkills?.divine?.talent || 0,
-            baseTalent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0
+            value: characterWithBonuses.magicSkills?.divine?.value || 0,
+            talent: characterWithBonuses.magicSkills?.divine?.talent || 0,
+            baseTalent: characterWithBonuses.magicSkills?.divine?.baseTalent || characterWithBonuses.magicSkills?.divine?.talent || 0
           },
           mysticism: {
-            value: character.magicSkills?.mystic?.value || 0,
-            talent: character.magicSkills?.mystic?.talent || 0,
-            baseTalent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0
+            value: characterWithBonuses.magicSkills?.mystic?.value || 0,
+            talent: characterWithBonuses.magicSkills?.mystic?.talent || 0,
+            baseTalent: characterWithBonuses.magicSkills?.mystic?.baseTalent || characterWithBonuses.magicSkills?.mystic?.talent || 0
           }
         },
 
