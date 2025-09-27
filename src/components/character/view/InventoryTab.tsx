@@ -124,9 +124,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       // Complex weapons in extra slots require WEAPON_COLLECTOR trait
       if (item.type === 'weapon' && ['extra1', 'extra2', 'extra3'].includes(slotName)) {
         const isComplexWeapon = item.weapon_category === 'complexMelee' ||
-                               item.weapon_category === 'complexRanged' ||
-                               item.weapon_category === 'complexMeleeWeapons' ||
-                               item.weapon_category === 'complexRangedWeapons';
+                               item.weapon_category === 'complexRanged';
 
         if (isComplexWeapon && !character.conditionals?.flags?.WEAPON_COLLECTOR) {
           return false;
@@ -149,10 +147,10 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     });
   };
 
-  const getFirstAvailableSlot = (): string | null => {
-    const availableSlots = getAvailableSlots();
-    return availableSlots.length > 0 ? availableSlots[0] : null;
-  };
+  // const getFirstAvailableSlot = (): string | null => {
+  //   const availableSlots = getAvailableSlots();
+  //   return availableSlots.length > 0 ? availableSlots[0] : null;
+  // };
 
   const [selectedSlot, setSelectedSlot] = useState<string>('');
   const [showSlotSelector, setShowSlotSelector] = useState(false);
@@ -170,32 +168,32 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     return slotDisplayMap[slotName] || slotName;
   };
 
-  const getAllPotentialSlots = (): string[] => {
-    // Equipment types that have dedicated slots
-    const equipmentTypeToSlotMap: Record<string, string[]> = {
-      weapon: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
-      headwear: ['head'],
-      body: ['body'],
-      cloak: ['back'],
-      boots: ['boots'],
-      gloves: ['hand'],
-      shield: ['offhand'],
-      accessory: ['accessory1', 'accessory2'],
-      ammunition: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
-    };
+  // const getAllPotentialSlots = (): string[] => {
+  //   // Equipment types that have dedicated slots
+  //   const equipmentTypeToSlotMap: Record<string, string[]> = {
+  //     weapon: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
+  //     headwear: ['head'],
+  //     body: ['body'],
+  //     cloak: ['back'],
+  //     boots: ['boots'],
+  //     gloves: ['hand'],
+  //     shield: ['offhand'],
+  //     accessory: ['accessory1', 'accessory2'],
+  //     ammunition: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'],
+  //   };
 
-    if (equipmentTypeToSlotMap[item.type]) {
-      return equipmentTypeToSlotMap[item.type];
-    } else {
-      // For non-equipment items, check if they're holdable
-      const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
-      if (isNonEquipment && item.holdable) {
-        return ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
-      }
-    }
+  //   if (equipmentTypeToSlotMap[item.type]) {
+  //     return equipmentTypeToSlotMap[item.type];
+  //   } else {
+  //     // For non-equipment items, check if they're holdable
+  //     const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+  //     if (isNonEquipment && item.holdable) {
+  //       return ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
+  //     }
+  //   }
 
-    return [];
-  };
+  //   return [];
+  // };
 
   const handleEquip = () => {
     const availableSlots = getAvailableSlots();

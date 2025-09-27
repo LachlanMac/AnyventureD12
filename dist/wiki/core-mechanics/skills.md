@@ -152,7 +152,7 @@ There are different types of special checks that have specific rules or are refe
 
 <br> 
 
-- **Attack Checks** - Attacking with a weapon, throwing something or making an unarmed attack.
+- **Attack Checks** - Attacking with a weapon, throwing something or making a brawling attack.
 - **Defense Check** - Making an evasion or deflection check
 - **Crafting Check** - Attempting to create a new item based on a recipe
 - **Magic Check** - Attempting to channel a spell

@@ -171,6 +171,9 @@ export interface Culture {
   benefits: CultureBenefit[];
   startingItems: CultureStartingItem[];
   options?: CultureOption[];
+  selectedRestriction?: CultureRestriction;
+  selectedBenefit?: CultureBenefit;
+  selectedStartingItem?: CultureStartingItem;
 }
 
 // Racial Module structure (deprecated - use Ancestry instead)
@@ -456,5 +459,9 @@ export interface Character {
   characterCreation?: {
     attributePointsRemaining: number;
     talentStarsRemaining: number;
+  };
+  wealth?: {
+    gold: number;
+    silver: number;
   };
 }

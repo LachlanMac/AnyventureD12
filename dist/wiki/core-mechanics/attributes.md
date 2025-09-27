@@ -5,7 +5,7 @@
 Talents are one half of the dice rolling system. All skills in AnyventureDX have a talent associated with them.:
 
 - **Attribute**: Talents in your 5 attributes [see below]
-- **Weapon**: Talents in [simple/complex melee weapons, simple/complex ranged weapons, throwing and unarmed combat]
+- **Weapon**: Talents in [simple/complex melee weapons, simple/complex ranged weapons, throwing and brawling combat]
 - **Magic**: Talents in [black magic, meta magic, divine magic, mysticism magic, primal magic ] 
 - **Crafting**: Talents in [fabrication, alchemy, engineering, glyphcraft, bioshaping, cooking ] 
 - **Music**: Talents in [vocal, percussion, wind, strings, brass]

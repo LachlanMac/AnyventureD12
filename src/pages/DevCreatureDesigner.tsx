@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
-import { useAuth } from '../context/AuthContext';
+import { useNavigate } from 'react-router-dom';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
@@ -59,7 +58,6 @@ interface CreatureTrait {
 
 const DevCreatureDesigner: React.FC = () => {
   const navigate = useNavigate();
-  const { user } = useAuth();
   const { showSuccess, showError } = useToast();
 
   // Check if we're in development environment
@@ -411,7 +409,12 @@ const DevCreatureDesigner: React.FC = () => {
         health: { max: 15, current: 15 },
         energy: { max: 5, current: 5, recovery: 2 },
         resolve: { max: 5, current: 5, recovery: 1 },
-        movement: 5,
+      });
+      setMovement({
+        walk: 5,
+        climb: 0,
+        swim: 0,
+        fly: 0,
       });
       setAttributes({
         physique: { talent: 2 },
@@ -421,11 +424,11 @@ const DevCreatureDesigner: React.FC = () => {
         social: { talent: 2 },
       });
       setSkills({
-        fitness: 0, deflection: 0, might: 0, endurance: 0,
-        evasion: 0, stealth: 0, coordination: 0, thievery: 0,
-        resilience: 0, concentration: 0, senses: 0, logic: 0,
-        wildcraft: 0, academics: 0, magic: 0, medicine: 0,
-        expression: 0, presence: 0, insight: 0, persuasion: 0,
+        fitness: { value: 0, tier: 0 }, deflection: { value: 0, tier: 0 }, might: { value: 0, tier: 0 }, endurance: { value: 0, tier: 0 },
+        evasion: { value: 0, tier: 0 }, stealth: { value: 0, tier: 0 }, coordination: { value: 0, tier: 0 }, thievery: { value: 0, tier: 0 },
+        resilience: { value: 0, tier: 0 }, concentration: { value: 0, tier: 0 }, senses: { value: 0, tier: 0 }, logic: { value: 0, tier: 0 },
+        wildcraft: { value: 0, tier: 0 }, academics: { value: 0, tier: 0 }, magic: { value: 0, tier: 0 }, medicine: { value: 0, tier: 0 },
+        expression: { value: 0, tier: 0 }, presence: { value: 0, tier: 0 }, insight: { value: 0, tier: 0 }, persuasion: { value: 0, tier: 0 },
       });
       setMitigation({
         physical: 0, cold: 0, heat: 0, electric: 0,
