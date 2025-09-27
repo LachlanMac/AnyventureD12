@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Headshot",
-      "description": "While making an attack with a simple or complex ranged weapon roll 1 less dice. Your first dice that hits deals double damage after all other modifiers, such as critical hits, are added.",
+      "description": "While making an attack with a simple or complex ranged weapon roll 1 less dice. Your first dice deals double damage if it hits, or triple if it is also a critical hit.",
       "location": "2b",
       "data": "XINE=1"
     },

@@ -191,6 +191,17 @@ const DevCreatureDesigner: React.FC = () => {
     aethersight: 0,
   });
 
+  // Immunities
+  const [immunities, setImmunities] = useState<string[]>([]);
+
+  // Available immunity options
+  const immunityOptions = [
+    'afraid', 'bleeding', 'blinded', 'charmed', 'confused', 'dazed',
+    'diseased', 'exhausted', 'frightened', 'grappled', 'incapacitated',
+    'invisible', 'paralyzed', 'petrified', 'poisoned', 'prone',
+    'restrained', 'stunned', 'unconscious'
+  ];
+
   // Abilities
   const [abilities, setAbilities] = useState<CreatureAbility[]>([]);
   const [traits, setTraits] = useState<CreatureTrait[]>([]);
@@ -239,7 +250,10 @@ const DevCreatureDesigner: React.FC = () => {
         ...detections,
         normal: Math.max(0, Math.min(8, detections.normal)), // Clamp to 0-8
       },
-      immunities: {}, // Empty object as per model
+      immunities: immunityOptions.reduce((acc, immunity) => ({
+        ...acc,
+        [immunity]: immunities.includes(immunity)
+      }), {}),
       actions: abilities.filter(a => !a.reaction),
       reactions: abilities.filter(a => a.reaction),
       traits,
@@ -298,7 +312,10 @@ const DevCreatureDesigner: React.FC = () => {
           ...detections,
           normal: Math.max(0, Math.min(8, detections.normal)),
         },
-        immunities: {},
+        immunities: immunityOptions.reduce((acc, immunity) => ({
+          ...acc,
+          [immunity]: immunities.includes(immunity)
+        }), {}),
         actions: abilities.filter(a => !a.reaction),
         reactions: abilities.filter(a => a.reaction),
         traits,
@@ -371,9 +388,48 @@ const DevCreatureDesigner: React.FC = () => {
         setMovement(jsonData.movement || movement);
 
         setAttributes(jsonData.attributes || attributes);
-        setSkills(jsonData.skills || skills);
+
+        // Handle skills with defensive loading to fix old buggy format
+        if (jsonData.skills) {
+          const normalizedSkills = Object.entries(jsonData.skills).reduce((acc, [skillName, skillData]) => {
+            // Handle both old buggy format and correct format
+            if (typeof skillData === 'object' && skillData !== null) {
+              // Check if this is the buggy nested format
+              if (typeof skillData.value === 'object' && skillData.value !== null && 'value' in skillData.value) {
+                // Extract the actual values from nested object
+                acc[skillName] = {
+                  value: skillData.value.value ?? 0,
+                  tier: skillData.value.tier ?? 0
+                };
+              } else {
+                // Normal format - just ensure we have proper defaults
+                acc[skillName] = {
+                  value: skillData.value ?? 0,
+                  tier: skillData.tier ?? 0
+                };
+              }
+            } else {
+              // Fallback for unexpected data
+              acc[skillName] = { value: 0, tier: 0 };
+            }
+            return acc;
+          }, {});
+          setSkills(normalizedSkills);
+        } else {
+          setSkills(skills);
+        }
+
         setMitigation(jsonData.mitigation || mitigation);
         setDetections(jsonData.detections || detections);
+
+        // Handle immunities - convert from object format to array
+        if (jsonData.immunities) {
+          const activeImmunities = Object.entries(jsonData.immunities)
+            .filter(([_, value]) => value === true)
+            .map(([key, _]) => key);
+          setImmunities(activeImmunities);
+        }
+
         // Convert old format to new unified abilities format
         const combinedAbilities = [
           ...(jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: false })),
@@ -902,7 +958,7 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="flex gap-2">
                         <input
                           type="number"
-                          min="0"
+                          min="-1"
                           max="6"
                           value={skills[skill].value}
                           onChange={(e) => setSkills({
@@ -940,7 +996,7 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="flex gap-2">
                         <input
                           type="number"
-                          min="0"
+                          min="-1"
                           max="6"
                           value={skills[skill].value}
                           onChange={(e) => setSkills({
@@ -978,7 +1034,7 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="flex gap-2">
                         <input
                           type="number"
-                          min="0"
+                          min="-1"
                           max="6"
                           value={skills[skill].value}
                           onChange={(e) => setSkills({
@@ -1016,7 +1072,7 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="flex gap-2">
                         <input
                           type="number"
-                          min="0"
+                          min="-1"
                           max="6"
                           value={skills[skill].value}
                           onChange={(e) => setSkills({
@@ -1054,7 +1110,7 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="flex gap-2">
                         <input
                           type="number"
-                          min="0"
+                          min="-1"
                           max="6"
                           value={skills[skill].value}
                           onChange={(e) => setSkills({
@@ -1110,20 +1166,74 @@ const DevCreatureDesigner: React.FC = () => {
                 {Object.entries(detections).map(([detection, value]) => (
                   <div key={detection}>
                     <label className="block text-sm font-medium mb-2 capitalize">{detection}</label>
-                    <input
-                      type="number"
-                      min="0"
-                      max="8"
+                    <select
                       value={value}
                       onChange={(e) => setDetections({
                         ...detections,
                         [detection]: parseInt(e.target.value)
                       })}
                       className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                    />
+                    >
+                      <option value={0}>None</option>
+                      {getRangeOptions().map(option => (
+                        <option key={option.value} value={option.value}>
+                          {option.label} ({option.value})
+                        </option>
+                      ))}
+                    </select>
                   </div>
                 ))}
               </div>
+            </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Immunities</h3>
+              <div className="mb-4">
+                <label className="block text-sm font-medium mb-2">Add Immunity</label>
+                <select
+                  onChange={(e) => {
+                    const immunity = e.target.value;
+                    if (immunity && !immunities.includes(immunity)) {
+                      setImmunities([...immunities, immunity]);
+                    }
+                    e.target.value = ''; // Reset dropdown
+                  }}
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                  defaultValue=""
+                >
+                  <option value="">Select immunity to add...</option>
+                  {immunityOptions
+                    .filter(immunity => !immunities.includes(immunity))
+                    .map(immunity => (
+                      <option key={immunity} value={immunity}>
+                        {immunity.charAt(0).toUpperCase() + immunity.slice(1)}
+                      </option>
+                    ))}
+                </select>
+              </div>
+
+              {immunities.length > 0 && (
+                <div>
+                  <label className="block text-sm font-medium mb-2">Current Immunities</label>
+                  <div className="flex flex-wrap gap-2">
+                    {immunities.map(immunity => (
+                      <div
+                        key={immunity}
+                        className="bg-blue-600 text-white px-3 py-1 rounded-full text-sm flex items-center gap-2"
+                      >
+                        {immunity.charAt(0).toUpperCase() + immunity.slice(1)}
+                        <button
+                          type="button"
+                          onClick={() => setImmunities(immunities.filter(i => i !== immunity))}
+                          className="text-white hover:text-red-300 ml-1"
+                        >
+                          ×
+                        </button>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              )}
             </div>
           </CardBody>
         </Card>

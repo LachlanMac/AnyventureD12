@@ -12,7 +12,7 @@
     },
     {
       "name": "Action : Power Strike",
-      "description": "You make a powerful attack against an enemy with a simple or complex melee weapon that consumes a lot of energy, adding 2 might dice to your weapon attack. These dice are not eligible for critical hits.",
+      "description": "You make a powerful attack against an enemy with a simple or complex melee weapon that consumes a lot of energy, adding 2 might dice to your weapon attack. These might dice are not eligible for critical hits.",
       "location": "2a",
       "data": "XINE=2"
     },

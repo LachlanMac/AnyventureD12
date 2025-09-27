@@ -60,9 +60,9 @@
     },
     {
       "name": "Effortless Weapons",
-      "description": "Complex weapons are no more difficult to handle than simple ones for you. You no longer have to expend 1 energy when making an attack with complex ranged or melee weapons.",
+      "description": "Complex weapons are no more difficult to handle than simple ones for you. The amount of energy you use to attack with a complex weapon is reduced by 1, to a minimum of 0.",
       "location": "7",
-      "data": "AG=1:AH=1"
+      "data": "FH"
     }
   ]
 }

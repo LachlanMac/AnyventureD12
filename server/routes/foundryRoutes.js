@@ -759,103 +759,103 @@ const convertToFoundryFormat = (data, type) => {
         // Skills template fields (flattened into system, matching character export)
         basic: {
           fitness: {
-            value: data.skills?.fitness?.value || data.skills?.fitness || 0,
-            tier: data.skills?.fitness?.tier || 0,
+            value: data.skills?.fitness?.value ?? 0,
+            tier: data.skills?.fitness?.tier ?? 0,
             attribute: "physique"
           },
           deflection: {
-            value: data.skills?.deflection?.value || data.skills?.deflection || 0,
-            tier: data.skills?.deflection?.tier || 0,
+            value: data.skills?.deflection?.value ?? 0,
+            tier: data.skills?.deflection?.tier ?? 0,
             attribute: "physique"
           },
           might: {
-            value: data.skills?.might?.value || data.skills?.might || 0,
-            tier: data.skills?.might?.tier || 0,
+            value: data.skills?.might?.value ?? 0,
+            tier: data.skills?.might?.tier ?? 0,
             attribute: "physique"
           },
           endurance: {
-            value: data.skills?.endurance?.value || data.skills?.endurance || 0,
-            tier: data.skills?.endurance?.tier || 0,
+            value: data.skills?.endurance?.value ?? 0,
+            tier: data.skills?.endurance?.tier ?? 0,
             attribute: "physique"
           },
           evasion: {
-            value: data.skills?.evasion?.value || data.skills?.evasion || 0,
-            tier: data.skills?.evasion?.tier || 0,
+            value: data.skills?.evasion?.value ?? 0,
+            tier: data.skills?.evasion?.tier ?? 0,
             attribute: "finesse"
           },
           stealth: {
-            value: data.skills?.stealth?.value || data.skills?.stealth || 0,
-            tier: data.skills?.stealth?.tier || 0,
+            value: data.skills?.stealth?.value ?? 0,
+            tier: data.skills?.stealth?.tier ?? 0,
             attribute: "finesse"
           },
           coordination: {
-            value: data.skills?.coordination?.value || data.skills?.coordination || 0,
-            tier: data.skills?.coordination?.tier || 0,
+            value: data.skills?.coordination?.value ?? 0,
+            tier: data.skills?.coordination?.tier ?? 0,
             attribute: "finesse"
           },
           thievery: {
-            value: data.skills?.thievery?.value || data.skills?.thievery || 0,
-            tier: data.skills?.thievery?.tier || 0,
+            value: data.skills?.thievery?.value ?? 0,
+            tier: data.skills?.thievery?.tier ?? 0,
             attribute: "finesse"
           },
           resilience: {
-            value: data.skills?.resilience?.value || data.skills?.resilience || 0,
-            tier: data.skills?.resilience?.tier || 0,
+            value: data.skills?.resilience?.value ?? 0,
+            tier: data.skills?.resilience?.tier ?? 0,
             attribute: "mind"
           },
           concentration: {
-            value: data.skills?.concentration?.value || data.skills?.concentration || 0,
-            tier: data.skills?.concentration?.tier || 0,
+            value: data.skills?.concentration?.value ?? 0,
+            tier: data.skills?.concentration?.tier ?? 0,
             attribute: "mind"
           },
           senses: {
-            value: data.skills?.senses?.value || data.skills?.senses || 0,
-            tier: data.skills?.senses?.tier || 0,
+            value: data.skills?.senses?.value ?? 0,
+            tier: data.skills?.senses?.tier ?? 0,
             attribute: "mind"
           },
           logic: {
-            value: data.skills?.logic?.value || data.skills?.logic || 0,
-            tier: data.skills?.logic?.tier || 0,
+            value: data.skills?.logic?.value ?? 0,
+            tier: data.skills?.logic?.tier ?? 0,
             attribute: "mind"
           },
           wildcraft: {
-            value: data.skills?.wildcraft?.value || data.skills?.wildcraft || 0,
-            tier: data.skills?.wildcraft?.tier || 0,
+            value: data.skills?.wildcraft?.value ?? 0,
+            tier: data.skills?.wildcraft?.tier ?? 0,
             attribute: "knowledge"
           },
           academics: {
-            value: data.skills?.academics?.value || data.skills?.academics || 0,
-            tier: data.skills?.academics?.tier || 0,
+            value: data.skills?.academics?.value ?? 0,
+            tier: data.skills?.academics?.tier ?? 0,
             attribute: "knowledge"
           },
           magic: {
-            value: data.skills?.magic?.value || data.skills?.magic || 0,
-            tier: data.skills?.magic?.tier || 0,
+            value: data.skills?.magic?.value ?? 0,
+            tier: data.skills?.magic?.tier ?? 0,
             attribute: "knowledge"
           },
           medicine: {
-            value: data.skills?.medicine?.value || data.skills?.medicine || 0,
-            tier: data.skills?.medicine?.tier || 0,
+            value: data.skills?.medicine?.value ?? 0,
+            tier: data.skills?.medicine?.tier ?? 0,
             attribute: "knowledge"
           },
           expression: {
-            value: data.skills?.expression?.value || data.skills?.expression || 0,
-            tier: data.skills?.expression?.tier || 0,
+            value: data.skills?.expression?.value ?? 0,
+            tier: data.skills?.expression?.tier ?? 0,
             attribute: "social"
           },
           presence: {
-            value: data.skills?.presence?.value || data.skills?.presence || 0,
-            tier: data.skills?.presence?.tier || 0,
+            value: data.skills?.presence?.value ?? 0,
+            tier: data.skills?.presence?.tier ?? 0,
             attribute: "social"
           },
           insight: {
-            value: data.skills?.insight?.value || data.skills?.insight || 0,
-            tier: data.skills?.insight?.tier || 0,
+            value: data.skills?.insight?.value ?? 0,
+            tier: data.skills?.insight?.tier ?? 0,
             attribute: "social"
           },
           persuasion: {
-            value: data.skills?.persuasion?.value || data.skills?.persuasion || 0,
-            tier: data.skills?.persuasion?.tier || 0,
+            value: data.skills?.persuasion?.value ?? 0,
+            tier: data.skills?.persuasion?.tier ?? 0,
             attribute: "social"
           }
         },
