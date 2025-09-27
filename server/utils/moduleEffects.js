@@ -403,7 +403,7 @@ const getMitigationName = (code) => {
     '4': 'electric',
     '5': 'dark',
     '6': 'divine',
-    '7': 'aether',
+    '7': 'aetheric',
     '8': 'psychic',
     '9': 'toxic',
     'A': 'true'
@@ -517,7 +517,7 @@ const mapMitigationCode = (code) => {
     '4': 'electric',
     '5': 'dark',
     '6': 'divine',
-    '7': 'aether',
+    '7': 'aetheric',
     '8': 'psychic',
     '9': 'toxic',
   };

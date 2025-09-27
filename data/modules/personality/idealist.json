@@ -19,7 +19,7 @@
     },
     {
       "name": "Manifesto",
-      "description": "You are a visionary and have often put your dream to quill and scroll. You gain +1 skill with academics. Additionally, when you persuasion attempts made through writing gain a bonus dice.",
+      "description": "You are a visionary and have often put your dream to quill and scroll. You gain +1 skill with academics. Additionally, persuasion attempts made through writing gain a bonus dice.",
       "location": "2b",
       "data": "TP:SSN=1"
     },

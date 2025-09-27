@@ -636,7 +636,7 @@ const HomebrewSpellCreator: React.FC = () => {
                           <option value="divine">Divine</option>
                           <option value="psychic">Psychic</option>
                           <option value="toxic">Toxic</option>
-                          <option value="aether">Aetheric</option>
+                          <option value="aetheric">Aetheric</option>
                           <option value="true">True</option>
                         </select>
                       </div>

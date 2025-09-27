@@ -70,9 +70,9 @@ EX. YS1=1 SKILL  YT1=1 TALENT
 ################################
 1: Black
 2: Primal
-3: Alteration
+3: Meta
 4: Divine
-5: Mysticism
+5: Mystic
 
 ############ CRAFTING ############
 KEY (C)
@@ -98,7 +98,7 @@ EX. M1=1 MITIGATION
 7: Aetheric
 8: Psychic
 9: Toxic
-A: True
+A: True (not implemented)
 
 ############## AUTO ##############
 KEY (A)

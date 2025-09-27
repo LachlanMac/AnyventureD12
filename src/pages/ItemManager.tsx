@@ -827,7 +827,7 @@ const ItemManager: React.FC = () => {
                               <option value="electric">Electric</option>
                               <option value="dark">Dark</option>
                               <option value="divine">Divine</option>
-                              <option value="aether">Aetheric</option>
+                              <option value="aetheric">Aetheric</option>
                               <option value="psychic">Psychic</option>
                               <option value="toxic">Toxic</option>
                             </select>
@@ -1046,7 +1046,7 @@ const ItemManager: React.FC = () => {
                             <option value="electric">Electric</option>
                             <option value="dark">Dark</option>
                             <option value="divine">Divine</option>
-                            <option value="aether">Aetheric</option>
+                            <option value="aetheric">Aetheric</option>
                             <option value="psychic">Psychic</option>
                             <option value="toxic">Toxic</option>
                           </select>
@@ -2073,7 +2073,7 @@ const ItemManager: React.FC = () => {
                           'psychic',
                           'dark',
                           'divine',
-                          'aether',
+                          'aetheric',
                           'toxic',
                         ].map((type) => (
                           <div key={type}>

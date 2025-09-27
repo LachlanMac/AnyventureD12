@@ -16,13 +16,13 @@ const actionSchema = new mongoose.Schema({
     damage_extra: String,
     damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
     },
     secondary_damage: String,
     secondary_damage_extra: String,
     secondary_damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
     },
     category: {
       type: String,
@@ -37,13 +37,13 @@ const actionSchema = new mongoose.Schema({
     damage_extra: String,
     damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
     },
     secondary_damage: String,
     secondary_damage_extra: String,
     secondary_damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic']
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
     },
     target_defense: {
       type: String,
@@ -303,8 +303,8 @@ const creatureSchema = new mongoose.Schema({
     damage_extra: { type: String },
     damage_type: {
       type: String,
-      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aether', 'psychic', 'toxic'],
-      default: 'aether'
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic'],
+      default: 'aetheric'
     },
     target_defense: {
       type: String,

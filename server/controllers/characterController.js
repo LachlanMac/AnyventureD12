@@ -59,14 +59,23 @@ export const getCharacters = async (req, res) => {
 
     
     // Find characters by userId (stored as string)
-    const characters = await Character.find({ 
-      userId: userId.toString() 
+    const characters = await Character.find({
+      userId: userId.toString()
     })
+      .populate('modules.moduleId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
       .populate('traits.traitId');
-    
-    res.json(characters);
+
+    // Apply module bonuses to each character
+    const charactersWithBonuses = characters.map(character => {
+      const characterWithBonuses = character.toObject();
+      applyModuleBonusesToCharacter(characterWithBonuses);
+      characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+      return characterWithBonuses;
+    });
+
+    res.json(charactersWithBonuses);
   } catch (error) {
     console.error('Error fetching characters:', error);
     res.status(500).json({ message: error.message });
@@ -829,7 +838,13 @@ export const exportCharacterToFoundry = async (req, res) => {
     const tokenSize = getSizeFromCharacter(character.physicalTraits?.size);
 
     // Use the portrait URL for both img and token texture
-    const portraitUrl = character.portraitUrl || "icons/svg/mystery-man.svg";
+    let portraitUrl = character.portraitUrl || "icons/svg/mystery-man.svg";
+
+    // For Foundry export, prepend ASSETS_BASE_URL if it's a local upload
+    if (portraitUrl.startsWith('/uploads/')) {
+      const assetsBaseUrl = process.env.ASSETS_BASE_URL || 'http://localhost:4000';
+      portraitUrl = `${assetsBaseUrl}${portraitUrl}`;
+    }
 
     // Create FoundryVTT actor structure matching our new template.json
     const foundryActor = {
@@ -1006,9 +1021,9 @@ export const exportCharacterToFoundry = async (req, res) => {
             baseTalent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0
           },
           metamagic: {
-            value: character.magicSkills?.metamagic?.value || 0,
-            talent: character.magicSkills?.metamagic?.talent || 0,
-            baseTalent: character.magicSkills?.metamagic?.baseTalent || character.magicSkills?.metamagic?.talent || 0
+            value: character.magicSkills?.meta?.value || 0,
+            talent: character.magicSkills?.meta?.talent || 0,
+            baseTalent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0
           },
           divine: {
             value: character.magicSkills?.divine?.value || 0,
@@ -1016,9 +1031,9 @@ export const exportCharacterToFoundry = async (req, res) => {
             baseTalent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0
           },
           mysticism: {
-            value: character.magicSkills?.mysticism?.value || 0,
-            talent: character.magicSkills?.mysticism?.talent || 0,
-            baseTalent: character.magicSkills?.mysticism?.baseTalent || character.magicSkills?.mysticism?.talent || 0
+            value: character.magicSkills?.mystic?.value || 0,
+            talent: character.magicSkills?.mystic?.talent || 0,
+            baseTalent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0
           }
         },
 

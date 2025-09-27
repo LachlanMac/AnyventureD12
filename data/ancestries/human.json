@@ -19,7 +19,7 @@
     {
       "name": "Versatile",
       "description": "Humans are known for their incredible adaptability. You start with an additional talent point.",
-      "data": "TA:TP=1"
+      "data": "TP=1"
     },
     {
       "name": "Daily Reaction : Human Destiny",
@@ -57,7 +57,7 @@
         }
       ],
       "requiresChoice": true,
-      "choiceType": "Dragon Heritage Selection"
+      "choiceType": "Human Bloodline"
     }
   ]
 }

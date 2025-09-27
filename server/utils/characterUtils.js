@@ -320,7 +320,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
           if (mitigationMatch) {
             const mitigationMap = {
               '1': 'physical', '2': 'heat', '3': 'cold', '4': 'electric',
-              '5': 'dark', '6': 'divine', '7': 'aether', '8': 'psychic', '9': 'toxic', 'A': 'true'
+              '5': 'dark', '6': 'divine', '7': 'aetheric', '8': 'psychic', '9': 'toxic', 'A': 'true'
             };
             parsedEffects.push({
               type: 'mitigation',
@@ -569,7 +569,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '4': 'electric',
         '5': 'dark',
         '6': 'divine',
-        '7': 'aether',
+        '7': 'aetheric',
         '8': 'psychic',
         '9': 'toxic'
       };

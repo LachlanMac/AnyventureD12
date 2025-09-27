@@ -506,7 +506,7 @@ const HomebrewCreatureCreator: React.FC = () => {
         roll: '',
         damage: '',
         damage_extra: '',
-        damage_type: 'aether',
+        damage_type: 'aetheric',
         target_defense: 'evasion',
         defense_difficulty: 6,
         min_range: 1,
@@ -2602,7 +2602,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                           <option value="electric">Electric</option>
                           <option value="dark">Dark</option>
                           <option value="divine">Divine</option>
-                          <option value="aether">Aetheric</option>
+                          <option value="aetheric">Aetheric</option>
                           <option value="psychic">Psychic</option>
                           <option value="toxic">Toxic</option>
                         </select>

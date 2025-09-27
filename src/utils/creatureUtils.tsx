@@ -29,7 +29,7 @@ export const DAMAGE_TYPES = [
   'electric',
   'dark',
   'divine',
-  'aether',
+  'aetheric',
   'psychic',
   'toxic',
 ] as const;
