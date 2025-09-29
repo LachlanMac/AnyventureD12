@@ -1,0 +1,69 @@
+{
+  "id": 108,
+  "name": "Sniper",
+  "description": "A specialized marksman focused on precision ranged combat, elevation advantage, and long-distance elimination.",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Elevation Advantage",
+      "description": "When making ranged attacks from at least 2 units of higher elevation than your target, gain a bonus dice. When 10 or more units higher, you gain an additional bonus dice and your attack does not suffer a penalty dice if it is one range greater than your maximum optimal range.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Spotter",
+      "description": "You are skilled in picking out targets that are trying to hide. Gain +1 skill with senses. You do not have to be alert to make a senses check when another creature makes a stealth check to become hidden.",
+      "location": "2a",
+      "data": "SSK=1:TG"
+    },
+    {
+      "name": "Prone Shooter",
+      "description": "You excel at shooting from concealed, low positions. Gain +1 skill with stealth. When making ranged attacks while prone, gain a bonus dice.",
+      "location": "2b",
+      "data": "SSF=1:TG"
+    },
+    {
+      "name": "Complex Weapon Mastery",
+      "description": "Gain +1 skill with complex ranged weapons",
+      "location": "3",
+      "data": "WS6=1"
+    },
+    {
+      "name": "Action : Reactive Shot",
+      "description": "You choose a target within your optimal range and take careful aim. If that target moves before the start of your next turn, you can immediately make a ranged attack against them at any point during their movement. If you use another reaction or are not able to use reactions, this attack fails.",
+      "location": "4a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Action : Snipe",
+      "description": "You make an attack with a complex range weapon that allows you to shoot a creature that is two tiers Outside your maximum range without a penalty. If you are hidden, this attack is not affected by resistance and can only be completely mitigated.",
+      "location": "4b",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Deadly Aim",
+      "description": "Your maximum range with complex ranged weapons, simple ranged weapons, and throwing weapons is extended by one range category.",
+      "location": "5",
+      "data": "AB=1:AD=1:AF=1"
+    },
+    {
+      "name": "Action : Lock-In",
+      "description": "You take careful aim and steady your breathing. Gain +1 energy and add a concentration check dice to your next ranged attack's dice pool.",
+      "location": "6a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Reaction : Calibrated Shot",
+      "description": "After missing a ranged attack or dealing no damage with a complex ranged weapon due to mitigation, you can immediately make a second ranged attack with the same weapon against the same target but add a single logic dice into the calculation.",
+      "location": "6b",
+      "data": "ZINE=0"
+    },
+    {
+      "name": "Master Sniper",
+      "description": "When you shoot a creature from at least a distant (61+ Units) range, you have the potential to execute it depending on the amount of successful dice on the attack. 2 dice will execute a minion, 3 dice a thrall, 4 a standard creature and 5 a champion.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

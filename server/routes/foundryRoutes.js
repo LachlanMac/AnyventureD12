@@ -425,7 +425,8 @@ const convertToFoundryFormat = (data, type) => {
         description: data.description,
         injuryType: data.type,
         cause: "",
-        data: data.data || ""
+        data: data.data || "",
+        flag: data.id || ""
       };
       break;
 

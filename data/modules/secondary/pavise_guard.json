@@ -1,0 +1,88 @@
+{
+  "id": 107,
+  "name": "Pavise Guard",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Phalanx  Fighter",
+      "description": "You are trained to fight in complex shield formations that require complex movements and strategy. Gain +1 skill with coordination. For each ally that is adjacent to you, gain a bonus dice to any deflection checks you make.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "Action : Defensive Fire",
+      "description": "You make an attack with a ranged or throwing weapon and immediately gain the benefits of using the Defend action.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "XINE=1"
+    },
+    {
+      "name": "Action : Deploy Shield",
+      "description": "You deploy your shield into the ground, making a might check as part of the process, creating a stationary barrier. When you end your turn adjacent to the shield, you gain benefits as if you had taken the Defend action, but using reactions does not end the effects. If you move to a space no longer adjacent to the deployed shield or the shield is displaced by another creature, the shield becomes unequipped and you no longer gain the bonuses of this ability or the shield. Any creature that wants to displace your shield must make a might check greater than the one you made as part of this action.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "XINE=1"
+    },
+    {
+      "name": "Improved Defense",
+      "description": "Your expertise with heavy shields grants superior protection. When using a shield, gain +1 skill with deflection checks.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "CE[SSB=1]"
+    },
+    {
+      "name": "Mobile Fortress",
+      "description": "You have mastered the art of fighting with heavy shields while maintaining ranged combat capability. You can equip a shield in your offhand while wielding a 2-handed ranged weapon.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "FG"
+    },
+    {
+      "name": "Heavy Shield Mastery",
+      "description": "You utilize bulky shields to provide exceptional protection against various forms of damage. When using a heavy shield, gain +1 heat, cold and electric mitigation.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "CG[M2=1:M3=1:M4=1]"
+    },
+    {
+      "name": "Reaction : Counter Battery",
+      "description": "When an enemy makes a ranged attack or channels a spell within the optimal range of a ranged or throwing weapon you're wielding, you can make an attack against them with a penalty dice. If your attack hits, their attack or spell is made with a penalty dice as well. This attack does not remove you from defensive stance.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Armored Bastion",
+      "description": "The first time you take damage after using the Defend action or any other ability that causes the same effect, the damage is halved before applying mitigation.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "name": "Impenetrable Cover",
+      "description": "While in defensive stance, you gain full cover and cannot be targeted by single-target ranged or spell attacks.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "name": "Passive Defense",
+      "description": "When an adjacent ally makes a defense check, you roll a single deflection dice that replaces their defense check if it is higher.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "TG"
+    }
+  ]
+}

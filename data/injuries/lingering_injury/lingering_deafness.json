@@ -1,0 +1,9 @@
+{
+  "id": "lingering_deafness",
+  "type": "lingering_injury",
+  "name": "Lingering Deafness",
+  "description": "Permanent hearing loss that significantly impairs auditory perception. Sounds are severely muffled or completely inaudible.",
+  "data": "",
+  "foundry_icon": "icons/creatures/abilities/sound-wave-pink.webp",
+  "foundry_id": "f3h8k1n4q7t0w5z9"
+}

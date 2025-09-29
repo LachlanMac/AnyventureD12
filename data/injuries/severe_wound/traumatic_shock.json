@@ -1,0 +1,9 @@
+{
+  "id": "traumatic_shock",
+  "type": "severe_wound",
+  "name": "Traumatic Shock",
+  "description": "Severe psychological trauma that has fundamentally altered mental state and emotional responses.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/injury-body-pain-gray.webp",
+  "foundry_id": "p3w0z7c4f1i8l5n2"
+}

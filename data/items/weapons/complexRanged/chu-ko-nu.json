@@ -1,0 +1,60 @@
+{
+  "name": "Chu-ko-nu",
+  "description": "A repeating crossbow that fires several bolts at the same time. Unlike a normal ranged weapon, you keep the highest 3 dice of your ranged attack, with each dice dealing primary damage, but being mitigated separately.",
+  "type": "weapon",
+  "weapon_category": "complexRanged",
+  "hands": 2,
+  "weight": 3,
+  "value": 2500,
+  "bonus_attack": 0,
+  "rarity": "common",
+  "primary": {
+    "damage": "8",
+    "damage_extra": "0",
+    "damage_type": "physical",
+    "category": "ranged",
+    "energy": 1,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 3,
+    "max_range": 5
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "engineering",
+    "difficulty": 10,
+    "ingredients": [
+      "Release Mechanism",
+      "Heavy Limbs",
+      "Bowstring",
+      "Handle",
+      "Bindings",
+      "3x Brass Fittings",
+      "3x Clockwork Gears"
+    ]
+  },
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/crossbows/crossbow-slotted.webp",
+  "foundry_id": "m2az5vcomvsdlb08"
+}

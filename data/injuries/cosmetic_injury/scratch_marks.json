@@ -1,0 +1,9 @@
+{
+  "id": "scratch_marks",
+  "type": "cosmetic_injury",
+  "name": "Scratch Marks",
+  "description": "Parallel scars from claws or similar implements. The distinctive pattern clearly indicates the source of the injury.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/injury-triple-slash-bleed.webp",
+  "foundry_id": "c7n2k5m9p8w1x6q3"
+}

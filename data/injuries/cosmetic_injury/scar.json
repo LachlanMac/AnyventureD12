@@ -1,0 +1,9 @@
+{
+  "id": "scar",
+  "type": "cosmetic_injury",
+  "name": "Scar",
+  "description": "A permanent mark from an old wound. The raised or discolored tissue serves as a visible reminder of past trauma.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/injury-face-mask-red.webp",
+  "foundry_id": "r7u4x1a8d5g2j9m6"
+}

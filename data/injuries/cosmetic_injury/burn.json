@@ -1,0 +1,9 @@
+{
+  "id": "burn",
+  "type": "cosmetic_injury",
+  "name": "Burn",
+  "description": "Permanent scarring from fire, acid, or intense heat. The damaged tissue is visibly discolored and textured.",
+  "data": "",
+  "foundry_icon": "icons/magic/fire/flame-burning-hand-orange.webp",
+  "foundry_id": "b3k9m7x2p1q8w4e5"
+}

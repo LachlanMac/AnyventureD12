@@ -11,7 +11,7 @@ const __dirname = path.dirname(__filename);
 // Path to injuries data directory
 const injuriesDir = path.resolve(__dirname, '../../data/injuries');
 
-// Function to read all injury JSON files from the injuries directory
+// Function to read all injury JSON files from the injuries directory and subfolders
 const readInjuriesFromDirectory = (directory) => {
   const injuries = [];
 
@@ -20,11 +20,12 @@ const readInjuriesFromDirectory = (directory) => {
     return injuries;
   }
 
-  // Get all files in the injuries directory
+  // Get all entries in the injuries directory
   const entries = fs.readdirSync(directory, { withFileTypes: true });
 
   for (const entry of entries) {
     if (entry.isFile() && entry.name.endsWith('.json')) {
+      // Handle JSON files in the root directory (for backward compatibility)
       const fullPath = path.join(directory, entry.name);
       try {
         const fileContent = fs.readFileSync(fullPath, 'utf8');
@@ -36,6 +37,27 @@ const readInjuriesFromDirectory = (directory) => {
         injuries.push(injuryData);
       } catch (err) {
         console.error(`Error reading injury file ${entry.name}: ${err.message}`);
+      }
+    } else if (entry.isDirectory()) {
+      // Handle subdirectories (injury type folders)
+      const subDirPath = path.join(directory, entry.name);
+      const subDirFiles = fs.readdirSync(subDirPath, { withFileTypes: true });
+
+      for (const subFile of subDirFiles) {
+        if (subFile.isFile() && subFile.name.endsWith('.json')) {
+          const fullPath = path.join(subDirPath, subFile.name);
+          try {
+            const fileContent = fs.readFileSync(fullPath, 'utf8');
+            const injuryData = JSON.parse(fileContent);
+
+            // Add source file information for debugging
+            injuryData._source = path.join(entry.name, subFile.name);
+
+            injuries.push(injuryData);
+          } catch (err) {
+            console.error(`Error reading injury file ${path.join(entry.name, subFile.name)}: ${err.message}`);
+          }
+        }
       }
     }
   }
@@ -114,20 +136,41 @@ export const resetAndReseedInjuries = async () => {
   try {
     console.log('Updating and reseeding all injuries...');
 
-    // Get list of injury IDs from JSON files
+    // Get list of injury IDs from JSON files (including subfolders)
     const validInjuryIds = [];
     if (fs.existsSync(injuriesDir)) {
-      const files = fs.readdirSync(injuriesDir).filter(file => file.endsWith('.json'));
-      for (const file of files) {
-        try {
-          const filePath = path.join(injuriesDir, file);
-          const fileContent = fs.readFileSync(filePath, 'utf8');
-          const injuryData = JSON.parse(fileContent);
-          if (injuryData.id) {
-            validInjuryIds.push(injuryData.id);
+      const entries = fs.readdirSync(injuriesDir, { withFileTypes: true });
+
+      for (const entry of entries) {
+        if (entry.isFile() && entry.name.endsWith('.json')) {
+          // Handle files in root directory
+          try {
+            const filePath = path.join(injuriesDir, entry.name);
+            const fileContent = fs.readFileSync(filePath, 'utf8');
+            const injuryData = JSON.parse(fileContent);
+            if (injuryData.id) {
+              validInjuryIds.push(injuryData.id);
+            }
+          } catch (err) {
+            console.error(`Error reading ${entry.name}: ${err.message}`);
           }
-        } catch (err) {
-          console.error(`Error reading ${file}: ${err.message}`);
+        } else if (entry.isDirectory()) {
+          // Handle files in subdirectories
+          const subDirPath = path.join(injuriesDir, entry.name);
+          const subFiles = fs.readdirSync(subDirPath).filter(file => file.endsWith('.json'));
+
+          for (const subFile of subFiles) {
+            try {
+              const filePath = path.join(subDirPath, subFile);
+              const fileContent = fs.readFileSync(filePath, 'utf8');
+              const injuryData = JSON.parse(fileContent);
+              if (injuryData.id) {
+                validInjuryIds.push(injuryData.id);
+              }
+            } catch (err) {
+              console.error(`Error reading ${path.join(entry.name, subFile)}: ${err.message}`);
+            }
+          }
         }
       }
     }

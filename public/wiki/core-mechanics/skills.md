@@ -56,7 +56,7 @@ A character that wants help care of their allies with medicine takes the medic m
 | 4 - Proficient| d12      | 6.5          |
 | 5 - Expert| d16      | 8.5          |
 | 6 - Master| d20      | 10.5         |
-
+| 7 - Grand Master| d24      | 12.5         |
 <br> 
 
 In most scenarios, skills are denoted by their dice type rather than a numerical value. For instance - if your character had journeyman fitness, the character sheet should show d10 instead of +3. 
@@ -175,7 +175,8 @@ Some factors can cause a skill to be upgraded or downgraded, changing the dice p
 | 3           | d8         | d10      | d12      |
 | 4           | d10        | d12      | d16      |
 | 5           | d12        | d16      | d20      |
-| 6           | d16        | d20      | d30      |
+| 6           | d16        | d20      | d24      |
+| 7           | d20        | d24      | d30      |
 
 <br>
 

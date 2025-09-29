@@ -72,7 +72,8 @@ The critical hit threshold begins when gaining +4 skill in a weapon, allowing th
   |------|----------------|-----------------|
   | d12  | 12             | 8.33%           |
   | d16  | 15-16          | 12.5%           |
-  | d20  | 18-20       | 15%             |
+  | d20  | 18-20          | 15%             |
+  | d24  | 20-24          | 20%             |
 
 
 <div class="example-box">

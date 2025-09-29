@@ -1,8 +1,0 @@
-{
-  "id": "chronic_pain",
-  "type": "lingering_injury",
-  "name": "Chronic Pain",
-  "description": "Persistent pain from an old injury affects your daily activities. The constant discomfort makes it difficult to concentrate and limits your endurance. You suffer penalties to extended physical activities and concentration-based tasks.",
-  "data": "",
-  "foundry_icon": "icons/skills/wounds/injury-face-impact-orange.webp"
-}

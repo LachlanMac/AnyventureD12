@@ -4,5 +4,6 @@
   "name": "Brand Mark",
   "description": "You bear a permanent brand or tattoo marking you as property, a criminal, or member of a specific group. The mark is clearly visible and carries social implications wherever you go.",
   "data": "",
-  "foundry_icon": "icons/magic/symbols/rune-sigil-hook-white-red.webp"
+  "foundry_icon": "icons/magic/symbols/rune-sigil-hook-white-red.webp",
+  "foundry_id": "v974990liz5pi06u"
 }

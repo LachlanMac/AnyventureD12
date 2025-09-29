@@ -29,7 +29,7 @@ Attributes and Skills
   Mind: Resilience, Concentration, Senses, Logic
   Knowledge: Wildcraft, Academics, Magic, Medicine
   Social: Expression, Presence, Insight, Persuasion
-- Skills have Levels 0–6 (0=d4, 1=d6, 2=d8, 3=d10, 4=d12, 5=d16, 6=d20).
+- Skills have Levels 0–6 (0=d4, 1=d6, 2=d8, 3=d10, 4=d12, 5=d16, 6=d20, 7=d24).
 - Attribute governs dice count (Talent); Skill governs die size (Level).
 - A check is Talent dice of the Skill’s die size; result is the highest die unless a rule says otherwise.
 
@@ -43,9 +43,9 @@ Upgraded/Downgraded Skills
 - Situational modifiers can upgrade/downgrade the die ladder.
   Table (Skill Level → die):
   Level: 0  1  2  3  4   5   6
-  Base:  d4 d6 d8 d10 d12 d16 d20
-  Upg.:  d6 d8 d10 d12 d16 d20 d30
-  Dng.:  d2 d4 d6 d8 d10 d12 d16
+  Base:  d4 d6 d8 d10 d12 d16 d20,d24
+  Upg.:  d6 d8 d10 d12 d16 d20,d24,d30
+  Dng.:  d2 d4 d6 d8 d10 d12 d16,d20,d24
 
 Opposed/Group Checks and Help
 - Help (same skill): helper must have equal-or-higher skill; grants +1 bonus die automatically.
@@ -125,7 +125,7 @@ Attacks and Damage
   Example: Longsword with Primary 3, Extra 2. Two successes = 3 + 2 = 5 damage before mitigation.
 
 Critical Hits (weapon attacks)
-- Start at Skill Level 4 (d12). Crit on: d12=12; d16=15–16; d20=18–20.
+- Start at Skill Level 4 (d12). Crit on: d12=12; d16=15–16; d20=18–20, d24=20-24, d30=25+
 - A crit adds Primary damage once more (default one crit counted unless rule says otherwise).
 
 Mitigation (Damage & Types)
@@ -161,7 +161,6 @@ Condition Details (from wiki; no tables, concise text)
 - Stasis: Unconscious and do not need to eat/breathe/sleep; periodic effects paused.
 - Unconscious: Extremely vulnerable; double damage from Melee. If no other rule applies, roll d12 end of each turn; on 9+, regain consciousness.
 - Winded: Cannot regenerate Energy; remove via Rest Action.
-- Wounded: Cannot have or recover more than half max Health; if above, set to half. Roll penalty dice on Physique and Finesse skills. Remove via Endurance 10 at end of full rest; DC reduces by 1 each time.
 
 Reaching 0 Health (Lifeline)
 - At 0 Health, a character may spend 2 Resolve at the start of their turn to act (“lifeline” state), risking lasting consequences.

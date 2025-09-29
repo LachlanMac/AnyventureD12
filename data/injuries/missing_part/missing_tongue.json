@@ -1,0 +1,9 @@
+{
+  "id": "missing_tongue",
+  "type": "missing_part",
+  "name": "Missing Tongue",
+  "description": "Complete loss of tongue, severely impairing speech, taste, and the ability to consume food normally.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/bone-broken-marrow-yellow.webp",
+  "foundry_id": "l5p2s9v6y3b0e7h4"
+}

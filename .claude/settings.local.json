@@ -79,7 +79,8 @@
       "WebFetch(domain:foundryvtt.com)",
       "Bash(do sed -i 's/\"\"weapon_category\"\": \"\"throwing\"\",/\"\"weapon_category\"\": \"\"throwing\"\",\\n  \"\"hands\"\": 1,/' \"$file\")",
       "Bash(do sed -i '/\"\"hands\"\": 1,/{N;s/\"\"hands\"\": 1,\\n  \"\"hands\"\": 1,/\"\"hands\"\": 1,/}' \"$file\")",
-      "Bash(do grep -q '\"\"hands\"\": 1,' \"$file\")"
+      "Bash(do grep -q '\"\"hands\"\": 1,' \"$file\")",
+      "Bash(do echo -n \"$file: \")"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

@@ -141,7 +141,7 @@ const Home: React.FC = () => {
           />
           <FeatureCard
             title="Skill-Based Progression"
-            description="Master 20 basic skills across 5 attributes. Your talents determine how many dice you roll, while skill level determines the die type (d4 to d20)."
+            description="Master 20 basic skills across 5 attributes. Your talents determine how many dice you roll, while skill level determines the die type (d4 to d24)."
             icon="🎲"
             color="var(--color-stormy)"
           />

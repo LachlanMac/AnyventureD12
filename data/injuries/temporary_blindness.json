@@ -1,8 +1,0 @@
-{
-  "id": "temporary_blindness",
-  "type": "lingering_injury",
-  "name": "Temporary Blindness",
-  "description": "You have had an eye injury and are suffering from temporary blindness.",
-  "data": "",
-  "foundry_icon": "icons/creatures/eyes/humanoid-single-blind.webp"
-}

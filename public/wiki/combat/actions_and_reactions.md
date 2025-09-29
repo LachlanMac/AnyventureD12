@@ -10,10 +10,7 @@ Many actions are obtained through modules and are more powerful than the standar
 The character moves up to double their movement speed in a straight line.
 
 ### Attack - 0 Energy
-The character makes an attack with a simple weapon, brawling attack or throwing weapon.
-
-### Attack (Complex Weapon) - 1 Energy
-The character makes an attack with a complex weapon.
+The character makes an attack with a brawling, throwing, ranged or melee weapon.
 
 <div class="note-box">
 When using a special action with an energy cost, that cost is increased by 1 if using a complex weapon.
@@ -29,7 +26,7 @@ The character attempt to grab another creature and hold onto them until the star
 The character attempts to channel a spell. The energy cost varies by the spell.
 
 ### Defend - 0 Energy
-The character preemptively defends themselves, gaining a bonus dice to all defense and contested checks. After using a reaction, this benefit is lost.
+The character preemptively defends themselves, gaining a bonus dice to all defense and contested checks. After using any other reaction, this benefit is lost.
 
 ### Shove - 1 Energy
 The character attempts to shove another character that is the same size, knocking them prone or pushing them 1 unit away. This is done by making a contested might check against the target's fitness or coordination.
@@ -49,9 +46,6 @@ The character gains the obscured condition described in [Conditions](/wiki/condi
 
 ### Attack of Opportunity - 0 Energy
 The character makes an attack with a simple weapon or brawling attack against a creature that willfully moves out of their melee range.
-
-### Attack of Opportunity (Complex Weapon) - 1 Energy
-The character makes an attack with a complex weapon against a creature that willfully moves out of their melee range.
 
 ### Cover Eyes - 0 Energy
 The character attempts to cover their eyes to either protect against a vision based attack or protect their eyes. This gives them the blinded condition until the start of their next turn.

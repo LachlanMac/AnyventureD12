@@ -1,0 +1,9 @@
+{
+  "id": "bruising",
+  "type": "cosmetic_injury",
+  "name": "Bruising",
+  "description": "Permanent discoloration from severe bruising that failed to heal properly. The darkened skin serves as a lasting reminder.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+  "foundry_id": "d9f4h7k2m5p8w1x6"
+}

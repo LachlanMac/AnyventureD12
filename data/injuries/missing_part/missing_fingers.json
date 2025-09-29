@@ -1,0 +1,9 @@
+{
+  "id": "missing_fingers",
+  "type": "missing_part",
+  "name": "Missing Fingers",
+  "description": "Loss of multiple fingers, reducing grip strength and fine motor control for delicate tasks.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/bone-broken-marrow-yellow.webp",
+  "foundry_id": "k3n0q7t4w1z8c5f2"
+}

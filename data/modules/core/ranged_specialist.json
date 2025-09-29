@@ -1,12 +1,12 @@
 {
   "id": 105,
-  "name": "Marksman",
+  "name": "Ranged Specialist",
   "mtype": "core",
   "ruleset": 1,
   "options": [
     {
       "name": "Fledgling Marksman",
-      "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple and complex ranged weapons.",
+      "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple and throwing weapons.",
       "location": "1",
       "data": "WS4=1:WS6=1"
     },
@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Headshot",
-      "description": "While making an attack with a simple or complex ranged weapon roll 1 less dice. Your first dice deals double damage if it hits, or triple if it is also a critical hit.",
+      "description": "While making an attack with a ranged or throwing weapon, you roll with 2 penalty dice but your attack deals an additional 8. On a critical hit, this damage bonus becomes 15.",
       "location": "2b",
       "data": "XINE=1"
     },

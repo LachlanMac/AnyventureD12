@@ -107,6 +107,13 @@
       "order": 10
     },
     {
+      "id": "injuries",
+      "title": "Injuries",
+      "path": "core-mechanics/injuries.md",
+      "category": "Core Mechanics",
+      "order": 11
+    },
+    {
       "id": "tracking-combat",
       "title": "Tracking Combat",
       "path": "combat/tracking-combat.md",

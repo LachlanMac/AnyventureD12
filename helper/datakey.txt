@@ -220,6 +220,7 @@ D: BADGE_OF_HONOR [each cosmetic injury gives +1 max morale]
 E: WEAPON_COLLECTOR [complex weapons in extra slots ]
 F: TWIN_FURY [dual wield complex melee weapons]
 G: PASSIVE_SHELL [can use shields in  secondary slot]
+H: EFFICIENT_WEAPONRY [armsman 1 less energy on complex weapons]
 
 ########### IMMUNITIES ###################
 KEY (I)

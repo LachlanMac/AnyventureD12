@@ -1,0 +1,9 @@
+{
+  "id": "bite_mark",
+  "type": "cosmetic_injury",
+  "name": "Bite Mark",
+  "description": "Distinctive scarring from teeth marks that healed improperly. The bite pattern is clearly visible and unmistakable.",
+  "data": "",
+  "foundry_icon": "icons/creatures/abilities/mouth-teeth-rows-red.webp",
+  "foundry_id": "e1g6j9m2q5t8w3z7"
+}

@@ -50,7 +50,7 @@
       "name": "Throwing Mastery",
       "description": "Gain +1 skill with throwing weapons. Your minimum optimal range with throwing weapons is reduced by 1 step, letting you throw effectively at one range closer without penalties.",
       "location": "6a",
-      "data": "TG:WS2=1"
+      "data": "TG:WS2=1:AE=1"
     },
     {
       "name": "Evasive Motion",

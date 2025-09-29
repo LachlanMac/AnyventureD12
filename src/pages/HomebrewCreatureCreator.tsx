@@ -1395,7 +1395,8 @@ const HomebrewCreatureCreator: React.FC = () => {
                         <option value={4}>d12</option>
                         <option value={5}>d16</option>
                         <option value={6}>d20</option>
-                        <option value={7}>d30</option>
+                        <option value={7}>d24</option>
+                        <option value={8}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1444,7 +1445,8 @@ const HomebrewCreatureCreator: React.FC = () => {
                         <option value={4}>d12</option>
                         <option value={5}>d16</option>
                         <option value={6}>d20</option>
-                        <option value={7}>d30</option>
+                        <option value={7}>d24</option>
+                        <option value={8}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1493,7 +1495,8 @@ const HomebrewCreatureCreator: React.FC = () => {
                         <option value={4}>d12</option>
                         <option value={5}>d16</option>
                         <option value={6}>d20</option>
-                        <option value={7}>d30</option>
+                        <option value={7}>d24</option>
+                        <option value={8}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1542,7 +1545,8 @@ const HomebrewCreatureCreator: React.FC = () => {
                         <option value={4}>d12</option>
                         <option value={5}>d16</option>
                         <option value={6}>d20</option>
-                        <option value={7}>d30</option>
+                        <option value={7}>d24</option>
+                        <option value={8}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1591,7 +1595,8 @@ const HomebrewCreatureCreator: React.FC = () => {
                         <option value={4}>d12</option>
                         <option value={5}>d16</option>
                         <option value={6}>d20</option>
-                        <option value={7}>d30</option>
+                        <option value={7}>d24</option>
+                        <option value={8}>d30</option>
                       </select>
                     </div>
                   ))}

@@ -1,0 +1,9 @@
+{
+  "id": "broken_leg",
+  "type": "severe_wound",
+  "name": "Broken Leg",
+  "description": "Major bone fracture that healed improperly, causing severe mobility issues and chronic pain during movement.",
+  "data": "",
+  "foundry_icon": "icons/commodities/bones/bone-broken-grey-red.webp",
+  "foundry_id": "m7q4t1w8z5c2f9i6"
+}

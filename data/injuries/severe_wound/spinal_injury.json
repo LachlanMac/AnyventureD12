@@ -1,0 +1,9 @@
+{
+  "id": "spinal_injury",
+  "type": "severe_wound",
+  "name": "Spinal Injury",
+  "description": "Damage to the spinal cord resulting in partial paralysis or loss of function in affected areas.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/bone-broken-knee-beam.webp",
+  "foundry_id": "q5y2b9e6h3k0n7r4"
+}

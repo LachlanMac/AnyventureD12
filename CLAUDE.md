@@ -89,7 +89,7 @@ Mind: Resilience, Concentration, Senses, Logic
 Knowledge: Wildcraft, Academics, Magic, Medicine
 Social: Expression, Presence, Insight, Persuasion
 Skills, unlike attributes have a "level" from 0->6
-0 = d4, 1 = d6, 2 = d8, 3 = d10, 4 = d12, 5 = d16, 6 = d20
+0 = d4, 1 = d6, 2 = d8, 3 = d10, 4 = d12, 5 = d16, 6 = d20, 7 = d24
 There is no skill above 6, as that is mastery
 So, if a player had 4 in Fitness, and 2 talent in physique, they would roll a 2d12 to make that check.
 They would take the highest value of the 2d12. So if one dice was a 7 and the other was 3, the check would be a 7.

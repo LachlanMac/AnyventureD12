@@ -1,0 +1,9 @@
+{
+  "id": "lingering_blindness",
+  "type": "lingering_injury",
+  "name": "Lingering Blindness",
+  "description": "Your vision is permanently impaired. You can make out shapes and light, but details are lost to you.",
+  "data": "",
+  "foundry_icon": "icons/creatures/eyes/humanoid-single-blind.webp",
+  "foundry_id": "5zkfwq4lqf2e01a4"
+}
