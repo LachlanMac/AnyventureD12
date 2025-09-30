@@ -3,22 +3,15 @@
 ## What Are Modules?
 Modules are the heart of character progression in Anyventure. Instead of traditional classes or levels, characters grow by investing Module Points into themed skill trees that represent archetypes, specializations, and unique abilities.
 
+<div class="triangle-line"></div>
+
 ## Module Structure
 Each module follows a **7-tier structure** with **11 total selections**:
 - Pattern: 1-2-1-2-1-2-1
 - Single-choice tiers: Pick the listed ability
 - Dual-choice tiers: Choose one of two options
 
-### Example Structure:
-```
-Tier 1: [Single Choice]
-Tier 2: [Choice A] OR [Choice B]
-Tier 3: [Single Choice]
-Tier 4: [Choice A] OR [Choice B]
-Tier 5: [Single Choice]
-Tier 6: [Choice A] OR [Choice B]
-Tier 7: [Single Choice - Capstone]
-```
+<div class="triangle-line"></div>
 
 ## Module Categories
 
@@ -29,51 +22,40 @@ Fundamental archetypes that define major playstyles:
 - **Crafting**: Alchemist, Engineer, Fabricator, Chef, Glyphcraft
 
 ### Secondary Modules
-Specialized paths that add unique flavors:
-- **Martial**: Barbarian, Gladiator, Sentinel, Dual Wielder
-- **Magical**: Wizard, Necromancer, Elementalist, Illusionist
-- **Hybrid**: Spell Thief, Witch, Battle Dancer
-- **Support**: Medic, Diplomat, Investigator
+Specialized paths that add unique flavors and define several smaller archetypes
 
 ### Personality Modules
 Starting modules that define character nature and social interactions.
 
-### Alteration Modules
-Special transformative paths like Vampirism, Lycanthropy, or Pacts.
+<div class="triangle-line"></div>
 
 ## Module Benefits
 Modules can provide:
-- **Skill Increases**: +1 to +3 in specific skills
-- **Actions**: New combat or utility actions (cost Energy)
+- **Skill Increases**: Gain bonuses to skills which increase the tier of dice you roll
+- **Actions**: New combat or utility actions
 - **Reactions**: Defensive or opportunistic responses
-- **Passives**: Always-on benefits
-- **Resource Modifications**: Extra Health, Energy, or Resolve
+- **Passives**: Special benefits that give interesting bonuses that change the way your skills or abilities work
+- **Resource Modifications**: Gain small bonuses to your health, resolve or morale
 - **Unique Abilities**: Special powers or transformations
 
-## Investing in Modules
-- **Module Points**: Awarded by the GM for achievements
-- **Linear Progression**: Must complete tiers in order
-- **Multiple Modules**: Can invest in several modules simultaneously
-- **No Class Restrictions**: Mix and match as desired
+<div class="triangle-line"></div>
 
-## Creating Synergies
-The modular system encourages creative combinations:
-- **Spell Blade**: Melee Specialist + Elementalist
-- **Divine Archer**: Marksman + Divine Magic
-- **Shadow Thief**: Thief + Illusionist
-- **War Chef**: Chef + Barbarian
+## Module Points Guidelines
+Characters increase in power by acquiring module points rather than levels. Each optional within a module (and purchasing the module, which grants the first option) costs a single option.
+All characters start with a number  of module points to help define their archetypes before a game begins. The default number of modules that a character starts with is <b>10</b>. However, for more advanced starts you can refer to the following chart:
 
-## Module Point Guidelines
-Typical progression rates:
-- **Session Reward**: 1-3 points per session
-- **Major Milestone**: 5-10 points
-- **Story Arc Completion**: 10-20 points
-- **Tier 1-3**: Early game (1-15 total points)
-- **Tier 4-5**: Mid game (16-40 total points)
-- **Tier 6-7**: Late game (40+ total points)
+| Module Points | Campaign Start | Description |
+|---------------|----------------|-------------|
+| **4** | Commoner Start | Characters are ordinary people just beginning their journey. Limited combat ability and few specialized skills. |
+| **10** | Adventurer Start | Standard starting power level. Characters have basic competency in their chosen fields and some combat experience. |
+| **20** | Local Hero Start | Experienced characters with established reputations. Competent in multiple areas with notable specialized abilities. |
+| **30** | Champion Start | Veteran heroes with significant power and influence. Masters of their chosen paths with legendary capabilities. |
+
+<div class="triangle-line"></div>
 
 ## Retraining
+
 With GM permission, you may be able to:
-- Swap choices within a tier
-- Abandon a module (losing all benefits)
-- Transform modules (through story events)
+- **Swap choices within a tier**: Change your selection in a dual-choice tier
+- **Abandon a module**: Lose all benefits but regain spent module points
+- **Transform modules**: Through major story events or magical influence

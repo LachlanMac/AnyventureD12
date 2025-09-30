@@ -1,0 +1,9 @@
+{
+  "id": "combat_stress",
+  "type": "lingering_injury",
+  "name": "Combat Stress",
+  "description": "Exposure to intense violence has left lasting mental scars. Sudden loud noises or chaotic situations can trigger overwhelming stress responses.",
+  "data": "",
+  "foundry_icon": "icons/skills/wounds/injury-pain-body-orange.webp",
+  "foundry_id": "s1v8x3a6d9g2j5m0"
+}

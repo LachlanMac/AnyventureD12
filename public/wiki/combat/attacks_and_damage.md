@@ -64,7 +64,7 @@ When a character is dual wielding, once per turn, when they make a melee attack 
 
 
 ### Critical Hits
-Critical hits add damage to your weapon attacks when you roll above a certain threshold. When you land one or more critical hits, you add the primary damage to your total calculation again. 
+Critical hits add damage to your weapon attacks when you roll above a certain threshold. For each critical hit that is part of you roll, add damage to the attack equal to the extra damage on the weapon. 
 
 The critical hit threshold begins when gaining +4 skill in a weapon, allowing the attacker to roll a d12. A result of a 12 on the d12 is a critical hit. 
 
@@ -77,6 +77,6 @@ The critical hit threshold begins when gaining +4 skill in a weapon, allowing th
 
 
 <div class="example-box">
-A grand knight is wielding a longsword and normally rolls 4d16 on their attacks. Their longsword deals 7 primary damage and 4 extra damage. Because the enemy is dazed, they gain a bonus dice for a total of 5d12. Their attack dice pool ends up being [15, 3, 7, 16, 9] while the enemies defense check was an 8.
-The 16,15 and 9 are all successes, and the 16 makes it a critical hit. By default, a character can only benefit from one critical hit dice. The final damage calculation ends up being (7[primary] + 4[extra] + 4[extra] + 7[critical]) for a total of 18.
+A grand knight is wielding a longsword and normally rolls 4d16 on their attacks. Their longsword deals 7 primary damage and 4 extra damage. Because the enemy is dazed, they gain a bonus dice for a total of 5d12. Their attack dice pool ends up being [9, 3, 16, 15, 6] while the enemies defense check was an 8.
+The 9, 15 and 16 are successes, with the 16 and 15 being critical hits. Because the longsword deals 4 extra damage, that is added twice to the total calculation. The formula becomes (7 + 4 + 4 [for three successes] + (4 + 4)[for the two critical hits]) for a total of 23 damage.
 </div>

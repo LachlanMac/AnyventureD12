@@ -4,10 +4,14 @@
 
 Movement is a fundamental aspect of combat and exploration in AnyventureDX. Characters can move around the battlefield to position themselves tactically, escape danger, or reach objectives.
 
+<div class="triangle-line"></div>
+
 ## Movement Speed
 On a given turn, a player can move using one of their movement types. The most common movement speed is the *walk speed*. This type of movement does not need to happen all at once and can be spread throughout a turn.
 
 All characters can decide what *type* of movement they are going to use as part of their free movement: *swim*, *climb* or *walk*. Some characters can also *fly* or *burrow.* You cannot mix and match movement types using your free movement.
+
+<div class="triangle-line"></div>
 
 ### Encumbrance
 
@@ -15,11 +19,17 @@ What types of gear a character has equipped determines how mobile they are. A ch
 
 Heavy pieces of equipment have an *Encumbrance Penalty* on them which adds up to a single value. An *Encumbrance Check* is the act of making a fitness check against that total penalty. When a character fails an encumbrance check, they become winded.
 
+<div class="triangle-line"></div>
+
 ### Sprint Action
 
 Characters can use the **Sprint** action to move up to double any of their movement speeds. For example, a character with a climb speed of 3 wants to scurry up a mountain - they can expend an energy to do so. However, sprinting requires making an encumbrance check equal to *double* the encumbrance penalty. 
 
 For more details about the Sprint action and other combat actions, see [Actions & Reactions](/wiki/actions-reactions).
+
+<div class="triangle-line"></div>
+
+## Types of Movement
 
 ### Walk
 
@@ -43,10 +53,22 @@ Climbing allows a character to traverse objects using hands and feet. The formul
 
 If a character ends their turn winded while climbing, they cannot hold on anymore, and they fall. This can be mitigated by using specialized climbing gear such as pitons and anchors.
 
+
+### Flight
+
+Flying allows a character move vertically, as well as horizontally. There are two types of flight: <b>natural flight</b> and <b>magical flight</b>. 
+
+- <b>Magical:</b> Has no restrictions - a character can simply fly and stay hovering without dedicating any actions, reactions or movement.
+- <b>Natural:</b> Natural flight is for characters with functional wings, such as avians and other bird-like creatures. If a character using natural flight does not dedicate at least 1 unit of movement towards flight during a turn, they will fall.
+
+<div class="triangle-line"></div>
+
 ### Movement Penalties
 
 Some terrain may slow movement or require additional effort to traverse, such as making endurance checks through exhausting terrain or might checks when powering through deep snow. These cases are handled by the GM. 
 
+
+<div class="triangle-line"></div>
 ### Conditions
 
 Certain conditions can affect movement:

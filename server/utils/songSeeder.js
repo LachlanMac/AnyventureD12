@@ -31,11 +31,16 @@ export const seedSongs = async () => {
     if (!fs.existsSync(songsDir)) return true;
     const songs = readSongsFromDirectory(songsDir);
     let created = 0;
+    let updated = 0;
+
     for (const s of songs) {
-      if (!s.name) continue;
-      const existing = await Song.findOne({ name: s.name });
+      if (!s.id) continue;
+      const existing = await Song.findOne({ id: s.id });
       if (existing) {
+        // Preserve existing foundry_id
+        s.foundry_id = existing.foundry_id;
         await Song.findByIdAndUpdate(existing._id, s);
+        updated++;
       } else {
         // Generate foundry_id if missing
         if (!s.foundry_id) {
@@ -45,10 +50,52 @@ export const seedSongs = async () => {
         created++;
       }
     }
-    console.log(`Seeded songs. Created ${created}, total now ${await Song.countDocuments()}`);
+    console.log(`Seeded songs. Created ${created}, updated ${updated}, total now ${await Song.countDocuments()}`);
     return true;
   } catch (err) {
     console.error('Error seeding songs:', err);
+    return false;
+  }
+};
+
+// Function to reset and reseed all songs
+export const resetAndReseedSongs = async () => {
+  try {
+    console.log('Updating and reseeding all songs...');
+
+    // Get list of song IDs from JSON files
+    const validSongIds = [];
+    if (fs.existsSync(songsDir)) {
+      const songs = readSongsFromDirectory(songsDir);
+      for (const song of songs) {
+        if (song.id) {
+          validSongIds.push(song.id);
+        }
+      }
+    }
+
+    // Delete songs that are not in JSON files
+    if (validSongIds.length > 0) {
+      const deleteResult = await Song.deleteMany({
+        id: { $nin: validSongIds }
+      });
+      if (deleteResult.deletedCount > 0) {
+        console.log(`Deleted ${deleteResult.deletedCount} orphaned songs not found in JSON files.`);
+      }
+    }
+
+    // Now seed/update songs from JSON files
+    const success = await seedSongs();
+
+    if (success) {
+      const newSongCount = await Song.countDocuments();
+      console.log(`Successfully reseeded ${newSongCount} songs.`);
+      return true;
+    }
+
+    return false;
+  } catch (err) {
+    console.error(`Error resetting songs: ${err.message}`);
     return false;
   }
 };

@@ -3,7 +3,7 @@
   "type": "missing_part",
   "name": "Missing Foot",
   "description": "Complete loss of foot, significantly impacting mobility, balance, and movement speed.",
-  "data": "",
+  "data": "JFX",
   "foundry_icon": "icons/skills/wounds/bone-broken-marrow-yellow.webp",
   "foundry_id": "j1m8p5s2v9y6b3e0"
 }

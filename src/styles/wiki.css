@@ -222,3 +222,321 @@
   margin: 1rem 0;
   position: relative;
 }
+
+/* Ancestry Card Styles */
+.wiki-content .ancestry-card {
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 2px solid var(--color-stormy);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-content .ancestry-header {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.wiki-content .ancestry-portrait {
+  border: 3px solid var(--color-stormy);
+  border-radius: 8px;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.6);
+  height: 250px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wiki-content .ancestry-portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.wiki-content .ancestry-info {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+
+.wiki-content .ancestry-name {
+  font-size: 1.75rem;
+  font-weight: 800;
+  color: #c299ff;
+  margin: 0 0 0.5rem 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wiki-content .ancestry-size-type {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #a0a0a0;
+  margin-bottom: 1rem;
+  font-style: italic;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.wiki-content .ancestry-details {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.wiki-content .ancestry-details p {
+  margin: 0;
+  font-size: 1rem;
+  color: var(--color-white);
+  line-height: 1.4;
+}
+
+.wiki-content .ancestry-details strong {
+  color: #d9b3ff;
+  min-width: 100px;
+  display: inline-block;
+}
+
+.wiki-content .ancestry-description {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-stormy);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+/* Culture description in header */
+.wiki-content .ancestry-info .ancestry-description {
+  background-color: rgba(0, 0, 0, 0.2);
+  border: 1px solid var(--color-stormy);
+  border-radius: 6px;
+  padding: 0.75rem;
+  margin-top: 1rem;
+  margin-bottom: 0;
+}
+
+.wiki-content .ancestry-description p {
+  margin: 0;
+  color: var(--color-white);
+  line-height: 1.6;
+}
+
+.wiki-content .ancestry-traits h4 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #c299ff;
+  margin: 0 0 1rem 0;
+  text-align: center;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wiki-content .traits-container {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.wiki-content .trait-item {
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 2px solid var(--color-stormy);
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.wiki-content .trait-item:hover {
+  border-color: #c299ff;
+  box-shadow: 0 4px 8px rgba(194, 153, 255, 0.2);
+}
+
+.wiki-content .trait-name {
+  font-size: 1.1rem;
+  font-weight: 700;
+  color: #d9b3ff;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.wiki-content .trait-description {
+  color: var(--color-white);
+  line-height: 1.5;
+  margin: 0;
+}
+
+/* Culture-specific trait styling */
+.wiki-content .restriction-item {
+  border-left: 4px solid #ff6b6b;
+}
+
+.wiki-content .restriction-item:hover {
+  border-color: #ff5252;
+  box-shadow: 0 4px 8px rgba(255, 107, 107, 0.2);
+}
+
+.wiki-content .benefit-item {
+  border-left: 4px solid #4ecdc4;
+}
+
+.wiki-content .benefit-item:hover {
+  border-color: #26a69a;
+  box-shadow: 0 4px 8px rgba(78, 205, 196, 0.2);
+}
+
+.wiki-content .starting-item {
+  border-left: 4px solid #ffa726;
+}
+
+.wiki-content .starting-item:hover {
+  border-color: #ff9800;
+  box-shadow: 0 4px 8px rgba(255, 167, 38, 0.2);
+}
+
+/* Subchoices styling */
+.wiki-content .subchoices-container {
+  margin-top: 1rem;
+  padding: 1rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 6px;
+  border-left: 3px solid #c299ff;
+}
+
+.wiki-content .subchoices-header {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #c299ff;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+.wiki-content .subchoice-item {
+  margin-bottom: 0.75rem;
+  padding: 0.75rem;
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 4px;
+  border-left: 2px solid var(--color-stormy);
+}
+
+.wiki-content .subchoice-item:last-child {
+  margin-bottom: 0;
+}
+
+.wiki-content .subchoice-name {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #e6d9ff;
+  margin-bottom: 0.25rem;
+}
+
+.wiki-content .subchoice-description {
+  font-size: 0.9rem;
+  color: #cccccc;
+  line-height: 1.4;
+  margin-left: 1rem;
+}
+
+/* Trait Card Styles (no portraits) */
+.wiki-content .trait-card {
+  background-color: rgba(0, 0, 0, 0.45);
+  border: 2px solid var(--color-stormy);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin: 2rem 0;
+  box-shadow:
+    0 10px 15px -3px rgba(0, 0, 0, 0.3),
+    0 4px 6px -2px rgba(0, 0, 0, 0.1);
+}
+
+.wiki-content .trait-header {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+.wiki-content .trait-name {
+  font-size: 1.875rem;
+  font-weight: 800;
+  color: #c299ff;
+  margin: 0 0 1rem 0;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.wiki-content .trait-header .trait-description {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: 1px solid var(--color-stormy);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 0 auto;
+  max-width: 800px;
+}
+
+.wiki-content .trait-header .trait-description p {
+  margin: 0;
+  color: var(--color-white);
+  line-height: 1.6;
+  font-size: 1.1rem;
+}
+
+/* Trait-specific option styling */
+.wiki-content .trait-card .trait-item {
+  background-color: rgba(0, 0, 0, 0.35);
+  border: 2px solid #9c64e2;
+  border-radius: 8px;
+  padding: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.wiki-content .trait-card .trait-item:hover {
+  border-color: #c299ff;
+  box-shadow: 0 4px 8px rgba(156, 100, 226, 0.2);
+}
+
+.wiki-content .trait-card .trait-item .trait-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #d9b3ff;
+  margin: 0 0 0.75rem 0;
+  text-align: left;
+  text-transform: uppercase;
+  letter-spacing: 0.025em;
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+  .wiki-content .ancestry-header {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .wiki-content .ancestry-portrait {
+    height: 200px;
+    margin: 0 auto;
+    max-width: 200px;
+  }
+
+  .wiki-content .ancestry-name {
+    font-size: 1.5rem;
+    text-align: center;
+  }
+
+  .wiki-content .ancestry-details {
+    text-align: center;
+  }
+
+  .wiki-content .trait-name {
+    font-size: 1.5rem;
+  }
+
+  .wiki-content .trait-header .trait-description {
+    padding: 0.75rem;
+  }
+}

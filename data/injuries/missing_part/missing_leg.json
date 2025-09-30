@@ -3,7 +3,7 @@
   "type": "missing_part",
   "name": "Missing Leg",
   "description": "Your leg has been amputated or lost, severely limiting your mobility. Your movement speed is reduced and you have difficulty with actions requiring balance or agility. You may require a crutch or prosthetic to function.",
-  "data": "",
+  "data": "JLX",
   "foundry_icon": "icons/skills/wounds/bone-broken-knee-beam.webp",
   "foundry_id": "3uxjqze8u69k5s2o"
 }

@@ -21,6 +21,9 @@ const WikiSidebar = () => {
   const [expandedCategories, setExpandedCategories] = useState<Set<string>>(new Set());
   const [pageHeaders, setPageHeaders] = useState<Record<string, MarkdownHeader[]>>({});
   const [loadingHeaders, setLoadingHeaders] = useState<Set<string>>(new Set());
+  const [ancestries, setAncestries] = useState<any[]>([]);
+  const [cultures, setCultures] = useState<any[]>([]);
+  const [traits, setTraits] = useState<any[]>([]);
   const location = useLocation();
 
   useEffect(() => {
@@ -34,6 +37,17 @@ const WikiSidebar = () => {
         setExpandedCategories(categories);
       })
       .catch((err) => console.error('Failed to load wiki structure:', err));
+
+    // Load ancestries, cultures, and traits for sub-navigation
+    Promise.all([
+      fetch('/api/ancestries').then(res => res.json()).catch(() => []),
+      fetch('/api/cultures').then(res => res.json()).catch(() => []),
+      fetch('/api/traits').then(res => res.json()).catch(() => [])
+    ]).then(([ancestriesData, culturesData, traitsData]) => {
+      setAncestries(ancestriesData.sort((a: any, b: any) => a.name.localeCompare(b.name)));
+      setCultures(culturesData.sort((a: any, b: any) => a.name.localeCompare(b.name)));
+      setTraits(traitsData.sort((a: any, b: any) => a.name.localeCompare(b.name)));
+    });
   }, []);
 
   // Fetch headers for a specific page
@@ -168,25 +182,91 @@ const WikiSidebar = () => {
                         </Link>
 
                         {/* Show subsections if this is the active page */}
-                        {isActive && headers.length > 0 && (
+                        {isActive && (
                           <div className="ml-6 mt-1 space-y-0.5">
-                            {headers.map((header) => (
-                              <Link
-                                key={header.anchor}
-                                to={`${pagePath}#${header.anchor}`}
-                                className="block px-2 py-0.5 text-xs text-gray-400 hover:text-gray-200 transition-colors"
-                                onClick={(e) => {
-                                  // Smooth scroll to anchor
-                                  e.preventDefault();
-                                  const element = document.getElementById(header.anchor);
-                                  if (element) {
-                                    element.scrollIntoView({ behavior: 'smooth' });
-                                  }
-                                }}
-                              >
-                                {header.text}
-                              </Link>
-                            ))}
+                            {/* Show dynamic content for specific pages */}
+                            {page.id === 'races' && ancestries.length > 0 && (
+                              <>
+                                {ancestries.map((ancestry) => (
+                                  <Link
+                                    key={ancestry.id}
+                                    to={`${pagePath}#${ancestry.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                    className="block px-2 py-0.5 text-xs text-gray-400 hover:text-gray-200 transition-colors"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      const element = document.getElementById(ancestry.name.toLowerCase().replace(/\s+/g, '-'));
+                                      if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                      }
+                                    }}
+                                  >
+                                    {ancestry.name}
+                                  </Link>
+                                ))}
+                              </>
+                            )}
+                            {page.id === 'cultures' && cultures.length > 0 && (
+                              <>
+                                {cultures.map((culture) => (
+                                  <Link
+                                    key={culture.id}
+                                    to={`${pagePath}#${culture.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                    className="block px-2 py-0.5 text-xs text-gray-400 hover:text-gray-200 transition-colors"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      const element = document.getElementById(culture.name.toLowerCase().replace(/\s+/g, '-'));
+                                      if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                      }
+                                    }}
+                                  >
+                                    {culture.name}
+                                  </Link>
+                                ))}
+                              </>
+                            )}
+                            {page.id === 'starting-traits' && traits.length > 0 && (
+                              <>
+                                {traits.map((trait) => (
+                                  <Link
+                                    key={trait.id}
+                                    to={`${pagePath}#${trait.name.toLowerCase().replace(/\s+/g, '-')}`}
+                                    className="block px-2 py-0.5 text-xs text-gray-400 hover:text-gray-200 transition-colors"
+                                    onClick={(e) => {
+                                      e.preventDefault();
+                                      const element = document.getElementById(trait.name.toLowerCase().replace(/\s+/g, '-'));
+                                      if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                      }
+                                    }}
+                                  >
+                                    {trait.name}
+                                  </Link>
+                                ))}
+                              </>
+                            )}
+                            {/* Show regular headers for other pages */}
+                            {!['races', 'cultures', 'starting-traits'].includes(page.id) && headers.length > 0 && (
+                              <>
+                                {headers.map((header) => (
+                                  <Link
+                                    key={header.anchor}
+                                    to={`${pagePath}#${header.anchor}`}
+                                    className="block px-2 py-0.5 text-xs text-gray-400 hover:text-gray-200 transition-colors"
+                                    onClick={(e) => {
+                                      // Smooth scroll to anchor
+                                      e.preventDefault();
+                                      const element = document.getElementById(header.anchor);
+                                      if (element) {
+                                        element.scrollIntoView({ behavior: 'smooth' });
+                                      }
+                                    }}
+                                  >
+                                    {header.text}
+                                  </Link>
+                                ))}
+                              </>
+                            )}
                           </div>
                         )}
                       </div>

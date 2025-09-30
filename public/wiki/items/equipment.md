@@ -2,13 +2,45 @@
 
 <div class="triangle-line"></div>
 
+## Worn Equipment
+
+Many pieces of equipment are effective at increasing protection and mitigating damage. The only limit to equipment is the slot that it occupies; a character can only benefit from a single item in each slot, except for accessories.
+
+- **Main Hand**: The dominant hand for holding and controlling a weapon
+- **Off Hand**: The secondary hand, used for holding utility items such as torches, shields or even other weapons
+
+- **Body**: Armor and other clothing
+- **Head**: Crowns, helmets and visors
+- **Back**: cloaks and shawls
+- **Hands**: gloves and specialized brawling weapons
+- **Feet**: boots and shoes
+- **Accessories**: Rings, amulets, bracers, belts and anything in between.
+
+<div class="note-box">
+The default rule for the number of accessories a character can benefit from is 2, but this can be adjusted.
+</div>
+
+
+### Extra Slots
+All characters also have extra slots which can equip, by default, simple weapons that can be used in combat with no penalty towards changing out your equipment. This allows a character to wield a melee weapon in their main hand while being able to switch to a simple ranged weapon without needing to spend an action. 
+
+<div class="note-box">
+Some modules change the rules on what you are allowed to equip in your extra slots.
+</div>
+
+
+<div class="triangle-line"></div>
+
+
 ## Weapons
 Weapons are divided by complexity and type:
 
 - **Simple Melee**: Daggers, clubs, spears
-- **Simple Ranged**: Shortbows, slings, hand crossbows
-- **Complex Melee**: Longswords, greataxes, rapiers
+- **Simple Ranged**: Short bows, slings, hand crossbows
+- **Complex Melee**: Longswords, great-axes, rapiers
 - **Complex Ranged**: Longbows, warbows, arbalests
+- **Brawling**: Cestus, clawed weapons, ulaks
+- **Throwing**: Javelins, throwing knives, darts
 
 Generally, complex weapons are more versatile than simple weapons and can deal more damage at the cost of requiring energy to use. They also require more training to be talented with as all characters start off with a talent in simple weapons.
 
@@ -62,20 +94,7 @@ An enemy demolitionist throws a fire bomb at the party which requires a defense 
 
 <div class="triangle-line"></div>
 
-## Worn Equipment
-
-Many pieces of equipment are effective at increasing protection and mitigating damage. The only limit to equipment is the slot that it occupies; a character can only benefit from a single item in each slot, except for accessories.
-
-- **Body**: A specialized (non-clothing) piece of equipment that offers some benefit. This can be anything from a magical robe to plate armor.
-- **Head**: A piece of equipment that is worn on the head such as a helmet, hood or crown.
-- **Cloak**: A protective piece of clothing worn on the back. The most basic cloaks protect against the weather or help insulate the wearer.
-- **Hands**: Gloves and gauntlets that are used to protect the hands.
-- **Feet**: Boots, shoes and greaves that protect the lower leg and feet.
-- **Accessories**: Rings, amulets, bracers, belts and anything in between.
-
-<div class="note-box">
-The default rule for the number of accessories a character can benefit from is 2, but this can be adjusted.
-</div>
-
-<div class="triangle-line"></div>
+## Encumbrance Penalty
+Worn items, especially heavy ones like plate armor and shields, contribute to an <b>encumbrance penalty</b> which can affect a character's movement. More information on encumbrance is in 
+[movement](/wiki/movement) section.
 

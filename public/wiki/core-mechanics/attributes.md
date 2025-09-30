@@ -52,17 +52,4 @@ During character creation:
 3. The maximum talents you can assign to an attribute is **4**
 4. An attribute of a player character can never be lower than **1**
 
-## Example Builds
-
-### The Scholar
-- Physique: 1, Finesse: 1, Mind: 2, **Knowledge: 4**, Social: 2
-- Excellent at learning and magic, poor physical capabilities
-
-### The Warrior
-- **Physique: 3**, **Finesse: 3**, Mind: 1, Knowledge: 1, Social: 1
-- Strong combat potential, limited mental and social skills
-
-### The Diplomat
-- Physique: 1, Finesse: 1, Mind: 2, Knowledge: 2, **Social: 3**
-- Excellent negotiator and leader, average other capabilities
 

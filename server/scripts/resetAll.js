@@ -10,7 +10,7 @@ import { resetAndReseedModules } from '../utils/moduleSeeder.js';
 import { resetAndReseedSpells } from '../utils/spellSeeder.js';
 import { resetAndReseedItems } from '../utils/itemSeeder.js';
 import { loadCreaturesFromJson } from '../utils/creatureSeeder.js';
-import { seedSongs } from '../utils/songSeeder.js';
+import { resetAndReseedSongs } from '../utils/songSeeder.js';
 import { resetAndReseedLanguages } from '../utils/languageSeeder.js';
 import { resetAndReseedInjuries } from '../utils/injurySeeder.js';
 
@@ -132,7 +132,7 @@ const main = async () => {
     // 8. Songs (independent)
     console.log('\n[8/10] Resetting Songs...');
     console.log('----------------------------------------');
-    const songSuccess = await seedSongs();
+    const songSuccess = await resetAndReseedSongs();
     if (!songSuccess) {
       console.error('❌ Song reset failed');
       allSuccess = false;

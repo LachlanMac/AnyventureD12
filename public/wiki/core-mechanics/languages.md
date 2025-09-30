@@ -20,17 +20,16 @@ Languages in Anyventure represent your character's ability to communicate and un
 
 Languages fall into several categories:
 
-### Common Languages
-Standard languages spoken by major cultures and nations. Most characters begin with at least basic proficiency in one or more common languages.
+### Common Language
+Common is the language diplomacy and commerce and is spoken to some degree in most civilized places. All adventurers start off with at least <b>fluency</b> in common, besides primitive humanoids.
 
-### Regional Languages
-Languages specific to particular geographic areas or smaller cultural groups. Knowledge of these languages often indicates travel experience or cultural connections.
+### Non-Magical Languages
+Standard languages spoken by major cultures and nations. 
 
 ### Magical Languages
 Ancient or mystical languages tied to magical traditions. Some spells may require specific magical languages, and these languages often carry additional benefits when used in magical contexts.
 
-### Trade Languages
-Simplified languages developed for commerce and inter-cultural communication. These are often easier to learn but lack the depth for complex or formal communication.
+
 
 ## Learning Languages
 

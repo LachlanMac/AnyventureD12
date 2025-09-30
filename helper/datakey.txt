@@ -245,9 +245,30 @@ Q: INCAPACITATED
 R: IGNITED  
 S: HIDDEN  
 T: MADDENED  
-U:  
-V:  
-W:  
-X:  
-Y:  
-Z:  
+U:
+V:
+W:
+X:
+Y:
+Z:
+
+########### INJURIES ###################
+KEY (J)
+EX. JAR = Missing Arm, Right
+EX. JAL = Missing Arm, Left
+EX. JAX = Missing Arm, General
+##########################################
+1: Permanent Damage -1 Health
+
+A: Missing Arm
+E: Missing Eye
+F: Missing Foot
+G: Missing Fingers
+H: Missing Hand
+L: Missing Leg
+T: Missing Tongue
+
+SUB-KEYS:
+L: Left
+R: Right
+X: General/Unspecified

@@ -27,6 +27,7 @@ import homebrewCreatureRoutes from './routes/homebrewCreatureRoutes.js';
 import creatureRoutes from './routes/creatureRoutes.js';
 import songRoutes from './routes/songRoutes.js';
 import foundryRoutes from './routes/foundryRoutes.js';
+import injuryRoutes from './routes/injuryRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -135,6 +136,7 @@ app.use('/api/portraits', portraitRoutes);
 app.use('/api/spells', spellRoutes);
 app.use('/api/songs', songRoutes);
 app.use('/api/items', itemRoutes);
+app.use('/api/injuries', injuryRoutes);
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/songs', songRoutes);
 app.use('/api/homebrew', homebrewRoutes);
