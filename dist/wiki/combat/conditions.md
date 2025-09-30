@@ -33,7 +33,7 @@ A character who is confused must roll a 1d4 every time they attempt to take an a
 A dazed character loses their concentration and cannot concentrate on anything new until the condition is removed. When you are dazed, the first defense check you make has a penalty dice. This condition is shortlived, and automatically ends at the end of your next turn.
 
 ### Maddened
-A character who is maddened cannot properly identify friend from standard but is not affected from other mind alterting conditions such as being charmed, confused or afraid. At the end of each turn, they can attempt to recover by making a resilience check of 10. This check is lowered by 1 each turn.
+A character who is maddened cannot properly identify friend from standard but is not affected from other mind altering conditions such as being charmed, confused or afraid. At the end of each turn, they can attempt to recover by making a resilience check of 10. This check is lowered by 1 each turn.
 
 ### Numbed
 A numbed character cannot gain any resolve and they cannot benefit from morale. Attempts to recover from the maddened, afraid or confused conditions require a check of 4 to break, but does not get lower each time the character attempts to make it. A numbed character has a penalty dice to all mind checks and cannot use resolve to stay conscious when reaching 0 health. In order to lose the broken condition, a character must make a resilience check of 10 at the end of a full rest. For each full rest taken, this check is lowered by 1.
@@ -72,7 +72,7 @@ An obscure character is hidden from line of sight from non-enemies. Whenever the
 A poisoned character takes toxic damage at the end of their turn in the amount and type specified by the poison. When they take this toxic damage, they must roll an endurance check specified by the poison. If they succeed, the poisoned condition is removed, otherwise the required check is lowered by 1 the next time they make it.
 
 ### Prone
-A prone character is one that is on the ground in a vulnerable position. All attack and defense checks are rolled with a penalty dice. A character must either use an action or their entire movement to remove this condition.
+A prone character is one that is on the ground in a vulnerable position. All attack and defense checks are rolled with a penalty dice. A character must either use an action or their entire movement to remove this condition. Otherwise, prone characters have a walk speed of 2 units.
 
 ### Stasis 
 A character in stasis is unconscious and does not need to eat, breathe, or sleep. Any periodic effects such as bleeding, poisons, diseases are paused.
@@ -82,7 +82,4 @@ An unconscious character is extremely vulnerable and takes double damage from me
 
 ### Winded
 A winded character cannot regenerate energy. This condition is removed by taking the rest action.
-
-### Wounded
-A wounded character cannot have or recover more than half of their total health. If they receive a wound and their health is higher than this threshold, it is automatically set to half of their current maximum. Wounded creatures also roll penalty dice on all physique and finesse skills. To recover from the wounded condition, a character must make an endurance check of 10 at the end of a full rest. This check is reduced by 1 each time it is made.  
 

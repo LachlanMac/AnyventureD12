@@ -56,7 +56,7 @@ A character that wants help care of their allies with medicine takes the medic m
 | 4 - Proficient| d12      | 6.5          |
 | 5 - Expert| d16      | 8.5          |
 | 6 - Master| d20      | 10.5         |
-
+| 7 - Grand Master| d24      | 12.5         |
 <br> 
 
 In most scenarios, skills are denoted by their dice type rather than a numerical value. For instance - if your character had journeyman fitness, the character sheet should show d10 instead of +3. 
@@ -108,14 +108,14 @@ Some common examples of contested checks:
 Contested checks are resolved easily; the higher value succeeds and the lower value fails. Ties can be resolved as they occur, but the general strategy should be there is "no change" if the checks are equal.
 
 <div class="example-box">
-  <strong>Example 1 — Bluffing the Guard</strong><br>
+  <strong>Example 1 - Bluffing the Guard</strong><br>
   <em>Situation:</em> Nyla tries to talk her way past a fortress guard by claiming she is an official courier.<br>
   <em>Check:</em> Nyla rolls <strong>Persuasion 11</strong> vs. the Guard’s <strong>Insight 9</strong>.<br>
   <em>Outcome:</em> Nyla’s higher result convinces the guard, who lets her through.
 </div>
 
 <div class="example-box">
-  <strong>Example 2 — The Falling Gem</strong><br>
+  <strong>Example 2 - The Falling Gem</strong><br>
   <em>Situation:</em> Two adventurers, Kellan and Mira, dive to snatch a gem that slips from a pedestal.<br>
   <em>Check:</em> Both roll <strong>Coordination</strong>. Kellan scores <strong>7</strong>; Mira scores <strong>7</strong>.<br>
   <em>Outcome:</em> It’s a tie, so per the rule there is “no change.” The gem clatters to the floor, unclaimed for now.
@@ -133,14 +133,14 @@ Skill checks don't have to be done alone. When assisting someone else, a charact
 <br>
 
 <div class="example-box">
-  <strong>Example 1 — Same-Skill Help</strong><br>
+  <strong>Example 1 - Same-Skill Help</strong><br>
   <em>Situation:</em> The rogue (Thievery d12, 3 talents) tackles an ancient door’s intricate lock (R.C. 10).<br>
   <em>Assist:</em> A second rogue (Thievery d12, 2 talents) joins in. Because their Thievery skill dice match, they automatically grant a bonus die.<br>
   <em>Result:</em> The primary rogue rolls <strong>4d12</strong> instead of 3d12.
 </div>
 
 <div class="example-box">
-  <strong>Example 2 — Different-Skill Help</strong><br>
+  <strong>Example 2 - Different-Skill Help</strong><br>
   <em>Situation:</em> The same lock contains arcane wards. The wizard (Magic d16, 2 talents) offers insight.<br>
   <em>Assist:</em> Lacking Thievery, the wizard rolls a single d16. A roll of <strong>12</strong> beats the R.C. 10, so the rogue gains a bonus die.<br>
   <em>Result:</em> The rogue again rolls <strong>4d12</strong> on the lock-picking attempt.
@@ -175,7 +175,8 @@ Some factors can cause a skill to be upgraded or downgraded, changing the dice p
 | 3           | d8         | d10      | d12      |
 | 4           | d10        | d12      | d16      |
 | 5           | d12        | d16      | d20      |
-| 6           | d16        | d20      | d30      |
+| 6           | d16        | d20      | d24      |
+| 7           | d20        | d24      | d30      |
 
 <br>
 

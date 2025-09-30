@@ -56,6 +56,35 @@ interface CreatureTrait {
   description: string;
 }
 
+interface SkillValue {
+  value: number;
+  tier: number;
+}
+
+interface SkillSet {
+  fitness: SkillValue;
+  deflection: SkillValue;
+  might: SkillValue;
+  endurance: SkillValue;
+  evasion: SkillValue;
+  stealth: SkillValue;
+  coordination: SkillValue;
+  thievery: SkillValue;
+  resilience: SkillValue;
+  concentration: SkillValue;
+  senses: SkillValue;
+  logic: SkillValue;
+  wildcraft: SkillValue;
+  academics: SkillValue;
+  magic: SkillValue;
+  medicine: SkillValue;
+  expression: SkillValue;
+  presence: SkillValue;
+  insight: SkillValue;
+  persuasion: SkillValue;
+}
+
+
 const DevCreatureDesigner: React.FC = () => {
   const navigate = useNavigate();
   const { showSuccess, showError } = useToast();
@@ -394,26 +423,27 @@ const DevCreatureDesigner: React.FC = () => {
           const normalizedSkills = Object.entries(jsonData.skills).reduce((acc, [skillName, skillData]) => {
             // Handle both old buggy format and correct format
             if (typeof skillData === 'object' && skillData !== null) {
+              const skillObj = skillData as any; // Type assertion for dynamic data
               // Check if this is the buggy nested format
-              if (typeof skillData.value === 'object' && skillData.value !== null && 'value' in skillData.value) {
+              if (typeof skillObj.value === 'object' && skillObj.value !== null && 'value' in skillObj.value) {
                 // Extract the actual values from nested object
-                acc[skillName] = {
-                  value: skillData.value.value ?? 0,
-                  tier: skillData.value.tier ?? 0
+                (acc as any)[skillName] = {
+                  value: skillObj.value.value ?? 0,
+                  tier: skillObj.value.tier ?? 0
                 };
               } else {
                 // Normal format - just ensure we have proper defaults
-                acc[skillName] = {
-                  value: skillData.value ?? 0,
-                  tier: skillData.tier ?? 0
+                (acc as any)[skillName] = {
+                  value: skillObj.value ?? 0,
+                  tier: skillObj.tier ?? 0
                 };
               }
             } else {
               // Fallback for unexpected data
-              acc[skillName] = { value: 0, tier: 0 };
+              (acc as any)[skillName] = { value: 0, tier: 0 };
             }
             return acc;
-          }, {});
+          }, {} as SkillSet);
           setSkills(normalizedSkills);
         } else {
           setSkills(skills);
