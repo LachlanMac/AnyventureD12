@@ -37,7 +37,7 @@ Determine your character's initial power level:
 - See [module point guidelines](/wiki/modules#module-points-guidelines) for details
 
 ### Talent Points
-- **Default**: 6 talent points to distribute
+- **Default**: 8 talent points to distribute
 - Used to purchase weapon, magic, and crafting talents
 - Cannot exceed 4 points in any single talent category
 

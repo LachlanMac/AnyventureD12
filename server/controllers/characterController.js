@@ -1014,27 +1014,27 @@ export const exportCharacterToFoundry = async (req, res) => {
           black: {
             value: characterWithBonuses.magicSkills?.black?.value || 0,
             talent: characterWithBonuses.magicSkills?.black?.talent || 0,
-            baseTalent: characterWithBonuses.magicSkills?.black?.baseTalent || characterWithBonuses.magicSkills?.black?.talent || 0
+            baseTalent: character.magicSkills?.black?.baseTalent || character.magicSkills?.black?.talent || 0
           },
           primal: {
             value: characterWithBonuses.magicSkills?.primal?.value || 0,
             talent: characterWithBonuses.magicSkills?.primal?.talent || 0,
-            baseTalent: characterWithBonuses.magicSkills?.primal?.baseTalent || characterWithBonuses.magicSkills?.primal?.talent || 0
+            baseTalent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0
           },
           metamagic: {
             value: characterWithBonuses.magicSkills?.meta?.value || 0,
             talent: characterWithBonuses.magicSkills?.meta?.talent || 0,
-            baseTalent: characterWithBonuses.magicSkills?.meta?.baseTalent || characterWithBonuses.magicSkills?.meta?.talent || 0
+            baseTalent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0
           },
           divine: {
             value: characterWithBonuses.magicSkills?.divine?.value || 0,
             talent: characterWithBonuses.magicSkills?.divine?.talent || 0,
-            baseTalent: characterWithBonuses.magicSkills?.divine?.baseTalent || characterWithBonuses.magicSkills?.divine?.talent || 0
+            baseTalent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0
           },
           mysticism: {
             value: characterWithBonuses.magicSkills?.mystic?.value || 0,
             talent: characterWithBonuses.magicSkills?.mystic?.talent || 0,
-            baseTalent: characterWithBonuses.magicSkills?.mystic?.baseTalent || characterWithBonuses.magicSkills?.mystic?.talent || 0
+            baseTalent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0
           }
         },
 
