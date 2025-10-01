@@ -137,24 +137,17 @@ const handleSkillEffect = (character, type, code, value) => {
 const handleWeaponEffect = (character, type, code, value) => {
   const weaponSkill = mapWeaponCode(code);
   if (!weaponSkill) return;
-  
+
   if (!character.moduleBonuses.weaponSkills) character.moduleBonuses.weaponSkills = {};
   if (!character.moduleBonuses.weaponSkills[weaponSkill]) {
     character.moduleBonuses.weaponSkills[weaponSkill] = { value: 0, talent: 0 };
   }
-  
+
+  // Only track bonuses here - characterUtils.js will apply them
   if (type === 'S') { // Skill increase
     character.moduleBonuses.weaponSkills[weaponSkill].value += value;
-    if (!character.weaponSkills[weaponSkill]) {
-      character.weaponSkills[weaponSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
-    }
-    character.weaponSkills[weaponSkill].value += value;
   } else if (type === 'T') { // Talent increase
     character.moduleBonuses.weaponSkills[weaponSkill].talent += value;
-    if (!character.weaponSkills[weaponSkill]) {
-      character.weaponSkills[weaponSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
-    }
-    character.weaponSkills[weaponSkill].talent += value;
   }
 };
 
@@ -171,42 +164,28 @@ const handleMagicEffect = (character, type, code, value) => {
     character.moduleBonuses.magicSkills[magicSkill] = { value: 0, talent: 0 };
   }
 
+  // Only track bonuses here - characterUtils.js will apply them
   if (type === 'S') { // Skill increase
     character.moduleBonuses.magicSkills[magicSkill].value += value;
-    if (!character.magicSkills[magicSkill]) {
-      character.magicSkills[magicSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
-    }
-    character.magicSkills[magicSkill].value += value;
   } else if (type === 'T') { // Talent increase
     character.moduleBonuses.magicSkills[magicSkill].talent += value;
-    if (!character.magicSkills[magicSkill]) {
-      character.magicSkills[magicSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
-    }
-    character.magicSkills[magicSkill].talent += value;
   }
 };
 
 const handleCraftingEffect = (character, type, code, value) => {
   const craftingSkill = mapCraftingCode(code);
   if (!craftingSkill) return;
-  
+
   if (!character.moduleBonuses.craftingSkills) character.moduleBonuses.craftingSkills = {};
   if (!character.moduleBonuses.craftingSkills[craftingSkill]) {
     character.moduleBonuses.craftingSkills[craftingSkill] = { value: 0, talent: 0 };
   }
-  
+
+  // Only track bonuses here - characterUtils.js will apply them
   if (type === 'S') { // Skill increase
     character.moduleBonuses.craftingSkills[craftingSkill].value += value;
-    if (!character.craftingSkills[craftingSkill]) {
-      character.craftingSkills[craftingSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
-    }
-    character.craftingSkills[craftingSkill].value += value;
   } else if (type === 'T') { // Talent increase
     character.moduleBonuses.craftingSkills[craftingSkill].talent += value;
-    if (!character.craftingSkills[craftingSkill]) {
-      character.craftingSkills[craftingSkill] = { value: 0, talent: 0, diceTierModifier: 0 };
-    }
-    character.craftingSkills[craftingSkill].talent += value;
   }
 };
 
