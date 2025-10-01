@@ -555,7 +555,7 @@ const ModulesPage: React.FC = () => {
                               : isModuleSelected(module._id)
                                 ? '1px solid var(--color-sat-purple)'
                                 : '1px solid transparent',
-                        transition: 'all 0.3s ease',
+                        transition: 'background-color 0.2s ease, border-color 0.1s ease',
                       }}
                       onClick={() => handleViewModule(module)}
                     >

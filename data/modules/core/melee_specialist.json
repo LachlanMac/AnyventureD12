@@ -6,9 +6,9 @@
   "options": [
     {
       "name": "Fledgling Combatant",
-      "description": "You have trained with several types of melee weapons. Gain +1 skill with simple and complex melee weapons.",
+      "description": "You have trained extensively with easy-to-use weaponry. Gain +1 skill with simple melee weapons.",
       "location": "1",
-      "data": "WS3=1:WS5=1"
+      "data": "WS3=1"
     },
     {
       "name": "Action : Power Strike",

@@ -51,7 +51,8 @@ export function parseTraitEffects(traitData: TraitData): TraitEffect[] {
           const numValue = parseInt(value) || 0;
 
           switch (key) {
-            case 'TP':
+            case 'UT': // Character creation talent points (official datakey)
+            case 'TP': // Legacy talent points key (for backward compatibility)
               effects.push({ type: 'talent_points', value: numValue });
               break;
             case 'MP':
