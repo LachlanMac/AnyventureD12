@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Shadow Caster",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Shadow Weapon",
+      "description": "You designate a single simple melee weapon as your 'Shadow Weapon'. When in complete darkness, your shadow weapon deals 2 psychic damage for each successful attack dice. After completing a full rest, you can change your shadow weapon.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Reaction : Shadow Clone",
+      "description": "In response to being targeted by a range or melee attack, you create a shadow clone of yourself in an adjacent space. Roll a d6; on a 3 or lower, the attack targets your shadow clone instead of you and creates an area of complete darkness around you in a radius equal to the result of your roll that lasts until the start of your next turn. On a 4 or higher, you must roll a defense check against the attack.",
+      "location": "2a",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Action : Spectral Weapon",
+      "description": "You roll an attack with your shadow weapon but use your meta magic skill instead of the weapon skill. The opposing defense check can not be deflected and can only be evaded.",
+      "location": "2b",
+      "data": "XIME=1"
+    },
+       {
+      "name": "Shadow Play",
+      "description": "Shadows bend to your will through subtle magic. Gain +1 skill with stealth. You can manipulate your shadow to move independently, allowing you to hide or distort it completely, making it harder for others to track your movements or determine your exact position.",
+      "location": "3",
+      "data": "TG:SSF=1"
+    },
+    {
+      "name": "Shadow Arsenal",
+      "description": "You can dedicate a second weapon as your shadow weapon, but it can also be a complex melee, brawling or melee weapon. Additionally, the extra psychic damage on your shadow weapons is increased to 2.",
+      "location": "4a",
+      "data": "TG"
+    },
+    {
+      "name": "Protective Silhouette",
+      "description": "Your shadow has a mind of it's own and works in tandem to provide you certain protections. Gain +1 dark, +1 aetheric and +1 psychic mitigation.",
+      "location": "4b",
+      "data": "M5=1:M7=1:M8=1"
+    },
+    {
+      "name": "Action : Umbral Strike",
+      "description": "You make an attack with your shadow weapon that deals the secondary psychic damage, even if you are not in darkness. As part of this action, the weapon is also summoned to your hand immediately before making the attack, assuming you have enough free hands to use the weapon.",
+      "location": "5",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Shadow Weapon Mastery",
+      "description": "You have achieved proficiency in weapons that are well suited to shadow casting. Gain +1 skill with simple melee weapons and +1 skill with throwing weapons",
+      "location": "6a",
+      "data": "WS3=1:WS2=1"
+    },
+    {
+      "name": "Shadow Casting",
+      "description": "You can more effectively wield magic to warp the shadows around you. Gain +1 skill with meta magic.",
+      "location": "6b",
+      "data": "YS3=1"
+    },
+    {
+      "name": "Dark Sight",
+      "description": "When you are concentrating on having the alerted condition, you also have Darksight up to a short (10 unit) distance.",
+      "location": "7",
+      "data": "TG:FI"
+    }
+  ]
+}

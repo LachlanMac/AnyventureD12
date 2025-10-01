@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Spy",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Master of Disguises",
+      "description": "You can maintain up to three complete personas from your own, with each requiring a disguise kit. While you are disguised in this way, you are indistinguishable from your other identities. Each identify comes with consentient mannerisms and accurate accents that you are able to replicate.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Hidden Weapon",
+      "description": "You make an attack with a simple melee weapon that is stored in one of your extra slots with a bonus dice. Once this weapon is used in combat, it cannot be used as part of this action again until the combat ends.",
+      "location": "2a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Action : Throat Chop",
+      "description": "You make a brawling attack against large or small creature that has a functional throat. If you have at least 3 success dice, the target becomes muted until the end of their next turn. With 5 success dice, the muted condition lasts for a minute instead. During this time, the target cannot breathe.",
+      "location": "2b",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Inconspicuous",
+      "description": "You are a master of blending in. When you are attempting to hide or go unnoticed among humanoids, you can make an expression check instead of a stealth check.",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "Trained Diplomat",
+      "description": "Part of your training involved heavy lessons in diplomacy. Gain +3 language points and +1 skill with persuasion.",
+      "location": "4a",
+      "data": "TG:SST=1"
+    },
+    {
+      "name": "Saboteur",
+      "description": "You have skill with sabotaging both simple and mechanical equipment. Gain +1 skill with engineering. When you take the Use action on an object that has some sort of mechanical parts like a lever, latch or handle, you can sabotage it by rolling an engineering check, making it unusable unless another creature rolls an relevant check greater than half of your total check.",
+      "location": "4b",
+      "data": "TG:CS1=1"
+    },
+    {
+      "name": "Evasion Training",
+      "description": "A good spy never gets hit. Gain +1 skill with evasion.",
+      "location": "5",
+      "data": "SSE=1"
+    },
+    {
+      "name": "Hand-to-Hand Contingency",
+      "description": "You can not always rely on having your weapons in sensitive places. You gain +1 skill with brawling and your brawling attacks do not make sound.",
+      "location": "6a",
+      "data": "TG:WS1=1"
+    },
+    {
+      "name": "First to Act",
+      "description": "You are always prepared to fight if needed. Gain +1 coordination. If you start combat with no mental conditions, you always take part in the preparation phase, regardless of your initiative roll.",
+      "location": "6b",
+      "data": "FJ:SSG=1"
+    },
+    {
+      "name": "Neutralizer",
+      "description": "Taking creatures out quietly is imperative to your mission. Gain +1 skill with fitness. When you maintain a grab on a humanoid, beast or monster that is large or smaller for three concurrent turns, they become unconscious. If you elect to hold the grab for an additional 3 turns, they die.",
+      "location": "7",
+      "data": "TG:SSA=1"
+    }
+  ]
+}

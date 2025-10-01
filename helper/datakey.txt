@@ -122,7 +122,7 @@ E:THROWING WEAPON MIN RANGE
 F:THROWING WEAPON MAX RANGE
 
 M: MANA POINTS
-
+T: THIEF SLOTS
 Z=1: DUAL WIELD TIER 1
 Z=2: DUAL WIELD TIER 2
 
@@ -221,6 +221,9 @@ E: WEAPON_COLLECTOR [complex weapons in extra slots ]
 F: TWIN_FURY [dual wield complex melee weapons]
 G: PASSIVE_SHELL [can use shields in  secondary slot]
 H: EFFICIENT_WEAPONRY [armsman 1 less energy on complex weapons]
+I: DARK SIGHT [when alerted, you have 10 units of darksight]
+J: FIRST_TO_FIGHT [always act in prepararation round]
+
 
 ########### IMMUNITIES ###################
 KEY (I)

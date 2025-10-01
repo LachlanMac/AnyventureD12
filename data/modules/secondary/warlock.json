@@ -1,0 +1,68 @@
+{
+  "id": 111,
+  "name": "Warlock",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Arcane Mana",
+      "description": "You've learned to tap into pure magical essence, gaining 2 'Mana Points' which can each be used to channel a spell that you know without requiring energy. Mana points completely restore upon completing a full rest.",
+      "location": "1",
+      "data": "AM=2"
+    },
+    {
+      "name": "Action : Blast",
+      "description": "You make a magical attack with a staff or wand and displace a normal sized creature by either pulling them or pushing them backwards 1 unit if you have at least 2 success dice. For each additional success, you can displace the target another unit. With 4 successes, you can displace a large creature.",
+      "location": "2a",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Reaction : Spell Shield",
+      "description": "When you are forced to make a defense check after being targeted by a spell or magical effect, roll a single dice from one of the schools of magic you know and add it to your defense pool.",
+      "location": "2b",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Wandlore",
+      "description": "Gain +1 skill with magic. When you touch another staff, wand or weapon with a magical property, you can determine information about it such as what the last spell channeled was, who the owner may have been and how old it is.",
+      "location": "3",
+      "data": "SSO=1:TG"
+    },
+    {
+      "name": "Warlock's Tongue",
+      "description": "Become fluent in one magical language. When you communicate with a creature from another plane that speaks this magical language, you gain a bonus dice to persuasion checks against them.",
+      "location": "4a",
+      "data": "TG"
+    },
+    {
+     "name": "Talisman Maker",
+      "description": "You are proficient in imbuing charms into talismans, rings and other jewelry. Gain +1 skill with glyphcraft. When creating accessories with the glyphcraft skill, you can choose to add an additional +1 aether, dark or psychic mitigation to the finished finished product.",
+      "location": "4b",
+      "data": "CS5=1:TC"
+    },
+    {
+      "name": "Empowered Mana",
+      "description": "Gain an additional 2 Mana Points. You can use mana points to replace the energy requirement for making magical attacks with wands and staves and gain a bonus dice to the attack roll.",
+      "location": "5",
+      "data": "AM=1:TG"
+    },
+    {
+      "name": "Shadow Magic",
+      "description": "You have focused your studies on learning powerful curses. Gain +1 skill with dark magic.",
+      "location": "6a",
+      "data": "YS1=1"
+    },
+    {
+      "name": "Alteration Magic",
+      "description": "You have focus your studies on altering the world around you to suit your needs. Gain +1 skill with meta magic.",
+      "location": "6b",
+      "data": "YS3=1"
+    },
+    {
+      "name": "Action : Power Ray",
+      "description": "You make a magical attack with a staff or wand, but instead of a single projectile, the attack is a 10 unit long, 1 unit wide ray, hitting every creature it intersects.",
+      "location": "7",
+      "data": "XIME=2"
+    }
+  ]
+}

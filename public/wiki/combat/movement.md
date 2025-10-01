@@ -61,7 +61,7 @@ Flying allows a character move vertically, as well as horizontally. There are tw
 - <b>Magical:</b> Has no restrictions - a character can simply fly and stay hovering without dedicating any actions, reactions or movement.
 - <b>Natural:</b> Natural flight is for characters with functional wings, such as avians and other bird-like creatures. If a character using natural flight does not dedicate at least 1 unit of movement towards flight during a turn, they will fall.
 
-<div class="triangle-line"></div>
+<div class="triangle-line"></div>  
 
 ### Movement Penalties
 

@@ -6,9 +6,9 @@
   "options": [
     {
       "name": "Arcane Mana",
-      "description": "You've learned to tap into pure magical essence, gaining 3 'Mana Points' which can each be used to channel a spell that you know without requiring energy.",
+      "description": "You've learned to tap into pure magical essence, gaining 2 'Mana Points' which can each be used to channel a spell that you know without requiring energy. Mana points completely restore upon completing a full rest.",
       "location": "1",
-      "data": "AM=3"
+      "data": "AM=2"
     },
     {
       "name": "Theoretical Mastery",

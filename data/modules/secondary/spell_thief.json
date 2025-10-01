@@ -8,7 +8,7 @@
       "name": "Arcane Pilfering",
       "description": "You've learned to pilfer magic itself. You gain one thief slot that can hold a spell with a casting difficulty of 2 or lower. When casting spells from thief slots, you use your thievery skill instead of the normal magic skill.",
       "location": "1",
-      "data": "TG"
+      "data": "TG:AT=1"
     },
     {
       "name": "Shadow Caster",
@@ -44,19 +44,19 @@
       "name": "Expanded Cache",
       "description": "Your capacity for stolen magic expands. Gain +1 skill with thievery and an additional thief slot.",
       "location": "5",
-      "data": "SSH=1:TG"
+      "data": "SSH=1:AT=1"
     },
     {
       "name": "Reaction : Sacrificial Ward",
       "description": "In response to being targeted with an attack that deals damage, you sacrifice one of your spells in your thief slots, forgetting it. You gain mitigation against the damage equal to twice the cast check of the stolen spell.",
       "location": "6a",
-      "data": "TG:ZINE=1"
+      "data": "ZINE=1"
     },
     {
       "name": "Action : Unstable Fusion",
       "description": "You channel both your known thief slot spells at the same time, specifying different targets for each. You take psychic damage equal to half the cast check of the higher tier spell.",
       "location": "6b",
-      "data": "TG:XINE=1"
+      "data": "XINE=1"
     },
     {
       "name": "Spell Shatter",

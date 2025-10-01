@@ -11,10 +11,10 @@
       "data": "TG:SSQ=1"
     },
     {
-      "name": "Shadow Play",
-      "description": "Shadows bend to your will through subtle magic. Gain +1 skill with stealth. You can manipulate your shadow to move independently, allowing you to hide or distort it completely, making it harder for others to track your movements or determine your exact position.",
+      "name": "Deceptive Aura",
+      "description": "You shroud yourself in a veil of illusion magic that confounds those who try to read you. Gain +1 skill with persuasion. When a creature uses insight, senses, or magic to detect lies or read your intentions, they suffer a penalty dice on their check.",
       "location": "2a",
-      "data": "TG:SSF=1"
+      "data": "TG:SST=1"
     },
     {
       "name": "Charlatan",
