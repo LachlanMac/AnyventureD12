@@ -120,6 +120,29 @@ export const getCharacter = async (req, res) => {
     // Create a copy of the character
     const characterWithBonuses = character.toObject();
 
+    // Reset all skill/weapon/magic/crafting values to 0 to recalculate fresh
+    // This fixes characters that had bonuses baked in from the old double-application bug
+    Object.keys(characterWithBonuses.skills || {}).forEach(skill => {
+      if (characterWithBonuses.skills[skill]) {
+        characterWithBonuses.skills[skill].value = 0;
+      }
+    });
+    Object.keys(characterWithBonuses.weaponSkills || {}).forEach(skill => {
+      if (characterWithBonuses.weaponSkills[skill]) {
+        characterWithBonuses.weaponSkills[skill].value = 0;
+      }
+    });
+    Object.keys(characterWithBonuses.magicSkills || {}).forEach(skill => {
+      if (characterWithBonuses.magicSkills[skill]) {
+        characterWithBonuses.magicSkills[skill].value = 0;
+      }
+    });
+    Object.keys(characterWithBonuses.craftingSkills || {}).forEach(skill => {
+      if (characterWithBonuses.craftingSkills[skill]) {
+        characterWithBonuses.craftingSkills[skill].value = 0;
+      }
+    });
+
     // Apply module bonuses directly to the character's attributes
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
@@ -309,6 +332,21 @@ export const updateCharacter = async (req, res) => {
 
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
+
+    // Reset all skill/weapon/magic/crafting values to 0 to recalculate fresh
+    Object.keys(characterWithBonuses.skills || {}).forEach(skill => {
+      if (characterWithBonuses.skills[skill]) characterWithBonuses.skills[skill].value = 0;
+    });
+    Object.keys(characterWithBonuses.weaponSkills || {}).forEach(skill => {
+      if (characterWithBonuses.weaponSkills[skill]) characterWithBonuses.weaponSkills[skill].value = 0;
+    });
+    Object.keys(characterWithBonuses.magicSkills || {}).forEach(skill => {
+      if (characterWithBonuses.magicSkills[skill]) characterWithBonuses.magicSkills[skill].value = 0;
+    });
+    Object.keys(characterWithBonuses.craftingSkills || {}).forEach(skill => {
+      if (characterWithBonuses.craftingSkills[skill]) characterWithBonuses.craftingSkills[skill].value = 0;
+    });
+
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
     
