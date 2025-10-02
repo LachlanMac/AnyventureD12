@@ -8,6 +8,7 @@ import AttributesTab from '../components/character/creator/AttributesTab';
 import TalentsTab from '../components/character/creator/TalentsTab';
 import BackgroundCreatorTab from '../components/character/creator/BackgroundCreatorTab';
 import PersonalityCreatorTab from '../components/character/creator/PersonalityCreatorTab';
+import { useToast } from '../context/ToastContext';
 
 // Import utility functions and types from the shared files
 import { createDefaultCharacter, updateSkillTalentsFromAttributes } from '../utils/characterUtils';
@@ -16,6 +17,8 @@ import { Character, Ancestry, Culture, Attributes, Module } from '../types/chara
 const CharacterEdit: React.FC = () => {
   const navigate = useNavigate();
   const { id } = useParams<{ id: string }>();
+  const { showInfo } = useToast();
+  const hasShownRecalcToast = React.useRef(false);
   const [step, setStep] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [initialLoading, setInitialLoading] = useState<boolean>(true);
@@ -62,7 +65,218 @@ const CharacterEdit: React.FC = () => {
         }
         const charData = await charResponse.json();
 
-        // Set the character state with the loaded data
+        // MIGRATION: Initialize baseTalent for old characters that don't have it
+        // This fixes characters created before baseTalent tracking was added
+        let needsMigration = false;
+
+        // Check weapon skills
+        if (charData.weaponSkills) {
+          Object.keys(charData.weaponSkills).forEach(skillId => {
+            if (charData.weaponSkills[skillId] && charData.weaponSkills[skillId].baseTalent === undefined) {
+              console.log(`[MIGRATION] Setting baseTalent for weapon skill ${skillId}: ${charData.weaponSkills[skillId].talent}`);
+              charData.weaponSkills[skillId].baseTalent = charData.weaponSkills[skillId].talent;
+              needsMigration = true;
+            }
+          });
+        }
+
+        // Check magic skills
+        if (charData.magicSkills) {
+          Object.keys(charData.magicSkills).forEach(skillId => {
+            if (charData.magicSkills[skillId] && charData.magicSkills[skillId].baseTalent === undefined) {
+              console.log(`[MIGRATION] Setting baseTalent for magic skill ${skillId}: ${charData.magicSkills[skillId].talent}`);
+              charData.magicSkills[skillId].baseTalent = charData.magicSkills[skillId].talent;
+              needsMigration = true;
+            }
+          });
+        }
+
+        // Check crafting skills
+        if (charData.craftingSkills) {
+          Object.keys(charData.craftingSkills).forEach(skillId => {
+            if (charData.craftingSkills[skillId] && charData.craftingSkills[skillId].baseTalent === undefined) {
+              console.log(`[MIGRATION] Setting baseTalent for crafting skill ${skillId}: ${charData.craftingSkills[skillId].talent}`);
+              charData.craftingSkills[skillId].baseTalent = charData.craftingSkills[skillId].talent;
+              needsMigration = true;
+            }
+          });
+        }
+
+        if (needsMigration) {
+          console.log('[MIGRATION] Character needs baseTalent migration. Will save on next update.');
+        }
+
+        // VALIDATION MIGRATION: Check if character's talent spending is valid
+        // Calculate what the talent budget should be
+        let validationBaseTalentPoints = 8;
+        let validationBonusTalentPoints = 0;
+
+        // Parse ancestry for UT bonuses
+        if (charData.ancestry?.ancestryId?.options) {
+          for (const option of charData.ancestry.ancestryId.options) {
+            if (option.data) {
+              const utMatch = option.data.match(/UT=(\d+)/);
+              if (utMatch) {
+                validationBonusTalentPoints += parseInt(utMatch[1]);
+              }
+            }
+          }
+        }
+
+        // Parse trait for UT bonuses
+        if (charData.traits && charData.traits.length > 0) {
+          const traitData = charData.traits[0].traitId;
+          if (traitData && traitData.options) {
+            for (const option of traitData.options) {
+              if (option.data) {
+                const utMatch = option.data.match(/UT=(\d+)/);
+                if (utMatch) {
+                  validationBonusTalentPoints += parseInt(utMatch[1]);
+                }
+              }
+            }
+          }
+        }
+
+        const validationTotalTalentPoints = validationBaseTalentPoints + validationBonusTalentPoints;
+
+        // Count what was actually spent using baseTalent (now that we've migrated it)
+        let validationSpentTalentPoints = 0;
+        const validationFreeWeaponTalents: { [key: string]: number } = {
+          brawling: 1,
+          throwing: 1,
+          simpleRangedWeapons: 1,
+          simpleMeleeWeapons: 1,
+        };
+
+        // Count weapon skills
+        if (charData.weaponSkills) {
+          Object.entries(charData.weaponSkills).forEach(([skillId, skill]: [string, any]) => {
+            const baseTalent = skill?.baseTalent ?? 0;
+            const freeTalents = validationFreeWeaponTalents[skillId] || 0;
+            if (baseTalent > freeTalents) {
+              validationSpentTalentPoints += baseTalent - freeTalents;
+            }
+          });
+        }
+
+        // Count magic skills
+        if (charData.magicSkills) {
+          Object.values(charData.magicSkills).forEach((skill: any) => {
+            const baseTalent = skill?.baseTalent ?? 0;
+            validationSpentTalentPoints += baseTalent;
+          });
+        }
+
+        // Count crafting skills
+        if (charData.craftingSkills) {
+          Object.values(charData.craftingSkills).forEach((skill: any) => {
+            const baseTalent = skill?.baseTalent ?? 0;
+            validationSpentTalentPoints += baseTalent;
+          });
+        }
+
+        const validationRemaining = validationTotalTalentPoints - validationSpentTalentPoints;
+
+        console.log('[VALIDATION] Talent Budget Check:');
+        console.log(`  Available: ${validationTotalTalentPoints} (${validationBaseTalentPoints} base + ${validationBonusTalentPoints} bonus)`);
+        console.log(`  Spent: ${validationSpentTalentPoints}`);
+        console.log(`  Remaining: ${validationRemaining}`);
+
+        if (validationRemaining < 0) {
+          console.warn('[VALIDATION] ⚠️ CHARACTER HAS OVERSPENT TALENTS BY', Math.abs(validationRemaining), 'POINTS');
+          console.log('[MIGRATION] Auto-correcting overspent talents...');
+
+          // Auto-correct by reducing talents from highest skills first
+          let pointsToRemove = Math.abs(validationRemaining);
+          const skillsToAdjust: Array<{type: string, id: string, current: number, free: number}> = [];
+
+          // Collect all skills that have spent points
+          if (charData.weaponSkills) {
+            Object.entries(charData.weaponSkills).forEach(([skillId, skill]: [string, any]) => {
+              const baseTalent = skill?.baseTalent ?? 0;
+              const freeTalents = validationFreeWeaponTalents[skillId] || 0;
+              if (baseTalent > freeTalents) {
+                skillsToAdjust.push({
+                  type: 'weapon',
+                  id: skillId,
+                  current: baseTalent,
+                  free: freeTalents
+                });
+              }
+            });
+          }
+
+          if (charData.magicSkills) {
+            Object.entries(charData.magicSkills).forEach(([skillId, skill]: [string, any]) => {
+              const baseTalent = skill?.baseTalent ?? 0;
+              if (baseTalent > 0) {
+                skillsToAdjust.push({
+                  type: 'magic',
+                  id: skillId,
+                  current: baseTalent,
+                  free: 0
+                });
+              }
+            });
+          }
+
+          if (charData.craftingSkills) {
+            Object.entries(charData.craftingSkills).forEach(([skillId, skill]: [string, any]) => {
+              const baseTalent = skill?.baseTalent ?? 0;
+              if (baseTalent > 0) {
+                skillsToAdjust.push({
+                  type: 'crafting',
+                  id: skillId,
+                  current: baseTalent,
+                  free: 0
+                });
+              }
+            });
+          }
+
+          // Sort by current value (highest first)
+          skillsToAdjust.sort((a, b) => (b.current - b.free) - (a.current - a.free));
+
+          // Remove points from highest skills first
+          for (const skill of skillsToAdjust) {
+            if (pointsToRemove <= 0) break;
+
+            const spentInSkill = skill.current - skill.free;
+            const toRemove = Math.min(spentInSkill, pointsToRemove);
+            const newBaseTalent = skill.current - toRemove;
+
+            console.log(`[MIGRATION] Reducing ${skill.type} skill ${skill.id}: ${skill.current} -> ${newBaseTalent}`);
+
+            if (skill.type === 'weapon') {
+              charData.weaponSkills[skill.id].baseTalent = newBaseTalent;
+              charData.weaponSkills[skill.id].talent = newBaseTalent; // Also update talent to match
+            } else if (skill.type === 'magic') {
+              charData.magicSkills[skill.id].baseTalent = newBaseTalent;
+              charData.magicSkills[skill.id].talent = newBaseTalent;
+            } else if (skill.type === 'crafting') {
+              charData.craftingSkills[skill.id].baseTalent = newBaseTalent;
+              charData.craftingSkills[skill.id].talent = newBaseTalent;
+            }
+
+            pointsToRemove -= toRemove;
+          }
+
+          console.log('[MIGRATION] Auto-correction complete. Character will save corrected values on update.');
+          needsMigration = true;
+
+          // Show toast notification only once
+          if (!hasShownRecalcToast.current) {
+            hasShownRecalcToast.current = true;
+            showInfo(`Talents recalculated - adjusted ${Math.abs(validationRemaining)} overspent talent points`);
+          }
+        } else if (validationRemaining > 0) {
+          console.log('[VALIDATION] ✅ Character has', validationRemaining, 'unspent talent points (valid)');
+        } else {
+          console.log('[VALIDATION] ✅ Character talent budget is perfectly balanced');
+        }
+
+        // Set the character state with the loaded data (including migrated baseTalent)
         setCharacter(charData);
 
         // Calculate attribute points remaining
@@ -75,8 +289,52 @@ const CharacterEdit: React.FC = () => {
 
         // Calculate talent stars remaining
         const baseTalentPoints = 8;
-        const bonusTalentPoints = charData.additionalTalentPoints || 0;
+
+        // Calculate bonus talent points from ancestry and traits (UT=X in data)
+        let bonusTalentPoints = 0;
+
+        console.log('=== TALENT CALCULATION DEBUG ===');
+        console.log('Character ID:', charData._id);
+        console.log('Character Name:', charData.name);
+        console.log('Base Talent Points:', baseTalentPoints);
+
+        // Parse ancestry options for UT bonuses
+        if (charData.ancestry?.ancestryId?.options) {
+          console.log('Ancestry:', charData.ancestry.ancestryId.name);
+          for (const option of charData.ancestry.ancestryId.options) {
+            if (option.data) {
+              const utMatch = option.data.match(/UT=(\d+)/);
+              if (utMatch) {
+                const bonus = parseInt(utMatch[1]);
+                console.log(`  - ${option.name}: +${bonus} talent points (${option.data})`);
+                bonusTalentPoints += bonus;
+              }
+            }
+          }
+        }
+
+        // Parse trait options for UT bonuses
+        if (charData.traits && charData.traits.length > 0) {
+          const traitData = charData.traits[0].traitId;
+          if (traitData && traitData.options) {
+            console.log('Trait:', traitData.name);
+            for (const option of traitData.options) {
+              if (option.data) {
+                const utMatch = option.data.match(/UT=(\d+)/);
+                if (utMatch) {
+                  const bonus = parseInt(utMatch[1]);
+                  console.log(`  - ${option.name}: +${bonus} talent points (${option.data})`);
+                  bonusTalentPoints += bonus;
+                }
+              }
+            }
+          }
+        }
+
+        console.log('Total Bonus Talent Points from Ancestry/Traits:', bonusTalentPoints);
         const totalTalentPoints = baseTalentPoints + bonusTalentPoints;
+        console.log('Total Available Talent Points:', totalTalentPoints);
+
         let spentTalentPoints = 0;
 
         // Count spent talent points from weapon skills (excluding free talents)
@@ -87,35 +345,52 @@ const CharacterEdit: React.FC = () => {
           simpleMeleeWeapons: 1,
         };
 
+        console.log('\nWeapon Skills:');
         if (charData.weaponSkills) {
           Object.entries(charData.weaponSkills).forEach(([skillId, skill]: [string, any]) => {
-            if (skill && typeof skill.talent === 'number' && skill.talent > 0) {
-              // Only count talents that exceed the free amount
-              const freeTalents = freeWeaponTalents[skillId] || 0;
-              if (skill.talent > freeTalents) {
-                spentTalentPoints += skill.talent - freeTalents;
-              }
+            // Use baseTalent (without module bonuses) for character creation point tracking
+            const baseTalent = skill?.baseTalent ?? skill?.talent ?? 0;
+            const currentTalent = skill?.talent ?? 0;
+            const freeTalents = freeWeaponTalents[skillId] || 0;
+            if (baseTalent > 0 || currentTalent > 0) {
+              const spent = Math.max(0, baseTalent - freeTalents);
+              console.log(`  ${skillId}: baseTalent=${baseTalent}, talent=${currentTalent}, free=${freeTalents}, spent=${spent}`);
+              spentTalentPoints += spent;
             }
           });
         }
 
         // Count spent talent points from magic skills
+        console.log('\nMagic Skills:');
         if (charData.magicSkills) {
-          Object.values(charData.magicSkills).forEach((skill: any) => {
-            if (skill && typeof skill.talent === 'number' && skill.talent > 0) {
-              spentTalentPoints += skill.talent;
+          Object.entries(charData.magicSkills).forEach(([skillId, skill]: [string, any]) => {
+            // Use baseTalent (without module bonuses) for character creation point tracking
+            const baseTalent = skill?.baseTalent ?? skill?.talent ?? 0;
+            const currentTalent = skill?.talent ?? 0;
+            if (baseTalent > 0 || currentTalent > 0) {
+              console.log(`  ${skillId}: baseTalent=${baseTalent}, talent=${currentTalent}, spent=${baseTalent}`);
+              spentTalentPoints += baseTalent;
             }
           });
         }
 
         // Count spent talent points from crafting skills
+        console.log('\nCrafting Skills:');
         if (charData.craftingSkills) {
-          Object.values(charData.craftingSkills).forEach((skill: any) => {
-            if (skill && typeof skill.talent === 'number' && skill.talent > 0) {
-              spentTalentPoints += skill.talent;
+          Object.entries(charData.craftingSkills).forEach(([skillId, skill]: [string, any]) => {
+            // Use baseTalent (without module bonuses) for character creation point tracking
+            const baseTalent = skill?.baseTalent ?? skill?.talent ?? 0;
+            const currentTalent = skill?.talent ?? 0;
+            if (baseTalent > 0 || currentTalent > 0) {
+              console.log(`  ${skillId}: baseTalent=${baseTalent}, talent=${currentTalent}, spent=${baseTalent}`);
+              spentTalentPoints += baseTalent;
             }
           });
         }
+
+        console.log('\nTotal Spent Talent Points:', spentTalentPoints);
+        console.log('Remaining Talent Points:', totalTalentPoints - spentTalentPoints);
+        console.log('=== END TALENT CALCULATION ===\n');
 
         setInvestedTalentStars(spentTalentPoints);
         setStartingTalents(totalTalentPoints);
@@ -255,6 +530,102 @@ const CharacterEdit: React.FC = () => {
       loadCharacterData();
     }
   }, [id]);
+
+  // Recalculate talent budget when trait changes
+  useEffect(() => {
+    if (!selectedTrait || !character._id) return; // Don't run during initial load
+
+    const recalculateTalentBudget = async () => {
+      try {
+        // Fetch the trait data to get UT bonuses
+        const traitResponse = await fetch(`/api/traits/${selectedTrait}`);
+        if (!traitResponse.ok) {
+          console.error('Failed to fetch trait data for talent recalculation');
+          return;
+        }
+        const traitData = await traitResponse.json();
+
+        // Calculate base talent points
+        const baseTalentPoints = 8;
+        let bonusTalentPoints = 0;
+
+        // Parse ancestry for UT bonuses
+        if (character.ancestry?.ancestryId?.options) {
+          for (const option of character.ancestry.ancestryId.options) {
+            if (option.data) {
+              const utMatch = option.data.match(/UT=(\d+)/);
+              if (utMatch) {
+                bonusTalentPoints += parseInt(utMatch[1]);
+              }
+            }
+          }
+        }
+
+        // Parse new trait for UT bonuses
+        if (traitData.options) {
+          for (const option of traitData.options) {
+            if (option.data) {
+              const utMatch = option.data.match(/UT=(\d+)/);
+              if (utMatch) {
+                bonusTalentPoints += parseInt(utMatch[1]);
+              }
+            }
+          }
+        }
+
+        const totalTalentPoints = baseTalentPoints + bonusTalentPoints;
+
+        console.log('[TRAIT CHANGE] Recalculating talent budget:');
+        console.log(`  New trait: ${traitData.name}`);
+        console.log(`  Bonus talents: ${bonusTalentPoints}`);
+        console.log(`  Total available: ${totalTalentPoints}`);
+
+        // Recalculate spent points (this doesn't change, but we need it for remaining)
+        let spentTalentPoints = 0;
+        const freeWeaponTalents: { [key: string]: number } = {
+          brawling: 1,
+          throwing: 1,
+          simpleRangedWeapons: 1,
+          simpleMeleeWeapons: 1,
+        };
+
+        if (character.weaponSkills) {
+          Object.entries(character.weaponSkills).forEach(([skillId, skill]: [string, any]) => {
+            const baseTalent = skill?.baseTalent ?? skill?.talent ?? 0;
+            const freeTalents = freeWeaponTalents[skillId] || 0;
+            if (baseTalent > freeTalents) {
+              spentTalentPoints += baseTalent - freeTalents;
+            }
+          });
+        }
+
+        if (character.magicSkills) {
+          Object.values(character.magicSkills).forEach((skill: any) => {
+            const baseTalent = skill?.baseTalent ?? skill?.talent ?? 0;
+            spentTalentPoints += baseTalent;
+          });
+        }
+
+        if (character.craftingSkills) {
+          Object.values(character.craftingSkills).forEach((skill: any) => {
+            const baseTalent = skill?.baseTalent ?? skill?.talent ?? 0;
+            spentTalentPoints += baseTalent;
+          });
+        }
+
+        console.log(`  Spent: ${spentTalentPoints}`);
+        console.log(`  Remaining: ${totalTalentPoints - spentTalentPoints}`);
+
+        // Update the state
+        setStartingTalents(totalTalentPoints);
+        setTalentStarsRemaining(totalTalentPoints - spentTalentPoints);
+      } catch (err) {
+        console.error('Error recalculating talent budget:', err);
+      }
+    };
+
+    recalculateTalentBudget();
+  }, [selectedTrait]); // Only recalculate when trait changes, not when skills change
 
   const handleCultureChange = (cultureName: string, culture: Culture) => {
     // Keep legacy field in sync
@@ -430,15 +801,17 @@ const CharacterEdit: React.FC = () => {
         return true;
 
       case 3:
-        // Check if all talent stars have been spent
-        if (talentStarsRemaining > 0) {
-          setError(`You still have ${talentStarsRemaining} talent stars to assign`);
+        // Step 3 is Personality & Trait selection
+        if (!selectedPersonality) {
+          setError('Please select a personality for your character');
           return false;
         }
         return true;
+
       case 4:
-        if (!selectedPersonality) {
-          setError('Please select a personality for your character');
+        // Step 4 is Talent assignment - check if all talent stars have been spent
+        if (talentStarsRemaining > 0) {
+          setError(`You still have ${talentStarsRemaining} talent stars to assign`);
           return false;
         }
         return true;
@@ -454,6 +827,9 @@ const CharacterEdit: React.FC = () => {
   const handleTraitSelect = (traitId: string, selectedOptions?: any[]) => {
     setSelectedTrait(traitId);
     setSelectedTraitOptions(selectedOptions || []);
+
+    // Trigger recalculation of talent budget when trait changes
+    // This will be handled by the useEffect that watches selectedTrait
   };
 
   const handleStartingTalentsChange = (newStartingTalents: number) => {

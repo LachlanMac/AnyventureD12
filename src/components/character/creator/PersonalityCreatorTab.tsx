@@ -7,7 +7,6 @@ interface PersonalityCreatorTabProps {
   selectedPersonality: string;
   selectedTrait: string;
   selectedTraitOptions?: any[];
-  traitModuleBonus?: number;
   onSelectPersonality: (personality: string, personalityModule: Module) => void;
   onSelectTrait: (traitId: string, selectedOptions?: any[]) => void;
   onValidateTraitChange?: (
@@ -20,7 +19,6 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
   selectedPersonality,
   selectedTrait,
   selectedTraitOptions,
-  traitModuleBonus,
   onSelectPersonality,
   onSelectTrait,
   onValidateTraitChange,
@@ -85,22 +83,6 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
           onValidateTraitChange={onValidateTraitChange}
           initialSelectedOptions={selectedTraitOptions}
         />
-
-        {traitModuleBonus && traitModuleBonus > 0 && (
-          <div
-            style={{
-              padding: '1rem',
-              backgroundColor: 'var(--color-green-dark)',
-              borderRadius: '0.5rem',
-              marginTop: '1rem',
-              color: 'var(--color-white)',
-              fontSize: '0.9rem',
-            }}
-          >
-            <strong>Note:</strong> Your selected trait grants +{traitModuleBonus} module points that
-            will be applied when your character is created.
-          </div>
-        )}
       </div>
     </div>
   );
