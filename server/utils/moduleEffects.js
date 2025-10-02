@@ -91,18 +91,13 @@ const handleSkillEffect = (character, type, code, value) => {
         if (!character.moduleBonuses.skills[mapping.id]) {
           character.moduleBonuses.skills[mapping.id] = { value: 0, talent: 0, diceTierModifier: 0 };
         }
-        
+
         // X = upgrade (+1), Y = downgrade (-1)
         const modifier = value === 'X' ? 1 : -1;
-        character.moduleBonuses.skills[mapping.id].diceTierModifier = 
+        character.moduleBonuses.skills[mapping.id].diceTierModifier =
           (character.moduleBonuses.skills[mapping.id].diceTierModifier || 0) + modifier;
-        
-        // Apply to character
-        if (!character.skills[mapping.id]) {
-          character.skills[mapping.id] = { value: 0, talent: 0, diceTierModifier: 0 };
-        }
-        character.skills[mapping.id].diceTierModifier = 
-          (character.skills[mapping.id].diceTierModifier || 0) + modifier;
+
+        // Only track bonuses here - characterUtils.js will apply them
       }
     } else if (typeof value === 'number') {
       // Regular skill value increase
@@ -112,11 +107,8 @@ const handleSkillEffect = (character, type, code, value) => {
           character.moduleBonuses.skills[mapping.id] = { value: 0, talent: 0, diceTierModifier: 0 };
         }
         character.moduleBonuses.skills[mapping.id].value += value;
-        
-        // Apply to character
-        if (character.skills[mapping.id]) {
-          character.skills[mapping.id].value += value;
-        }
+
+        // Only track bonuses here - characterUtils.js will apply them
       }
     }
   } else if (type === 'T') { // Talent increase
@@ -125,11 +117,8 @@ const handleSkillEffect = (character, type, code, value) => {
       if (!character.moduleBonuses.attributes) character.moduleBonuses.attributes = {};
       if (!character.moduleBonuses.attributes[mapping.id]) character.moduleBonuses.attributes[mapping.id] = 0;
       character.moduleBonuses.attributes[mapping.id] += value;
-      
-      // Apply to character
-      if (character.attributes[mapping.id] !== undefined) {
-        character.attributes[mapping.id] += value;
-      }
+
+      // Only track bonuses here - characterUtils.js will apply them
     }
   }
 };
@@ -192,18 +181,15 @@ const handleCraftingEffect = (character, type, code, value) => {
 const handleMitigationEffect = (character, code, value) => {
   const mitigationType = mapMitigationCode(code);
   if (!mitigationType) return;
-  
+
   if (!character.moduleBonuses.mitigation) character.moduleBonuses.mitigation = {};
   if (!character.moduleBonuses.mitigation[mitigationType]) {
     character.moduleBonuses.mitigation[mitigationType] = 0;
   }
-  
+
   character.moduleBonuses.mitigation[mitigationType] += value;
-  
-  // Apply to character
-  if (character.mitigation && character.mitigation[mitigationType] !== undefined) {
-    character.mitigation[mitigationType] += value;
-  }
+
+  // Only track bonuses here - characterUtils.js will apply them
 };
 
 const handleAutoEffect = (character, code, value) => {
@@ -211,30 +197,27 @@ const handleAutoEffect = (character, code, value) => {
     case '1': // Health
       if (!character.moduleBonuses.health) character.moduleBonuses.health = 0;
       character.moduleBonuses.health += value;
-      character.resources.health.max += value;
-      character.resources.health.current += value;
+      // Only track bonuses here - characterUtils.js will apply them
       break;
     case '2': // Resolve
       if (!character.moduleBonuses.resolve) character.moduleBonuses.resolve = 0;
       character.moduleBonuses.resolve += value;
-      character.resources.resolve.max += value;
-      character.resources.resolve.current += value;
+      // Only track bonuses here - characterUtils.js will apply them
       break;
     case '3': // energy
       if (!character.moduleBonuses.energy) character.moduleBonuses.energy = 0;
       character.moduleBonuses.energy += value;
-      character.resources.energy.max += value;
-      character.resources.energy.current += value;
+      // Only track bonuses here - characterUtils.js will apply them
       break;
     case '4': // Movement
       if (!character.moduleBonuses.movement) character.moduleBonuses.movement = 0;
       character.moduleBonuses.movement += value;
-      character.movement += value;
+      // Only track bonuses here - characterUtils.js will apply them
       break;
     case '9': // Spell Capacity
       if (!character.moduleBonuses.spellSlots) character.moduleBonuses.spellSlots = 0;
       character.moduleBonuses.spellSlots += value;
-      character.spellSlots += value;
+      // Only track bonuses here - characterUtils.js will apply them
       break;
   }
 };
