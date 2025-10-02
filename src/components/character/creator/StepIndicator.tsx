@@ -19,6 +19,22 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
             position: 'relative',
           }}
         >
+          {index < steps.length - 1 && (
+            <div
+              style={{
+                position: 'absolute',
+                top: '1rem',
+                right: '-50%',
+                width: '100%',
+                height: '2px',
+                backgroundColor:
+                  currentStep > index + 1
+                    ? 'var(--color-sat-purple)'
+                    : 'var(--color-dark-elevated)',
+                zIndex: -1,
+              }}
+            />
+          )}
           <div
             style={{
               width: '2rem',
@@ -32,6 +48,8 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
               color: 'var(--color-white)',
               fontWeight: 'bold',
               marginBottom: '0.5rem',
+              position: 'relative',
+              zIndex: 1,
             }}
           >
             {index + 1}
@@ -44,22 +62,6 @@ const StepIndicator: React.FC<StepIndicatorProps> = ({ currentStep, steps }) => 
           >
             {stepName}
           </span>
-          {index < steps.length - 1 && (
-            <div
-              style={{
-                position: 'absolute',
-                top: '1rem',
-                right: '-50%',
-                width: '100%',
-                height: '2px',
-                backgroundColor:
-                  currentStep > index + 1
-                    ? 'var(--color-sat-purple)'
-                    : 'var(--color-dark-elevated)',
-                zIndex: 0,
-              }}
-            />
-          )}
         </div>
       ))}
     </div>

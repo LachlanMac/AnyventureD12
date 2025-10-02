@@ -109,7 +109,14 @@ export const getCharacter = async (req, res) => {
     if (!isOwner && !isPublic) {
       return res.status(403).json({ message: 'Access denied' });
     }
-    
+
+    // Recalculate module points to ensure accuracy
+    const recalcResult = character.recalculateModulePoints();
+    if (recalcResult.corrected) {
+      console.log(`Module points corrected for character ${character.name}: ${recalcResult.previousSpent} -> ${recalcResult.calculatedSpent}`);
+      await character.save();
+    }
+
     // Create a copy of the character
     const characterWithBonuses = character.toObject();
 
@@ -292,7 +299,14 @@ export const updateCharacter = async (req, res) => {
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
       .populate('traits.traitId');
-    
+
+    // Recalculate module points to ensure accuracy
+    const recalcResult = updatedCharacter.recalculateModulePoints();
+    if (recalcResult.corrected) {
+      console.log(`Module points corrected for character ${updatedCharacter.name}: ${recalcResult.previousSpent} -> ${recalcResult.calculatedSpent}`);
+      await updatedCharacter.save();
+    }
+
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);

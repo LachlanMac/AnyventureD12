@@ -711,7 +711,21 @@ const applyBonusesToCharacter = (character, bonuses) => {
       }
     }
   }
-  
+
+  // Apply magic skill bonuses
+  if (bonuses.magicSkills) {
+    for (const [skill, data] of Object.entries(bonuses.magicSkills)) {
+      if (character.magicSkills[skill]) {
+        if (data.value !== undefined) {
+          character.magicSkills[skill].value += data.value;
+        }
+        if (data.talent !== undefined) {
+          character.magicSkills[skill].talent += data.talent;
+        }
+      }
+    }
+  }
+
   // Apply mitigation bonuses
   if (bonuses.mitigation) {
     for (const [type, value] of Object.entries(bonuses.mitigation)) {

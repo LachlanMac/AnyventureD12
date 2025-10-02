@@ -1244,6 +1244,68 @@ CharacterSchema.methods.deselectOption = async function(moduleId, location) {
 };
 
 
+/**
+ * Recalculate module points spent based on actual modules and options
+ * Should be called when loading/editing a character to ensure accuracy
+ * @returns {object} - Object with { calculatedSpent, previousSpent, corrected }
+ */
+CharacterSchema.methods.recalculateModulePoints = function() {
+  let calculatedSpent = 0;
+
+  // Count points from modules
+  for (const module of this.modules) {
+    const moduleData = module.moduleId && typeof module.moduleId === 'object' ? module.moduleId : null;
+
+    // Check if this is a personality module (free to obtain, but options beyond tier 1 cost points)
+    const isPersonalityModule = moduleData?.mtype === 'personality';
+    const isSocialModule = moduleData?.module_category === 'social';
+
+    // Count selected options
+    const selectedOptions = module.selectedOptions || [];
+
+    if (isPersonalityModule) {
+      // Personality modules: the module itself is free, tier 1 is free, but other options cost points
+      const additionalOptions = selectedOptions.filter(o => o.location !== '1').length;
+      calculatedSpent += additionalOptions;
+      continue;
+    }
+
+    if (isSocialModule) {
+      // Social modules are completely free - skip them entirely
+      continue;
+    }
+
+    // Regular module: costs 1 point for the module itself
+    let modulePoints = 1;
+
+    // Check if there's a Tier 1 option (location === '1')
+    const hasTierOneOption = selectedOptions.some(o => o.location === '1');
+
+    if (hasTierOneOption) {
+      // Tier 1 is free on first selection, so count all other options
+      const additionalOptions = selectedOptions.filter(o => o.location !== '1').length;
+      modulePoints += additionalOptions;
+    } else {
+      // No Tier 1 option, all options cost points
+      modulePoints += selectedOptions.length;
+    }
+
+    calculatedSpent += modulePoints;
+  }
+
+  const previousSpent = this.modulePoints.spent;
+  const corrected = previousSpent !== calculatedSpent;
+
+  // Update the spent value
+  this.modulePoints.spent = calculatedSpent;
+
+  return {
+    calculatedSpent,
+    previousSpent,
+    corrected
+  };
+};
+
 // Continue with the rest of the character model methods...
 CharacterSchema.methods.applyModuleEffects = async function() {
   // Reset module bonuses
