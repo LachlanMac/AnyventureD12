@@ -179,29 +179,14 @@ router.patch('/:id/resources', protect, async (req, res) => {
     const effectiveMaxEnergy = characterCopy.resources.energy.max;
     const effectiveMaxResolve = characterCopy.resources.resolve.max;
     const effectiveMaxMorale = characterCopy.resources.morale.max;
-    
-    // Validate and cap resources at effective max
-    const validatedResources = {
-      health: {
-        current: Math.max(0, Math.min(resources.health.current, effectiveMaxHealth)),
-        max: resources.health.max // Keep the base max as is
-      },
-      energy: {
-        current: Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy)),
-        max: resources.energy.max
-      },
-      resolve: {
-        current: Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve)),
-        max: resources.resolve.max
-      },
-      morale: {
-        current: Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale)),
-        max: resources.morale.max
-      }
-    };
 
-    // Update the resources with validated values
-    character.resources = validatedResources;
+    // Update ONLY current values (never max - max is calculated from bonuses)
+    // Clamp current values to effective max
+    character.resources.health.current = Math.max(0, Math.min(resources.health.current, effectiveMaxHealth));
+    character.resources.energy.current = Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy));
+    character.resources.resolve.current = Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve));
+    character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
+
     await character.save();
     
     // Re-fetch the character with proper population, like in getCharacter
