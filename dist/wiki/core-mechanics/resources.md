@@ -52,11 +52,9 @@ Recovering resolve is not always cut or dry. Unlike health, players do not recov
 When a character reaches 0 resolve, they become vulnerable to several mental breaks after gaining the Broken [Condition](/wiki/conditions). 
 
 
-
 ## Morale
 <div class="triangle-line"></div>
 Morale is a buffer that sits between Health and Resolve. If there is ever a situation where a character would take damage to either resource, the damage would be first done to morale. A player character by default has 0 morale, but can store a maximum of 20.
-
 
 
 ## Energy

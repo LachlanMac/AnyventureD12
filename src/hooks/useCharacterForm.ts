@@ -13,7 +13,6 @@ import {
   autoCorrectOverspentTalents
 } from '../utils/talentCalculations';
 import {
-  migrateBaseTalents,
   runAllMigrations
 } from '../utils/characterMigrations';
 import {
@@ -145,7 +144,7 @@ export function useCharacterForm(mode: 'create' | 'edit', characterId?: string) 
             traitId: traitData,
             selectedOptions: state.selectedTraitOptions
           }]
-        };
+        } as any; // Cast to any since trait format is for calculation only
 
         const budget = calculateTalentBudget(tempCharacter);
         const spent = calculateSpentTalents(tempCharacter);
@@ -204,7 +203,7 @@ export function useCharacterForm(mode: 'create' | 'edit', characterId?: string) 
       const charData = await charResponse.json();
 
       // Run migrations
-      const migrationResult = runAllMigrations(charData);
+      runAllMigrations(charData);
 
       // Handle talent validation and correction
       const validation = validateTalentAllocation(charData);
@@ -452,13 +451,13 @@ export function useCharacterForm(mode: 'create' | 'edit', characterId?: string) 
     const tempCharacter = {
       ...state.character,
       ancestry: {
-        ancestryId: ancestry,
+        ancestryId: ancestry as any, // Populated for calculation
         selectedOptions: ancestry.options.map((opt: any) => ({
           name: opt.name,
           selectedSubchoice: null
         }))
       }
-    };
+    } as any; // Cast to any since format is for calculation only
 
     const budget = calculateTalentBudget(tempCharacter);
     const spent = calculateSpentTalents(tempCharacter);

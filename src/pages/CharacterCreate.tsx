@@ -34,7 +34,7 @@ const CharacterCreate: React.FC = () => {
   const [selectedTrait, setSelectedTrait] = useState<string>('');
   const [selectedTraitOptions, setSelectedTraitOptions] = useState<any[]>([]);
   const [_traitTalentBonus, setTraitTalentBonus] = useState<number>(0);
-  const [traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
+  const [_traitModuleBonus, setTraitModuleBonus] = useState<number>(0);
   const [previousTraitData, setPreviousTraitData] = useState<any>(null);
   const [previousAncestryData, setPreviousAncestryData] = useState<any>(null);
   // DISABLED: Starting gear logic not implemented
@@ -600,7 +600,6 @@ const CharacterCreate: React.FC = () => {
               <PersonalityCreatorTab
                 selectedPersonality={selectedPersonality}
                 selectedTrait={selectedTrait}
-                traitModuleBonus={traitModuleBonus}
                 onSelectPersonality={handlePersonalitySelect}
                 onSelectTrait={(traitId, options) => {
                   setSelectedTrait(traitId);

@@ -1,4 +1,3 @@
-import { Character } from '../types/character';
 import { SKILL_TYPES } from '../constants/character';
 
 export interface MigrationResult {

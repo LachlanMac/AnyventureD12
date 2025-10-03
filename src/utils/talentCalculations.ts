@@ -34,13 +34,17 @@ export function calculateTalentBudget(character: Character): TalentBudget {
   let bonusTalentPoints = 0;
 
   // Parse ancestry for UT bonuses
-  if (character.ancestry?.ancestryId?.options) {
-    bonusTalentPoints += parseUTBonuses(character.ancestry.ancestryId.options);
+  // Note: ancestryId can be populated (Ancestry object) or just a string ID
+  const ancestryData = character.ancestry?.ancestryId as any;
+  if (ancestryData && typeof ancestryData === 'object' && ancestryData.options) {
+    bonusTalentPoints += parseUTBonuses(ancestryData.options);
   }
 
   // Parse trait for UT bonuses (traits array, first element)
+  // Note: traits can be populated or just IDs - this code assumes populated
   if (character.traits && character.traits.length > 0) {
-    const traitData = character.traits[0].traitId;
+    const trait = character.traits[0] as any;
+    const traitData = trait.traitId || trait;
     if (traitData && traitData.options) {
       bonusTalentPoints += parseUTBonuses(traitData.options);
     }
@@ -199,13 +203,10 @@ export function autoCorrectOverspentTalents(character: Character, overspentAmoun
 
     // Apply correction to character object
     if (skill.type === 'weapon' && character.weaponSkills) {
-      character.weaponSkills[skill.id].baseTalent = newBaseTalent;
       character.weaponSkills[skill.id].talent = newBaseTalent;
     } else if (skill.type === 'magic' && character.magicSkills) {
-      character.magicSkills[skill.id].baseTalent = newBaseTalent;
       character.magicSkills[skill.id].talent = newBaseTalent;
     } else if (skill.type === 'crafting' && character.craftingSkills) {
-      character.craftingSkills[skill.id].baseTalent = newBaseTalent;
       character.craftingSkills[skill.id].talent = newBaseTalent;
     }
 

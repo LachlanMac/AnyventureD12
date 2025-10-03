@@ -550,8 +550,10 @@ const CharacterEdit: React.FC = () => {
         let bonusTalentPoints = 0;
 
         // Parse ancestry for UT bonuses
-        if (character.ancestry?.ancestryId?.options) {
-          for (const option of character.ancestry.ancestryId.options) {
+        // Note: ancestryId can be populated (Ancestry object) or just a string ID
+        const ancestryData = character.ancestry?.ancestryId as any;
+        if (ancestryData && typeof ancestryData === 'object' && ancestryData.options) {
+          for (const option of ancestryData.options) {
             if (option.data) {
               const utMatch = option.data.match(/UT=(\d+)/);
               if (utMatch) {

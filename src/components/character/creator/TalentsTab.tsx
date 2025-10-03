@@ -101,7 +101,7 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
   // Modify renderSkillSection to pass defaultTalent value
   const renderSkillSection = (
     title: string,
-    skills: typeof SPECIALIZED_SKILLS,
+    skills: readonly { id: string; name: string; defaultTalent: number }[],
     skillMap: SkillMap,
     updateFunction: (skillId: string, newTalent: number) => void
   ) => {

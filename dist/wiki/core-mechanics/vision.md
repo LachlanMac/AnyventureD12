@@ -25,3 +25,37 @@ A sense that is so precise it allows a creature to detect small micromovements i
 ### Truesight
 A magical sight that allows the creature to see in complete darkness as well as see through magical effects like illusions, invisibility and spells that mask a creature's true form.
 
+
+<div class="triangle-line"></div>
+
+## Line of Sight
+
+Having line of sight on a creature is crucial to several abilities - especially ones that target a specific creature with a ranged weapon or magical spell.
+
+
+<div class="triangle-line"></div>
+
+## Darkness
+
+There are several types of light levels that affect different abilities:
+
+### Complete Darkness
+
+Complete darkness is the absence of light due to either a magical effect or being in a space where light cannot reach such as a dungeon, cave, or room without windows. Any creature who relies on <b>standard vision</b> for sight is considered to have the blinded condition while in complete darkness. 
+
+### Partial Darkness
+
+Partial darkness is when there is enough light to see well enough to target other creatures. 
+
+### Light 
+
+Light can be caused by sunlight, indoor lighting, light sources or other forms of ambient illuminations.
+
+
+## Light Sources
+
+There are various light sources that can create gaps in darkness.
+
+
+
+
