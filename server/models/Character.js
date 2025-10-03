@@ -566,12 +566,9 @@ CharacterSchema.pre('save', function(next) {
   if (!this.resources.morale.current) {
     this.resources.morale.current = 0;
   }
-  
-  // Apply module effects
-  this.applyModuleEffects();
-  
-  // Apply trait effects (non-async version)
-  this.applyTraitEffectsSync();
+
+  // NOTE: Module and trait effects are applied at READ time in applyModuleBonusesToCharacter()
+  // NOT at save time - bonuses should never be baked into the DB
 
   // Initialize equipment for existing characters (migrate old structure)
   if (!this.equipment) {

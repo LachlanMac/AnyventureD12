@@ -591,8 +591,8 @@ const parseDataString = (dataString, bonuses, character = null) => {
       continue;
     }
 
-    // AUTO stats (A) - matching A1=1 pattern (now includes A9 for spell slots)
-    const autoMatch = effect.match(/^A([1-49])=(-?\d+)$/);
+    // AUTO stats (A) - matching A1=1 pattern (supports A1-A9)
+    const autoMatch = effect.match(/^A([1-9])=(-?\d+)$/);
     if (autoMatch) {
       const [_, code, valueStr] = autoMatch;
       const value = parseInt(valueStr);
@@ -601,6 +601,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '1': 'health',
         '2': 'resolve',
         '3': 'energy',
+        '8': 'morale',
         '9': 'spellSlots'
       };
 
@@ -634,6 +635,61 @@ const parseDataString = (dataString, bonuses, character = null) => {
 };
 
 // Apply collected bonuses to character
+// Helper: Apply bonuses to simple numeric attributes (e.g., attributes, mitigation)
+const applySimpleNumericBonuses = (target, bonuses, options = {}) => {
+  const { initializeIfMissing = false } = options;
+
+  if (!bonuses) return;
+
+  for (const [key, value] of Object.entries(bonuses)) {
+    if (target[key] !== undefined) {
+      target[key] += value;
+    } else if (initializeIfMissing) {
+      target[key] = value;
+    }
+  }
+};
+
+// Helper: Apply bonuses to skill categories (weapon/magic/crafting skills with value/talent/diceTierModifier)
+const applySkillCategoryBonuses = (characterSkills, bonuses, fields = ['value', 'talent', 'diceTierModifier']) => {
+  if (!bonuses) return;
+
+  for (const [skillName, bonusData] of Object.entries(bonuses)) {
+    if (!characterSkills[skillName]) continue;
+
+    for (const field of fields) {
+      if (bonusData[field] !== undefined) {
+        if (field === 'diceTierModifier' && !characterSkills[skillName].diceTierModifier) {
+          characterSkills[skillName].diceTierModifier = 0;
+        }
+        characterSkills[skillName][field] += bonusData[field];
+      }
+    }
+  }
+};
+
+// Helper: Apply bonuses to simple skill values (just adding to .value property)
+const applySimpleSkillBonuses = (characterSkills, bonuses) => {
+  if (!bonuses) return;
+
+  for (const [skillName, value] of Object.entries(bonuses)) {
+    if (characterSkills[skillName]) {
+      characterSkills[skillName].value += value;
+    }
+  }
+};
+
+// Helper: Add unique items to array (for immunities, vision, etc.)
+const addUniqueToArray = (targetArray, items) => {
+  if (!items) return;
+
+  for (const item of items) {
+    if (!targetArray.includes(item)) {
+      targetArray.push(item);
+    }
+  }
+};
+
 const applyBonusesToCharacter = (character, bonuses) => {
   // Apply size if present
   if (bonuses.size) {
@@ -643,15 +699,9 @@ const applyBonusesToCharacter = (character, bonuses) => {
     character.physicalTraits.size = bonuses.size;
   }
 
-  // Apply skill bonuses
-  if (bonuses.skills) {
-    for (const [skill, value] of Object.entries(bonuses.skills)) {
-      if (character.skills[skill]) {
-        character.skills[skill].value += value;
-      }
-    }
-  }
-  
+  // Apply simple skill bonuses (skills.value)
+  applySimpleSkillBonuses(character.skills, bonuses.skills);
+
   // Apply skill dice tier modifiers
   if (bonuses.skillDiceTierModifiers) {
     for (const [skill, modifier] of Object.entries(bonuses.skillDiceTierModifiers)) {
@@ -663,86 +713,38 @@ const applyBonusesToCharacter = (character, bonuses) => {
       }
     }
   }
-  
-  if (bonuses.attributeTalents) {
-    for (const [attribute, value] of Object.entries(bonuses.attributeTalents)) {
-      if (character.attributes && character.attributes[attribute] !== undefined) {
-        character.attributes[attribute] += value;
-      }
-    }
+
+  // Apply attribute talents
+  if (character.attributes) {
+    applySimpleNumericBonuses(character.attributes, bonuses.attributeTalents);
   }
 
-  // Apply crafting skill bonuses
-  if (bonuses.craftingSkills) {
-    for (const [skill, data] of Object.entries(bonuses.craftingSkills)) {
-      if (character.craftingSkills[skill]) {
-        if (data.value !== undefined) {
-          character.craftingSkills[skill].value += data.value;
-        }
-        if (data.talent !== undefined) {
-          character.craftingSkills[skill].talent += data.talent;
-        }
-        if (data.diceTierModifier !== undefined) {
-          if (!character.craftingSkills[skill].diceTierModifier) {
-            character.craftingSkills[skill].diceTierModifier = 0;
-          }
-          character.craftingSkills[skill].diceTierModifier += data.diceTierModifier;
-        }
-      }
-    }
-  }
-  
-  // Apply weapon skill bonuses
-  if (bonuses.weaponSkills) {
-    for (const [skill, data] of Object.entries(bonuses.weaponSkills)) {
-      if (character.weaponSkills[skill]) {
-        if (data.value !== undefined) {
-          character.weaponSkills[skill].value += data.value;
-        }
-        if (data.talent !== undefined) {
-          character.weaponSkills[skill].talent += data.talent;
-        }
-        if (data.diceTierModifier !== undefined) {
-          if (!character.weaponSkills[skill].diceTierModifier) {
-            character.weaponSkills[skill].diceTierModifier = 0;
-          }
-          character.weaponSkills[skill].diceTierModifier += data.diceTierModifier;
-        }
-      }
-    }
-  }
-
-  // Apply magic skill bonuses
-  if (bonuses.magicSkills) {
-    for (const [skill, data] of Object.entries(bonuses.magicSkills)) {
-      if (character.magicSkills[skill]) {
-        if (data.value !== undefined) {
-          character.magicSkills[skill].value += data.value;
-        }
-        if (data.talent !== undefined) {
-          character.magicSkills[skill].talent += data.talent;
-        }
-      }
-    }
-  }
+  // Apply skill category bonuses (crafting, weapon, magic skills)
+  applySkillCategoryBonuses(character.craftingSkills, bonuses.craftingSkills);
+  applySkillCategoryBonuses(character.weaponSkills, bonuses.weaponSkills);
+  applySkillCategoryBonuses(character.magicSkills, bonuses.magicSkills, ['value', 'talent']); // magic skills don't have diceTierModifier
 
   // Apply mitigation bonuses
-  if (bonuses.mitigation) {
-    for (const [type, value] of Object.entries(bonuses.mitigation)) {
-      if (!character.mitigation) character.mitigation = {};
-      if (character.mitigation[type] !== undefined) {
-        character.mitigation[type] += value;
-      } else {
-        character.mitigation[type] = value;
-      }
-    }
-  }
-  
-  // Apply health bonus
+  if (!character.mitigation) character.mitigation = {};
+  applySimpleNumericBonuses(character.mitigation, bonuses.mitigation, { initializeIfMissing: true });
+
+  // Apply resource bonuses
   if (bonuses.health) {
     character.resources.health.max += bonuses.health;
   }
-  
+
+  if (bonuses.resolve) {
+    character.resources.resolve.max += bonuses.resolve;
+  }
+
+  if (bonuses.energy) {
+    character.resources.energy.max += bonuses.energy;
+  }
+
+  if (bonuses.morale) {
+    character.resources.morale.max += bonuses.morale;
+  }
+
   // Apply walk speed bonus (K1) - this is the only way to boost base movement now
   if (bonuses.movement_walk) {
     character.movement += bonuses.movement_walk;
@@ -754,32 +756,22 @@ const applyBonusesToCharacter = (character, bonuses) => {
     climb: bonuses.movement_climb || 0,
     fly: bonuses.movement_fly || 0
   };
-  
-  // Apply initiative bonus
+
+  // Apply initiative and spell slot bonuses
   if (bonuses.initiative) {
     character.initiative += bonuses.initiative;
   }
-  
-  // Apply spell slots bonus
+
   if (bonuses.spellSlots) {
     character.spellSlots = (character.spellSlots || 10) + bonuses.spellSlots;
   }
-  
-  // Apply immunities
+
+  // Apply immunities and vision types
   if (!character.immunities) character.immunities = [];
-  for (const immunity of bonuses.immunities) {
-    if (!character.immunities.includes(immunity)) {
-      character.immunities.push(immunity);
-    }
-  }
-  
-  // Apply vision types
+  addUniqueToArray(character.immunities, bonuses.immunities);
+
   if (!character.vision) character.vision = [];
-  for (const vision of bonuses.vision) {
-    if (!character.vision.includes(vision)) {
-      character.vision.push(vision);
-    }
-  }
+  addUniqueToArray(character.vision, bonuses.vision);
 };
 
 // Centralized data parsing function that extracts both bonuses and trait information

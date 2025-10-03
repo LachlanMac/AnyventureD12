@@ -1,0 +1,277 @@
+// server/routes/characterRoutes.js
+import express from 'express';
+import { applyModuleBonusesToCharacter, extractTraitsFromModules } from '../utils/characterUtils.js';
+import {
+  getCharacters,
+  getCharacter,
+  createCharacter,
+  updateCharacter,
+  deleteCharacter,
+  addItemToInventory,
+  removeItemFromInventory,
+  equipItem,
+  unequipItem,
+  customizeItem,
+  updateItemQuantity,
+  addTrait,
+  removeTrait,
+  updateTraitOptions,
+  updateCultureSelections,
+  exportCharacterToFoundry
+} from '../controllers/characterController.js';
+import { protect } from '../middleware/auth.js';
+import characterModuleRoutes from './characterModuleRoutes.js';
+import characterSpellRoutes from './characterSpellRoutes.js';
+import Character from '../models/Character.js';
+
+const router = express.Router();
+
+// Mount the module routes (these need authentication)
+router.use('/:characterId/modules', protect, characterModuleRoutes);
+router.use('/:characterId/spells', protect, characterSpellRoutes);
+
+// Routes for /api/characters
+router.route('/')
+  .get(protect, getCharacters)
+  .post(protect, createCharacter);
+
+// Character view route (public access for public characters)
+router.route('/:id')
+  .get(getCharacter) // No protect middleware - handled in controller
+  .put(protect, updateCharacter)
+  .delete(protect, deleteCharacter);
+
+// Inventory management routes
+router.route('/:id/inventory')
+  .post(protect, addItemToInventory);
+
+router.route('/:id/inventory/:itemId')
+  .delete(protect, removeItemFromInventory);
+
+// Equipment management routes
+router.route('/:id/equipment/:slotName')
+  .put(protect, equipItem)
+  .delete(protect, unequipItem);
+
+// Trait management routes
+router.route('/:id/traits')
+  .post(protect, addTrait);
+
+router.route('/:id/traits/:traitId')
+  .put(protect, updateTraitOptions)
+  .delete(protect, removeTrait);
+
+// Item customization and quantity routes
+router.route('/:id/inventory/:index/customize')
+  .post(protect, customizeItem);
+
+router.route('/:id/inventory/:index/quantity')
+  .put(protect, updateItemQuantity);
+
+// Music skills update route
+router.patch('/:id/music-skills', protect, async (req, res) => {
+  try {
+    const { musicSkills } = req.body;
+    
+    // First find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+    
+    // Update the music skills
+    character.musicSkills = musicSkills;
+    await character.save();
+    
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error updating music skills:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Language skills update route
+router.patch('/:id/language-skills', protect, async (req, res) => {
+  try {
+    const { languageSkills } = req.body;
+    
+    // First find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+    
+    // Update the language skills
+    // Convert object to Map for MongoDB
+    character.languageSkills = new Map(Object.entries(languageSkills));
+    await character.save();
+    
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error updating language skills:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Resources update route
+router.patch('/:id/resources', protect, async (req, res) => {
+  try {
+    const { resources } = req.body;
+    
+    // First find the character to verify ownership and get effective max values
+    const character = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+    
+    // Apply bonuses to get effective max values
+    const characterCopy = character.toObject();
+    applyModuleBonusesToCharacter(characterCopy);
+    
+    // Validate that current resources don't exceed effective max
+    const effectiveMaxHealth = characterCopy.resources.health.max;
+    const effectiveMaxEnergy = characterCopy.resources.energy.max;
+    const effectiveMaxResolve = characterCopy.resources.resolve.max;
+    const effectiveMaxMorale = characterCopy.resources.morale.max;
+
+    // Update ONLY current values (never max - max is calculated from bonuses)
+    // Clamp current values to effective max
+    character.resources.health.current = Math.max(0, Math.min(resources.health.current, effectiveMaxHealth));
+    character.resources.energy.current = Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy));
+    character.resources.resolve.current = Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve));
+    character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
+
+    await character.save();
+    
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId');
+    
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+    
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error updating resources:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Public visibility update route
+router.patch('/:id/public', protect, async (req, res) => {
+  try {
+    const { public: isPublic } = req.body;
+
+    // First find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+
+    // Update the public field
+    character.public = isPublic;
+    await character.save();
+
+    res.json({ message: 'Character visibility updated successfully', public: character.public });
+  } catch (error) {
+    console.error('Error updating character visibility:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
+// Culture selection route
+router.put('/:id/culture-selections', protect, updateCultureSelections);
+
+// FoundryVTT export route
+router.get('/:id/export-foundry', protect, exportCharacterToFoundry);
+
+// Debug route for foundry export (no auth for testing)
+router.get('/:id/debug-foundry', async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.id)
+      .populate('ancestry.ancestryId')
+      .populate('culture.cultureId')
+      .populate('traits.traitId')
+      .populate('modules.moduleId')
+      .populate('spells.spellId')
+      .populate('inventory.itemId');
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    const spellInfo = character.spells?.map(spell => ({
+      name: spell.spellId?.name,
+      foundry_icon: spell.spellId?.foundry_icon,
+      school: spell.spellId?.school,
+      subschool: spell.spellId?.subschool
+    })) || [];
+
+    res.json({
+      characterName: character.name,
+      spellCount: character.spells?.length || 0,
+      spells: spellInfo
+    });
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+});
+
+export default router;

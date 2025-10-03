@@ -159,7 +159,8 @@ router.patch('/:id/resources', protect, async (req, res) => {
       .populate('modules.moduleId')
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
     
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
@@ -188,19 +189,20 @@ router.patch('/:id/resources', protect, async (req, res) => {
     character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
 
     await character.save();
-    
+
     // Re-fetch the character with proper population, like in getCharacter
     const updatedCharacter = await Character.findById(req.params.id)
       .populate('modules.moduleId')
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
-    
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
-    
+
     res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error updating resources:', error);
