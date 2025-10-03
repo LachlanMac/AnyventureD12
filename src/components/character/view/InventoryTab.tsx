@@ -199,8 +199,8 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     const availableSlots = getAvailableSlots();
 
     // If only one slot available, equip directly
-    if (availableSlots.length === 1 && item._id) {
-      onEquip(item._id, availableSlots[0]);
+    if (availableSlots.length === 1) {
+      onEquip(inventoryIndex.toString(), availableSlots[0]);
       return;
     }
 
@@ -219,8 +219,8 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   };
 
   const handleSlotConfirm = () => {
-    if (selectedSlot && item._id) {
-      onEquip(item._id, selectedSlot);
+    if (selectedSlot) {
+      onEquip(inventoryIndex.toString(), selectedSlot);
       setShowSlotSelector(false);
     }
   };

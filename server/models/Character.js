@@ -989,14 +989,38 @@ CharacterSchema.methods.getEquippedItemData = function(itemId) {
   return null;
 };
 
-CharacterSchema.methods.equipItem = async function(itemId, slotName) {
+CharacterSchema.methods.equipItem = async function(itemIdentifier, slotName) {
   try {
+    // itemIdentifier can be either:
+    // 1. An inventory index (for customized items) - e.g., "0", "1", "2"
+    // 2. An item ObjectId (for regular items)
 
-    // Check if item exists in inventory
-    const inventoryItem = this.inventory.find(i => {
-      const inventoryItemId = typeof i.itemId === 'object' && i.itemId._id ? i.itemId._id.toString() : i.itemId.toString();
-      return inventoryItemId === itemId.toString();
-    });
+    let inventoryItem;
+    let inventoryIndex;
+
+    // Try to parse as inventory index first
+    const parsedIndex = parseInt(itemIdentifier);
+    if (!isNaN(parsedIndex) && parsedIndex >= 0 && parsedIndex < this.inventory.length) {
+      // It's a valid inventory index
+      inventoryIndex = parsedIndex;
+      inventoryItem = this.inventory[parsedIndex];
+    } else {
+      // Try to find by itemId (for non-customized items)
+      inventoryIndex = this.inventory.findIndex(i => {
+        // Skip customized items (they don't have itemId)
+        if (i.isCustomized || !i.itemId) return false;
+
+        const inventoryItemId = typeof i.itemId === 'object' && i.itemId._id
+          ? i.itemId._id.toString()
+          : i.itemId.toString();
+        return inventoryItemId === itemIdentifier.toString();
+      });
+
+      if (inventoryIndex !== -1) {
+        inventoryItem = this.inventory[inventoryIndex];
+      }
+    }
+
     if (!inventoryItem) {
       return { success: false, message: 'Item not found in inventory' };
     }
@@ -1046,9 +1070,22 @@ CharacterSchema.methods.equipItem = async function(itemId, slotName) {
       await this.unequipItem(slotName);
     }
 
+    // Determine the item ID to store in equipment slot
+    // For customized items, use the originalItemId; for regular items, use the itemId
+    let equipmentItemId;
+    if (inventoryItem.isCustomized && inventoryItem.itemData?.originalItemId) {
+      equipmentItemId = inventoryItem.itemData.originalItemId;
+    } else if (inventoryItem.itemId) {
+      equipmentItemId = typeof inventoryItem.itemId === 'object' && inventoryItem.itemId._id
+        ? inventoryItem.itemId._id
+        : inventoryItem.itemId;
+    } else {
+      return { success: false, message: 'Cannot determine item ID for equipment slot' };
+    }
+
     // Equip the item
     this.equipment[slotName] = {
-      itemId: itemId,
+      itemId: equipmentItemId,
       equippedAt: new Date().toISOString()
     };
 

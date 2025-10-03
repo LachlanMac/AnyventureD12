@@ -449,11 +449,13 @@ export const equipItem = async (req, res) => {
     const { slotName } = req.params;
     const character = await Character.findById(req.params.id)
       .populate('inventory.itemId');
-    
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
 
+    // itemId can be either an actual item ObjectId or an inventory index (as string)
+    // For customized items, the frontend sends the inventory index
     const result = await character.equipItem(itemId, slotName);
     
     if (result.success) {
