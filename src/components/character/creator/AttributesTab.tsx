@@ -77,7 +77,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
                     fontSize: '0.875rem',
                   }}
                 >
-                  Related to {skills.map((skill) => skill.name).join(', ')}
+                   {skills.map((skill) => skill.name).join(', ')} 
                 </span>
               </div>
             </div>
