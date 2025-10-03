@@ -859,7 +859,19 @@ export const exportCharacterToFoundry = async (req, res) => {
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
       .populate('traits.traitId')
-      .populate('inventory.itemId');
+      .populate('inventory.itemId')
+      .populate('equipment.head.itemId')
+      .populate('equipment.body.itemId')
+      .populate('equipment.back.itemId')
+      .populate('equipment.hand.itemId')
+      .populate('equipment.boots.itemId')
+      .populate('equipment.accessory1.itemId')
+      .populate('equipment.accessory2.itemId')
+      .populate('equipment.mainhand.itemId')
+      .populate('equipment.offhand.itemId')
+      .populate('equipment.extra1.itemId')
+      .populate('equipment.extra2.itemId')
+      .populate('equipment.extra3.itemId');
 
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
@@ -1154,6 +1166,22 @@ export const exportCharacterToFoundry = async (req, res) => {
           }
         },
 
+        // Equipment slots
+        equipment: {
+          head: null,
+          body: null,
+          back: null,
+          hand: null,
+          boots: null,
+          accessory1: null,
+          accessory2: null,
+          mainhand: null,
+          offhand: null,
+          extra1: null,
+          extra2: null,
+          extra3: null
+        },
+
         // Character details
         details: {
           race: character.ancestry?.ancestryId?.name || character.race || "",
@@ -1364,6 +1392,89 @@ export const exportCharacterToFoundry = async (req, res) => {
 
           foundryActor.items.push(foundryItem);
         }
+      }
+    }
+
+    // Populate equipment slots from character.equipment
+    if (character.equipment) {
+      const slotNames = ['head', 'body', 'back', 'hand', 'boots', 'accessory1', 'accessory2', 'mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
+
+      for (const slotName of slotNames) {
+        const slot = character.equipment[slotName];
+
+        // Skip empty slots
+        if (!slot || !slot.itemId) continue;
+
+        // Check if this item is customized in inventory
+        // Equipment slot stores the base item ID, but we need to check if there's a customized version
+        let item = slot.itemId;
+        const slotItemId = slot.itemId._id.toString();
+
+        // Find matching inventory item
+        // For customized items, their originalItemId will match the equipment slot's itemId
+        const inventoryItem = character.inventory?.find(invItem => {
+          // Check customized items by originalItemId
+          if (invItem.isCustomized && invItem.itemData?.originalItemId) {
+            return invItem.itemData.originalItemId.toString() === slotItemId;
+          }
+          // Check regular items by itemId
+          return invItem.itemId?._id?.toString() === slotItemId;
+        });
+
+        // If we found a customized version in inventory, use that instead of base item
+        if (inventoryItem?.isCustomized && inventoryItem.itemData) {
+          item = inventoryItem.itemData;
+        }
+
+        // Create the slot data structure for Foundry
+        foundryActor.system.equipment[slotName] = {
+          item: {
+            _id: item.foundry_id,
+            name: item.name,
+            img: item.foundry_icon || getGenericIcon(item, 'item'),
+            type: "item",
+            system: {
+              description: item.description || "",
+              itemType: item.type,
+              weight: item.weight || 0,
+              value: item.value || 0,
+              rarity: item.rarity || "common",
+              weapon_category: item.weapon_category,
+              hands: item.hands,
+              shield_category: item.shield_category,
+              damage: item.damage,
+              extra_damage: item.extra_damage,
+              damage_type: item.damage_type,
+              range: item.range,
+              thrown_range: item.thrown_range,
+              versatile: item.versatile,
+              defense: item.defense,
+              shield_type: item.shield_type,
+              armor_value: item.armor_value,
+              armor_type: item.armor_type,
+              primary: item.primary,
+              secondary: item.secondary,
+              bonus_attack: item.bonus_attack,
+              encumbrance_penalty: item.encumbrance_penalty,
+              health: item.health,
+              energy: item.energy,
+              resolve: item.resolve,
+              movement: item.movement,
+              attributes: item.attributes,
+              basic: item.basic,
+              weapon: item.weapon,
+              magic: item.magic,
+              craft: item.craft,
+              mitigation: item.mitigation,
+              detections: item.detections,
+              immunities: item.immunities,
+              effects: item.effects,
+              properties: item.properties
+            }
+          },
+          equippedAt: slot.equippedAt || Date.now(),
+          quantity: 1
+        };
       }
     }
 

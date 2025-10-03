@@ -33,12 +33,11 @@ A magical sight that allows the creature to see in complete darkness as well as 
 Having line of sight on a creature is crucial to several abilities - especially ones that target a specific creature with a ranged weapon or magical spell.
 
 
-
 <div class="triangle-line"></div>
 
 ## Darkness
 
-There are several types of darkness that affect different abilities:
+There are several types of light levels that affect different abilities:
 
 ### Complete Darkness
 
@@ -47,6 +46,10 @@ Complete darkness is the absence of light due to either a magical effect or bein
 ### Partial Darkness
 
 Partial darkness is when there is enough light to see well enough to target other creatures. 
+
+### Light 
+
+Light can be caused by sunlight, indoor lighting, light sources or other forms of ambient illuminations.
 
 
 ## Light Sources
