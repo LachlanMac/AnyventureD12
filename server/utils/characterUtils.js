@@ -1,5 +1,6 @@
 
 import { applyDataEffects } from './moduleEffects.js';
+import { parseDataCodes as parseDataCodesNew, parseTraitCategory as parseTraitCategoryNew } from './dataCodeParsers.js';
 
 export const applyModuleBonusesToCharacter = (character) => {
 
@@ -286,8 +287,15 @@ const applyEquipmentConditionals = (character) => {
   }
 };
 
-// Parse data string and collect bonuses
+// DEPRECATED: This function is replaced by dataCodeParsers.js
+// Kept temporarily for backwards compatibility, but now just calls the new parser
 const parseDataString = (dataString, bonuses, character = null) => {
+  const { bonuses: parsedBonuses } = parseDataCodesNew(dataString, character);
+  Object.assign(bonuses, parsedBonuses);
+  return;
+
+  // OLD CODE BELOW - CAN BE REMOVED AFTER TESTING
+  /*
   if (!dataString) return;
 
   // Initialize conditionals if character provided
@@ -632,6 +640,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
       continue;
     }
   }
+  */
 };
 
 // Apply collected bonuses to character
@@ -774,36 +783,9 @@ const applyBonusesToCharacter = (character, bonuses) => {
   addUniqueToArray(character.vision, bonuses.vision);
 };
 
-// Centralized data parsing function that extracts both bonuses and trait information
-export const parseDataCodes = (dataString, character = null) => {
-  if (!dataString) return { bonuses: {}, traitCategory: null };
-
-  const bonuses = {};
-  let traitCategory = null;
-
-  // Check for trait codes
-  if (dataString.includes('TA')) traitCategory = 'Ancestry';
-  else if (dataString.includes('TG')) traitCategory = 'General';
-  else if (dataString.includes('TC')) traitCategory = 'Crafting';
-  else if (dataString.includes('TO')) traitCategory = 'Offensive';
-  else if (dataString.includes('TD')) traitCategory = 'Defensive';
-
-  // Use existing parseDataString to handle all the bonus logic
-  parseDataString(dataString, bonuses, character);
-
-  return { bonuses, traitCategory };
-};
-
-export const parseTraitCategory = (dataString) => {
-  if (!dataString) return null;
-  if (dataString.includes('TG')) return 'General';
-  if (dataString.includes('TC')) return 'Crafting';
-  if (dataString.includes('TA')) return 'Ancestry';
-  if (dataString.includes('TO')) return 'Offensive';
-  if (dataString.includes('TD')) return 'Defensive';
-  
-  return null;
-};
+// Re-export the new data code parsers for backwards compatibility
+export const parseDataCodes = parseDataCodesNew;
+export const parseTraitCategory = parseTraitCategoryNew;
 
 // Helper function to process a single ability/option and extract traits
 const processAbilityForTraits = (ability, sourceName, sourceType, traitCategories) => {
