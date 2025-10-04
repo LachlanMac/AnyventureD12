@@ -126,6 +126,35 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
     }
   };
 
+  const handleExportToFoundry = async () => {
+    try {
+      const response = await fetch(`/api/characters/${character._id}/export-foundry`, {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('token')}`,
+        },
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to export character');
+      }
+
+      // Create a blob from the response and trigger download
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.style.display = 'none';
+      a.href = url;
+      a.download = `${character.name.replace(/[^a-z0-9]/gi, '_').toLowerCase()}_foundry.json`;
+      document.body.appendChild(a);
+      a.click();
+      window.URL.revokeObjectURL(url);
+      document.body.removeChild(a);
+    } catch (error) {
+      console.error('Error exporting character:', error);
+      showError('Failed to export character to Foundry VTT. Please try again.');
+    }
+  };
+
   return (
     <Card variant="default">
       {/* Header with character name and action buttons */}
@@ -173,6 +202,32 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                 {isUpdatingVisibility ? '...' : isPublic ? 'Public' : 'Private'}
               </button>
             )}
+            <button
+              onClick={handleExportToFoundry}
+              style={{
+                padding: '0.375rem 0.75rem',
+                borderRadius: '0.25rem',
+                fontSize: '0.875rem',
+                fontWeight: '600',
+                border: '2px solid #000',
+                cursor: 'pointer',
+                transition: 'all 0.2s ease',
+                backgroundColor: '#FF6400',
+                color: '#000',
+                boxShadow: '0 2px 4px rgba(255, 100, 0, 0.3)',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.backgroundColor = '#FF7A1A';
+                e.currentTarget.style.boxShadow = '0 4px 8px rgba(255, 100, 0, 0.4)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.backgroundColor = '#FF6400';
+                e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 100, 0, 0.3)';
+              }}
+              title="Export to Foundry VTT"
+            >
+              Export FVTT
+            </button>
             <Link to={`/characters/${character._id}/edit`}>
               <Button variant="secondary" size="sm">
                 Edit
