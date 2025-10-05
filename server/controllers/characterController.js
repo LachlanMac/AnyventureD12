@@ -143,6 +143,41 @@ export const getCharacter = async (req, res) => {
       }
     });
 
+    // Reset resources to base values to recalculate fresh
+    // This fixes the double-application of trait bonuses like Born to Adventure
+    if (characterWithBonuses.resources) {
+      if (characterWithBonuses.resources.health) {
+        characterWithBonuses.resources.health.max = 20;
+      }
+      if (characterWithBonuses.resources.resolve) {
+        characterWithBonuses.resources.resolve.max = 20;
+      }
+      if (characterWithBonuses.resources.morale) {
+        characterWithBonuses.resources.morale.max = 10;
+      }
+      if (characterWithBonuses.resources.energy) {
+        characterWithBonuses.resources.energy.max = 5;
+      }
+    }
+
+    // Reset other values that can be modified by bonuses
+    characterWithBonuses.movement = 5;
+    characterWithBonuses.initiative = 0;
+    characterWithBonuses.spellSlots = 10;
+
+    // Reset mitigation to 0 for all damage types
+    characterWithBonuses.mitigation = {
+      physical: 0,
+      cold: 0,
+      heat: 0,
+      electric: 0,
+      psychic: 0,
+      dark: 0,
+      divine: 0,
+      aether: 0,
+      toxic: 0
+    };
+
     // Apply module bonuses directly to the character's attributes
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
