@@ -4,7 +4,7 @@
   "type": "shield",
   "shield_category": "light",
   "weight": 3,
-  "value": 25,
+  "value": 400,
   "rarity": "common",
   "encumbrance_penalty": 1,
   "foundry_icon": "icons/equipment/shield/buckler-wooden-round-hole.webp",

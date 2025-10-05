@@ -3,7 +3,7 @@
   "description": "A lightweight cloak dyed in mottled greens and browns. The irregular pattern helps break up the wearer's silhouette in natural environments, granting a bonus dice to stealth checks.",
   "type": "cloak",
   "weight": 1,
-  "value": 30,
+  "value": 100,
   "rarity": "uncommon",
   "basic": {},
   "foundry_icon": "icons/equipment/back/cloak-collared-leaves-green.webp",

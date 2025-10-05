@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from '../../ui/Button';
 
 interface PurchaseItemModalProps {
@@ -8,7 +8,7 @@ interface PurchaseItemModalProps {
   itemCostInSilver: number;
   currentGold: number;
   currentSilver: number;
-  onConfirm: () => void;
+  onConfirm: (quantity: number) => void;
 }
 
 const PurchaseItemModal: React.FC<PurchaseItemModalProps> = ({
@@ -20,24 +20,33 @@ const PurchaseItemModal: React.FC<PurchaseItemModalProps> = ({
   currentSilver,
   onConfirm,
 }) => {
+  const [quantity, setQuantity] = useState(1);
+
   if (!isOpen) return null;
 
   // Convert total currency to silver for calculation
   const totalSilver = currentGold * 10 + currentSilver;
-  const canAfford = totalSilver >= itemCostInSilver;
-  const newTotalSilver = totalSilver - itemCostInSilver;
+  const totalCost = itemCostInSilver * quantity;
+  const canAfford = totalSilver >= totalCost;
+  const newTotalSilver = totalSilver - totalCost;
 
   // Convert new total back to gold and silver
   const newGold = Math.floor(newTotalSilver / 10);
   const newSilver = newTotalSilver % 10;
 
   // Convert item cost to gold and silver for display
-  const costGold = Math.floor(itemCostInSilver / 10);
-  const costSilver = itemCostInSilver % 10;
+  const costGold = Math.floor(totalCost / 10);
+  const costSilver = totalCost % 10;
 
   const handleConfirm = () => {
-    onConfirm();
+    onConfirm(quantity);
     onClose();
+    setQuantity(1); // Reset for next use
+  };
+
+  const handleCancel = () => {
+    onClose();
+    setQuantity(1); // Reset on cancel
   };
 
   return (
@@ -54,7 +63,7 @@ const PurchaseItemModal: React.FC<PurchaseItemModalProps> = ({
         justifyContent: 'center',
         zIndex: 1000,
       }}
-      onClick={onClose}
+      onClick={handleCancel}
     >
       <div
         style={{
@@ -77,13 +86,82 @@ const PurchaseItemModal: React.FC<PurchaseItemModalProps> = ({
             backgroundColor: 'var(--color-dark-surface)',
             padding: '1rem',
             borderRadius: '6px',
-            marginBottom: '1.5rem',
+            marginBottom: '1rem',
             textAlign: 'center',
           }}
         >
           <h3 style={{ color: 'var(--color-old-gold)', margin: 0, fontSize: '1.1rem' }}>
             {itemName}
           </h3>
+        </div>
+
+        {/* Quantity Input */}
+        <div
+          style={{
+            backgroundColor: 'var(--color-dark-surface)',
+            padding: '1rem',
+            borderRadius: '6px',
+            marginBottom: '1.5rem',
+          }}
+        >
+          <label
+            style={{
+              display: 'block',
+              color: 'var(--color-cloud)',
+              fontSize: '0.9rem',
+              marginBottom: '0.5rem',
+            }}
+          >
+            Quantity
+          </label>
+          <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
+            <button
+              onClick={() => setQuantity(Math.max(1, quantity - 1))}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+              }}
+            >
+              −
+            </button>
+            <input
+              type="number"
+              min="1"
+              value={quantity}
+              onChange={(e) => setQuantity(Math.max(1, parseInt(e.target.value) || 1))}
+              style={{
+                flex: 1,
+                padding: '0.5rem',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '4px',
+                textAlign: 'center',
+                fontSize: '1rem',
+              }}
+            />
+            <button
+              onClick={() => setQuantity(quantity + 1)}
+              style={{
+                padding: '0.5rem 1rem',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '4px',
+                cursor: 'pointer',
+                fontSize: '1.2rem',
+                fontWeight: 'bold',
+              }}
+            >
+              +
+            </button>
+          </div>
         </div>
 
         {/* Current Balance */}
@@ -208,14 +286,14 @@ const PurchaseItemModal: React.FC<PurchaseItemModalProps> = ({
             }}
           >
             <p style={{ color: 'var(--color-sunset)', margin: 0, fontWeight: 'bold' }}>
-              Insufficient funds! You need {itemCostInSilver - totalSilver} more silver.
+              Insufficient funds! You need {totalCost - totalSilver} more silver.
             </p>
           </div>
         )}
 
         {/* Action Buttons */}
         <div style={{ display: 'flex', gap: '1rem', justifyContent: 'flex-end' }}>
-          <Button onClick={onClose} variant="secondary">
+          <Button onClick={handleCancel} variant="secondary">
             Cancel
           </Button>
           <Button onClick={handleConfirm} variant="primary" disabled={!canAfford}>

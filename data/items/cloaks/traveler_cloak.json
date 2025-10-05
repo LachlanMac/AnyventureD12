@@ -3,7 +3,7 @@
   "description": "A sturdy wool cloak with a deep hood, designed to protect against wind and rain. Popular among merchants and wanderers for its durability.",
   "type": "cloak",
   "weight": 2,
-  "value": 15,
+  "value": 150,
   "rarity": "common",
   "mitigation": {
     "cold": 1

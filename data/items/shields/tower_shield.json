@@ -4,7 +4,7 @@
   "type": "shield",
   "shield_category": "heavy",
   "weight": 10,
-  "value": 100,
+  "value": 1500,
   "rarity": "common",
   "mitigation": {
     "physical": 1

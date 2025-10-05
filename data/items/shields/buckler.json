@@ -4,7 +4,7 @@
   "type": "shield",
   "shield_category": "light",
   "weight": 2,
-  "value": 15,
+  "value": 100,
   "rarity": "common",
   "encumbrance_penalty": 1,
   "foundry_icon": "icons/equipment/shield/buckler-boss-iron-wood-brown.webp",

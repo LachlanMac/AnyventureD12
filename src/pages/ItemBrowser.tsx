@@ -5,6 +5,7 @@ import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import PurchaseItemModal from '../components/character/view/PurchaseItemModal';
+import AddItemModal from '../components/character/view/AddItemModal';
 
 // Extended Item type that matches backend API response
 interface APIItem extends Item {
@@ -65,6 +66,8 @@ const ItemBrowser: React.FC = () => {
   const [addingItem, setAddingItem] = useState(false);
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const [itemToPurchase, setItemToPurchase] = useState<APIItem | null>(null);
+  const [showAddItemModal, setShowAddItemModal] = useState(false);
+  const [itemToAdd, setItemToAdd] = useState<APIItem | null>(null);
 
   // Helper function to check if a skill bonus has any non-zero values
   const hasSkillBonus = (skill: any): boolean => {
@@ -73,6 +76,30 @@ const ItemBrowser: React.FC = () => {
       (skill?.set_bonus || 0) > 0 ||
       (skill?.add_talent || 0) > 0 ||
       (skill?.set_talent || 0) > 0
+    );
+  };
+
+  // Helper function to format currency (value in silver)
+  const formatCurrency = (valueInSilver: number): JSX.Element => {
+    const gold = Math.floor(valueInSilver / 10);
+    const silver = valueInSilver % 10;
+
+    return (
+      <span style={{ display: 'inline-flex', gap: '0.75rem', alignItems: 'center' }}>
+        {gold > 0 && (
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+            <span style={{ color: '#FFD700', fontWeight: 'bold', fontSize: '0.9rem' }}>⚜</span>
+            <span>{gold}</span>
+          </span>
+        )}
+        {silver > 0 && (
+          <span style={{ display: 'inline-flex', alignItems: 'center', gap: '0.25rem' }}>
+            <span style={{ color: '#C0C0C0', fontWeight: 'bold', fontSize: '0.9rem' }}>◉</span>
+            <span>{silver}</span>
+          </span>
+        )}
+        {valueInSilver === 0 && <span>Free</span>}
+      </span>
     );
   };
 
@@ -109,19 +136,26 @@ const ItemBrowser: React.FC = () => {
     fetchData();
   }, [characterId]);
 
-  const handleAddItem = async (itemId: string) => {
+  const handleAddItemClick = (item: APIItem) => {
+    setItemToAdd(item);
+    setShowAddItemModal(true);
+  };
+
+  const handleAddItem = async (quantity: number) => {
+    if (!itemToAdd) return;
+
     try {
       setAddingItem(true);
       const response = await fetch(`/api/characters/${characterId}/inventory`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ itemId, quantity: 1 }),
+        body: JSON.stringify({ itemId: itemToAdd._id, quantity }),
         credentials: 'include',
       });
 
       if (response.ok) {
         // Show success message
-        showSuccess('Item added to inventory!');
+        showSuccess(`Added ${quantity}x ${itemToAdd.name} to inventory!`);
       } else {
         throw new Error('Failed to add item to inventory');
       }
@@ -138,7 +172,7 @@ const ItemBrowser: React.FC = () => {
     setShowPurchaseModal(true);
   };
 
-  const handlePurchaseConfirm = async () => {
+  const handlePurchaseConfirm = async (quantity: number) => {
     if (!itemToPurchase) return;
 
     try {
@@ -146,14 +180,14 @@ const ItemBrowser: React.FC = () => {
       const response = await fetch(`/api/characters/${characterId}/purchase-item`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ itemId: itemToPurchase._id, quantity: 1 }),
+        body: JSON.stringify({ itemId: itemToPurchase._id, quantity }),
         credentials: 'include',
       });
 
       if (response.ok) {
         const updatedCharacter = await response.json();
         setCharacter(updatedCharacter);
-        showSuccess(`Purchased ${itemToPurchase.name}!`);
+        showSuccess(`Purchased ${quantity}x ${itemToPurchase.name}!`);
         setShowPurchaseModal(false);
         setItemToPurchase(null);
       } else {
@@ -259,7 +293,7 @@ const ItemBrowser: React.FC = () => {
                   Purchase
                 </Button>
               )}
-              <Button onClick={() => handleAddItem(item._id)} disabled={addingItem} variant="secondary">
+              <Button onClick={() => handleAddItemClick(item)} disabled={addingItem} variant="secondary">
                 {addingItem ? 'Adding...' : 'Add to Inventory'}
               </Button>
             </div>
@@ -317,8 +351,8 @@ const ItemBrowser: React.FC = () => {
                 <div style={{ color: 'var(--color-cloud)' }}>
                   <strong>Weight:</strong> {item.weight}
                 </div>
-                <div style={{ color: 'var(--color-cloud)' }}>
-                  <strong>Value:</strong> {item.value}
+                <div style={{ color: 'var(--color-cloud)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <strong>Value:</strong> {formatCurrency(item.value || 0)}
                 </div>
                 {(item.health?.max !== 0 || item.health?.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
@@ -1073,6 +1107,19 @@ const ItemBrowser: React.FC = () => {
           <ItemDetail item={selectedItem} />
         </div>
       </div>
+
+      {/* Add Item Modal */}
+      {itemToAdd && (
+        <AddItemModal
+          isOpen={showAddItemModal}
+          onClose={() => {
+            setShowAddItemModal(false);
+            setItemToAdd(null);
+          }}
+          itemName={itemToAdd.name}
+          onConfirm={handleAddItem}
+        />
+      )}
 
       {/* Purchase Modal */}
       {character && itemToPurchase && (
