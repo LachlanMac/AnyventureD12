@@ -80,7 +80,7 @@ const ItemBrowser: React.FC = () => {
   };
 
   // Helper function to format currency (value in silver)
-  const formatCurrency = (valueInSilver: number): JSX.Element => {
+  const formatCurrency = (valueInSilver: number): React.ReactElement => {
     const gold = Math.floor(valueInSilver / 10);
     const silver = valueInSilver % 10;
 
