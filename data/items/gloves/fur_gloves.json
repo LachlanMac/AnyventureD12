@@ -3,7 +3,7 @@
   "description": "Thick gloves lined with soft fur, designed for harsh winter conditions. While warm, they reduce manual dexterity.",
   "type": "gloves",
   "weight": 0.8,
-  "value": 20,
+  "value": 100,
   "rarity": "common",
   "mitigation": {
     "cold": 2

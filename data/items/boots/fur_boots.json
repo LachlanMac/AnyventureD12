@@ -3,7 +3,7 @@
   "description": "Heavy boots lined with thick fur and reinforced with leather. Excellent for cold climates but bulky for stealth.",
   "type": "boots",
   "weight": 2,
-  "value": 35,
+  "value": 200,
   "rarity": "common",
   "mitigation": {
     "cold": 2
