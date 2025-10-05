@@ -1,0 +1,22 @@
+{
+  "name": "Reinforced Leather Helmet",
+  "description": "A supple leather helmet with flexible mail sewn into the crown and sides, balancing protection with comfort.",
+  "type": "headwear",
+  "weight": 2,
+  "value": 1950,
+  "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 6,
+    "ingredients": [
+      "Hide",
+      "Mail",
+      "Padding",
+      "Bindings"
+    ]
+  },
+  "mitigation": {
+    "physical": 1
+  },
+  "foundry_icon": "icons/equipment/head/helm-helm-norman-horned-brown.webp"
+}

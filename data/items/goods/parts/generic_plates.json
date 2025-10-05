@@ -10,16 +10,16 @@
       "iron"
     ],
     "weight": 8,
-    "value": 400,
+    "value": 1200,
     "rarity": "common",
     "recipe": {
       "ingredients": [
-        "3x Iron Ingots"
+        "5x Iron Ingots"
       ],
       "difficulty": 7,
       "type": "fabrication"
     },
-    "properties": "Standard physical mitigation with heavy weight",
+    "properties": "Standard heavy protection",
     "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
@@ -33,16 +33,16 @@
       "steel"
     ],
     "weight": 8,
-    "value": 600,
+    "value": 1800,
     "rarity": "common",
     "recipe": {
       "ingredients": [
-        "3x Steel Ingots"
+        "5x Steel Ingots"
       ],
       "difficulty": 10,
       "type": "fabrication"
     },
-    "properties": "Enhanced physical mitigation with improved durability",
+    "properties": "Standard protection",
     "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
@@ -56,16 +56,16 @@
       "truesteel"
     ],
     "weight": 8,
-    "value": 950,
+    "value": 3000,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "3x True Steel Ingots"
+        "5x True Steel Ingots"
       ],
       "difficulty": 12,
       "type": "fabrication"
     },
-    "properties": "Physical mitigation gains +1 effectiveness",
+    "properties": "+1 physical mitigation",
     "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
@@ -80,16 +80,16 @@
       "magical"
     ],
     "weight": 2,
-    "value": 38400,
+    "value": 120000,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
-        "3x Aetherium Ingots"
+        "5x Aetherium Ingots"
       ],
       "difficulty": 14,
       "type": "fabrication"
     },
-    "properties": "No movement penalty from armor weight",
+    "properties": "+1 aetheric mitigation and +1 physical mitigation. Reduces encumbrance penalty by 1",
     "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   },
   {
@@ -104,16 +104,16 @@
       "legendary"
     ],
     "weight": 6,
-    "value": 95400,
+    "value": 300000,
     "rarity": "legendary",
     "recipe": {
       "ingredients": [
-        "3x Starsteel Ingots"
+        "5x Starsteel Ingots"
       ],
       "difficulty": 16,
       "type": "fabrication"
     },
-    "properties": "Physical mitigation gains +2 effectiveness and immunity to armor sundering",
+    "properties": "+3 physical mitigation",
     "foundry_icon": "icons/tools/smithing/plate-steel-grey.webp"
   }
 ]

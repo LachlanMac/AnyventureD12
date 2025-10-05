@@ -1,0 +1,119 @@
+[
+  {
+    "name": "Iron Scales",
+    "description": "Overlapping iron scales providing flexible protection. These scales offer a balance between the mobility of mail and the protection of plates.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "scales",
+      "iron"
+    ],
+    "weight": 7,
+    "value": 950,
+    "rarity": "common",
+    "recipe": {
+      "ingredients": [
+        "4x Iron Ingots"
+      ],
+      "difficulty": 8,
+      "type": "fabrication"
+    },
+    "properties": "Balanced protection and mobility",
+    "foundry_icon": "icons/commodities/metal/scales-steel.webp"
+  },
+  {
+    "name": "Steel Scales",
+    "description": "Overlapping steel scales providing superior flexible protection. These enhanced scales offer better defense than iron alternatives.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "scales",
+      "steel"
+    ],
+    "weight": 7,
+    "value": 1450,
+    "rarity": "common",
+    "recipe": {
+      "ingredients": [
+        "4x Steel Ingots"
+      ],
+      "difficulty": 11,
+      "type": "fabrication"
+    },
+    "properties": "Standard protection",
+    "foundry_icon": "icons/commodities/metal/scales-steel.webp"
+  },
+  {
+    "name": "True Steel Scales",
+    "description": "Overlapping true steel scales of exceptional quality. These advanced scales deliver superior protection through refined metallurgy.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "scales",
+      "truesteel"
+    ],
+    "weight": 7,
+    "value": 2400,
+    "rarity": "uncommon",
+    "recipe": {
+      "ingredients": [
+        "4x True Steel Ingots"
+      ],
+      "difficulty": 13,
+      "type": "fabrication"
+    },
+    "properties": "+1 physical mitigation",
+    "foundry_icon": "icons/commodities/metal/scales-steel.webp"
+  },
+  {
+    "name": "Aetherium Scales",
+    "description": "Overlapping aetherium scales that shimmer with mystical energy. These otherworldly scales provide protection without the weight burden.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "scales",
+      "aetherium",
+      "magical"
+    ],
+    "weight": 1.75,
+    "value": 96000,
+    "rarity": "rare",
+    "recipe": {
+      "ingredients": [
+        "4x Aetherium Ingots"
+      ],
+      "difficulty": 15,
+      "type": "fabrication"
+    },
+    "properties": "+1 aetheric mitigation and +1 physical mitigation. Reduces encumbrance penalty by 1.",
+    "foundry_icon": "icons/commodities/metal/scales-steel.webp"
+  },
+  {
+    "name": "Starsteel Scales",
+    "description": "Overlapping starsteel scales forged from celestial metal. These divine scales channel protective power through their legendary properties.",
+    "type": "goods",
+    "tags": [
+      "parts",
+      "armor_component",
+      "scales",
+      "starsteel",
+      "legendary"
+    ],
+    "weight": 5.25,
+    "value": 240000,
+    "rarity": "legendary",
+    "recipe": {
+      "ingredients": [
+        "4x Starsteel Ingots"
+      ],
+      "difficulty": 17,
+      "type": "fabrication"
+    },
+    "properties": "+3 physical mitigation",
+    "foundry_icon": "icons/commodities/metal/scales-steel.webp"
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "Scale Gloves",
+  "description": "Armored gloves covered with overlapping metal scales that protect the hands while allowing finger articulation.",
+  "type": "gloves",
+  "weight": 2,
+  "value": 1600,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 7,
+    "ingredients": [
+      "Scales",
+      "Padding"
+    ]
+  },
+  "mitigation": {
+    "physical": 1
+  },
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/equipment/hand/gauntlet-armored-steel-grey.webp"
+}

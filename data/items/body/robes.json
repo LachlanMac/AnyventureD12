@@ -1,11 +1,18 @@
 {
   "name": "Robes",
-  "description": "Simple cloth robes that offer minimal protection but allow complete freedom of movement. Common attire for scholars and mages.",
+  "description": "Flowing robes crafted from fine silk, commonly worn by scholars, mages, and those who value comfort over protection.",
   "type": "body",
   "weight": 2,
-  "value": 5,
+  "value": 200,
   "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 3,
+    "ingredients": [
+      "2x Bundle of Silk"
+    ]
+  },
   "armor_category": "none",
-  "foundry_icon": "icons/equipment/chest/robe-layered-blue.webp",
+  "foundry_icon": "icons/equipment/chest/robe-layered-purple.webp",
   "foundry_id": "2kmi5zzv93g5ldpm"
 }

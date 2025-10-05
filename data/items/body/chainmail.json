@@ -1,10 +1,18 @@
 {
   "name": "Chainmail",
-  "description": "Armor made from interlocking metal rings. Excellent protection against slashing attacks but heavy and noisy.",
+  "description": "Armor constructed from thousands of interlocking metal rings forming a protective shirt that covers the torso and arms.",
   "type": "body",
   "weight": 12,
-  "value": 100,
+  "value": 3550,
   "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 9,
+    "ingredients": [
+      "2x Mail",
+      "Padding"
+    ]
+  },
   "armor_category": "heavy",
   "mitigation": {
     "physical": 4

@@ -10,11 +10,11 @@
       "iron"
     ],
     "weight": 6,
-    "value": 350,
+    "value": 1000,
     "rarity": "common",
     "recipe": {
       "ingredients": [
-        "3x Iron Ingots",
+        "4x Iron Ingots",
         "Bindings"
       ],
       "difficulty": 8,
@@ -34,17 +34,17 @@
       "steel"
     ],
     "weight": 6,
-    "value": 550,
+    "value": 1450,
     "rarity": "common",
     "recipe": {
       "ingredients": [
-        "3x Steel Ingots",
+        "4x Steel Ingots",
         "Bindings"
       ],
       "difficulty": 11,
       "type": "fabrication"
     },
-    "properties": "Enhanced protection with maintained flexibility",
+    "properties": "Standard protection",
     "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
@@ -58,17 +58,17 @@
       "truesteel"
     ],
     "weight": 6,
-    "value": 850,
+    "value": 2400,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
-        "3x True Steel Ingots",
+        "4x True Steel Ingots",
         "Bindings"
       ],
       "difficulty": 13,
       "type": "fabrication"
     },
-    "properties": "Slashing resistance gains +1 effectiveness",
+    "properties": "+1 physical mitigation",
     "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
@@ -83,17 +83,17 @@
       "magical"
     ],
     "weight": 1.5,
-    "value": 36350,
+    "value": 96000,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
-        "3x Aetherium Ingots",
+        "4x Aetherium Ingots",
         "Bindings"
       ],
       "difficulty": 15,
       "type": "fabrication"
     },
-    "properties": "No dexterity penalties from armor",
+    "properties": "+1 aetheric mitigation and +1 physical mitigation. Reduces encumbrance penalty by 1",
     "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   },
   {
@@ -108,17 +108,17 @@
       "legendary"
     ],
     "weight": 4.5,
-    "value": 90350,
+    "value": 240000,
     "rarity": "legendary",
     "recipe": {
       "ingredients": [
-        "3x Starsteel Ingots",
+        "4x Starsteel Ingots",
         "Bindings"
       ],
       "difficulty": 17,
       "type": "fabrication"
     },
-    "properties": "All physical damage types resistance gains +1 effectiveness",
+    "properties": "+3 physical mitigation",
     "foundry_icon": "icons/commodities/metal/mail-chain-steel.webp"
   }
 ]

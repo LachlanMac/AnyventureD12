@@ -1,0 +1,17 @@
+{
+  "name": "Noble Clothes",
+  "description": "Elegant attire crafted from the finest silk, featuring intricate embroidery and luxurious fabrics befitting nobility and wealthy merchants.",
+  "type": "body",
+  "weight": 2,
+  "value": 300,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 5,
+    "ingredients": [
+      "3x Bundle of Silk"
+    ]
+  },
+  "armor_category": "none",
+  "foundry_icon": "icons/equipment/chest/shirt-collared-grey.webp"
+}

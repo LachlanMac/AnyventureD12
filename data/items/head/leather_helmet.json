@@ -1,13 +1,21 @@
 {
   "name": "Leather Helmet",
-  "description": "A simple leather cap reinforced with hardened leather strips.",
+  "description": "A simple cap crafted from hardened leather that covers the head.",
   "type": "headwear",
   "weight": 1,
-  "value": 10,
+  "value": 200,
   "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 3,
+    "ingredients": [
+      "Hide",
+      "Padding"
+    ]
+  },
   "mitigation": {
     "physical": 1
   },
-  "foundry_icon": "icons/equipment/head/hood-leather-fur-brown.webp",
+  "foundry_icon": "icons/equipment/head/cap-leather-brown.webp",
   "foundry_id": "shb16nx2a4uw9dd5"
 }

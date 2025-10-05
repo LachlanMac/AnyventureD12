@@ -1,0 +1,21 @@
+{
+  "name": "Scale Helmet",
+  "description": "A helmet covered with overlapping metal scales that protect the head while maintaining visibility.",
+  "type": "headwear",
+  "weight": 2.5,
+  "value": 1600,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 7,
+    "ingredients": [
+      "Scales",
+      "Padding"
+    ]
+  },
+  "mitigation": {
+    "physical": 1
+  },
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/equipment/head/helm-barbute-thin-steel.webp"
+}

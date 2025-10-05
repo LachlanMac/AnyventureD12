@@ -10,7 +10,7 @@
       "iron"
     ],
     "weight": 2,
-    "value": 350,
+    "value": 250,
     "rarity": "common",
     "recipe": {
       "ingredients": [
@@ -33,7 +33,7 @@
       "steel"
     ],
     "weight": 2,
-    "value": 550,
+    "value": 350,
     "rarity": "common",
     "recipe": {
       "ingredients": [
@@ -56,7 +56,7 @@
       "truesteel"
     ],
     "weight": 2,
-    "value": 950,
+    "value": 600,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
@@ -65,7 +65,7 @@
       "difficulty": 6,
       "type": "fabrication"
     },
-    "properties": "Adds +1 physical mitigation when crafted into armor, and adds +2 damage and +1 extra damage to brawling attacks when crafted into boots or gloves.",
+    "properties": "+1 physical mitigation when crafted into armor. Adds +2 damage and +1 extra damage to brawling attacks when crafted into boots or gloves",
   "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   },
   {
@@ -80,7 +80,7 @@
       "legendary"
     ],
     "weight": 1,
-    "value": 95350,
+    "value": 60000,
     "rarity": "legendary",
     "recipe": {
       "ingredients": [
@@ -89,7 +89,7 @@
       "difficulty": 12,
       "type": "fabrication"
     },
-    "properties": "Adds +2 physical mitigation when crafted into armor, and adds +2 damage and +2 extra damage to brawling attacks when crafted into boots or gloves.",
+    "properties": "+3 physical mitigation when crafted into armor. Adds +3 damage and +3 extra damage to brawling attacks when crafted into boots or gloves",
     "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   }
 ]

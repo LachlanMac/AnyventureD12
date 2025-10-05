@@ -1,0 +1,21 @@
+{
+  "name": "Scale Boots",
+  "description": "Boots covered with overlapping metal scales, protecting the foot and lower leg while maintaining reasonable flexibility.",
+  "type": "boots",
+  "weight": 3,
+  "value": 1800,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 7,
+    "ingredients": [
+      "Scales",
+      "Padding"
+    ]
+  },
+  "mitigation": {
+    "physical": 1
+  },
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/equipment/feet/boots-armored-banded-steel.webp"
+}

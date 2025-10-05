@@ -1,7 +1,7 @@
 {
-  "name": "Plate Helmet",
-  "description": "A full helmet constructed from articulated steel plates that completely encases the head.",
-  "type": "headwear",
+  "name": "Plate Gloves",
+  "description": "Heavy gauntlets constructed from articulated steel plates with jointed fingers, providing maximum hand protection.",
+  "type": "gloves",
   "weight": 3,
   "value": 4000,
   "rarity": "uncommon",
@@ -18,6 +18,5 @@
     "physical": 2
   },
   "encumbrance_penalty": 2,
-  "foundry_icon": "icons/equipment/head/helm-sallet-steel.webp",
-  "foundry_id": "s5supvgcvntftjve"
+  "foundry_icon": "icons/equipment/hand/gauntlet-armored-heavy-steel.webp"
 }

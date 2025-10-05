@@ -10,7 +10,7 @@
       "leather"
     ],
     "weight": 4,
-    "value": 80,
+    "value": 100,
     "rarity": "common",
     "recipe": {
       "ingredients": [
@@ -20,31 +20,6 @@
       "type": "fabrication"
     },
     "properties": "Standard material with no special effects",
-    "foundry_icon": "icons/equipment/feet/boots-armored-leather-brown.webp"
-  },
-  {
-    "name": "Studded Hide",
-    "description": "Thick hide reinforced with metal studs for enhanced protection. This upgraded material balances defense and flexibility.",
-    "type": "goods",
-    "tags": [
-      "parts",
-      "armor_component",
-      "hide",
-      "studded"
-    ],
-    "weight": 5,
-    "value": 150,
-    "rarity": "common",
-    "recipe": {
-      "ingredients": [
-        "Pelt",
-        "5x Iron Nuggets",
-        "Bindings"
-      ],
-      "difficulty": 6,
-      "type": "fabrication"
-    },
-    "properties": "reinforced material that adds +1 physical mitigation when fabricated into armor.",
     "foundry_icon": "icons/equipment/feet/boots-armored-leather-brown.webp"
   }
 ]

@@ -1,0 +1,22 @@
+{
+  "name": "Reinforced Leather Gloves",
+  "description": "Supple leather gloves with flexible mail sewn into the back of the hand and fingers, balancing protection with dexterity.",
+  "type": "gloves",
+  "weight": 1.5,
+  "value": 1950,
+  "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 6,
+    "ingredients": [
+      "Hide",
+      "Mail",
+      "Padding",
+      "Bindings"
+    ]
+  },
+  "mitigation": {
+    "physical": 1
+  },
+  "foundry_icon": "icons/equipment/hand/gauntlet-armored-black.webp"
+}

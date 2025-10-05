@@ -1,0 +1,17 @@
+{
+  "name": "Commoner Clothes",
+  "description": "Simple everyday clothing made from basic cloth, consisting of a tunic, trousers, and basic undergarments.",
+  "type": "body",
+  "weight": 1,
+  "value": 50,
+  "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 2,
+    "ingredients": [
+      "2x Bundle of Cloth"
+    ]
+  },
+  "armor_category": "none",
+  "foundry_icon": "icons/equipment/chest/shirt-simple-white.webp"
+}

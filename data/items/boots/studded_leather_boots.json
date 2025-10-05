@@ -1,0 +1,22 @@
+{
+  "name": "Studded Leather Boots",
+  "description": "Sturdy leather boots reinforced with metal studs across the toe and heel for added durability.",
+  "type": "boots",
+  "weight": 2,
+  "value": 600,
+  "rarity": "common",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 4,
+    "ingredients": [
+      "Hide",
+      "Bundle of Studs",
+      "Padding"
+    ]
+  },
+  "mitigation": {
+    "physical": 1
+  },
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/equipment/feet/boots-armored-leather-brown.webp"
+}

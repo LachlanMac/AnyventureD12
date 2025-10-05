@@ -1,0 +1,22 @@
+{
+  "name": "Plate Boots",
+  "description": "Heavy armored sabatons constructed from articulated steel plates, offering maximum protection for the feet and lower legs.",
+  "type": "boots",
+  "weight": 4,
+  "value": 4000,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 8,
+    "ingredients": [
+      "Plates",
+      "Mail",
+      "Padding"
+    ]
+  },
+  "mitigation": {
+    "physical": 2
+  },
+  "encumbrance_penalty": 2,
+  "foundry_icon": "icons/equipment/feet/boots-armored-steel-blue.webp"
+}
