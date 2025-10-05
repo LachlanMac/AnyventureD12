@@ -396,13 +396,13 @@ export const addItemToInventory = async (req, res) => {
   try {
     const { itemId, quantity = 1 } = req.body;
     const character = await Character.findById(req.params.id);
-    
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
 
     const result = await character.addItem(itemId, quantity);
-    
+
     if (result.success) {
       res.json(character);
     } else {
@@ -410,6 +410,59 @@ export const addItemToInventory = async (req, res) => {
     }
   } catch (error) {
     console.error('Error adding item to inventory:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Purchase item and add to inventory
+// @route   POST /api/characters/:id/purchase-item
+// @access  Private
+export const purchaseItem = async (req, res) => {
+  try {
+    const { itemId, quantity = 1 } = req.body;
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Get the item to check its cost
+    const item = await Item.findById(itemId);
+    if (!item) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+
+    // Calculate total cost (value is in silver per item)
+    const totalCostInSilver = (item.value || 0) * quantity;
+
+    // Convert character's wealth to silver
+    const totalWealthInSilver = (character.wealth?.gold || 0) * 10 + (character.wealth?.silver || 0);
+
+    // Check if character can afford it
+    if (totalWealthInSilver < totalCostInSilver) {
+      return res.status(400).json({
+        message: 'Insufficient funds',
+        required: totalCostInSilver,
+        available: totalWealthInSilver
+      });
+    }
+
+    // Deduct cost from wealth
+    const newWealthInSilver = totalWealthInSilver - totalCostInSilver;
+    character.wealth.gold = Math.floor(newWealthInSilver / 10);
+    character.wealth.silver = newWealthInSilver % 10;
+
+    // Add item to inventory
+    const result = await character.addItem(itemId, quantity);
+
+    if (!result.success) {
+      return res.status(400).json({ message: result.message });
+    }
+
+    await character.save();
+    res.json(character);
+  } catch (error) {
+    console.error('Error purchasing item:', error);
     res.status(500).json({ message: error.message });
   }
 };

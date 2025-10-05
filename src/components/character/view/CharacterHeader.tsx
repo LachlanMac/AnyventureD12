@@ -273,17 +273,12 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                   <div style={{ fontSize: '0.75rem', marginTop: '0.25rem' }}>
                     {character.characterCulture.selectedRestriction && (
                       <div style={{ color: 'var(--color-danger)', marginBottom: '0.125rem' }}>
-                        ⚠ {character.characterCulture.selectedRestriction.name}
+                        {character.characterCulture.selectedRestriction.name}
                       </div>
                     )}
                     {character.characterCulture.selectedBenefit && (
-                      <div style={{ color: 'var(--color-success)', marginBottom: '0.125rem' }}>
-                        ✓ {character.characterCulture.selectedBenefit.name}
-                      </div>
-                    )}
-                    {character.characterCulture.selectedRitual && (
-                      <div style={{ color: 'var(--color-warning)' }}>
-                        ◆ {character.characterCulture.selectedRitual.name}
+                      <div style={{ color: 'var(--color-success)' }}>
+                        {character.characterCulture.selectedBenefit.name}
                       </div>
                     )}
                   </div>

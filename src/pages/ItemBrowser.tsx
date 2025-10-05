@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
-import { Item, Damage, ArmorData } from '../types/character';
+import { Item, Damage, ArmorData, Character } from '../types/character';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import PurchaseItemModal from '../components/character/view/PurchaseItemModal';
 
 // Extended Item type that matches backend API response
 interface APIItem extends Item {
@@ -55,12 +56,15 @@ const ItemBrowser: React.FC = () => {
 
   const [items, setItems] = useState<APIItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<APIItem | null>(null);
+  const [character, setCharacter] = useState<Character | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [rarityFilter, setRarityFilter] = useState('all');
   const [addingItem, setAddingItem] = useState(false);
+  const [showPurchaseModal, setShowPurchaseModal] = useState(false);
+  const [itemToPurchase, setItemToPurchase] = useState<APIItem | null>(null);
 
   // Helper function to check if a skill bonus has any non-zero values
   const hasSkillBonus = (skill: any): boolean => {
@@ -73,24 +77,37 @@ const ItemBrowser: React.FC = () => {
   };
 
   useEffect(() => {
-    const fetchItems = async () => {
+    const fetchData = async () => {
       try {
-        const response = await fetch('/api/items');
-        if (!response.ok) {
+        // Fetch items
+        const itemsResponse = await fetch('/api/items');
+        if (!itemsResponse.ok) {
           throw new Error('Failed to fetch items');
         }
-        const itemsData = await response.json();
+        const itemsData = await itemsResponse.json();
         setItems(itemsData);
+
+        // Fetch character data
+        if (characterId) {
+          const characterResponse = await fetch(`/api/characters/${characterId}`, {
+            credentials: 'include',
+          });
+          if (characterResponse.ok) {
+            const characterData = await characterResponse.json();
+            setCharacter(characterData);
+          }
+        }
+
         setLoading(false);
       } catch (err) {
-        console.error('Error fetching items:', err);
+        console.error('Error fetching data:', err);
         setError(err instanceof Error ? err.message : 'An unknown error occurred');
         setLoading(false);
       }
     };
 
-    fetchItems();
-  }, []);
+    fetchData();
+  }, [characterId]);
 
   const handleAddItem = async (itemId: string) => {
     try {
@@ -111,6 +128,41 @@ const ItemBrowser: React.FC = () => {
     } catch (error) {
       console.error('Error adding item:', error);
       showError('Failed to add item to inventory');
+    } finally {
+      setAddingItem(false);
+    }
+  };
+
+  const handlePurchaseClick = (item: APIItem) => {
+    setItemToPurchase(item);
+    setShowPurchaseModal(true);
+  };
+
+  const handlePurchaseConfirm = async () => {
+    if (!itemToPurchase) return;
+
+    try {
+      setAddingItem(true);
+      const response = await fetch(`/api/characters/${characterId}/purchase-item`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ itemId: itemToPurchase._id, quantity: 1 }),
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        const updatedCharacter = await response.json();
+        setCharacter(updatedCharacter);
+        showSuccess(`Purchased ${itemToPurchase.name}!`);
+        setShowPurchaseModal(false);
+        setItemToPurchase(null);
+      } else {
+        const errorData = await response.json();
+        throw new Error(errorData.message || 'Failed to purchase item');
+      }
+    } catch (error) {
+      console.error('Error purchasing item:', error);
+      showError(error instanceof Error ? error.message : 'Failed to purchase item');
     } finally {
       setAddingItem(false);
     }
@@ -197,9 +249,20 @@ const ItemBrowser: React.FC = () => {
             >
               {item.name}
             </h2>
-            <Button onClick={() => handleAddItem(item._id)} disabled={addingItem}>
-              {addingItem ? 'Adding...' : 'Add to Inventory'}
-            </Button>
+            <div style={{ display: 'flex', gap: '0.5rem' }}>
+              {character && (
+                <Button
+                  onClick={() => handlePurchaseClick(item)}
+                  disabled={addingItem}
+                  variant="primary"
+                >
+                  Purchase
+                </Button>
+              )}
+              <Button onClick={() => handleAddItem(item._id)} disabled={addingItem} variant="secondary">
+                {addingItem ? 'Adding...' : 'Add to Inventory'}
+              </Button>
+            </div>
           </div>
         </CardHeader>
 
@@ -1010,6 +1073,22 @@ const ItemBrowser: React.FC = () => {
           <ItemDetail item={selectedItem} />
         </div>
       </div>
+
+      {/* Purchase Modal */}
+      {character && itemToPurchase && (
+        <PurchaseItemModal
+          isOpen={showPurchaseModal}
+          onClose={() => {
+            setShowPurchaseModal(false);
+            setItemToPurchase(null);
+          }}
+          itemName={itemToPurchase.name}
+          itemCostInSilver={itemToPurchase.value || 0}
+          currentGold={character.wealth?.gold || 0}
+          currentSilver={character.wealth?.silver || 0}
+          onConfirm={handlePurchaseConfirm}
+        />
+      )}
     </div>
   );
 };

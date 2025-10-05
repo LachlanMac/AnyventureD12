@@ -14,12 +14,17 @@ interface TraitCategories {
   General: ModuleTrait[];
   Crafting: ModuleTrait[];
   Ancestry: ModuleTrait[];
+  Cultural: ModuleTrait[];
   Uncategorized: ModuleTrait[];
 }
 
 interface TraitsTabProps {
   character: {
     derivedTraits?: TraitCategories;
+    characterCulture?: {
+      selectedRestriction?: { name: string; description: string };
+      selectedBenefit?: { name: string; description: string };
+    };
     [key: string]: any;
   };
   characterId: string;
@@ -27,12 +32,39 @@ interface TraitsTabProps {
 }
 
 const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality: _personality }) => {
+  // Parse cultural traits from character culture selections
+  const culturalTraits: ModuleTrait[] = [];
+
+  if (character.characterCulture) {
+    if (character.characterCulture.selectedRestriction) {
+      culturalTraits.push({
+        name: character.characterCulture.selectedRestriction.name,
+        description: character.characterCulture.selectedRestriction.description,
+        source: 'Cultural Restriction',
+        type: 'cultural'
+      });
+    }
+
+    if (character.characterCulture.selectedBenefit) {
+      culturalTraits.push({
+        name: character.characterCulture.selectedBenefit.name,
+        description: character.characterCulture.selectedBenefit.description,
+        source: 'Cultural Benefit',
+        type: 'cultural'
+      });
+    }
+  }
+
   const traitCategories = character.derivedTraits || {
     General: [],
     Crafting: [],
     Ancestry: [],
+    Cultural: [],
     Uncategorized: [],
   };
+
+  // Add cultural traits to the categories
+  traitCategories.Cultural = culturalTraits;
 
   const renderTraitCategory = (categoryName: string, traits: ModuleTrait[] = []) => {
     if (!traits || traits.length === 0) return null;
@@ -134,6 +166,7 @@ const TraitsTab: React.FC<TraitsTabProps> = ({ character, personality: _personal
         <>
           {/* Display traits by category */}
           {renderTraitCategory('Ancestry', traitCategories.Ancestry)}
+          {renderTraitCategory('Cultural', traitCategories.Cultural)}
           {renderTraitCategory('General', traitCategories.General)}
           {renderTraitCategory('Crafting', traitCategories.Crafting)}
           {renderTraitCategory('Uncategorized', traitCategories.Uncategorized)}

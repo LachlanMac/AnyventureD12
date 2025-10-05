@@ -8,6 +8,7 @@ import {
   updateCharacter,
   deleteCharacter,
   addItemToInventory,
+  purchaseItem,
   removeItemFromInventory,
   equipItem,
   unequipItem,
@@ -45,6 +46,9 @@ router.route('/:id')
 router.route('/:id/inventory')
   .post(protect, addItemToInventory);
 
+router.route('/:id/purchase-item')
+  .post(protect, purchaseItem);
+
 router.route('/:id/inventory/:itemId')
   .delete(protect, removeItemFromInventory);
 
@@ -67,6 +71,49 @@ router.route('/:id/inventory/:index/customize')
 
 router.route('/:id/inventory/:index/quantity')
   .put(protect, updateItemQuantity);
+
+// Currency update route
+router.patch('/:id/wealth', protect, async (req, res) => {
+  try {
+    const { gold, silver } = req.body;
+
+    // Find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+
+    // Update the wealth
+    if (gold !== undefined) character.wealth.gold = Math.max(0, gold);
+    if (silver !== undefined) character.wealth.silver = Math.max(0, silver);
+
+    await character.save();
+
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    return res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error updating character wealth:', error);
+    return res.status(500).json({ message: 'Server error' });
+  }
+});
 
 // Music skills update route
 router.patch('/:id/music-skills', protect, async (req, res) => {

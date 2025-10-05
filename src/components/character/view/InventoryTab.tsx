@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Character, Item, CharacterItem } from '../../../types/character';
 import ItemEditModal from './ItemEditModal';
+import CurrencyModal from './CurrencyModal';
 import { useToast } from '../../../context/ToastContext';
 
 interface InventoryTabProps {
@@ -522,6 +523,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   const [editingItem, setEditingItem] = useState<{ index: number; item: CharacterItem } | null>(
     null
   );
+  const [showCurrencyModal, setShowCurrencyModal] = useState(false);
 
 
   const handleAddItem = () => {
@@ -643,6 +645,27 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
   const handleQuantityChange = (index: number, quantity: number) => {
     handleUpdateQuantity(index, quantity);
+  };
+
+  const handleCurrencyUpdate = async (newGold: number, newSilver: number) => {
+    try {
+      const response = await fetch(`/api/characters/${character._id}/wealth`, {
+        method: 'PATCH',
+        headers: { 'Content-Type': 'application/json' },
+        credentials: 'include',
+        body: JSON.stringify({ gold: newGold, silver: newSilver }),
+      });
+
+      if (response.ok) {
+        const updatedCharacter = await response.json();
+        onCharacterUpdate(updatedCharacter);
+      } else {
+        showError('Failed to update currency');
+      }
+    } catch (error) {
+      console.error('Error updating currency:', error);
+      showError('Failed to update currency');
+    }
   };
 
   // Helper function to get maximum carry weight based on character size
@@ -840,34 +863,51 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
             borderRadius: '6px',
             border: '1px solid var(--color-dark-border)'
           }}>
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-              <h4 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Wealth</h4>
-              <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{
-                    color: '#FFD700',
-                    fontWeight: 'bold',
-                    fontSize: '1rem'
-                  }}>
-                    ⚜
-                  </span>
-                  <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                    {character.wealth?.gold || 0} Gold
-                  </span>
-                </div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                  <span style={{
-                    color: '#C0C0C0',
-                    fontWeight: 'bold',
-                    fontSize: '1rem'
-                  }}>
-                    ◉
-                  </span>
-                  <span style={{ color: 'var(--color-cloud)' }}>
-                    {character.wealth?.silver || 0} Silver
-                  </span>
+            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                <h4 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Wealth</h4>
+                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{
+                      color: '#FFD700',
+                      fontWeight: 'bold',
+                      fontSize: '1rem'
+                    }}>
+                      ⚜
+                    </span>
+                    <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                      {character.wealth?.gold || 0} Gold
+                    </span>
+                  </div>
+                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                    <span style={{
+                      color: '#C0C0C0',
+                      fontWeight: 'bold',
+                      fontSize: '1rem'
+                    }}>
+                      ◉
+                    </span>
+                    <span style={{ color: 'var(--color-cloud)' }}>
+                      {character.wealth?.silver || 0} Silver
+                    </span>
+                  </div>
                 </div>
               </div>
+              <button
+                onClick={() => setShowCurrencyModal(true)}
+                style={{
+                  padding: '0.4rem 0.8rem',
+                  backgroundColor: 'var(--color-old-gold)',
+                  color: 'var(--color-dark-bg)',
+                  border: 'none',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontWeight: 'bold',
+                  fontSize: '0.85rem',
+                }}
+              >
+                Manage Currency
+              </button>
             </div>
           </div>
 
@@ -992,6 +1032,15 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
           onUpdateQuantity={handleUpdateQuantity}
         />
       )}
+
+      {/* Currency Modal */}
+      <CurrencyModal
+        isOpen={showCurrencyModal}
+        onClose={() => setShowCurrencyModal(false)}
+        currentGold={character.wealth?.gold || 0}
+        currentSilver={character.wealth?.silver || 0}
+        onConfirm={handleCurrencyUpdate}
+      />
     </div>
   );
 };
