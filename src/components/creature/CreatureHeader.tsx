@@ -74,14 +74,16 @@ const CreatureHeader: React.FC<CreatureHeaderProps> = ({ creature }) => {
             {creature.health.max}
           </div>
         </div>
-        <div style={{ textAlign: 'center' }}>
-          <div style={{ color: 'var(--color-old-gold)', fontSize: '0.625rem', fontWeight: 'bold' }}>
-            ENERGY
+        {creature.tier !== 'minion' && creature.tier !== 'grunt' && (
+          <div style={{ textAlign: 'center' }}>
+            <div style={{ color: 'var(--color-old-gold)', fontSize: '0.625rem', fontWeight: 'bold' }}>
+              ENERGY
+            </div>
+            <div style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
+              {creature.energy.max}
+            </div>
           </div>
-          <div style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
-            {creature.energy.max}
-          </div>
-        </div>
+        )}
         <div style={{ textAlign: 'center' }}>
           <div
             style={{ color: 'var(--color-sat-purple)', fontSize: '0.625rem', fontWeight: 'bold' }}

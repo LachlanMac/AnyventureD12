@@ -65,6 +65,40 @@ const CreatureSidebar: React.FC<CreatureSidebarProps> = ({ creature }) => {
         </CardBody>
       </Card>
 
+      {/* Taming */}
+      {creature.taming && creature.taming.tame_check !== -1 && (
+        <Card variant="default">
+          <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
+            <h2
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '0.875rem',
+                fontWeight: 'bold',
+                margin: 0,
+              }}
+            >
+              Taming
+            </h2>
+          </CardHeader>
+          <CardBody style={{ padding: '0.75rem 1.25rem' }}>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '0.5rem' }}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                <span style={{ color: 'var(--color-cloud)' }}>Tame Check:</span>
+                <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                  {creature.taming.tame_check}
+                </span>
+              </div>
+              <div style={{ display: 'flex', justifyContent: 'space-between', fontSize: '0.75rem' }}>
+                <span style={{ color: 'var(--color-cloud)' }}>Commands:</span>
+                <span style={{ color: 'var(--color-white)', fontWeight: 'bold', textTransform: 'capitalize' }}>
+                  {creature.taming.commands}
+                </span>
+              </div>
+            </div>
+          </CardBody>
+        </Card>
+      )}
+
       {/* Loot */}
       {creature.loot.length > 0 && (
         <Card variant="default">

@@ -1,0 +1,238 @@
+{
+  "name": "Werebear",
+  "description": "A werebear is a variant of lycanthrope that is a hybrid between a bear and the humanoid creature with the disease. The transformation is the result of a celestial event or the near-death experience of the humanoid.",
+  "tactics": "The wearbear is driven by the rage of their lycanthropy and will often attack the most recent thing to draw their ire.",
+  "tier": "champion",
+  "type": "monster",
+  "size": "large",
+  "foundry_portrait": "werebear.png",
+  "health": {
+    "max": 40,
+    "current": 15
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 3
+  },
+  "resolve": {
+    "max": 25,
+    "current": 5,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 6,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 4
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 2
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 1
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 4,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 2,
+      "tier": 0
+    },
+    "might": {
+      "value": 6,
+      "tier": 1
+    },
+    "endurance": {
+      "value": 3,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 1,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 1,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 1,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 3,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 0,
+      "tier": 0
+    },
+    "senses": {
+      "value": 3,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 1,
+      "tier": 0
+    },
+    "academics": {
+      "value": 0,
+      "tier": 0
+    },
+    "magic": {
+      "value": 0,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 0,
+      "tier": 0
+    },
+    "expression": {
+      "value": 0,
+      "tier": 0
+    },
+    "presence": {
+      "value": 0,
+      "tier": 0
+    },
+    "insight": {
+      "value": 0,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 0,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 5,
+    "cold": 0,
+    "heat": 4,
+    "electric": 0,
+    "psychic": 2,
+    "dark": 0,
+    "divine": 0,
+    "aether": 2,
+    "toxic": 4
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": false,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "actions": [
+    {
+      "name": "Claws",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "The werebear slashes out with it's sharp claws, dealing physical damage.",
+      "reaction": false,
+      "basic": true,
+      "attack": {
+        "roll": "3d10",
+        "damage": "5",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Bite",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": " The wearbear uses it's powerful jaw to bite, dealing physical damage. If a medium or smaller creature takes 15 or more damage from this attack after calculating mitigation, they must roll on the 'missing part' injury table.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "5d12",
+        "damage": "6",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Fury of the Moon",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "The werebear enters a primal fury, gaining 15 morale. For the next minute, it takes double damage from all attacks but gains a bonus dice on it's attacks. This ability can only be used once per transformation.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [],
+  "traits": [
+    {
+      "name": "Lycanthrope",
+      "description": "The werebear is one of many forms of lycanthropes and has one of the following weaknesses:\nWeakness to Fire: The wearbear becomes afraid when ignited.\nWeakness to Water: The wearbear cannot willfully cross bodies of water and becomes afraid if submerged in water. \nWeakness to Silver: The wearbear takes true damage from silvered weapons and ammunition that normally deal physical damage.\n\n"
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

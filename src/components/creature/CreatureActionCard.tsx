@@ -5,9 +5,10 @@ import { formatRangeSpan } from '../../utils/rangeUtils';
 
 interface CreatureActionCardProps {
   action: CreatureAction;
+  creatureTier: string;
 }
 
-const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action }) => {
+const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatureTier }) => {
   return (
     <div
       style={{
@@ -43,24 +44,26 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action }) => {
             <span style={{ color: 'var(--color-sat-purple)', fontSize: '0.75rem' }}>✨</span>
           )}
         </h3>
-        <span
-          style={{
-            color: 'var(--color-old-gold)',
-            fontSize: '0.75rem',
-            backgroundColor: 'var(--color-dark-surface)',
-            padding: '0.125rem 0.375rem',
-            borderRadius: '0.25rem',
-          }}
-        >
-          {action.cost} Energy
-        </span>
+        {creatureTier !== 'minion' && creatureTier !== 'grunt' && (
+          <span
+            style={{
+              color: 'var(--color-old-gold)',
+              fontSize: '0.75rem',
+              backgroundColor: 'var(--color-dark-surface)',
+              padding: '0.125rem 0.375rem',
+              borderRadius: '0.25rem',
+            }}
+          >
+            {action.cost} Energy
+          </span>
+        )}
       </div>
 
       <p style={{ color: 'var(--color-cloud)', margin: 0, lineHeight: '1.3', fontSize: '0.75rem' }}>
         {action.description}
       </p>
 
-      {action.attack && (
+      {action.type === 'attack' && action.attack && (
         <div
           style={{
             marginTop: '0.375rem',
@@ -98,7 +101,7 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action }) => {
         </div>
       )}
 
-      {action.spell && (
+      {action.type === 'spell' && action.spell && (
         <div
           style={{
             marginTop: '0.375rem',

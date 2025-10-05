@@ -1,6 +1,6 @@
 {
   "name": "Brittle Bones",
-  "description": "You target a creature within a short (10 unit) distance and force them to make an endurance check of 8 or higher or have their bones become brittle for the next minute. The next time the target takes physical damage while below half health, an additional 10 physical damage is added to the total before applying mitigation and the creature gains the wounded condition, ending the spell. A creature must have bones, cartilage or chitin to be a target of this spell.",
+  "description": "You target a creature within a short (10 unit) distance and force them to make an endurance check of 8 or higher or have their bones become brittle for the next minute. The next time the target takes physical damage while below half health, an additional 10 physical damage is added to the total before applying mitigation and the creature, ending the spell. A creature must have bones, cartilage or chitin to be a target of this spell.",
   "charge": "The creature also gains the incapacitated condition until the end of their next turn when the spell is triggered.",
   "duration": "1 minute",
   "range": 4,

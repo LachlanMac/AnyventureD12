@@ -1,0 +1,257 @@
+{
+  "name": "Squire",
+  "description": "A squire is a fledgling member of an order that is assigned to a knight to gain experience in the hopes of one day elevating their station as well. Squires are modestly equipped, but formidable servants.",
+  "tactics": "The squire will often stay close to their knight rather than venture off on their own. Their sworn duty is to their order and the knight they serve, and they will stop at nothing to save their charge.",
+  "tier": "grunt",
+  "type": "humanoid",
+  "size": "medium",
+  "foundry_portrait": "squire.png",
+  "health": {
+    "max": 18,
+    "current": 15
+  },
+  "energy": {
+    "max": 0,
+    "current": 5,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 10,
+    "current": 5,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 5,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 2
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 1
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 1,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 2,
+      "tier": 0
+    },
+    "might": {
+      "value": 2,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 1,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 1,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 0,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 1,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 1,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 0,
+      "tier": 0
+    },
+    "senses": {
+      "value": 0,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 1,
+      "tier": 0
+    },
+    "academics": {
+      "value": 1,
+      "tier": 0
+    },
+    "magic": {
+      "value": 0,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 1,
+      "tier": 0
+    },
+    "expression": {
+      "value": 0,
+      "tier": 0
+    },
+    "presence": {
+      "value": 1,
+      "tier": 0
+    },
+    "insight": {
+      "value": 1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 1,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 4,
+    "cold": 2,
+    "heat": 2,
+    "electric": 0,
+    "psychic": 0,
+    "dark": 0,
+    "divine": 0,
+    "aether": 0,
+    "toxic": 0
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": false,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "actions": [
+    {
+      "name": "Short Sword",
+      "cost": 0,
+      "type": "attack",
+      "magic": false,
+      "description": "The squire makes a quick slash with their weapon, dealing physical damage.",
+      "reaction": false,
+      "basic": true,
+      "attack": {
+        "roll": "3d8",
+        "damage": "5",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Practiced Defense",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "While next to their sworn knight, the squire takes the defense action and gains an additional bonus dice to defense checks on top of the usual benefit.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Change Equipment",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "The square helps an adjacent ally change a piece of their equipment, either removing, adding or exchanging an item from their inventory or equipment slots.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Call for Aid",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "In response to being attacked, the squire calls for aid from their sworn knight. If the knight has enough movement speed to make it to their squire, they immediately move to an adjacent tile.",
+      "reaction": true,
+      "basic": false,
+      "attack": {
+        "roll": "2d6",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "traits": [
+    {
+      "name": "Camp Helper",
+      "description": "The squires goal is to make their sworn knight completely comfortable and they come with a wide array of camp items that can make that a possibility. A squire can sacrifice 2 resolve to upgrade their knights full rest from unfavorable to favorable."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

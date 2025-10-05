@@ -128,9 +128,9 @@
       "order": 12
     },
     {
-      "id": "companions-and-pets",
-      "title": "Companions & Pets",
-      "path": "core-mechanics/companions-and-pets.md",
+      "id": "pets-and-mounts",
+      "title": "Pets & Mounts",
+      "path": "core-mechanics/pets-and-mounts.md",
       "category": "Core Mechanics",
       "order": 13
     },

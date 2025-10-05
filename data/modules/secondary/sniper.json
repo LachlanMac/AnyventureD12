@@ -61,7 +61,7 @@
     },
     {
       "name": "Master Sniper",
-      "description": "When you shoot a creature from at least a distant (61+ Units) range, you have the potential to execute it depending on the amount of successful dice on the attack. 2 dice will execute a minion, 3 dice a thrall, 4 a standard creature and 5 a champion.",
+      "description": "When you shoot a creature from at least a distant (61+ Units) range, you have the potential to execute it depending on the amount of successful dice on the attack. 2 dice will execute a minion, 3 dice a grunt, 4 a standard creature and 5 a champion.",
       "location": "7",
       "data": "TG"
     }

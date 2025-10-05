@@ -494,8 +494,7 @@ const convertToFoundryFormat = (data, type) => {
             },
             flags: {
               anyventure: {
-                version: "1.0.0",
-                isCreatureTrait: true
+                version: "1.0.0"
               }
             }
           };
@@ -508,6 +507,13 @@ const convertToFoundryFormat = (data, type) => {
         for (const action of data.actions) {
           // Create a unique seed for this action based on creature and action name
           const seed = `${data.name}-action-${action.name}`;
+
+          // Determine abilityType based on action.basic checkbox
+          let abilityType = action.type || "action";
+          if (action.type === "attack" && action.basic === true) {
+            abilityType = "simple_attack";
+          }
+
           const actionItem = {
             _id: generateDeterministicFoundryId(seed),
             name: action.name,
@@ -520,7 +526,7 @@ const convertToFoundryFormat = (data, type) => {
               used: false,
               anyventure_id: "",
               magic: action.magic || false,
-              abilityType: action.type || "action",
+              abilityType: abilityType,
               // Add attackData to system section
               roll: action.attack?.roll || "2d6",
               damage: action.attack?.damage || "0",
@@ -535,9 +541,7 @@ const convertToFoundryFormat = (data, type) => {
             },
             flags: {
               anyventure: {
-                version: "1.0.0",
-                isCreatureAction: true,
-                actionType: action.type || "utility"
+                version: "1.0.0"
               }
             }
           };
@@ -550,6 +554,13 @@ const convertToFoundryFormat = (data, type) => {
         for (const reaction of data.reactions) {
           // Create a unique seed for this reaction based on creature and reaction name
           const seed = `${data.name}-reaction-${reaction.name}`;
+
+          // Determine abilityType based on reaction.basic checkbox
+          let abilityType = reaction.type || "reaction";
+          if (reaction.type === "attack" && reaction.basic === true) {
+            abilityType = "simple_attack";
+          }
+
           const reactionItem = {
             _id: generateDeterministicFoundryId(seed),
             name: reaction.name,
@@ -562,7 +573,7 @@ const convertToFoundryFormat = (data, type) => {
               used: false,
               anyventure_id: "",
               magic: false,
-              abilityType: reaction.type || "reaction",
+              abilityType: abilityType,
               roll: reaction.attack?.roll || "2d6",
               damage: reaction.attack?.damage || "0",
               damage_extra: reaction.attack?.damage_extra || "0",
@@ -576,9 +587,7 @@ const convertToFoundryFormat = (data, type) => {
             },
             flags: {
               anyventure: {
-                version: "1.0.0",
-                isCreatureReaction: true,
-                trigger: reaction.trigger || ""
+                version: "1.0.0"
               }
             }
           };
@@ -617,8 +626,7 @@ const convertToFoundryFormat = (data, type) => {
               },
               flags: {
                 anyventure: {
-                  version: "1.0.0",
-                  originalId: spell._id ? spell._id.toString() : ""
+                  version: "1.0.0"
                 }
               }
             };
@@ -687,12 +695,12 @@ const convertToFoundryFormat = (data, type) => {
         },
         resources: {
           health: {
-            value: data.health?.current || 10,
+            value: data.health?.max || 10,
             max: data.health?.max || 10,
             temp: 0
           },
           resolve: {
-            value: data.resolve?.current || 5,
+            value: data.resolve?.max || 5,
             max: data.resolve?.max || 5,
             temp: 0
           },
@@ -702,7 +710,7 @@ const convertToFoundryFormat = (data, type) => {
             temp: 0
           },
           energy: {
-            value: data.energy?.current || 5,
+            value: data.energy?.max || 5,
             max: data.energy?.max || 5,
             temp: 0
           }

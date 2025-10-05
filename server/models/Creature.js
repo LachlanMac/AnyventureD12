@@ -3,12 +3,13 @@ import mongoose from 'mongoose';
 const actionSchema = new mongoose.Schema({
   name: { type: String, required: true },
   cost: { type: Number, required: true },
-  type: { 
-    type: String, 
+  type: {
+    type: String,
     required: true,
     enum: ['attack', 'spell', 'utility', 'movement']
   },
   magic: { type: Boolean, default: false },
+  basic: { type: Boolean, default: false },
   description: { type: String, required: true },
   attack: {
     roll: String, // e.g., "2d6", "3d10", "1d12+2"
@@ -105,8 +106,58 @@ const normalizeMovement = (movement) => {
 const reactionSchema = new mongoose.Schema({
   name: { type: String, required: true },
   cost: { type: Number, required: true },
-  trigger: { type: String, required: true },
-  description: { type: String, required: true }
+  type: {
+    type: String,
+    required: true,
+    enum: ['attack', 'spell', 'utility', 'movement']
+  },
+  magic: { type: Boolean, default: false },
+  basic: { type: Boolean, default: false },
+  trigger: { type: String, required: false }, // Optional, not required
+  description: { type: String, required: true },
+  attack: {
+    roll: String,
+    damage: String,
+    damage_extra: String,
+    damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
+    },
+    secondary_damage: String,
+    secondary_damage_extra: String,
+    secondary_damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
+    },
+    category: {
+      type: String,
+      enum: ['pierce', 'slash', 'blunt', 'ranged']
+    },
+    min_range: Number,
+    max_range: Number
+  },
+  spell: {
+    roll: String,
+    damage: String,
+    damage_extra: String,
+    damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
+    },
+    secondary_damage: String,
+    secondary_damage_extra: String,
+    secondary_damage_type: {
+      type: String,
+      enum: ['physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic']
+    },
+    target_defense: {
+      type: String,
+      enum: ['evasion', 'deflection', 'resilience', 'none']
+    },
+    defense_difficulty: Number,
+    min_range: Number,
+    max_range: Number
+  }
 }, { _id: false });
 
 const traitSchema = new mongoose.Schema({
@@ -276,6 +327,16 @@ const creatureSchema = new mongoose.Schema({
     tremorsense: { type: Number, min: 0, max: 8, default: 0 },
     truesight: { type: Number, min: 0, max: 8, default: 0 },
     aethersight: { type: Number, min: 0, max: 8, default: 0 }
+  },
+
+  // Taming
+  taming: {
+    tame_check: { type: Number, default: -1 },
+    commands: {
+      type: String,
+      enum: ['basic', 'moderate', 'advanced'],
+      default: 'basic'
+    }
   },
 
   // Combat abilities

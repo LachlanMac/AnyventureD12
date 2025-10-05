@@ -12,7 +12,6 @@ interface CreatureAbility {
   description: string;
   reaction: boolean;
   basic: boolean;
-  trigger?: string; // Only used for reactions
   attack?: {
     roll: string;
     damage: string;
@@ -231,6 +230,12 @@ const DevCreatureDesigner: React.FC = () => {
     'restrained', 'stunned', 'unconscious'
   ];
 
+  // Taming
+  const [taming, setTaming] = useState({
+    tame_check: -1,
+    commands: 'basic' as 'basic' | 'moderate' | 'advanced'
+  });
+
   // Abilities
   const [abilities, setAbilities] = useState<CreatureAbility[]>([]);
   const [traits, setTraits] = useState<CreatureTrait[]>([]);
@@ -241,6 +246,16 @@ const DevCreatureDesigner: React.FC = () => {
   useEffect(() => {
     fetchAvailableSpells();
   }, []);
+
+  // Set energy to 0 when tier is minion or grunt
+  useEffect(() => {
+    if (creatureData.tier === 'minion' || creatureData.tier === 'grunt') {
+      setResources(prev => ({
+        ...prev,
+        energy: { max: 0, current: 0, recovery: 0 }
+      }));
+    }
+  }, [creatureData.tier]);
 
   const fetchAvailableSpells = async () => {
     try {
@@ -283,6 +298,7 @@ const DevCreatureDesigner: React.FC = () => {
         ...acc,
         [immunity]: immunities.includes(immunity)
       }), {}),
+      taming,
       actions: abilities.filter(a => !a.reaction),
       reactions: abilities.filter(a => a.reaction),
       traits,
@@ -345,6 +361,7 @@ const DevCreatureDesigner: React.FC = () => {
           ...acc,
           [immunity]: immunities.includes(immunity)
         }), {}),
+        taming,
         actions: abilities.filter(a => !a.reaction),
         reactions: abilities.filter(a => a.reaction),
         traits,
@@ -451,6 +468,7 @@ const DevCreatureDesigner: React.FC = () => {
 
         setMitigation(jsonData.mitigation || mitigation);
         setDetections(jsonData.detections || detections);
+        setTaming(jsonData.taming || taming);
 
         // Handle immunities - convert from object format to array
         if (jsonData.immunities) {
@@ -523,6 +541,11 @@ const DevCreatureDesigner: React.FC = () => {
       setDetections({
         normal: 5, darksight: 0, infravision: 0, deadsight: 0,
         echolocation: 0, tremorsense: 0, truesight: 0, aethersight: 0,
+      });
+      setImmunities([]);
+      setTaming({
+        tame_check: -1,
+        commands: 'basic'
       });
       setAbilities([]);
       setTraits([]);
@@ -837,33 +860,38 @@ const DevCreatureDesigner: React.FC = () => {
                 />
               </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Energy (Max)</label>
-                <input
-                  type="number"
-                  min="1"
-                  value={resources.energy.max}
-                  onChange={(e) => setResources({
-                    ...resources,
-                    energy: { ...resources.energy, max: parseInt(e.target.value) }
-                  })}
-                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                />
-              </div>
+              {/* Hide energy fields for minions and grunt */}
+              {creatureData.tier !== 'minion' && creatureData.tier !== 'grunt' && (
+                <>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Energy (Max)</label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={resources.energy.max}
+                      onChange={(e) => setResources({
+                        ...resources,
+                        energy: { ...resources.energy, max: parseInt(e.target.value) }
+                      })}
+                      className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                    />
+                  </div>
 
-              <div>
-                <label className="block text-sm font-medium mb-2">Energy Regeneration</label>
-                <input
-                  type="number"
-                  min="0"
-                  value={resources.energy.recovery}
-                  onChange={(e) => setResources({
-                    ...resources,
-                    energy: { ...resources.energy, recovery: parseInt(e.target.value) }
-                  })}
-                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                />
-              </div>
+                  <div>
+                    <label className="block text-sm font-medium mb-2">Energy Regeneration</label>
+                    <input
+                      type="number"
+                      min="0"
+                      value={resources.energy.recovery}
+                      onChange={(e) => setResources({
+                        ...resources,
+                        energy: { ...resources.energy, recovery: parseInt(e.target.value) }
+                      })}
+                      className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                    />
+                  </div>
+                </>
+              )}
 
               <div>
                 <label className="block text-sm font-medium mb-2">Resolve (Max)</label>
@@ -1265,6 +1293,33 @@ const DevCreatureDesigner: React.FC = () => {
                 </div>
               )}
             </div>
+
+            <div>
+              <h3 className="text-lg font-semibold mb-3">Taming</h3>
+              <div className="grid grid-cols-2 gap-4">
+                <div>
+                  <label className="block text-sm font-medium mb-2">Tame Check (-1 = Not Tameable)</label>
+                  <input
+                    type="number"
+                    value={taming.tame_check}
+                    onChange={(e) => setTaming({ ...taming, tame_check: parseInt(e.target.value) })}
+                    className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                  />
+                </div>
+                <div>
+                  <label className="block text-sm font-medium mb-2">Commands Level</label>
+                  <select
+                    value={taming.commands}
+                    onChange={(e) => setTaming({ ...taming, commands: e.target.value as 'basic' | 'moderate' | 'advanced' })}
+                    className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                  >
+                    <option value="basic">Basic</option>
+                    <option value="moderate">Moderate</option>
+                    <option value="advanced">Advanced</option>
+                  </select>
+                </div>
+              </div>
+            </div>
           </CardBody>
         </Card>
       )}
@@ -1331,18 +1386,6 @@ const DevCreatureDesigner: React.FC = () => {
                       </label>
                     </div>
                   </div>
-
-                  {ability.reaction && (
-                    <div className="mb-4">
-                      <input
-                        type="text"
-                        placeholder="Trigger (for reactions)"
-                        value={ability.trigger || ''}
-                        onChange={(e) => updateAbility(index, 'trigger', e.target.value)}
-                        className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                      />
-                    </div>
-                  )}
 
                   <textarea
                     placeholder="Ability description"

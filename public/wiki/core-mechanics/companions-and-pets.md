@@ -1,5 +1,0 @@
-# Companions & Pets
-
-## Companions
-
-## Pets

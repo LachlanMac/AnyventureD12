@@ -81,5 +81,5 @@ A character in stasis is unconscious and does not need to eat, breathe, or sleep
 An unconscious character is extremely vulnerable and takes double damage from melee attacks. If recovery isn't otherwise specified, an unconscious character rolls a d12 at the end of each of their turns. On a 9 or higher, they regain consciousness.
 
 ### Winded
-A winded character cannot regenerate energy. This condition is removed by taking the rest action.
+A winded character cannot regenerate energy and their normal movement is halved and rounded down. This condition is removed by taking the rest action.
 

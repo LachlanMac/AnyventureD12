@@ -4,7 +4,7 @@ import { getDiceForSkill } from '../../utils/combatUtils';
 
 interface CreatureStatGridProps {
   attributes: CreatureAttributes;
-  skills: Record<string, number>;
+  skills: Record<string, { value: number; tier: number }>;
 }
 
 const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills }) => {
@@ -18,50 +18,50 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
       title: 'PHYSIQUE',
       attribute: attributes.physique.talent,
       skills: [
-        { name: 'Fitness', value: skills.fitness },
-        { name: 'Deflection', value: skills.deflection },
-        { name: 'Might', value: skills.might },
-        { name: 'Endurance', value: skills.endurance },
+        { name: 'Fitness', value: skills.fitness?.value || 0 },
+        { name: 'Deflection', value: skills.deflection?.value || 0 },
+        { name: 'Might', value: skills.might?.value || 0 },
+        { name: 'Endurance', value: skills.endurance?.value || 0 },
       ],
     },
     {
       title: 'FINESSE',
       attribute: attributes.finesse.talent,
       skills: [
-        { name: 'Evasion', value: skills.evasion },
-        { name: 'Stealth', value: skills.stealth },
-        { name: 'Coordination', value: skills.coordination },
-        { name: 'Thievery', value: skills.thievery },
+        { name: 'Evasion', value: skills.evasion?.value || 0 },
+        { name: 'Stealth', value: skills.stealth?.value || 0 },
+        { name: 'Coordination', value: skills.coordination?.value || 0 },
+        { name: 'Thievery', value: skills.thievery?.value || 0 },
       ],
     },
     {
       title: 'MIND',
       attribute: attributes.mind.talent,
       skills: [
-        { name: 'Resilience', value: skills.resilience },
-        { name: 'Concentration', value: skills.concentration },
-        { name: 'Senses', value: skills.senses },
-        { name: 'Logic', value: skills.logic },
+        { name: 'Resilience', value: skills.resilience?.value || 0 },
+        { name: 'Concentration', value: skills.concentration?.value || 0 },
+        { name: 'Senses', value: skills.senses?.value || 0 },
+        { name: 'Logic', value: skills.logic?.value || 0 },
       ],
     },
     {
       title: 'KNOWLEDGE',
       attribute: attributes.knowledge.talent,
       skills: [
-        { name: 'Wildcraft', value: skills.wildcraft },
-        { name: 'Academics', value: skills.academics },
-        { name: 'Magic', value: skills.magic },
-        { name: 'Medicine', value: skills.medicine },
+        { name: 'Wildcraft', value: skills.wildcraft?.value || 0 },
+        { name: 'Academics', value: skills.academics?.value || 0 },
+        { name: 'Magic', value: skills.magic?.value || 0 },
+        { name: 'Medicine', value: skills.medicine?.value || 0 },
       ],
     },
     {
       title: 'SOCIAL',
       attribute: attributes.social.talent,
       skills: [
-        { name: 'Expression', value: skills.expression },
-        { name: 'Presence', value: skills.presence },
-        { name: 'Insight', value: skills.insight },
-        { name: 'Persuasion', value: skills.persuasion },
+        { name: 'Expression', value: skills.expression?.value || 0 },
+        { name: 'Presence', value: skills.presence?.value || 0 },
+        { name: 'Insight', value: skills.insight?.value || 0 },
+        { name: 'Persuasion', value: skills.persuasion?.value || 0 },
       ],
     },
   ];

@@ -93,7 +93,7 @@ const CreatureDetail: React.FC = () => {
               <CardBody style={{ padding: '0.75rem 1.25rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {creature.actions.map((action, index) => (
-                    <CreatureActionCard key={index} action={action} />
+                    <CreatureActionCard key={index} action={action} creatureTier={creature.tier} />
                   ))}
                 </div>
               </CardBody>
@@ -118,7 +118,7 @@ const CreatureDetail: React.FC = () => {
               <CardBody style={{ padding: '0.75rem 1.25rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
                   {creature.reactions.map((reaction, index) => (
-                    <CreatureReactionCard key={index} reaction={reaction} />
+                    <CreatureReactionCard key={index} reaction={reaction} creatureTier={creature.tier} />
                   ))}
                 </div>
               </CardBody>

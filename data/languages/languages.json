@@ -218,7 +218,7 @@
   {
     "id": "void_speak",
     "name": "Void Speak",
-    "description": "The language of the void. Terrible and guttural, this language calls upon the darkest depths of the shadow planes to drive creatures to insanity. A creature that is fluent in this language can dim lights and mask shadows in a short (10 unit) radius by making a persuasion check of 7. With mastery of the language, this effect also causes minions and thralls within that radius to become maddened if they fail a resilience check of 4. If you fail this check, you cannot cause this effect again until you complete a full rest. Using this language, especially failing, runs the risk of attracting entities from the shadow planes.",
+    "description": "The language of the void. Terrible and guttural, this language calls upon the darkest depths of the shadow planes to drive creatures to insanity. A creature that is fluent in this language can dim lights and mask shadows in a short (10 unit) radius by making a persuasion check of 7. With mastery of the language, this effect also causes minions and grunts within that radius to become maddened if they fail a resilience check of 4. If you fail this check, you cannot cause this effect again until you complete a full rest. Using this language, especially failing, runs the risk of attracting entities from the shadow planes.",
     "code": "",
     "magic": 1,
     "foundry_icon": "icons/sundries/scrolls/scroll-writing-orange-black.webp"

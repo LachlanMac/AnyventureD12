@@ -11,12 +11,13 @@ const __dirname = path.dirname(__filename);
 const loadCreaturesFromJson = async () => {
   try {
     console.log('🦄 Loading creatures from JSON files...');
-    
+
     const dataPath = path.join(__dirname, '../../data/monsters');
     const creatureTypes = ['dark', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental', 'beast'];
-    
+
     let loadedCount = 0;
     let updatedCount = 0;
+    const creatureNamesFromFiles = new Set();
 
     for (const type of creatureTypes) {
       const typePath = path.join(dataPath, type);
@@ -33,7 +34,10 @@ const loadCreaturesFromJson = async () => {
           const filePath = path.join(typePath, file);
           const rawData = fs.readFileSync(filePath, 'utf8');
           const creatureData = JSON.parse(rawData);
-          
+
+          // Track creature names from files
+          creatureNamesFromFiles.add(creatureData.name);
+
           // Ensure the creature has the correct type
           creatureData.type = type;
           creatureData.isHomebrew = false;
@@ -98,13 +102,30 @@ const loadCreaturesFromJson = async () => {
       }
     }
 
-    console.log(`🦄 Creature loading complete!`);
-    console.log(`📊 Summary: ${loadedCount} new creatures loaded, ${updatedCount} creatures updated`);
-    
-    return { loadedCount, updatedCount };
+    // Find and delete orphaned creatures (non-homebrew creatures not in JSON files)
+    console.log('\n🧹 Checking for orphaned creatures...');
+    const creaturesInDatabase = await Creature.find({ isHomebrew: { $ne: true } }, 'name');
+    const orphanedCreatures = creaturesInDatabase.filter(dbCreature => !creatureNamesFromFiles.has(dbCreature.name));
+
+    let deletedCount = 0;
+    if (orphanedCreatures.length > 0) {
+      console.log(`Found ${orphanedCreatures.length} orphaned non-homebrew creatures to delete:`);
+      for (const orphan of orphanedCreatures) {
+        console.log(`  🗑️  Deleting orphaned creature: ${orphan.name}`);
+        await Creature.deleteOne({ _id: orphan._id });
+        deletedCount++;
+      }
+    } else {
+      console.log('✅ No orphaned creatures found');
+    }
+
+    console.log(`\n🦄 Creature loading complete!`);
+    console.log(`📊 Summary: ${loadedCount} new creatures loaded, ${updatedCount} creatures updated, ${deletedCount} orphaned creatures deleted`);
+
+    return true;
   } catch (error) {
     console.error('❌ Error loading creatures from JSON:', error);
-    throw error;
+    return false;
   }
 };
 

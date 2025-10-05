@@ -36,8 +36,36 @@ export interface CreatureAction {
 export interface CreatureReaction {
   name: string;
   cost: number;
-  trigger: string;
+  type: 'attack' | 'spell' | 'utility' | 'movement';
+  magic?: boolean;
+  basic?: boolean;
+  trigger?: string;
   description: string;
+  attack?: {
+    roll: string;
+    damage: string;
+    damage_extra: string;
+    damage_type: string;
+    secondary_damage?: string;
+    secondary_damage_extra?: string;
+    secondary_damage_type?: string;
+    category: 'pierce' | 'slash' | 'blunt' | 'ranged';
+    min_range: number;
+    max_range: number;
+  };
+  spell?: {
+    roll: string;
+    damage: string;
+    damage_extra: string;
+    damage_type: string;
+    secondary_damage?: string;
+    secondary_damage_extra?: string;
+    secondary_damage_type?: string;
+    target_defense: 'evasion' | 'deflection' | 'resilience' | 'none';
+    defense_difficulty: number;
+    min_range: number;
+    max_range: number;
+  };
 }
 
 export interface CreatureTrait {
@@ -115,10 +143,14 @@ export interface Creature {
   };
   movement: CreatureMovement;
   attributes: CreatureAttributes;
-  skills: Record<string, number>;
+  skills: Record<string, { value: number; tier: number }>;
   mitigation: Record<string, number>;
   immunities: Record<string, boolean>;
   detections: Record<string, number>;
+  taming?: {
+    tame_check: number;
+    commands: 'basic' | 'moderate' | 'advanced';
+  };
   actions: CreatureAction[];
   reactions: CreatureReaction[];
   traits: CreatureTrait[];
