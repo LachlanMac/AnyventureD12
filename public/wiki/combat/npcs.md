@@ -18,10 +18,10 @@ Grunts can be dangerous in number, but an average adventurer should be able to d
 Standard creatures typically have the equivalent skills of a starting adventurer with few module points or skills. In favorable conditions, they should be considered an even fight to an average adventurer. Lions, knights and velociraptors would be common standard tier opponents.  
 
 ### Champion
-Champions represent the top level of what a humanoid can acheive. Champion tiered creatures include archmages, renowned gladiators and treants.
+Champions represent the top level of what a humanoid can achieve. Champion tiered creatures include archmages, renowned gladiators and treants.
 
 ### Elite
-Elites are creatures that would take a team of adventurers to defeat. This cateogry includes wyverns, liches, and devils. Elite creatures will be the main adversaries for a group of adventures so the range of power between the weakest and strongest elite can be quite large. Because of this, they have a star system from 1 star (the weakest) to 5 stars (the strongest) that is displayed next to their tier when viewing their statblocks.
+Elites are creatures that would take a team of adventurers to defeat. This category includes wyverns, liches, and devils. Elite creatures will be the main adversaries for a group of adventures so the range of power between the weakest and strongest elite can be quite large. Because of this, they have a star system from 1 star (the weakest) to 5 stars (the strongest) that is displayed next to their tier when viewing their statblocks.
 
 ### Legend
 Legends are creatures that are so epic, defeating them would make the victors the subject of history books. They typically would take an incredibly resourceful and powerful group of adventurers to defeat. The likes of ancient dragons and krakens would fit into this group.

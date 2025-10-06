@@ -1,17 +1,18 @@
 {
-  "name": "Spear",
-  "description": "A simple shaft topped with a sharp point.",
+  "name": "Short Staff",
+  "description": "A sturdy wooden staff short enough to wield in one hand. Often used as a walking stick or hiking aid.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
-  "weight": 0.5,
-  "value": 290,
+  "hands": 1,
+  "weight": 1,
+  "value": 120,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "4",
+    "damage": "5",
     "damage_extra": "2",
     "damage_type": "physical",
-    "category": "pierce",
+    "category": "blunt",
     "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
@@ -42,13 +43,11 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 5,
+    "difficulty": 4,
     "ingredients": [
-      "Point",
-      "Long Shaft"
+      "Short Shaft"
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/polearms/spear-barbed-silver.webp",
-  "foundry_id": "o27vhnd8rroe69l1"
+  "foundry_icon": "icons/weapons/staves/staff-simple.webp"
 }

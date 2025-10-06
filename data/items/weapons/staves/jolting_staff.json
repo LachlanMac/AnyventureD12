@@ -9,7 +9,7 @@
   "rarity": "uncommon",
   "primary": {
     "damage": "4",
-    "damage_extra": "3",
+    "damage_extra": "2",
     "damage_type": "electric",
     "category": "primal_magic",
     "energy": 2,
@@ -20,7 +20,7 @@
     "max_range": 4
   },
   "secondary": {
-    "damage": "4",
+       "damage": "5",
     "damage_extra": "2",
     "damage_type": "physical",
     "category": "blunt",

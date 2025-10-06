@@ -1,18 +1,19 @@
 {
-  "name": "Spear",
-  "description": "A simple shaft topped with a sharp point.",
+  "name": "War Spear",
+  "description": "A reinforced spear with a heavy broad-bladed tip designed for powerful thrusting attacks in close combat.",
   "type": "weapon",
-  "weapon_category": "simpleMelee",
-  "weight": 0.5,
-  "value": 290,
+  "weapon_category": "complexMelee",
+  "hands": 1,
+  "weight": 3,
+  "value": 490,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "4",
+    "damage": "8",
     "damage_extra": "2",
     "damage_type": "physical",
     "category": "pierce",
-    "energy": 0,
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -42,13 +43,13 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 5,
+    "difficulty": 7,
     "ingredients": [
       "Point",
-      "Long Shaft"
+      "Short Shaft",
+      "Bindings"
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/polearms/spear-barbed-silver.webp",
-  "foundry_id": "o27vhnd8rroe69l1"
+  "foundry_icon": "icons/weapons/polearms/spear-flared-steel.webp"
 }

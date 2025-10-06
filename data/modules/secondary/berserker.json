@@ -14,7 +14,7 @@
       "name": "Last Stand",
       "description": "Once per day, when you reach 0 health, you roll an endurance check and gain morale equal to the highest dice rolled instead of entering lifeline. While in lifeline, the first time you roll a 1 on the lifeline table, you reroll.",
       "location": "2a",
-      "data": "TG:XDNE=0"
+      "data": "XDNE=0"
     },
     {
       "name": "Killing Frenzy",
@@ -32,13 +32,13 @@
       "name": "Reaction : Vengeful Strike",
       "description": "In response to a creature within your melee range dealing damage to you, you make an attack against them with a melee weapon. When you make this attack, add a might dice into your weapon check pool.",
       "location": "4a",
-      "data": "TG:ZINE=1"
+      "data": "ZINE=1"
     },
     {
       "name": "Reaction : Endure Pain",
-      "description": "In response to being targeted by an attack that deals physical damage, you make an endurance check instead of a defense check. If you are successful, the damage is halved before calculating mitigations.",
+      "description": "In response to being targeted by an attack, your defense check automatically becomes a 3. Make an endurance check and double the result; if the result is higher than the total damage of the attack, the damage is halved before applying mitigation. ",
       "location": "4b",
-      "data": "TG:ZINE=1"
+      "data": "ZINE=1"
     },
     {
       "name": "Weapon Master",
@@ -50,13 +50,13 @@
       "name": "Scarred Veteran",
       "description": "You have a reputation for being hard to take down. Gain +1 physical mitigation and +2 health.",
       "location": "6a",
-      "data": "TG:M1=1:A1=2"
+      "data": "M1=1:A1=2"
     },
     {
       "name": "Twin Fury",
       "description": "You have the coordination and strength to wield heavy weapons in your offhand. Gain +1 coordination. You can dual wield any one-handed complex melee weapon, not just simple weapons.",
       "location": "6b",
-      "data": "TG:SSG=1:FF"
+      "data": "SSG=1:FF"
     },
     {
       "name": "Action : Devastating Blow",

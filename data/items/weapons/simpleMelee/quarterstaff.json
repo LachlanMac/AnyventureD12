@@ -1,18 +1,19 @@
 {
   "name": "Quarterstaff",
-  "description": "A long wooden shaft that provides excellent reach.",
+  "description": "A long hardwood shaft wielded in both hands. A trained wielder can strike with devastating force while maintaining excellent reach.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
-  "weight": 0.5,
-  "value": 290,
+  "hands": 2,
+  "weight": 2,
+  "value": 350,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
     "damage": "5",
-    "damage_extra": "3",
+    "damage_extra": "2",
     "damage_type": "physical",
     "category": "blunt",
-    "energy": 0,
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -44,7 +45,6 @@
     "type": "fabrication",
     "difficulty": 5,
     "ingredients": [
-      "Light Head",
       "Long Shaft"
     ]
   },

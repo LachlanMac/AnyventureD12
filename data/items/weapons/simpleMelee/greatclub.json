@@ -1,18 +1,19 @@
 {
-  "name": "Spear",
-  "description": "A simple shaft topped with a sharp point.",
+  "name": "Greatclub",
+  "description": "A massive club made from heavy ironwood or stone. Crude but devastatingly effective in the hands of a strong warrior.",
   "type": "weapon",
   "weapon_category": "simpleMelee",
-  "weight": 0.5,
-  "value": 290,
+  "hands": 2,
+  "weight": 4,
+  "value": 150,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "4",
+    "damage": "7",
     "damage_extra": "2",
     "damage_type": "physical",
-    "category": "pierce",
-    "energy": 0,
+    "category": "blunt",
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -42,13 +43,9 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 5,
-    "ingredients": [
-      "Point",
-      "Long Shaft"
-    ]
+    "difficulty": 3,
+    "ingredients": []
   },
-  "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/polearms/spear-barbed-silver.webp",
-  "foundry_id": "o27vhnd8rroe69l1"
+  "encumbrance_penalty": 1,
+  "foundry_icon": "icons/weapons/clubs/club-baton-studded.webp"
 }

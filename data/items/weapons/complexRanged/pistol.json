@@ -1,23 +1,25 @@
 {
-  "name": "Spear",
-  "description": "A simple shaft topped with a sharp point.",
+  "name": "Pistol",
+  "description": "A single-shot hand-held firearm that delivers devastating power at close range. Requires reloading after each shot.",
   "type": "weapon",
-  "weapon_category": "simpleMelee",
-  "weight": 0.5,
-  "value": 290,
+  "weapon_category": "complexRanged",
+  "hands": 1,
+  "weight": 2,
+  "value": 1800,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "4",
+    "damage": "10",
     "damage_extra": "2",
     "damage_type": "physical",
-    "category": "pierce",
+    "category": "ranged",
     "energy": 0,
+    "ammo_capacity": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 1,
-    "max_range": 1
+    "max_range": 3
   },
   "health": {
     "max": 0,
@@ -41,14 +43,15 @@
   "detections": {},
   "immunities": {},
   "recipe": {
-    "type": "fabrication",
-    "difficulty": 5,
+    "type": "engineering",
+    "difficulty": 9,
     "ingredients": [
-      "Point",
-      "Long Shaft"
+      "Iron Ingot",
+      "Handle",
+      "Clockwork Gears",
+      "Bindings"
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/polearms/spear-barbed-silver.webp",
-  "foundry_id": "o27vhnd8rroe69l1"
+  "foundry_icon": "icons/weapons/guns/gun-pistol-flintlock.webp"
 }

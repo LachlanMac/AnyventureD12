@@ -9,8 +9,8 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "8",
-    "damage_extra": "4",
+    "damage": "9",
+    "damage_extra": "3",
     "damage_type": "physical",
     "category": "slash",
     "energy": 2,

@@ -168,7 +168,7 @@ Reaching 0 Health (Lifeline)
   • Fail: the creature dies.
   • Success: the creature falls unconscious.
   • While unconscious, on each turn that Bleeding/Poison would deal damage, repeat the same check versus the effect’s RC, but the rolled check result is halved (rounded down) before comparison. The outcome remains binary each time (fail = death; success = remain unconscious and survive that instance).
-- Taking >5 damage while in lifeline (from other sources) triggers a 1d8 roll on the Lifeline Table:
+- Taking >9 damage while in lifeline (from other sources) triggers a 1d8 roll on the Lifeline Table:
   1 Death Check (d12; ≤7 die; else fall unconscious)
   2 Lost Limb
   3 Lingering Injury
