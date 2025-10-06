@@ -12,8 +12,8 @@
     "damage": "6",
     "damage_extra": "3",
     "damage_type": "physical",
-    "category": "pierce",
-    "energy": 2,
+    "category": "blunt",
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
@@ -22,9 +22,9 @@
   },
   "secondary": {
     "damage": "3",
-    "damage_extra": "2",
+    "damage_extra": "3",
     "damage_type": "physical",
-    "category": "blunt",
+    "category": "pierce",
     "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
@@ -44,7 +44,7 @@
     "max": 0,
     "recovery": 0
   },
-  "movement": -1,
+  "movement": 0,
   "attributes": {},
   "basic": {},
   "weapon": {},
@@ -64,5 +64,5 @@
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/polearms/hammer-spiked-steel.webp"
+  "foundry_icon": "icons/weapons/hammers/hammer-war-rounding.webp"
 }

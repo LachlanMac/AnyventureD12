@@ -13,7 +13,7 @@
     "damage_extra": "3",
     "damage_type": "physical",
     "category": "pierce",
-    "energy": 2,
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",

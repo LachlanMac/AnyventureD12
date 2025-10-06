@@ -3,8 +3,9 @@
   "description": "A massive two-handed thrusting sword with a rigid blade designed to pierce through armor gaps in close combat.",
   "type": "weapon",
   "weapon_category": "complexMelee",
+  "hands": 2,
   "weight": 3,
-  "value": 305,
+  "value": 895,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -44,7 +45,8 @@
     "type": "fabrication",
     "difficulty": 8,
     "ingredients": [
-      "2 Heavy Blades",
+      "Heavy Blade",
+      "2x Iron Ingot",
       "Handle",
       "Bindings"
     ]

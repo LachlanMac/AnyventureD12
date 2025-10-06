@@ -5,7 +5,7 @@
   "weapon_category": "complexRanged",
   "hands": 2,
   "weight": 3,
-  "value": 2500,
+  "value": 1750,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -44,15 +44,15 @@
   "immunities": {},
   "recipe": {
     "type": "engineering",
-    "difficulty": 9,
+    "difficulty": 10,
     "ingredients": [
-      "Iron Ingot",
+      "3x Iron Ingot",
       "Short Shaft",
-      "Clockwork Gears",
-      "Brass Fittings",
+      "3x Clockwork Gears",
+      "2x Brass Fittings",
       "Bindings"
     ]
   },
   "encumbrance_penalty": 0,
-  "foundry_icon": "icons/weapons/guns/gun-blunderbuss.webp"
+  "foundry_icon": "icons/weapons/guns/gun-blunderbuss-gold.webp"
 }

@@ -5,7 +5,7 @@
   "weapon_category": "complexMelee",
   "hands": 2,
   "weight": 3,
-  "value": 595,
+  "value": 895,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -46,6 +46,7 @@
     "difficulty": 8,
     "ingredients": [
       "Heavy Blade",
+      "2x Iron Ingot",
       "Handle",
       "Bindings"
     ]

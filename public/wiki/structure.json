@@ -233,6 +233,13 @@
       "order": 4
     },
     {
+      "id": "weapons",
+      "title": "Weapons",
+      "path": "equipment/weapons.md",
+      "category": "Items",
+      "order": 5
+    },
+    {
       "id": "crafting",
       "title": "Crafting Basics",
       "path": "crafting/crafting.md",

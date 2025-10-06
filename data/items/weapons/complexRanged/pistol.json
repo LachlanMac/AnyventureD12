@@ -5,7 +5,7 @@
   "weapon_category": "complexRanged",
   "hands": 1,
   "weight": 2,
-  "value": 1800,
+  "value": 1125,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -46,9 +46,10 @@
     "type": "engineering",
     "difficulty": 9,
     "ingredients": [
-      "Iron Ingot",
+      "2x Iron Ingot",
       "Handle",
-      "Clockwork Gears",
+      "2x Clockwork Gears",
+      "Brass Fittings",
       "Bindings"
     ]
   },

@@ -566,7 +566,7 @@ const DevCreatureDesigner: React.FC = () => {
         reaction: false,
         basic: false,
         attack: {
-          roll: '2d6',
+          roll: '0',
           damage: '2',
           damage_extra: '1',
           damage_type: 'physical',

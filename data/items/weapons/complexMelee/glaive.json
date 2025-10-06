@@ -6,6 +6,7 @@
   "weight": 3,
   "value": 845,
   "bonus_attack": 0,
+  "hands": 2,
   "rarity": "common",
   "primary": {
     "damage": "6",

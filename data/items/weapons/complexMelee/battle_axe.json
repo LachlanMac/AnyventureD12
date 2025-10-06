@@ -31,7 +31,7 @@
     "max": 0,
     "recovery": 0
   },
-  "movement": -1,
+  "movement": 0,
   "attributes": {},
   "basic": {},
   "weapon": {},

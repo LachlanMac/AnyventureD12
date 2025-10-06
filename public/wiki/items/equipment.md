@@ -8,7 +8,6 @@ Many pieces of equipment are effective at increasing protection and mitigating d
 
 - **Main Hand**: The dominant hand for holding and controlling a weapon
 - **Off Hand**: The secondary hand, used for holding utility items such as torches, shields or even other weapons
-
 - **Body**: Armor and other clothing
 - **Head**: Crowns, helmets and visors
 - **Back**: cloaks and shawls
@@ -38,11 +37,14 @@ Weapons are divided by complexity and type:
 - **Simple Melee**: Daggers, clubs, spears
 - **Simple Ranged**: Short bows, slings, hand crossbows
 - **Complex Melee**: Longswords, great-axes, rapiers
-- **Complex Ranged**: Longbows, warbows, arbalests
+- **Complex Ranged**: Longbows, warbows, arbalests, firearms
 - **Brawling**: Cestus, clawed weapons, ulaks
 - **Throwing**: Javelins, throwing knives, darts
+- **Magical Implements**: Staves and wands attuned to magic schools
 
 Generally, complex weapons are more versatile than simple weapons and can deal more damage at the cost of requiring energy to use. They also require more training to be talented with as all characters start off with a talent in simple weapons.
+
+For a full list of weapons with detailed statistics, damage values, and special properties, see the [Weapons](/wiki/weapons) page.
 
 ### Weapon Categories
 Weapons also have categories which determines what types of actions they can benefit from. 

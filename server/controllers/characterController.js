@@ -1011,6 +1011,7 @@ export const exportCharacterToFoundry = async (req, res) => {
         actorLink: true,
         width: tokenSize.width,
         height: tokenSize.height,
+        disposition: 1, // 1 = Friendly, 0 = Neutral, -1 = Hostile
         texture: {
           src: portraitUrl,
           anchorX: 0.5,
@@ -1023,7 +1024,25 @@ export const exportCharacterToFoundry = async (req, res) => {
           rotation: 0,
           tint: "#ffffff",
           alphaThreshold: 0.75
-        }
+        },
+        sight: {
+          enabled: true,
+          range: 0, // 0 = unlimited in lit areas
+          angle: 360,
+          visionMode: "basic",
+          color: null,
+          attenuation: 0,
+          brightness: 0,
+          saturation: 0,
+          contrast: 0
+        },
+        detectionModes: [
+          {
+            id: "basicSight",
+            enabled: true,
+            range: 0
+          }
+        ]
       },
       system: {
         // Core attributes

@@ -528,7 +528,7 @@ const convertToFoundryFormat = (data, type) => {
               magic: action.magic || false,
               abilityType: abilityType,
               // Add attackData to system section
-              roll: action.attack?.roll || "2d6",
+              roll: action.attack?.roll || "0",
               damage: action.attack?.damage || "0",
               damage_extra: action.attack?.damage_extra || "0",
               damage_type: action.attack?.damage_type || "physical",
@@ -574,7 +574,7 @@ const convertToFoundryFormat = (data, type) => {
               anyventure_id: "",
               magic: false,
               abilityType: abilityType,
-              roll: reaction.attack?.roll || "2d6",
+              roll: reaction.attack?.roll || "0",
               damage: reaction.attack?.damage || "0",
               damage_extra: reaction.attack?.damage_extra || "0",
               damage_type: reaction.attack?.damage_type || "physical",
@@ -980,12 +980,56 @@ router.get('/modules', async (req, res) => {
     const modules = await Module.find({});
     const foundryModules = modules.map(module => convertToFoundryFormat(module.toObject(), 'module'));
 
+    // Create folder structure
+    const folders = [
+      {
+        _id: generateDeterministicFoundryId('folder-secondary-modules'),
+        name: 'Secondary Modules',
+        type: 'Item',
+        sorting: 'a',
+        folder: null,
+        sort: 0
+      },
+      {
+        _id: generateDeterministicFoundryId('folder-core-modules'),
+        name: 'Core Modules',
+        type: 'Item',
+        sorting: 'a',
+        folder: null,
+        sort: 1
+      },
+      {
+        _id: generateDeterministicFoundryId('folder-personality-modules'),
+        name: 'Personality Modules',
+        type: 'Item',
+        sorting: 'a',
+        folder: null,
+        sort: 2
+      }
+    ];
+
+    // Assign modules to folders based on mtype
+    const folderMap = {
+      'secondary': generateDeterministicFoundryId('folder-secondary-modules'),
+      'core': generateDeterministicFoundryId('folder-core-modules'),
+      'personality': generateDeterministicFoundryId('folder-personality-modules')
+    };
+
+    foundryModules.forEach(module => {
+      const mtype = module.system?.mtype;
+      if (mtype && folderMap[mtype]) {
+        module.folder = folderMap[mtype];
+      }
+    });
+
     res.json({
       type: 'compendium-data',
-      documentType: 'Item', // Or whatever Foundry document type you use
+      documentType: 'Item',
       data: foundryModules,
+      folders: folders,
       metadata: {
         count: foundryModules.length,
+        folderCount: folders.length,
         version: "1.0.0",
         lastUpdated: new Date().toISOString()
       }
@@ -1245,8 +1289,52 @@ router.get('/all', async (req, res) => {
       Creature.find({}).populate('spells')
     ]);
 
+    const foundryModules = modules.map(m => convertToFoundryFormat(m.toObject(), 'module'));
+
+    // Create folder structure for modules
+    const moduleFolders = [
+      {
+        _id: generateDeterministicFoundryId('folder-secondary-modules'),
+        name: 'Secondary Modules',
+        type: 'Item',
+        sorting: 'a',
+        folder: null,
+        sort: 0
+      },
+      {
+        _id: generateDeterministicFoundryId('folder-core-modules'),
+        name: 'Core Modules',
+        type: 'Item',
+        sorting: 'a',
+        folder: null,
+        sort: 1
+      },
+      {
+        _id: generateDeterministicFoundryId('folder-personality-modules'),
+        name: 'Personality Modules',
+        type: 'Item',
+        sorting: 'a',
+        folder: null,
+        sort: 2
+      }
+    ];
+
+    // Assign modules to folders based on mtype
+    const folderMap = {
+      'secondary': generateDeterministicFoundryId('folder-secondary-modules'),
+      'core': generateDeterministicFoundryId('folder-core-modules'),
+      'personality': generateDeterministicFoundryId('folder-personality-modules')
+    };
+
+    foundryModules.forEach(module => {
+      const mtype = module.system?.mtype;
+      if (mtype && folderMap[mtype]) {
+        module.folder = folderMap[mtype];
+      }
+    });
+
     const foundryData = {
-      modules: modules.map(m => convertToFoundryFormat(m.toObject(), 'module')),
+      modules: foundryModules,
       ancestries: ancestries.map(a => convertToFoundryFormat(a.toObject(), 'ancestry')),
       cultures: cultures.map(c => convertToFoundryFormat(c.toObject(), 'culture')),
       traits: traits.map(t => convertToFoundryFormat(t.toObject(), 'trait')),
@@ -1258,9 +1346,14 @@ router.get('/all', async (req, res) => {
       creatures: creatures.map(c => convertToFoundryFormat(c.toObject(), 'creature'))
     };
 
+    const folders = {
+      modules: moduleFolders
+    };
+
     res.json({
       type: 'bulk-compendium-data',
       data: foundryData,
+      folders: folders,
       metadata: {
         counts: {
           modules: foundryData.modules.length,

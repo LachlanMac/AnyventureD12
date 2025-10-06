@@ -5,7 +5,7 @@
   "weapon_category": "simpleMelee",
   "hands": 2,
   "weight": 4,
-  "value": 200,
+  "value": 475,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -46,7 +46,8 @@
     "difficulty": 4,
     "ingredients": [
       "Heavy Blade",
-      "Short Shaft"
+      "Short Shaft",
+      "Bindings"
     ]
   },
   "encumbrance_penalty": 1,

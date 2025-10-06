@@ -623,6 +623,222 @@ const processSongData = async (content: string): Promise<string> => {
   }
 };
 
+// Function to convert range code to human-readable format
+const convertRangeCode = (rangeCode: number): string => {
+  const rangeMap: { [key: number]: string } = {
+    1: 'Adjacent',
+    2: 'Nearby',
+    3: 'Very Short',
+    4: 'Short',
+    5: 'Moderate',
+    6: 'Far',
+    7: 'Very Far',
+    8: 'Distant',
+    9: 'Unlimited'
+  };
+  return rangeMap[rangeCode] || 'Unknown';
+};
+
+// Function to convert range to human-readable format
+const convertRange = (minRange: number, maxRange: number): string => {
+  if (minRange === maxRange) {
+    return convertRangeCode(minRange);
+  } else {
+    return `${convertRangeCode(minRange)}-${convertRangeCode(maxRange)}`;
+  }
+};
+
+// Function to convert category to human-readable format
+const convertCategory = (category: string): string => {
+  if (!category || category === 'none') return '-';
+
+  // Handle magic categories
+  if (category.includes('magic')) {
+    return category
+      .split('_')
+      .map(word => word.charAt(0).toUpperCase() + word.slice(1))
+      .join(' ');
+  }
+
+  // Capitalize first letter for other categories
+  return category.charAt(0).toUpperCase() + category.slice(1);
+};
+
+// Function to process weapon data placeholder
+const processWeaponTables = async (content: string): Promise<string> => {
+  try {
+    // Load all items from API endpoint
+    const response = await fetch('/api/items');
+    if (!response.ok) {
+      throw new Error('Failed to load items data');
+    }
+    const items = await response.json();
+
+    // Filter for weapons only
+    const weapons = items.filter((item: any) => item.type === 'weapon');
+
+    // Categorize weapons - detect staves/wands by magic category
+    const categorizeWeapon = (weapon: any) => {
+      const primaryCategory = weapon.primary?.category || '';
+
+      // Check if it's a magical implement
+      if (primaryCategory.includes('magic')) {
+        return weapon.hands === 2 ? 'staves' : 'wands';
+      }
+
+      // Use weapon_category for everything else
+      return weapon.weapon_category;
+    };
+
+    // Group weapons by category
+    const weaponsByCategory: { [key: string]: any[] } = {
+      simpleMelee: [],
+      complexMelee: [],
+      simpleRanged: [],
+      complexRanged: [],
+      throwing: [],
+      staves: [],
+      wands: [],
+      unarmed: []
+    };
+
+    weapons.forEach((weapon: any) => {
+      const category = categorizeWeapon(weapon);
+      if (weaponsByCategory[category]) {
+        weaponsByCategory[category].push(weapon);
+      }
+    });
+
+    // Sort each category by name
+    Object.keys(weaponsByCategory).forEach(category => {
+      weaponsByCategory[category].sort((a, b) => a.name.localeCompare(b.name));
+    });
+
+    // Helper function to generate table for a weapon group
+    const generateTable = (weapons: any[], handsFilter?: number) => {
+      // Filter by hands if specified
+      const filteredWeapons = handsFilter
+        ? weapons.filter(w => (w.hands || 1) === handsFilter)
+        : weapons;
+
+      if (filteredWeapons.length === 0) return '';
+
+      let table = `
+| Name | Damage | Energy | Range | Category | Special |
+|------|--------|--------|-------|----------|---------|
+`;
+
+      // Generate rows for primary attacks only
+      filteredWeapons.forEach((weapon: any) => {
+        const attack = weapon.primary;
+        if (!attack || !attack.damage) return;
+
+        const name = weapon.name;
+        const damageType = attack.damage_type || 'physical';
+        const damage = `${attack.damage}/${attack.damage_extra} ${damageType}`;
+        const energy = attack.energy || 0;
+        const range = convertRange(attack.min_range || 1, attack.max_range || 1);
+        const category = convertCategory(attack.category || '');
+
+        // Build special properties
+        const specials = [];
+        if (attack.ammo_capacity && attack.ammo_capacity > 0) {
+          specials.push('Reload');
+        }
+        if (weapon.secondary && weapon.secondary.damage) {
+          specials.push('Alternate Attack');
+        }
+        const special = specials.length > 0 ? specials.join(', ') : '-';
+
+        table += `| ${name} | ${damage} | ${energy} | ${range} | ${category} | ${special} |\n`;
+      });
+
+      return table;
+    };
+
+    let processedContent = content;
+
+    // Process Simple Melee (1h and 2h)
+    const simpleMelee1h = generateTable(weaponsByCategory.simpleMelee, 1);
+    const simpleMelee2h = generateTable(weaponsByCategory.simpleMelee, 2);
+    const simpleMeleeTable = (simpleMelee1h ? `### One-Handed\n${simpleMelee1h}` : '') +
+                            (simpleMelee2h ? `\n### Two-Handed\n${simpleMelee2h}` : '');
+    processedContent = processedContent.replace(
+      /<!-- SIMPLE_MELEE_TABLE_START -->[\s\S]*?<!-- SIMPLE_MELEE_TABLE_END -->/,
+      simpleMeleeTable
+    );
+
+    // Process Complex Melee (1h and 2h)
+    const complexMelee1h = generateTable(weaponsByCategory.complexMelee, 1);
+    const complexMelee2h = generateTable(weaponsByCategory.complexMelee, 2);
+    const complexMeleeTable = (complexMelee1h ? `### One-Handed\n${complexMelee1h}` : '') +
+                             (complexMelee2h ? `\n### Two-Handed\n${complexMelee2h}` : '');
+    processedContent = processedContent.replace(
+      /<!-- COMPLEX_MELEE_TABLE_START -->[\s\S]*?<!-- COMPLEX_MELEE_TABLE_END -->/,
+      complexMeleeTable
+    );
+
+    // Process Simple Ranged
+    const simpleRangedTable = generateTable(weaponsByCategory.simpleRanged);
+    processedContent = processedContent.replace(
+      /<!-- SIMPLE_RANGED_TABLE_START -->[\s\S]*?<!-- SIMPLE_RANGED_TABLE_END -->/,
+      simpleRangedTable
+    );
+
+    // Process Complex Ranged
+    const complexRangedTable = generateTable(weaponsByCategory.complexRanged);
+    processedContent = processedContent.replace(
+      /<!-- COMPLEX_RANGED_TABLE_START -->[\s\S]*?<!-- COMPLEX_RANGED_TABLE_END -->/,
+      complexRangedTable
+    );
+
+    // Process Throwing
+    const throwingTable = generateTable(weaponsByCategory.throwing);
+    processedContent = processedContent.replace(
+      /<!-- THROWING_TABLE_START -->[\s\S]*?<!-- THROWING_TABLE_END -->/,
+      throwingTable
+    );
+
+    // Process Staves
+    const stavesTable = generateTable(weaponsByCategory.staves);
+    processedContent = processedContent.replace(
+      /<!-- STAVES_TABLE_START -->[\s\S]*?<!-- STAVES_TABLE_END -->/,
+      stavesTable
+    );
+
+    // Process Wands
+    const wandsTable = generateTable(weaponsByCategory.wands);
+    processedContent = processedContent.replace(
+      /<!-- WANDS_TABLE_START -->[\s\S]*?<!-- WANDS_TABLE_END -->/,
+      wandsTable
+    );
+
+    // Process Unarmed
+    const unarmedTable = generateTable(weaponsByCategory.unarmed);
+    processedContent = processedContent.replace(
+      /<!-- UNARMED_TABLE_START -->[\s\S]*?<!-- UNARMED_TABLE_END -->/,
+      unarmedTable
+    );
+
+    return processedContent;
+  } catch (error) {
+    console.error('Error processing weapon tables:', error);
+    // Replace all weapon table placeholders with error message
+    const markers = ['SIMPLE_MELEE', 'COMPLEX_MELEE', 'SIMPLE_RANGED', 'COMPLEX_RANGED', 'THROWING', 'STAVES', 'WANDS', 'UNARMED'];
+    let processedContent = content;
+
+    for (const marker of markers) {
+      const regex = new RegExp(
+        `<!-- ${marker}_TABLE_START -->[\\s\\S]*?<!-- ${marker}_TABLE_END -->`,
+        'g'
+      );
+      processedContent = processedContent.replace(regex, '*Error loading weapon data*');
+    }
+
+    return processedContent;
+  }
+};
+
 const WikiPage = () => {
   const { pageId } = useParams<{ pageId: string }>();
   const [content, setContent] = useState<string>('');
@@ -686,6 +902,15 @@ const WikiPage = () => {
         // Process song data if present
         if (contentText.includes('<!-- SONG_DATA_START -->')) {
           contentText = await processSongData(contentText);
+        }
+
+        // Process weapon tables if present
+        if (contentText.includes('_TABLE_START -->') && (
+            contentText.includes('MELEE') || contentText.includes('RANGED') ||
+            contentText.includes('THROWING') || contentText.includes('STAVES') ||
+            contentText.includes('WANDS') || contentText.includes('UNARMED')
+          )) {
+          contentText = await processWeaponTables(contentText);
         }
 
         setContent(contentText);
