@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Juggernaut",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Forceful Shove",
+      "description": "Gain +1 skill with might. The distance you shove a creature is increased by 1 unit.",
+      "location": "1",
+      "data": "SSC=1"
+    },
+    {
+      "name": "Action : Mass Shove",
+      "description": "You take a specialized version of the Shove action that targets an additional adjacent creature.",
+      "location": "2a",
+      "data": "XINE=2"
+    },
+    {
+      "name": "Reaction : Intercept",
+      "description": "In response to a creature moving through a unit that is within 2 units of you, interpose yourself. Both you and the creature must make a contested might check with the loser being knocked prone. If your target is the one who failed the check, the rest of the movement they were using is lost.",
+      "location": "2b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Deflection Specialist",
+      "description": "You use your body, weapon and whatever is available to you to avoid attacks. Gain +1 skill with deflection.",
+      "location": "3",
+      "data": "SSB=1"
+    },
+    {
+      "name": "Stubborn Body",
+      "description": "Your body is just more apt at absorbing damage. Gain +1 physical and toxic mitigation.",
+      "location": "4a",
+      "data": "M1=1:M9=1"
+    },
+    {
+      "name": "Stubborn Will",
+      "description": "Your willpower is more equipped for strain. Gain +1 aether and psychic mitigation and gain +1 maximum resolve.",
+      "location": "4b",
+      "data": "M7=1:M8=1:A2=1"
+    },
+    {
+      "name": "Action : Bulldozer",
+      "description": "You move 2 units and make a shove attack against a creature. If the creature ends up prone as part of this attack, immediately make an attack with a melee weapon.",
+      "location": "5",
+      "data": "XINE=3"
+    },
+    {
+      "name": "Juggernaut's Weaponry",
+      "description": "Big weapons are better. Gain +1 skill with complex melee weapons.",
+      "location": "6a",
+      "data": "WS5=1"
+    },
+    {
+      "name": "Limitless Energy",
+      "description": "You are an unstoppable hulk. Gain +1 skill with endurance and +1 maximum energy",
+      "location": "6b",
+      "data": "SSD=1:A3=1"
+    },
+    {
+      "name": "Behemoth",
+      "description": "Creatures that are 1 size larger than you become eligible to shove. When you use the shove action and push a creature into a large object sturdy enough to stop them, they take 4 fall damage and also become prone.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

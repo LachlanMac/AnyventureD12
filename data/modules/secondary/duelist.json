@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Duelist",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Measured Footwork",
+      "description": "Your stance is all economy and threat. Gain +1 skill with coordination. When you are knocked prone after failing a check, you can roll a single coordination dice to attempt to regain your footing; on an 8 or higher, you remain standing.",
+      "location": "1",
+      "data": "TG:SSG=1"
+    },
+    {
+      "name": "Action : Opening Feint",
+      "description": "If you have not yet taken an action on your turn or used movement, make a feint attack with a melee weapon in your main hand while actually making an attack from a melee weapon in one of your extra slots. This attack gains 2 bonus dice.",
+      "location": "2a",
+      "data": "XINE=2"
+    },
+    {
+      "name": "Reaction : Gain Tempo",
+      "description": "In response to being the target of a melee attack, you trade defense for offense. You suffer a penalty dice on your defense check, but your next melee attack before the end of your next turn gains a bonus dice.",
+      "location": "2b",
+      "data": "ZINE=0"
+    },
+    {
+      "name": "Evasive Specialist",
+      "description": "The most important rule in a fight is to not get hit. Gain +1 skill with evasion.",
+      "location": "3",
+      "data": "SSB=1"
+    },
+    {
+      "name": "Insightful Guard",
+      "description": "Your instincts lock onto the slightest tell. Gain +1 skill with insight. While you are benefiting from the Defend action, making an attack of opportunity does not end its effects.",
+      "location": "4a",
+      "data": "TG:SSS=1"
+    },
+    {
+      "name": "Methodical Riposte",
+      "description": "You break an opponent down as soon as their strike glances off. Gain +1 skill with logic. While you are benefiting from the Defend action, the first time each round a melee attack deals no damage to you, you can make an immediate counterattack with a simple melee weapon.",
+      "location": "4b",
+      "data": "TG:SSL=1"
+    },
+    {
+      "name": "Mobility",
+      "description": "Gain +1 movement speed. If you spend 3 or more units of movement after making an attack that involves a melee weapon and end up in a space with no adjacent creatures, you automatically get credit for taking the defend action. ",
+      "location": "5",
+      "data": "K1=1:TG"
+    },
+    {
+      "name": "School of the Blade",
+      "description": "You find that the most simple weapons are the best for dueling. Gain +1 skill with simple melee weapons.",
+      "location": "6a",
+      "data": "WS3=1"
+    },
+    {
+      "name": "School of Improvisation",
+      "description": "You weaponize anything within arm's reach. Gain +1 skill with throwing weapons and +1 skill with brawling attacks.",
+      "location": "6b",
+      "data": "WS2=1:WS1=1"
+    },
+    {
+      "name": "Action : Coupe de Grace",
+      "description": "You attempt to finish off a Large or smaller opponent with a well struck melee attack. Add a single coordination dice into your attack pool. After the damage is calculated, if the target's health or resolve (if it is a creature that has resolve) is less than the coordination dice, you decide to either execute or knock the target unconscious.",
+      "location": "7",
+      "data": "XINE=2"
+    }
+  ]
+}

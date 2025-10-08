@@ -1,3 +1,19 @@
+########### OVERRIDE DEFAULT ###########
+KEY (O)
+
+EX. OA1   (OVERRIDE SHOVE, INCREASE BY 1 UNIT)
+
+A: SHOVE
+   1: INCREASE BY 1 unit
+
+   
+B: SPRINT
+   1: NO ENERGY
+C: USE
+
+D: ATTACK OF OPPORTUNITY: 
+
+
 ########### SKILLS ###########
 KEY (S)
 EX. SS1=1 SKILL  ST1=1 TALENT
