@@ -60,9 +60,9 @@
     },
     {
       "name": "Dig Deep",
-      "description": "You have increased energy levels that allow you to persevere physically and mentally. Gain +1 maximum energy and +1 skill with resilience.",
+      "description": "You have increased energy levels that allow you to persevere physically and mentally. Gain +1 energy regeneration and +1 skill with resilience.",
       "location": "7",
-      "data": "A3=1:SSI=1"
+      "data": "A3=7:SSI=1"
     }
   ]
 }

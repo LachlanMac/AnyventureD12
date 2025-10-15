@@ -36,7 +36,7 @@
     },
     {
       "name": "Action : Power Pummel",
-      "description": "You make a vicious attack with either a brawling or melee weapon that has the blunt property. If at least 3 dice hit, the target becomes dazed. If 3 dice are all 8 or higher, the target becomes stunned.",
+      "description": "You make a vicious attack with either a brawling or melee weapon that has the blunt property. If at least 3 dice hit, the target becomes dazed. If at least three dice are critical hits, the target becomes stunned.",
       "location": "4b",
       "data": "XINE=2"
     },
