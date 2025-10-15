@@ -1,9 +1,0 @@
-{
-  "id": "concussion",
-  "type": "lingering_injury",
-  "name": "Concussion",
-  "description": "Ongoing effects from traumatic brain injury including chronic headaches, confusion, and memory impairment.",
-  "data": "",
-  "foundry_icon": "icons/commodities/biological/organ-brain-pink.webp",
-  "foundry_id": "g5j2m7p0s3v6y9c1"
-}

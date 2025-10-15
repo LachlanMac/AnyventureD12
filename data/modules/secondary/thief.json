@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Kleptomania",
-      "description": "When you steal an object, you gain 1 morale for each 50 gold of value on the object up to a maximum of 10. This bonus can only occur once per day.",
+      "description": "When you steal an object, you gain 1 morale for each 50 gold of value on the object up to a maximum of 10. If the object you stole is worth over 200 gold, you can instead elect to remove a minor stress injury. This bonus can only occur once per day.",
       "location": "1",
       "data": "TG"
     },
@@ -30,7 +30,7 @@
     },
     {
       "name": "Thrill of the Steal",
-      "description": "Gain +1 skill with coordination. Once per day, when you steal an object valued at 100 gold or higher, gain +1 resolve for each 100 gold valuation of the object.",
+      "description": "Gain +1 skill with coordination. Once per day, when you steal an object valued at 100 gold or higher, gain +1 resolve for each 100 gold valuation of the object. ",
       "location": "4a",
       "data": "TG:SSG=1"
     },

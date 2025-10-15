@@ -1,0 +1,14 @@
+{
+  "id": "mental_major",
+  "type": "mental_injury",
+  "severity": "major",
+  "name": "Major Mental Injury",
+  "description": "A major mental injury causing significant psychological stress. This could be acute stress, paranoia, or intrusive thoughts. Increases stress by 2. Recovery requires a successful Resilience check of 15 during a full rest at full resolve. The threshold decreases by 1 after each failed recovery attempt.",
+  "data": "",
+  "pain": 0,
+  "stress": 2,
+  "recovery_dc": 15,
+  "recovery_stat": "resilience",
+  "foundry_icon": "icons/magic/control/fear-fright-white.webp",
+  "foundry_id": "m2a3j4o5r6m7e8n9"
+}

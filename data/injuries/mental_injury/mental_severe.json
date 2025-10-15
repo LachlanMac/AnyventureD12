@@ -1,0 +1,14 @@
+{
+  "id": "mental_severe",
+  "type": "mental_injury",
+  "severity": "severe",
+  "name": "Severe Mental Injury",
+  "description": "A severe mental injury causing extreme psychological trauma. This could be PTSD, breakdown, or severe dissociation. Increases stress by 3. Recovery requires a successful Resilience check of 20 during a full rest at full resolve. The threshold decreases by 1 after each failed recovery attempt.",
+  "data": "",
+  "pain": 0,
+  "stress": 3,
+  "recovery_dc": 20,
+  "recovery_stat": "resilience",
+  "foundry_icon": "icons/magic/control/fear-fright-shadow-monster-purple.webp",
+  "foundry_id": "m3s4e5v6e7r8e9m0"
+}

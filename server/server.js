@@ -28,6 +28,7 @@ import creatureRoutes from './routes/creatureRoutes.js';
 import songRoutes from './routes/songRoutes.js';
 import foundryRoutes from './routes/foundryRoutes.js';
 import injuryRoutes from './routes/injuryRoutes.js';
+import conditionRoutes from './routes/conditionRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
 
@@ -41,6 +42,7 @@ import { initializeAncestries } from './utils/ancestrySeeder.js';
 import { initializeCultures } from './utils/cultureSeeder.js';
 import { initializeTraits } from './utils/traitSeeder.js';
 import { initializeInjuries } from './utils/injurySeeder.js';
+import { seedConditions } from './utils/conditionSeeder.js';
 import { loadCreaturesFromJson } from './utils/creatureSeeder.js';
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
@@ -117,6 +119,8 @@ const connectDB = async () => {
     await initializeTraits();
     console.log('Initializing injuries...');
     await initializeInjuries();
+    console.log('Initializing conditions...');
+    await seedConditions();
     console.log('Initializing creatures...');
     await loadCreaturesFromJson();
   } catch (error) {
@@ -137,6 +141,7 @@ app.use('/api/spells', spellRoutes);
 app.use('/api/songs', songRoutes);
 app.use('/api/items', itemRoutes);
 app.use('/api/injuries', injuryRoutes);
+app.use('/api/conditions', conditionRoutes);
 app.use('/api/campaigns', campaignRoutes);
 app.use('/api/songs', songRoutes);
 app.use('/api/homebrew', homebrewRoutes);

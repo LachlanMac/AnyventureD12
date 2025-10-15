@@ -49,13 +49,13 @@
     },
     {
       "name": "Um, Actually",
-      "description": "Once per day, when another character makes a skill check for a skill you have equal or higher level in, you can immediately make the same check. If your result is higher, you gain 3 resolve as you correct their technique. The subject of this criticism can have your check replace theirs, but they lose 2 resolve.",
+      "description": "Once per day, when another character makes a skill check for a skill you have equal or higher level in, you can immediately make the same check. If your result is higher, you gain 3 resolve as you correct their technique. The subject of this criticism can have your check replace theirs, but they gain a minor stress injury.",
       "location": "6a",
       "data": "TP"
     },
     {
       "name": "Meticulous Detail",
-      "description": "Gain +1 skill with all crafting skills, but all of your crafting recipes take twice as long, and failing any recipe causes you to lose all of your morale.",
+      "description": "Gain +1 skill with all crafting skills, but all of your crafting recipes take twice as long, and failing any recipe causes you to gain a minor stress injury.",
       "location": "6b",
       "data": "CS1=1:CS2=1:CS3=1:CS4=1:CS5=1:CS6=1"
     },

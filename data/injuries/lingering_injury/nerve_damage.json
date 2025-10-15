@@ -1,9 +1,0 @@
-{
-  "id": "nerve_damage",
-  "type": "lingering_injury",
-  "name": "Nerve Damage",
-  "description": "You nervous system has been damaged, affecting your balance and senses.",
-  "data": "",
-  "foundry_icon": "icons/skills/wounds/injury-body-pain-gray.webp",
-  "foundry_id": "99446x4h648h5wm6"
-}

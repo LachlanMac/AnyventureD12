@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Memorable Presence",
-      "description": "Your reputation precedes you. Gain +1 skill with expression. When you introduce yourself with your full title or catchphrase, NPCs must make an insight check (DC 8) or be either impressed or intimidated (your choice).",
+      "description": "Your reputation precedes you. Gain +1 skill with expression. When you introduce yourself with your full title or catchphrase, NPCs must make an insight check of 8 or be either impressed or intimidated (your choice).",
       "location": "1",
       "data": "SSQ=1:TG"
     },

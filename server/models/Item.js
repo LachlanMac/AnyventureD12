@@ -87,9 +87,19 @@ const ItemSchema = new Schema({
       enum: ["light", "heavy", "none"],
       default: "none"
   },
-  consumable_category: { 
-      type: String, 
+  consumable_category: {
+      type: String,
       enum: ["poisons", "elixirs", "potions", "explosives"],
+  },
+  substance: {
+    category: {
+      type: String,
+      enum: ["alcohol", "painkiller", "depressant", "euphoric"]
+    },
+    dependency: {
+      type: Number,
+      default: 0
+    }
   },
   bonus_attack: {
     type: Number,

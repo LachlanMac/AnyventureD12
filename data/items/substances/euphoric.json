@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Sunrise Drops",
+    "description": "A mild alchemical tonic that brightens the mood and lifts the spirits. Popular among travelers and workers for maintaining a positive outlook through long days. The gentle warmth spreads through your chest, making troubles seem more manageable.",
+    "type": "consumable",
+    "substance": {
+      "category": "euphoric",
+      "dependency": 1,
+      "effect": "Gain +2 morale for 4 hours.",
+      "duration": "4 hours"
+    },
+    "weight": 0.1,
+    "value": 25,
+    "rarity": "common",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 4,
+      "ingredients": [
+        "Bundle of Guarana",
+        "Bundle of Golden Poppy"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-vial-corked-yellow.webp",
+    "foundry_id": "s8u7n6r5i4s3e2d1"
+  },
+  {
+    "name": "Golden Rush",
+    "description": "A golden tonic brewed from rare poppy flowers. Drinkers report feeling sunlight in their veins and an unshakeable optimism. Merchants use it before high-stakes negotiations. When the effect fades, morale crashes to nothing.",
+    "type": "consumable",
+    "substance": {
+      "category": "euphoric",
+      "dependency": 2,
+      "effect": "Gain +5 morale for 4 hours. When the effect ends, morale is set to 0.",
+      "duration": "4 hours"
+    },
+    "weight": 0.2,
+    "value": 250,
+    "rarity": "uncommon",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 6,
+      "ingredients": [
+        "Bundle of Golden Poppy",
+        "Vial of Alchemists Spirits",
+        "Stabilizing Salt"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-gold.webp",
+    "foundry_id": "g8r4u1s9h6t2y5n7"
+  },
+  {
+    "name": "Sparksalt",
+    "description": "Crystallized spark dust snorted in a sharp, burning line. Instant electric confidence floods through you - everything feels possible, every risk worth taking. Burns bright and fast. The silence when it fades is deafening.",
+    "type": "consumable",
+    "substance": {
+      "category": "euphoric",
+      "dependency": 3,
+      "effect": "Gain +8 morale for 2 hours. When the effect ends, morale is set to 0.",
+      "duration": "2 hours"
+    },
+    "weight": 0.05,
+    "value": 350,
+    "rarity": "uncommon",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 8,
+      "ingredients": [
+        "Spark Dust",
+        "Pinch of Saltpeter",
+        "Stabilizing Salt"
+      ]
+    },
+    "foundry_icon": "icons/commodities/materials/crystal-salt-yellow.webp",
+    "foundry_id": "s7p9a4r3k2s8a1l6"
+  },
+  {
+    "name": "Black Honey",
+    "description": "A thick, dark resin harvested from midnight poppies that grow only in cursed soil. When dissolved under the tongue, it brings absolute peace and euphoria. All stress melts away, all fear vanishes, and users report feeling wrapped in warm silk. Highly illegal and devastatingly addictive. Many who taste Black Honey chase that perfect moment for the rest of their shortened lives.",
+    "type": "consumable",
+    "substance": {
+      "category": "euphoric",
+      "dependency": 4,
+      "effect": "Set morale to maximum, reduce stress by 5, and gain immunity to fear for 1 hour. When the effect ends, morale is set to 0.",
+      "duration": "1 hour"
+    },
+    "weight": 0.1,
+    "value": 1200,
+    "rarity": "rare",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 10,
+      "ingredients": [
+        "Vial of Alchemists Spirits",
+        "Bundle of Nightshade",
+        "Bundle of Golden Poppy",
+        "Vial of Venom",
+        "Stabilizing Salt"
+      ]
+    },
+    "side_effect": "Illegal in most civilized territories. Possession can result in arrest.",
+    "foundry_icon": "icons/consumables/potions/potion-vial-corked-black.webp",
+    "foundry_id": "a9p7e4x3m6k1q8s2"
+  }
+]

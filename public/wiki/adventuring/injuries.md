@@ -10,21 +10,21 @@ Cosmetic injuries are minor wounds that have primarily narrative impact with min
 *Injury data will be automatically populated from the game database*
 <!-- COSMETIC_INJURY_TABLE_END -->
 
-## Lingering Injuries
+## Physical Injuries
 
-Lingering injuries are moderate wounds that impose mechanical penalties until properly healed. These injuries affect a character's performance but can potentially be treated with time, medicine, or magic.
+Physical injuries represent bodily harm that causes pain and requires time to heal. To recover from a physical injury, you must complete a full rest while at full health and make an Endurance check against the injury's recovery threshold. Each failed recovery attempt reduces the threshold by 1, making the injury progressively easier to overcome with rest and care.
 
-<!-- LINGERING_INJURY_TABLE_START -->
+<!-- PHYSICAL_INJURY_TABLE_START -->
 *Injury data will be automatically populated from the game database*
-<!-- LINGERING_INJURY_TABLE_END -->
+<!-- PHYSICAL_INJURY_TABLE_END -->
 
-## Severe Wounds
+## Mental Injuries
 
-Severe wounds are major injuries that significantly impact a character's capabilities and require extensive treatment. These wounds often impose multiple penalties and may require specialized healing or long-term care.
+Mental injuries represent psychological trauma that causes stress and affects your mental state. To recover from a mental injury, you must complete a full rest while at full resolve and make a Resilience check against the injury's recovery threshold. Each failed recovery attempt reduces the threshold by 1, allowing gradual recovery through proper rest and mental care.
 
-<!-- SEVERE_WOUND_TABLE_START -->
+<!-- MENTAL_INJURY_TABLE_START -->
 *Injury data will be automatically populated from the game database*
-<!-- SEVERE_WOUND_TABLE_END -->
+<!-- MENTAL_INJURY_TABLE_END -->
 
 ## Missing Parts
 

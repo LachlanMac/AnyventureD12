@@ -1,0 +1,129 @@
+[
+  {
+    "name": "Hazeleaf",
+    "description": "Dried leaves from the hazel shrub, smoked in a pipe or rolled. Creates a warm, foggy calm where doubts fade and worries drift away. Popular among common folk for managing everyday stress.",
+    "type": "consumable",
+    "substance": {
+      "category": "depressant",
+      "dependency": 1,
+      "effect": "Reduces stress by 2 for 8 hours.",
+      "duration": "8 hours"
+    },
+    "weight": 0.1,
+    "value": 15,
+    "rarity": "common",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 4,
+      "ingredients": [
+        "Bundle of Guarana"
+      ]
+    },
+    "foundry_icon": "icons/consumables/herbs/leaf-cannabis-dark-brown.webp",
+    "foundry_id": "h5z3l7e9a2f4k6m8"
+  },
+  {
+    "name": "Stillwater Tea",
+    "description": "A simple herbal tea brewed from calming plants. Creates a gentle emotional numbness, like looking at the world through still water. Popular among those who need to stay composed during difficult negotiations or stressful situations.",
+    "type": "consumable",
+    "substance": {
+      "category": "depressant",
+      "dependency": 1,
+      "effect": "Grants the Numbed condition for 4 hours.",
+      "duration": "4 hours"
+    },
+    "weight": 0.1,
+    "value": 20,
+    "rarity": "common",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 5,
+      "ingredients": [
+        "Bundle of Valerian Root",
+        "Bundle of Mint"
+      ]
+    },
+    "foundry_icon": "icons/consumables/drinks/tea-cup-leaf-green.webp",
+    "foundry_id": "s4t6i8l2w9a3t7e1"
+  },
+  {
+    "name": "Skullward",
+    "description": "An alchemical preparation made with finely ground bone dust and crystalline compounds. Hardens the mind against psychic intrusion while dulling all emotion. Your thoughts become as solid and impenetrable as bone.",
+    "type": "consumable",
+    "substance": {
+      "category": "depressant",
+      "dependency": 3,
+      "effect": "Grants the Numbed condition and halves all psychic damage taken (before mitigation) for 4 hours.",
+      "duration": "4 hours"
+    },
+    "weight": 0.15,
+    "value": 300,
+    "rarity": "uncommon",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 9,
+      "ingredients": [
+        "Bone Dust",
+        "Pinch of Crystal Dust",
+        "Bundle of Valerian Root",
+        "Stabilizing Salt"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-skull.webp",
+    "foundry_id": "s9k7u4l2w6a8r1d3"
+  },
+  {
+    "name": "Fearless",
+    "description": "A fiery liquid that burns away terror and anxiety. Embers seem to dance in the bottle, and drinking it fills you with smoldering certainty. Fear and madness become ash in your veins.",
+    "type": "consumable",
+    "substance": {
+      "category": "depressant",
+      "dependency": 2,
+      "effect": "Grants the Numbed condition and immunity to Afraid and Maddened for 4 hours.",
+      "duration": "4 hours"
+    },
+    "weight": 0.15,
+    "value": 400,
+    "rarity": "uncommon",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 7,
+      "ingredients": [
+        "Ember Dust",
+        "Bundle of Embervine",
+        "Vial of Alchemists Spirits",
+        "Stabilizing Salt"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-red-orange.webp",
+    "foundry_id": "f6e9a3r8l1e7s4s2"
+  },
+  {
+    "name": "Leadheart Serum",
+    "description": "A dangerous metallic solution containing suspended lead particles. Makes the body and mind unchangeable, fixed in their current form. Your essence becomes as heavy and constant as lead itself.",
+    "type": "consumable",
+    "substance": {
+      "category": "depressant",
+      "dependency": 4,
+      "effect": "Grants the Numbed condition and immunity to transformations, polymorph, and curses for 6 hours.",
+      "duration": "6 hours"
+    },
+    "weight": 0.2,
+    "value": 1000,
+    "rarity": "rare",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 11,
+      "ingredients": [
+        "Lead Shavings",
+        "Vial of Alchemists Spirits",
+        "Stabilizing Salt",
+        "Bone Dust",
+        "Vial of Quicksilver"
+      ]
+    },
+    "side_effect": "Prolonged use can cause lead poisoning. Consult an alchemist or physician.",
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-gray.webp",
+    "foundry_id": "l8e3a6d9h5e2a4r1"
+  }
+]

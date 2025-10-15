@@ -2,8 +2,9 @@
   "id": "missing_hand",
   "type": "missing_part",
   "name": "Missing Hand",
-  "description": "Complete loss of hand, severely limiting manual dexterity and the ability to perform two-handed tasks.",
+  "description": "Complete loss of hand, severely limiting manual dexterity and the ability to perform two-handed tasks. This injury increases pain by 1.",
   "data": "JHX",
   "foundry_icon": "icons/commodities/biological/hand-clawed-tan.webp",
-  "foundry_id": "i9l6o3r0u7x4a1d8"
+  "foundry_id": "i9l6o3r0u7x4a1d8",
+  "pain": 1
 }

@@ -1,9 +1,0 @@
-{
-  "id": "broken_arm",
-  "type": "severe_wound",
-  "name": "Broken Arm",
-  "description": "Severe bone fracture that mended incorrectly, resulting in limited range of motion and significant pain during use.",
-  "data": "",
-  "foundry_icon": "icons/commodities/bones/bone-broken-grey.webp",
-  "foundry_id": "n9s6v3y0b7e4h1k8"
-}

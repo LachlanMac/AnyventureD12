@@ -23,7 +23,7 @@ A special sense that allows a creature to gain information about their surroundi
 A sense that is so precise it allows a creature to detect small micromovements in the ground and even air to determine the distances and approximate locations of creatures.
 
 ### Truesight
-A magical sight that allows the creature to see in complete darkness as well as see through magical effects like illusions, invisibility and spells that mask a creature's true form.
+A magical sight that allows the creature to see in complete darkness as well as visibly see strands of magics, allowing them to see enchantments, magical disguises and invisibility effects.
 
 
 <div class="triangle-line"></div>

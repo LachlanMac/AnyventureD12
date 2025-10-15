@@ -1,9 +1,0 @@
-{
-  "id": "internal_bleeding",
-  "type": "severe_wound",
-  "name": "Internal Bleeding",
-  "description": "You suffer from ongoing internal hemorrhaging that threatens your life. Without proper medical attention, this injury will worsen over time. You lose health periodically and are at risk of sudden collapse during strenuous activity.",
-  "data": "",
-  "foundry_icon": "icons/skills/wounds/blood-cells-vessel-red.webp",
-  "foundry_id": "nyalj6y2yfibsao9"
-}

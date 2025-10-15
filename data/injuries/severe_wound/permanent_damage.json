@@ -1,9 +1,0 @@
-{
-  "id": "permanent_damage",
-  "type": "severe_wound",
-  "name": "Permanent Damage",
-  "description": "Your body has received so much damage, that you are no long whole. Your maximum health is lowered by 1.",
-  "data": "J1X",
-  "foundry_icon": "icons/skills/wounds/injury-stapled-flesh-tan.webp",
-  "foundry_id": "shpjm683wfuczy25"
-}

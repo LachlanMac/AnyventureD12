@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Trance Master",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Trance Caster",
+      "description": "While you are under the effect of a substance, gain a bonus dice on spell checks.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Purge",
+      "description": "While under the effects of a substance, you cleanse your body and spirit, targeting a poison, potion or venom that is affecting you for instantaneous removal. Make a mysticism magic check against the current required check of the toxin. On a success, the effect as well as any substances that are affecting you are removed.",
+      "location": "2a",
+      "data": "XIME=2"
+    },
+    {
+      "name": "Reaction : Shroud",
+      "description": "While under the effects of a substance and in response to being targeted with psychic or aetheric damage, roll a concentration check and reduce the damage taken by an amount equal to the value that was rolled.",
+      "location": "2b",
+      "data": "ZIME=2"
+    },
+    {
+      "name": "Tranquility",
+      "description": "Gain +1 skill with concentration and your stress threshold is increased by 1.",
+      "location": "3",
+      "data": "AS=1:SSJ=1"
+    },
+    {
+      "name": "Apothecary",
+      "description": "Gain +1 skill with alchemy. When you craft substances, you can add a unique infusion that either raises or lowers the dependency by 1.",
+      "location": "4a",
+      "data": "CS3=1:TC"
+    },
+    {
+      "name": "Weaver",
+      "description": "Gain +1 skill with magic. When you channel a spell as a ritual while under the effect of a substance, you gain bonus dice equal to your dependency instead of the single bonus dice for your Trance Caster trait.",
+      "location": "4b",
+      "data": "SSO=1:TG"
+    },
+    {
+      "name": "Trancemancer",
+      "description": "Gain +1 skill with mysticism magic.",
+      "location": "5",
+      "data": "YS5=1"
+    },
+    {
+      "name": "Action : Spirit Journey",
+      "description": "You cause your body to go into an unconscious state while your aetheric form leaves your body. While in this form, you cannot interact with the physical world, but you can move anywhere within a 10 unit radius of your body but not take any actions or reactions. Your aetheric form is not affected by any conditions, but retains all of its senses, although your body does still make checks for any conditions on it. You can decide at any point to return to your body, causing you to regain consciousness at the start of your next turn.",
+      "location": "6a",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Action : Spirit Sight",
+      "description": "While under the effects of a substance, you can enhance your vision, granting you Truesight up to a short (10 unit) distance until the start of your next turn. You gain a bonus dice to any attacks made against a creature that is affected by magic while your Truesight lasts.",
+      "location": "6b",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Absolute Enlightenment",
+      "description": "While under the effect of a substance, you also gain a bonus dice on any knowledge and mind checks.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

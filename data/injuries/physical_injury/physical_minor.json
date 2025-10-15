@@ -1,0 +1,14 @@
+{
+  "id": "physical_minor",
+  "type": "physical_injury",
+  "severity": "minor",
+  "name": "Minor Physical Injury",
+  "description": "A minor physical injury that causes some pain but doesn't significantly impair function. This could be a sprain, bruise, or shallow cut. Increases pain by 1. Recovery requires a successful Endurance check of 10 during a full rest at full health. The threshold decreases by 1 after each failed recovery attempt.",
+  "data": "",
+  "pain": 1,
+  "stress": 0,
+  "recovery_dc": 10,
+  "recovery_stat": "endurance",
+  "foundry_icon": "icons/skills/wounds/injury-face-impact-orange.webp",
+  "foundry_id": "p1m2i3n4o5r6i7j8"
+}

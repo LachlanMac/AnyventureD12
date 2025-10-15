@@ -2,8 +2,9 @@
   "id": "missing_eye",
   "type": "missing_part",
   "name": "Missing Eye",
-  "description": "Your eye has been either removed or damaged beyond use, resulting in complete or near-complete loss of function.",
+  "description": "Your eye has been either removed or damaged beyond use, resulting in complete or near-complete loss of function. This injury causes no pain.",
   "data": "JEX",
   "foundry_icon": "icons/commodities/biological/eye-brown-red.webp",
-  "foundry_id": "ol399i8ad192ivq3"
+  "foundry_id": "ol399i8ad192ivq3",
+  "pain": 0
 }

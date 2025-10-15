@@ -11,10 +11,10 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Action : Valut",
+      "description": "Jump + Attack w/ Polearm. Move at least 3 units, +1 bonus dice.",
       "location": "2a",
-      "data": ""
+      "data": "XINE=1"
     },
     {
       "name": "",
@@ -29,20 +29,20 @@
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Monster Tamer",
+      "description": "Gain +1 skill with wildcraft. Your taming skill also works on monsters.",
       "location": "4a",
       "data": ""
     },
     {
-      "name": "",
-      "description": "",
+      "name": "Heavy Weaponry",
+      "description": "Gain +1 skill with complex melee weapons.",
       "location": "4b",
       "data": ""
     },
     {
       "name": "",
-      "description": "",
+      "description": "Gain +1 skill with deflection. Gain a bonus dice on defense checks against huge and larger creatures.",
       "location": "5",
       "data": ""
     },

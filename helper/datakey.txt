@@ -18,7 +18,9 @@ D: ATTACK OF OPPORTUNITY:
 KEY (S)
 EX. SS1=1 SKILL  ST1=1 TALENT
 EX. SS1=Y Means dice tier are downgraded by one
-EX. SS1=X Means dice tier are upgarded by one.
+EX. SS1=X Means dice tier are upgraded by one
+EX. SBA=1 Means add 1 bonus die to Fitness checks
+EX. SBA=-1 Means add 1 penalty die to Fitness checks
 ###############################
 1: Physique
 2: Finesse
@@ -65,6 +67,8 @@ EX B3 = Medium
 ########### WEAPONS ###########
 KEY (W)
 EX. WS1=1 SKILL  WT1=1 TALENT
+EX. WB1=1 Means add 1 bonus die to Brawling checks
+EX. WB1=-1 Means add 1 penalty die to Brawling checks
 
 ###############################
 1: Brawling
@@ -83,6 +87,8 @@ C: Exploding Critical?
 ############ MAGIC ############
 KEY (Y)
 EX. YS1=1 SKILL  YT1=1 TALENT
+EX. YB1=1 Means add 1 bonus die to Black magic checks
+EX. YB1=-1 Means add 1 penalty die to Black magic checks
 ################################
 1: Black
 2: Primal
@@ -93,6 +99,8 @@ EX. YS1=1 SKILL  YT1=1 TALENT
 ############ CRAFTING ############
 KEY (C)
 EX. CS1=1 SKILL  CT1=1 TALENT
+EX. CB1=1 Means add 1 bonus die to Engineering checks
+EX. CB1=-1 Means add 1 penalty die to Engineering checks
 ##################################
 1: Engineering
 2: Fabrication
@@ -137,8 +145,12 @@ D: COMPLEX RANGED WEAPON MAX RANGE
 E:THROWING WEAPON MIN RANGE
 F:THROWING WEAPON MAX RANGE
 
+
+
 M: MANA POINTS
+P: PAIN THRESHOLD
 T: THIEF SLOTS
+S: STRESS THRESHOLD
 Z=1: DUAL WIELD TIER 1
 Z=2: DUAL WIELD TIER 2
 
@@ -239,6 +251,7 @@ G: PASSIVE_SHELL [can use shields in  secondary slot]
 H: EFFICIENT_WEAPONRY [armsman 1 less energy on complex weapons]
 I: DARK SIGHT [when alerted, you have 10 units of darksight]
 J: FIRST_TO_FIGHT [always act in prepararation round]
+K: MONK RESOLVE
 
 
 ########### IMMUNITIES ###################

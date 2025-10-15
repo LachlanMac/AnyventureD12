@@ -65,74 +65,95 @@
       "order": 3
     },
     {
-      "id": "resources",
-      "title": "Resources",
-      "path": "core-mechanics/resources.md",
-      "category": "Core Mechanics",
-      "order": 4
-    },
-    {
       "id": "vision",
       "title": "Vision & Sight",
       "path": "core-mechanics/vision.md",
       "category": "Core Mechanics",
-      "order": 5
+      "order": 4
     },
     {
       "id": "ranges-distances",
       "title": "Ranges & Distances",
       "path": "core-mechanics/ranges_and_distances.md",
       "category": "Core Mechanics",
-      "order": 6
+      "order": 5
     },
     {
       "id": "hazards",
       "title": "Environmental Hazards",
       "path": "core-mechanics/hazards.md",
       "category": "Core Mechanics",
-      "order": 7
-    },
-    {
-      "id": "resting",
-      "title": "Resting",
-      "path": "core-mechanics/resting.md",
-      "category": "Core Mechanics",
-      "order": 8
+      "order": 6
     },
     {
       "id": "languages",
       "title": "Languages",
       "path": "core-mechanics/languages.md",
       "category": "Core Mechanics",
-      "order": 9
+      "order": 7
     },
     {
       "id": "narrative-dice",
       "title": "Narrative Dice",
       "path": "core-mechanics/narrative_dice.md",
       "category": "Core Mechanics",
-      "order": 10
-    },
-    {
-      "id": "injuries",
-      "title": "Injuries",
-      "path": "core-mechanics/injuries.md",
-      "category": "Core Mechanics",
-      "order": 11
-    },
-    {
-      "id": "wonder-and-woe",
-      "title": "Wonder & Woe",
-      "path": "core-mechanics/wonder-and-woe.md",
-      "category": "Core Mechanics",
-      "order": 12
+      "order": 8
     },
     {
       "id": "pets-and-mounts",
       "title": "Pets & Mounts",
       "path": "core-mechanics/pets-and-mounts.md",
       "category": "Core Mechanics",
-      "order": 13
+      "order": 9
+    },
+    {
+      "id": "resources",
+      "title": "Resources",
+      "path": "adventuring/resources.md",
+      "category": "Adventuring",
+      "order": 1
+    },
+    {
+      "id": "conditions",
+      "title": "Conditions",
+      "path": "adventuring/conditions.md",
+      "category": "Adventuring",
+      "order": 2
+    },
+    {
+      "id": "pain-and-stress",
+      "title": "Pain & Stress",
+      "path": "adventuring/pain_and_stress.md",
+      "category": "Adventuring",
+      "order": 3
+    },
+    {
+      "id": "injuries",
+      "title": "Injuries",
+      "path": "adventuring/injuries.md",
+      "category": "Adventuring",
+      "order": 4
+    },
+    {
+      "id": "resting",
+      "title": "Resting",
+      "path": "adventuring/resting.md",
+      "category": "Adventuring",
+      "order": 5
+    },
+    {
+      "id": "substances",
+      "title": "Substances",
+      "path": "adventuring/substances.md",
+      "category": "Adventuring",
+      "order": 6
+    },
+    {
+      "id": "wonder-and-woe",
+      "title": "Wonder & Woe",
+      "path": "adventuring/wonder-and-woe.md",
+      "category": "Adventuring",
+      "order": 7
     },
     {
       "id": "tracking-combat",
@@ -170,18 +191,11 @@
       "order": 5
     },
     {
-      "id": "conditions",
-      "title": "Conditions",
-      "path": "combat/conditions.md",
-      "category": "Combat",
-      "order": 6
-    },
-    {
       "id": "npcs",
       "title": "NPCs",
       "path": "combat/npcs.md",
       "category": "Combat",
-      "order": 7
+      "order": 6
     },
     {
       "id": "magic-types",
@@ -262,7 +276,7 @@
     },
     {
       "id": "alchemy",
-      "title": "Alchemy", 
+      "title": "Alchemy",
       "path": "crafting/alchemy.md",
       "category": "Crafting",
       "order": 4

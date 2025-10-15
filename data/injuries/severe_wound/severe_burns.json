@@ -1,9 +1,0 @@
-{
-  "id": "severe_burns",
-  "type": "severe_wound",
-  "name": "Severe Burns",
-  "description": "Extensive third-degree burns that have permanently damaged skin tissue and underlying structures.",
-  "data": "",
-  "foundry_icon": "icons/magic/fire/flame-burning-skeleton-explosion.webp",
-  "foundry_id": "o1u8x5a2d9g6j3m0"
-}

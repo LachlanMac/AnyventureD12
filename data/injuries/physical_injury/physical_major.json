@@ -1,0 +1,14 @@
+{
+  "id": "physical_major",
+  "type": "physical_injury",
+  "severity": "major",
+  "name": "Major Physical Injury",
+  "description": "A major physical injury that causes significant pain and impairment. This could be a fracture, deep laceration, or severe strain. Increases pain by 2. Recovery requires a successful Endurance check of 15 during a full rest at full health. The threshold decreases by 1 after each failed recovery attempt.",
+  "data": "",
+  "pain": 2,
+  "stress": 0,
+  "recovery_dc": 15,
+  "recovery_stat": "endurance",
+  "foundry_icon": "icons/skills/wounds/injury-eyes-blood-red-pink.webp",
+  "foundry_id": "p2m3a4j5o6r7i8n9"
+}

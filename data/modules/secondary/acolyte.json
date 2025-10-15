@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Acolyte",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Sect",
+      "description": "You have undergone secret initiation rites and sworn oaths to a mystical sect, bearing their hidden symbols as proof of your membership. This initiation grants you the right to access sect safehouses and hidden sanctuaries, receive cryptic guidance from senior members, speak with the authority of your sect in matters of faith or arcane knowledge, and call upon fellow initiates for aid when available. To receive these benefits, you are expected to uphold the tenets and advance the goals of the sect which you serve.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Ritualist",
+      "description": "Gain +1 skill with magic. When you use take part in a ritual as a participant, your success offers 3 to the channel instead of 2.",
+      "location": "2a",
+      "data": "TG:SSO=1"
+    },
+    {
+      "name": "Inscriptions",
+      "description": "Gain +1 skill with glyphcraft. You additionally unlock a unique glyphcraft infusion that can be applied when crafting accessories that grants the wearer +1 additional resolve after completing a full rest and also allows them to identify anyone else wearing this mark within a short (10 unit) distance. The bonuses granted by this infusion do not stack.",
+      "location": "2b",
+      "data": "TC:CS5=1"
+    },
+    {
+      "name": "Daily Reaction : Conviction",
+      "description": "In response to making a mind check (Resilience, Concentration, Logic, or Senses), you can reroll the check replace your entire dice pool with a single d20. If the result is lower than the initial check, you lose 3 resolve. If it is higher, you gain 3 resolve.",
+      "location": "3",
+      "data": "ZDNE=0"
+    },
+    {
+      "name": "Ancient Knowledge",
+      "description": "Your cult has ancient knowledge that allows them to channel spells that are not easily obtainable. Gain +2 spell capacity. Additionally, you can learn a single exotic school of magic in a major school you have at least one talent in.",
+      "location": "4a",
+      "data": "A9=2"
+    },
+    {
+      "name": "Ancient Language",
+      "description": "Learn a magical language at the fluent level. Additionally, gain +1 skill with academics.",
+      "location": "4b",
+      "data": "SSN=1"
+    },
+    {
+      "name": "Unshakeable Belief",
+      "description": "Your beliefs are incorruptible. Gain +1 resilience and +1 mitigation to dark and divine damage.",
+      "location": "5",
+      "data": "SSI=1:M5=1:M6=1"
+    },
+    {
+      "name": "Life Cult",
+      "description": "Gain +1 skill with Divine magic and Primal Magic.",
+      "location": "6a",
+      "data": "YS4=1:YS2=1"
+    },
+    {
+      "name": "Death Cult",
+      "description": "Gain +1 skill with Dark magic and Meta Magic.",
+      "location": "6b",
+      "data": "YS1=1:YS3=1"
+    },
+    {
+      "name": "Daily Action : Offering",
+      "description": "You channel a spell and charge it by sacrificing your health, removing the component requirement. The amount of health required is equal to double the non-charged check required to channel the spell. If this action brings you to 0 health, you also gain a severe physical injury. If you fail to channel the spell, you only lose health equal to the non-charged spell check.",
+      "location": "7",
+      "data": "XDME=0"
+    }
+  ]
+}

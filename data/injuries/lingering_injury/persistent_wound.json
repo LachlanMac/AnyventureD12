@@ -1,9 +1,0 @@
-{
-  "id": "persistent_wound",
-  "type": "lingering_injury",
-  "name": "Persistent Wound",
-  "description": "A wound that that is taking a long time to heal that causes a lot of pain and reduces your maximum vitality.",
-  "data": "",
-  "foundry_icon": "icons/skills/wounds/blood-cells-vessel-red.webp",
-  "foundry_id": "h7k4n1q8t5w2z9e3"
-}

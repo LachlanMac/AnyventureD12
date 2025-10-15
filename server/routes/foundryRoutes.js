@@ -242,10 +242,10 @@ const getGenericIcon = (data, type) => {
           return 'icons/skills/wounds/injury-face-mask-red.webp';
         case 'missing_part':
           return 'icons/skills/wounds/bone-broken-marrow-yellow.webp';
-        case 'lingering_injury':
-          return 'icons/skills/wounds/blood-cells-vessel-red.webp';
-        case 'severe_wound':
-          return 'icons/skills/wounds/injury-triple-slash-blood.webp';
+        case 'physical_injury':
+          return 'icons/skills/wounds/injury-pain-body-orange.webp';
+        case 'mental_injury':
+          return 'icons/magic/unholy/orb-beams-purple.webp';
         default:
           return 'icons/skills/wounds/injury-pain-body-orange.webp';
       }
@@ -357,6 +357,7 @@ const convertToFoundryFormat = (data, type) => {
         holdable: data.holdable,
         shield_category: data.shield_category,
         consumable_category: data.consumable_category,
+        substance: data.substance || null,
         primary: data.primary,
         secondary: data.secondary,
         bonus_attack: data.bonus_attack,
@@ -425,8 +426,11 @@ const convertToFoundryFormat = (data, type) => {
         description: data.description,
         injuryType: data.type,
         cause: "",
-        data: data.data || "",
-        flag: data.id || ""
+        recovery_check: data.recovery_dc || 0,
+        recovery_skill: data.recovery_stat || "resilience",
+        pain: data.pain || 0,
+        stress: data.stress || 0,
+        data: data.data || ""
       };
       break;
 

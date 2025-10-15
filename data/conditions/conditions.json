@@ -1,104 +1,154 @@
 [
   {
-    "id": 1,
+    "id": "afraid",
     "name": "Afraid",
     "category": "Mental",
-    "description": "Cannot take Reactions. Must roll DC 12 Resilience to use an Action. On failure, you move away from the source of fear a number of units equal to half the difference. On success, the condition ends. Each failure lowers the DC by 1."
+    "description": "An afraid character cannot take reactions and must roll a resilience check of 10 whenever they attempt to use an action. On a failure, the afraid character instead moves a number of units equal to their movement speed away from the source of their fear. On a success, the condition ends. Each time this check is made, it is lowered by 1."
   },
   {
-    "id": 2,
-    "name": "Bleeding",
-    "category": "Physical",
-    "description": "Take 1 damage at the end of your turn. Can be stopped with a successful Medicine check or magical healing."
+    "id": "alert",
+    "name": "Alert",
+    "category": "Mental",
+    "description": "An alert character automatically makes a senses check when another creature attempts to make a stealth check without costing an action. If they are able to use reactions, they can point out the character that is attempting to stealth revealing them to their allies. A character can choose to become Alert at any time during their turn, but maintaining this heightened awareness requires their concentration."
   },
   {
-    "id": 3,
-    "name": "Blinded",
-    "category": "Physical",
-    "description": "-1 die on all Attack rolls and Defense rolls (Evasion or Deflection). Cannot make visual checks."
-  },
-  {
-    "id": 4,
+    "id": "broken",
     "name": "Broken",
     "category": "Mental",
-    "description": "Resolve is 0. Cannot regain Resolve. All Mind checks (Resilience, Concentration, Logic, Senses) suffer a -1 die penalty. Must make a DC 10 check during a Favorable Rest (Resilience or Concentration) to recover."
+    "description": "The broken condition happens when a character reaches 0 resolve. While broken, a character rolls with 1 penalty dice on knowledge, social and mind checks and automatically fail checks against the afraid, confused, maddened or charmed conditions. They also cannot recover resolve until the condition is removed. In order to lose the broken condition, a character must make a resilience check of 12 at the end of a full rest. For each full rest taken, this check is lowered by 1."
   },
   {
-    "id": 5,
+    "id": "charmed",
     "name": "Charmed",
     "category": "Mental",
-    "description": "You are under the influence of another creature. Cannot target them with hostile actions. May obey commands."
+    "description": "A charmed character views the person who charmed them as a trusted ally and cannot take aggressive actions towards them. The charmer can issue commands as an action by succeeding on a contested persuasion check against the charmed creature's insight. The charmer also gains a bonus dice to all social checks against the charmed creature. There are several types of charms with different durations and ways to end the condition. If the charmed person asks the charmed creature to do anything that would cause self-harm or danger to an ally, the next check to break out of the charm is doubled."
   },
   {
-    "id": 6,
+    "id": "confused",
     "name": "Confused",
     "category": "Mental",
-    "description": "Each turn, roll 1d4: (1) attack random target, (2) move in a random direction, (3) lose your Action, (4) act normally."
+    "description": "A character who is confused must roll a 1d4 every time they attempt to take an action or reaction. At the end of each turn, the character can roll a concentration check of 10 to end the condition. This check is lowered by 1 each turn. The confused player states which action they are going to take and then rolls on the table:",
+    "table": {
+      "type": "roll",
+      "columns": ["Roll", "Effect"],
+      "rows": [
+        ["1", "Attack closest character with primary weapon"],
+        ["2", "Do nothing"],
+        ["3", "Move in random direction"],
+        ["4", "Act normally"]
+      ]
+    }
   },
   {
-    "id": 7,
+    "id": "dazed",
     "name": "Dazed",
     "category": "Mental",
-    "description": "Cannot use Concentration. Cannot take reactions. Ends at the end of your next turn automatically."
+    "description": "A dazed character loses their concentration and cannot concentrate on anything new until the condition is removed. When you are dazed, the first defense check you make has a penalty dice. This condition is short-lived, and automatically ends at the end of your next turn."
   },
   {
-    "id": 8,
-    "name": "Energized",
-    "category": "Physical",
-    "description": "Regenerate +1 extra energy per round. Optional: +1 movement speed. Ends after 2 rounds or upon becoming Winded."
-  },
-  {
-    "id": 9,
-    "name": "Impaired",
-    "category": "Physical",
-    "description": "You cannot move. -1 die on both Attack rolls and Defense checks. Cannot use 2-handed weapons effectively. Applies to being Grappled, tangled, hobbled, etc."
-  },
-  {
-    "id": 10,
-    "name": "Incapacitated",
-    "category": "Physical",
-    "description": "You cannot take Actions, Reactions, or Movement. Automatically fail physical defense checks. Affects sleeping, paralyzed, frozen, or unconscious states."
-  },
-  {
-    "id": 11,
+    "id": "maddened",
     "name": "Maddened",
     "category": "Mental",
-    "description": "You attack allies and cannot distinguish friend from standard. All targets are treated as hostile."
+    "description": "A character who is maddened cannot properly identify friend from foe but is not affected from other mind altering conditions such as being charmed, confused or afraid. At the start of their turn, they roll on the maddened table to see how they will act during their turn. If the target is not in range, the maddened character will use movement or sprint actions to close in and make attacks. At the end of each turn, they can attempt to recover by making a resilience check of 10. This check is lowered by 1 each turn.", 
+    "table": {
+      "type": "roll",
+      "columns": ["Roll", "Effect"],
+      "rows": [
+        ["1", "Attack closest ally"],
+        ["2", "Attack closest enemy"],
+        ["3", "Attack closest object"],
+        ["4", "Act normally"]
+      ]
+    }
   },
   {
-    "id": 12,
+    "id": "numbed",
     "name": "Numbed",
     "category": "Mental",
-    "description": "Cannot gain or lose Resolve. Cannot use Resolve to stay up at 0 Health."
+    "description": "A numbed character cannot gain any resolve and they cannot benefit from morale. They are not affected by stress. Attempts to recover from the maddened, afraid or confused conditions require a check of 4 to break, but does not get lower each time the character attempts to make it. A numbed character has a penalty dice to all mind checks and cannot use resolve to stay conscious when reaching 0 health. In order to lose the numbed condition, a character must make a resilience check of 10 at the end of a full rest. For each full rest taken, this check is lowered by 1."
   },
   {
-    "id": 13,
-    "name": "Obscured",
-    "category": "Stealth",
-    "description": "You are undetected by normal senses. Encompasses being invisible, hidden, or obscured by terrain or magic. You cannot be directly targeted unless a creature succeeds on a relevant detection check (Senses, Magic, etc.). Attackers have Disadvantage; your attacks gain +1 die if undetected."
-  },
-  {
-    "id": 14,
-    "name": "Prone",
-    "category": "Physical",
-    "description": "You are on the ground. Movement is halved. Melee attackers gain +1 die against you. Ranged attackers have Disadvantage."
-  },
-  {
-    "id": 15,
+    "id": "stunned",
     "name": "Stunned",
     "category": "Mental",
-    "description": "Cannot take Actions or Reactions. Requires a DC 10 Resilience, Concentration, or Endurance check to recover. The DC is reduced by 1 after each failed attempt."
+    "description": "A stunned character cannot take any actions, reactions or movement. They also lose concentration and cannot concentrate until the condition is removed. Instead, they must use their action to attempt to recover by making a concentration check of 10. Each time this check is made, it is lowered by 1."
   },
   {
-    "id": 16,
-    "name": "Weakened",
+    "id": "bleeding",
+    "name": "Bleeding",
     "category": "Physical",
-    "description": "You deal -1 damage with all attacks and abilities. Optional: also take -1 die on Might or Endurance checks."
+    "description": "A bleeding character takes 1 damage at the end of their turn. After the damage is taken, they can roll an endurance check of 10 to stop the bleeding. This check is lowered by 1 each turn. If a character takes bleeding damage while at 0 health, they must make a resilience check of 10 or higher, or they fall unconscious."
   },
   {
-    "id": 17,
+    "id": "blinded",
+    "name": "Blinded",
+    "category": "Physical",
+    "description": "A blinded character cannot see and suffers a penalty dice to all attacks and defense checks. Additionally, they fail all senses checks relating to vision. The duration this effect lasts is based on the spell or effect that caused it."
+  },
+  {
+    "id": "deafened",
+    "name": "Deafened",
+    "category": "Physical",
+    "description": "A deafened character cannot hear and fails any senses checks relating to hearing."
+  },
+  {
+    "id": "ignited",
+    "name": "Ignited",
+    "category": "Physical",
+    "description": "An ignited character is on fire and takes 5 heat damage at the end of their turn. For every turn the character remains ignited, the damages increases by 1, up to a maximum of 10. Removing the ignited condition requires an action to make a coordination check of 6. An ally can put out a creature by using an action to make a coordination check of 4."
+  },
+  {
+    "id": "impaired",
+    "name": "Impaired",
+    "category": "Physical",
+    "description": "An impaired character cannot move and suffers a penalty dice on all attack and defense checks. The duration this effect lasts is based on the spell or effect that caused it. The most common cause of the impaired condition is when one character grabs another."
+  },
+  {
+    "id": "incapacitated",
+    "name": "Incapacitated",
+    "category": "Physical",
+    "description": "An incapacitated character cannot move, take actions or defend themselves. When making defense checks, an incapacitated creature has a value a static defense check of 2 against melee attacks and 4 against ranged attacks. This can occur from conditions such as being paralyzed, frozen, sleeping or unconscious. The duration this effect lasts is based on the spell or effect that caused it."
+  },
+  {
+    "id": "muted",
+    "name": "Muted",
+    "category": "Physical",
+    "description": "A muted character cannot speak and therefore cannot effectively communicate verbally."
+  },
+  {
+    "id": "obscured",
+    "name": "Obscured",
+    "category": "Physical",
+    "description": "An obscure character is hidden from line of sight from non-enemies. Whenever the character uses movement while obscured, they must make a stealth check to remain hidden."
+  },
+  {
+    "id": "poisoned",
+    "name": "Poisoned",
+    "category": "Physical",
+    "description": "A poisoned character takes toxic damage at the end of their turn in the amount and type specified by the poison. When they take this toxic damage, they must roll an endurance check specified by the poison. If they succeed, the poisoned condition is removed, otherwise the required check is lowered by 1 the next time they make it."
+  },
+  {
+    "id": "prone",
+    "name": "Prone",
+    "category": "Physical",
+    "description": "A prone character is one that is on the ground in a vulnerable position. All attack and defense checks are rolled with a penalty dice. A character must either use an action or their entire movement to remove this condition. Otherwise, prone characters have a walk speed of 2 units."
+  },
+  {
+    "id": "stasis",
+    "name": "Stasis",
+    "category": "Physical",
+    "description": "A character in stasis is unconscious and does not need to eat, breathe, or sleep. Any periodic effects such as bleeding, poisons, diseases are paused."
+  },
+  {
+    "id": "unconscious",
+    "name": "Unconscious",
+    "category": "Physical",
+    "description": "An unconscious character is extremely vulnerable and takes double damage from melee attacks and also suffers the effects of the impaired condition. If recovery isn't otherwise specified, an unconscious character rolls a d12 at the end of each of their turns. On a 9 or higher, they regain consciousness."
+  },
+  {
+    "id": "winded",
     "name": "Winded",
     "category": "Physical",
-    "description": "Cannot regenerate energy. Automatically fail all Physique and Finesse skill checks. Cannot hold your own body weight or swim. Must sink if in water and fall if climbing. Ends after taking a Rest Action."
+    "description": "A winded character cannot regenerate energy and their normal movement is halved and rounded down. This condition is removed by taking the rest action."
   }
 ]

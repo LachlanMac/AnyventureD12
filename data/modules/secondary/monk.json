@@ -42,9 +42,9 @@
     },
     {
       "name": "Monk's Discipline",
-      "description": "Gain +1 skill with concentration and +1 skill with resilience.",
+      "description": "Gain +1 skill with concentration. Additionally, your stress and pain threshold are both increased by 1.",
       "location": "5",
-      "data": "SSJ=1:SSI=1"
+      "data": "SSJ=1:AS=1:AP=1"
     },
     {
       "name": "Master of Staves",

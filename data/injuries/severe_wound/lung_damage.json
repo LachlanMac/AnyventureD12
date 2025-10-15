@@ -1,9 +1,0 @@
-{
-  "id": "lung_damage",
-  "type": "severe_wound",
-  "name": "Lung Damage",
-  "description": "Your lung took a serious hit - could be punctured, collapsed, whatever. Breathing hurts and you can't catch your breath like you used to.",
-  "data": "",
-  "foundry_icon": "icons/commodities/biological/organ-bladder-red.webp",
-  "foundry_id": "shpjm683wfuczz25"
-}

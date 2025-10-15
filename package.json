@@ -19,6 +19,7 @@
     "reset-cultures": "node server/scripts/resetCultures.js",
     "reset-ancestries": "node server/scripts/resetAncestries.js",
     "reset-languages": "node server/scripts/resetLanguages.js",
+    "reset-conditions": "node server/scripts/resetConditions.js",
     "add-spell-icons": "node server/scripts/addSpellIcons.js",
     "fix-module-refs": "node server/scripts/fixBrokenModuleRefs.js",
     "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",

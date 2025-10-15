@@ -49,7 +49,7 @@
     },
     {
       "name": "Unshakeable Faith",
-      "description": "Your core beliefs protect your mind from outside influence. When you gain either the charmed, confused, maddened, or afraid conditions, you can immediately make a resilience check. On a 10 or higher, the condition is removed without ever taking effect.",
+      "description": "Your core beliefs protect your mind from outside influence. When you gain either the charmed, confused, maddened, or afraid conditions, you can instead elect to take a major stress injury in exchange for the condition being removed, though this cannot be used if you already have over 10 stress.",
       "location": "6a",
       "data": "TP"
     },

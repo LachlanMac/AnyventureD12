@@ -25,7 +25,7 @@
     },
     {
       "name": "Bearer of Burdens",
-      "description": "Your empathic nature allows you to better understand others' emotional states. Gain +1 skill with insight. At the end of a full rest, you can temporarily tranfser a mental condition from an ally to yourself. If you still have that condition at the end of the day, it is transferred back.",
+      "description": "Your empathic nature allows you to better understand others' emotional states. Gain +1 skill with insight. At the end of a full rest, you can transfer a minor or major stress injury from an ally to yourself.",
       "location": "3",
       "data": "TP:SSS=1"
     },

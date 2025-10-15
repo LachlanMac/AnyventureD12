@@ -123,9 +123,10 @@ const WikiSidebar = () => {
     'Getting Started',
     'Characters',
     'Core Mechanics',
+    'Adventuring',
     'Combat',
     'Magic',
-    'Equipment',
+    'Items',
     'Crafting',
     'Songs & Music',
   ];

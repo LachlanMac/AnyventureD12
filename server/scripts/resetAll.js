@@ -13,6 +13,7 @@ import { loadCreaturesFromJson } from '../utils/creatureSeeder.js';
 import { resetAndReseedSongs } from '../utils/songSeeder.js';
 import { resetAndReseedLanguages } from '../utils/languageSeeder.js';
 import { resetAndReseedInjuries } from '../utils/injurySeeder.js';
+import { seedConditions } from '../utils/conditionSeeder.js';
 
 // Load environment variables
 dotenv.config();
@@ -53,7 +54,7 @@ const main = async () => {
     // Order matters! Some data depends on others
 
     // 1. Ancestries (independent)
-    console.log('\n[1/10] Resetting Ancestries...');
+    console.log('\n[1/11] Resetting Ancestries...');
     console.log('----------------------------------------');
     const ancestrySuccess = await resetAndReseedAncestries();
     if (!ancestrySuccess) {
@@ -64,7 +65,7 @@ const main = async () => {
     }
 
     // 2. Cultures (independent)
-    console.log('\n[2/10] Resetting Cultures...');
+    console.log('\n[2/11] Resetting Cultures...');
     console.log('----------------------------------------');
     const cultureSuccess = await resetAndReseedCultures();
     if (!cultureSuccess) {
@@ -75,7 +76,7 @@ const main = async () => {
     }
 
     // 3. Traits (independent)
-    console.log('\n[3/10] Resetting Traits...');
+    console.log('\n[3/11] Resetting Traits...');
     console.log('----------------------------------------');
     const traitSuccess = await resetAndReseedTraits();
     if (!traitSuccess) {
@@ -86,7 +87,7 @@ const main = async () => {
     }
 
     // 4. Modules (independent)
-    console.log('\n[4/10] Resetting Modules...');
+    console.log('\n[4/11] Resetting Modules...');
     console.log('----------------------------------------');
     const moduleSuccess = await resetAndReseedModules();
     if (!moduleSuccess) {
@@ -97,7 +98,7 @@ const main = async () => {
     }
 
     // 5. Spells (independent)
-    console.log('\n[5/10] Resetting Spells...');
+    console.log('\n[5/11] Resetting Spells...');
     console.log('----------------------------------------');
     const spellSuccess = await resetAndReseedSpells();
     if (!spellSuccess) {
@@ -108,7 +109,7 @@ const main = async () => {
     }
 
     // 6. Items (independent)
-    console.log('\n[6/10] Resetting Items...');
+    console.log('\n[6/11] Resetting Items...');
     console.log('----------------------------------------');
     const itemSuccess = await resetAndReseedItems();
     if (!itemSuccess) {
@@ -119,7 +120,7 @@ const main = async () => {
     }
 
     // 7. Creatures (independent)
-    console.log('\n[7/10] Resetting Creatures...');
+    console.log('\n[7/11] Resetting Creatures...');
     console.log('----------------------------------------');
     const creatureSuccess = await loadCreaturesFromJson();
     if (!creatureSuccess) {
@@ -130,7 +131,7 @@ const main = async () => {
     }
 
     // 8. Songs (independent)
-    console.log('\n[8/10] Resetting Songs...');
+    console.log('\n[8/11] Resetting Songs...');
     console.log('----------------------------------------');
     const songSuccess = await resetAndReseedSongs();
     if (!songSuccess) {
@@ -141,7 +142,7 @@ const main = async () => {
     }
 
     // 9. Languages (independent)
-    console.log('\n[9/10] Resetting Languages...');
+    console.log('\n[9/11] Resetting Languages...');
     console.log('----------------------------------------');
     const languageSuccess = await resetAndReseedLanguages();
     if (!languageSuccess) {
@@ -152,7 +153,7 @@ const main = async () => {
     }
 
     // 10. Injuries (independent)
-    console.log('\n[10/10] Resetting Injuries...');
+    console.log('\n[10/11] Resetting Injuries...');
     console.log('----------------------------------------');
     const injurySuccess = await resetAndReseedInjuries();
     if (!injurySuccess) {
@@ -160,6 +161,17 @@ const main = async () => {
       allSuccess = false;
     } else {
       console.log('✅ Injuries reset successfully');
+    }
+
+    // 11. Conditions (independent)
+    console.log('\n[11/11] Resetting Conditions...');
+    console.log('----------------------------------------');
+    try {
+      await seedConditions();
+      console.log('✅ Conditions reset successfully');
+    } catch (error) {
+      console.error('❌ Condition reset failed:', error);
+      allSuccess = false;
     }
 
     // Final summary

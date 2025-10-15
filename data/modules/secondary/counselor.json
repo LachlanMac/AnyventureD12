@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Counselor",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Session",
+      "description": "You choose an ally and spend at least 1 hour before or during a full rest to counsel them in a personal session. The next time the character completes a full rest, they gain an additional 3 resolve.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Clinical Counselor",
+      "description": "Gain +1 skill with medicine. The target of your Session ability also gains 3 health when they complete a full rest.",
+      "location": "2a",
+      "data": "TG:SSP=1"
+    },
+    {
+      "name": "Empathic Counselor",
+      "description": "Gain +1 skill with insight. When the target of your Session ability takes a full rest, you can roll an insight check. If your result is higher than their current stress level, their rest is not penalized by stress.",
+      "location": "2b",
+      "data": "TG:SSS=1"
+    },
+    {
+      "name": "Guidance",
+      "description": "Gain +1 skill with persuasion. When an ally makes a check to recover from a stress injury or recover from substance dependency immediately after benefiting from your Session trait, you add one of your persuasion dice into their pool.",
+      "location": "3",
+      "data": "TG:SST=1"
+    },
+    {
+      "name": "Reaction : Self Talk",
+      "description": "In response to receiving a stress injury, you can make an insight check. On a 4 or higher for a minor injury, 8 or higher for a moderate injury, or 12 or higher for a severe injury, you do not receive the stress injury. This costs 1 energy.",
+      "location": "4a",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Action : Encourage",
+      "description": "You provide urgent mental support to an ally within short (10 unit) distance. Make a persuasion check against their current stress level. On success, they can take their next turn without suffering the effects of Confused, Maddened, Afraid, or Charmed conditions. The conditions return at the end of their next turn.",
+      "location": "4b",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Professional Detachment",
+      "description": "Your line of work forces you to become detached, strengthening your own mind. Gain +2 psychic mitigation and +2 maximum resolve.",
+      "location": "5",
+      "data": "A2=2:M8=2"
+    },
+    {
+      "name": "Psychiatrist",
+      "description": "Gain +1 skill with alchemy. When an ally makes a dependency check within a short (10 unit) distance of you, they do not roll with any penalty dice.",
+      "location": "6a",
+      "data": "CS3=1:TC"
+    },
+    {
+      "name": "Group Therapy",
+      "description": "Your Session ability can target two additional allies.",
+      "location": "6b",
+      "data": "TG"
+    },
+    {
+      "name": "Daily Reaction : Mantra",
+      "description": "In response to you or an ally within a short (10 unit) distance making a resilience check, you can instead say a practiced mantra by sacrificing a number of your morale. Instead of rolling, the result of the resilience check becomes double how much morale you sacrificed.",
+      "location": "7",
+      "data": "ZDNE=0"
+    }
+  ]
+}

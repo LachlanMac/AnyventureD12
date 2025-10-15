@@ -1,0 +1,14 @@
+{
+  "id": "mental_minor",
+  "type": "mental_injury",
+  "severity": "minor",
+  "name": "Minor Mental Injury",
+  "description": "A minor mental injury that causes some stress but doesn't severely affect mental state. This could be mild anxiety, distraction, or unease. Increases stress by 1. Recovery requires a successful Resilience check of 10 during a full rest at full resolve. The threshold decreases by 1 after each failed recovery attempt.",
+  "data": "",
+  "pain": 0,
+  "stress": 1,
+  "recovery_dc": 10,
+  "recovery_stat": "resilience",
+  "foundry_icon": "icons/magic/control/fear-fright-mask-yellow.webp",
+  "foundry_id": "m1i2n3o4r5m6e7n8"
+}

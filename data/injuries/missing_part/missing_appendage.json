@@ -5,5 +5,6 @@
   "description": "Loss of a specialized body part such as a tail, horn, ear, wing, or other natural feature. Balance, communication, sensory abilities, or cultural identity may be significantly affected depending on the lost appendage.",
   "data": "JZX",
   "foundry_icon": "icons/commodities/bones/horn-curved-orange-yellow.webp",
-  "foundry_id": "t7w4z1c8f5i2l9n6"
+  "foundry_id": "t7w4z1c8f5i2l9n6",
+  "pain": 0
 }

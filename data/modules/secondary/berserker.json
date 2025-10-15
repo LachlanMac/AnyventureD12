@@ -12,9 +12,9 @@
     },
     {
       "name": "Last Stand",
-      "description": "Once per day, when you reach 0 health, you roll an endurance check and gain morale equal to the highest dice rolled instead of entering lifeline. While in lifeline, the first time you roll a 1 on the lifeline table, you reroll.",
+      "description": "Once per day, when you reach 0 health, you roll an endurance check and gain morale equal to the highest dice rolled instead of entering lifeline. While you have this morale, you are not affected by pain.",
       "location": "2a",
-      "data": "XDNE=0"
+      "data": "TG"
     },
     {
       "name": "Killing Frenzy",
@@ -24,7 +24,7 @@
     },
     {
       "name": "Deathless Rage",
-      "description": "While at 0 health, you completely restore your energy when you hit a creature with an action. Additionally, gain +1 maximum energy.",
+      "description": "While at 0 health, you completely restore your energy at the start of each turn. Additionally, gain +1 maximum energy.",
       "location": "3",
       "data": "TG:A3=1"
     },
@@ -48,9 +48,9 @@
     },
     {
       "name": "Scarred Veteran",
-      "description": "You have a reputation for being hard to take down. Gain +1 physical mitigation and +2 health.",
+      "description": "You have a reputation for being hard to take down. Gain +1 physical mitigation your pain threshold is increased by 2.",
       "location": "6a",
-      "data": "M1=1:A1=2"
+      "data": "M1=1:AP=2"
     },
     {
       "name": "Twin Fury",

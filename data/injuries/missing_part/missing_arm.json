@@ -2,8 +2,9 @@
   "id": "missing_arm",
   "type": "missing_part",
   "name": "Missing Arm",
-  "description": "Your arm has been severed or lost, leaving you unable to use two-handed weapons effectively. You suffer significant penalties to tasks requiring two hands and cannot use shields while wielding weapons.",
+  "description": "Your arm has been severed or lost, leaving you unable to use two-handed weapons effectively. You suffer significant penalties to tasks requiring two hands and cannot use shields while wielding weapons. This injury increases pain by 1.",
   "data": "JAX",
   "foundry_icon": "icons/skills/wounds/bone-broken-marrow-red.webp",
-  "foundry_id": "kvl7kc5b9e9dbwpw"
+  "foundry_id": "kvl7kc5b9e9dbwpw",
+  "pain": 1
 }

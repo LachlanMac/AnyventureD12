@@ -82,38 +82,46 @@ const processInjuryTables = async (content: string): Promise<string> => {
     // Define the order and display names for injury types
     const injuryTypes = [
       { key: 'cosmetic_injury', name: 'Cosmetic Injuries' },
-      { key: 'lingering_injury', name: 'Lingering Injuries' },
-      { key: 'severe_wound', name: 'Severe Wounds' },
+      { key: 'physical_injury', name: 'Physical Injuries' },
+      { key: 'mental_injury', name: 'Mental Injuries' },
       { key: 'missing_part', name: 'Missing Parts' }
     ];
 
     for (const injuryType of injuryTypes) {
       const injuries = injuriesByType[injuryType.key] || [];
-      const sortedInjuries = injuries.sort((a, b) => a.name.localeCompare(b.name));
+      // Sort by recovery_dc for physical/mental injuries (shows Minor/Major/Severe order)
+      // Sort alphabetically for cosmetic injuries and missing parts
+      const sortedInjuries = (injuryType.key === 'physical_injury' || injuryType.key === 'mental_injury')
+        ? injuries.sort((a, b) => (a.recovery_dc || 0) - (b.recovery_dc || 0))
+        : injuries.sort((a, b) => a.name.localeCompare(b.name));
 
-      // Determine dice type based on number of entries
-      const numEntries = sortedInjuries.length;
-      let diceType = 'd6';
-      if (numEntries <= 4) diceType = 'd4';
-      else if (numEntries <= 6) diceType = 'd6';
-      else if (numEntries <= 8) diceType = 'd8';
-      else if (numEntries <= 10) diceType = 'd10';
-      else if (numEntries <= 12) diceType = 'd12';
-      else if (numEntries <= 20) diceType = 'd20';
-      else diceType = 'd100';
+      // Generate markdown table for this injury type with recovery info
+      let table = '';
 
-      // Generate markdown table for this injury type
-      let table = `
-| ${diceType} | Name | Description |
-|-----|------|-------------|
+      // Different columns for different injury types
+      if (injuryType.key === 'cosmetic_injury' || injuryType.key === 'missing_part') {
+        // Cosmetic and missing parts don't have recovery mechanics
+        table = `
+| Name | Description |
+|------|-------------|
 `;
-
-      sortedInjuries.forEach((injury: any, index: number) => {
-        // Escape pipes in descriptions for markdown table
-        const description = injury.description.replace(/\|/g, '\\|');
-        const rollNumber = index + 1;
-        table += `| ${rollNumber} | ${injury.name} | ${description} |\n`;
-      });
+        sortedInjuries.forEach((injury: any) => {
+          const description = injury.description.replace(/\|/g, '\\|');
+          table += `| ${injury.name} | ${description} |\n`;
+        });
+      } else {
+        // Physical and mental injuries show recovery mechanics
+        const checkType = injuryType.key === 'physical_injury' ? 'Endurance' : 'Resilience';
+        table = `
+| Name | Description | Recovery Check |
+|------|-------------|----------------|
+`;
+        sortedInjuries.forEach((injury: any) => {
+          const description = injury.description.replace(/\|/g, '\\|');
+          const recoveryDC = injury.recovery_dc || 10;
+          table += `| ${injury.name} | ${description} | ${checkType} ${recoveryDC} |\n`;
+        });
+      }
 
       // Replace the placeholder for this injury type
       const regex = new RegExp(
@@ -127,7 +135,7 @@ const processInjuryTables = async (content: string): Promise<string> => {
   } catch (error) {
     console.error('Error processing injury tables:', error);
     // Replace all injury table placeholders with error message
-    const injuryTypes = ['cosmetic_injury', 'lingering_injury', 'severe_wound', 'missing_part'];
+    const injuryTypes = ['cosmetic_injury', 'physical_injury', 'mental_injury', 'missing_part'];
     let processedContent = content;
 
     for (const type of injuryTypes) {
@@ -623,6 +631,185 @@ const processSongData = async (content: string): Promise<string> => {
   }
 };
 
+// Function to process condition data placeholder
+const processConditionData = async (content: string): Promise<string> => {
+  try {
+    // Load all conditions from API endpoint
+    const response = await fetch('/api/conditions');
+    if (!response.ok) {
+      throw new Error('Failed to load conditions data');
+    }
+    const conditions = await response.json();
+
+    // Group conditions by category
+    const mentalConditions = conditions.filter((c: any) => c.category === 'Mental');
+    const physicalConditions = conditions.filter((c: any) => c.category === 'Physical');
+
+    // Generate condition sections
+    let conditionContent = '';
+
+    // Helper function to render a condition with optional table
+    const renderCondition = (condition: any): string => {
+      let content = `
+### ${condition.name}
+${condition.description}
+`;
+
+      // If the condition has a table with actual content, render it
+      if (condition.table &&
+          condition.table.columns &&
+          condition.table.rows &&
+          condition.table.columns.length > 0 &&
+          condition.table.rows.length > 0) {
+        content += `\n`;
+
+        // Create table header
+        const headerRow = condition.table.columns.join(' | ');
+        const separatorRow = condition.table.columns.map(() => '---').join(' | ');
+        content += `| ${headerRow} |\n`;
+        content += `| ${separatorRow} |\n`;
+
+        // Create table rows
+        for (const row of condition.table.rows) {
+          content += `| ${row.join(' | ')} |\n`;
+        }
+
+        content += `\n`;
+      }
+
+      return content;
+    };
+
+    // Mental Conditions
+    if (mentalConditions.length > 0) {
+      for (const condition of mentalConditions) {
+        conditionContent += renderCondition(condition);
+      }
+    }
+
+    // Physical Conditions marker
+    conditionContent += `## Physical Conditions
+<div class="triangle-line"></div>
+
+`;
+
+    // Physical Conditions
+    if (physicalConditions.length > 0) {
+      for (const condition of physicalConditions) {
+        conditionContent += renderCondition(condition);
+      }
+    }
+
+    // Replace the placeholder with the generated content
+    return content.replace(
+      /<!-- CONDITION_DATA_START -->[\s\S]*?<!-- CONDITION_DATA_END -->/,
+      conditionContent.trim()
+    );
+  } catch (error) {
+    console.error('Error processing condition data:', error);
+    return content.replace(
+      /<!-- CONDITION_DATA_START -->[\s\S]*?<!-- CONDITION_DATA_END -->/,
+      '*Error loading condition data*'
+    );
+  }
+};
+
+// Function to process substance table placeholders
+const processSubstanceTables = async (content: string): Promise<string> => {
+  try {
+    // Load all items from API endpoint
+    const response = await fetch('/api/items');
+    if (!response.ok) {
+      throw new Error('Failed to load items data');
+    }
+    const items = await response.json();
+
+    // Filter for substance items
+    const substances = items.filter((item: any) =>
+      item.substance && item.substance.category
+    );
+
+    // Group substances by category
+    const substancesByCategory: { [key: string]: any[] } = {
+      'alcohol': [],
+      'painkiller': [],
+      'depressant': [],
+      'euphoric': []
+    };
+
+    substances.forEach((substance: any) => {
+      const category = substance.substance.category;
+      if (substancesByCategory[category]) {
+        substancesByCategory[category].push(substance);
+      }
+    });
+
+    // Process each substance category table
+    let processedContent = content;
+
+    const categories = [
+      { key: 'alcohol', marker: 'ALCOHOL' },
+      { key: 'painkiller', marker: 'PAINKILLER' },
+      { key: 'depressant', marker: 'DEPRESSANT' },
+      { key: 'euphoric', marker: 'EUPHORIC' }
+    ];
+
+    for (const category of categories) {
+      const categorySubstances = substancesByCategory[category.key] || [];
+
+      if (categorySubstances.length === 0) {
+        // If no substances, just show empty message
+        const emptyTable = `\n*No ${category.key} substances available yet*\n`;
+        processedContent = processedContent.replace(
+          new RegExp(`<!-- SUBSTANCE_${category.marker}_TABLE_START -->[\\s\\S]*?<!-- SUBSTANCE_${category.marker}_TABLE_END -->`, 'g'),
+          emptyTable
+        );
+        continue;
+      }
+
+      // Sort substances by dependency modifier (ascending)
+      const sortedSubstances = categorySubstances.sort((a, b) => {
+        const depA = a.substance?.dependency || 0;
+        const depB = b.substance?.dependency || 0;
+        return depA - depB;
+      });
+
+      // Generate markdown table
+      let table = `
+| Name | Description | Dependency Modifier |
+|------|-------------|---------------------|
+`;
+
+      sortedSubstances.forEach((substance: any) => {
+        const description = substance.description.replace(/\|/g, '\\|');
+        const modifier = substance.substance?.dependency || 0;
+        const modifierStr = modifier > 0 ? `+${modifier}` : `${modifier}`;
+        table += `| ${substance.name} | ${description} | ${modifierStr} |\n`;
+      });
+
+      // Replace the placeholder with the generated table
+      processedContent = processedContent.replace(
+        new RegExp(`<!-- SUBSTANCE_${category.marker}_TABLE_START -->[\\s\\S]*?<!-- SUBSTANCE_${category.marker}_TABLE_END -->`, 'g'),
+        table
+      );
+    }
+
+    return processedContent;
+  } catch (error) {
+    console.error('Error processing substance tables:', error);
+    // Return content with error messages for each category
+    let errorContent = content;
+    const categories = ['ALCOHOL', 'PAINKILLER', 'DEPRESSANT', 'EUPHORIC', 'NOOTROPIC'];
+    for (const category of categories) {
+      errorContent = errorContent.replace(
+        new RegExp(`<!-- SUBSTANCE_${category}_TABLE_START -->[\\s\\S]*?<!-- SUBSTANCE_${category}_TABLE_END -->`, 'g'),
+        '*Error loading substance data*'
+      );
+    }
+    return errorContent;
+  }
+};
+
 // Function to convert range code to human-readable format
 const convertRangeCode = (rangeCode: number): string => {
   const rangeMap: { [key: number]: string } = {
@@ -902,6 +1089,16 @@ const WikiPage = () => {
         // Process song data if present
         if (contentText.includes('<!-- SONG_DATA_START -->')) {
           contentText = await processSongData(contentText);
+        }
+
+        // Process condition data if present
+        if (contentText.includes('<!-- CONDITION_DATA_START -->')) {
+          contentText = await processConditionData(contentText);
+        }
+
+        // Process substance tables if present
+        if (contentText.includes('<!-- SUBSTANCE_')) {
+          contentText = await processSubstanceTables(contentText);
         }
 
         // Process weapon tables if present

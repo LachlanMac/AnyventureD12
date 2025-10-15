@@ -36,7 +36,7 @@
     },
     {
       "name": "Trauma Training",
-      "description": "You are experienced with battlefield and have witness some gruesome injuries. Gain +1 skill with resilience. When you use your Treat Wounds ability on a creature that has obtained an injury from the lifeline table within the last minute, you have a chance to reverse the damage based on a medicine check; a 5 will mitigate a cosmetic injury, lingering injury with a 7, severe wound with a 12 and a lost limb with a 15.",
+      "description": "You are experienced with battlefield and have witness some gruesome injuries. Gain +1 skill with resilience. When you start using your Treat Wounds ability on a creature that has obtained an injury from the lifeline table within the last minute, you can attempt to downgrade an injury one tier by making a medicine check of 10 or higher.",
       "location": "4b",
       "data": "TG:SSI=1"
     },

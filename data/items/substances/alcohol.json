@@ -1,0 +1,47 @@
+[
+  {
+    "name": "Ale",
+    "description": "A light, everyday ale served in taverns across the world. A single mug provides a small boost to resolve.",
+    "type": "consumable",
+    "substance": {
+      "category": "alcohol",
+      "dependency": 1,
+      "effect": "Restores 1 resolve. Cannot restore above half maximum resolve."
+    },
+    "weight": 0.5,
+    "value": 2,
+    "rarity": "common",
+    "foundry_icon": "icons/consumables/drinks/beer-mug-wooden-brown-tan.webp",
+    "foundry_id": "a4k7m2n8x5y1z9b3"
+  },
+  {
+    "name": "Wine",
+    "description": "A refined drink favored by merchants and nobles. A single glass provides a moderate boost to resolve.",
+    "type": "consumable",
+    "substance": {
+      "category": "alcohol",
+      "dependency": 1,
+      "effect": "Restores 2 resolve. Cannot restore above half maximum resolve."
+    },
+    "weight": 0.2,
+    "value": 8,
+    "rarity": "common",
+    "foundry_icon": "icons/consumables/drinks/wine-bottle-table-white-brown.webp",
+    "foundry_id": "w9e3r5t7y2u4i6o8"
+  },
+  {
+    "name": "Strong Liquor",
+    "description": "Potent spirits that deliver a powerful boost to resolve. A single shot burns going down but steadies the nerves.",
+    "type": "consumable",
+    "substance": {
+      "category": "alcohol",
+      "dependency": 2,
+      "effect": "Restores 3 resolve. Cannot restore above half maximum resolve."
+    },
+    "weight": 0.1,
+    "value": 12,
+    "rarity": "common",
+    "foundry_icon": "icons/consumables/drinks/alcohol-bottle-corked-green.webp",
+    "foundry_id": "p1q2w3e4r5t6y7u8"
+  }
+]

@@ -2,8 +2,9 @@
   "id": "missing_foot",
   "type": "missing_part",
   "name": "Missing Foot",
-  "description": "Complete loss of foot, significantly impacting mobility, balance, and movement speed.",
+  "description": "Complete loss of foot, significantly impacting mobility, balance, and movement speed. This injury increases pain by 1.",
   "data": "JFX",
   "foundry_icon": "icons/skills/wounds/bone-broken-marrow-yellow.webp",
-  "foundry_id": "j1m8p5s2v9y6b3e0"
+  "foundry_id": "j1m8p5s2v9y6b3e0",
+  "pain": 1
 }

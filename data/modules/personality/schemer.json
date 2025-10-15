@@ -12,7 +12,7 @@
       "data": "TP"
     },
     {
-      "name": "Contigency Planning",
+      "name": "Contingency Planning",
       "description": "Gain +1 skill with coordination. At the start of each day, choose one skill and make a standard skill check, noting your highest rolled dice result. Until your next full rest, whenever you make another check using that same skill, you may replace any single dice result with the stored result from that initial roll.",
       "location": "2a",
       "data": "TP:SSG=1"

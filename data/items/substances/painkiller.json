@@ -1,0 +1,104 @@
+[
+  {
+    "name": "Widow's Mercy",
+    "description": "A dangerous black resin created through alchemical distillation of nightshade and venom. A small amount placed under the tongue provides instant, complete pain suppression. Used by field surgeons for emergency amputations and by desperate warriors who refuse to fall.",
+    "type": "consumable",
+    "substance": {
+      "category": "painkiller",
+      "dependency": 4,
+      "effect": "Reduces pain by 10 for 1 hour. Gain +3 resolve when consumed.",
+      "duration": "1 hour"
+    },
+    "weight": 0.1,
+    "value": 800,
+    "rarity": "rare",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 12,
+      "ingredients": [
+        "Vial of Venom",
+        "Bundle of Nightshade",
+        "Bundle of Grave Moss"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-poison.webp",
+    "foundry_id": "x7w9m4k2p5n8q1r3"
+  },
+  {
+    "name": "Crimson Tears",
+    "description": "A blood-red liquid extracted from rare deep-earth fungus. Applied as eye drops, it causes the user to weep crimson tears while completely masking all physical trauma. The effect is unsettling to witness but undeniably effective.",
+    "type": "consumable",
+    "substance": {
+      "category": "painkiller",
+      "dependency": 3,
+      "effect": "Reduces pain by 4 for 8 hours.",
+      "duration": "8 hours"
+    },
+    "weight": 0.1,
+    "value": 600,
+    "rarity": "rare",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 11,
+      "ingredients": [
+        "Bundle of Grave Moss",
+        "Vial of Dried Blood",
+        "Bundle of Embervine"
+      ]
+    },
+    "side_effect": "User's tears run red for the duration, which can be socially problematic.",
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-red.webp",
+    "foundry_id": "c8r5m2t6y9u3i7o1"
+  },
+  {
+    "name": "Dreamless Draught",
+    "description": "An alchemical preparation that creates a dissociative state where pain feels distant and unimportant. Mixed with water or ale before consumption. The user remains functional but feels detached from their injuries.",
+    "type": "consumable",
+    "substance": {
+      "category": "painkiller",
+      "dependency": 2,
+      "effect": "Reduces pain by 3 for 8 hours.",
+      "duration": "8 hours"
+    },
+    "weight": 0.2,
+    "value": 400,
+    "rarity": "uncommon",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 7,
+      "ingredients": [
+        "Bundle of Mandrake",
+        "Bundle of Valerian Root",
+        "Vial of Quicksilver",
+        "Stabilizing Salt"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-blue.webp",
+    "foundry_id": "d4l6s8m1n9p2q5w7"
+  },
+  {
+    "name": "Bloodthorn Resin",
+    "description": "Processed bloodthorn extract formed into small capsules. Swallowed whole, it provides powerful pain suppression as it dissolves. Popular among mercenaries and adventurers for its reliability and portability. Doses stack.",
+    "type": "consumable",
+    "substance": {
+      "category": "painkiller",
+      "dependency": 1,
+      "effect": "Reduces pain by 2 for 24 hours. Multiple doses stack.",
+      "duration": "24 hours"
+    },
+    "weight": 0.05,
+    "value": 250,
+    "rarity": "uncommon",
+    "recipe": {
+      "type": "alchemy",
+      "difficulty": 5,
+      "ingredients": [
+        "Bundle of Bloodthorn",
+        "Pine Resin",
+        "Vial of Venom"
+      ]
+    },
+    "foundry_icon": "icons/consumables/potions/potion-vial-corked-red.webp",
+    "foundry_id": "b3t7h9r2n4k6m8x1"
+  }
+]
