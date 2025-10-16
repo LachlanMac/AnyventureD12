@@ -6,9 +6,9 @@
   "options": [
     {
       "name": "Fledgling Marksman",
-      "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple and throwing weapons.",
+      "description": "You have trained with several types of ranged weapons. Gain +1 skill with simple ranged weapons and throwing weapons.",
       "location": "1",
-      "data": "WS4=1:WS6=1"
+      "data": "WS4=1:WS2=1"
     },
     {
       "name": "Action : Pin Down",
