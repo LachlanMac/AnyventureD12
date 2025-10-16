@@ -26,7 +26,7 @@
       "name": "Evasive Specialist",
       "description": "The most important rule in a fight is to not get hit. Gain +1 skill with evasion.",
       "location": "3",
-      "data": "SSB=1"
+      "data": "SSE=1"
     },
     {
       "name": "Insightful Guard",
