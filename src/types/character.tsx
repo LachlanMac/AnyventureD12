@@ -398,6 +398,15 @@ export interface LanguageSkills {
   [languageId: string]: number; // 0-3 proficiency level
 }
 
+// Exotic school access structure
+export interface ExoticSchools {
+  fiend: boolean;      // Black magic exotic
+  draconic: boolean;   // Primal magic exotic
+  fey: boolean;        // Meta magic exotic
+  celestial: boolean;  // Divine magic exotic
+  cosmic: boolean;     // Mysticism magic exotic
+}
+
 // Character ancestry selection
 export interface CharacterAncestry {
   ancestryId: string;
@@ -434,6 +443,7 @@ export interface Character {
   skills: SkillMap;
   weaponSkills: SkillMap;
   magicSkills: SkillMap;
+  exoticSchools?: ExoticSchools;
   craftingSkills: SkillMap;
   musicSkills: MusicSkills;
   languageSkills: LanguageSkills;

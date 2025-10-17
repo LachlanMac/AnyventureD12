@@ -57,28 +57,28 @@ Lyra has tier 3 painkiller dependency from using Crimson Tears regularly. She de
 <div class="triangle-line"></div>
 
 ### Alcohol
-Alcoholic beverages provide a boost to resolve, helping adventurers steel their nerves or recover from mental strain. From weak ales served in roadside taverns to potent spirits reserved for celebrations, alcohol is widely available throughout the realm. The strength of the drink determines both its effectiveness and its addictive properties.
+Alcoholic beverages restore resolve when consumed. Dependency checks use Endurance. Common drinks range from weak ales (+1 resolve, +0 dependency) to strong spirits (+3 resolve, +2 dependency). Effects are immediate upon consumption.
 
 <!-- SUBSTANCE_ALCOHOL_TABLE_START -->
 *Substance data will be automatically populated from the game database*
 <!-- SUBSTANCE_ALCOHOL_TABLE_END -->
 
 ### Painkiller
-Painkillers suppress the debilitating effects of injuries, allowing wounded adventurers to continue fighting despite broken bones or deep wounds. These substances range from simple herbal remedies to powerful opiates that can completely mask even the most severe trauma. Healers and field medics often carry these, though their dependency risk makes long-term use dangerous.
+Painkillers reduce or ignore injury penalties for a duration. Dependency checks use Endurance. Weaker painkillers reduce injury penalties by 1-2 dice, while stronger opiates can completely ignore injury effects. Effects last for the specified duration after consumption.
 
 <!-- SUBSTANCE_PAINKILLER_TABLE_START -->
 *Substance data will be automatically populated from the game database*
 <!-- SUBSTANCE_PAINKILLER_TABLE_END -->
 
 ### Depressant
-Depressants suppress stress and mental strain, providing relief from the psychological weight of injuries and trauma. They grant the Numbed condition and can provide various mental immunities depending on potency. Useful for managing stress buildup, but carry significant addiction risk.
+Depressants grant the Numbed condition, preventing resolve gain or loss for the duration. Dependency checks use Resilience. Higher-tier depressants may provide additional immunities to mental conditions like Afraid or Confused. Effects last for the specified duration after consumption.
 
 <!-- SUBSTANCE_DEPRESSANT_TABLE_START -->
 *Substance data will be automatically populated from the game database*
 <!-- SUBSTANCE_DEPRESSANT_TABLE_END -->
 
 ### Euphoric
-Euphorics provide an immediate surge of morale and confidence, making them popular among performers, gamblers, and desperate warriors. However, this artificial high comes at a cost—when the substance wears off, users experience a morale crash that leaves them worse off than before. Combat stimulants are particularly prized by mercenaries and berserkers despite their severe aftereffects.
+Euphorics grant temporary morale or bonus dice to checks for a duration. Dependency checks use Resilience. When the duration ends, the user loses morale or gains penalty dice as a crash effect. Stronger euphorics provide greater bonuses but have harsher crash effects. Combat stimulants typically grant bonus dice to attack or physical checks.
 
 <!-- SUBSTANCE_EUPHORIC_TABLE_START -->
 *Substance data will be automatically populated from the game database*

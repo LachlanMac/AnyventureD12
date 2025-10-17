@@ -30,7 +30,7 @@
     },
     {
       "name": "Daily Action : Death Touch",
-      "description": "You touch a creature using your dark magic skill as an attack roll against a contested endurance check. For each dice that hits, deal 10 dark damage, with critical hit dice dealing 15. This does not affect constructs or elementals but deals double damage to humanoids and plantoids.",
+      "description": "You touch a creature using your black magic skill as an attack roll against a contested endurance check. For each dice that hits, deal 10 dark damage, with critical hit dice dealing 15. This does not affect constructs or elementals but deals double damage to humanoids and plantoids.",
       "location": "4a",
       "data": "XDME=2"
     },
@@ -42,7 +42,7 @@
     },
     {
       "name": "The Dark Arts",
-      "description": "You are practiced in the dark arts. Gain +1 skill with dark magic.",
+      "description": "You are practiced in the dark arts. Gain +1 skill with black magic.",
       "location": "5",
       "data": "YS1=1"
     },

@@ -388,12 +388,21 @@ const CharacterSchema = new Schema({
 
   magicSkills:{
     black: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //necromancy, witchcraft  (fiend)
-    primal: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //evocation, druidic      (cosmic)
-    meta: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //illusion, transmutation (fey)
-    divine: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //abjuration, divine, (draconic)
-    mystic: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //auguration, shamanic  (astral)
+    primal: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //elemental, nature      (draconic)
+    meta: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //transmutation, illusion (fey)
+    divine: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //protection, radiant (celestial)
+    mystic: { type: WeaponSkillSchema, default: () => ({ value: 0, talent: 0, diceTierModifier: 0 }) }, //spirit, divination  (cosmic)
   },
-  
+
+  // Exotic school access (unlocked via modules/traits)
+  exoticSchools: {
+    fiend: { type: Boolean, default: false },      // Black magic exotic
+    draconic: { type: Boolean, default: false },   // Primal magic exotic
+    fey: { type: Boolean, default: false },        // Meta magic exotic
+    celestial: { type: Boolean, default: false },  // Divine magic exotic
+    cosmic: { type: Boolean, default: false }      // Mysticism magic exotic
+  },
+
   // Crafting Skills
   craftingSkills: {
     engineering: { type: CraftSchema, default: () => ({ value: 0, talent: 0 }) },

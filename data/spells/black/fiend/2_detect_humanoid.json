@@ -1,6 +1,6 @@
 {
   "name": "Detect Humanoid",
-  "description": "You expand your senses with dark magic, allowing you to detect if there are any humanoids within a moderate (20 unit) radius.",
+  "description": "You expand your senses with black magic, allowing you to detect if there are any humanoids within a moderate (20 unit) radius.",
   "charge": "You can be more specific, ignoring certain humanoids or specifying a humanoid by their true name to determine if they are within the radius.",
   "duration": "Instantaneous",
   "range": 5,

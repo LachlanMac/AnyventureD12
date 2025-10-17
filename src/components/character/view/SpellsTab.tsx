@@ -7,6 +7,14 @@ interface SpellTabProps {
   characterId: string;
   spells: any[];
   spellSlots: number;
+  exoticSchools?: {
+    fiend: boolean;
+    draconic: boolean;
+    fey: boolean;
+    celestial: boolean;
+    cosmic: boolean;
+  };
+  onUpdateExoticSchools?: (schools: any) => void;
 }
 
 // Define a spell interface
@@ -39,11 +47,35 @@ interface CharacterSpell {
   spellData?: Spell;
 }
 
-const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots }) => {
+const SpellsTab: React.FC<SpellTabProps> = ({
+  characterId,
+  spells,
+  spellSlots,
+  exoticSchools = {
+    fiend: false,
+    draconic: false,
+    fey: false,
+    celestial: false,
+    cosmic: false
+  },
+  onUpdateExoticSchools
+}) => {
   // State for storing fetched spell data
   const [enhancedSpells, setEnhancedSpells] = useState<CharacterSpell[]>([]);
   const [loading, setLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  // Handle exotic school toggle
+  const handleExoticToggle = async (school: string) => {
+    if (!onUpdateExoticSchools) return;
+
+    const updatedSchools = {
+      ...exoticSchools,
+      [school]: !exoticSchools[school as keyof typeof exoticSchools]
+    };
+
+    onUpdateExoticSchools(updatedSchools);
+  };
 
   // Fetch the actual spell data for each spell ID
   useEffect(() => {
@@ -394,6 +426,256 @@ const SpellsTab: React.FC<SpellTabProps> = ({ characterId, spells, spellSlots })
           ))}
         </div>
       )}
+
+      {/* Exotic Schools Configuration */}
+      <div style={{ marginTop: '2rem' }}>
+        <Card variant="default">
+          <CardHeader>
+            <h3 style={{ color: 'var(--color-white)', fontSize: '1rem', fontWeight: 'bold' }}>
+              Exotic School Access
+            </h3>
+          </CardHeader>
+          <CardBody>
+            <div style={{
+              display: 'flex',
+              gap: '1.5rem',
+              flexWrap: 'wrap',
+              alignItems: 'center',
+              justifyContent: 'center'
+            }}>
+              {/* Fiend */}
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed',
+                color: 'var(--color-cloud)',
+                opacity: onUpdateExoticSchools ? 1 : 0.6
+              }}>
+                <div style={{
+                  position: 'relative',
+                  width: '44px',
+                  height: '24px',
+                  backgroundColor: exoticSchools.fiend ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                  borderRadius: '12px',
+                  transition: 'background-color 0.2s',
+                  border: '2px solid var(--color-slate)',
+                  cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={exoticSchools.fiend}
+                    onChange={() => handleExoticToggle('fiend')}
+                    disabled={!onUpdateExoticSchools}
+                    style={{
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                      position: 'absolute'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: exoticSchools.fiend ? '22px' : '2px',
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: 'var(--color-white)',
+                    borderRadius: '50%',
+                    transition: 'left 0.2s',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                </div>
+                <span>Fiend</span>
+              </label>
+
+              {/* Draconic */}
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed',
+                color: 'var(--color-cloud)',
+                opacity: onUpdateExoticSchools ? 1 : 0.6
+              }}>
+                <div style={{
+                  position: 'relative',
+                  width: '44px',
+                  height: '24px',
+                  backgroundColor: exoticSchools.draconic ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                  borderRadius: '12px',
+                  transition: 'background-color 0.2s',
+                  border: '2px solid var(--color-slate)',
+                  cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={exoticSchools.draconic}
+                    onChange={() => handleExoticToggle('draconic')}
+                    disabled={!onUpdateExoticSchools}
+                    style={{
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                      position: 'absolute'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: exoticSchools.draconic ? '22px' : '2px',
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: 'var(--color-white)',
+                    borderRadius: '50%',
+                    transition: 'left 0.2s',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                </div>
+                <span>Draconic</span>
+              </label>
+
+              {/* Fey */}
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed',
+                color: 'var(--color-cloud)',
+                opacity: onUpdateExoticSchools ? 1 : 0.6
+              }}>
+                <div style={{
+                  position: 'relative',
+                  width: '44px',
+                  height: '24px',
+                  backgroundColor: exoticSchools.fey ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                  borderRadius: '12px',
+                  transition: 'background-color 0.2s',
+                  border: '2px solid var(--color-slate)',
+                  cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={exoticSchools.fey}
+                    onChange={() => handleExoticToggle('fey')}
+                    disabled={!onUpdateExoticSchools}
+                    style={{
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                      position: 'absolute'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: exoticSchools.fey ? '22px' : '2px',
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: 'var(--color-white)',
+                    borderRadius: '50%',
+                    transition: 'left 0.2s',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                </div>
+                <span>Fey</span>
+              </label>
+
+              {/* Celestial */}
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed',
+                color: 'var(--color-cloud)',
+                opacity: onUpdateExoticSchools ? 1 : 0.6
+              }}>
+                <div style={{
+                  position: 'relative',
+                  width: '44px',
+                  height: '24px',
+                  backgroundColor: exoticSchools.celestial ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                  borderRadius: '12px',
+                  transition: 'background-color 0.2s',
+                  border: '2px solid var(--color-slate)',
+                  cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={exoticSchools.celestial}
+                    onChange={() => handleExoticToggle('celestial')}
+                    disabled={!onUpdateExoticSchools}
+                    style={{
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                      position: 'absolute'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: exoticSchools.celestial ? '22px' : '2px',
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: 'var(--color-white)',
+                    borderRadius: '50%',
+                    transition: 'left 0.2s',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                </div>
+                <span>Celestial</span>
+              </label>
+
+              {/* Cosmic */}
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed',
+                color: 'var(--color-cloud)',
+                opacity: onUpdateExoticSchools ? 1 : 0.6
+              }}>
+                <div style={{
+                  position: 'relative',
+                  width: '44px',
+                  height: '24px',
+                  backgroundColor: exoticSchools.cosmic ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                  borderRadius: '12px',
+                  transition: 'background-color 0.2s',
+                  border: '2px solid var(--color-slate)',
+                  cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={exoticSchools.cosmic}
+                    onChange={() => handleExoticToggle('cosmic')}
+                    disabled={!onUpdateExoticSchools}
+                    style={{
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                      position: 'absolute'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: exoticSchools.cosmic ? '22px' : '2px',
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: 'var(--color-white)',
+                    borderRadius: '50%',
+                    transition: 'left 0.2s',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                </div>
+                <span>Cosmic</span>
+              </label>
+            </div>
+          </CardBody>
+        </Card>
+      </div>
     </div>
   );
 };

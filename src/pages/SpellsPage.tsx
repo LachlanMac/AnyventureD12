@@ -131,6 +131,26 @@ const SpellsPage: React.FC = () => {
 
     let filteredSpells = [...allSpells];
 
+    // Filter out exotic schools the character doesn't have access to
+    const exoticSchoolMap: { [key: string]: keyof typeof character.exoticSchools } = {
+      'fiend': 'fiend',
+      'draconic': 'draconic',
+      'fey': 'fey',
+      'celestial': 'celestial',
+      'cosmic': 'cosmic'
+    };
+
+    filteredSpells = filteredSpells.filter((spell) => {
+      const subschool = spell.subschool.toLowerCase();
+      // If this is an exotic subschool
+      if (exoticSchoolMap[subschool]) {
+        // Check if character has access to it
+        return character?.exoticSchools?.[exoticSchoolMap[subschool]] === true;
+      }
+      // Not an exotic school, always show it
+      return true;
+    });
+
     // Apply school filter
     if (schoolFilter !== 'all') {
       filteredSpells = filteredSpells.filter((spell) => spell.school === schoolFilter);
@@ -154,7 +174,7 @@ const SpellsPage: React.FC = () => {
       });
     }
 
-    // Sort: First show learned spells, then sort by school and name
+    // Sort: First show learned spells, then sort by school, subschool, checkToCast, and name
     return filteredSpells.sort((a, b) => {
       const aLearned = isSpellLearned(a._id);
       const bLearned = isSpellLearned(b._id);
@@ -168,6 +188,10 @@ const SpellsPage: React.FC = () => {
 
       if (a.subschool !== b.subschool) {
         return a.subschool.localeCompare(b.subschool);
+      }
+
+      if (a.checkToCast !== b.checkToCast) {
+        return a.checkToCast - b.checkToCast;
       }
 
       return a.name.localeCompare(b.name);
@@ -455,6 +479,8 @@ const SpellsPage: React.FC = () => {
                             <span style={{ textTransform: 'capitalize' }}>{spell.school}</span>
                             <span>•</span>
                             <span style={{ textTransform: 'capitalize' }}>{spell.subschool}</span>
+                            <span>•</span>
+                            <span>RC: {spell.checkToCast}</span>
                           </div>
                         </div>
 
@@ -576,6 +602,39 @@ const SpellsPage: React.FC = () => {
                   >
                     {selectedSpell.description}
                   </p>
+
+                  {/* Charge Effect */}
+                  {selectedSpell.charge && (
+                    <div
+                      style={{
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        borderLeft: '3px solid var(--color-metal-gold)',
+                        padding: '0.75rem',
+                        marginTop: '1rem',
+                        borderRadius: '0.25rem',
+                      }}
+                    >
+                      <div
+                        style={{
+                          color: 'var(--color-metal-gold)',
+                          fontWeight: 'bold',
+                          fontSize: '0.875rem',
+                          marginBottom: '0.25rem',
+                        }}
+                      >
+                        Charge Effect:
+                      </div>
+                      <p
+                        style={{
+                          color: 'var(--color-cloud)',
+                          fontSize: '0.875rem',
+                          margin: 0,
+                        }}
+                      >
+                        {selectedSpell.charge}
+                      </p>
+                    </div>
+                  )}
                 </div>
 
                 {/* Spell stats */}

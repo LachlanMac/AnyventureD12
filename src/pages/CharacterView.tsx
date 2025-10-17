@@ -219,6 +219,43 @@ const CharacterView: React.FC = () => {
     }
   };
 
+  const handleUpdateExoticSchools = async (exoticSchools: any) => {
+    if (!character) return;
+
+    try {
+      // Update character locally first for immediate feedback
+      const updatedCharacter = {
+        ...character,
+        exoticSchools,
+      };
+      setCharacter(updatedCharacter);
+
+      // Send update to server
+      const response = await fetch(`/api/characters/${id}/exotic-schools`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          exoticSchools,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to update exotic schools');
+      }
+
+      // Get updated character from server to ensure sync
+      const updatedData = await response.json();
+      setCharacter(updatedData);
+    } catch (err) {
+      console.error('Error updating exotic schools:', err);
+      // Revert on error
+      setCharacter(character);
+      setError('Failed to update exotic schools. Please try again.');
+    }
+  };
+
   if (loading) {
     return (
       <div className="flex justify-center items-center min-h-screen">
@@ -394,6 +431,8 @@ const CharacterView: React.FC = () => {
               characterId={character._id}
               spells={character.spells || []}
               spellSlots={character.spellSlots || 10}
+              exoticSchools={character.exoticSchools}
+              onUpdateExoticSchools={canEdit ? handleUpdateExoticSchools : undefined}
             />
           )}
           {activeTab === 'songs' && <SongsTab characterId={character._id} />}

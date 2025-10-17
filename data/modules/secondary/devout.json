@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Sworn Dedication",
-      "description": "You devote yourself to a divine being or sacred force, vowing to uphold its tenets. Your creed demands the destruction of undead and dark-aligned creatures. You cannot willfully aid these beings or channel dark magic without forsaking your oath. Through your faith, you gain +2 maximum resolve.",
+      "description": "You devote yourself to a divine being or sacred force, vowing to uphold its tenets. Your creed demands the destruction of undead and dark-aligned creatures. You cannot willfully aid these beings or channel black magic without forsaking your oath. Through your faith, you gain +2 maximum resolve.",
       "location": "1",
       "data": "TG:A2=2"
     },
@@ -18,7 +18,7 @@
     },
     {
       "name": "Fortified from Darkness",
-      "description": "You gain +2 dark mitigation. When defending against a dark magic spell, gain a bonus dice to your check against it.",
+      "description": "You gain +2 dark mitigation. When defending against a black magic spell, gain a bonus dice to your check against it.",
       "location": "2b",
       "data": "TG:M5=2"
     },

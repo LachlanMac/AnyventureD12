@@ -1,6 +1,6 @@
 {
   "name": "Vial of Dried Blood",
-  "description": "A small vial containing dark, coagulated blood that has been carefully drained and preserved. The blood maintains a faint warmth and magical resonance, making it useful for dark magic that requires a life essence component. Can be created by voluntarily sacrificing 1 point of health and allowing the blood to dry naturally over several hours.",
+  "description": "A small vial containing dark, coagulated blood that has been carefully drained and preserved. The blood maintains a faint warmth and magical resonance, making it useful for black magic that requires a life essence component. Can be created by voluntarily sacrificing 1 point of health and allowing the blood to dry naturally over several hours.",
   "type": "goods",
   "tags": [
     "component",

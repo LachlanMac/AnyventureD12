@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Vanquisher",
-      "description": "You take pride in destroying darkness. At the end of each full rest, if you helped defeat a dark creature or a creature you witnessed channeling dark magic, you gain resolve and morale based on the highest tier defeated: Minion (1), Grunt (1), Foe (2), Champion (3), Elite (5), and Legend (8)",
+      "description": "You take pride in destroying darkness. At the end of each full rest, if you helped defeat a dark creature or a creature you witnessed channeling black magic, you gain resolve and morale based on the highest tier defeated: Minion (1), Grunt (1), Foe (2), Champion (3), Elite (5), and Legend (8)",
       "location": "1",
       "data": "TG:YS4=1"
     },

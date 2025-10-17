@@ -1,6 +1,6 @@
 {
   "name": "Remove Curse",
-  "description": "You touch an object or creature that is affected by dark magic or a curse and attempt to remove it. If an object is cursed, Any dark spell that has a required check of 14 or lower is automatically removed. If there is a curse or magic on the target of this spell that cannot be removed due to other conditions, you learn what those conditions are.",
+  "description": "You touch an object or creature that is affected by black magic or a curse and attempt to remove it. If an object is cursed, Any dark spell that has a required check of 14 or lower is automatically removed. If there is a curse or magic on the target of this spell that cannot be removed due to other conditions, you learn what those conditions are.",
   "charge": "You can concentrate on this spell and become immune to the effects of the curse while you maintain that concentration. This protects against effects that would trigger by using, contacting or any other condition that would cause teh curse to activate.",
   "duration": "Instantaneous",
   "range": 1,

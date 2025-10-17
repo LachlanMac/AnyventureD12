@@ -24,7 +24,7 @@
     },
     {
       "name": "Occult Senses",
-      "description": "Your senses have become acutely calibrated with dark magic. Your familiar or any creature summoned by you has ultravision. Additionally, you gain +1 skill with senses.",
+      "description": "Your senses have become acutely calibrated with black magic. Your familiar or any creature summoned by you has ultravision. Additionally, you gain +1 skill with senses.",
       "location": "3",
       "data": "TG:SSK=1"
     },
@@ -48,7 +48,7 @@
     },
     {
       "name": "Shadow Witch",
-      "description": "You are practiced in the dark arts. Gain +1 skill with dark magic. If you have a familiar, when you channel a dark spell using a ritual, the material components and the duration required are reduced by half.",
+      "description": "You are practiced in the dark arts. Gain +1 skill with black magic. If you have a familiar, when you channel a dark spell using a ritual, the material components and the duration required are reduced by half.",
       "location": "6a",
       "data": "TG:YS1=1"
     },

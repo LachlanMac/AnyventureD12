@@ -36,7 +36,7 @@
     },
     {
      "name": "Action : Dread Strike",
-      "description": "You make an attack with a melee weapon, but instead of using your weapon skill, make an attack roll using your dark magic skill.",
+      "description": "You make an attack with a melee weapon, but instead of using your weapon skill, make an attack roll using your black magic skill.",
       "location": "4b",
       "data": "XIME=1"
     },
@@ -48,7 +48,7 @@
     },
     {
       "name": "Channeled Terror",
-      "description": "Gain +1 skill with dark magic. When you deal dark damage to a creature that has the afraid condition, the number they must roll to recover from their check is raised by 1.",
+      "description": "Gain +1 skill with black magic. When you deal dark damage to a creature that has the afraid condition, the number they must roll to recover from their check is raised by 1.",
       "location": "6a",
       "data": "YS1=1:TG"
     },

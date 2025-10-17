@@ -30,7 +30,7 @@
     },
     {
       "name": "Profane Lore",
-      "description": "Gain +1 skill with academics. You automatically know if a creature, object, or location has been tainted by dark magic by touching it with an action, and can identify the specific subschool.",
+      "description": "Gain +1 skill with academics. You automatically know if a creature, object, or location has been tainted by black magic by touching it with an action, and can identify the specific subschool.",
       "location": "4a",
       "data": "SSN=1:TG"
     },

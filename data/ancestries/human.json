@@ -46,7 +46,7 @@
         {
           "id": "elfblood",
           "name": "Half-Elf",
-          "description": "You are a mixture of elf and human, sharing a mix of physical traits that makes your lineage easily identifiable. You are less likely to be affected by both light and dark magic, granting you +2 mitigation to dark and divine damage.",
+          "description": "You are a mixture of elf and human, sharing a mix of physical traits that makes your lineage easily identifiable. You are less likely to be affected by both light and black magic, granting you +2 mitigation to dark and divine damage.",
         "data": "TA:M5=2:M6=2"
         },
         {

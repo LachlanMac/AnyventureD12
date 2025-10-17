@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Headshot",
-      "description": "While making an attack with a ranged or throwing weapon, you roll with 2 penalty dice but your attack deals an additional 8. On a critical hit, this damage bonus becomes 15.",
+      "description": "While making an attack with a ranged or throwing weapon, you roll with 2 penalty dice but your attack deals an additional 8 damage. On a critical hit, this damage bonus becomes 15.",
       "location": "2b",
       "data": "XINE=1"
     },

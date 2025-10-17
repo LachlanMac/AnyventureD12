@@ -196,6 +196,47 @@ router.patch('/:id/language-skills', protect, async (req, res) => {
   }
 });
 
+// Exotic schools update route
+router.patch('/:id/exotic-schools', protect, async (req, res) => {
+  try {
+    const { exoticSchools } = req.body;
+
+    // First find the character to verify ownership
+    const character = await Character.findById(req.params.id);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check if the character belongs to the user
+    if (character.userId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+
+    // Update the exotic schools
+    character.exoticSchools = exoticSchools;
+    await character.save();
+
+    // Re-fetch the character with proper population, like in getCharacter
+    const updatedCharacter = await Character.findById(req.params.id)
+      .populate('modules.moduleId')
+      .populate('inventory.itemId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    // Apply module bonuses like in getCharacter
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    res.json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error updating exotic schools:', error);
+    res.status(500).json({ message: error.message });
+  }
+});
+
 // Resources update route
 router.patch('/:id/resources', protect, async (req, res) => {
   try {
