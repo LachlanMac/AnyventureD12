@@ -545,20 +545,65 @@ export const equipItem = async (req, res) => {
     // itemId can be either an actual item ObjectId or an inventory index (as string)
     // For customized items, the frontend sends the inventory index
     const result = await character.equipItem(itemId, slotName);
-    
+
     if (result.success) {
       // Re-fetch the character with proper population, like in getCharacter
       const updatedCharacter = await Character.findById(req.params.id)
         .populate('modules.moduleId')
         .populate('inventory.itemId')
         .populate('ancestry.ancestryId')
-        .populate('characterCulture.cultureId');
-      
+        .populate('characterCulture.cultureId')
+        .populate('traits.traitId');
+
       // Apply module bonuses and equipment effects
       const characterWithBonuses = updatedCharacter.toObject();
+
+      // Reset all skill/weapon/magic/crafting values and diceTierModifiers to recalculate fresh
+      Object.keys(characterWithBonuses.skills || {}).forEach(skill => {
+        if (characterWithBonuses.skills[skill]) {
+          characterWithBonuses.skills[skill].value = 0;
+          characterWithBonuses.skills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.weaponSkills || {}).forEach(skill => {
+        if (characterWithBonuses.weaponSkills[skill]) {
+          characterWithBonuses.weaponSkills[skill].value = 0;
+          characterWithBonuses.weaponSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.magicSkills || {}).forEach(skill => {
+        if (characterWithBonuses.magicSkills[skill]) {
+          characterWithBonuses.magicSkills[skill].value = 0;
+          characterWithBonuses.magicSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.craftingSkills || {}).forEach(skill => {
+        if (characterWithBonuses.craftingSkills[skill]) {
+          characterWithBonuses.craftingSkills[skill].value = 0;
+          characterWithBonuses.craftingSkills[skill].diceTierModifier = 0;
+        }
+      });
+
+      // Reset resources to base values
+      if (characterWithBonuses.resources) {
+        if (characterWithBonuses.resources.health) characterWithBonuses.resources.health.max = 20;
+        if (characterWithBonuses.resources.resolve) characterWithBonuses.resources.resolve.max = 20;
+        if (characterWithBonuses.resources.morale) characterWithBonuses.resources.morale.max = 10;
+        if (characterWithBonuses.resources.energy) characterWithBonuses.resources.energy.max = 5;
+      }
+
+      // Reset other values
+      characterWithBonuses.movement = 5;
+      characterWithBonuses.initiative = 0;
+      characterWithBonuses.spellSlots = 10;
+      characterWithBonuses.mitigation = {
+        physical: 0, cold: 0, heat: 0, electric: 0,
+        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+      };
+
       applyModuleBonusesToCharacter(characterWithBonuses);
       characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
-      
+
       res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
@@ -577,26 +622,71 @@ export const unequipItem = async (req, res) => {
     const { slotName } = req.params;
     const character = await Character.findById(req.params.id)
       .populate('inventory.itemId');
-    
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
 
     const result = await character.unequipItem(slotName);
-    
+
     if (result.success) {
       // Re-fetch the character with proper population, like in getCharacter
       const updatedCharacter = await Character.findById(req.params.id)
         .populate('modules.moduleId')
         .populate('inventory.itemId')
         .populate('ancestry.ancestryId')
-        .populate('characterCulture.cultureId');
-      
+        .populate('characterCulture.cultureId')
+        .populate('traits.traitId');
+
       // Apply module bonuses and equipment effects
       const characterWithBonuses = updatedCharacter.toObject();
+
+      // Reset all skill/weapon/magic/crafting values and diceTierModifiers to recalculate fresh
+      Object.keys(characterWithBonuses.skills || {}).forEach(skill => {
+        if (characterWithBonuses.skills[skill]) {
+          characterWithBonuses.skills[skill].value = 0;
+          characterWithBonuses.skills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.weaponSkills || {}).forEach(skill => {
+        if (characterWithBonuses.weaponSkills[skill]) {
+          characterWithBonuses.weaponSkills[skill].value = 0;
+          characterWithBonuses.weaponSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.magicSkills || {}).forEach(skill => {
+        if (characterWithBonuses.magicSkills[skill]) {
+          characterWithBonuses.magicSkills[skill].value = 0;
+          characterWithBonuses.magicSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.craftingSkills || {}).forEach(skill => {
+        if (characterWithBonuses.craftingSkills[skill]) {
+          characterWithBonuses.craftingSkills[skill].value = 0;
+          characterWithBonuses.craftingSkills[skill].diceTierModifier = 0;
+        }
+      });
+
+      // Reset resources to base values
+      if (characterWithBonuses.resources) {
+        if (characterWithBonuses.resources.health) characterWithBonuses.resources.health.max = 20;
+        if (characterWithBonuses.resources.resolve) characterWithBonuses.resources.resolve.max = 20;
+        if (characterWithBonuses.resources.morale) characterWithBonuses.resources.morale.max = 10;
+        if (characterWithBonuses.resources.energy) characterWithBonuses.resources.energy.max = 5;
+      }
+
+      // Reset other values
+      characterWithBonuses.movement = 5;
+      characterWithBonuses.initiative = 0;
+      characterWithBonuses.spellSlots = 10;
+      characterWithBonuses.mitigation = {
+        physical: 0, cold: 0, heat: 0, electric: 0,
+        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+      };
+
       applyModuleBonusesToCharacter(characterWithBonuses);
       characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
-      
+
       res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
@@ -615,26 +705,71 @@ export const customizeItem = async (req, res) => {
     const { index } = req.params;
     const { modifications } = req.body;
     const character = await Character.findById(req.params.id);
-    
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
-    
+
     const result = await character.customizeItem(parseInt(index), modifications);
-    
+
     if (result.success) {
       // Re-fetch the character with proper population, like in getCharacter
       const updatedCharacter = await Character.findById(req.params.id)
         .populate('modules.moduleId')
         .populate('inventory.itemId')
         .populate('ancestry.ancestryId')
-        .populate('characterCulture.cultureId');
-      
+        .populate('characterCulture.cultureId')
+        .populate('traits.traitId');
+
       // Apply module bonuses and equipment effects
       const characterWithBonuses = updatedCharacter.toObject();
+
+      // Reset all skill/weapon/magic/crafting values and diceTierModifiers to recalculate fresh
+      Object.keys(characterWithBonuses.skills || {}).forEach(skill => {
+        if (characterWithBonuses.skills[skill]) {
+          characterWithBonuses.skills[skill].value = 0;
+          characterWithBonuses.skills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.weaponSkills || {}).forEach(skill => {
+        if (characterWithBonuses.weaponSkills[skill]) {
+          characterWithBonuses.weaponSkills[skill].value = 0;
+          characterWithBonuses.weaponSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.magicSkills || {}).forEach(skill => {
+        if (characterWithBonuses.magicSkills[skill]) {
+          characterWithBonuses.magicSkills[skill].value = 0;
+          characterWithBonuses.magicSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.craftingSkills || {}).forEach(skill => {
+        if (characterWithBonuses.craftingSkills[skill]) {
+          characterWithBonuses.craftingSkills[skill].value = 0;
+          characterWithBonuses.craftingSkills[skill].diceTierModifier = 0;
+        }
+      });
+
+      // Reset resources to base values
+      if (characterWithBonuses.resources) {
+        if (characterWithBonuses.resources.health) characterWithBonuses.resources.health.max = 20;
+        if (characterWithBonuses.resources.resolve) characterWithBonuses.resources.resolve.max = 20;
+        if (characterWithBonuses.resources.morale) characterWithBonuses.resources.morale.max = 10;
+        if (characterWithBonuses.resources.energy) characterWithBonuses.resources.energy.max = 5;
+      }
+
+      // Reset other values
+      characterWithBonuses.movement = 5;
+      characterWithBonuses.initiative = 0;
+      characterWithBonuses.spellSlots = 10;
+      characterWithBonuses.mitigation = {
+        physical: 0, cold: 0, heat: 0, electric: 0,
+        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+      };
+
       applyModuleBonusesToCharacter(characterWithBonuses);
       characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
-      
+
       res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });
@@ -653,26 +788,71 @@ export const updateItemQuantity = async (req, res) => {
     const { index } = req.params;
     const { quantity } = req.body;
     const character = await Character.findById(req.params.id);
-    
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
-    
+
     const result = await character.updateItemQuantity(parseInt(index), parseInt(quantity));
-    
+
     if (result.success) {
       // Re-fetch the character with proper population, like in getCharacter
       const updatedCharacter = await Character.findById(req.params.id)
         .populate('modules.moduleId')
         .populate('inventory.itemId')
         .populate('ancestry.ancestryId')
-        .populate('characterCulture.cultureId');
-      
+        .populate('characterCulture.cultureId')
+        .populate('traits.traitId');
+
       // Apply module bonuses and equipment effects
       const characterWithBonuses = updatedCharacter.toObject();
+
+      // Reset all skill/weapon/magic/crafting values and diceTierModifiers to recalculate fresh
+      Object.keys(characterWithBonuses.skills || {}).forEach(skill => {
+        if (characterWithBonuses.skills[skill]) {
+          characterWithBonuses.skills[skill].value = 0;
+          characterWithBonuses.skills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.weaponSkills || {}).forEach(skill => {
+        if (characterWithBonuses.weaponSkills[skill]) {
+          characterWithBonuses.weaponSkills[skill].value = 0;
+          characterWithBonuses.weaponSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.magicSkills || {}).forEach(skill => {
+        if (characterWithBonuses.magicSkills[skill]) {
+          characterWithBonuses.magicSkills[skill].value = 0;
+          characterWithBonuses.magicSkills[skill].diceTierModifier = 0;
+        }
+      });
+      Object.keys(characterWithBonuses.craftingSkills || {}).forEach(skill => {
+        if (characterWithBonuses.craftingSkills[skill]) {
+          characterWithBonuses.craftingSkills[skill].value = 0;
+          characterWithBonuses.craftingSkills[skill].diceTierModifier = 0;
+        }
+      });
+
+      // Reset resources to base values
+      if (characterWithBonuses.resources) {
+        if (characterWithBonuses.resources.health) characterWithBonuses.resources.health.max = 20;
+        if (characterWithBonuses.resources.resolve) characterWithBonuses.resources.resolve.max = 20;
+        if (characterWithBonuses.resources.morale) characterWithBonuses.resources.morale.max = 10;
+        if (characterWithBonuses.resources.energy) characterWithBonuses.resources.energy.max = 5;
+      }
+
+      // Reset other values
+      characterWithBonuses.movement = 5;
+      characterWithBonuses.initiative = 0;
+      characterWithBonuses.spellSlots = 10;
+      characterWithBonuses.mitigation = {
+        physical: 0, cold: 0, heat: 0, electric: 0,
+        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+      };
+
       applyModuleBonusesToCharacter(characterWithBonuses);
       characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
-      
+
       res.json(characterWithBonuses);
     } else {
       res.status(400).json({ message: result.message });

@@ -549,7 +549,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       if (response.ok) {
         const updatedCharacter = await response.json();
-        onCharacterUpdate(updatedCharacter);
+        onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
       }
     } catch (error) {
       console.error('Error removing item:', error);
@@ -572,7 +572,13 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       if (response.ok) {
         const updatedCharacter = await response.json();
-        onCharacterUpdate(updatedCharacter);
+        console.log('[EQUIP] Skills with dice tier modifiers:', {
+          fitness: updatedCharacter.skills.fitness,
+          deflection: updatedCharacter.skills.deflection,
+          might: updatedCharacter.skills.might
+        });
+        // Force React to detect the state change by creating a new reference
+        onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
       } else {
         console.error('Failed to equip item:', response.statusText);
       }
@@ -590,7 +596,13 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       if (response.ok) {
         const updatedCharacter = await response.json();
-        onCharacterUpdate(updatedCharacter);
+        console.log('[UNEQUIP] Skills with dice tier modifiers:', {
+          fitness: updatedCharacter.skills.fitness,
+          deflection: updatedCharacter.skills.deflection,
+          might: updatedCharacter.skills.might
+        });
+        // Force React to detect the state change by creating a new reference
+        onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
       }
     } catch (error) {
       console.error('Error unequipping item:', error);
@@ -618,7 +630,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       if (response.ok) {
         const updatedCharacter = await response.json();
-        onCharacterUpdate(updatedCharacter);
+        onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
       }
     } catch (error) {
       console.error('Error customizing item:', error);
@@ -636,7 +648,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       if (response.ok) {
         const updatedCharacter = await response.json();
-        onCharacterUpdate(updatedCharacter);
+        onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
       }
     } catch (error) {
       console.error('Error updating item quantity:', error);
@@ -658,7 +670,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
       if (response.ok) {
         const updatedCharacter = await response.json();
-        onCharacterUpdate(updatedCharacter);
+        onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
       } else {
         showError('Failed to update currency');
       }

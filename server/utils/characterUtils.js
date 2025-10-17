@@ -229,10 +229,10 @@ const applyEquipmentConditionals = (character) => {
       return itemId && itemId.toString() === equippedId.toString();
     }) : null;
 
-  const shieldItem = character.equipment.shield ?
+  const shieldItem = character.equipment.offhand ?
     character.inventory.find(item => {
       const itemId = item.itemId?._id || item.itemId || item.itemData?._id;
-      const equippedId = character.equipment.shield.itemId || character.equipment.shield;
+      const equippedId = character.equipment.offhand.itemId || character.equipment.offhand;
       return itemId && itemId.toString() === equippedId.toString();
     }) : null;
 

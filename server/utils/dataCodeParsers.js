@@ -368,9 +368,11 @@ export function parseDataString(dataString, bonuses = {}, character = null) {
       // Ignore certain codes that are intentionally not parsed:
       // - Trait category codes (T*)
       // - Character creation codes (UT, UP, etc.) - only relevant during creation
+      // - Conditional codes (C*[...]) - only parsed when character is provided
       const ignoredPatterns = [
         /^T[A-Z]+$/,    // Trait categories
-        /^U[A-Z]=\d+$/  // Character creation bonuses (handled separately)
+        /^U[A-Z]=\d+$/,  // Character creation bonuses (handled separately)
+        /^C[A-G]\[.+\]$/  // Conditional effects (only parsed with character context)
       ];
 
       const shouldIgnore = ignoredPatterns.some(pattern => pattern.test(effect));
