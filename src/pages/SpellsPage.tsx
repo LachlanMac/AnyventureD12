@@ -132,7 +132,7 @@ const SpellsPage: React.FC = () => {
     let filteredSpells = [...allSpells];
 
     // Filter out exotic schools the character doesn't have access to
-    const exoticSchoolMap: { [key: string]: keyof typeof character.exoticSchools } = {
+    const exoticSchoolMap: { [key: string]: 'fiend' | 'draconic' | 'fey' | 'celestial' | 'cosmic' } = {
       'fiend': 'fiend',
       'draconic': 'draconic',
       'fey': 'fey',
