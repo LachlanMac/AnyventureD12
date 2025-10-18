@@ -30,7 +30,13 @@ const CharacterTraitSelection: React.FC<CharacterTraitSelectionProps> = ({
           throw new Error('Failed to fetch traits');
         }
         const data = await response.json();
-        setTraits(data);
+
+        // Filter out progression traits that should only be available through module points
+        const characterCreationTraits = data.filter((trait: any) =>
+          trait.source !== 'module_points' && trait.name !== 'Extra Training'
+        );
+
+        setTraits(characterCreationTraits);
         setLoading(false);
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load traits');

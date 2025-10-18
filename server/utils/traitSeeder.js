@@ -53,6 +53,28 @@ export const seedTraits = async () => {
             traitData.foundry_id = existingTrait.foundry_id;
           }
 
+          // Preserve subchoice _id fields to maintain references
+          if (traitData.options && existingTrait.options) {
+            for (let i = 0; i < traitData.options.length; i++) {
+              const newOption = traitData.options[i];
+              const existingOption = existingTrait.options.find(opt => opt.name === newOption.name);
+
+              if (existingOption && newOption.subchoices && existingOption.subchoices) {
+                for (let j = 0; j < newOption.subchoices.length; j++) {
+                  const newSubchoice = newOption.subchoices[j];
+                  const existingSubchoice = existingOption.subchoices.find(
+                    sc => sc.id === newSubchoice.id
+                  );
+
+                  // Preserve the MongoDB ObjectId from the existing subchoice
+                  if (existingSubchoice && existingSubchoice._id) {
+                    newSubchoice._id = existingSubchoice._id;
+                  }
+                }
+              }
+            }
+          }
+
           // Replace the entire document to ensure removed properties are actually removed
           await Trait.replaceOne(
             { _id: existingTrait._id },

@@ -96,8 +96,10 @@ export const applyModuleBonusesToCharacter = (character) => {
         // Check if this option has subchoices and a selection was made
         if (option.subchoices && selectedOptionData && selectedOptionData.selectedSubchoice) {
           // Find the selected subchoice and apply its data
+          // Compare both _id and id to support both MongoDB ObjectId and simple string id
           const selectedSubchoice = option.subchoices.find(
-            sc => sc.id === selectedOptionData.selectedSubchoice
+            sc => sc._id && sc._id.toString() === selectedOptionData.selectedSubchoice.toString() ||
+                  sc.id === selectedOptionData.selectedSubchoice
           );
           if (selectedSubchoice) {
             processAbilityForBonuses(selectedSubchoice);
@@ -135,9 +137,13 @@ export const applyModuleBonusesToCharacter = (character) => {
           // Check if this option has subchoices and a selection was made
           if (option.subchoices && selectedOptionData && selectedOptionData.selectedSubchoice) {
             // Find the selected subchoice and apply its data
+            // Compare both _id and id to support both MongoDB ObjectId and simple string id
             const selectedSubchoice = option.subchoices.find(
-              sc => sc.id === selectedOptionData.selectedSubchoice
+              sc => (sc._id && sc._id.toString() === selectedOptionData.selectedSubchoice.toString()) ||
+                    sc.id === selectedOptionData.selectedSubchoice ||
+                    sc.id === selectedOptionData.selectedSubchoice.toString()
             );
+
             if (selectedSubchoice) {
               processAbilityForBonuses(selectedSubchoice);
               applyDataEffects(character, selectedSubchoice.data);

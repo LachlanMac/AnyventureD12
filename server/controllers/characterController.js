@@ -1,5 +1,6 @@
 import Character from '../models/Character.js';
 import Item from '../models/Item.js';
+import Trait from '../models/Trait.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
@@ -875,10 +876,77 @@ export const addTrait = async (req, res) => {
       return res.status(404).json({ message: 'Character not found' });
     }
 
-    // Check if trait already exists
-    const existingTrait = character.traits.find(t => t.traitId.toString() === traitId);
-    if (existingTrait) {
-      return res.status(400).json({ message: 'Trait already added to character' });
+    // Fetch the trait to check if it's "Extra Training"
+    const trait = await Trait.findById(traitId);
+    if (!trait) {
+      return res.status(404).json({ message: 'Trait not found' });
+    }
+
+    // Special validation for "Extra Training" trait
+    if (trait.name === 'Extra Training') {
+      // Calculate max allowed Extra Training traits based on module points
+      const maxExtraTraining = Math.floor((character.modulePoints?.total || 0) / 10);
+
+      // Count existing Extra Training traits
+      const existingExtraTrainingCount = character.traits.filter(t =>
+        t.traitId && t.traitId.toString() === traitId
+      ).length;
+
+      // Check if adding another would exceed the limit
+      if (existingExtraTrainingCount >= maxExtraTraining) {
+        return res.status(400).json({
+          message: `Cannot add more Extra Training traits. Maximum allowed: ${maxExtraTraining} (based on ${character.modulePoints?.total || 0} module points)`
+        });
+      }
+
+      // Extract all selected skill data codes from existing Extra Training traits
+      const existingSkillDataCodes = new Set();
+      for (const charTrait of character.traits) {
+        if (charTrait.traitId && charTrait.traitId.toString() === traitId) {
+          // For each selected option in this Extra Training instance
+          for (const selectedOption of charTrait.selectedOptions || []) {
+            // If this option has a selectedSubchoice, find its data code
+            if (selectedOption.selectedSubchoice) {
+              // Find the subchoice in the trait's options
+              for (const option of trait.options || []) {
+                for (const subchoice of option.subchoices || []) {
+                  if (subchoice._id.toString() === selectedOption.selectedSubchoice.toString()) {
+                    if (subchoice.data) {
+                      existingSkillDataCodes.add(subchoice.data);
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+
+      // Check if the new selection's data code is already used
+      for (const selectedOption of selectedOptions || []) {
+        if (selectedOption.selectedSubchoice) {
+          // Find the subchoice in the trait's options
+          for (const option of trait.options || []) {
+            for (const subchoice of option.subchoices || []) {
+              if (subchoice._id.toString() === selectedOption.selectedSubchoice.toString()) {
+                if (subchoice.data && existingSkillDataCodes.has(subchoice.data)) {
+                  return res.status(400).json({
+                    message: `This skill (${subchoice.name}) has already been selected in another Extra Training trait. Each skill can only be selected once.`
+                  });
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    // Check if trait already exists (for non-Extra Training traits)
+    if (trait.name !== 'Extra Training') {
+      const existingTrait = character.traits.find(t => t.traitId.toString() === traitId);
+      if (existingTrait) {
+        return res.status(400).json({ message: 'Trait already added to character' });
+      }
     }
 
     // Add trait with selected options
@@ -922,8 +990,14 @@ export const removeTrait = async (req, res) => {
       return res.status(404).json({ message: 'Character not found' });
     }
 
-    // Find and remove the trait
-    const traitIndex = character.traits.findIndex(t => t.traitId.toString() === traitId);
+    // Try to find by instance _id first (for multi-instance traits like Extra Training)
+    let traitIndex = character.traits.findIndex(t => t._id.toString() === traitId);
+
+    // If not found by instance _id, try to find by traitId (for single-instance traits)
+    if (traitIndex === -1) {
+      traitIndex = character.traits.findIndex(t => t.traitId.toString() === traitId);
+    }
+
     if (traitIndex === -1) {
       return res.status(404).json({ message: 'Trait not found on character' });
     }
@@ -1259,26 +1333,26 @@ export const exportCharacterToFoundry = async (req, res) => {
           }
         },
 
-        // Resources - preserve current values, max will be calculated in FoundryVTT
+        // Resources - BASE values only, Foundry will recalculate max values
         resources: {
           health: {
-            value: character.resources?.health?.current || 0,
-            max: character.resources?.health?.max || 0, // Include current max but FoundryVTT will recalculate
+            value: character.resources?.health?.current || 20,
+            max: 20, // Base value, bonuses will be calculated in FoundryVTT
             temp: 0
           },
           resolve: {
-            value: character.resources?.resolve?.current || 0,
-            max: character.resources?.resolve?.max || 0, // Include current max but FoundryVTT will recalculate
+            value: character.resources?.resolve?.current || 20,
+            max: 20, // Base value, bonuses will be calculated in FoundryVTT
             temp: 0
           },
           morale: {
-            value: character.resources?.morale?.current || 0,
-            max: character.resources?.morale?.max || 0, // Include current max but FoundryVTT will recalculate
+            value: character.resources?.morale?.current || 10,
+            max: 10, // Base value, bonuses will be calculated in FoundryVTT
             temp: 0
           },
           energy: {
             value: character.resources?.energy?.current || 5,
-            max: character.resources?.energy?.max || 5, // Include current max but FoundryVTT will recalculate
+            max: 5, // Base value, bonuses will be calculated in FoundryVTT
             temp: 0
           }
         },
@@ -1304,89 +1378,89 @@ export const exportCharacterToFoundry = async (req, res) => {
           toxic: 0
         },
 
-        // Skills (now matching template.json structure)
+        // Skills (now matching template.json structure) - BASE values only, Foundry will recalculate bonuses
         basic: {
-          fitness: { value: characterWithBonuses.skills?.fitness?.value || 0, tier: characterWithBonuses.skills?.fitness?.diceTierModifier || 0, attribute: "physique" },
-          deflection: { value: characterWithBonuses.skills?.deflection?.value || 0, tier: characterWithBonuses.skills?.deflection?.diceTierModifier || 0, attribute: "physique" },
-          might: { value: characterWithBonuses.skills?.might?.value || 0, tier: characterWithBonuses.skills?.might?.diceTierModifier || 0, attribute: "physique" },
-          endurance: { value: characterWithBonuses.skills?.endurance?.value || 0, tier: characterWithBonuses.skills?.endurance?.diceTierModifier || 0, attribute: "physique" },
-          evasion: { value: characterWithBonuses.skills?.evasion?.value || 0, tier: characterWithBonuses.skills?.evasion?.diceTierModifier || 0, attribute: "finesse" },
-          stealth: { value: characterWithBonuses.skills?.stealth?.value || 0, tier: characterWithBonuses.skills?.stealth?.diceTierModifier || 0, attribute: "finesse" },
-          coordination: { value: characterWithBonuses.skills?.coordination?.value || 0, tier: characterWithBonuses.skills?.coordination?.diceTierModifier || 0, attribute: "finesse" },
-          thievery: { value: characterWithBonuses.skills?.thievery?.value || 0, tier: characterWithBonuses.skills?.thievery?.diceTierModifier || 0, attribute: "finesse" },
-          resilience: { value: characterWithBonuses.skills?.resilience?.value || 0, tier: characterWithBonuses.skills?.resilience?.diceTierModifier || 0, attribute: "mind" },
-          concentration: { value: characterWithBonuses.skills?.concentration?.value || 0, tier: characterWithBonuses.skills?.concentration?.diceTierModifier || 0, attribute: "mind" },
-          senses: { value: characterWithBonuses.skills?.senses?.value || 0, tier: characterWithBonuses.skills?.senses?.diceTierModifier || 0, attribute: "mind" },
-          logic: { value: characterWithBonuses.skills?.logic?.value || 0, tier: characterWithBonuses.skills?.logic?.diceTierModifier || 0, attribute: "mind" },
-          wildcraft: { value: characterWithBonuses.skills?.wildcraft?.value || 0, tier: characterWithBonuses.skills?.wildcraft?.diceTierModifier || 0, attribute: "knowledge" },
-          academics: { value: characterWithBonuses.skills?.academics?.value || 0, tier: characterWithBonuses.skills?.academics?.diceTierModifier || 0, attribute: "knowledge" },
-          magic: { value: characterWithBonuses.skills?.magic?.value || 0, tier: characterWithBonuses.skills?.magic?.diceTierModifier || 0, attribute: "knowledge" },
-          medicine: { value: characterWithBonuses.skills?.medicine?.value || 0, tier: characterWithBonuses.skills?.medicine?.diceTierModifier || 0, attribute: "knowledge" },
-          expression: { value: characterWithBonuses.skills?.expression?.value || 0, tier: characterWithBonuses.skills?.expression?.diceTierModifier || 0, attribute: "social" },
-          presence: { value: characterWithBonuses.skills?.presence?.value || 0, tier: characterWithBonuses.skills?.presence?.diceTierModifier || 0, attribute: "social" },
-          insight: { value: characterWithBonuses.skills?.insight?.value || 0, tier: characterWithBonuses.skills?.insight?.diceTierModifier || 0, attribute: "social" },
-          persuasion: { value: characterWithBonuses.skills?.persuasion?.value || 0, tier: characterWithBonuses.skills?.persuasion?.diceTierModifier || 0, attribute: "social" }
+          fitness: { value: 0, tier: 0, attribute: "physique" },
+          deflection: { value: 0, tier: 0, attribute: "physique" },
+          might: { value: 0, tier: 0, attribute: "physique" },
+          endurance: { value: 0, tier: 0, attribute: "physique" },
+          evasion: { value: 0, tier: 0, attribute: "finesse" },
+          stealth: { value: 0, tier: 0, attribute: "finesse" },
+          coordination: { value: 0, tier: 0, attribute: "finesse" },
+          thievery: { value: 0, tier: 0, attribute: "finesse" },
+          resilience: { value: 0, tier: 0, attribute: "mind" },
+          concentration: { value: 0, tier: 0, attribute: "mind" },
+          senses: { value: 0, tier: 0, attribute: "mind" },
+          logic: { value: 0, tier: 0, attribute: "mind" },
+          wildcraft: { value: 0, tier: 0, attribute: "knowledge" },
+          academics: { value: 0, tier: 0, attribute: "knowledge" },
+          magic: { value: 0, tier: 0, attribute: "knowledge" },
+          medicine: { value: 0, tier: 0, attribute: "knowledge" },
+          expression: { value: 0, tier: 0, attribute: "social" },
+          presence: { value: 0, tier: 0, attribute: "social" },
+          insight: { value: 0, tier: 0, attribute: "social" },
+          persuasion: { value: 0, tier: 0, attribute: "social" }
         },
 
-        // Weapon skills
+        // Weapon skills - BASE values only, Foundry will recalculate bonuses
         weapon: {
           brawling: {
-            value: characterWithBonuses.weaponSkills?.brawling?.value || 0,
-            talent: characterWithBonuses.weaponSkills?.brawling?.talent || 1,
+            value: 0,
+            talent: character.weaponSkills?.brawling?.baseTalent || character.weaponSkills?.brawling?.talent || 1,
             baseTalent: character.weaponSkills?.brawling?.baseTalent || character.weaponSkills?.brawling?.talent || 1
           },
           throwing: {
-            value: characterWithBonuses.weaponSkills?.throwing?.value || 0,
-            talent: characterWithBonuses.weaponSkills?.throwing?.talent || 1,
+            value: 0,
+            talent: character.weaponSkills?.throwing?.baseTalent || character.weaponSkills?.throwing?.talent || 1,
             baseTalent: character.weaponSkills?.throwing?.baseTalent || character.weaponSkills?.throwing?.talent || 1
           },
           simpleMeleeWeapons: {
-            value: characterWithBonuses.weaponSkills?.simpleMeleeWeapons?.value || 0,
-            talent: characterWithBonuses.weaponSkills?.simpleMeleeWeapons?.talent || 1,
+            value: 0,
+            talent: character.weaponSkills?.simpleMeleeWeapons?.baseTalent || character.weaponSkills?.simpleMeleeWeapons?.talent || 1,
             baseTalent: character.weaponSkills?.simpleMeleeWeapons?.baseTalent || character.weaponSkills?.simpleMeleeWeapons?.talent || 1
           },
           simpleRangedWeapons: {
-            value: characterWithBonuses.weaponSkills?.simpleRangedWeapons?.value || 0,
-            talent: characterWithBonuses.weaponSkills?.simpleRangedWeapons?.talent || 1,
+            value: 0,
+            talent: character.weaponSkills?.simpleRangedWeapons?.baseTalent || character.weaponSkills?.simpleRangedWeapons?.talent || 1,
             baseTalent: character.weaponSkills?.simpleRangedWeapons?.baseTalent || character.weaponSkills?.simpleRangedWeapons?.talent || 1
           },
           complexMeleeWeapons: {
-            value: characterWithBonuses.weaponSkills?.complexMeleeWeapons?.value || 0,
-            talent: characterWithBonuses.weaponSkills?.complexMeleeWeapons?.talent || 0,
+            value: 0,
+            talent: character.weaponSkills?.complexMeleeWeapons?.baseTalent || character.weaponSkills?.complexMeleeWeapons?.talent || 0,
             baseTalent: character.weaponSkills?.complexMeleeWeapons?.baseTalent || character.weaponSkills?.complexMeleeWeapons?.talent || 0
           },
           complexRangedWeapons: {
-            value: characterWithBonuses.weaponSkills?.complexRangedWeapons?.value || 0,
-            talent: characterWithBonuses.weaponSkills?.complexRangedWeapons?.talent || 0,
+            value: 0,
+            talent: character.weaponSkills?.complexRangedWeapons?.baseTalent || character.weaponSkills?.complexRangedWeapons?.talent || 0,
             baseTalent: character.weaponSkills?.complexRangedWeapons?.baseTalent || character.weaponSkills?.complexRangedWeapons?.talent || 0
           }
         },
 
-        // Magic skills
+        // Magic skills - BASE values only, Foundry will recalculate bonuses
         magic: {
           black: {
-            value: characterWithBonuses.magicSkills?.black?.value || 0,
-            talent: characterWithBonuses.magicSkills?.black?.talent || 0,
+            value: 0,
+            talent: character.magicSkills?.black?.baseTalent || character.magicSkills?.black?.talent || 0,
             baseTalent: character.magicSkills?.black?.baseTalent || character.magicSkills?.black?.talent || 0
           },
           primal: {
-            value: characterWithBonuses.magicSkills?.primal?.value || 0,
-            talent: characterWithBonuses.magicSkills?.primal?.talent || 0,
+            value: 0,
+            talent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0,
             baseTalent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0
           },
           metamagic: {
-            value: characterWithBonuses.magicSkills?.meta?.value || 0,
-            talent: characterWithBonuses.magicSkills?.meta?.talent || 0,
+            value: 0,
+            talent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0,
             baseTalent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0
           },
           divine: {
-            value: characterWithBonuses.magicSkills?.divine?.value || 0,
-            talent: characterWithBonuses.magicSkills?.divine?.talent || 0,
+            value: 0,
+            talent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0,
             baseTalent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0
           },
           mysticism: {
-            value: characterWithBonuses.magicSkills?.mystic?.value || 0,
-            talent: characterWithBonuses.magicSkills?.mystic?.talent || 0,
+            value: 0,
+            talent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0,
             baseTalent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0
           }
         },
@@ -1980,66 +2054,116 @@ export const exportCharacterToFoundry = async (req, res) => {
     if (character.traits) {
       for (const charTrait of character.traits) {
         if (charTrait.traitId) {
-          // Process trait options to include subchoices and mark selected ones (name-based)
-          const norm = (v) => (v || "").toString().trim().toLowerCase();
-          const selectedNames = new Set((charTrait.selectedOptions || []).map(opt => norm(opt.name)));
+          // Special handling for Extra Training - export as simple "training" type
+          if (charTrait.traitId.name === 'Extra Training') {
+            // Find the selected subchoice to get the skill name and data
+            let selectedSkillName = 'Unknown Skill';
+            let selectedSkillData = '';
 
-          // Create a map of selected subchoices for each parent option
-          const selectedSubchoices = {};
-          (charTrait.selectedOptions || []).forEach(opt => {
-            if (opt.selectedSubchoice) {
-              selectedSubchoices[opt.name] = opt.selectedSubchoice;
+            // Extract the selected subchoice
+            for (const selectedOption of charTrait.selectedOptions || []) {
+              if (selectedOption.selectedSubchoice) {
+                // Find the subchoice in the trait's options
+                for (const option of charTrait.traitId.options || []) {
+                  for (const subchoice of option.subchoices || []) {
+                    if (subchoice._id.toString() === selectedOption.selectedSubchoice.toString() ||
+                        subchoice.id === selectedOption.selectedSubchoice.toString()) {
+                      selectedSkillName = subchoice.name;
+                      selectedSkillData = subchoice.data || '';
+                      break;
+                    }
+                  }
+                  if (selectedSkillData) break;
+                }
+              }
             }
-          });
 
-          const expandedOptions = expandTraitOptions(charTrait.traitId.options || []);
-          const processedTraitOptions = expandedOptions.map(option => {
-            // Main option
-            if (!option.isSubchoice) {
+            // Generate a unique 16-character foundry_id for this instance
+            // Combine trait ID and instance ID, then truncate to 16 chars
+            const combinedId = `${charTrait.traitId._id.toString()}${charTrait._id.toString()}`;
+            const uniqueFoundryId = combinedId.substring(0, 16);
+
+            // Create simple "training" type item - Foundry will handle the rest
+            const trainingItem = {
+              _id: uniqueFoundryId,
+              name: `Extra Training: ${selectedSkillName}`,
+              type: "training",
+              img: getGenericIcon(charTrait.traitId, 'trait'),
+              system: {
+                description: `Through dedicated practice and experience, the character has improved their ${selectedSkillName} skill by 1.`,
+                data: selectedSkillData
+              },
+              flags: {
+                anyventure: {
+                  originalId: charTrait.traitId._id.toString(),
+                  instanceId: charTrait._id.toString()
+                }
+              },
+              ownership: { default: 0 }
+            };
+            foundryActor.items.push(trainingItem);
+          } else {
+            // Normal trait handling (all other traits)
+            const norm = (v) => (v || "").toString().trim().toLowerCase();
+            const selectedNames = new Set((charTrait.selectedOptions || []).map(opt => norm(opt.name)));
+
+            // Create a map of selected subchoices for each parent option
+            const selectedSubchoices = {};
+            (charTrait.selectedOptions || []).forEach(opt => {
+              if (opt.selectedSubchoice) {
+                selectedSubchoices[opt.name] = opt.selectedSubchoice;
+              }
+            });
+
+            const expandedOptions = expandTraitOptions(charTrait.traitId.options || []);
+            const processedTraitOptions = expandedOptions.map(option => {
+              // Main option
+              if (!option.isSubchoice) {
+                return {
+                  _id: option._id,
+                  name: option.name,
+                  description: option.description,
+                  data: option.data,
+                  selected: selectedNames.has(norm(option.name)),
+                  requiresChoice: option.requiresChoice || false,
+                  choiceType: option.choiceType || ""
+                };
+              }
+
+              // Subchoice
+              const isSelectedSubchoice = selectedSubchoices[option.parentOption] === option._id;
               return {
                 _id: option._id,
                 name: option.name,
                 description: option.description,
                 data: option.data,
-                selected: selectedNames.has(norm(option.name)),
-                requiresChoice: option.requiresChoice || false,
-                choiceType: option.choiceType || ""
+                selected: !!isSelectedSubchoice,
+                isSubchoice: true,
+                parentOption: option.parentOption
               };
-            }
+            });
 
-            // Subchoice
-            const isSelectedSubchoice = selectedSubchoices[option.parentOption] === option._id;
-            return {
-              _id: option._id,
-              name: option.name,
-              description: option.description,
-              data: option.data,
-              selected: !!isSelectedSubchoice,
-              isSubchoice: true,
-              parentOption: option.parentOption
+            const traitItem = {
+              _id: charTrait.traitId.foundry_id,
+              name: charTrait.traitId.name,
+              type: "trait",
+              img: getGenericIcon(charTrait.traitId, 'trait'),
+              system: {
+                description: charTrait.traitId.description || "",
+                category: charTrait.traitId.category || "",
+                rarity: charTrait.traitId.rarity || "",
+                effects: charTrait.traitId.effects || [],
+                options: processedTraitOptions
+              },
+              flags: {
+                anyventure: {
+                  originalId: charTrait.traitId._id.toString()
+                }
+              },
+              ownership: { default: 0 }
             };
-          });
-
-          const traitItem = {
-            _id: charTrait.traitId.foundry_id,
-            name: charTrait.traitId.name,
-            type: "trait",
-            img: getGenericIcon(charTrait.traitId, 'trait'),
-            system: {
-              description: charTrait.traitId.description || "",
-              category: charTrait.traitId.category || "",
-              rarity: charTrait.traitId.rarity || "",
-              effects: charTrait.traitId.effects || [],
-              options: processedTraitOptions
-            },
-            flags: {
-              anyventure: {
-                originalId: charTrait.traitId._id.toString()
-              }
-            },
-            ownership: { default: 0 }
-          };
-          foundryActor.items.push(traitItem);
+            foundryActor.items.push(traitItem);
+          }
         }
       }
     }

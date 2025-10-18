@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
 import MusicTalentDisplay from '../MusicTalentDisplay';
+import ExtraTrainingManager from './ExtraTrainingManager';
 import { Character, Language } from '../../../types/character';
 import { getModifiedDiceType, getDiceTierModifierIndicator } from '../../../utils/diceUtils';
 
@@ -60,6 +61,14 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
   const [availableLanguages, setAvailableLanguages] = useState<Language[]>([]);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('');
   const [isAddingLanguage, setIsAddingLanguage] = useState(false);
+  const [traits, setTraits] = useState(character.traits || []);
+
+  // Handler for when traits are updated via ExtraTrainingManager
+  const handleTraitsUpdate = (updatedTraits: any[]) => {
+    setTraits(updatedTraits);
+    // Also refresh the page to update skill displays
+    window.location.reload();
+  };
 
   // Load available languages
   useEffect(() => {
@@ -456,6 +465,40 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
               </div>
             )}
           </div>
+        </CardBody>
+      </Card>
+
+      {/* Extra Training */}
+      <Card variant="default">
+        <CardHeader>
+          <div className="flex justify-between items-center">
+            <h2
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '1.25rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Extra Training
+            </h2>
+            <span style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+              {Math.floor((character.modulePoints?.total || 0) / 10)} available
+              (1 per 10 module points)
+            </span>
+          </div>
+        </CardHeader>
+        <CardBody>
+          <p style={{ color: 'var(--color-cloud)', marginBottom: '1rem', fontSize: '0.875rem' }}>
+            Through dedicated practice and experience, you can improve specific skills. Each skill
+            can only be selected once.
+          </p>
+
+          <ExtraTrainingManager
+            characterId={character._id || ''}
+            modulePoints={character.modulePoints || { total: 0, spent: 0 }}
+            traits={traits}
+            onTraitsUpdate={handleTraitsUpdate}
+          />
         </CardBody>
       </Card>
 

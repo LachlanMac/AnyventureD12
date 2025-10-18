@@ -33,11 +33,17 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
           throw new Error('Failed to fetch traits');
         }
         const data = await response.json();
-        setTraits(data);
+
+        // Filter out progression traits that should only be available through module points
+        const characterCreationTraits = data.filter((trait: any) =>
+          trait.source !== 'module_points' && trait.name !== 'Extra Training'
+        );
+
+        setTraits(characterCreationTraits);
 
         // Auto-select "Born to Adventure" as default if no trait is selected
         if (!selectedTrait) {
-          const bornToAdventure = data.find((trait: any) => trait.name === 'Born to Adventure');
+          const bornToAdventure = characterCreationTraits.find((trait: any) => trait.name === 'Born to Adventure');
           if (bornToAdventure) {
             const selectedOptions =
               bornToAdventure.options?.map((option: any) => ({

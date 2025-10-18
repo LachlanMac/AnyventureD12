@@ -1,0 +1,263 @@
+{
+  "name": "Extra Training",
+  "description": "Through dedicated practice and experience gained through adventures, the character has improved one of their skills. This trait can be taken multiple times (once per 10 module points), but each skill can only be selected once.",
+  "category": "progression",
+  "rarity": "common",
+  "source": "module_points",
+  "options": [
+    {
+      "name": "Basic Skills",
+      "description": "Increase a basic skill by 1",
+      "requiresChoice": true,
+      "choiceType": "subchoice",
+      "subchoices": [
+        {
+          "id": "fitness",
+          "name": "Fitness",
+          "description": "The character's Fitness skill is increased by 1.",
+          "data": "SSA=1"
+        },
+        {
+          "id": "deflection",
+          "name": "Deflection",
+          "description": "The character's Deflection skill is increased by 1.",
+          "data": "SSB=1"
+        },
+        {
+          "id": "might",
+          "name": "Might",
+          "description": "The character's Might skill is increased by 1.",
+          "data": "SSC=1"
+        },
+        {
+          "id": "endurance",
+          "name": "Endurance",
+          "description": "The character's Endurance skill is increased by 1.",
+          "data": "SSD=1"
+        },
+        {
+          "id": "evasion",
+          "name": "Evasion",
+          "description": "The character's Evasion skill is increased by 1.",
+          "data": "SSE=1"
+        },
+        {
+          "id": "stealth",
+          "name": "Stealth",
+          "description": "The character's Stealth skill is increased by 1.",
+          "data": "SSF=1"
+        },
+        {
+          "id": "coordination",
+          "name": "Coordination",
+          "description": "The character's Coordination skill is increased by 1.",
+          "data": "SSG=1"
+        },
+        {
+          "id": "thievery",
+          "name": "Thievery",
+          "description": "The character's Thievery skill is increased by 1.",
+          "data": "SSH=1"
+        },
+        {
+          "id": "resilience",
+          "name": "Resilience",
+          "description": "The character's Resilience skill is increased by 1.",
+          "data": "SSI=1"
+        },
+        {
+          "id": "concentration",
+          "name": "Concentration",
+          "description": "The character's Concentration skill is increased by 1.",
+          "data": "SSJ=1"
+        },
+        {
+          "id": "senses",
+          "name": "Senses",
+          "description": "The character's Senses skill is increased by 1.",
+          "data": "SSK=1"
+        },
+        {
+          "id": "logic",
+          "name": "Logic",
+          "description": "The character's Logic skill is increased by 1.",
+          "data": "SSL=1"
+        },
+        {
+          "id": "wildcraft",
+          "name": "Wildcraft",
+          "description": "The character's Wildcraft skill is increased by 1.",
+          "data": "SSM=1"
+        },
+        {
+          "id": "academics",
+          "name": "Academics",
+          "description": "The character's Academics skill is increased by 1.",
+          "data": "SSN=1"
+        },
+        {
+          "id": "magic",
+          "name": "Magic",
+          "description": "The character's Magic skill is increased by 1.",
+          "data": "SSO=1"
+        },
+        {
+          "id": "medicine",
+          "name": "Medicine",
+          "description": "The character's Medicine skill is increased by 1.",
+          "data": "SSP=1"
+        },
+        {
+          "id": "expression",
+          "name": "Expression",
+          "description": "The character's Expression skill is increased by 1.",
+          "data": "SSQ=1"
+        },
+        {
+          "id": "presence",
+          "name": "Presence",
+          "description": "The character's Presence skill is increased by 1.",
+          "data": "SSR=1"
+        },
+        {
+          "id": "insight",
+          "name": "Insight",
+          "description": "The character's Insight skill is increased by 1.",
+          "data": "SSS=1"
+        },
+        {
+          "id": "persuasion",
+          "name": "Persuasion",
+          "description": "The character's Persuasion skill is increased by 1.",
+          "data": "SST=1"
+        }
+      ]
+    },
+    {
+      "name": "Weapon Skills",
+      "description": "Increase a weapon skill by 1",
+      "requiresChoice": true,
+      "choiceType": "subchoice",
+      "subchoices": [
+        {
+          "id": "brawling",
+          "name": "Brawling",
+          "description": "The character's Brawling skill is increased by 1.",
+          "data": "WS1=1"
+        },
+        {
+          "id": "throwing",
+          "name": "Throwing",
+          "description": "The character's Throwing skill is increased by 1.",
+          "data": "WS2=1"
+        },
+        {
+          "id": "simplemelee",
+          "name": "Simple Melee Weapons",
+          "description": "The character's Simple Melee Weapons skill is increased by 1.",
+          "data": "WS3=1"
+        },
+        {
+          "id": "simpleranged",
+          "name": "Simple Ranged Weapons",
+          "description": "The character's Simple Ranged Weapons skill is increased by 1.",
+          "data": "WS4=1"
+        },
+        {
+          "id": "complexmelee",
+          "name": "Complex Melee Weapons",
+          "description": "The character's Complex Melee Weapons skill is increased by 1.",
+          "data": "WS5=1"
+        },
+        {
+          "id": "complexranged",
+          "name": "Complex Ranged Weapons",
+          "description": "The character's Complex Ranged Weapons skill is increased by 1.",
+          "data": "WS6=1"
+        }
+      ]
+    },
+    {
+      "name": "Magic Skills",
+      "description": "Increase a magic skill by 1",
+      "requiresChoice": true,
+      "choiceType": "subchoice",
+      "subchoices": [
+        {
+          "id": "black",
+          "name": "Black Magic",
+          "description": "The character's Black Magic skill is increased by 1.",
+          "data": "YS1=1"
+        },
+        {
+          "id": "primal",
+          "name": "Primal Magic",
+          "description": "The character's Primal Magic skill is increased by 1.",
+          "data": "YS2=1"
+        },
+        {
+          "id": "meta",
+          "name": "Metamagic",
+          "description": "The character's Metamagic skill is increased by 1.",
+          "data": "YS3=1"
+        },
+        {
+          "id": "divine",
+          "name": "Divine Magic",
+          "description": "The character's Divine Magic skill is increased by 1.",
+          "data": "YS4=1"
+        },
+        {
+          "id": "mysticism",
+          "name": "Mysticism",
+          "description": "The character's Mysticism skill is increased by 1.",
+          "data": "YS5=1"
+        }
+      ]
+    },
+    {
+      "name": "Crafting Skills",
+      "description": "Increase a crafting skill by 1",
+      "requiresChoice": true,
+      "choiceType": "subchoice",
+      "subchoices": [
+        {
+          "id": "engineering",
+          "name": "Engineering",
+          "description": "The character's Engineering skill is increased by 1.",
+          "data": "CS1=1"
+        },
+        {
+          "id": "fabrication",
+          "name": "Fabrication",
+          "description": "The character's Fabrication skill is increased by 1.",
+          "data": "CS2=1"
+        },
+        {
+          "id": "alchemy",
+          "name": "Alchemy",
+          "description": "The character's Alchemy skill is increased by 1.",
+          "data": "CS3=1"
+        },
+        {
+          "id": "cooking",
+          "name": "Cooking",
+          "description": "The character's Cooking skill is increased by 1.",
+          "data": "CS4=1"
+        },
+        {
+          "id": "glyphcraft",
+          "name": "Glyphcraft",
+          "description": "The character's Glyphcraft skill is increased by 1.",
+          "data": "CS5=1"
+        },
+        {
+          "id": "bioshaping",
+          "name": "Bioshaping",
+          "description": "The character's Bioshaping skill is increased by 1.",
+          "data": "CS6=1"
+        }
+      ]
+    }
+  ]
+}

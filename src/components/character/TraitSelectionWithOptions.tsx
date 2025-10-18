@@ -58,7 +58,13 @@ const TraitSelectionWithOptions: React.FC<TraitSelectionProps> = ({
           throw new Error('Failed to fetch traits');
         }
         const data = await response.json();
-        setAvailableTraits(data);
+
+        // Filter out progression traits that should only be available through module points
+        const characterCreationTraits = data.filter((trait: any) =>
+          trait.source !== 'module_points' && trait.name !== 'Extra Training'
+        );
+
+        setAvailableTraits(characterCreationTraits);
         setLoading(false);
       } catch (err) {
         console.error('Error fetching traits:', err);

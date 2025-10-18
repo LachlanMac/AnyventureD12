@@ -1236,6 +1236,64 @@ router.get('/injuries', async (req, res) => {
   }
 });
 
+// Get all training options for Foundry
+router.get('/training', async (req, res) => {
+  try {
+    // Find the Extra Training trait
+    const extraTrainingTrait = await Trait.findOne({ name: 'Extra Training' });
+
+    if (!extraTrainingTrait) {
+      return res.status(404).json({ error: 'Extra Training trait not found' });
+    }
+
+    const trainingItems = [];
+    let itemIndex = 0;
+
+    // Loop through all options and their subchoices
+    for (const option of extraTrainingTrait.options || []) {
+      for (const subchoice of option.subchoices || []) {
+        // Generate a deterministic ID based on the skill name
+        const seed = `training-${subchoice.name.toLowerCase().replace(/\s+/g, '-')}`;
+
+        const trainingItem = {
+          _id: generateDeterministicFoundryId(seed),
+          name: `Extra Training: ${subchoice.name}`,
+          type: "training",
+          img: "icons/sundries/scrolls/scroll-bound-black-brown.webp",
+          system: {
+            description: subchoice.description || `Through dedicated practice and experience, the character has improved their ${subchoice.name} skill by 1.`,
+            data: subchoice.data || ''
+          },
+          flags: {
+            anyventure: {
+              version: "1.0.0",
+              originalTraitId: extraTrainingTrait._id.toString(),
+              subchoiceId: subchoice._id?.toString() || subchoice.id
+            }
+          }
+        };
+
+        trainingItems.push(trainingItem);
+        itemIndex++;
+      }
+    }
+
+    res.json({
+      type: 'compendium-data',
+      documentType: 'Item',
+      data: trainingItems,
+      metadata: {
+        count: trainingItems.length,
+        version: "1.0.0",
+        lastUpdated: new Date().toISOString()
+      }
+    });
+  } catch (error) {
+    console.error('Error fetching training items for Foundry:', error);
+    res.status(500).json({ error: 'Failed to fetch training items' });
+  }
+});
+
 // Get all creatures for Foundry
 router.get('/creatures', async (req, res) => {
   try {
@@ -1337,6 +1395,34 @@ router.get('/all', async (req, res) => {
       }
     });
 
+    // Generate training items from Extra Training trait
+    const trainingItems = [];
+    const extraTrainingTrait = traits.find(t => t.name === 'Extra Training');
+    if (extraTrainingTrait) {
+      for (const option of extraTrainingTrait.options || []) {
+        for (const subchoice of option.subchoices || []) {
+          const seed = `training-${subchoice.name.toLowerCase().replace(/\s+/g, '-')}`;
+          trainingItems.push({
+            _id: generateDeterministicFoundryId(seed),
+            name: `Extra Training: ${subchoice.name}`,
+            type: "training",
+            img: "icons/sundries/scrolls/scroll-bound-black-brown.webp",
+            system: {
+              description: subchoice.description || `Through dedicated practice and experience, the character has improved their ${subchoice.name} skill by 1.`,
+              data: subchoice.data || ''
+            },
+            flags: {
+              anyventure: {
+                version: "1.0.0",
+                originalTraitId: extraTrainingTrait._id.toString(),
+                subchoiceId: subchoice._id?.toString() || subchoice.id
+              }
+            }
+          });
+        }
+      }
+    }
+
     const foundryData = {
       modules: foundryModules,
       ancestries: ancestries.map(a => convertToFoundryFormat(a.toObject(), 'ancestry')),
@@ -1347,6 +1433,7 @@ router.get('/all', async (req, res) => {
       songs: songs.map(s => convertToFoundryFormat(s.toObject(), 'song')),
       languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language')),
       injuries: injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury')),
+      training: trainingItems,
       creatures: creatures.map(c => convertToFoundryFormat(c.toObject(), 'creature'))
     };
 
@@ -1416,6 +1503,7 @@ router.get('/', (req, res) => {
       '/fvtt/songs',
       '/fvtt/languages',
       '/fvtt/injuries',
+      '/fvtt/training',
       '/fvtt/creatures',
       '/fvtt/all',
       '/fvtt/datakey'
