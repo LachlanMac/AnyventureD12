@@ -20,35 +20,55 @@ interface APIItem extends Item {
 
 // Helper function to convert range numbers to descriptive text
 const getRangeDescription = (minRange: number, maxRange: number): string => {
-  const rangeMap: { [key: number]: string } = {
-    0: 'No Min',
-    1: 'Adjacent',
-    2: 'Nearby',
-    3: 'Very Short',
-    4: 'Short',
-    5: 'Moderate',
-    6: 'Far',
-    7: 'Very Far',
-    8: 'Distant',
-    9: 'Unlimited',
+  // Helper to get range description for a single value
+  const getSingleRangeDesc = (value: number): string => {
+    if (value === 0 || value === 1) return 'Adjacent';
+    if (value === 2) return 'Nearby';
+    if (value >= 3 && value <= 5) return 'Very Short';
+    if (value >= 6 && value <= 10) return 'Short';
+    if (value >= 11 && value <= 20) return 'Moderate';
+    if (value >= 21 && value <= 40) return 'Far';
+    if (value >= 41 && value <= 60) return 'Very Far';
+    if (value >= 61 && value <= 100) return 'Distant';
+    return 'Unlimited';
   };
 
-  // Get descriptive names
-  const minDesc = rangeMap[minRange] || 'Unknown';
-  const maxDesc = rangeMap[maxRange] || 'Unknown';
-
-  // If min is 0 (No Min), only show max
-  if (minRange === 0) {
-    return maxDesc;
+  // If min is 0 or 1 and max is 1, it's just Adjacent (melee)
+  if ((minRange === 0 || minRange === 1) && maxRange === 1) {
+    return 'Melee';
   }
+
+  // Get descriptive names
+  const minDesc = getSingleRangeDesc(minRange);
+  const maxDesc = getSingleRangeDesc(maxRange);
 
   // If both are the same, show only one
   if (minDesc === maxDesc) {
     return minDesc;
   }
 
+  // If min is 1 (Adjacent) and max is something else, just show the max
+  if (minRange === 1 && maxRange > 1) {
+    return maxDesc;
+  }
+
   // Otherwise show range
-  return `${minDesc} - ${maxDesc}`;
+  return `${minDesc} to ${maxDesc}`;
+};
+
+// Helper function to render energy stars
+const renderEnergyStars = (energy: number | undefined): React.ReactElement => {
+  if (!energy || energy === 0) {
+    return <span style={{ color: 'var(--color-cloud)' }}>None</span>;
+  }
+
+  return (
+    <span style={{ display: 'inline-flex', gap: '0.125rem', alignItems: 'center' }}>
+      {Array.from({ length: energy }).map((_, i) => (
+        <span key={i} style={{ color: '#FFD700', fontSize: '0.9rem' }}>★</span>
+      ))}
+    </span>
+  );
 };
 
 const ItemBrowser: React.FC = () => {
@@ -63,6 +83,7 @@ const ItemBrowser: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [rarityFilter, setRarityFilter] = useState('all');
+  const [weaponCategoryFilter, setWeaponCategoryFilter] = useState('all');
   const [addingItem, setAddingItem] = useState(false);
   const [showPurchaseModal, setShowPurchaseModal] = useState(false);
   const [itemToPurchase, setItemToPurchase] = useState<APIItem | null>(null);
@@ -219,6 +240,11 @@ const ItemBrowser: React.FC = () => {
       filtered = filtered.filter((item) => item.type === typeFilter);
     }
 
+    // Filter by weapon category (only applies when type is weapon)
+    if (typeFilter === 'weapon' && weaponCategoryFilter !== 'all') {
+      filtered = filtered.filter((item) => item.weapon_category === weaponCategoryFilter);
+    }
+
     // Filter by rarity
     if (rarityFilter !== 'all') {
       filtered = filtered.filter((item) => item.rarity === rarityFilter);
@@ -315,15 +341,29 @@ const ItemBrowser: React.FC = () => {
                 {item.rarity}
               </span>
               <span style={{ color: 'var(--color-muted)' }}>•</span>
-              <span style={{ color: 'var(--color-cloud)', textTransform: 'capitalize' }}>
-                {item.type}
-              </span>
-              {item.slot && (
+              {item.type === 'weapon' ? (
+                <span style={{ color: 'var(--color-cloud)' }}>
+                  {item.hands === 2 ? '2-Handed' : '1-Handed'}{' '}
+                  {item.weapon_category === 'complexMelee' || item.weapon_category === 'complexRanged' ? 'Complex' : 'Simple'}{' '}
+                  {item.weapon_category === 'simpleMelee' || item.weapon_category === 'complexMelee' ? 'Melee' :
+                   item.weapon_category === 'simpleRanged' || item.weapon_category === 'complexRanged' ? 'Ranged' :
+                   item.weapon_category === 'brawling' ? 'Brawling' :
+                   item.weapon_category === 'throwing' ? 'Throwing' : ''}{' '}
+                  Weapon
+                </span>
+              ) : (
                 <>
-                  <span style={{ color: 'var(--color-muted)' }}>•</span>
                   <span style={{ color: 'var(--color-cloud)', textTransform: 'capitalize' }}>
-                    {item.slot} slot
+                    {item.type}
                   </span>
+                  {item.slot && (
+                    <>
+                      <span style={{ color: 'var(--color-muted)' }}>•</span>
+                      <span style={{ color: 'var(--color-cloud)', textTransform: 'capitalize' }}>
+                        {item.slot} slot
+                      </span>
+                    </>
+                  )}
                 </>
               )}
             </div>
@@ -335,6 +375,70 @@ const ItemBrowser: React.FC = () => {
               </h3>
               <p style={{ color: 'var(--color-cloud)', lineHeight: '1.5' }}>{item.description}</p>
             </div>
+
+            {/* Effects (for consumables with substance data) */}
+            {item.substance && (
+              <div>
+                <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
+                  Effects
+                </h3>
+                <div
+                  style={{
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    padding: '1rem',
+                    borderRadius: '0.375rem',
+                  }}
+                >
+                  <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                    <strong>Effect:</strong> {item.substance.effect}
+                  </div>
+                  <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                    <strong>Duration:</strong> {item.substance.duration}
+                  </div>
+                  <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                    <strong>Category:</strong> <span style={{ textTransform: 'capitalize' }}>{item.substance.category}</span>
+                  </div>
+                  <div style={{ color: 'var(--color-cloud)' }}>
+                    <strong>Dependency Risk:</strong> {item.substance.dependency}
+                  </div>
+                  {item.side_effect && (
+                    <>
+                      <div style={{ height: '1px', backgroundColor: 'var(--color-dark-border)', margin: '0.75rem 0' }} />
+                      <div style={{ color: 'var(--color-sunset)' }}>
+                        <strong>Side Effect:</strong> {item.side_effect}
+                      </div>
+                    </>
+                  )}
+                </div>
+              </div>
+            )}
+
+            {/* Effects (for items with effects array) */}
+            {!item.substance && item.effects && item.effects.length > 0 && (
+              <div>
+                <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
+                  Effects
+                </h3>
+                <div
+                  style={{
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    padding: '1rem',
+                    borderRadius: '0.375rem',
+                  }}
+                >
+                  {item.effects.map((effect, index) => (
+                    <div key={index} style={{ marginBottom: index < item.effects!.length - 1 ? '0.75rem' : '0' }}>
+                      <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold', marginBottom: '0.25rem' }}>
+                        {effect.type}
+                      </div>
+                      <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem', lineHeight: '1.4' }}>
+                        {effect.description}
+                      </div>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             {/* Basic Properties */}
             <div>
@@ -391,10 +495,10 @@ const ItemBrowser: React.FC = () => {
             </div>
 
             {/* Weapon Data */}
-            {item.weapon_data && (
+            {(item.primary || item.weapon_data) && (
               <div>
                 <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-                  Weapon Data
+                  Weapon Details
                 </h3>
                 <div
                   style={{
@@ -403,35 +507,107 @@ const ItemBrowser: React.FC = () => {
                     borderRadius: '0.375rem',
                   }}
                 >
-                  <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                    <strong>Category:</strong> {item.weapon_data.category}
-                  </div>
-                  <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                    <strong>Primary Damage:</strong> {item.weapon_data.primary.damage}{' '}
-                    {item.weapon_data.primary.damage_type} ({item.weapon_data.primary.category})
-                  </div>
-                  {item.weapon_data.primary.damage_extra !== '0' && (
-                    <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                      <strong>Extra Damage:</strong> {item.weapon_data.primary.damage_extra} per
-                      extra hit
-                    </div>
-                  )}
-                  {(item.weapon_data.primary.min_range > 0 ||
-                    item.weapon_data.primary.max_range > 0) && (
-                    <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                      <strong>Range:</strong>{' '}
-                      {getRangeDescription(
-                        item.weapon_data.primary.min_range,
-                        item.weapon_data.primary.max_range
+                  {/* Primary Damage */}
+                  {item.primary && (
+                    <>
+                      <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <strong>Primary:</strong>
+                        <span style={{ color: 'var(--color-old-gold)', fontWeight: 'bold' }}>
+                          [{item.primary.damage}/{item.primary.damage_extra}]
+                        </span>
+                        <span style={{ textTransform: 'capitalize' }}>{item.primary.damage_type}</span>
+                        {item.primary.category && item.primary.category !== 'extra' && (
+                          <span style={{ fontSize: '0.9rem', opacity: 0.8 }}>({item.primary.category})</span>
+                        )}
+                      </div>
+
+                      {/* Energy Cost */}
+                      {item.primary.energy !== undefined && (
+                        <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <strong>Energy:</strong>
+                          {renderEnergyStars(item.primary.energy)}
+                        </div>
                       )}
-                    </div>
+
+                      {/* Range */}
+                      <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                        <strong>Range:</strong>{' '}
+                        {getRangeDescription(
+                          item.primary.min_range || 0,
+                          item.primary.max_range || 1
+                        )}
+                      </div>
+                    </>
                   )}
-                  {item.weapon_data.secondary && item.weapon_data.secondary.damage !== '0' && (
-                    <div style={{ color: 'var(--color-cloud)' }}>
-                      <strong>Secondary Damage:</strong> {item.weapon_data.secondary.damage}{' '}
-                      {item.weapon_data.secondary.damage_type} (
-                      {item.weapon_data.secondary.category})
-                    </div>
+
+                  {/* Secondary Damage */}
+                  {item.secondary && item.secondary.damage !== '0' && (
+                    <>
+                      <div style={{ height: '1px', backgroundColor: 'var(--color-dark-border)', margin: '0.75rem 0' }} />
+                      <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                        <strong>Secondary:</strong>
+                        <span style={{ color: 'var(--color-old-gold)', fontWeight: 'bold' }}>
+                          [{item.secondary.damage}/{item.secondary.damage_extra}]
+                        </span>
+                        <span style={{ textTransform: 'capitalize' }}>{item.secondary.damage_type}</span>
+                        {item.secondary.category && item.secondary.category !== 'extra' && (
+                          <span style={{ fontSize: '0.9rem', opacity: 0.8 }}>({item.secondary.category})</span>
+                        )}
+                      </div>
+
+                      {/* Energy Cost for Secondary */}
+                      {item.secondary.energy !== undefined && (
+                        <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                          <strong>Energy:</strong>
+                          {renderEnergyStars(item.secondary.energy)}
+                        </div>
+                      )}
+
+                      {/* Range for Secondary */}
+                      <div style={{ color: 'var(--color-cloud)' }}>
+                        <strong>Range:</strong>{' '}
+                        {getRangeDescription(
+                          item.secondary.min_range || 0,
+                          item.secondary.max_range || 1
+                        )}
+                      </div>
+                    </>
+                  )}
+
+                  {/* Fallback to weapon_data if primary/secondary not available */}
+                  {!item.primary && item.weapon_data && (
+                    <>
+                      <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                        <strong>Category:</strong> {item.weapon_data.category}
+                      </div>
+                      <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                        <strong>Primary Damage:</strong> {item.weapon_data.primary.damage}{' '}
+                        {item.weapon_data.primary.damage_type} ({item.weapon_data.primary.category})
+                      </div>
+                      {item.weapon_data.primary.damage_extra !== '0' && (
+                        <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                          <strong>Extra Damage:</strong> {item.weapon_data.primary.damage_extra} per
+                          extra hit
+                        </div>
+                      )}
+                      {(item.weapon_data.primary.min_range > 0 ||
+                        item.weapon_data.primary.max_range > 0) && (
+                        <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                          <strong>Range:</strong>{' '}
+                          {getRangeDescription(
+                            item.weapon_data.primary.min_range,
+                            item.weapon_data.primary.max_range
+                          )}
+                        </div>
+                      )}
+                      {item.weapon_data.secondary && item.weapon_data.secondary.damage !== '0' && (
+                        <div style={{ color: 'var(--color-cloud)' }}>
+                          <strong>Secondary Damage:</strong> {item.weapon_data.secondary.damage}{' '}
+                          {item.weapon_data.secondary.damage_type} (
+                          {item.weapon_data.secondary.category})
+                        </div>
+                      )}
+                    </>
                   )}
                 </div>
               </div>
@@ -793,32 +969,6 @@ const ItemBrowser: React.FC = () => {
               </div>
             )}
 
-            {/* Effects */}
-            {item.effects && item.effects.length > 0 && (
-              <div>
-                <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-                  Special Effects
-                </h3>
-                <div
-                  style={{
-                    backgroundColor: 'var(--color-dark-elevated)',
-                    padding: '1rem',
-                    borderRadius: '0.375rem',
-                  }}
-                >
-                  {item.effects.map((effect, index) => (
-                    <div key={index} style={{ marginBottom: '0.5rem' }}>
-                      <div style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
-                        {effect.type}
-                      </div>
-                      <div style={{ color: 'var(--color-muted)', fontSize: '0.875rem' }}>
-                        {effect.description}
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
           </div>
         </CardBody>
       </Card>
@@ -950,7 +1100,13 @@ const ItemBrowser: React.FC = () => {
 
           <select
             value={typeFilter}
-            onChange={(e) => setTypeFilter(e.target.value)}
+            onChange={(e) => {
+              setTypeFilter(e.target.value);
+              // Reset weapon category filter when changing type
+              if (e.target.value !== 'weapon') {
+                setWeaponCategoryFilter('all');
+              }
+            }}
             style={{
               padding: '0.75rem',
               backgroundColor: 'var(--color-dark-elevated)',
@@ -975,6 +1131,29 @@ const ItemBrowser: React.FC = () => {
             <option value="instrument">Instruments</option>
             <option value="ammunition">Ammunition</option>
           </select>
+
+          {/* Weapon Category Filter - Only shown when Weapons type is selected */}
+          {typeFilter === 'weapon' && (
+            <select
+              value={weaponCategoryFilter}
+              onChange={(e) => setWeaponCategoryFilter(e.target.value)}
+              style={{
+                padding: '0.75rem',
+                backgroundColor: 'var(--color-dark-elevated)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '0.375rem',
+                color: 'var(--color-cloud)',
+              }}
+            >
+              <option value="all">All Weapon Types</option>
+              <option value="brawling">Brawling</option>
+              <option value="throwing">Throwing</option>
+              <option value="simpleMelee">Simple Melee</option>
+              <option value="simpleRanged">Simple Ranged</option>
+              <option value="complexMelee">Complex Melee</option>
+              <option value="complexRanged">Complex Ranged</option>
+            </select>
+          )}
 
           <select
             value={rarityFilter}
@@ -1039,6 +1218,21 @@ const ItemBrowser: React.FC = () => {
                       artifact: '#EF4444',
                     };
 
+                    // Generate weapon type description
+                    const getItemTypeDescription = () => {
+                      if (item.type === 'weapon') {
+                        const hands = item.hands === 2 ? '2-Handed' : '1-Handed';
+                        const complexity = item.weapon_category === 'complexMelee' || item.weapon_category === 'complexRanged' ? 'Complex' : 'Simple';
+                        const category =
+                          item.weapon_category === 'simpleMelee' || item.weapon_category === 'complexMelee' ? 'Melee' :
+                          item.weapon_category === 'simpleRanged' || item.weapon_category === 'complexRanged' ? 'Ranged' :
+                          item.weapon_category === 'brawling' ? 'Brawling' :
+                          item.weapon_category === 'throwing' ? 'Throwing' : '';
+                        return `${hands} ${complexity} ${category} Weapon`;
+                      }
+                      return item.type;
+                    };
+
                     return (
                       <div
                         key={item._id}
@@ -1074,11 +1268,10 @@ const ItemBrowser: React.FC = () => {
                               style={{
                                 color: 'var(--color-cloud)',
                                 fontSize: '0.75rem',
-                                textTransform: 'capitalize',
                               }}
                             >
-                              {item.type}
-                              {item.slot && ` • ${item.slot}`}
+                              {getItemTypeDescription()}
+                              {!item.type.includes('weapon') && item.slot && ` • ${item.slot}`}
                             </div>
                           </div>
 

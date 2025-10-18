@@ -99,6 +99,14 @@ const ItemSchema = new Schema({
     dependency: {
       type: Number,
       default: 0
+    },
+    effect: {
+      type: String,
+      default: ""
+    },
+    duration: {
+      type: String,
+      default: ""
     }
   },
   bonus_attack: {

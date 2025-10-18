@@ -227,6 +227,7 @@ export interface Damage {
   damage_extra: string;
   damage_type: string;
   category: 'pierce' | 'slash' | 'blunt' | 'ranged' | 'extra';
+  energy?: number;
   secondary_damage: number;
   secondary_damage_extra: number;
   secondary_damage_type: string;
@@ -256,6 +257,13 @@ export interface ItemEffect {
   type: string;
   description: string;
   data: any;
+}
+
+export interface Substance {
+  category: string;
+  dependency: number;
+  effect: string;
+  duration: string;
 }
 
 export interface TalentBonus {
@@ -325,6 +333,8 @@ export interface Item {
   detections?: Record<string, number>;
   immunities?: Record<string, boolean>;
   effects?: ItemEffect[];
+  substance?: Substance;
+  side_effect?: string;
   properties?: string;
   createdAt?: string;
   updatedAt?: string;
