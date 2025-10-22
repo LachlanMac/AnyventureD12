@@ -1,0 +1,19 @@
+{
+  "name": "Clarity",
+  "description": "You target an ally within a short (10 unit) distance and give them a strong sense of clarity for the next hour, granting them a bonus dice to all mind and knowledge checks.",
+  "charge": "The spell lasts for an entire day, and spells that the target channels require one less energy",
+  "duration": "1 hour",
+  "range": 4,
+  "checkToCast": 5,
+  "components": [
+    "Citrine"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcClarity5d3g8x",
+  "foundry_icon": "icons/magic/perception/third-eye-blue-green.webp"
+}

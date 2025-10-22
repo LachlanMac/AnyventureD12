@@ -53,7 +53,7 @@ Weapons also have categories which determines what types of actions they can ben
 - **Piercing**: Daggers, short swords, spears
 - **Blunt**: Hammers, staves and clubs
 - **Ranged**: Bows, throwing weapons, slings
-- **Magic**: Staves and Wands that channel one of the five schools of magic (Black, Primal, Divine, Mysticism, Meta). These weapons    
+- **Magic**: Staves and Wands that channel one of the five schools of magic (Black, Primal, White, Mysticism, Meta). These weapons    
    typically require energy to use their magical properties but can often be used as simple melee weapons as well.
 
 

@@ -460,7 +460,7 @@ const mapMagicCode = (code) => {
     '1': 'black',
     '2': 'primal',
     '3': 'meta',
-    '4': 'divine',
+    '4': 'white',
     '5': 'mystic',
   };
   return map[code];
@@ -473,7 +473,7 @@ const mapCraftingCode = (code) => {
     '3': 'alchemy',
     '4': 'cooking',
     '5': 'glyphcraft',
-    '6': 'bioshaping',
+    '6': 'biosculpting',
   };
   return map[code];
 };

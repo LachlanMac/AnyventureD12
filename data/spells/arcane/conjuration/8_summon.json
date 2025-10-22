@@ -1,0 +1,17 @@
+{
+  "name": "Summon",
+  "description": "You call out to a willing humanoid within a distant (100 unit) distance on your current plane and summon them to you. The creature teleports to an unoccupied space adjacent to you in 1d6 rounds, arriving with all equipment it is carrying. This spell fails if the creature is prevented from teleporting or if no space is available.",
+  "charge": "You can target any willing humanoid on the same plane as you, but they arrive in 1d6 minutes instead of rounds.",
+  "duration": "Instantaneous",
+  "range": 8,
+  "checkToCast": 8,
+  "components": ["Diatessite"],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcSummon4G7E9KD",
+  "foundry_icon": "icons/magic/movement/portal-vortex-spiral-blue.webp"
+}

@@ -8,7 +8,7 @@ There are 5 spell schools in AnyventureD12, each requiring their own skill to ch
 - **Black Magic**: Magic most associated with, death, curses and demonic.
 - **Meta Magic**: Magic that inflicts change
 - **Primal Magic**: Magic that exists in nature
-- **Divine Magic**: Magic most associated with the heavens and celestials
+- **White Magic**: Magic most associated with the heavens and celestials
 - **Mysticism Magic**: Magic that is associated with the spirit world
 
 ## Subschools
@@ -42,7 +42,7 @@ Each magic school has 3 subschools; 2 regular and 1 exotic.
 **Exotic Spellschool:**
 - **Fey**: Whimsical and chaotic magic from the feywild
 
-### Divine Magic
+### White Magic
 
 **Subschools:**
 - **Protection**: Shields, wards, and defensive magic

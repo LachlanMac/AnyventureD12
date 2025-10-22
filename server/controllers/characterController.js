@@ -1453,10 +1453,10 @@ export const exportCharacterToFoundry = async (req, res) => {
             talent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0,
             baseTalent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0
           },
-          divine: {
+          white: {
             value: 0,
-            talent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0,
-            baseTalent: character.magicSkills?.divine?.baseTalent || character.magicSkills?.divine?.talent || 0
+            talent: character.magicSkills?.white?.baseTalent || character.magicSkills?.white?.talent || 0,
+            baseTalent: character.magicSkills?.white?.baseTalent || character.magicSkills?.white?.talent || 0
           },
           mysticism: {
             value: 0,
@@ -1492,10 +1492,10 @@ export const exportCharacterToFoundry = async (req, res) => {
             talent: character.craftingSkills?.glyphcraft?.talent || 0,
             baseTalent: character.craftingSkills?.glyphcraft?.baseTalent || character.craftingSkills?.glyphcraft?.talent || 0
           },
-          bioshaping: {
-            value: character.craftingSkills?.bioshaping?.value || 0,
-            talent: character.craftingSkills?.bioshaping?.talent || 0,
-            baseTalent: character.craftingSkills?.bioshaping?.baseTalent || character.craftingSkills?.bioshaping?.talent || 0
+          biosculpting: {
+            value: character.craftingSkills?.biosculpting?.value || 0,
+            talent: character.craftingSkills?.biosculpting?.talent || 0,
+            baseTalent: character.craftingSkills?.biosculpting?.baseTalent || character.craftingSkills?.biosculpting?.talent || 0
           }
         },
 

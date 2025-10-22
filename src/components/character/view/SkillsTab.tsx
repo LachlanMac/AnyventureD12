@@ -272,18 +272,18 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
             diceTierModifier: character.magicSkills.primal.diceTierModifier,
           },
           {
-            id: 'alteration',
-            name: 'Alteration',
-            value: character.magicSkills.alteration.value,
-            talent: character.magicSkills.alteration.talent,
-            diceTierModifier: character.magicSkills.alteration.diceTierModifier,
+            id: 'meta',
+            name: 'Metamagic',
+            value: character.magicSkills.meta.value,
+            talent: character.magicSkills.meta.talent,
+            diceTierModifier: character.magicSkills.meta.diceTierModifier,
           },
           {
-            id: 'divine',
-            name: 'Divine',
-            value: character.magicSkills.divine.value,
-            talent: character.magicSkills.divine.talent,
-            diceTierModifier: character.magicSkills.divine.diceTierModifier,
+            id: 'white',
+            name: 'White',
+            value: character.magicSkills.white.value,
+            talent: character.magicSkills.white.talent,
+            diceTierModifier: character.magicSkills.white.diceTierModifier,
           },
           {
             id: 'mystic',
@@ -291,6 +291,13 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
             value: character.magicSkills.mystic.value,
             talent: character.magicSkills.mystic.talent,
             diceTierModifier: character.magicSkills.mystic.diceTierModifier,
+          },
+          {
+            id: 'arcane',
+            name: 'Arcane',
+            value: character.magicSkills.arcane.value,
+            talent: character.magicSkills.arcane.talent,
+            diceTierModifier: character.magicSkills.arcane.diceTierModifier,
           },
         ]}
       />

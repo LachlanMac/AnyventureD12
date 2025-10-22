@@ -3,14 +3,14 @@
   "description": "Thick leather armor reinforced with metal studs and rivets across key areas of the chest and shoulders.",
   "type": "body",
   "weight": 7,
-  "value": 700,
+  "value": 1100,
   "rarity": "common",
   "recipe": {
     "type": "fabrication",
     "difficulty": 6,
     "ingredients": [
       "2x Hide",
-      "Bundle of Studs",
+      "2x Bundle of Studs",
       "Padding"
     ]
   },

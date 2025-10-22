@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Scout",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Vanguard Sentry",
+      "description": "You excel at detecting danger before it reaches your allies. Gain +1 skill with senses. When you are within a very short (5 unit) distance of an ally, you gain a bonus dice on senses checks to detect traps and environmental dangers.",
+      "location": "1",
+      "data": "SSK=1:TG"
+    },
+    {
+      "name": "Action : Detect Tremors",
+      "description": "You dedicate your focus to feel the vibrations in the ground, gaining a tremorsense out to a short (10 unit) distance as long as you maintain concentration. If you are prone, the range is extended to a distant (100 unit) range. You are considered to have the alerted condition when concentrating on this action.",
+      "location": "2a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Reaction : Withdraw",
+      "description": "In response to being targeted by an attack or taking damage, you immediately use the Sprint action to move away from the attacker. You gain a bonus dice on your defense check against the triggering attack.",
+      "location": "2b",
+      "data": "ZINE=2"
+    },
+    {
+      "name": "Combat Coordinator",
+      "description": "You coordinate with your allies to strike simultaneously. Gain +1 skill with coordination. At the start of combat, you can choose one ally within a short (10 unit) distance and grant them the same initiative result as you.",
+      "location": "3",
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "First Strike Advantage",
+      "description": "You strike decisively before enemies can react. Gain +1 skill with stealth. On your first attack of combat, you deal extra damage equal to the difference in initiative between you and your target if you are hidden. Otherwise, the extra damage is halved.",
+      "location": "4a",
+      "data": "SSF=1:TG"
+    },
+    {
+      "name": "Ranger",
+      "description": "Your endurance allows you to range far ahead, under any conditions. Gain +1 skill with endurance and +1 mitigation to cold and heat damage.",
+      "location": "4b",
+      "data": "SSD=1:M2=1:M3=1"
+    },
+    {
+      "name": "Pathfinder",
+      "description": "Your mastery of terrain allows rapid movement. Gain +1 movement speed and +1 skill with fitness.",
+      "location": "5",
+      "data": "K1=1:SSA=1"
+    },
+    {
+      "name": "Precision Marksmanship",
+      "description": "You've mastered long-range precision weapons. Gain +1 skill with complex ranged weapons.",
+      "location": "6a",
+      "data": "WS6=1"
+    },
+    {
+      "name": "Versatile Shooter",
+      "description": "You excel with simple, reliable ranged weapons. Gain +1 skill with simple ranged and throwing weapons.",
+      "location": "6b",
+      "data": "WS4=1:WS2=1"
+    },
+    {
+      "name": "Action : Scout's Flank",
+      "description": "You exploit your positioning to strike multiple targets. Make two attacks with a ranged weapon using one attack roll. Each target that you deal damage that is at least a short (10 unit) distance from you suffers a penalty dice on the first defense check it makes before the start of its next turn.",
+      "location": "7",
+      "data": "XINE=2"
+    }
+  ]
+}

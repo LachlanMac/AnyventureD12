@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Enthraller",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "TODO Tier 1",
+      "description": "TODO",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "TODO Tier 2a",
+      "description": "TODO",
+      "location": "2a",
+      "data": "TG"
+    },
+    {
+      "name": "TODO Tier 2b",
+      "description": "TODO",
+      "location": "2b",
+      "data": "TG"
+    },
+    {
+      "name": "TODO Tier 3",
+      "description": "TODO",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "TODO Tier 4a",
+      "description": "TODO",
+      "location": "4a",
+      "data": "TG"
+    },
+    {
+      "name": "TODO Tier 4b",
+      "description": "TODO",
+      "location": "4b",
+      "data": "TG"
+    },
+    {
+      "name": "TODO Tier 5",
+      "description": "TODO",
+      "location": "5",
+      "data": "TG"
+    },
+    {
+      "name": "Illusory Enchanter",
+      "description": "Your enchantments blend illusion and mental manipulation. Gain +1 skill with meta magic.",
+      "location": "6a",
+      "data": "YS3=1"
+    },
+    {
+      "name": "Master Enchanter",
+      "description": "Your mastery of enchantment magic deepens. Gain +1 skill with arcane magic.",
+      "location": "6b",
+      "data": "YS6=1"
+    },
+    {
+      "name": "TODO Tier 7",
+      "description": "TODO",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

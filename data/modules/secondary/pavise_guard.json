@@ -77,12 +77,12 @@
       "data": "TG"
     },
     {
-      "name": "Passive Defense",
-      "description": "When an adjacent ally makes a defense check, you roll a single deflection dice that replaces their defense check if it is higher.",
+      "name": "Marksman's Guard",
+      "description": "You have mastered ranged combat from behind your shield. Gain +1 skill with simple ranged weapons and +1 skill with complex ranged weapons.",
       "mtype": "core",
       "location": "7",
       "cost": 3,
-      "data": "TG"
+      "data": "WS4=1:WS6=1"
     }
   ]
 }

@@ -21,7 +21,7 @@ Preparing meals and snacks that provide temporary benefits. Cooks transform ingr
 ### Glyphcraft
 Inscribing magical symbols to create scrolls, enchantments, and permanent magical effects. Glyphcrafters use special inks and materials to bind magic into written form.
 
-### Bioshaping
+### Biosculpting
 Manipulating organic materials and living tissue. Bioshapers work with leather, bone, chitin, and other biological components to create unique items and effects.
 
 ## Crafting Checks

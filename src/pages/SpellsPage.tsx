@@ -110,16 +110,18 @@ const SpellsPage: React.FC = () => {
   // Helper function to get color based on spell school
   const getSchoolColor = (school: string) => {
     switch (school?.toLowerCase()) {
-      case 'alteration':
+      case 'meta':
         return 'var(--color-sat-purple-faded)';
       case 'black':
         return 'rgba(25, 34, 49, 0.8)';
-      case 'divine':
+      case 'white':
         return 'rgba(215, 183, 64, 0.7)';
       case 'mysticism':
         return 'rgba(85, 65, 130, 0.7)';
       case 'primal':
         return 'rgba(152, 94, 109, 0.7)';
+      case 'arcane':
+        return 'rgba(64, 156, 191, 0.7)';
       default:
         return 'var(--color-dark-elevated)';
     }
@@ -132,12 +134,13 @@ const SpellsPage: React.FC = () => {
     let filteredSpells = [...allSpells];
 
     // Filter out exotic schools the character doesn't have access to
-    const exoticSchoolMap: { [key: string]: 'fiend' | 'draconic' | 'fey' | 'celestial' | 'cosmic' } = {
+    const exoticSchoolMap: { [key: string]: 'fiend' | 'draconic' | 'fey' | 'celestial' | 'cosmic' | 'chaos' } = {
       'fiend': 'fiend',
       'draconic': 'draconic',
       'fey': 'fey',
       'celestial': 'celestial',
-      'cosmic': 'cosmic'
+      'cosmic': 'cosmic',
+      'chaos': 'chaos'
     };
 
     filteredSpells = filteredSpells.filter((spell) => {

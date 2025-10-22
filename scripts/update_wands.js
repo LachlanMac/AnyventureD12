@@ -41,7 +41,7 @@ const wandUpdates = {
     name: 'Prayer Wand',
     description: 'A magical wand infused with divine energy that channels pure divine damage.',
     damage_type: 'divine',
-    category: 'divine_magic',
+    category: 'white_magic',
     core_ingredient: 'Divine Core'
   },
   'mind_wand.json': {

@@ -171,9 +171,10 @@ const SpellCompendium: React.FC = () => {
   const schoolColors: Record<string, string> = {
     black: '#ff6b6b', // Bright red for black magic
     primal: '#4ecdc4', // Bright teal for primal magic
-    alteration: '#a855f7', // Bright purple for alteration magic
-    divine: '#fbbf24', // Bright gold for divine magic
+    meta: '#a855f7', // Bright purple for metamagic
+    white: '#fbbf24', // Bright gold for white magic
     mysticism: '#06b6d4', // Bright cyan for mysticism magic
+    arcane: '#10b981', // Bright emerald for arcane magic
   };
 
   if (loading) {

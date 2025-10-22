@@ -345,6 +345,15 @@ const convertToFoundryFormat = (data, type) => {
       break;
 
     case 'item':
+      // Transform magic skills: rename 'meta' to 'metamagic' for Foundry
+      const transformedMagic = data.magic ? {
+        black: data.magic.black,
+        primal: data.magic.primal,
+        metamagic: data.magic.meta, // Rename meta to metamagic
+        white: data.magic.white,
+        mysticism: data.magic.mysticism
+      } : undefined;
+
       baseFoundryDoc.system = {
         description: data.description,
         itemType: data.type, // Store the specific item type (weapon, shield, body, etc.)
@@ -369,8 +378,8 @@ const convertToFoundryFormat = (data, type) => {
         attributes: data.attributes,
         basic: data.basic,
         weapon: data.weapon,
-        magic: data.magic,
-        craft: data.craft,
+        magic: transformedMagic,
+        craft: data.craft, // craft already uses biosculpting correctly in the Item model
         mitigation: data.mitigation,
         detections: data.detections,
         immunities: data.immunities,
@@ -941,7 +950,7 @@ const convertToFoundryFormat = (data, type) => {
             value: 0,
             talent: 0
           },
-          bioshaping: {
+          biosculpting: {
             value: 0,
             talent: 0
           }

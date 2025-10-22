@@ -60,9 +60,10 @@ const SpellDetail: React.FC = () => {
   const schoolColors: Record<string, string> = {
     black: 'var(--color-sunset)',
     primal: 'var(--color-old-gold)',
-    alteration: 'var(--color-sat-purple)',
-    divine: 'var(--color-stormy)',
+    meta: 'var(--color-sat-purple)',
+    white: 'var(--color-stormy)',
     mysticism: 'var(--color-evening)',
+    arcane: 'var(--color-cloud)',
   };
 
   const damageTypeColors: Record<string, string> = {

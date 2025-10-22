@@ -16,5 +16,5 @@
 - Penalty dice: reduce dice, then take lowest if <1
 
 **Weapon Talents:** Unarmed, Throwing, Simple/Complex Melee/Ranged
-**Magic Talents:** Black, Primal, Metamagic, Divine, Mysticism  
-**Crafting Talents:** Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping
+**Magic Talents:** Black, Primal, Metamagic, White, Mysticism  
+**Crafting Talents:** Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Biosculpting

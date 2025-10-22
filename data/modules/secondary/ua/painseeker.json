@@ -1,0 +1,68 @@
+{
+  "id": 310,
+  "name": "Painseeker",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "High Tolerance",
+      "description": "You can handle pain much easier than others. Increase your pain threshold by 1. While you are in moderate pain, you do not suffer a penalty dice to your rolls.",
+      "location": "1",
+      "data": "AP=1"
+    },
+    {
+      "name": "Action : X",
+      "description": "ahhh",
+      "location": "2a",
+      "data": "XINE=2"
+    },
+    {
+      "name": "Reaction : Y",
+      "description": "AGGG",
+      "location": "2b",
+      "data": "ZINE=0"
+    },
+    {
+      "name": "Caustic Endurance",
+      "description": "You train your body against the worst toxins and poisons. Gain +1 skill with endurance and +1 toxic mitigation.",
+      "location": "3",
+      "data": "SSD=1:M9=1"
+    },
+    {
+      "name": "ahhhh",
+      "description": "+1 Medicine / Passive? ",
+      "location": "4a",
+      "data": "SSR=1"
+    },
+    {
+      "name": "ahhhhh",
+      "description": "+1 ",
+      "location": "4b",
+      "data": "SSI=1"
+    },
+    {
+      "name": "Embrace the Pain",
+      "description": "Pain becomes momentum. While you are in moderate pain, roll an additional bonus die on all skill checks and weapon attacks.",
+      "location": "5",
+      "data": "TG"
+    },
+    {
+      "name": "Buffered Agony",
+      "description": "Increase your maximum morale by 2. When you complete a full rest, gain +1 morale for every non-cosmetic physical injury.",
+      "location": "6a",
+      "data": "A8=2"
+    },
+    {
+      "name": "Tempered Cortex",
+      "description": "Gain +1 skill with resilience. While you are in moderate stress, you do not suffer a penalty dice to your rolls.",
+      "location": "6b",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Big Action (Maybe Daily)",
+      "description": "ahhh",
+      "location": "7",
+      "data": "XINE=3"
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Alliance",
+  "description": "You target a humanoid within a short (10 unit) distance and make them much more amiable to you for the next hour. A humanoid that would normally be hostile to you is neutral, and if neutral will be friendly. A humanoid will be much more likely to be helpful unless it puts them or any of their allies in danger. Creatures who are immune to the charmed condition are not affected by this spell.",
+  "charge": "The spell lasts an entire day.",
+  "duration": "1 hour",
+  "range": 4,
+  "checkToCast": 3,
+  "components": [
+    "Moonstone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcCharm3m5n8qxx",
+  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-eye.webp"
+}

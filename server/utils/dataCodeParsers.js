@@ -33,7 +33,7 @@ const MAGIC_MAPPINGS = {
   '1': 'black',
   '2': 'primal',
   '3': 'meta',
-  '4': 'divine',
+  '4': 'white',
   '5': 'mystic'
 };
 
@@ -43,7 +43,7 @@ const CRAFTING_MAPPINGS = {
   '3': 'alchemy',
   '4': 'cooking',
   '5': 'glyphcraft',
-  '6': 'bioshaping'
+  '6': 'biosculpting'
 };
 
 const MITIGATION_MAPPINGS = {

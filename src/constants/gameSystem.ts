@@ -80,11 +80,12 @@ export const MAGIC_SKILLS = [
   { id: 'black', name: 'Black Magic', defaultTalent: 0 },
   { id: 'primal', name: 'Primal Magic', defaultTalent: 0 },
   { id: 'meta', name: 'Meta Magic', defaultTalent: 0 },
-  { id: 'divine', name: 'Divine Magic', defaultTalent: 0 },
+  { id: 'white', name: 'White Magic', defaultTalent: 0 },
   { id: 'mystic', name: 'Mystic Magic', defaultTalent: 0 },
+  { id: 'arcane', name: 'Arcane Magic', defaultTalent: 0 },
 ] as const;
 
-export const MAGIC_SCHOOLS = ['meta', 'black', 'divine', 'mysticism', 'primal'] as const;
+export const MAGIC_SCHOOLS = ['meta', 'black', 'white', 'mysticism', 'primal', 'arcane'] as const;
 export type MagicSchool = typeof MAGIC_SCHOOLS[number];
 
 // ============================================================================
@@ -96,7 +97,7 @@ export const CRAFTING_SKILLS = [
   { id: 'alchemy', name: 'Alchemy', defaultTalent: 0 },
   { id: 'cooking', name: 'Cooking', defaultTalent: 0 },
   { id: 'glyphcraft', name: 'Glyphcraft', defaultTalent: 0 },
-  { id: 'bioshaping', name: 'Bioshaping', defaultTalent: 0 },
+  { id: 'biosculpting', name: 'Biosculpting', defaultTalent: 0 },
 ] as const;
 
 // ============================================================================

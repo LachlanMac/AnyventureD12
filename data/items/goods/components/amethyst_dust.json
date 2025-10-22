@@ -1,0 +1,13 @@
+{
+  "name": "Amethyst Dust",
+  "description": "Finely powdered amethyst crystal with deep violet hues, used to enhance perception and mental clarity in magical workings",
+  "type": "goods",
+  "tags": [
+    "component"
+  ],
+  "weight": 0.05,
+  "value": 450,
+  "rarity": "common",
+  "foundry_icon": "icons/commodities/materials/powder-purple.webp",
+  "foundry_id": "amethDust6h4k9pa"
+}

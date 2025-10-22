@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Inner Flame",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Ignited Spirit",
+      "description": "You ignite the spiritual flame within. Gain +1 skill with concentration and +1 stress threshold.",
+      "location": "1",
+      "data": "SSJ=1:AS=1"
+    },
+    {
+      "name": "Action : Inner Peace",
+      "description": "You enter a meditative state, requiring concentration. While concentrating on Inner Peace, you ignore the effects of moderate stress and pain. Additionally, when you fizzle a spell, roll a concentration check. If the result is equal to or higher than the spell's required check, the spell still fails to channel but is not fizzled.",
+      "location": "2a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Action : Spirit Step",
+      "description": "You make an attack with a simple melee weapon or brawling attack and channel your inner flame to levitate. You gain a fly speed of 3 until the end of your turn. If you successfully hit a creature before the end of your turn, the levitation extends until the end of your next turn instead.",
+      "location": "2b",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Inner Clarity",
+      "description": "Your inner flame shields your mind from corruption. Gain +2 maximum resolve. Additionally, when you are concentrating and gain the afraid, confused, or maddened condition, immediately before making your first check, you can end your concentration to make a concentration check. On a success, the condition ends prematurely.",
+      "location": "3",
+      "data": "A2=2:TG"
+    },
+    {
+      "name": "Elemental Fist",
+      "description": "You channel elemental forces. Gain +1 skill with primal magic.",
+      "location": "4a",
+      "data": "YS2=1"
+    },
+    {
+      "name": "Spirit Walker",
+      "description": "You walk between the physical and spiritual realms. Gain +1 skill with mystic magic.",
+      "location": "4b",
+      "data": "YS5=1"
+    },
+    {
+      "name": "Action : Flame Strike",
+      "description": "You channel your inner flame through your strike. Make an attack with a simple melee weapon or brawling attack and convert all the physical damage to aetheric (if you have the Spirit Walker trait) or one of the elements (if you have the Elemental Fist trait).",
+      "location": "5",
+      "data": "XIME=2"
+    },
+    {
+      "name": "Merciful Spirit",
+      "description": "Your spiritual strikes can subdue without killing. Gain +1 skill with brawling. Additionally, when you reduce a creature to 0 health using aetheric damage, they are knocked unconscious instead of dying.",
+      "location": "6a",
+      "data": "WS1=1:TG"
+    },
+    {
+      "name": "Weapon Conduit",
+      "description": "You can channel magic through your strikes. Gain +1 skill with simple melee weapons. Additionally, when you channel a touch spell, you can target creatures within your melee weapon's range instead.",
+      "location": "6b",
+      "data": "WS3=1:TG"
+    },
+    {
+      "name": "Flame Ascendant",
+      "description": "Your inner flame has reached its peak, transcending physical and spiritual limits. Gain +1 evasion, +1 deflection, +1 aetheric mitigation, and +1 psychic mitigation.",
+      "location": "7",
+      "data": "CB=1:CA=1:M7=1:M8=1"
+    }
+  ]
+}

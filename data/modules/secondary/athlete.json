@@ -47,10 +47,10 @@
       "data": "TG:SSI=1:A3=1"
     },
     {
-      "name": "Precision Thrower",
-      "description": "Your training has perfected your throwing technique. Gain +1 skill with throwing weapons.",
+      "name": "Precision Marksman",
+      "description": "Your athletic training has perfected your accuracy with ranged attacks. Gain +1 skill with throwing weapons and +1 skill with simple ranged weapons.",
       "location": "6a",
-      "data": "TG:WS2=1"
+      "data": "TG:WS2=1:WS4=1"
     },
     {
       "name": "Legendary Athlete",

@@ -1,0 +1,17 @@
+{
+  "name": "Armory",
+  "description": "You conjure an aetheric weapon or ammunition into your hand that has the same stats as the regular version of the weapon, but any energy cost is reduced by 1 when making an attack. This weapon lasts 1 hour. The physical damage from aetheric weapons ignores traits that grant immunity and halving of physical damage.",
+  "charge": "The weapon lasts until you complete a full rest and gains a bonus dice on all attacks. If you use an aetherium ingot instead of a nugget, the weapon becomes permanent.",
+  "duration": "1 hour",
+  "range": 0,
+  "checkToCast": 9,
+  "components": ["Aetherium Nugget"],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcArmory3J8R6LP",
+  "foundry_icon": "icons/magic/projectiles/spikes-salvo-teal.webp"
+}

@@ -95,7 +95,7 @@ const RecipeCompendium: React.FC = () => {
     'engineering',
     'fabrication',
     'glyphcraft',
-    'bioshaping',
+    'biosculpting',
   ];
 
   if (loading) {

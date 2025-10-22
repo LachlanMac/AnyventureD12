@@ -36,7 +36,7 @@
     },
     {
      "name": "Talisman Maker",
-      "description": "You are proficient in imbuing charms into talismans, rings and other jewelry. Gain +1 skill with glyphcraft. When creating accessories with the glyphcraft skill, you can choose to add an additional +1 aether, dark or psychic mitigation to the finished finished product.",
+      "description": "You are proficient in imbuing charms into talismans, rings and other jewelry. Gain +1 skill with glyphcraft. When creating accessories with the glyphcraft skill, you can choose to add an additional +1 aetheric, dark or psychic mitigation to the finished finished product.",
       "location": "4b",
       "data": "CS5=1:TC"
     },
@@ -47,16 +47,16 @@
       "data": "AM=1:TG"
     },
     {
-      "name": "Shadow Magic",
-      "description": "You have focused your studies on learning powerful curses. Gain +1 skill with black magic.",
+      "name": "Arcanalock",
+      "description": "You have focused your studies on learning powerful arcane incantations. Gain +1 skill with arcane magic.",
       "location": "6a",
-      "data": "YS1=1"
+      "data": "YS6=1"
     },
     {
-      "name": "Alteration Magic",
-      "description": "You have focus your studies on altering the world around you to suit your needs. Gain +1 skill with meta magic.",
+      "name": "Mystic Sight",
+      "description": "Your pact grants you insight into hidden truths and distant visions. Gain +1 skill with mystic magic.",
       "location": "6b",
-      "data": "YS3=1"
+      "data": "YS5=1"
     },
     {
       "name": "Action : Power Ray",

@@ -18,7 +18,7 @@
     },
     {
       "name": "Reaction : Shroud",
-      "description": "While under the effects of a substance and in response to being targeted with psychic or aetheric damage, roll a concentration check and reduce the damage taken by an amount equal to the value that was rolled.",
+      "description": "While under the effects of a substance and in response to being targeted with psychic or aethericic damage, roll a concentration check and reduce the damage taken by an amount equal to the value that was rolled.",
       "location": "2b",
       "data": "ZIME=2"
     },
@@ -48,7 +48,7 @@
     },
     {
       "name": "Action : Spirit Journey",
-      "description": "You cause your body to go into an unconscious state while your aetheric form leaves your body. While in this form, you cannot interact with the physical world, but you can move anywhere within a 10 unit radius of your body but not take any actions or reactions. Your aetheric form is not affected by any conditions, but retains all of its senses, although your body does still make checks for any conditions on it. You can decide at any point to return to your body, causing you to regain consciousness at the start of your next turn.",
+      "description": "You cause your body to go into an unconscious state while your aethericic form leaves your body. While in this form, you cannot interact with the physical world, but you can move anywhere within a 10 unit radius of your body but not take any actions or reactions. Your aethericic form is not affected by any conditions, but retains all of its senses, although your body does still make checks for any conditions on it. You can decide at any point to return to your body, causing you to regain consciousness at the start of your next turn.",
       "location": "6a",
       "data": "XIME=1"
     },

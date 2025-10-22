@@ -61,8 +61,9 @@ const ExtraTrainingManager: React.FC<ExtraTrainingProps> = ({
     { id: 'black', name: 'Black Magic', dataCode: 'YS1=1', category: 'Magic' },
     { id: 'primal', name: 'Primal Magic', dataCode: 'YS2=1', category: 'Magic' },
     { id: 'meta', name: 'Metamagic', dataCode: 'YS3=1', category: 'Magic' },
-    { id: 'divine', name: 'Divine Magic', dataCode: 'YS4=1', category: 'Magic' },
+    { id: 'white', name: 'White Magic', dataCode: 'YS4=1', category: 'Magic' },
     { id: 'mystic', name: 'Mysticism', dataCode: 'YS5=1', category: 'Magic' },
+    { id: 'arcane', name: 'Arcane Magic', dataCode: 'YS6=1', category: 'Magic' },
 
     // Crafting Skills
     { id: 'engineering', name: 'Engineering', dataCode: 'CS1=1', category: 'Crafting' },
@@ -70,7 +71,7 @@ const ExtraTrainingManager: React.FC<ExtraTrainingProps> = ({
     { id: 'alchemy', name: 'Alchemy', dataCode: 'CS3=1', category: 'Crafting' },
     { id: 'cooking', name: 'Cooking', dataCode: 'CS4=1', category: 'Crafting' },
     { id: 'glyphcraft', name: 'Glyphcraft', dataCode: 'CS5=1', category: 'Crafting' },
-    { id: 'bioshaping', name: 'Bioshaping', dataCode: 'CS6=1', category: 'Crafting' },
+    { id: 'biosculpting', name: 'Biosculpting', dataCode: 'CS6=1', category: 'Crafting' },
   ];
 
   // Fetch Extra Training trait from API

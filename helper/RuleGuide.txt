@@ -180,7 +180,7 @@ Reaching 0 Health (Lifeline)
 - Falling Unconscious: Regain consciousness in 1 hour if you gain ≥10 Health; otherwise, recover per Conditions rules.
 
 Magic System
-- Casting: Roll with a specific magic School skill (Black, Primal, Meta, Divine, Mysticism; subschools per wiki). Take highest die; must meet Required Check (RC).
+- Casting: Roll with a specific magic School skill (Black, Primal, Meta, White, Mysticism; subschools per wiki). Take highest die; must meet Required Check (RC).
 - Pass/Fail: Spell effects are pass/fail and do not scale by result unless the spell specifies otherwise.
 - Energy: Pay spell Energy cost before attempting.
 - Spell Failure: If you fail to channel a specific spell, you cannot attempt that same spell again until after a full rest.
@@ -194,14 +194,15 @@ Magic Schools (overview)
 - Black (Necromancy, Witchcraft; exotic: Fiend)
 - Primal (Elemental, Nature; exotic: Draconic)
 - Meta (Transmutation, Illusion; exotic: Fey)
-- Divine (Protection, Radiant; exotic: Celestial)
+- White (Abjuration, Radiant; exotic: Celestial)
 - Mysticism (Spirit, Divination; exotic: Cosmic)
+- Arcane (Conjuration, Enchantment; exotic: Chaos)
 
 Magical Effects (examples)
 - Hellfire (Dark) burns unlike normal fire and is harder to extinguish; holyfire (Divine) harms evil/undead/dark-bound; Feyfire (Aetheric) grants morale to nearby fey when damaging others; Permafrost preserves and resists non-magical breaking; Nullfield raises RC for magic or blocks it entirely.
 
 Crafting
-- Disciplines: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping.
+- Disciplines: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Biosculpting.
 - Crafting Check: Roll Talent (attribute-based) dice of the appropriate Crafting skill die.
 - Recipes define RC; success crafts item.
 - Infusions: Each infusion requires an additional success at RC. Multiple unique infusions allowed; cannot stack the same infusion twice unless specifically allowed.
@@ -210,7 +211,7 @@ Crafting
   Fabrication: Weapons and armor; infusions add damage, crit properties, etc.
   Cooking: Meals give day-long mitigations, minimum roll floors, resources; hearty/fine variants; effects don’t stack, newest overrides.
   Glyphcraft: Runes, wands, staves, scrolls; metal-shaving inks provide enchantments.
-  Bioshaping: Organic materials (in progress in wiki).
+  Biosculpting: Organic materials (in progress in wiki).
 
 Items & Equipment (high level)
 - Worn slots with accessory limits; shields (light/heavy) affect Deflection vs ranged/area as noted.

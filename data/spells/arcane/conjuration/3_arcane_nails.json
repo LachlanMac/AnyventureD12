@@ -1,0 +1,17 @@
+{
+  "name": "Arcane Nails",
+  "description": "You summon several 1d4 arcane shards that all strike a creature within a short (10 unit) distance that fails a defense check of 5. For each shard you summon, deal 2 aetheric damage.",
+  "charge": "You summon an additional 1d4 shards. When you roll a 6 or higher for the number of shards, the target also gains the bleeding condition.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 3,
+  "components": ["Steel Nugget"],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": "Aetheric",
+  "foundry_id": "arcNails12X5Q8ZR",
+  "foundry_icon": "icons/magic/projectiles/spikes-salvo-teal.webp"
+}

@@ -60,9 +60,9 @@
     },
     {
       "name": "Master Assassin",
-      "description": "You have achieved legendary status as a dealer of death. Gain +1 skill with simple melee weapons and +1 skill with throwing weapons.",
+      "description": "You have achieved legendary status as a dealer of death. Gain +1 skill with complex ranged weapons and +1 skill with throwing weapons.",
       "location": "7",
-      "data": "TG:WS3=1:WS2=1"
+      "data": "TG:WS6=1:WS2=1"
     }
   ]
 }

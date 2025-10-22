@@ -94,13 +94,14 @@ ID
 
 A longbow may have a Distant range, giving a penalty for anything outside of it. 
 Spells work in a similar way.  herethe are the types of magic:
-Magic Types: Black, Primal, Metamagic, Divine, Mysticism
+Magic Types: Black, Primal, Metamagic, White, Mysticism, Arcane
 Each magic has 2 subschools, and 1 exotic spellschool
 Black -> Necromancy, Witchcraft, (ex) Fiend
-Primal -> Elemental, Nature, (ex) Cosmic
+Primal -> Elemental, Nature, (ex) Draconic
 Metamagic -> Transmutation, Illusion, (ex) Fey
-Divine -> Abjuration, Radiant, (ex) Draconic
-Mysticism -> Spirit, Divination, (ex) Astral
+White -> Abjuration, Radiant, (ex) Celestial
+Mysticism -> Spirit, Divination, (ex) Cosmic
+Arcane -> Conjuration, Enchantment, (ex) Chaos
 
 When a person wants to channel a spell, they must know the spell. All spells will have a "minimum" number of complexity to be able to channel successfully. Say I have a firebolt, a fairly simple spell, that requires a "4" in primal magic to channel. 
 I have 3 talents in primal magic and a +3 skill for a 3d10. I take the highest dice and compare it to the "4". If I succeed, i channel the spell. My roll on the spell doesnt' have an effect for how hard the spell is to avoid. It is hardcoded into the spell. So firebolt may require a 6 in evasion to dodge. The enemy would have to make a check against that, or it hits. The damage is likewise hardcoded into the spell.  This deals 5 damage. 
@@ -140,7 +141,7 @@ If a creature does fall unconscious, to regain consciousness, they must either b
 Crafting:
 
 Crafting works the same as the other skills (weapon & magic)
-Crafting Skills: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping
+Crafting Skills: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Biosculpting
 There are talents and skills that determine what you can craft. Like spells, recipes can be learned.
 There will be recipes for crafting which determine extra ingredients (like research) and such to make things.
 Once a player character knows a recipie, they dont need that anymore

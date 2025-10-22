@@ -15,7 +15,7 @@ const spellsDir = path.resolve(__dirname, '../../data/spells');
 // Function to seed spells from JSON files
 export const seedSpells = async () => {
   try {
-    const schools = ['meta', 'black', 'divine', 'mysticism', 'primal'];
+    const schools = ['meta', 'black', 'white', 'mysticism', 'primal', 'arcane'];
     let spellCount = 0;
     
     for (const school of schools) {
@@ -87,7 +87,7 @@ export const seedSpells = async () => {
 // Function to get all spell names from JSON files
 const getAllSpellNamesFromFiles = () => {
   const spellNames = new Set();
-  const schools = ['meta', 'black', 'divine', 'mysticism', 'primal'];
+  const schools = ['meta', 'black', 'white', 'mysticism', 'primal', 'arcane'];
   
   for (const school of schools) {
     const schoolDir = path.join(spellsDir, school);

@@ -41,10 +41,10 @@
       "data": "SSS=1:TG"
     },
     {
-      "name": "Expanded Cache",
-      "description": "Your capacity for stolen magic expands. Gain +1 skill with thievery and an additional thief slot.",
+      "name": "Arcane Expertise",
+      "description": "Through stealing and studying spells, you've developed true understanding of arcane magic. Gain +1 skill with arcane magic and an additional thief slot.",
       "location": "5",
-      "data": "SSH=1:AT=1"
+      "data": "YS6=1:AT=1"
     },
     {
       "name": "Reaction : Sacrificial Ward",

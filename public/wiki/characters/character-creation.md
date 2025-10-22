@@ -104,7 +104,7 @@ Select your magical affinities:
 - **Black Magic**: Necromancy, Witchcraft, Fiend
 - **Primal Magic**: Elemental, Nature, Cosmic
 - **Metamagic**: Transmutation, Illusion, Fey
-- **Divine Magic**: Abjuration, Radiant, Draconic
+- **White Magic**: Protection, Radiant, Draconic
 - **Mysticism**: Spirit, Divination, Astral
 
 ### Crafting Skill Talents
@@ -114,7 +114,7 @@ Choose your creation abilities:
 - **Alchemy**: Potions, compounds, and chemical reactions
 - **Cooking**: Food preparation and culinary arts
 - **Glyphcraft**: Magical symbols and enchantments
-- **Bioshaping**: Living matter manipulation
+- **Biosculpting**: Living matter manipulation
 
 
 <div class="note-box">

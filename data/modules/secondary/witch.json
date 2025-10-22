@@ -8,7 +8,7 @@
       "name": "Make Familiar",
       "description": "As part of an hour long ritual, you designate a tiny creature as your familiar. The tiny creature must either be an ally or a pet. This familiar does not count against your pet limit and can be resummoned by completing the ritual again, even if it dies. You can put yourself in stasis to enter the mind of your familiar, controlling it and experiencing it's senses.",
       "location": "1",
-      "data": "TG:XINE=1"
+      "data": "TG"
     },
     {
       "name": "Reaction : Blood Price",

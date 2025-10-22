@@ -40,7 +40,7 @@ interface CreatureAction {
     charge?: string;
     duration?: string;
     range?: string;
-    school?: 'meta' | 'black' | 'divine' | 'mysticism' | 'primal';
+    school?: 'meta' | 'black' | 'white' | 'mysticism' | 'primal' | 'arcane';
     subschool?: string;
     checkToCast?: number;
     components?: string[];

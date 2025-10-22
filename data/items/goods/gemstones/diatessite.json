@@ -1,0 +1,13 @@
+{
+  "name": "Diatessite",
+  "description": "A dark blue, metallic crystals that famously has no reflection. These gems form in linked pairs deep within iron veins and are calibrated with each other so that their magnetic fields always align.",
+  "type": "goods",
+  "tags": [
+    "gemstone"
+  ],
+  "weight": 0.1,
+  "value": 3000,
+  "rarity": "rare",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-diamond-silver-.webp",
+  "foundry_id": "rfopaxy5zxcas092"
+}

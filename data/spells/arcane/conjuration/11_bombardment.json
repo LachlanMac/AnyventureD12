@@ -1,0 +1,17 @@
+{
+  "name": "Bombardment",
+  "description": "You call down shards of pure aether within a 3-unit radius originating from a point you can see within a moderate (20 unit) distance, dealing 12 aetheric damage to anyone who fails a defense check of 10, or 6 aetheric damage on a success.",
+  "charge": "The radius is increased by 1 unit, and the damage is increased to 17.",
+  "duration": "Instantaneous",
+  "range": 8,
+  "checkToCast": 11,
+  "components": ["Aetherium Shavings"],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 12,
+  "damageType": "Aetheric",
+  "foundry_id": "arcBombard1S4W7Z",
+  "foundry_icon": "icons/magic/movement/portal-vortex-spiral-blue.webp"
+}

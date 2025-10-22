@@ -6,9 +6,9 @@
   "options": [
     {
       "name": "Magician",
-      "description": "You've perfected the art of stage magic through mundane and magical means. Gain +1 skill with expression. You can also make unequipped small objects vanish when you touch them. A search or logic check of 5 or higher can see through the trick or find the item on your person.",
+      "description": "You've perfected the art of stage magic through mundane and magical means. Gain +1 skill with coordination. You can also make unequipped small objects vanish when you touch them. A search or logic check of 5 or higher can see through the trick or find the item on your person.",
       "location": "1",
-      "data": "TG:SSQ=1"
+      "data": "TG:SSG=1"
     },
     {
       "name": "Deceptive Aura",
@@ -36,7 +36,7 @@
     },
     {
       "name": "Reaction : Duplicity",
-      "description": "In response to being targeted by an attack, you create a duplicate image of yourself. Roll an alteration magic check as your defense check. If successful, the attack hits the duplicate instead of you, causing it to disappear harmlessly.",
+      "description": "In response to being targeted by an attack, you create a duplicate image of yourself. Roll a metamagic check as your defense check. If successful, the attack hits the duplicate instead of you, causing it to disappear harmlessly.",
       "location": "4b",
       "data": "ZIME=1"
     },
@@ -48,15 +48,15 @@
     },
     {
       "name": "Disguiser",
-      "description": "You can channel the Magical Disguise spell without requiring a check. When channeling it this way, the spell is automatically charged but can only be used on you. The disguise lasts until a full rest or until you use the spell to take your original form.",
+      "description": "Your performances become more convincing through magic. Gain +1 skill with expression. You can channel the Magical Disguise spell without requiring a check. When channeling it this way, the spell is automatically charged but can only be used on you. The disguise lasts until a full rest or until you use the spell to take your original form.",
       "location": "6a",
-      "data": "TG"
+      "data": "SSQ=1:TG"
     },
     {
-      "name": "Vivid Imagination",
-      "description": "The terrors of the world are nothing compared to the horrors you have created using illusion magic. Gain +2 maximum resolve and +1 psychic mitigation.",
+      "name": "Arcane Illusionist",
+      "description": "Your illusions have become so refined they border on true conjuration and enchantment. Gain +1 skill with arcane magic. When you channel an arcane spell, you can make the spell's visual and auditory effects appear to originate from any point within a short (10 unit) distance of you.",
       "location": "6b",
-      "data": "TG:A2=2:M8=1"
+      "data": "YS6=1:TG"
     },
     {
       "name": "Action : Mindbreaker",

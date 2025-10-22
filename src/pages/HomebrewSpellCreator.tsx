@@ -21,7 +21,7 @@ const HomebrewSpellCreator: React.FC = () => {
     charge: '',
     duration: 'Instantaneous',
     range: 'Self',
-    school: 'primal' as 'alteration' | 'black' | 'divine' | 'mysticism' | 'primal',
+    school: 'primal' as 'meta' | 'black' | 'white' | 'mysticism' | 'primal' | 'arcane',
     subschool: 'elemental',
     checkToCast: 1,
     components: [] as string[],
@@ -242,11 +242,12 @@ const HomebrewSpellCreator: React.FC = () => {
                       onChange={(e) => {
                         const newSchool = e.target.value as typeof spellData.school;
                         const subschoolMap = {
-                          alteration: 'illusion',
+                          meta: 'illusion',
                           black: 'necromancy',
-                          divine: 'radiant',
+                          white: 'radiant',
                           mysticism: 'divination',
                           primal: 'elemental',
+                          arcane: 'conjuration',
                         };
                         setSpellData({
                           ...spellData,
@@ -263,11 +264,12 @@ const HomebrewSpellCreator: React.FC = () => {
                         borderRadius: '0.375rem',
                       }}
                     >
-                      <option value="alteration">Alteration</option>
+                      <option value="meta">Metamagic</option>
                       <option value="black">Black</option>
-                      <option value="divine">Divine</option>
+                      <option value="white">White</option>
                       <option value="mysticism">Mysticism</option>
                       <option value="primal">Primal</option>
+                      <option value="arcane">Arcane</option>
                     </select>
                   </div>
 
@@ -293,7 +295,7 @@ const HomebrewSpellCreator: React.FC = () => {
                         borderRadius: '0.375rem',
                       }}
                     >
-                      {spellData.school === 'alteration' && (
+                      {spellData.school === 'meta' && (
                         <>
                           <option value="fey">Fey</option>
                           <option value="illusion">Illusion</option>
@@ -307,7 +309,7 @@ const HomebrewSpellCreator: React.FC = () => {
                           <option value="witchcraft">Witchcraft</option>
                         </>
                       )}
-                      {spellData.school === 'divine' && (
+                      {spellData.school === 'white' && (
                         <>
                           <option value="celestial">Celestial</option>
                           <option value="radiant">Radiant</option>
@@ -326,6 +328,13 @@ const HomebrewSpellCreator: React.FC = () => {
                           <option value="draconic">Draconic</option>
                           <option value="elemental">Elemental</option>
                           <option value="nature">Nature</option>
+                        </>
+                      )}
+                      {spellData.school === 'arcane' && (
+                        <>
+                          <option value="conjuration">Conjuration</option>
+                          <option value="enchantment">Enchantment</option>
+                          <option value="chaos">Chaos</option>
                         </>
                       )}
                     </select>

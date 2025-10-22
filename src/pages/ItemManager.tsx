@@ -1728,7 +1728,7 @@ const ItemManager: React.FC = () => {
                           gap: '1rem',
                         }}
                       >
-                        {['black', 'primal', 'alteration', 'divine', 'mystic'].map((skill) => (
+                        {['black', 'primal', 'meta', 'white', 'mystic', 'arcane'].map((skill) => (
                           <div key={skill}>
                             <h4
                               style={{
@@ -1899,7 +1899,7 @@ const ItemManager: React.FC = () => {
                           'alchemy',
                           'cooking',
                           'glyphcraft',
-                          'bioSculpting',
+                          'biosculpting',
                         ].map((skill) => (
                           <div key={skill}>
                             <h4

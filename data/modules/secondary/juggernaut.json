@@ -36,7 +36,7 @@
     },
     {
       "name": "Stubborn Will",
-      "description": "Your willpower is more equipped for strain. Gain +1 aether and psychic mitigation and gain +1 maximum resolve.",
+      "description": "Your willpower is more equipped for strain. Gain +1 aetheric and psychic mitigation and gain +1 maximum resolve.",
       "location": "4b",
       "data": "M7=1:M8=1:A2=1"
     },
@@ -48,9 +48,9 @@
     },
     {
       "name": "Juggernaut's Weaponry",
-      "description": "Big weapons are better. Gain +1 skill with complex melee weapons.",
+      "description": "You craft and wield massive weapons. Gain +1 skill with fabrication and +1 skill with complex melee weapons.",
       "location": "6a",
-      "data": "WS5=1"
+      "data": "CS2=1:WS5=1"
     },
     {
       "name": "Limitless Energy",

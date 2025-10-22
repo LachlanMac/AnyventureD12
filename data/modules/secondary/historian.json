@@ -30,9 +30,9 @@
     },
     {
       "name": "Ancient Languages",
-      "description": "You are experienced in ancient, and sometimes exotic languages. Gain +1 skill with expression. Additionally, gain +2 magical language points.",
+      "description": "You are experienced in ancient, and sometimes exotic languages and their written forms. Gain +1 skill with glyphcraft. Additionally, gain +2 magical language points.",
       "location": "4a",
-      "data": "TG:SSQ=1"
+      "data": "CS5=1:TG"
     },
     {
       "name": "Lore of the Ancients",

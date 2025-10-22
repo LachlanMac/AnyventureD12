@@ -1,0 +1,19 @@
+{
+  "name": "Suspend",
+  "description": "You touch a willing or unconscious creature and place them into a suspended state, giving them the stasis condition for an hour.",
+  "charge": "The condition is permanent, but you must specify a condition in which the spell ends.",
+  "duration": "1 hour",
+  "range": 1,
+  "checkToCast": 10,
+  "components": [
+    "Frost Sapphire"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcStasis10b5nxx",
+  "foundry_icon": "icons/magic/time/hourglass-tilted-gray.webp"
+}

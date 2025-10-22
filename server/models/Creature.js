@@ -167,8 +167,8 @@ const traitSchema = new mongoose.Schema({
 
 const creatureSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  description: { type: String, required: true },
-  tactics: { type: String, required: true },
+  description: { type: String, required: false },
+  tactics: { type: String, required: false },
   tier: {
     type: String,
     required: true,
@@ -222,83 +222,83 @@ const creatureSchema = new mongoose.Schema({
   // Skills (basic only, no weapon/magic/craft) - now with nested structure
   skills: {
     fitness: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     deflection: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     might: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     endurance: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     evasion: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     stealth: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     coordination: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     thievery: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     resilience: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     concentration: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     senses: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     logic: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     wildcraft: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     academics: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     magic: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     medicine: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     expression: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     presence: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     insight: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     },
     persuasion: {
-      value: { type: Number, min: 0, max: 6, default: 0 },
+      value: { type: Number, min: -1, max: 6, default: 0 },
       tier: { type: Number, min: -1, max: 1, default: 0 }
     }
   },

@@ -18,7 +18,7 @@ Each module follows a **7-tier structure** with **11 total selections**:
 ### Core Modules
 Fundamental archetypes that define major playstyles:
 - **Combat**: Melee Specialist, Marksman, Brawling Specialist
-- **Magic**: Divine, Primal, Black, Mysticism, Alteration
+- **Magic**: White, Primal, Black, Mysticism, Metamagic, Arcane
 - **Crafting**: Alchemist, Engineer, Fabricator, Chef, Glyphcraft
 
 ### Secondary Modules

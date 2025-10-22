@@ -152,14 +152,14 @@ const Home: React.FC = () => {
             color="var(--color-sunset)"
           />
           <FeatureCard
-            title="Five Schools of Magic"
-            description="Master Black, Primal, Mysticism, Divine, or Meta Magic. Each school has unique subschools and exotic branches to explore."
+            title="Six Schools of Magic"
+            description="Master Black, Primal, Mysticism, White, Metamagic, or Arcane. Each school has unique subschools and exotic branches to explore."
             icon="✨"
             color="var(--color-old-gold)"
           />
           <FeatureCard
             title="Crafting System"
-            description="Create items through Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, or Bioshaping. All items have a recipe and can be crafted by players."
+            description="Create items through Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, or Biosculpting. All items have a recipe and can be crafted by players."
             icon="🔨"
             color="var(--color-evening)"
           />

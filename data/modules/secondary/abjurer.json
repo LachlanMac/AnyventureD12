@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Abjurer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Action : White Ward",
+      "description": "You place a ward on an ally within a short (10 unit) distance that lasts for 1 minute. While the ward is active, any time that ally takes dark, divine or aetheric damage, you can elect to take it instead. Using this action again replaces your warded ally with your new target.",
+      "location": "1",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Divine Might",
+      "description": "Your faith strengthens your body against darkness. Gain +1 skill with might and +2 dark mitigation.",
+      "location": "2a",
+      "data": "SSC=1:M6=1:M6=1"
+    },
+    {
+      "name": "Mystic Resilience",
+      "description": "Your mind is fortified against aetheric corruption. Gain +1 skill with resilience and +2 aetheric mitigation.",
+      "location": "2b",
+      "data": "SSI=1:M7=1:M7=1"
+    },
+    {
+      "name": "Arcane Disarmament",
+      "description": "Gain +1 skill with magic knowledge. You can determine if a trap is magical when you are within a very short (5 unit) distance. When attempting to disarm a magical trap, you can use your magic knowledge skill instead of thievery.",
+      "location": "3",
+      "data": "SSO=1:TG"
+    },
+    {
+      "name": "Reaction : Shield",
+      "description": "In response to being the target of an attack that requires a defense check, roll a single magic knowledge dice as your defense check. You can elect to spend energy to add bonus dice equal to the amount of energy spent.",
+      "location": "4a",
+      "data": "ZIME=0"
+    },
+    {
+      "name": "Action : Protect",
+      "description": "You target an ally within a short (10 unit) distance and attempt to protect them with magic, allowing them to substitute their defense checks until the start of your next turn with any number you choose. When the ally is forced to make a check, you must roll a spell check from any school of magic against the target number, or the ally must make their own check.",
+      "location": "4b",
+      "data": "XIME=1"
+    },
+    {
+      "name": "White Magic Mastery",
+      "description": "Gain +1 skill with white magic.",
+      "location": "5",
+      "data": "YS4=1"
+    },
+    {
+      "name": "Sacred Ward",
+      "description": "You wield your shield as a sacred ward against evil. Gain +1 skill with deflection. When you are wielding a shield, you gain a bonus dice on defense checks against dark creatures and undead.",
+      "location": "6a",
+      "data": "SSB=1:TG"
+    },
+    {
+      "name": "Divine Research",
+      "description": "Gain +1 skill with academics and +1 skill with glyphcraft. When you attempt to learn a new spell from the white magic school, you can add a single glyphcraft or academics dice to your spell check.",
+      "location": "6b",
+      "data": "SSN=1:CS5=1:TG"
+    },
+    {
+      "name": "Reaction : Divine Intervention",
+      "description": "In response to any condition, you can channel any spell from the protection subschool as a reaction. The spell automatically succeeds, costing no energy and becoming charged, but still requires component. The spell that is channeled becomes fizzled.",
+      "location": "7",
+      "data": "ZIME=0"
+    }
+  ]
+}

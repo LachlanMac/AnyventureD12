@@ -30,7 +30,7 @@
     },
     {
       "name": "Arcane Infusion",
-      "description": "You are able to infuse your runes with raw magic. Gain +1 skill with primal magic. When you create a rune that deals aether damage, you can instead change the damage type to either electric, heat or cold.",
+      "description": "You are able to infuse your runes with raw magic. Gain +1 skill with primal magic. When you create a rune that deals aetheric damage, you can instead change the damage type to either electric, heat or cold.",
       "location": "4a",
       "data": "YS2=1:TG"
     },

@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "War Mage",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Action : Spellstrike",
+      "description": "You channel a spell and empower your weapon with magic. The next melee weapon attack you make before the start of your next turn deals extra damage equal to the required check of the spell. The additional damage type depends on the spell's school: Black (dark), Primal (elemental), Meta (psychic), White (divine), Mystic (aetheric), or Arcane (aetheric).",
+      "location": "1",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Battle Hardened",
+      "description": "Your body has been conditioned for the rigors of war. Gain +1 skill with endurance and +1 maximum health.",
+      "location": "2a",
+      "data": "SSD=1:A1=1"
+    },
+    {
+      "name": "Iron Will",
+      "description": "Your mind is fortified against magical assault. Gain +1 skill with resilience and +1 maximum resolve.",
+      "location": "2b",
+      "data": "SSI=1:A2=1"
+    },
+    {
+      "name": "Battle Focus",
+      "description": "You maintain concentration through combat. Gain +1 skill with concentration. Additionally, when you take damage while concentrating on a spell, you gain a bonus die on the check to maintain concentration.",
+      "location": "3",
+      "data": "SSJ=1:TG"
+    },
+    {
+      "name": "Reaction : Mage Slayer",
+      "description": "In response to a creature within melee range channeling a spell, make a melee weapon attack. If you deal damage, they must make a concentration check against half the damage dealt after mitigation or the spell fails.",
+      "location": "4a",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Reaction : Deflect Magic",
+      "description": "In response to being targeted by a spell that doesn't require a defense check while having a shield equipped, you can add a single deflection dice to your check.",
+      "location": "4b",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Weapon Mastery",
+      "description": "You've mastered complex weaponry. Gain +1 skill with complex melee weapons and +1 skill with complex ranged weapons.",
+      "location": "5",
+      "data": "WS5=1:WS6=1"
+    },
+    {
+      "name": "Cosmic Knight",
+      "description": "You harness the ordered power of the cosmos in battle. Gain +1 skill with mystic magic and gain access to researching and channeling spells from the cosmic exotic subschool.",
+      "location": "6a",
+      "data": "YS5=1"
+    },
+    {
+      "name": "Chaos Knight",
+      "description": "You embrace the unpredictable power of chaos in battle. Gain +1 skill with arcane magic and gain access to researching and channeling spells from the chaos exotic subschool.",
+      "location": "6b",
+      "data": "YS6=1"
+    },
+    {
+      "name": "Armored Caster",
+      "description": "You've learned to channel magic through your heavy armor, using it as a protective ward. While wearing heavy armor, gain +1 aetheric mitigation, +1 heat mitigation, +1 cold mitigation, and +1 electric mitigation.",
+      "location": "7",
+      "data": "CC[M7=1,M2=1,M3=1,M9=1]"
+    }
+  ]
+}

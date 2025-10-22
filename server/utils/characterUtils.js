@@ -555,7 +555,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
         '3': 'alchemy',
         '4': 'cooking',
         '5': 'glyphcraft',
-        '6': 'bioshaping'
+        '6': 'biosculpting'
       };
 
       const craftingName = craftingMappings[code];

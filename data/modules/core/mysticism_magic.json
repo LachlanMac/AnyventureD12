@@ -12,7 +12,7 @@
     },
     {
       "name": "Reaction : Manaspike",
-      "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a mysticism spell check. If the result is higher than the contesting check, deal aetheric damage in an amount equal to your check.",
+      "description": "In response to a creature channeling a spell within a moderate (20 unit) distance, roll a mysticism spell check. If the result is higher than the contesting check, deal aethericic damage in an amount equal to your check.",
       "location": "2a",
       "data": "ZIME=2"
     },
@@ -54,7 +54,7 @@
     },
     {
       "name": "Action : Spirit Shift",
-      "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to aetheric damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
+      "description": "Until the start of your next turn, you shift slightly into the spirit realm. All physical damage you deal is converted to aethericic damage, but physical damage you take is halved. Your physical damage against ethereal creatures is converted to true damage, instead.",
       "location": "6b",
       "data": "XIME=2"
     },

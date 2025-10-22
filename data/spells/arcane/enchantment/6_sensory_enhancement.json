@@ -1,0 +1,19 @@
+{
+  "name": "Sensory Enhancement",
+  "description": "You touch a creature and grant them one of the following: tremorsense, echolocation or darksight for the next hour.",
+  "charge": "The effect lasts an entire day, and the target of this spell gets a bonus dice to all senses checks.",
+  "duration": "1 hour",
+  "range": 1,
+  "checkToCast": 6,
+  "components": [
+    "Amethyst Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcTransSen6h4jx",
+  "foundry_icon": "icons/magic/perception/eye-tendrils-pink.webp"
+}

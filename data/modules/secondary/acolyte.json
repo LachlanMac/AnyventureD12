@@ -48,15 +48,15 @@
     },
     {
       "name": "Life Cult",
-      "description": "Gain +1 skill with Divine magic and Primal Magic.",
+      "description": "Your devotion to the divine path of life strengthens. Gain +1 skill with white magic.",
       "location": "6a",
-      "data": "YS4=1:YS2=1"
+      "data": "YS4=1"
     },
     {
       "name": "Death Cult",
-      "description": "Gain +1 skill with black magic and Meta Magic.",
+      "description": "Your devotion to the dark path of death strengthens. Gain +1 skill with black magic.",
       "location": "6b",
-      "data": "YS1=1:YS3=1"
+      "data": "YS1=1"
     },
     {
       "name": "Daily Action : Offering",

@@ -1,0 +1,17 @@
+{
+  "name": "Armoire",
+  "description": "You summon an armoire in an empty tile that is adjacent to you that lasts for 1 minute or until it is destroyed. You always summon the same armoire, and can persistently store objects within it, as well as withdraw them. The armoire has 30 health and can only be affected by physical damage.",
+  "charge": "The armoire becomes anchored to a spot and does not vanish after 1 minute. If the armoire is summoned using the non-charged variant of this spell, it returns to this location after the minute duration passes.",
+  "duration": "1 minute",
+  "range": 1,
+  "checkToCast": 6,
+  "components": ["Lead Ingot"],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcArmoire5L8D3F",
+  "foundry_icon": "icons/magic/projectiles/spikes-salvo-teal.webp"
+}

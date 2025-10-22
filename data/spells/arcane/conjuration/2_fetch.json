@@ -1,0 +1,17 @@
+{
+  "name": "Fetch",
+  "description": "You target an object that is 10 bulk or less within a short (10 unit) distance and either interact with it remotely with the use action or summon it to a free hand.",
+  "charge": "You can target an object a creature is holding by forcing them to make a coordination or might check of 6 or higher.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 2,
+  "components": ["Lodestone"],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcFetch01C9B7DE",
+  "foundry_icon": "icons/magic/control/hand-energy-glow-blue.webp"
+}

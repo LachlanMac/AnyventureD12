@@ -41,10 +41,10 @@
       "data": "WS4=1:K1=1"
     },
     {
-      "name": "Naturalist",
-      "description": "You can spend 10 minutes examining an area with a moderate radius (20 units) to accurately determine what beasts, humanoid or monster passed through it within the last day. You also know if the target of your Track action has passed through and which way it went.",
+      "name": "Bushcraft Expert",
+      "description": "You are an expert in wilderness survival and preparing game. Gain +1 skill with cooking. You can spend 10 minutes examining an area with a moderate radius (20 units) to accurately determine what beasts, humanoid or monster passed through it within the last day. You also know if the target of your Track action has passed through and which way it went.",
       "location": "5",
-      "data": "TG"
+      "data": "CS4=1:TG"
     },
     {
       "name": "Action : Heart-Piercer",

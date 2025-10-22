@@ -42,9 +42,7 @@ Advancement in Anyventure is entirely modular; no levels, no classes, just choic
 - **[Modules Overview](/wiki/modules)** - The heart of character progression
 - **Core Modules** - Essential combat and survival abilities
 - **Secondary Modules** - Specialized archetypes and combat styles
-- **Cultural Modules** - Heritage-based abilities unique to your race
 - **Personality Modules** - Social traits that affect interactions and Resolve recovery
-- **Alteration Modules** - Fundamental changes to your character's nature
 
 ## Combat System
 <div class="triangle-line"></div>
@@ -75,7 +73,7 @@ Magic in Anyventure is diverse and dangerous, requiring skill and preparation:
 - **Black Magic**: Necromancy, Witchcraft, and Fiend magic
 - **Primal Magic**: Elemental, Nature, and Draconic power
 - **Meta Magic**: Transmutation, Illusion, and Fey enchantments
-- **Divine Magic**: Protection, Radiant, and Celestial blessings
+- **White Magic**: Protection, Radiant, and Celestial blessings
 - **Mysticism**: Spirit, Divination, and Cosmic mysteries
 
 ## Equipment & Crafting

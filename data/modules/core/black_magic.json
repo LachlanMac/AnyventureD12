@@ -18,7 +18,7 @@
     },
     {
       "name": "Reaction : Twisted Magic",
-      "description": "In response to a spell or effect dealing divine or aether damage to any creature within a moderate (10 unit) range of you, roll a black magic check and convert that amount of the damage to dark. The rest of the damage is dealt as the original damage type and mitigated separately.",
+      "description": "In response to a spell or effect dealing divine or aetheric damage to any creature within a moderate (10 unit) range of you, roll a black magic check and convert that amount of the damage to dark. The rest of the damage is dealt as the original damage type and mitigated separately.",
       "location": "2b",
       "data": "ZIME=1"
     },

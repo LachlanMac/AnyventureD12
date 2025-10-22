@@ -413,8 +413,9 @@ export interface ExoticSchools {
   fiend: boolean;      // Black magic exotic
   draconic: boolean;   // Primal magic exotic
   fey: boolean;        // Meta magic exotic
-  celestial: boolean;  // Divine magic exotic
+  celestial: boolean;  // White magic exotic
   cosmic: boolean;     // Mysticism magic exotic
+  chaos: boolean;      // Arcane magic exotic
 }
 
 // Character ancestry selection

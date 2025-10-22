@@ -1,0 +1,19 @@
+{
+  "name": "Compulsion",
+  "description": "You touch a creature or object and place an enchantment on them which makes them nearly irresistible to look at for the next minute. The first time a creature comes within a short (10 unit) distance of the target of this spell, they must make a resilience check of 8 or they turn to look at the object. If in combat, the creature will use their first action to do this on a failure. A creature can only be affected by the compulsion spell once per day.",
+  "charge": "Instead of looking at the target of this spell, affected creatures will be compelled to use their turn to move and touch it. If this spell targets an object, the enchantment is permanent.",
+  "duration": "1 minute",
+  "range": 4,
+  "checkToCast": 7,
+  "components": [
+    "Gold Shavings"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcCompuls7k2mxx",
+  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp"
+}

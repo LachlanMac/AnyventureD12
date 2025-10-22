@@ -42,7 +42,7 @@
     },
     {
       "name": "Action : Bioshape Creature",
-      "description": "Shape living tissue to create a small creature (minion tier) that obeys your commands for 1 hour. Requires a bioshaping check of 10. The creature has stats based on what you shape it from. Gain +1 skill with bioshaping.",
+      "description": "Shape living tissue to create a small creature (minion tier) that obeys your commands for 1 hour. Requires a biosculpting check of 10. The creature has stats based on what you shape it from. Gain +1 skill with biosculpting.",
       "location": "5",
       "data": "X:CS6=1"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Genesis",
-      "description": "Master of life and death. Gain +1 skill with alchemy and +1 skill with bioshaping. Once per day, perform a 10-minute ritual to either: cure all diseases and poisons in a 10-unit radius, or unleash a plague forcing all enemies within 10 units to make a resilience check of 12 or take 2 toxic damage per round for 5 rounds.",
+      "description": "Master of life and death. Gain +1 skill with alchemy and +1 skill with biosculpting. Once per day, perform a 10-minute ritual to either: cure all diseases and poisons in a 10-unit radius, or unleash a plague forcing all enemies within 10 units to make a resilience check of 12 or take 2 toxic damage per round for 5 rounds.",
       "location": "7",
       "data": "CS3=1:CS6=1:X"
     }

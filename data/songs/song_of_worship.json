@@ -5,7 +5,7 @@
   "magical": false,
   "difficulty": 6,
   "description": "A reverent hymn that steadies hearts and guides prayer",
-  "effect": "Allies roll a bonus die on mysticism and divine magic checks",
+  "effect": "Allies roll a bonus die on mysticism and white magic checks",
   "harmony_1": {
     "instrument": "brass",
     "effect": "+5 dark mitigation"

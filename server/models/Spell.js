@@ -28,7 +28,7 @@ const SpellSchema = new Schema({
   school: {
     type: String,
     required: true,
-    enum: ['meta', 'black', 'divine', 'mysticism', 'primal']
+    enum: ['meta', 'black', 'white', 'mysticism', 'primal', 'arcane']
   },
   subschool: {
     type: String,
@@ -38,9 +38,10 @@ const SpellSchema = new Schema({
         const validSubschools = {
           meta: ['fey', 'illusion', 'transmutation'],
           black: ['fiend', 'necromancy', 'witchcraft'],
-          divine: ['celestial', 'radiant', 'protection'],
+          white: ['celestial', 'radiant', 'protection'],
           mysticism: ['spirit', 'divination', 'cosmic'],
-          primal: ['draconic', 'elemental', 'nature']
+          primal: ['draconic', 'elemental', 'nature'],
+          arcane: ['conjuration', 'enchantment', 'chaos']
         };
         return validSubschools[this.school] && validSubschools[this.school].includes(v);
       },

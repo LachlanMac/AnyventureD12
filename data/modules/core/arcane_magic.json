@@ -1,0 +1,68 @@
+{
+  "id": 105,
+  "name": "Arcane Magic",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Fledgling Arcanist",
+      "description": "You have learned to channel refined arcane magic. Gain +1 skill with arcane magic.",
+      "location": "1",
+      "data": "YS6=1"
+    },
+    {
+      "name": "Action : Magical Disruption",
+      "description": "You take a modified defense action, rolling your arcane magic check as your defense. Additionally, enemies within a very short (5 unit) distance have a penalty dice on spell checks and checks made to resist spells until the start of your next turn.",
+      "location": "2a",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Daily Action : Amplify",
+      "description": "You channel a charged spell without the normal +2 check requirement. The spell also does not cost energy.",
+      "location": "2b",
+      "data": "XDME=0"
+    },
+    {
+      "name": "Arcane Studies",
+      "description": "Your study of refined magic has expanded your knowledge. Gain +1 skill with academics and +1 spell capacity.",
+      "location": "3",
+      "data": "SSN=1:A9=1"
+    },
+    {
+      "name": "Aetheric Absorption",
+      "description": "You have learned to absorb raw aetheric energy. Gain +2 aetheric mitigation. Additionally, when you take 5 or more aetheric damage, gain 1 energy.",
+      "location": "4a",
+      "data": "M7=2:TG"
+    },
+    {
+      "name": "Energy Siphon",
+      "description": "You can siphon lingering energy from failed magic. Gain +1 resilience. Additionally, when a creature fizzles a spell within a very short (5 unit) distance of you, you gain 1 energy.",
+      "location": "4b",
+      "data": "SSI=1:TG"
+    },
+    {
+      "name": "Skilled Arcanist",
+      "description": "Your command of arcane magic has grown. Gain +1 skill with arcane magic.",
+      "location": "5",
+      "data": "YS6=1"
+    },
+    {
+      "name": "Reaction : Unravel",
+      "description": "In response to a creature channeling a spell, roll an arcane magic check as an attack against their defense check. For each dice that hits, their spell check is reduced by 1.",
+      "location": "6a",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Reaction : Arcane Chains",
+      "description": "In response to a melee attack targeting a creature within a short (10 unit) distance, roll an arcane magic check. The attacker must roll a might check to power through. If your spell check is higher than their might check, remove their highest attack dice. If your spell check is double or more than their might check, the attack is completely stopped.",
+      "location": "6b",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Master Arcanist",
+      "description": "Your mastery of refined magic has resulted in +1 talent with arcane magic spells.",
+      "location": "7",
+      "data": "YT6=1"
+    }
+  ]
+}

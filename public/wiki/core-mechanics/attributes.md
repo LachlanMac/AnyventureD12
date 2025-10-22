@@ -6,8 +6,8 @@ Talents are one half of the dice rolling system. All skills in AnyventureDX have
 
 - **Attribute**: Talents in your 5 attributes [see below]
 - **Weapon**: Talents in [simple/complex melee weapons, simple/complex ranged weapons, throwing and brawling combat]
-- **Magic**: Talents in [black magic, meta magic, divine magic, mysticism magic, primal magic ] 
-- **Crafting**: Talents in [fabrication, alchemy, engineering, glyphcraft, bioshaping, cooking ] 
+- **Magic**: Talents in [black magic, meta magic, white magic, mysticism magic, primal magic ] 
+- **Crafting**: Talents in [fabrication, alchemy, engineering, glyphcraft, biosculpting, cooking ] 
 - **Music**: Talents in [vocal, percussion, wind, strings, brass]
 
 <br> 
@@ -17,7 +17,7 @@ Talents are one half of the dice rolling system. All skills in AnyventureDX have
 <br> 
 
 <div class="example-box">
-A character has 2 talents in black magic, and 0 talents in divine magic. This character can never channel a spell from divine magic because they do not have the innate ability to do so. However, when making a black magic check, they roll 2 dice.
+A character has 2 talents in black magic, and 0 talents in white magic. This character can never channel a spell from white magic because they do not have the innate ability to do so. However, when making a black magic check, they roll 2 dice.
 </div>
 
 

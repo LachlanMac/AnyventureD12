@@ -922,7 +922,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                             <option value="ranged">Ranged</option>
                             <option value="black_magic">Black Magic</option>
                             <option value="primal_magic">Primal Magic</option>
-                            <option value="divine_magic">Divine Magic</option>
+                            <option value="white_magic">White Magic</option>
                             <option value="mysticism_magic">Mysticism Magic</option>
                             <option value="meta_magic">Meta Magic</option>
                           </select>
@@ -1253,7 +1253,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                             <option value="ranged">Ranged</option>
                             <option value="black_magic">Black Magic</option>
                             <option value="primal_magic">Primal Magic</option>
-                            <option value="divine_magic">Divine Magic</option>
+                            <option value="white_magic">White Magic</option>
                             <option value="mysticism_magic">Mysticism Magic</option>
                             <option value="meta_magic">Meta Magic</option>
                           </select>

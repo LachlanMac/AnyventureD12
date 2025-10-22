@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Monster Slayer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Monster Lore",
+      "description": "You have studied the behavior and nature of monstrous creatures. Gain +1 skill with academics. You gain a bonus dice on academics checks to determine information about monsters, such as their habitat, traits, temperament, and weaknesses.",
+      "location": "1",
+      "data": "SSN=1:TG"
+    },
+    {
+      "name": "Monster Craftsman",
+      "description": "You know how to work with the unique materials harvested from monsters. Gain +1 skill with fabrication. When fabricating items using monster parts as materials, you gain a bonus dice on your fabrication check.",
+      "location": "2a",
+      "data": "CS2=1:TC"
+    },
+    {
+      "name": "Monster Chef",
+      "description": "You know how to prepare exotic monster meat into nourishing meals. Gain +1 skill with cooking. When cooking recipes that use monster meat as an ingredient, you gain a bonus dice on your cooking check.",
+      "location": "2b",
+      "data": "CS4=1:TC"
+    },
+    {
+      "name": "Giant Killer",
+      "description": "You gain a bonus dice on attacks and defense checks against huge or larger creatures.",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Vault Strike",
+      "description": "You use a weapon that has a nearby attack range as a pole to vault up to a very short (5 unit) distance, while simultaneously making an attack with that same weapon. This vault allows you to move through large or smaller creatures.",
+      "location": "4a",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Reaction : Titan Dodge",
+      "description": "In response to being attacked by a Huge or larger creature, you roll an evasion check and double the result.",
+      "location": "4b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Readiness",
+      "description": "Gain +1 skill with coordination. If a monster or beast that is Huge or larger is present at the start of combat, you always participate in the preparation phase regardless of your initiative roll.",
+      "location": "5",
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "Monster Tamer",
+      "description": "Gain +1 skill with wildcraft. You can tame monsters the same way that beasts are tamed.",
+      "location": "6a",
+      "data": "SSM=1:TG"
+    },
+    {
+      "name": "Heavy Weaponry",
+      "description": "Gain +1 skill with complex melee weapons.",
+      "location": "6b",
+      "data": "WS5=1"
+    },
+    {
+      "name": "Action : Titan Rider",
+      "description": "You attempt to mount a creature at least two sizes larger than you by making a coordination check contested by a defense check. On a success, you attach yourself to the creature causing you to be moved when it moves. While attached, you gain a bonus dice on attack and defense checks against that creature. Using an action, the creature can attempt to shove you off, but your contested check is doubled. You can use your movement on your turn to reposition yourself within any tile occupied by the creature.",
+      "location": "7",
+      "data": "XINE=2"
+    }
+  ]
+}

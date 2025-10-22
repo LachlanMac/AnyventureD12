@@ -14,7 +14,7 @@ const iconMap = {
   necromancy: 'icons/creatures/magical/spirit-undead-ghost-blue.webp',
   witchcraft: 'icons/magic/unholy/hand-claw-fog-green.webp',
 
-  // Divine
+  // WHITE
   celestial: 'icons/magic/holy/angel-winged-humanoid-blue.webp',
   protection: 'icons/magic/holy/barrier-shield-winged-blue.webp',
   radiant: 'icons/magic/holy/prayer-hands-glowing-yellow.webp',

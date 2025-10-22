@@ -1,0 +1,17 @@
+{
+  "name": "Array of Blades",
+  "description": "You conjure several arcane weapons that circle you while you maintain concentration on the spell. Creatures that either enter or end their turn on an adjacent tile to you must make a defense check of 8 or higher, or take 8 aetheric damage. Minions are executed by this spell if they take any damage.",
+  "charge": "You can use a subsequent action to cause the blades to expand and retract at the cost of 1 energy, forcing any nearby creatures to make the check or take damage.",
+  "duration": "Concentration",
+  "range": 0,
+  "checkToCast": 7,
+  "components": [],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 2,
+  "damage": 8,
+  "damageType": "Aetheric",
+  "foundry_id": "arcBlades6H2N5TY",
+  "foundry_icon": "icons/magic/projectiles/spikes-salvo-teal.webp"
+}

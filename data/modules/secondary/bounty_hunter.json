@@ -48,15 +48,15 @@
     },
     {
       "name": "Unorthodox Takedowns",
-      "description": "Gain +1 skill with throwing weapons. When you apply a poison to a dart, the required check to avoid the effects is increased by 1.",
+      "description": "Gain +1 skill with throwing weapons and +1 skill with simple ranged weapons. When you apply a poison to a dart, the required check to avoid the effects is increased by 1.",
       "location": "6a",
-      "data": "TG:WS2=1"
+      "data": "WS2=1:WS4=1:TG"
     },
     {
       "name": "Trapper",
-      "description": "Gain +1 skill with engineering. Trap kits that you deploy have the required check to avoid the effects increased by 1.",
+      "description": "Gain +1 skill with engineering and +1 skill with complex ranged weapons. Trap kits that you deploy have the required check to avoid the effects increased by 1.",
       "location": "6b",
-      "data": "TG:CS1=1"
+      "data": "CS1=1:WS6=1:TG"
     },
     {
       "name": "Action : Take Down",

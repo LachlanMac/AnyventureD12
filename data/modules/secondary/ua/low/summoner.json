@@ -1,0 +1,68 @@
+{
+  "id": 105,
+  "name": "Conjurer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Summoning Theory",
+      "description": "You map the geometries that guide planar gates. Gain +1 skill with arcane magic and +1 spell capacity.",
+      "location": "1",
+      "data": "YS6=1:A9=1"
+    },
+    {
+      "name": "Action : Manifest Servitor",
+      "description": "Conjure a minor arcane servitor in an unoccupied space within a short (10 unit) distance. The servitor is a mundane-size construct with 6 health, 2 mitigation to physical damage, and acts at the end of your turn to take the Help, Interact, or Guard action. It lasts for 1 minute or until destroyed and counts against your limit of conjured creatures.",
+      "location": "2a",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Reaction : Dimensional Swap",
+      "description": "When you or a creature you summoned with a spell is targeted by an attack, you may swap the target with another willing allied creature or summoned construct within a short (10 unit) distance. The attacker may choose a new target if the original is no longer valid.",
+      "location": "2b",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Planar Logistics",
+      "description": "You can maintain one additional conjured creature beyond the normal limit. Conjured creatures you summon gain +2 maximum health.",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Arcane Armory",
+      "description": "Forge a weapon or shield of condensed mana in your hands or the hands of an adjacent ally for 1 minute. The conjured item counts as a mundane weapon or shield of your choice, grants a +1 bonus dice on its next attack or defense check, and then dissipates at the end of that turn unless you continue concentrating.",
+      "location": "4a",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Reaction : Explosive Dismissal",
+      "description": "When one of your conjured creatures would be reduced to 0 health, you may dismiss it in a burst of unstable energy. Creatures of your choice within a short (10 unit) distance of the summoned creature must succeed on an endurance check of 8 or higher or take 4 aethericic damage.",
+      "location": "4b",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Master Conjurer",
+      "description": "Your conjurations stabilize faster than most. Gain +1 skill with arcane magic.",
+      "location": "5",
+      "data": "YS6=1"
+    },
+    {
+      "name": "Daily Action : Grand Evocation",
+      "description": "Open a reinforced conduit to call forth a powerful ally. When you channel a conjuration spell that summons a creature, you may treat the spell as if you spent one additional tier of components and the creature arrives with temporary health equal to your arcane magic skill. This benefit lasts for 1 minute or until you lose concentration.",
+      "location": "6a",
+      "data": "XDME=1"
+    },
+    {
+      "name": "Planar Bastion",
+      "description": "Constant planar warding protects your form. Gain +2 aethericic mitigation and cannot be involuntarily teleported or banished unless you are unconscious.",
+      "location": "6b",
+      "data": "M7=2:TG"
+    },
+    {
+      "name": "Action : Legion Echoes",
+      "description": "You unfold a lattice of mirrored summons, calling forth up to three ephemeral echo constructs in unoccupied spaces within a short (10 unit) distance. Each echo lasts for 1 minute, shares your initiative, and on your turn can take only the Help or Interact action before fading. Echos do not count against your conjured creature limit.",
+      "location": "7",
+      "data": "XIME=2"
+    }
+  ]
+}

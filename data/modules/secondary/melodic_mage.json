@@ -47,10 +47,10 @@
       "data": "TG:SSQ=1"
     },
     {
-      "name": "Transformative Magic",
-      "description": "Your understanding of magical transformation is unparalleled. Gain +1 skill with meta magic.",
+      "name": "Enchanting Performance",
+      "description": "Your music naturally bends minds and wills. Gain +1 skill with arcane magic. Your instrument or voice talent bonus dice can be used with spells from the enchantment school of magic. Additionally, enchantment spells that require a touch target can now target any creature who can hear your songs.",
       "location": "6a",
-      "data": "YS3=1"
+      "data": "YS6=1"
     },
     {
       "name": "Magical Melody",

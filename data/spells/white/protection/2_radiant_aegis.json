@@ -1,0 +1,19 @@
+{
+  "name": "Radiant Aegis",
+  "description": "You call forth a mantle of holy light around a creature within a short (10 unit) distance. Until the start of your next turn, the first attack that hits the warded creature has its damage reduced by 4 and cannot score a critical hit. If the attack misses, the creature instead regains 1 resolve.",
+  "charge": "If you charge this spell while expending a Vial of Holy Water, the aegis lasts for 1 minute without further concentration. At the start of each of the target's turns, the protection refreshes until it has reduced damage once.",
+  "duration": "Until expended or 1 minute",
+  "range": 4,
+  "checkToCast": 2,
+  "components": [
+    "Vial of Holy Water"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "radiaegis2l5mpq7",
+  "foundry_icon": "icons/magic/holy/shield-barrier-glowing-gold.webp"
+}

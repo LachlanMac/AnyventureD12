@@ -1,0 +1,19 @@
+{
+  "name": "Memory",
+  "description": "You commit the last minute to memory, using all of your senses. You can elect to channel this spell again to recall that memory exactly how you experienced it. You can only maintain one memory at a time.",
+  "charge": "You can maintain a separate memory that is recalled/overridden only when the charge effect is utilized.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 2,
+  "components": [
+    "Pinch of Crystal Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcMemory2x7k9px",
+  "foundry_icon": "icons/magic/perception/eye-glow-blue.webp"
+}

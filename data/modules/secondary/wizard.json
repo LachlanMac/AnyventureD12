@@ -24,7 +24,7 @@
     },
     {
       "name": "Action : Mana Burn",
-      "description": "You channel 1 or more remaining mana you have available at a creature within a short (10 unit) distance. Roll a concentration dice for each Mana Point you have as an attack check against your target's resilience check. For each success, you deal 6 aetheric damage. Critical dice deal 10 aetheric damage instead.",
+      "description": "You channel 1 or more remaining mana you have available at a creature within a short (10 unit) distance. Roll a concentration dice for each Mana Point you have as an attack check against your target's resilience check. For each success, you deal 6 aethericic damage. Critical dice deal 10 aethericic damage instead.",
       "location": "3",
       "data": "XIME=1"
     },
@@ -41,16 +41,16 @@
       "data": "TG:SSJ=1"
     },
     {
-      "name": "Master of Schools",
-      "description": "Your mastery extends across multiple schools of magic. Gain +1 skill with primal magic and +1 skill with meta magic.",
+      "name": "Arcane Specialist",
+      "description": "Your focus on arcane magic has deepened. Gain +1 skill with arcane magic.",
       "location": "5",
-      "data": "YS2=1:YS3=1"
+      "data": "YS6=1"
     },
     {
-      "name": "Arcane Scholar",
-      "description": "Your dedication to magical study is unmatched. Gain +1 skill with academics and +3 spell capacity.",
+      "name": "Archmage",
+      "description": "You gain 2 additional Mana Points. Using a Mana Point to channel a spell grants you a bonus dice on the spell check.",
       "location": "6a",
-      "data": "SSN=1:A9=3"
+      "data": "TG:AM=2"
     },
     {
       "name": "Wizard's Meditation",
@@ -59,10 +59,10 @@
       "data": "TG"
     },
     {
-      "name": "Archmage",
-      "description": "You gain 2 additional Mana Points. Using a Mana Point to channel a spell grants you a bonus dice on the spell check.",
+      "name": "Master of Schools",
+      "description": "Your mastery extends across multiple schools of magic. Gain +1 skill with primal magic and +1 skill with meta magic.",
       "location": "7",
-      "data": "TG:AM=2"
+      "data": "YS2=1:YS3=1"
     }
   ]
 }

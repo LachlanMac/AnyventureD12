@@ -12,7 +12,7 @@
     },
     {
       "name": "Sacred Vessel",
-      "description": "Your body has become a conduit for energy. Gain +2 mitigation to aetheric damage. When you take 5 or more divine damage after mitigation is calculated, you gain +2 energy.",
+      "description": "Your body has become a conduit for energy. Gain +2 mitigation to aethericic damage. When you take 5 or more divine damage after mitigation is calculated, you gain +2 energy.",
       "location": "2a",
       "data": "TG:M7=2"
     },
@@ -43,7 +43,7 @@
     },
     {
       "name": "Dedicated",
-      "description": "Your service to the heavens has given you a closer connection to the gods. You gain +1 skill with divine magic.",
+      "description": "Your service to the heavens has given you a closer connection to the gods. You gain +1 skill with white magic.",
       "location": "5",
       "data": "YS4=1"
     },
@@ -61,7 +61,7 @@
     },
     {
       "name": "Cleansing Word",
-      "description": "When you restore health to a creature with divine magic, you also cleanse them of any disease, poison or exhaustion.",
+      "description": "When you restore health to a creature with white magic, you also cleanse them of any disease, poison or exhaustion.",
       "location": "7",
       "data": "TG"
     }

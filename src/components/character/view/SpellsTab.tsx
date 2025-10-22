@@ -13,6 +13,7 @@ interface SpellTabProps {
     fey: boolean;
     celestial: boolean;
     cosmic: boolean;
+    chaos: boolean;
   };
   onUpdateExoticSchools?: (schools: any) => void;
 }
@@ -56,7 +57,8 @@ const SpellsTab: React.FC<SpellTabProps> = ({
     draconic: false,
     fey: false,
     celestial: false,
-    cosmic: false
+    cosmic: false,
+    chaos: false
   },
   onUpdateExoticSchools
 }) => {
@@ -120,15 +122,17 @@ const SpellsTab: React.FC<SpellTabProps> = ({
   // Helper function to get color based on spell school
   const getSchoolColor = (school: string | undefined) => {
     switch (school?.toLowerCase()) {
-      case 'alteration':
+      case 'meta':
         return 'rgba(215, 183, 64, 0.7)';
       case 'black':
         return 'rgba(215, 183, 64, 0.7)';
-      case 'divine':
+      case 'white':
         return 'rgba(215, 183, 64, 0.7)';
       case 'mysticism':
         return 'rgba(215, 183, 64, 0.7)';
       case 'primal':
+        return 'rgba(215, 183, 64, 0.7)';
+      case 'arcane':
         return 'rgba(215, 183, 64, 0.7)';
       default:
         return 'var(--color-dark-elevated)';
@@ -671,6 +675,52 @@ const SpellsTab: React.FC<SpellTabProps> = ({
                   }} />
                 </div>
                 <span>Cosmic</span>
+              </label>
+
+              {/* Chaos */}
+              <label style={{
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.75rem',
+                cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed',
+                color: 'var(--color-cloud)',
+                opacity: onUpdateExoticSchools ? 1 : 0.6
+              }}>
+                <div style={{
+                  position: 'relative',
+                  width: '44px',
+                  height: '24px',
+                  backgroundColor: exoticSchools.chaos ? 'var(--color-sat-purple)' : 'var(--color-dark-elevated)',
+                  borderRadius: '12px',
+                  transition: 'background-color 0.2s',
+                  border: '2px solid var(--color-slate)',
+                  cursor: onUpdateExoticSchools ? 'pointer' : 'not-allowed'
+                }}>
+                  <input
+                    type="checkbox"
+                    checked={exoticSchools.chaos}
+                    onChange={() => handleExoticToggle('chaos')}
+                    disabled={!onUpdateExoticSchools}
+                    style={{
+                      opacity: 0,
+                      width: 0,
+                      height: 0,
+                      position: 'absolute'
+                    }}
+                  />
+                  <div style={{
+                    position: 'absolute',
+                    top: '2px',
+                    left: exoticSchools.chaos ? '22px' : '2px',
+                    width: '16px',
+                    height: '16px',
+                    backgroundColor: 'var(--color-white)',
+                    borderRadius: '50%',
+                    transition: 'left 0.2s',
+                    boxShadow: '0 2px 4px rgba(0,0,0,0.2)'
+                  }} />
+                </div>
+                <span>Chaos</span>
               </label>
             </div>
           </CardBody>

@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Knight's Order",
-      "description": "You have been formally knighted through sacred ceremony and sworn vows to an established order, bearing their heraldry as proof of your station. This initiation grants you the right to requisition basic supplies and mounts for order business, claim hospitality at their holdings and allied strongholds, speak with the authority of your order in matters of law, and receive aid from fellow knights when available. To receive these benefits, you are expected to uphold the ideals of the organization which you serve.",
+      "description": "You've been knighted and sworn to an order, bearing their heraldry. You can requisition supplies and mounts for order business, claim hospitality at allied holdings, speak with order authority in legal matters, and receive aid from fellow knights. You gain a squire companion using the Squire statblock (costs 100 gold to replace if killed). You must uphold your order's values to receive these benefits.",
       "location": "1",
       "data": ""
     },
@@ -47,16 +47,16 @@
       "data": "XINE=1"
     },
     {
-      "name": "Squire",
-      "description": "You have access to a squire which will be appointed by your order. This servant uses the Squire statblock. If they are killed, you must spend 100 gold to your order to obtain a new one. The squire is loyal to you while you uphold the values of your order.",
+      "name": "Improved Squire",
+      "description": "Your squire has trained alongside you and proven themselves in battle. Your squire is upgraded to use the Fledgling Knight statblock instead of the Squire statblock.",
       "location": "6a",
       "data": ""
     },
     {
-      "name": "Cavalier",
-      "description": "When you are mounted, you and your mount gain a bonus dice to all defense checks. Additionally, you cannot be dismounted by the shove action or any other effects that would displace you.",
+      "name": "Paladin",
+      "description": "Your sacred vows grant you access to divine magic. Gain +1 skill with white magic. When you channel a white magic spell while wearing heavy armor, you can use your presence skill in place of white magic for the spell check.",
       "location": "6b",
-      "data": ""
+      "data": "YS4=1"
     },
     {
       "name": "Knight of the Old Order",

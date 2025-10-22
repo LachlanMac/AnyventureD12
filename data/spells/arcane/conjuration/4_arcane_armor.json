@@ -1,0 +1,17 @@
+{
+  "name": "Arcane Armor",
+  "description": "You summon an outer shell of arcane armor that protects you, granting you a static defense check of 2d8 while you maintain concentration.",
+  "charge": "The static check is increased to a 3d10 and you gain 2 aetheric and physical mitigation.",
+  "duration": "Concentration",
+  "range": 1,
+  "checkToCast": 4,
+  "components": ["Brass Ingot"],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcArmor7K3T2VY9",
+  "foundry_icon": "icons/magic/defensive/shield-barrier-flaming-diamond-purple.webp"
+}

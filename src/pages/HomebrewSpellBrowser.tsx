@@ -168,12 +168,14 @@ const HomebrewSpellBrowser: React.FC = () => {
         return 'var(--color-sunset)';
       case 'primal':
         return 'var(--color-old-gold)';
-      case 'alteration':
+      case 'meta':
         return 'var(--color-sat-purple)';
-      case 'divine':
+      case 'white':
         return 'var(--color-stormy)';
       case 'mysticism':
         return 'var(--color-evening)';
+      case 'arcane':
+        return 'var(--color-cloud)';
       default:
         return 'var(--color-cloud)';
     }
@@ -335,11 +337,12 @@ const HomebrewSpellBrowser: React.FC = () => {
                   }}
                 >
                   <option value="all">All Schools</option>
-                  <option value="alteration">Alteration</option>
+                  <option value="meta">Metamagic</option>
                   <option value="black">Black</option>
-                  <option value="divine">Divine</option>
+                  <option value="white">White</option>
                   <option value="mysticism">Mysticism</option>
                   <option value="primal">Primal</option>
+                  <option value="arcane">Arcane</option>
                 </select>
               </div>
 

@@ -29,7 +29,7 @@ const DamageSchema = new Schema({
   damage_type: { type: String, default: "physical" },
   category: {
     type: String,
-    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "divine_magic", "mysticism_magic", "meta_magic"],
+    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "white_magic", "mysticism_magic", "meta_magic"],
     default: "blunt"
   },
   energy: { type: Number, default: 0 },             // Energy cost for this attack
@@ -179,7 +179,7 @@ const ItemSchema = new Schema({
     alchemy: { type: SkillTalentBonusSchema, default: () => ({}) },
     cooking: { type: SkillTalentBonusSchema, default: () => ({}) },
     glyphcraft: { type: SkillTalentBonusSchema, default: () => ({}) },
-    bioSculpting: { type: SkillTalentBonusSchema, default: () => ({}) }
+    biosculpting: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
   // Magic skill bonuses
@@ -187,7 +187,7 @@ const ItemSchema = new Schema({
     black: { type: SkillTalentBonusSchema, default: () => ({}) },
     primal: { type: SkillTalentBonusSchema, default: () => ({}) },
     meta: { type: SkillTalentBonusSchema, default: () => ({}) },
-    divine: { type: SkillTalentBonusSchema, default: () => ({}) },
+    white: { type: SkillTalentBonusSchema, default: () => ({}) },
     mysticism: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
@@ -253,7 +253,7 @@ const ItemSchema = new Schema({
   recipe: {
     type: {
       type: String,
-      enum: ["alchemy", "cooking", "engineering", "fabrication", "glyphcraft", "bioshaping"]
+      enum: ["alchemy", "cooking", "engineering", "fabrication", "glyphcraft", "biosculpting"]
     },
     difficulty: { type: Number, default: 0 },
     ingredients: [{ type: String }],

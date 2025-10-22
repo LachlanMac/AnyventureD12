@@ -799,7 +799,7 @@ const ModulesPage: React.FC = () => {
                                 </div>
                                 <p
                                   style={{
-                                    color: 'var(--color-cloud)',
+                                    color: isSelected ? 'var(--color-cloud)' : 'var(--color-white)',
                                     fontSize: '0.875rem',
                                   }}
                                 >

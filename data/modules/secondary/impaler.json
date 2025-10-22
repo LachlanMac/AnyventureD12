@@ -56,7 +56,7 @@
       "name": "Through and Through",
       "description": "Your piercing strikes can hit multiple foes. When you make an attack against a creature with a complex piercing weapon, the attack is also made against an enemy that is within the reach of your weapon and in a line with your target.",
       "location": "6b",
-      "data": "TG:WS5=1"
+      "data": "TG"
     },
     {
       "name": "Action: Armor Piercer",

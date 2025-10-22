@@ -1,0 +1,19 @@
+{
+  "name": "Sleep",
+  "description": "You attempt to touch a standard or lower creature and put them to sleep if they fail a resilience or endurance check of 5. A creature who falls asleep in this way can wake up after 1 hour or if they are disturbed by loud noises or taking damage.",
+  "charge": "A willing creature who does not elect to get up after 1 hour and completes a full rest gets credit for a favorable rest, regardless of conditions, pain or stress.",
+  "duration": "1 hour",
+  "range": 1,
+  "checkToCast": 4,
+  "components": [
+    "Pixie Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcSleep4p6r9txx",
+  "foundry_icon": "icons/magic/death/skull-sleeping-masked.webp"
+}

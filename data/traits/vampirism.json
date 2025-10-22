@@ -34,7 +34,7 @@
         {
           "id": "holy_weakness",
           "name": "Holy Weakness",
-          "description": "You are especially weak against divine magic. Any damage that bypasses your mitigation is doubled against you and causes you to become afraid.",
+          "description": "You are especially weak against white magic. Any divine damage that bypasses your mitigation is doubled against you and causes you to become afraid.",
           "data": "TG"
         }
       ],

@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Ancestral Protection",
-      "description": "The spirits of your ancestors watch over you. Gain +1 aether mitigation and +1 skill with resilience.",
+      "description": "The spirits of your ancestors watch over you. Gain +1 aetheric mitigation and +1 skill with resilience.",
       "location": "1",
       "data": "SSI=1:M7=1:TG"
     },
@@ -26,7 +26,7 @@
       "name": "Action : Raise Spirit",
       "description": "You call forth the spirit of a dead animal that died within the last day. The spirit retains the stats of the original creature but becomes spectral. You can only have one spirit pet at a time. If it dies, it dissipates and cannot be raised again.",
       "location": "3",
-      "data": "TG:XINE=1"
+      "data": "XINE=1"
     },
     {
       "name": "Spirit Bond",
@@ -44,7 +44,7 @@
       "name": "Reaction : Spirit Shield",
       "description": "In response to taking damage, you can redirect that damage to your spirit pet instead.",
       "location": "5",
-      "data": "YS5=1:TG:ZINE=1"
+      "data": "ZINE=1"
     },
     {
       "name": "Path of Nature",
@@ -54,13 +54,13 @@
     },
     {
       "name": "Path of Spirits",
-      "description": "You have chosen to walk the path of mysticism and the spirit realm. Gain +1 skill with mysticism magic. Your spirit pets' attacks that deal physical damage can now deal aether damage instead.",
+      "description": "You have chosen to walk the path of mysticism and the spirit realm. Gain +1 skill with mysticism magic. Your spirit pets' attacks that deal physical damage can now deal aetheric damage instead.",
       "location": "6b",
       "data": "YS5=1:TG"
     },
     {
       "name": "Spirit Master",
-      "description": "You have achieved mastery over the spirit realm. You can now target a standard tiered beast's corpse to raise an spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
+      "description": "You have achieved mastery over the spirit realm. You can now target a standard tiered beast's corpse to raise a spirit pet from. If this spirit pet is destroyed, it returns after your next full rest unless you release it from your service.",
       "location": "7",
       "data": "TG"
     }

@@ -93,8 +93,9 @@ EX. YB1=-1 Means add 1 penalty die to Black magic checks
 1: Black
 2: Primal
 3: Meta
-4: Divine
+4: White
 5: Mystic
+6: Arcane
 
 ############ CRAFTING ############
 KEY (C)
@@ -107,7 +108,7 @@ EX. CB1=-1 Means add 1 penalty die to Engineering checks
 3: Alchemy
 4: Cooking
 5: Gylphcraft
-6: Bioshaping
+6: Biosculpting
 
 ########## MITIGATIONS ###########
 KEY (M)

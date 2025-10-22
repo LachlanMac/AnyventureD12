@@ -47,7 +47,7 @@
       "data": "YS2=1"
     },
     {
-      "name": "Summoner",
+      "name": "Conjurer",
       "description": "When you summon an elemental using primal magic, you can use it's elemental mitigations [cold, heat, electric, physical] in place of your own when you take those damage types. Additionally, when you charge a spell that summons an elemental, you can use double the components to increase the allowed creature tier by 1.",
       "location": "6a",
       "data": "TG"

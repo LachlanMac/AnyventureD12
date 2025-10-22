@@ -1,0 +1,19 @@
+{
+  "name": "Dominate",
+  "description": "You touch a minion or grunt and dominate their mind, charming them for an hour. While charmed in this way, suggestions that would cause self-harm or danger to an ally do not get any bonuses and treated like normal suggestions. Creatures who are immune to the charmed condition are not affected by this spell.",
+  "charge": "The charm lasts until the end of a full rest",
+  "duration": "1 hour",
+  "range": 1,
+  "checkToCast": 9,
+  "components": [
+    "Platinum Nugget"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcDominate9w7xx",
+  "foundry_icon": "icons/magic/control/debuff-chains-shackles-movement-purple.webp"
+}

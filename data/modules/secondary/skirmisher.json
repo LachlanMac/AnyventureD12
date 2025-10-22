@@ -42,21 +42,21 @@
     },
     {
       "name": "Fleet Footwork",
-      "description": "Gain +1 skill with coordination and +1 movement speed.",
+      "description": "Gain +1 skill with coordination. Your minimum optimal range with throwing weapons and simple ranged weapons is reduced by 1 step, letting you attack effectively at one range closer without penalties.",
       "location": "5",
-      "data": "SSG=1:K1=1"
+      "data": "SSG=1:AE=1"
     },
     {
-      "name": "Throwing Mastery",
-      "description": "Gain +1 skill with throwing weapons. Your minimum optimal range with throwing weapons is reduced by 1 step, letting you throw effectively at one range closer without penalties.",
+      "name": "Ranged Mastery",
+      "description": "Gain +1 skill with throwing weapons and +1 skill with simple ranged weapons.",
       "location": "6a",
-      "data": "TG:WS2=1:AE=1"
+      "data": "WS2=1:WS4=1"
     },
     {
       "name": "Evasive Motion",
-      "description": "Gain +1 skill with evasion.",
+      "description": "Gain +1 skill with evasion and +1 movement speed.",
       "location": "6b",
-      "data": "TG:SSE=1"
+      "data": "SSE=1:K1=1"
     },
     {
       "name": "Flow of Battle",

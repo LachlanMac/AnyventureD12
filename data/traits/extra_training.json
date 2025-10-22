@@ -202,9 +202,9 @@
           "data": "YS3=1"
         },
         {
-          "id": "divine",
-          "name": "Divine Magic",
-          "description": "The character's Divine Magic skill is increased by 1.",
+          "id": "white",
+          "name": "White Magic",
+          "description": "The character's White Magic skill is increased by 1.",
           "data": "YS4=1"
         },
         {
@@ -212,6 +212,12 @@
           "name": "Mysticism",
           "description": "The character's Mysticism skill is increased by 1.",
           "data": "YS5=1"
+        },
+        {
+          "id": "arcane",
+          "name": "Arcane Magic",
+          "description": "The character's Arcane Magic skill is increased by 1.",
+          "data": "YS6=1"
         }
       ]
     },
@@ -252,9 +258,9 @@
           "data": "CS5=1"
         },
         {
-          "id": "bioshaping",
-          "name": "Bioshaping",
-          "description": "The character's Bioshaping skill is increased by 1.",
+          "id": "biosculpting",
+          "name": "Biosculpting",
+          "description": "The character's Biosculpting skill is increased by 1.",
           "data": "CS6=1"
         }
       ]

@@ -1,12 +1,12 @@
 {
   "id": 105,
-  "name": "Divine Magic",
+  "name": "White Magic",
   "mtype": "core",
   "ruleset": 1,
   "options": [
     {
       "name": "Fledgling Cleric",
-      "description": "You have honed your connection to the divine through disciplined devotion. Gain +1 skill with divine magic.",
+      "description": "You have honed your connection to the divine through disciplined devotion. Gain +1 skill with white magic.",
       "location": "1",
       "data": "YS4=1"
     },
@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Smite",
-      "description": "You imbue a melee or brawling attack with radiant energy. If the attack hits, make a Divine Magic check against the same defense the weapon targeted. On success, the target takes additional divine damage equal to the weapon's extra damage. If the target is an undead or dark creature, deal divine damage equal to the weapon's primary damage instead.",
+      "description": "You imbue a melee or brawling attack with radiant energy. If the attack hits, make a white magic check against the same defense the weapon targeted. On success, the target takes additional divine damage equal to the weapon's extra damage. If the target is an undead or dark creature, deal divine damage equal to the weapon's primary damage instead.",
       "location": "2b",
       "data": "XIME=1"
     },
@@ -36,13 +36,13 @@
     },
     {
       "name": "Halo",
-      "description": "Your use of divine magic has caused you to have subtle, radiant glow which you can transfer to objects, causing them to emit a gentle light in a 3-unit radius. Additionally, Gain +2 divine mitigation. ",
+      "description": "Your use of white magic has caused you to have subtle, radiant glow which you can transfer to objects, causing them to emit a gentle light in a 3-unit radius. Additionally, Gain +2 divine mitigation. ",
       "location": "4b",
       "data": "M6=2:TG"
     },
     {
       "name": "Skilled Cleric",
-      "description": "Through prayer, ritual, and unshakable faith, your bond with divine magic has deepened. Gain +1 skill with divine magic.",
+      "description": "Through prayer, ritual, and unshakable faith, your bond with white magic has deepened. Gain +1 skill with white magic.",
       "location": "5",
       "data": "YS4=1"
     },
@@ -54,13 +54,13 @@
     },
     {
       "name": "Daily Action : Lay Hands",
-      "description": "You touch a creature and channel raw radiant energy into them, healing their wounds. Roll a divine magic check to determine the amount healed.",
+      "description": "You touch a creature and channel raw radiant energy into them, healing their wounds. Roll a white magic check to determine the amount healed.",
       "location": "6b",
       "data": "XDNE=1"
     },
     {
       "name": "Cleanser",
-      "description": "Your relentless training has resulted in +1 talent with divine magic spells.",
+      "description": "Your relentless training has resulted in +1 talent with white magic spells.",
       "location": "7",
       "data": "YT4=1"
     }
