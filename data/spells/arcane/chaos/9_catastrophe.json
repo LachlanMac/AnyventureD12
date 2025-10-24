@@ -13,7 +13,7 @@
   "reaction": false,
   "energy": 3,
   "damage": 10,
-  "damageType": "aetheric",
+  "damageType": "Aetheric",
   "foundry_id": "",
   "foundry_icon": ""
 }
