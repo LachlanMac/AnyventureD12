@@ -35,7 +35,7 @@ const SpellCompendium: React.FC = () => {
   const [concentrationFilter, setConcentrationFilter] = useState<string>('all');
 
   // Sorting
-  const [sortField, setSortField] = useState<string>('name');
+  const [sortField, setSortField] = useState<string>('checkToCast');
   const [sortDirection, setSortDirection] = useState<'asc' | 'desc'>('asc');
 
   useEffect(() => {
