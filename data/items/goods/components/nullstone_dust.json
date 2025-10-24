@@ -1,0 +1,23 @@
+{
+  "name": "Nullstone Dust",
+  "description": "A fine, dark gray powder that seems to absorb light around it, creating subtle distortions in the air. The dust feels unnaturally cold to the touch and leaves a faint residue of entropy on surfaces. Created by grinding electrum shavings with pulverized obsidian through a careful alchemical process, this powder disrupts magical energies and destabilizes reality. Often used by chaos mages to channel spells that erode defenses or warp space. This recipe yields 3 doses.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical"
+  ],
+  "weight": 0.1,
+  "value": 130,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 7,
+    "yields": 3,
+    "ingredients": [
+      "2x Electrum Shavings",
+      "1x Shard of Obsidian"
+    ]
+  },
+  "foundry_icon": "",
+  "foundry_id": ""
+}

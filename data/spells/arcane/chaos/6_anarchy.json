@@ -1,0 +1,19 @@
+{
+  "name": "Anarchy",
+  "description": "You fire a 3-unit cone of chaotic energy and deal 8 psychic damage to the creatures within who fail a resilience check of 8. If you do not have at least 2 successes, the spell instead becomes a 3 unit radius, dealing damage to you and any other creatures within.",
+  "charge": "The damage is increased to 12 psychic damage and gives the maddened condition to any creature who takes 8 or more psychic damage after mitigation.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 6,
+  "components": [
+    "Nullstone Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 8,
+  "damageType": "psychic",
+  "foundry_id": "",
+  "foundry_icon": ""
+}

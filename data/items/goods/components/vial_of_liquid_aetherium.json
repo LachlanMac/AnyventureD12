@@ -1,0 +1,15 @@
+{
+  "name": "Vial of Liquid Aetherium",
+  "description": "A vial of shimmering, silvery liquid that glows with an otherworldly iridescence. Created by combining an aetherium nugget with quicksilver and allowing the two metals to amalgamate over the course of a day. The resulting liquid metal is highly unstable and radiates magical energy, making it invaluable for channeling reality-warping chaos magic. The amalgamation process requires careful temperature control and constant stirring to prevent the mixture from solidifying prematurely.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical",
+    "liquid metal"
+  ],
+  "weight": 0.2,
+  "value": 2250,
+  "rarity": "rare",
+  "foundry_icon": "",
+  "foundry_id": ""
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Catastrophe",
+  "description": "You fire a ray of catastrophic chaos at a creature within a short (10 unit) distance. If they fail a defense check of 9, they suffer 10 aetheric damage plus 3 additional aetheric damage per condition currently affecting them. If you do not roll at least 2 successes on your spell check, one of their conditions is transferred to you (chosen randomly if multiple).",
+  "charge": "Instead of dealing damage, this spell becomes an execute. If the target fails their defense check and has conditions equal to or greater than their tier threshold, they die instantly: Minion (1+ conditions), Grunt (2+ conditions), Standard (3+ conditions), Champion (4+ conditions). Elite, Legend, and Mythic creatures cannot be executed.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 9,
+  "components": [
+    "Vial of Quicksilver"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 10,
+  "damageType": "aetheric",
+  "foundry_id": "",
+  "foundry_icon": ""
+}

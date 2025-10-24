@@ -1,0 +1,19 @@
+{
+  "name": "Distortion",
+  "description": "You distort yourself for 1 minute. Any time you are attacked, roll a d10. On a 9 or higher, you blink out of existence and back in, taking no damage. Otherwise, you make a defense check as normal. If you do not roll at least 2 successes on your spell check, when you blink out on a 9 or higher, you disappear until the start of your next turn. At the start of your turn, roll again - on a 9 or higher, you remain vanished for another round.",
+  "charge": "The threshold to blink is reduced to 7 or higher, and when you successfully blink, you can choose to reappear in any unoccupied space within a very short (5 unit) distance instead of your original position.",
+  "duration": "1 minute",
+  "range": 0,
+  "checkToCast": 3,
+  "components": [
+    "Lodestone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 1,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": ""
+}

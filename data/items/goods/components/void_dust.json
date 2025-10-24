@@ -1,0 +1,24 @@
+{
+  "name": "Void Dust",
+  "description": "A black powder that seems to shift and swirl of its own accord, as if containing tiny fragments of the void itself. The dust produces a faint hissing sound and occasionally releases wisps of dark smoke. Created through a dangerous alchemical process involving the dissolution of void amethyst in acid, then mixing the residue with ash from complete combustion. The resulting powder is unstable and volatile, capable of tearing small holes in reality. Chaos mages use this rare component to channel catastrophic spells and summon tendrils from beyond. This recipe yields 2 doses.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical"
+  ],
+  "weight": 0.1,
+  "value": 2090,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 9,
+    "yields": 4,
+    "ingredients": [
+      "1x Void Amethyst",
+      "2x Vial of Acid",
+      "1x Pinch of Ash"
+    ]
+  },
+  "foundry_icon": "",
+  "foundry_id": ""
+}

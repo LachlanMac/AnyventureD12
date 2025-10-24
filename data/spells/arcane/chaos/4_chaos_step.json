@@ -1,0 +1,19 @@
+{
+  "name": "Chaos Step",
+  "description": "You alter your form with arcane unpredictability, allowing you to teleport to an unoccupied tile you can see within a very short (5 unit) distance. If your spell check doesn't have at least 2 successes, the direction you teleport becomes random and requires rolling in the direction table to determine. If the tile is occupied, you take 10 true damage and move to the closest unoccupied tile.",
+  "charge": "After teleporting, deal 7 aetheric damage to any adjacent creature who fails a resilience check of 7",
+  "duration": "Instantaneous",
+  "range": 3,
+  "checkToCast": 4,
+  "components": [
+    "Shard of Obsidian"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": ""
+}

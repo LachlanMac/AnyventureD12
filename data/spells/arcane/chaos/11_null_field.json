@@ -1,0 +1,19 @@
+{
+  "name": "Null Field",
+  "description": "You create a stationary null field in a very short (5 unit) radius centered on yourself. All creatures inside the field suffer a penalty dice on all spell checks. The field lasts while you concentrate. If you do not roll at least 2 successes on your spell check, all creatures inside the field (including you) are teleported into a pocket dimension containing only the bubble and its occupants. At the end of each creature's turn while in the pocket dimension, they roll a d6 - on a 5 or higher, they return to their original position in reality. The pocket dimension persists until no living creatures remain inside it.",
+  "charge": "The radius increases to short (10 units). Creatures inside suffer 2 penalty dice on all spell checks, and spells cannot cross the boundary of the field; spells channeled outside cannot enter, and spells channeled inside cannot exit.",
+  "duration": "Concentration",
+  "range": 0,
+  "checkToCast": 11,
+  "components": [
+    "Void Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": ""
+}

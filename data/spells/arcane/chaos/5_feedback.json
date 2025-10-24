@@ -1,0 +1,19 @@
+{
+  "name": "Feedback",
+  "description": "In response to taking psychic or aetheric damage from an adjacent creature, you force the attacker to make a concentration check against half the damage dealt before mitigation, or they become stunned. If you do not roll at least 2 successes on your spell check, you must make the same check against being stunned.",
+  "charge": "The spell works against physical damage, and the attacker takes half the damage dealt before mitigation.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 5,
+  "components": [
+    "Bloodstone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": true,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": ""
+}

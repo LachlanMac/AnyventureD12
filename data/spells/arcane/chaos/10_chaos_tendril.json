@@ -1,0 +1,19 @@
+{
+  "name": "Chaos Tendril",
+  "description": "You summon a writhing tendril of chaotic energy in an unoccupied space within a moderate (20 unit) distance. The tendril occupies one tile and lasts while you concentrate. At the start of your turn, you make an arcane magic check and the tendril lashes out at a creature within a very short (5 unit) distance of it, dealing 4 physical damage for each success you rolled on your check. If you do not roll at least 2 successes on your spell check when you initially cast this spell, the tendril becomes maddened and attacks randomly.",
+  "charge": "You summon two additional tendrils, placing each within a moderate (20 unit) distance. You make a single arcane magic check at the start of your turn, and all tendrils attack using that result.",
+  "duration": "Concentration",
+  "range": 5,
+  "checkToCast": 10,
+  "components": [
+    "Vial of Liquid Aetherium"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": "physical",
+  "foundry_id": "",
+  "foundry_icon": ""
+}
