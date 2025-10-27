@@ -3,7 +3,7 @@
   "description": "Finely ground bone powder used in alchemy for structure and mineral content. A large bone such as a skull, humerus or femur can be grinded down into bone dust if they have been sufficiently dried.",
   "type": "goods",
   "weight": 0.1,
-  "value": 2,
+  "value": 5,
   "rarity": "common",
   "foundry_icon": "icons/commodities/gems/powder-raw-white.webp",
   "foundry_id": "9om1rd4okmxxyeom"

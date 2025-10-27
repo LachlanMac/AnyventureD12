@@ -1,0 +1,21 @@
+{
+  "name": "Rune of Invisibility",
+  "description": "A powerful magical inscription that grants the wearer the ability to turn invisible. As an action, spend 3 energy to become invisible for up to 1 minute. The invisibility ends early if you attack or cast a spell. Once the invisibility ends (whether from duration or being broken), this ability cannot be used again for 1 hour. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 9600,
+  "rarity": "rare",
+  "tags": ["rune", "enchantment", "endgame", "stealth"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 15,
+    "ingredients": [
+      "Void Amethyst",
+      "Void Dust",
+      "Aetherium Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-purple.webp",
+  "foundry_id": ""
+}

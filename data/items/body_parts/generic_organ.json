@@ -1,0 +1,50 @@
+[
+  {
+    "name": "Regenerative Organ",
+    "description": "An organ harvested from a creature with natural regenerative abilities. Enhances the body's ability to heal over time.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "internal",
+      "organ",
+      "regeneration"
+    ],
+    "weight": 2,
+    "value": 3000,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Grants +1 health recovery per full rest. Elite: Grants +2 health recovery per full rest.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Venomous Organ",
+    "description": "A venom gland harvested from a venomous creature. Allows the host to produce and inject toxic venom through bite attacks.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "internal",
+      "organ",
+      "venom"
+    ],
+    "weight": 1,
+    "value": 2500,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Once per day, when you bite a creature, you can inject venom. The target must make an endurance check of 7 or become poisoned for 1 minute, taking 3 toxic damage at the start of each of their turns. Elite: Once per day, when you bite a creature, you can inject venom. The target must make an endurance check of 7 or become poisoned for 1 minute, taking 5 toxic damage at the start of each of their turns.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Adrenal Gland",
+    "description": "An enhanced adrenal gland harvested from a creature with exceptional energy production. Improves the body's ability to generate energy.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "internal",
+      "organ",
+      "energy"
+    ],
+    "weight": 1,
+    "value": 4000,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Grants +1 energy recovery per round. Elite: Grants +1 energy recovery per round and +1 max energy.",
+    "foundry_icon": ""
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "Rune of Enervation",
+  "description": "A magical inscription that enhances the wearer's energy reserves. Grants +2 maximum energy. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 2625,
+  "rarity": "uncommon",
+  "tags": ["rune", "enchantment", "energy"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 11,
+    "ingredients": [
+      "Citrine",
+      "Pinch of Phosphorus",
+      "Silver Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-orange.webp",
+  "foundry_id": ""
+}

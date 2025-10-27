@@ -1,0 +1,18 @@
+{
+  "name": "Glyph of Trigger",
+  "description": "A powerful magical inscription that stores a channeled spell to be released when a specific condition is met. When creating this glyph, you must channel a spell into it and define the trigger condition (such as 'when a creature enters this area' or 'when this door is opened'). When the condition is met, the stored spell is cast with the parameters defined during creation. The glyph is consumed when triggered. Only one spell can be stored per glyph, and the spell must be successfully channeled at the time of glyph creation.",
+  "type": "runes",
+  "weight": 0,
+  "value": 5000,
+  "rarity": "rare",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 14,
+    "ingredients": [
+      "2x Aetherium Shavings",
+      "Diamond"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-brown-grey.webp",
+  "foundry_id": ""
+}

@@ -1,0 +1,46 @@
+{
+  "name": "Flesh Golem (Standard)",
+  "description": "A powerful construct stitched together from disparate body parts and animated through biosculpting. The parts can be harvested from humanoid, beast, or monster creatures, but each part must come from a separate creature to ensure the golem's stability. Golems can be activated or deactivated, counting against the owner's pet limit and taking the form of their equivalent statblock.",
+  "type": "body_parts",
+  "tags": ["construct", "flesh_golem", "standard"],
+  "weight": 0,
+  "value": 3000,
+  "rarity": "rare",
+
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+
+  "recipe": {
+    "type": "biosculpting",
+    "difficulty": 10,
+    "ingredients": [
+      "2x Large Standard Legs",
+      "2x Large Standard Arms",
+      "1x Large Standard Corpse",
+      "2x Large Standard Eyes",
+      "1x Ruby"
+    ]
+  },
+
+  "foundry_icon": "",
+  "foundry_id": ""
+}

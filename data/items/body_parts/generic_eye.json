@@ -1,0 +1,51 @@
+[
+  {
+    "name": "Beast/Monster Eye",
+    "description": "An eye harvested from a beast or monster creature. Grants the vision type that the creature possessed (darkvision, infravision, etc.). Both eyes must be from the same creature to gain matching pair benefits.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "eye",
+      "beast",
+      "monster"
+    ],
+    "weight": 0.1,
+    "value": 800,
+    "rarity": "uncommon",
+    "properties": "Standard: No benefit. Champion: Gain the vision type the creature had (darkvision, infravision, etc.) up to 10 units. Elite: Gain the vision type the creature had up to 10 units. If you have a matching pair of Elite eyes from the same creature, also gain +1 skill to Senses.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Divine/Celestial Eye",
+    "description": "An eye harvested from a celestial or divine creature. Grants the vision type that the creature possessed (darkvision, truesight, etc.). Both eyes must be from the same creature to gain matching pair benefits.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "eye",
+      "divine",
+      "celestial"
+    ],
+    "weight": 0.1,
+    "value": 2500,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Gain the vision type the creature had (darkvision, truesight, etc.) up to 10 units. Elite: Gain the vision type the creature had up to 10 units. If you have a matching pair of Elite eyes from the same creature, also gain +1 skill to Senses.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Dark/Fiendish Eye",
+    "description": "An eye harvested from a demon or fiendish creature. Grants the vision type that the creature possessed (darkvision, shadowsight, etc.). Both eyes must be from the same creature to gain matching pair benefits.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "eye",
+      "dark",
+      "fiend",
+      "demon"
+    ],
+    "weight": 0.1,
+    "value": 2500,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Gain the vision type the creature had (darkvision, shadowsight, etc.) up to 10 units. Elite: Gain the vision type the creature had up to 10 units. If you have a matching pair of Elite eyes from the same creature, also gain +1 skill to Senses.",
+    "foundry_icon": ""
+  }
+]

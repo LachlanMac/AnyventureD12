@@ -1,0 +1,21 @@
+{
+  "name": "Rune of True Sight",
+  "description": "A powerful magical inscription that grants the wearer truesight to 30 units. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 11000,
+  "rarity": "rare",
+  "tags": ["rune", "enchantment", "endgame", "vision", "detection"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 15,
+    "ingredients": [
+      "Spirit Moonstone",
+      "Pixie Dust",
+      "Aetherium Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-white.webp",
+  "foundry_id": ""
+}

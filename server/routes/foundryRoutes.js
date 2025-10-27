@@ -367,6 +367,7 @@ const convertToFoundryFormat = (data, type) => {
         shield_category: data.shield_category,
         consumable_category: data.consumable_category,
         substance: data.substance || null,
+        implant_data: data.implant_data || null,
         primary: data.primary,
         secondary: data.secondary,
         bonus_attack: data.bonus_attack,

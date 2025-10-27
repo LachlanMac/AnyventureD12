@@ -53,10 +53,10 @@ const ItemSchema = new Schema({
     default: "common"
   },
   // Item type information
-  type: { 
-    type: String, 
-    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition", "runes" ],
-    required: true 
+  type: {
+    type: String,
+    enum: ["weapon", "boots", "body", "gloves", "headwear", "cloak", "accessory", "shield", "goods", "adventure", "consumable", "tool", "instrument", "ammunition", "runes", "implant", "body_parts" ],
+    required: true
   },
 
   weapon_category: {
@@ -90,6 +90,32 @@ const ItemSchema = new Schema({
   consumable_category: {
       type: String,
       enum: ["poisons", "elixirs", "potions", "explosives"],
+  },
+  implant_data: {
+    implant_type: {
+      type: String,
+      enum: ["eye", "hand", "arm", "leg", "skin", "internal"],
+    },
+    pain_penalty: {
+      type: Number,
+      default: 0,
+      min: 0
+    },
+    health_penalty: {
+      type: Number,
+      default: 0,
+      min: 0
+    },
+    resolve_penalty: {
+      type: Number,
+      default: 0,
+      min: 0
+    },
+    rejection_check: {
+      type: Number,
+      default: 0,
+      min: 0
+    }
   },
   substance: {
     category: {

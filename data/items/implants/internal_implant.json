@@ -1,0 +1,50 @@
+{
+  "name": "Internal Implant",
+  "description": "Surgical replacement or addition of internal organs from another creature. The effects depend on the creature whose organs are implanted. This is the most invasive and dangerous form of biosculpting.",
+  "type": "implant",
+  "tags": ["implant"],
+  "weight": 1,
+  "value": 0,
+  "rarity": "uncommon",
+
+  "implant_data": {
+    "implant_type": "internal",
+    "pain_penalty": 2,
+    "health_penalty": 2,
+    "resolve_penalty": 2,
+    "rejection_check": 9
+  },
+
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+
+  "recipe": {
+    "type": "biosculpting",
+    "difficulty": 10,
+    "ingredients": [
+      "Fresh Organ"
+    ]
+  },
+
+  "foundry_icon": "",
+  "foundry_id": ""
+}

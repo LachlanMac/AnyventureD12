@@ -5,15 +5,23 @@ Glyphcraft is the art of inscribing magical symbols to create enchantments and m
 ## What You Can Create
 
 Glyphcraft allows you to craft:
-- **Runes** - Magical inscriptions that grant permanent enchantments
-- **Wands & Staves** - Focus items for spellcasters
-- **Spell Scrolls** - Single-use items containing prepared spells
+- **Runes** - Permanent magical enchantments inscribed on accessories (amulets, rings, belts, bracers) that grant ongoing effects to the wearer
+- **Glyphs** - Temporary magical inscriptions placed on objects, containers, or thresholds that provide utility effects for a limited duration (typically 1 hour)
+- **Marks** - Permanent magical tattoos inscribed directly on a creature's body that grant powerful, lasting benefits. **A creature can only bear one Mark at a time.**
+- **Wands & Staves** - Specialized weapons for those who are skilled in magic
 
-## Infusion System
+### Glyph Infusions
+
+Glyphs are temporary by nature, but glyphcrafters can extend their duration using metal shaving infusions. Each infusion requires an additional success at the required check. The Permanent Duration infusion counts as two infusions, requiring two additional successes.
+
+| Name | Description | Ingredients |
+|------|-------------|-------------|
+| Extended Duration | Glyph lasts 1 day instead of 1 hour | Platinum shavings |
+| Permanent Duration | Glyph lasts indefinitely until triggered or used. Counts as 2 infusions. | Aetherium shavings |
+
+### Wands & Staves Infusions
 
 When inscribing magical items, glyphcrafters can add infusions using different metal shavings mixed into their inks. Each infusion requires an additional success at the required check. The type of metal shaving determines the enchantment effect.
-
-### Glyphcraft Infusions
 
 | Name | Description | Ingredients |
 |------|-------------|-------------|

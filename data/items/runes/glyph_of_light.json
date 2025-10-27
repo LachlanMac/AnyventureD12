@@ -1,5 +1,5 @@
 {
-  "name": "Rune of Minor Light",
+  "name": "Glyph of Light",
   "description": "A magical inscription that causes an object to emit a 3 unit radius of light for 1 hour.",
   "type": "runes",
   "weight": 0,
@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 7,
+    "difficulty": 4,
     "ingredients": [
       "Electrum Shavings"
     ]

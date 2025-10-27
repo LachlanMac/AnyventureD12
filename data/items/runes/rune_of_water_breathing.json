@@ -1,0 +1,21 @@
+{
+  "name": "Rune of the Tidewalker",
+  "description": "A magical inscription that allows the wearer to breathe underwater indefinitely and walk on the surface of water as if it were solid ground. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 4450,
+  "rarity": "rare",
+  "tags": ["rune", "enchantment", "utility", "water", "movement"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 12,
+    "ingredients": [
+      "Aquamarine",
+      "Vial of Holy Water",
+      "Gold Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-blue.webp",
+  "foundry_id": ""
+}

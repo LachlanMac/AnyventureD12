@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Beast/Monster Claw",
+    "description": "Claws or talons harvested from a beast or monster creature. Grants a natural slashing weapon for brawling attacks.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "hand",
+      "claw",
+      "beast",
+      "monster"
+    ],
+    "weight": 1,
+    "value": 800,
+    "rarity": "uncommon",
+    "properties": "Standard: Grants natural claw attack (4 damage, 4 extra, slashing damage, brawling weapon). Champion: Grants natural claw attack (6 damage, 4 extra, slashing damage, brawling weapon). Elite: Grants natural claw attack (6 damage, 5 extra, slashing damage, brawling weapon).",
+    "foundry_icon": ""
+  }
+]

@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Sporekeeper",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Fungal Adept",
+      "description": "You have dedicated yourself to the study of fungal cultivation and spore manipulation. Gain +1 skill with biosculpting.",
+      "location": "1",
+      "data": "CS6=1"
+    },
+    {
+      "name": "Potent Spores",
+      "description": "Your spores are exceptionally virulent. Gain +1 toxic mitigation. Required checks for your spore effects are increased by 2.",
+      "location": "2a",
+      "data": "M9=1:TC"
+    },
+    {
+      "name": "Magical Influence",
+      "description": "Your knowledge of magic allows you to influence the way spores behave. Gain +1 skill with magic. Additionally, when you make a biosculpting check while using a sporecraft recipe, add a single magic knowledge dice to the pool.",
+      "location": "2b",
+      "data": "SSO=1:TC"
+    },
+    {
+      "name": "Fungal Exposure",
+      "description": "Your constant exposure to spores has made you especially resistant to affects. Gain +1 skill with endurance. Additionally, when you make a check against any spore cloud or similar effect, your contested check is doubled.",
+      "location": "3",
+      "data": "SSD=1:TG"
+    },
+    {
+      "name": "Reaction: Concentrated Release",
+      "description": "When an adjacent creature attacks you, you release spores directly onto them. The attacker must immediately make a check against one spore infusion of your choice with a penalty die. The radius and duration of the spores are ignored.",
+      "location": "4a",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Action: Controlled Release",
+      "description": "You release spores in a cone instead of a cloud with a size equal to the radius. You can choose whether or not to include yourself within that area.",
+      "location": "4b",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Master Sporekeeper",
+      "description": "Your mastery of sporecraft is unmatched. Gain +1 skill with biosculpting. Your spore clouds last 1 additional round and have an extra 1 unit of radius.",
+      "location": "5",
+      "data": "CS6=1:TC"
+    },
+    {
+      "name": "Necrofungus",
+      "description": "You can cultivate spores from undead corpses. Gain +1 skill with black magic. Standard undead corpses count as Tier 2 fungus and champion undead corpses count as Tier 3 fungus when harvesting, but the corpse is consumed in the process.",
+      "location": "6a",
+      "data": "YS1=1:TG"
+    },
+    {
+      "name": "Primal Mycology",
+      "description": "You can cultivate spores from beast corpses. Gain +1 skill with primal magic. Standard beast corpses count as Tier 2 fungus and champion beast corpses count as Tier 3 fungus when harvesting, but the corpse is consumed in the process.",
+      "location": "6b",
+      "data": "YS2=1:TG"
+    },
+    {
+      "name": "Action: Sporeshift",
+      "description": "You manipulate an existing spore cloud, moving it through the air. Choose a spore cloud within short (10 unit) range and a number of units to move it. Make either a black magic or primal magic check with a required check equal to the number of units you wish to move the cloud. On success, the cloud moves that many units in any direction.",
+      "location": "7",
+      "data": "XINE=1"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 {
-  "name": "Rune of Minor Alarm",
+  "name": "Glyph of Alarm",
   "description": "A magical inscription that creates a soft chime audible within 1 unit when the inscribed object is touched by anyone other than the attuned owner for 1 hour. Useful for detecting tampering with valuables.",
   "type": "runes",
   "weight": 0,
@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 6,
+    "difficulty": 3,
     "ingredients": [
       "Silver Shavings"
     ]

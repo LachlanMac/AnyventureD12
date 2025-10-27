@@ -1,0 +1,50 @@
+{
+  "name": "Eye Implant",
+  "description": "Surgical replacement of natural eyes with harvested biological eyes from another creature. The effects depend on the creature whose eyes are implanted.",
+  "type": "implant",
+  "tags": ["implant"],
+  "weight": 0.1,
+  "value": 0,
+  "rarity": "common",
+
+  "implant_data": {
+    "implant_type": "eye",
+    "pain_penalty": 1,
+    "health_penalty": 1,
+    "resolve_penalty": 1,
+    "rejection_check": 6
+  },
+
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+
+  "recipe": {
+    "type": "biosculpting",
+    "difficulty": 6,
+    "ingredients": [
+      "Fresh Eyes"
+    ]
+  },
+
+  "foundry_icon": "",
+  "foundry_id": ""
+}

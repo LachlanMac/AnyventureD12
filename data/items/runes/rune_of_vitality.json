@@ -1,0 +1,21 @@
+{
+  "name": "Rune of Vitality",
+  "description": "A magical inscription that enhances the wearer's life force. Grants +5 maximum health and +1 health regeneration per full rest. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 5550,
+  "rarity": "rare",
+  "tags": ["rune", "enchantment", "health", "vitality"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 12,
+    "ingredients": [
+      "Ruby",
+      "Bundle of Ginseng",
+      "Gold Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-red.webp",
+  "foundry_id": ""
+}

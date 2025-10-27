@@ -1,0 +1,68 @@
+{
+  "id": 105,
+  "name": "Biosculptor",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Apprentice Biosculptor",
+      "description": "You have learned the fundamentals of biological implantation and grafting. Gain +1 skill with biosculpting.",
+      "location": "1",
+      "data": "CS6=1"
+    },
+    {
+      "name": "Action : Clean Cut",
+      "description": "You make a precise attack with a slashing weapon, targeting vital points. If at least 1 die hits and deals damage, the target has -2 to their highest mitigation type until the end of your next turn.",
+      "location": "2a",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Reaction : Biological Insight",
+      "description": "When you are targeted by a natural weapon attack (claw, bite, tail, etc.), you predict the strike based on your knowledge of creature physiology. Roll a single biosculpting die and add it to your defense check.",
+      "location": "2b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Biomaxing",
+      "description": "Your understanding of biology allows you to optimize your own physical form. Gain +1 skill with endurance and +2 maximum health.",
+      "location": "3",
+      "data": "SSD=1:A1=2"
+    },
+    {
+      "name": "Spore Cultivation",
+      "description": "You have learned to harvest and cultivate fungal spores. Gain +1 skill with wildcraft. During a full rest with appropriate materials, you can craft two sporecraft recipes instead of one.",
+      "location": "4a",
+      "data": "SSM=1:TG"
+    },
+    {
+      "name": "Adaptive Grafting",
+      "description": "You can modify body parts to fit recipients of different sizes. Gain +1 skill with coordination. You can use body parts from creatures one size larger or smaller than the recipient.",
+      "location": "4b",
+      "data": "SSG=1"
+    },
+    {
+      "name": "Skilled Biosculptor",
+      "description": "Your biosculpting skills have reached professional levels. Gain +1 skill with biosculpting. When making biosculpting checks, any roll under a 4 becomes a 3.",
+      "location": "5",
+      "data": "CS6=1:TC"
+    },
+    {
+      "name": "Delayed Cultivation",
+      "description": "You can program spores to activate on a delay. Gain +1 skill with logic. When crafting spores, you can set them to release after a delay of 1 minute, 1 hour, or 1 day instead of immediately upon deployment.",
+      "location": "6a",
+      "data": "SSL=1:TG"
+    },
+    {
+      "name": "Enhanced Integration",
+      "description": "You refine your implants to reduce their burden on the body. Gain +1 skill with medicine. Implants you create have their pain penalty and health penalty each reduced by 1 (to a minimum of 0).",
+      "location": "6b",
+      "data": "SSP=1:TC"
+    },
+    {
+      "name": "Legendary Biosculptor",
+      "description": "You have achieved mastery over the art of biosculpting. Gain +1 talent and +1 skill with biosculpting. When making biosculpting checks, any roll under a 6 becomes a 5.",
+      "location": "7",
+      "data": "CT6=1:CS6=1"
+    }
+  ]
+}

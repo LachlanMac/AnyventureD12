@@ -1,27 +1,27 @@
 {
-  "name": "Werebear",
-  "description": "A werebear is a variant of lycanthrope that is a hybrid between a bear and the humanoid creature with the disease. The transformation is the result of a celestial event or the near-death experience of the humanoid.",
-  "tactics": "The wearbear is driven by the rage of their lycanthropy and will often attack the most recent thing to draw their ire.",
-  "tier": "champion",
-  "type": "monster",
+  "name": "Flesh Golem",
+  "description": "A abomination crafted from various body parts, all belonging to different creatures. The grunt variant, while weak, is more capable than the minion tier golem.",
+  "tactics": "",
+  "tier": "standard",
+  "type": "construct",
   "size": "large",
-  "foundry_portrait": "werebear.png",
+  "foundry_portrait": "",
   "health": {
-    "max": 40,
+    "max": 35,
     "current": 15
   },
   "energy": {
-    "max": 5,
-    "current": 5,
+    "max": 3,
+    "current": 0,
     "recovery": 3
   },
   "resolve": {
-    "max": 25,
+    "max": 0,
     "current": 5,
     "recovery": 1
   },
   "movement": {
-    "walk": 6,
+    "walk": 5,
     "climb": 0,
     "swim": 0,
     "fly": 0
@@ -31,7 +31,7 @@
       "talent": 3
     },
     "finesse": {
-      "talent": 2
+      "talent": 1
     },
     "mind": {
       "talent": 2
@@ -45,27 +45,27 @@
   },
   "skills": {
     "fitness": {
-      "value": 4,
-      "tier": 0
-    },
-    "deflection": {
-      "value": 2,
-      "tier": 0
-    },
-    "might": {
-      "value": 4,
-      "tier": 1
-    },
-    "endurance": {
       "value": 3,
       "tier": 0
     },
-    "evasion": {
+    "deflection": {
       "value": 1,
       "tier": 0
     },
+    "might": {
+      "value": 3,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 4,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 0,
+      "tier": 0
+    },
     "stealth": {
-      "value": 1,
+      "value": 0,
       "tier": 0
     },
     "coordination": {
@@ -77,7 +77,7 @@
       "tier": 0
     },
     "resilience": {
-      "value": 3,
+      "value": 2,
       "tier": 0
     },
     "concentration": {
@@ -85,27 +85,27 @@
       "tier": 0
     },
     "senses": {
-      "value": 3,
-      "tier": 0
-    },
-    "logic": {
-      "value": 0,
-      "tier": 0
-    },
-    "wildcraft": {
       "value": 1,
       "tier": 0
     },
+    "logic": {
+      "value": -1,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": -1,
+      "tier": 0
+    },
     "academics": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "magic": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "medicine": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "expression": {
@@ -113,28 +113,28 @@
       "tier": 0
     },
     "presence": {
-      "value": 0,
+      "value": 3,
       "tier": 0
     },
     "insight": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "persuasion": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     }
   },
   "mitigation": {
-    "physical": 5,
-    "cold": 0,
+    "physical": 4,
+    "cold": 4,
     "heat": 4,
-    "electric": 0,
-    "psychic": 2,
+    "electric": 4,
+    "psychic": 0,
     "dark": 0,
     "divine": 0,
-    "aether": 2,
-    "toxic": 4
+    "aether": 0,
+    "toxic": 5
   },
   "detections": {
     "normal": 5,
@@ -152,7 +152,7 @@
     "blinded": false,
     "charmed": false,
     "confused": false,
-    "dazed": false,
+    "dazed": true,
     "diseased": false,
     "exhausted": false,
     "frightened": false,
@@ -164,16 +164,20 @@
     "poisoned": false,
     "prone": false,
     "restrained": false,
-    "stunned": false,
+    "stunned": true,
     "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
   },
   "actions": [
     {
-      "name": "Claws",
+      "name": "Flesh Strike",
       "cost": 1,
       "type": "attack",
       "magic": false,
-      "description": "The werebear slashes out with it's sharp claws, dealing physical damage.",
+      "description": "The flesh golem strikes with a meaty limb, dealing physical damage.",
       "reaction": false,
       "basic": true,
       "attack": {
@@ -181,43 +185,61 @@
         "damage": "5",
         "damage_extra": "4",
         "damage_type": "physical",
-        "category": "slash",
+        "category": "blunt",
         "min_range": 1,
         "max_range": 1
       }
     },
     {
-      "name": "Bite",
-      "cost": 2,
-      "type": "attack",
-      "magic": false,
-      "description": " The wearbear uses it's powerful jaw to bite, dealing physical damage. If a medium or smaller creature takes 15 or more damage from this attack after calculating mitigation, they must roll on the 'missing part' injury table.",
-      "reaction": false,
-      "basic": false,
-      "attack": {
-        "roll": "5d12",
-        "damage": "6",
-        "damage_extra": "3",
-        "damage_type": "physical",
-        "category": "pierce",
-        "min_range": 1,
-        "max_range": 1
-      }
-    },
-    {
-      "name": "Fury of the Moon",
+      "name": "Reconstitute",
       "cost": 0,
       "type": "utility",
       "magic": false,
-      "description": "The werebear enters a primal fury, gaining 15 morale. For the next minute, it takes double damage from all attacks but gains a bonus dice on it's attacks. This ability can only be used once per transformation.",
+      "description": "The flesh golem attempts to repair it's body, regaining 2d6 health. If the flesh golem starts it's turn at 0 health, it uses this ability automatically, but does not reanimate until it's health is full.",
       "reaction": false,
       "basic": false,
       "attack": {
-        "roll": "2d6",
+        "roll": "0",
         "damage": "2",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Berserk",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "The flesh golem becomes berserk, becoming maddened. It can no longer use it's reconstitute ability, but it gains a bonus dice on it's Flesh Strike attack.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Slam",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The flesh golem slams a medium or smaller creature, dealing physical damage. The target must make a coordination or fitness check against the total damage dealt after mitigation or be knocked prone.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "2d12",
+        "damage": "7",
+        "damage_extra": "7",
+        "damage_type": "physical",
+        "category": "blunt",
         "min_range": 1,
         "max_range": 1
       }
@@ -226,8 +248,12 @@
   "reactions": [],
   "traits": [
     {
-      "name": "Lycanthrope",
-      "description": "The werebear is one of many forms of lycanthropes and has one of the following weaknesses:\nWeakness to Fire: The wearbear becomes afraid when ignited.\nWeakness to Water: The wearbear cannot willfully cross bodies of water and becomes afraid if submerged in water. \nWeakness to Silver: The wearbear takes true damage from silvered weapons and ammunition that normally deal physical damage.\n\n"
+      "name": "Magical Flesh",
+      "description": "The flesh golem can completely regenerate any missing bodies, remove any conditions, and restore all of it's health by standing still for 1 hour, even if it has 0 health."
+    },
+    {
+      "name": "Immutable",
+      "description": "The flesh golem is immutable and cannot have it's form altered by magic."
     }
   ],
   "loot": [],

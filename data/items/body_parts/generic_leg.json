@@ -1,0 +1,45 @@
+[
+  {
+    "name": "Beast/Monster Leg",
+    "description": "A leg harvested from a beast or monster creature with enhanced physical capabilities. Both legs must be from the same creature to gain matching pair benefits.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "leg",
+      "beast",
+      "monster"
+    ],
+    "weight": 5,
+    "value": 800,
+    "rarity": "uncommon",
+    "properties": "Standard: No benefit. Champion: No benefit unless you have a matching pair. If you have a matching pair of Champion legs, choose +1 Movement speed OR +1 Fitness. Elite: No benefit unless you have a matching pair. If you have a matching pair of Elite legs, gain +1 Movement speed AND +1 Fitness.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Clockwork Leg",
+    "description": "A mechanical prosthetic leg crafted from brass, steel, and clockwork mechanisms. Powered by a quartz crystal core, it functions as a fully operational replacement limb. Unlike biological implants, it requires no rejection checks and can be repaired with engineering.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "leg",
+      "clockwork",
+      "mechanical",
+      "prosthetic"
+    ],
+    "weight": 6,
+    "value": 2250,
+    "rarity": "uncommon",
+    "properties": "Fully functional leg replacement. No pain, health, or resolve penalties. No rejection checks required. Can be repaired using engineering.",
+    "recipe": {
+      "type": "engineering",
+      "difficulty": 8,
+      "ingredients": [
+        "Amethyst",
+        "5x Clockwork Gears",
+        "2x Steel Ingot",
+        "3x Brass Sheet"
+      ]
+    },
+    "foundry_icon": ""
+  }
+]

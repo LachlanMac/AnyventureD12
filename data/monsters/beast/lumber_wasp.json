@@ -1,0 +1,224 @@
+{
+  "name": "Lumber Wasp",
+  "description": "Lumber wasps are overgrown insects that feed on dry wood and convert it into a sticky resin that is consumable by their larvae. These wasps are rarely alone and can be quite aggressive, often sacrificing themselves with a deadly sting to defend their nests.",
+  "tactics": "",
+  "tier": "grunt",
+  "type": "beast",
+  "size": "small",
+  "foundry_portrait": "",
+  "health": {
+    "max": 16,
+    "current": 15
+  },
+  "energy": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 5,
+    "current": 5,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 2,
+    "climb": 0,
+    "swim": 0,
+    "fly": 6
+  },
+  "attributes": {
+    "physique": {
+      "talent": 2
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 1
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 1
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 1,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 0,
+      "tier": 0
+    },
+    "might": {
+      "value": 0,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 1,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 2,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 0,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 0,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 0,
+      "tier": 0
+    },
+    "concentration": {
+      "value": -1,
+      "tier": 0
+    },
+    "senses": {
+      "value": 2,
+      "tier": 0
+    },
+    "logic": {
+      "value": -1,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": -1,
+      "tier": 0
+    },
+    "academics": {
+      "value": -1,
+      "tier": 0
+    },
+    "magic": {
+      "value": -1,
+      "tier": 0
+    },
+    "medicine": {
+      "value": -1,
+      "tier": 0
+    },
+    "expression": {
+      "value": -1,
+      "tier": 0
+    },
+    "presence": {
+      "value": -1,
+      "tier": 0
+    },
+    "insight": {
+      "value": -1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": -1,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 0,
+    "cold": 0,
+    "heat": 0,
+    "electric": 0,
+    "psychic": 0,
+    "dark": 0,
+    "divine": 0,
+    "aether": 0,
+    "toxic": 0
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": false,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Splinter Shot",
+      "cost": 0,
+      "type": "attack",
+      "magic": false,
+      "description": "The lumber wasp fires several projectiles at a creature within a very short (5 unit) distance. each dice is mitigated separately.",
+      "reaction": false,
+      "basic": true,
+      "attack": {
+        "roll": "4d6",
+        "damage": "3",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 3
+      }
+    },
+    {
+      "name": "Lumber-Rot Sting",
+      "cost": 0,
+      "type": "attack",
+      "magic": false,
+      "description": "The lumber wasp impales a character with it's stinger. If this attack deals any damage after calculating mitigation, the affected character becomes poisoned and gains 3 pain, but the check is made at the end of each full rest instead of round. The starting endurance check is 8, and deals 6 toxic damage upon a failure. The lumber wasp dies after using this ability.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "3d6",
+        "damage": "3",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [],
+  "traits": [
+    {
+      "name": "Annoying Pest",
+      "description": "Creatures that are adjacent to the lumber wasp suffer a penalty dice on concentration checks."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

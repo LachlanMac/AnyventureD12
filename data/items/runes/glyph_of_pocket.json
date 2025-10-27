@@ -1,0 +1,17 @@
+{
+  "name": "Glyph of Pocket",
+  "description": "A magical inscription carved into an enclosed container such as a bag, chest, or box. The same glyph can then be carved again on a larger container or enclosed space such as a small room or vault. While both glyphs are on the same plane, the opening of the smaller container serves as a portal to the larger container where only objects can be passed. The maximum space for the larger pocket container is 3 cubic units.",
+  "type": "runes",
+  "weight": 0,
+  "value": 750,
+  "rarity": "rare",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 8,
+    "ingredients": [
+      "Platinum Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-brown-grey.webp",
+  "foundry_id": ""
+}

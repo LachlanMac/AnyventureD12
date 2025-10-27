@@ -1,40 +1,40 @@
 {
-  "name": "Werebear",
-  "description": "A werebear is a variant of lycanthrope that is a hybrid between a bear and the humanoid creature with the disease. The transformation is the result of a celestial event or the near-death experience of the humanoid.",
-  "tactics": "The wearbear is driven by the rage of their lycanthropy and will often attack the most recent thing to draw their ire.",
-  "tier": "champion",
-  "type": "monster",
-  "size": "large",
-  "foundry_portrait": "werebear.png",
+  "name": "Puma",
+  "description": "A puma is a large feline known for its powerful build, black coat, and exceptional predatory skills. It is a solitary hunter, primarily active at night, and adept at moving silently through its jungle or forest habitat.",
+  "tactics": "",
+  "tier": "grunt",
+  "type": "beast",
+  "size": "small",
+  "foundry_portrait": "puma.png",
   "health": {
-    "max": 40,
+    "max": 17,
     "current": 15
   },
   "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
+    "max": 0,
+    "current": 0,
+    "recovery": 0
   },
   "resolve": {
-    "max": 25,
+    "max": 10,
     "current": 5,
     "recovery": 1
   },
   "movement": {
-    "walk": 6,
-    "climb": 0,
+    "walk": 8,
+    "climb": 4,
     "swim": 0,
     "fly": 0
   },
   "attributes": {
     "physique": {
-      "talent": 3
+      "talent": 2
     },
     "finesse": {
       "talent": 2
     },
     "mind": {
-      "talent": 2
+      "talent": 1
     },
     "knowledge": {
       "talent": 1
@@ -45,19 +45,19 @@
   },
   "skills": {
     "fitness": {
-      "value": 4,
+      "value": 3,
       "tier": 0
     },
     "deflection": {
-      "value": 2,
+      "value": 0,
       "tier": 0
     },
     "might": {
-      "value": 4,
-      "tier": 1
+      "value": 1,
+      "tier": 0
     },
     "endurance": {
-      "value": 3,
+      "value": 2,
       "tier": 0
     },
     "evasion": {
@@ -65,11 +65,11 @@
       "tier": 0
     },
     "stealth": {
-      "value": 1,
+      "value": 3,
       "tier": 0
     },
     "coordination": {
-      "value": 1,
+      "value": 2,
       "tier": 0
     },
     "thievery": {
@@ -77,7 +77,7 @@
       "tier": 0
     },
     "resilience": {
-      "value": 3,
+      "value": 1,
       "tier": 0
     },
     "concentration": {
@@ -97,19 +97,19 @@
       "tier": 0
     },
     "academics": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "magic": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "medicine": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "expression": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "presence": {
@@ -117,24 +117,24 @@
       "tier": 0
     },
     "insight": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     },
     "persuasion": {
-      "value": 0,
+      "value": -1,
       "tier": 0
     }
   },
   "mitigation": {
-    "physical": 5,
+    "physical": 0,
     "cold": 0,
-    "heat": 4,
+    "heat": 0,
     "electric": 0,
-    "psychic": 2,
+    "psychic": 0,
     "dark": 0,
     "divine": 0,
-    "aether": 2,
-    "toxic": 4
+    "aether": 0,
+    "toxic": 0
   },
   "detections": {
     "normal": 5,
@@ -167,19 +167,23 @@
     "stunned": false,
     "unconscious": false
   },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
   "actions": [
     {
-      "name": "Claws",
-      "cost": 1,
+      "name": "Claw",
+      "cost": 0,
       "type": "attack",
       "magic": false,
-      "description": "The werebear slashes out with it's sharp claws, dealing physical damage.",
+      "description": "The puma swipes their claws at a creature dealing physical damage.",
       "reaction": false,
       "basic": true,
       "attack": {
-        "roll": "3d10",
-        "damage": "5",
-        "damage_extra": "4",
+        "roll": "3d8",
+        "damage": "4",
+        "damage_extra": "2",
         "damage_type": "physical",
         "category": "slash",
         "min_range": 1,
@@ -188,46 +192,51 @@
     },
     {
       "name": "Bite",
-      "cost": 2,
+      "cost": 0,
       "type": "attack",
       "magic": false,
-      "description": " The wearbear uses it's powerful jaw to bite, dealing physical damage. If a medium or smaller creature takes 15 or more damage from this attack after calculating mitigation, they must roll on the 'missing part' injury table.",
+      "description": "The puma bites a creature, dealing physical damage. If the target is prone and takes damage from this attack, they must roll an endurance check against the total damage dealt after mitigation, or gain the bleeding condition.",
       "reaction": false,
       "basic": false,
       "attack": {
-        "roll": "5d12",
-        "damage": "6",
-        "damage_extra": "3",
+        "roll": "4d6",
+        "damage": "4",
+        "damage_extra": "4",
         "damage_type": "physical",
         "category": "pierce",
         "min_range": 1,
         "max_range": 1
       }
-    },
+    }
+  ],
+  "reactions": [
     {
-      "name": "Fury of the Moon",
+      "name": "Pounce",
       "cost": 0,
-      "type": "utility",
+      "type": "attack",
       "magic": false,
-      "description": "The werebear enters a primal fury, gaining 15 morale. For the next minute, it takes double damage from all attacks but gains a bonus dice on it's attacks. This ability can only be used once per transformation.",
-      "reaction": false,
+      "description": "In response to a creature moving within a very short (5 unit) distance of the puma, it pounces on them dealing damage. Medium or smaller creatures that take damage from this attack and fail a fitness or coordination check of 4 also fall prone. This attack is rolled with a bonus dice when the puma is hidden.",
+      "reaction": true,
       "basic": false,
       "attack": {
-        "roll": "2d6",
-        "damage": "2",
-        "damage_extra": "1",
+        "roll": "1d12",
+        "damage": "6",
+        "damage_extra": "4",
         "damage_type": "physical",
-        "category": "slash",
-        "min_range": 1,
-        "max_range": 1
+        "category": "blunt",
+        "min_range": 2,
+        "max_range": 3
       }
     }
   ],
-  "reactions": [],
   "traits": [
     {
-      "name": "Lycanthrope",
-      "description": "The werebear is one of many forms of lycanthropes and has one of the following weaknesses:\nWeakness to Fire: The wearbear becomes afraid when ignited.\nWeakness to Water: The wearbear cannot willfully cross bodies of water and becomes afraid if submerged in water. \nWeakness to Silver: The wearbear takes true damage from silvered weapons and ammunition that normally deal physical damage.\n\n"
+      "name": "Predator",
+      "description": "The puma is a predator and gains a bonus dice to senses or wildcraft checks that involve tracking or sensing prey."
+    },
+    {
+      "name": "Agile Runner",
+      "description": "The puma can change directions during when it takes the sprint action."
     }
   ],
   "loot": [],

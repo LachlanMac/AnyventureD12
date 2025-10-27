@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Fleshmancer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Apprentice Fleshmancer",
+      "description": "You infuse your biosculpting with transmutation magic. When making biosculpting checks to install implants, you can roll a single metamagic die and add it to your biosculpting check. When you use biosculpting to create flesh golems, you add 2 metamagic dice to your biosculpting check.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Implant Strike",
+      "description": "You make a brawling attack with either implanted claws or a limb, gaining a bonus dice on the attack. However, you cannot use the same implant to make an attack until the start of your next turn.",
+      "location": "2a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Action : Command Flesh",
+      "description": "You target a flesh golem under your control within a short (10 unit) distance and command it with magic to use an action. If the action costs more than 1 energy, the difference is deducted from your energy.",
+      "location": "2b",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Self-Sculpting",
+      "description": "Using magic, you can use biosculpting to install implants on yourself. Gain +1 skill with biosculpting. Additionally, you can install an additional internal implant.",
+      "location": "3",
+      "data": "CS6=1:TG"
+    },
+    {
+      "name": "Perfect Integration",
+      "description": "Your body accepts grafts with minimal trauma. Implants you install on yourself do not have health penalties.",
+      "location": "4a",
+      "data": "TG"
+    },
+    {
+      "name": "Exotic Grafts",
+      "description": "You have learned to work with otherworldly biological material. Gain +1 skill with magic. You can harvest and install implants from divine and dark creatures.",
+      "location": "4b",
+      "data": "SSO=1:TG"
+    },
+    {
+      "name": "Transmutation Mastery",
+      "description": "Your understanding of flesh manipulation has deepened your knowledge of transmutation. Gain +1 skill with metamagic.",
+      "location": "5",
+      "data": "YS3=1"
+    },
+    {
+      "name": "Master of Flesh",
+      "description": "Your mastery over biological constructs is unparalleled. When you create a Flesh Golem using the biosculpting recipe, the creature tier is increased by 1. Additionally, you can control up to 2 standard or lower activated flesh golems at the same time.",
+      "location": "6a",
+      "data": "TG"
+    },
+    {
+      "name": "Elemental Essence",
+      "description": "You have learned to graft elemental parts onto your body. When you make a brawling attack using an elemental limb, it deals damage based on the elemental it was taken from (electric, heat, cold) instead of physical.",
+      "location": "6b",
+      "data": "TG"
+    },
+    {
+      "name": "Daily Reaction: Reform Flesh",
+      "description": "In response to taking damage, you attempt to reorganize your components by making a metamagic check greater than or equal to the amount of health you want to restore. The maximum health you can choose is equal to twice the amount of implants you have.",
+      "location": "7",
+      "data": "ZIME=1"
+    }
+  ]
+}

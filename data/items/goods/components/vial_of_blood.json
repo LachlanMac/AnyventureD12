@@ -1,0 +1,15 @@
+{
+  "name": "Vial of Blood",
+  "description": "A small vial containing fresh blood collected from a bleeding wound. This can be collected from any creature with the bleeding condition each time they take bleed damage.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "organic",
+    "biological"
+  ],
+  "weight": 0.1,
+  "value": 10,
+  "rarity": "common",
+  "foundry_icon": "icons/consumables/potions/vial-cork-red.webp",
+  "foundry_id": ""
+}

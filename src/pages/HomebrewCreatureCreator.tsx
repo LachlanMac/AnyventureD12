@@ -800,7 +800,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                   >
                     <option value="minion">Minion</option>
                     <option value="grunt">Grunt</option>
-                    <option value="standard">Foe</option>
+                    <option value="standard">Standard</option>
                     <option value="champion">Champion</option>
                     <option value="elite">Elite</option>
                     <option value="legend">Legend</option>

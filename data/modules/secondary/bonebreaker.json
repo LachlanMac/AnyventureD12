@@ -54,7 +54,7 @@
     },
     {
       "name": "Action: Double Crush",
-      "description": "Make a single attack with a weapon that has the blunt property against two separate targets within range. Foe tier or lower creatures become automatically dazed by this attack if they take damage. Higher tiered creatures must make a concentration check higher than the total damage taken or become dazed.",
+      "description": "Make a single attack with a weapon that has the blunt property against two separate targets within range. Standard tier or lower creatures become automatically dazed by this attack if they take damage. Higher tiered creatures must make a concentration check higher than the total damage taken or become dazed.",
       "location": "6b",
       "data": "XINE=1"
     },

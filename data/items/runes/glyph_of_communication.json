@@ -1,0 +1,17 @@
+{
+  "name": "Glyph of Communication",
+  "description": "A magical inscription carved with a unique pattern that allows sound to be transmitted between all objects bearing the same rune pattern. When a rune is activated with the command word, any sound near it is broadcast to all other active runes with the matching pattern within 100 units. Anyone can activate or deactivate the rune with the command word. Only active runes transmit and receive sound. Multiple copies of the same unique rune can be created to form a communication network. The glyph lasts for 1 hour after creation.",
+  "type": "runes",
+  "weight": 0,
+  "value": 260,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 6,
+    "ingredients": [
+      "Gold Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-brown-grey.webp",
+  "foundry_id": ""
+}

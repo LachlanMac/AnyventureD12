@@ -19,7 +19,7 @@ When crafting weapons or armor, fabricators can attempt to add infusions that en
 |------|-------------|-------------|
 | Reinforced Metal | Adds +1 primary damage to the weapon | None (technique only) |
 | Cobalt Edge | Adds +1 secondary damage | Cobalt ingot |
-| Precision Balance | Adds +1 bonus die to attack rolls | Mithril shavings |
+| Precision Balance | Adds +1 bonus die to attack rolls | Aetherium shavings |
 | Silvered | Adds +1 primary damage and silvered property (effective against certain creatures) | Silver ingot |
 | Blackened | Adds +1 primary damage and blackened property (resists detection, dampens sound) | Obsidian dust |
 | Lead Core | Adds +1 primary damage, weapon becomes immutable (cannot be altered by magic) | Lead ingot |
@@ -29,9 +29,8 @@ When crafting weapons or armor, fabricators can attempt to add infusions that en
 
 | Name | Description | Ingredients |
 |------|-------------|-------------|
-| Leadened Plates | Adds +1 aetheric mitigation | Lead ingot |
+| Leadened Plates | Adds +1 aetheric mitigation and makes the armor immutable | Lead ingot |
 | Insulated Lining | Adds +1 cold mitigation | Bundle of heavy leather |
-| Grounded | Adds +1 electric mitigation | Pine resin |
-| Heat-Treated | Adds +1 heat mitigation | None (technique only) |
-| Silent Joints | Removes stealth penalty from armor | Wood treatment oil |
-| Lightweight Alloy | Removes energy penalty from armor | Aluminum shavings |
+| Grounded | Adds +1 electric mitigation | Bundle of copper wire |
+| Heat-Treated | Adds +1 heat mitigation | Ember dust |
+| Lightweight Alloy | Lowers encumbrance penalty by 2 | Aetherium shavings |

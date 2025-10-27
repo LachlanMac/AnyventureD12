@@ -1130,6 +1130,8 @@ const ItemBrowser: React.FC = () => {
             <option value="tool">Tools</option>
             <option value="instrument">Instruments</option>
             <option value="ammunition">Ammunition</option>
+            <option value="implant">Implants</option>
+            <option value="body_parts">Body Parts</option>
           </select>
 
           {/* Weapon Category Filter - Only shown when Weapons type is selected */}

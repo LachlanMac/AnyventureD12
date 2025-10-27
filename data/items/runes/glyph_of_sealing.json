@@ -1,5 +1,5 @@
 {
-  "name": "Rune of Minor Sealing",
+  "name": "Glyph of Sealing",
   "description": "A magical inscription that makes it more difficult to open a container, barrier or door. Checks required to open the door by forcing it, or finding other means of opening it are increased by 2 for 1 hour.",
   "type": "runes",
   "weight": 0,
@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 8,
+    "difficulty": 5,
     "ingredients": [
       "Iron Shavings"
     ]

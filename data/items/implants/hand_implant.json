@@ -1,0 +1,50 @@
+{
+  "name": "Hand Implant",
+  "description": "Surgical replacement of natural hands with harvested biological hands or claws from another creature. The effects depend on the creature whose hands are implanted.",
+  "type": "implant",
+  "tags": ["implant"],
+  "weight": 0.5,
+  "value": 0,
+  "rarity": "common",
+
+  "implant_data": {
+    "implant_type": "hand",
+    "pain_penalty": 1,
+    "health_penalty": 1,
+    "resolve_penalty": 1,
+    "rejection_check": 7
+  },
+
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+
+  "recipe": {
+    "type": "biosculpting",
+    "difficulty": 7,
+    "ingredients": [
+      "Fresh Hands"
+    ]
+  },
+
+  "foundry_icon": "",
+  "foundry_id": ""
+}

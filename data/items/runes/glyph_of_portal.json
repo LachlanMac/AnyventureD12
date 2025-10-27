@@ -1,0 +1,17 @@
+{
+  "name": "Glyph of Portal",
+  "description": "A magical inscription carved into a threshold such as a doorway, window, or piece of material that forms an unbroken shape. This creates a permanent portal marker at that location with a unique command word. A temporary version of this glyph can be carved with the same command word, which when activated opens a portal for 1 minute. Any creature that passes through the temporary threshold is teleported to the location of the permanent glyph. After 1 minute, the temporary glyph is destroyed. The permanent glyph remains and can be used repeatedly. Both glyphs must be on the same plane of existence.",
+  "type": "runes",
+  "weight": 0,
+  "value": 3000,
+  "rarity": "rare",
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 12,
+    "ingredients": [
+      "3x Aetherium Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-brown-grey.webp",
+  "foundry_id": ""
+}

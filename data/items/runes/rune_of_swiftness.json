@@ -1,0 +1,21 @@
+{
+  "name": "Rune of Swiftness",
+  "description": "A magical inscription that enhances the wearer's movement speed. Grants +1 movement speed. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 5340,
+  "rarity": "rare",
+  "tags": ["rune", "enchantment", "movement", "speed"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 13,
+    "ingredients": [
+      "Topaz",
+      "Zephyr Dust",
+      "Gold Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-yellow.webp",
+  "foundry_id": ""
+}

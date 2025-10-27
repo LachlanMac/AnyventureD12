@@ -1,0 +1,21 @@
+{
+  "name": "Rune of Darkvision",
+  "description": "A magical inscription that grants the wearer the ability to see in darkness. Grants darkvision up to 30 units. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 2425,
+  "rarity": "uncommon",
+  "tags": ["rune", "enchantment", "vision", "darkness"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 10,
+    "ingredients": [
+      "Onyx",
+      "Bundle of Nightshade",
+      "Silver Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-black.webp",
+  "foundry_id": ""
+}

@@ -1,0 +1,93 @@
+[
+  {
+    "name": "Beast/Monster Arm",
+    "description": "An arm harvested from a beast or monster creature. Can be used as a powerful limb for slamming attacks. Both arms must be from the same creature to gain matching pair benefits.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "arm",
+      "beast",
+      "monster"
+    ],
+    "weight": 4,
+    "value": 800,
+    "rarity": "uncommon",
+    "properties": "Standard: No benefit. Champion: Grants natural slam attack (5 damage, 3 extra, brawling weapon). If you have a matching pair of Champion arms, choose +1 Might OR +1 Coordination. Elite: Grants natural slam attack (6 damage, 4 extra, brawling weapon). If you have a matching pair of Elite arms, gain +1 Might AND +1 Coordination.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Divine/Celestial Arm",
+    "description": "An arm harvested from a celestial or divine creature. Can channel holy energy as a ranged attack using white magic. Grants +1 talent to white magic (does not stack with multiple divine arms).",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "arm",
+      "divine",
+      "celestial"
+    ],
+    "weight": 4,
+    "value": 2500,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Grants +1 talent to white magic. Natural weapon attack - Radiant Bolt: 4 damage, 3 extra, divine damage, uses white magic skill, short range (10 units), 2 energy. Elite: Grants +1 talent to white magic. Natural weapon attack - Radiant Bolt: 6 damage, 3 extra, divine damage, uses white magic skill, short range (10 units), 2 energy. If you have a matching pair of Elite divine arms from the same creature, also gain +1 skill to white magic.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Dark/Fiendish Arm",
+    "description": "An arm harvested from a demon or fiendish creature. Can channel dark energy as a ranged attack using black magic. Grants +1 talent to black magic (does not stack with multiple dark arms).",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "arm",
+      "dark",
+      "fiend",
+      "demon"
+    ],
+    "weight": 4,
+    "value": 2500,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Grants +1 talent to black magic. Natural weapon attack - Shadow Bolt: 4 damage, 3 extra, dark damage, uses black magic skill, short range (10 units), 2 energy. Elite: Grants +1 talent to black magic. Natural weapon attack - Shadow Bolt: 6 damage, 3 extra, dark damage, uses black magic skill, short range (10 units), 2 energy. If you have a matching pair of Elite dark arms from the same creature, also gain +1 skill to black magic.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Elemental Arm",
+    "description": "An arm harvested from an elemental creature. The element (electric, heat, or cold) is determined by the elemental it was harvested from. Brawling attacks with this arm deal the corresponding elemental damage instead of physical.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "arm",
+      "elemental"
+    ],
+    "weight": 4,
+    "value": 2000,
+    "rarity": "rare",
+    "properties": "Standard: No benefit. Champion: Grants +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage. Elite: Grants +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage and gain a bonus die.",
+    "foundry_icon": ""
+  },
+  {
+    "name": "Clockwork Arm",
+    "description": "A mechanical prosthetic arm crafted from brass, steel, and clockwork mechanisms. Powered by a quartz crystal core, it functions as a fully operational replacement limb. Unlike biological implants, it requires no rejection checks and can be repaired with engineering.",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "arm",
+      "clockwork",
+      "mechanical",
+      "prosthetic"
+    ],
+    "weight": 5,
+    "value": 2250,
+    "rarity": "uncommon",
+    "properties": "Fully functional arm replacement. No pain, health, or resolve penalties. No rejection checks required. Can be repaired using engineering.",
+    "recipe": {
+      "type": "engineering",
+      "difficulty": 8,
+      "ingredients": [
+        "Amethyst",
+        "5x Clockwork Gears",
+        "2x Steel Ingot",
+        "3x Brass Sheet"
+      ]
+    },
+    "foundry_icon": ""
+  }
+]

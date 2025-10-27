@@ -1,0 +1,21 @@
+{
+  "name": "Rune of Regeneration",
+  "description": "A powerful magical inscription that grants the wearer supernatural healing abilities. While wearing this enchanted item, you regenerate an extra 5 health at the end of a full rest. Checks against recovering from physical injuries are doubled. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 10500,
+  "rarity": "rare",
+  "tags": ["rune", "enchantment", "endgame", "healing", "regeneration"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 15,
+    "ingredients": [
+      "Flame Emerald",
+      "Bundle of Ginseng",
+      "Aetherium Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-red.webp",
+  "foundry_id": ""
+}

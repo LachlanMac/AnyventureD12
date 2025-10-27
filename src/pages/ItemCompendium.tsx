@@ -126,6 +126,8 @@ const ItemCompendium: React.FC = () => {
     'instrument',
     'ammunition',
     'runes',
+    'implant',
+    'body_parts',
   ];
 
   const rarityTypes = ['all', 'common', 'uncommon', 'rare', 'epic', 'legendary', 'artifact'];

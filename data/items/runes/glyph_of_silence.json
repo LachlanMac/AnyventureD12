@@ -1,5 +1,5 @@
 {
-  "name": "Rune of Minor Silence",
+  "name": "Glyph of Silence",
   "description": "A magical inscription that muffles all sounds made by the inscribed object by half for 1 hour. Perfect for reducing noise from armor, weapons, or tools during stealth.",
   "type": "runes",
   "weight": 0,
@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 8,
+    "difficulty": 5,
     "ingredients": [
       "Silver Shavings"
     ]

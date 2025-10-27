@@ -24,7 +24,7 @@
     },
     {
       "name": "Planar Specialization",
-      "description": "You form a bond with one of the elemental planes [fire, earth, air, water], learning its language. Additionally, you can sense if elementals from this plane are within a moderate (20 unit) distance.",
+      "description": "You form a bond with one of the elemental planes [fire, earth, air, water], learning its language at a fluent level. Additionally, you can sense if elementals from this plane are within a moderate (20 unit) distance.",
       "location": "3",
       "data": "TG"
     },

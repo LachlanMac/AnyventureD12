@@ -228,7 +228,7 @@ Possible other conditions (poisoned, diseased, panic?,
 Creature tiers
 Minion
 Grunt
-Foe
+Standard
 Champion
 Elite
 Legend

@@ -1,0 +1,20 @@
+[
+  {
+    "name": "Beast/Monster Scales",
+    "description": "Scales or hide harvested from a beast or monster creature. Provides natural armor and protection. The type of mitigation granted depends on the creature (physical, heat, cold, etc.).",
+    "type": "body_parts",
+    "tags": [
+      "body_parts",
+      "skin",
+      "scales",
+      "hide",
+      "beast",
+      "monster"
+    ],
+    "weight": 3,
+    "value": 1000,
+    "rarity": "uncommon",
+    "properties": "Standard: No benefit. Champion: Grants +1 mitigation (type depends on the creature's natural defenses). Elite: Grants +3 mitigation (type depends on the creature's natural defenses).",
+    "foundry_icon": ""
+  }
+]

@@ -1,0 +1,21 @@
+{
+  "name": "Rune of the Cat",
+  "description": "A magical inscription that grants the wearer feline grace when falling. All fall damage is reduced by half. Can only be inscribed on accessories (amulet, ring, belt, bracer).",
+  "type": "runes",
+  "weight": 0,
+  "value": 2065,
+  "rarity": "uncommon",
+  "tags": ["rune", "enchantment", "utility", "fall"],
+  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 10,
+    "ingredients": [
+      "Jade",
+      "Pinch of Talc Powder",
+      "Silver Shavings"
+    ]
+  },
+  "foundry_icon": "icons/sundries/scrolls/scroll-runed-green.webp",
+  "foundry_id": ""
+}

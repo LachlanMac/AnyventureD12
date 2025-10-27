@@ -1,0 +1,50 @@
+{
+  "name": "Skin Implant",
+  "description": "Surgical grafting of harvested biological skin, scales, or hide from another creature. The effects depend on the creature whose skin is implanted.",
+  "type": "implant",
+  "tags": ["implant"],
+  "weight": 1,
+  "value": 0,
+  "rarity": "common",
+
+  "implant_data": {
+    "implant_type": "skin",
+    "pain_penalty": 2,
+    "health_penalty": 1,
+    "resolve_penalty": 1,
+    "rejection_check": 7
+  },
+
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": 0,
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+
+  "recipe": {
+    "type": "biosculpting",
+    "difficulty": 7,
+    "ingredients": [
+      "Fresh Hide"
+    ]
+  },
+
+  "foundry_icon": "",
+  "foundry_id": ""
+}
