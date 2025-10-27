@@ -1,7 +1,7 @@
 {
   "id": 4,
   "name": "Purifiers",
-  "description": "Through Pain, We Are Cleansed\nPurifier cultures believe that suffering and hardship burn away weakness, leaving only strength and truth. They practice ritual self-mortification, embrace painful ordeals, and see comfort as corruption of the spirit. To them, easy paths breed weakness, while agony forges unbreakable will. Pain is not avoided—it is welcomed as the ultimate teacher and purifier of body and soul.",
+  "description": "Through Pain, We Are Cleansed\nPurifier cultures believe that suffering and hardship burn away weakness, leaving only strength and truth. They practice ritual self-mortification, embrace painful ordeals, and see comfort as corruption of the spirit. To them, easy paths breed weakness, while agony forges unbreakable will. Pain is not simply avoided; it is welcomed as the ultimate teacher and purifier of body and soul.",
   "culturalRestrictions": [
     {
       "name": "Daily Mortification",

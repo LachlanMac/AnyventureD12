@@ -8,7 +8,7 @@
   "effect": "As an action, choose a visible creature within the range of your song and force it to move 3 units toward you if it fails a resilience check (4); this magic does not affect creatures immune to the charmed condition or creatures that cannot hear",
   "harmony_1": {
     "instrument": "any",
-    "effect": "Resilience check becomes 7; instrument mapping — strings: humanoid; wind: beast; percussion: plantoid; brass: fey"
+    "effect": "Resilience check becomes 7; instrument mapping - strings: humanoid; wind: beast; percussion: plantoid; brass: fey"
   },
   "foundry_id": "bn7n831jnphpe912",
   "foundry_icon": "icons/tools/instruments/harp-yellow-teal.webp"
