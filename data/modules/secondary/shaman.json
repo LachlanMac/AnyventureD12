@@ -24,9 +24,9 @@
     },
     {
       "name": "Action : Raise Spirit",
-      "description": "You call forth the spirit of a dead animal that died within the last day. The spirit retains the stats of the original creature but becomes spectral. You can only have one spirit pet at a time. If it dies, it dissipates and cannot be raised again.",
+      "description": "You call forth the spirit of a minion or grunt beast that died within the last day to become your pet. The spirit retains the stats of the original creature but becomes spectral, dealing aetheric damage instead of physical. You can only have one spirit pet at a time. If it dies, it dissipates and cannot be raised again. This spirit does not count against your pet limit.",
       "location": "3",
-      "data": "XINE=1"
+      "data": "XIME=1"
     },
     {
       "name": "Spirit Bond",
@@ -36,7 +36,7 @@
     },
     {
       "name": "Cleansing Aura",
-      "description": "When you channel a healing spell or a spell that removes a condition as a ritual, it affects everone within a 3 unit radius of your spirit pet.",
+      "description": "When you channel a healing spell or a spell that removes a condition as a ritual, it affects everyone within a 3 unit radius of your spirit pet.",
       "location": "4b",
       "data": "SSR=1:TG"
     },
@@ -44,7 +44,7 @@
       "name": "Reaction : Spirit Shield",
       "description": "In response to taking damage, you can redirect that damage to your spirit pet instead.",
       "location": "5",
-      "data": "ZINE=1"
+      "data": "ZIME=1"
     },
     {
       "name": "Path of Nature",
