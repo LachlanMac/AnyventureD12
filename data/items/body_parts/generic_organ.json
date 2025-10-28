@@ -13,7 +13,7 @@
     "value": 3000,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Grants +1 health recovery per full rest. Elite: Grants +2 health recovery per full rest.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/organ-heart-black.webp"
   },
   {
     "name": "Venomous Organ",
@@ -29,7 +29,7 @@
     "value": 2500,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Once per day, when you bite a creature, you can inject venom. The target must make an endurance check of 7 or become poisoned for 1 minute, taking 3 toxic damage at the start of each of their turns. Elite: Once per day, when you bite a creature, you can inject venom. The target must make an endurance check of 7 or become poisoned for 1 minute, taking 5 toxic damage at the start of each of their turns.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/organ-bladder-red.webp"
   },
   {
     "name": "Adrenal Gland",
@@ -45,6 +45,6 @@
     "value": 4000,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Grants +1 energy recovery per round. Elite: Grants +1 energy recovery per round and +1 max energy.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/organ-brain-pink.webp"
   }
 ]

@@ -20,7 +20,7 @@
         "Bundle of Golden Poppy"
       ]
     },
-    "foundry_icon": "icons/consumables/potions/potion-vial-corked-yellow.webp",
+    "foundry_icon": "icons/consumables/potions/potion-vial-tube-yellow.webp",
     "foundry_id": "s8u7n6r5i4s3e2d1"
   },
   {
@@ -45,7 +45,7 @@
         "Stabilizing Salt"
       ]
     },
-    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-gold.webp",
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-fancy-orange.webp",
     "foundry_id": "g8r4u1s9h6t2y5n7"
   },
   {
@@ -70,7 +70,7 @@
         "Stabilizing Salt"
       ]
     },
-    "foundry_icon": "icons/commodities/materials/crystal-salt-yellow.webp",
+    "foundry_icon": "icons/commodities/materials/bowl-powder-yellow.webp",
     "foundry_id": "s7p9a4r3k2s8a1l6"
   },
   {
@@ -98,7 +98,7 @@
       ]
     },
     "side_effect": "Illegal in most civilized territories. Possession can result in arrest.",
-    "foundry_icon": "icons/consumables/potions/potion-vial-corked-black.webp",
+    "foundry_icon": "icons/consumables/potions/potion-bottle-labeled-medicine-capped-red-black.webp",
     "foundry_id": "a9p7e4x3m6k1q8s2"
   }
 ]

@@ -13,7 +13,7 @@
     "value": 800,
     "rarity": "uncommon",
     "properties": "Standard: No benefit. Champion: Gain the vision type the creature had (darkvision, infravision, etc.) up to 10 units. Elite: Gain the vision type the creature had up to 10 units. If you have a matching pair of Elite eyes from the same creature, also gain +1 skill to Senses.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/eye-brown.webp"
   },
   {
     "name": "Divine/Celestial Eye",
@@ -29,7 +29,7 @@
     "value": 2500,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Gain the vision type the creature had (darkvision, truesight, etc.) up to 10 units. Elite: Gain the vision type the creature had up to 10 units. If you have a matching pair of Elite eyes from the same creature, also gain +1 skill to Senses.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/eye-blue-gold.webp"
   },
   {
     "name": "Dark/Fiendish Eye",
@@ -46,6 +46,6 @@
     "value": 2500,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Gain the vision type the creature had (darkvision, shadowsight, etc.) up to 10 units. Elite: Gain the vision type the creature had up to 10 units. If you have a matching pair of Elite eyes from the same creature, also gain +1 skill to Senses.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/eye-red-pink.webp"
   }
 ]

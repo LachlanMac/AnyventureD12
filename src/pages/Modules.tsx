@@ -3,7 +3,7 @@ import { useParams, Link, useSearchParams } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import { Module, CharacterModule } from '../types/character';
-import { getOptionEnergyCost, getEnergyDisplay } from '../utils/actionParser';
+import { getOptionEnergyCost, getEnergyDisplay, parseActionData } from '../utils/actionParser';
 
 // Type definitions
 
@@ -324,7 +324,14 @@ const ModulesPage: React.FC = () => {
     }
 
     return filteredModules.sort((a, b) => {
-      // Ensure we're comparing strings and handle any potential null/undefined values
+      // First, sort by selection status (selected modules first)
+      const aSelected = isModuleSelected(a._id);
+      const bSelected = isModuleSelected(b._id);
+
+      if (aSelected && !bSelected) return -1;
+      if (!aSelected && bSelected) return 1;
+
+      // Then alphabetically by name
       const nameA = (a.name || '').toString().trim();
       const nameB = (b.name || '').toString().trim();
       return nameA.localeCompare(nameB);
@@ -743,36 +750,74 @@ const ModulesPage: React.FC = () => {
                                     alignItems: 'center',
                                   }}
                                 >
-                                  {/* Energy cost tag for actions/reactions */}
+                                  {/* Parse action data for tags */}
                                   {(() => {
+                                    const actionData = parseActionData(option.data || '');
                                     const energyCost = getOptionEnergyCost(option);
-                                    if (energyCost !== null) {
-                                      return (
-                                        <div
-                                          style={{
-                                            backgroundColor:
-                                              energyCost === 0
-                                                ? 'var(--color-dark-elevated)'
-                                                : 'rgba(59, 130, 246, 0.2)',
-                                            color:
-                                              energyCost === 0
-                                                ? 'var(--color-cloud)'
-                                                : 'rgb(147, 197, 253)',
-                                            padding: '0.125rem 0.375rem',
-                                            borderRadius: '0.25rem',
-                                            fontSize: '0.75rem',
-                                            fontWeight: 'bold',
-                                            border:
-                                              energyCost === 0
-                                                ? '1px solid var(--color-dark-border)'
-                                                : '1px solid rgba(59, 130, 246, 0.3)',
-                                          }}
-                                        >
-                                          {getEnergyDisplay(energyCost)}
-                                        </div>
-                                      );
-                                    }
-                                    return null;
+
+                                    return (
+                                      <>
+                                        {/* Daily tag */}
+                                        {actionData && actionData.frequency === 'daily' && (
+                                          <div
+                                            style={{
+                                              backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                                              color: 'rgb(251, 191, 36)',
+                                              padding: '0.125rem 0.375rem',
+                                              borderRadius: '0.25rem',
+                                              fontSize: '0.75rem',
+                                              fontWeight: 'bold',
+                                              border: '1px solid rgba(251, 191, 36, 0.3)',
+                                            }}
+                                          >
+                                            Daily
+                                          </div>
+                                        )}
+
+                                        {/* Magical tag */}
+                                        {actionData && actionData.magical && (
+                                          <div
+                                            style={{
+                                              backgroundColor: 'rgba(167, 139, 250, 0.2)',
+                                              color: 'rgb(167, 139, 250)',
+                                              padding: '0.125rem 0.375rem',
+                                              borderRadius: '0.25rem',
+                                              fontSize: '0.75rem',
+                                              fontWeight: 'bold',
+                                              border: '1px solid rgba(167, 139, 250, 0.3)',
+                                            }}
+                                          >
+                                            Magical
+                                          </div>
+                                        )}
+
+                                        {/* Energy cost tag */}
+                                        {energyCost !== null && (
+                                          <div
+                                            style={{
+                                              backgroundColor:
+                                                energyCost === 0
+                                                  ? 'var(--color-dark-elevated)'
+                                                  : 'rgba(59, 130, 246, 0.2)',
+                                              color:
+                                                energyCost === 0
+                                                  ? 'var(--color-cloud)'
+                                                  : 'rgb(147, 197, 253)',
+                                              padding: '0.125rem 0.375rem',
+                                              borderRadius: '0.25rem',
+                                              fontSize: '0.75rem',
+                                              fontWeight: 'bold',
+                                              border:
+                                                energyCost === 0
+                                                  ? '1px solid var(--color-dark-border)'
+                                                  : '1px solid rgba(59, 130, 246, 0.3)',
+                                            }}
+                                          >
+                                            {getEnergyDisplay(energyCost)}
+                                          </div>
+                                        )}
+                                      </>
+                                    );
                                   })()}
 
                                   {/* Tier indicator */}

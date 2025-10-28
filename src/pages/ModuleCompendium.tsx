@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { getOptionEnergyCost, getEnergyDisplay, parseActionData } from '../utils/actionParser';
 
 // Type definitions
 interface ModuleOption {
@@ -331,36 +332,112 @@ const ModuleCompendium: React.FC = () => {
                                     backgroundColor: 'var(--color-dark-elevated)',
                                     border: '1px solid var(--color-dark-border)',
                                     width: optionWidth,
+                                    position: 'relative',
                                   }}
                                 >
+                                  {/* Top right indicators */}
                                   <div
                                     style={{
+                                      position: 'absolute',
+                                      top: '0.5rem',
+                                      right: '0.5rem',
                                       display: 'flex',
-                                      justifyContent: 'space-between',
+                                      gap: '0.5rem',
                                       alignItems: 'center',
-                                      marginBottom: '0.75rem',
                                     }}
                                   >
-                                    <div
-                                      style={{
-                                        color: 'var(--color-white)',
-                                        fontWeight: 'bold',
-                                        fontSize: '1rem',
-                                        textAlign: 'center',
-                                        width: '100%',
-                                      }}
-                                    >
-                                      {option.name}
-                                    </div>
-                                    <div
-                                      style={{
-                                        color: 'var(--color-metal-gold)',
-                                        fontSize: '0.875rem',
-                                        fontWeight: 'bold',
-                                        position: 'absolute',
-                                        right: '1rem',
-                                      }}
-                                    ></div>
+                                    {/* Parse action data for tags */}
+                                    {(() => {
+                                      const actionData = parseActionData(option.data || '');
+                                      const energyCost = getOptionEnergyCost(option);
+
+                                      return (
+                                        <>
+                                          {/* Daily tag */}
+                                          {actionData && actionData.frequency === 'daily' && (
+                                            <div
+                                              style={{
+                                                backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                                                color: 'rgb(251, 191, 36)',
+                                                padding: '0.125rem 0.375rem',
+                                                borderRadius: '0.25rem',
+                                                fontSize: '0.75rem',
+                                                fontWeight: 'bold',
+                                                border: '1px solid rgba(251, 191, 36, 0.3)',
+                                              }}
+                                            >
+                                              Daily
+                                            </div>
+                                          )}
+
+                                          {/* Magical tag */}
+                                          {actionData && actionData.magical && (
+                                            <div
+                                              style={{
+                                                backgroundColor: 'rgba(167, 139, 250, 0.2)',
+                                                color: 'rgb(167, 139, 250)',
+                                                padding: '0.125rem 0.375rem',
+                                                borderRadius: '0.25rem',
+                                                fontSize: '0.75rem',
+                                                fontWeight: 'bold',
+                                                border: '1px solid rgba(167, 139, 250, 0.3)',
+                                              }}
+                                            >
+                                              Magical
+                                            </div>
+                                          )}
+
+                                          {/* Energy cost tag */}
+                                          {energyCost !== null && (
+                                            <div
+                                              style={{
+                                                backgroundColor:
+                                                  energyCost === 0
+                                                    ? 'var(--color-dark-elevated)'
+                                                    : 'rgba(59, 130, 246, 0.2)',
+                                                color:
+                                                  energyCost === 0
+                                                    ? 'var(--color-cloud)'
+                                                    : 'rgb(147, 197, 253)',
+                                                padding: '0.125rem 0.375rem',
+                                                borderRadius: '0.25rem',
+                                                fontSize: '0.75rem',
+                                                fontWeight: 'bold',
+                                                border:
+                                                  energyCost === 0
+                                                    ? '1px solid var(--color-dark-border)'
+                                                    : '1px solid rgba(59, 130, 246, 0.3)',
+                                              }}
+                                            >
+                                              {getEnergyDisplay(energyCost)}
+                                            </div>
+                                          )}
+
+                                          {/* Tier indicator */}
+                                          <div
+                                            style={{
+                                              color: 'var(--color-cloud)',
+                                              fontSize: '0.75rem',
+                                            }}
+                                          >
+                                            {option.location}
+                                          </div>
+                                        </>
+                                      );
+                                    })()}
+                                  </div>
+
+                                  <div
+                                    style={{
+                                      color: 'var(--color-white)',
+                                      fontWeight: 'bold',
+                                      fontSize: '1rem',
+                                      textAlign: 'center',
+                                      marginBottom: '0.5rem',
+                                      marginTop: '1.5rem',
+                                    }}
+                                  >
+                                    {option.name}
                                   </div>
                                   <p
                                     style={{

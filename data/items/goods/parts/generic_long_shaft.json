@@ -12,7 +12,8 @@
     "weight": 3,
     "value": 15,
     "rarity": "common",
-    "properties": "Standard reach weapon shaft with no special effects"
+    "properties": "Standard reach weapon shaft with no special effects",
+    "foundry_icon": "icons/commodities/wood/wood-pole.webp"
   },
   {
     "name": "Metal Long Shaft",
@@ -27,7 +28,8 @@
     "weight": 6,
     "value": 60,
     "rarity": "common",
-    "properties": "Standard reach weapon shaft with enhanced durability"
+    "properties": "Standard reach weapon shaft with enhanced durability",
+    "foundry_icon": "icons/commodities/tech/electrode-copper.webp"
   },
   {
     "name": "Reinforced Long Shaft",
@@ -42,6 +44,7 @@
     "weight": 4.5,
     "value": 120,
     "rarity": "uncommon",
-    "properties": "Enhanced reach weapon shaft with superior balance"
+    "properties": "Enhanced reach weapon shaft with superior balance",
+    "foundry_icon": "icons/commodities/wood/wood-pole.webp"
   }
 ]

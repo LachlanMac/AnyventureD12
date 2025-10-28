@@ -13,7 +13,7 @@
     "value": 800,
     "rarity": "uncommon",
     "properties": "Standard: No benefit. Champion: Grants natural slam attack (5 damage, 3 extra, brawling weapon). If you have a matching pair of Champion arms, choose +1 Might OR +1 Coordination. Elite: Grants natural slam attack (6 damage, 4 extra, brawling weapon). If you have a matching pair of Elite arms, gain +1 Might AND +1 Coordination.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/hand-gnarled-green.webp"
   },
   {
     "name": "Divine/Celestial Arm",
@@ -29,7 +29,7 @@
     "value": 2500,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Grants +1 talent to white magic. Natural weapon attack - Radiant Bolt: 4 damage, 3 extra, divine damage, uses white magic skill, short range (10 units), 2 energy. Elite: Grants +1 talent to white magic. Natural weapon attack - Radiant Bolt: 6 damage, 3 extra, divine damage, uses white magic skill, short range (10 units), 2 energy. If you have a matching pair of Elite divine arms from the same creature, also gain +1 skill to white magic.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/hand-yellow-red.webp"
   },
   {
     "name": "Dark/Fiendish Arm",
@@ -46,7 +46,7 @@
     "value": 2500,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Grants +1 talent to black magic. Natural weapon attack - Shadow Bolt: 4 damage, 3 extra, dark damage, uses black magic skill, short range (10 units), 2 energy. Elite: Grants +1 talent to black magic. Natural weapon attack - Shadow Bolt: 6 damage, 3 extra, dark damage, uses black magic skill, short range (10 units), 2 energy. If you have a matching pair of Elite dark arms from the same creature, also gain +1 skill to black magic.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/hand-gnarled-purple.webp"
   },
   {
     "name": "Elemental Arm",
@@ -61,7 +61,7 @@
     "value": 2000,
     "rarity": "rare",
     "properties": "Standard: No benefit. Champion: Grants +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage. Elite: Grants +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage and gain a bonus die.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/hand-green-red.webp"
   },
   {
     "name": "Clockwork Arm",
@@ -88,6 +88,6 @@
         "3x Brass Sheet"
       ]
     },
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/tech/claw-mechanical.webp"
   }
 ]

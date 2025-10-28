@@ -356,7 +356,7 @@ const convertToFoundryFormat = (data, type) => {
 
       baseFoundryDoc.system = {
         description: data.description,
-        itemType: data.type, // Store the specific item type (weapon, shield, body, etc.)
+        itemType: data.type === 'body_parts' ? 'body_part' : data.type, // Store the specific item type (weapon, shield, body, etc.)
         weight: data.weight,
         value: data.value,
         rarity: data.rarity,

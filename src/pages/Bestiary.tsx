@@ -382,50 +382,47 @@ const Bestiary: React.FC = () => {
                             marginBottom: '0.75rem',
                           }}
                         >
-                          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                            <span style={{ fontSize: '1.5rem' }}>{getTypeIcon(creature.type)}</span>
-                            <div>
-                              <h3
+                          <div>
+                            <h3
+                              style={{
+                                color: 'var(--color-white)',
+                                fontSize: '1.125rem',
+                                fontWeight: 'bold',
+                                margin: 0,
+                              }}
+                            >
+                              {creature.name}
+                            </h3>
+                            <div
+                              style={{
+                                display: 'flex',
+                                alignItems: 'center',
+                                gap: '0.5rem',
+                                marginTop: '0.25rem',
+                              }}
+                            >
+                              <span
                                 style={{
-                                  color: 'var(--color-white)',
-                                  fontSize: '1.125rem',
+                                  color: getTierColor(creature.tier),
+                                  fontSize: '0.75rem',
                                   fontWeight: 'bold',
-                                  margin: 0,
+                                  textTransform: 'uppercase',
+                                  backgroundColor: 'var(--color-dark-elevated)',
+                                  padding: '0.125rem 0.5rem',
+                                  borderRadius: '0.25rem',
                                 }}
                               >
-                                {creature.name}
-                              </h3>
-                              <div
+                                {creature.tier}
+                              </span>
+                              <span
                                 style={{
-                                  display: 'flex',
-                                  alignItems: 'center',
-                                  gap: '0.5rem',
-                                  marginTop: '0.25rem',
+                                  color: 'var(--color-cloud)',
+                                  fontSize: '0.75rem',
+                                  textTransform: 'capitalize',
                                 }}
                               >
-                                <span
-                                  style={{
-                                    color: getTierColor(creature.tier),
-                                    fontSize: '0.75rem',
-                                    fontWeight: 'bold',
-                                    textTransform: 'uppercase',
-                                    backgroundColor: 'var(--color-dark-elevated)',
-                                    padding: '0.125rem 0.5rem',
-                                    borderRadius: '0.25rem',
-                                  }}
-                                >
-                                  {creature.tier}
-                                </span>
-                                <span
-                                  style={{
-                                    color: 'var(--color-cloud)',
-                                    fontSize: '0.75rem',
-                                    textTransform: 'capitalize',
-                                  }}
-                                >
-                                  {creature.size} {creature.type}
-                                </span>
-                              </div>
+                                {creature.size} {creature.type}
+                              </span>
                             </div>
                           </div>
                           <div style={{ textAlign: 'right' }}>
@@ -471,14 +468,16 @@ const Bestiary: React.FC = () => {
                                 {creature.health.max}
                               </span>
                             </div>
-                            <div>
-                              <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
-                                Move:{' '}
-                              </span>
-                              <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                                {formatMovementSpeeds(creature.movement)}
-                              </span>
-                            </div>
+                            {creature.resolve.max > 0 && (
+                              <div>
+                                <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
+                                  Resolve:{' '}
+                                </span>
+                                <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                                  {creature.resolve.max}
+                                </span>
+                              </div>
+                            )}
                           </div>
                         </div>
                       </CardBody>

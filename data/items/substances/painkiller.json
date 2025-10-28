@@ -21,7 +21,7 @@
         "Bundle of Grave Moss"
       ]
     },
-    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-poison.webp",
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-red.webp",
     "foundry_id": "x7w9m4k2p5n8q1r3"
   },
   {
@@ -98,7 +98,7 @@
         "Vial of Venom"
       ]
     },
-    "foundry_icon": "icons/consumables/potions/potion-vial-corked-red.webp",
+    "foundry_icon": "icons/consumables/potions/potion-vial-corked-labeled-purple.webp",
     "foundry_id": "b3t7h9r2n4k6m8x1"
   }
 ]

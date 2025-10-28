@@ -12,7 +12,8 @@
     "weight": 1.5,
     "value": 8,
     "rarity": "common",
-    "properties": "Standard one-handed weapon shaft with no special effects or benefits"
+    "properties": "Standard one-handed weapon shaft with no special effects or benefits",
+    "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp"
   },
   {
     "name": "Metal Short Shaft",

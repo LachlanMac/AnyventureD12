@@ -15,6 +15,6 @@
     "value": 1000,
     "rarity": "uncommon",
     "properties": "Standard: No benefit. Champion: Grants +1 mitigation (type depends on the creature's natural defenses). Elite: Grants +3 mitigation (type depends on the creature's natural defenses).",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/leather/scales-blue.webp"
   }
 ]

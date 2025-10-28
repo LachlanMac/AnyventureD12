@@ -19,6 +19,7 @@
       "difficulty": 2,
       "type": "fabrication"
     },
-    "properties": "Basic comfort and minor impact absorption"
+    "properties": "Basic comfort and minor impact absorption",
+    "foundry_icon": "icons/commodities/cloth/cloth-bolt-grey.webp"
   }
 ]

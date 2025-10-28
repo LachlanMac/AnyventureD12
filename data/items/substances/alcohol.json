@@ -11,7 +11,7 @@
     "weight": 0.5,
     "value": 2,
     "rarity": "common",
-    "foundry_icon": "icons/consumables/drinks/beer-mug-wooden-brown-tan.webp",
+    "foundry_icon": "icons/consumables/drinks/alcohol-beer-stein-wooden-brown.webp",
     "foundry_id": "a4k7m2n8x5y1z9b3"
   },
   {
@@ -26,7 +26,7 @@
     "weight": 0.2,
     "value": 8,
     "rarity": "common",
-    "foundry_icon": "icons/consumables/drinks/wine-bottle-table-white-brown.webp",
+    "foundry_icon": "icons/consumables/drinks/wine-bottle-glass-white.webp",
     "foundry_id": "w9e3r5t7y2u4i6o8"
   },
   {
@@ -41,7 +41,7 @@
     "weight": 0.1,
     "value": 12,
     "rarity": "common",
-    "foundry_icon": "icons/consumables/drinks/alcohol-bottle-corked-green.webp",
+    "foundry_icon": "icons/consumables/drinks/alcohol-spirits-bottle-green.webp",
     "foundry_id": "p1q2w3e4r5t6y7u8"
   }
 ]

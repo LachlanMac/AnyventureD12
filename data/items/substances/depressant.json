@@ -19,7 +19,7 @@
         "Bundle of Guarana"
       ]
     },
-    "foundry_icon": "icons/consumables/herbs/leaf-cannabis-dark-brown.webp",
+    "foundry_icon": "icons/consumables/plants/herb-bunch-dried-leaf-green.webp",
     "foundry_id": "h5z3l7e9a2f4k6m8"
   },
   {
@@ -43,7 +43,7 @@
         "Bundle of Mint"
       ]
     },
-    "foundry_icon": "icons/consumables/drinks/tea-cup-leaf-green.webp",
+    "foundry_icon": "icons/tools/laboratory/bowl-herbs-green.webp",
     "foundry_id": "s4t6i8l2w9a3t7e1"
   },
   {
@@ -69,7 +69,7 @@
         "Stabilizing Salt"
       ]
     },
-    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-skull.webp",
+    "foundry_icon": "icons/consumables/potions/bottle-conical-corked-labeled-skull-poison-green.webp",
     "foundry_id": "s9k7u4l2w6a8r1d3"
   },
   {
@@ -95,7 +95,7 @@
         "Stabilizing Salt"
       ]
     },
-    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-red-orange.webp",
+    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-fancy-orange.webp",
     "foundry_id": "f6e9a3r8l1e7s4s2"
   },
   {
@@ -123,7 +123,7 @@
       ]
     },
     "side_effect": "Prolonged use can cause lead poisoning. Consult an alchemist or physician.",
-    "foundry_icon": "icons/consumables/potions/potion-bottle-corked-labeled-gray.webp",
+    "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp",
     "foundry_id": "l8e3a6d9h5e2a4r1"
   }
 ]

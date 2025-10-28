@@ -1,7 +1,7 @@
 import React from 'react';
 import TalentDisplay from '../character/TalentDisplay';
 import { Creature } from '../../types/creature';
-import { getTierColor, getTypeIcon } from '../../utils/creatureUtils';
+import { getTierColor } from '../../utils/creatureUtils';
 
 interface CreatureHeaderProps {
   creature: Creature;
@@ -10,7 +10,6 @@ interface CreatureHeaderProps {
 const CreatureHeader: React.FC<CreatureHeaderProps> = ({ creature }) => {
   return (
     <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-      <span style={{ fontSize: '2.5rem' }}>{getTypeIcon(creature.type)}</span>
       <div style={{ flex: 1 }}>
         <div style={{ display: 'flex', alignItems: 'baseline', gap: '1rem' }}>
           <h1
@@ -84,16 +83,18 @@ const CreatureHeader: React.FC<CreatureHeaderProps> = ({ creature }) => {
             </div>
           </div>
         )}
-        <div style={{ textAlign: 'center' }}>
-          <div
-            style={{ color: 'var(--color-sat-purple)', fontSize: '0.625rem', fontWeight: 'bold' }}
-          >
-            RESOLVE
+        {creature.resolve.max > 0 && (
+          <div style={{ textAlign: 'center' }}>
+            <div
+              style={{ color: 'var(--color-sat-purple)', fontSize: '0.625rem', fontWeight: 'bold' }}
+            >
+              RESOLVE
+            </div>
+            <div style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
+              {creature.resolve.max}
+            </div>
           </div>
-          <div style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
-            {creature.resolve.max}
-          </div>
-        </div>
+        )}
       </div>
     </div>
   );

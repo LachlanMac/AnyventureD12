@@ -13,7 +13,7 @@
     "value": 800,
     "rarity": "uncommon",
     "properties": "Standard: No benefit. Champion: No benefit unless you have a matching pair. If you have a matching pair of Champion legs, choose +1 Movement speed OR +1 Fitness. Elite: No benefit unless you have a matching pair. If you have a matching pair of Elite legs, gain +1 Movement speed AND +1 Fitness.",
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/biological/foot-amphibian-green.webp"
   },
   {
     "name": "Clockwork Leg",
@@ -40,6 +40,6 @@
         "3x Brass Sheet"
       ]
     },
-    "foundry_icon": ""
+    "foundry_icon": "icons/commodities/tech/claw-mechanical.webp"
   }
 ]

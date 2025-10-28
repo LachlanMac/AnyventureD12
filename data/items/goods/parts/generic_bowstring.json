@@ -12,7 +12,8 @@
     "weight": 0.1,
     "value": 45,
     "rarity": "common",
-    "properties": "Standard bowstring with no special effects"
+    "properties": "Standard bowstring with no special effects",
+    "foundry_icon": "icons/commodities/cloth/ribbon-bow-yellow.webp"
   },
   {
     "name": "Silk Bowstring",
@@ -27,6 +28,7 @@
     "weight": 0.05,
     "value": 300,
     "rarity": "rare",
-    "properties": "Reduces the minimum optimal range by 1 when fabricated into a ranged weapon."
+    "properties": "Reduces the minimum optimal range by 1 when fabricated into a ranged weapon.",
+    "foundry_icon": "icons/commodities/cloth/ribbon-bow-purple.webp"
   }
 ]
