@@ -243,53 +243,6 @@ const FeatureCard: React.FC<FeatureCardProps> = ({ title, description, icon, col
   </div>
 );
 
-interface StepCardProps {
-  number: string;
-  title: string;
-  description: string;
-}
-
-const StepCard: React.FC<StepCardProps> = ({ number, title, description }) => (
-  <div style={{ textAlign: 'center' }}>
-    <div
-      style={{
-        width: '60px',
-        height: '60px',
-        borderRadius: '50%',
-        backgroundColor: 'var(--color-metal-gold)',
-        color: 'var(--color-dark-base)',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        margin: '0 auto 1rem',
-        fontSize: '1.5rem',
-        fontWeight: 'bold',
-      }}
-    >
-      {number}
-    </div>
-    <h3
-      style={{
-        fontSize: '1.125rem',
-        fontWeight: 'bold',
-        color: 'var(--color-white)',
-        marginBottom: '0.5rem',
-      }}
-    >
-      {title}
-    </h3>
-    <p
-      style={{
-        color: 'var(--color-cloud)',
-        fontSize: '0.875rem',
-        lineHeight: '1.5',
-      }}
-    >
-      {description}
-    </p>
-  </div>
-);
-
 interface ResourceCardProps {
   title: string;
   linkText: string;
