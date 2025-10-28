@@ -1448,7 +1448,7 @@ export const exportCharacterToFoundry = async (req, res) => {
             talent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0,
             baseTalent: character.magicSkills?.primal?.baseTalent || character.magicSkills?.primal?.talent || 0
           },
-          metamagic: {
+          meta: {
             value: 0,
             talent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0,
             baseTalent: character.magicSkills?.meta?.baseTalent || character.magicSkills?.meta?.talent || 0

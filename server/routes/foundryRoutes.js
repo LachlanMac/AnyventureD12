@@ -345,11 +345,11 @@ const convertToFoundryFormat = (data, type) => {
       break;
 
     case 'item':
-      // Transform magic skills: rename 'meta' to 'metamagic' for Foundry
+      // Pass through magic skills without transformation
       const transformedMagic = data.magic ? {
         black: data.magic.black,
         primal: data.magic.primal,
-        metamagic: data.magic.meta, // Rename meta to metamagic
+        meta: data.magic.meta,
         white: data.magic.white,
         mysticism: data.magic.mysticism
       } : undefined;
@@ -917,11 +917,11 @@ const convertToFoundryFormat = (data, type) => {
             value: 0,
             talent: 0
           },
-          metamagic: {
+          meta: {
             value: 0,
             talent: 0
           },
-          divine: {
+          white: {
             value: 0,
             talent: 0
           },
