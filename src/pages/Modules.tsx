@@ -31,13 +31,9 @@ const ModulesPage: React.FC = () => {
 
   // Search functionality
   const [searchTerm, setSearchTerm] = useState<string>('');
-  const [typeFilters, setTypeFilters] = useState<{
-    core: boolean;
-    secondary: boolean;
-  }>({
-    core: true,
-    secondary: true,
-  });
+  const [activeFilter, setActiveFilter] = useState<'all' | 'core' | 'secondary' | 'personality'>(
+    'all'
+  );
 
   useEffect(() => {
     const fetchData = async () => {
@@ -129,7 +125,28 @@ const ModulesPage: React.FC = () => {
     return charModule?.selectedOptions.some((o) => o.location === location) || false;
   };
 
+  const isPersonalityModuleSelectable = (moduleId: string) => {
+    // Check if this personality module is already selected
+    if (isModuleSelected(moduleId)) return true;
+
+    // Check if ANY personality module is already selected
+    const hasPersonalityModule = character?.modules.some((m) => {
+      if (!m.moduleId) return false;
+      const modId = typeof m.moduleId === 'string' ? m.moduleId : m.moduleId._id;
+      const mod = allModules.find((mod) => mod._id === modId);
+      return mod?.mtype === 'personality';
+    });
+
+    // If a personality module is already selected, can't select a different one
+    return !hasPersonalityModule;
+  };
+
   const canSelectOption = (module: Module, location: string) => {
+    // For personality modules, ALWAYS check if they're selectable (not just tier 1)
+    if (module.mtype === 'personality') {
+      return isPersonalityModuleSelectable(module._id);
+    }
+
     if (location === '1') return true;
     const tierMatch = location.match(/^(\d+)/);
     if (!tierMatch) return false;
@@ -290,26 +307,27 @@ const ModulesPage: React.FC = () => {
 
     let filteredModules = [...allModules];
 
-    // All module types are now allowed
-
-    filteredModules = filteredModules.filter((module) => {
-      // Always show personality modules if they're selected
-      if (module.mtype === 'personality' && isModuleSelected(module._id)) {
+    // Apply type filter
+    if (activeFilter !== 'all') {
+      filteredModules = filteredModules.filter((module) => {
+        // For personality filter, show ONLY the selected personality module
+        if (activeFilter === 'personality') {
+          return module.mtype === 'personality' && isModuleSelected(module._id);
+        }
+        // For core/secondary filters
+        return module.mtype === activeFilter;
+      });
+    } else {
+      // When 'all' is selected, show personality modules only if selected
+      filteredModules = filteredModules.filter((module) => {
+        if (module.mtype === 'personality') {
+          return isModuleSelected(module._id);
+        }
         return true;
-      }
+      });
+    }
 
-      // Don't show unselected personality modules
-      if (module.mtype === 'personality') {
-        return false;
-      }
-
-      // Apply type filters
-      if (module.mtype === 'core' && !typeFilters.core) return false;
-      if (module.mtype === 'secondary' && !typeFilters.secondary) return false;
-
-      return true;
-    });
-
+    // Apply search term
     if (searchTerm.trim() !== '') {
       const term = searchTerm.toLowerCase().trim();
       filteredModules = filteredModules.filter((module) => {
@@ -382,129 +400,57 @@ const ModulesPage: React.FC = () => {
         </Link>
       </div>
 
-      {/* Search bar */}
-      <div style={{ marginBottom: '2rem' }}>
-        <div style={{ position: 'relative' }}>
-          <input
-            type="text"
-            placeholder="Search modules..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            style={{
-              width: '100%',
-              backgroundColor: 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: '1px solid var(--color-dark-border)',
-              borderRadius: '0.375rem',
-              padding: '0.75rem 1rem',
-              paddingLeft: '2.5rem',
-            }}
-          />
-          <div
-            style={{
-              position: 'absolute',
-              left: '0.75rem',
-              top: '50%',
-              transform: 'translateY(-50%)',
-              color: 'var(--color-cloud)',
-            }}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="16"
-              height="16"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            >
-              <circle cx="11" cy="11" r="8"></circle>
-              <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
-            </svg>
-          </div>
-          {searchTerm && (
-            <button
-              onClick={() => setSearchTerm('')}
-              style={{
-                position: 'absolute',
-                right: '0.75rem',
-                top: '50%',
-                transform: 'translateY(-50%)',
-                color: 'var(--color-cloud)',
-                background: 'none',
-                border: 'none',
-                cursor: 'pointer',
-                padding: '0.25rem',
-              }}
-            >
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="16"
-                height="16"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              >
-                <line x1="18" y1="6" x2="6" y2="18"></line>
-                <line x1="6" y1="6" x2="18" y2="18"></line>
-              </svg>
-            </button>
-          )}
-        </div>
-      </div>
-
-      {/* Module type filters */}
+      {/* Search and Filter Section */}
       <div style={{ marginBottom: '2rem' }}>
         <div
-          style={{
-            color: 'var(--color-cloud)',
-            fontSize: '0.875rem',
-            marginBottom: '0.5rem',
-            fontWeight: '600',
-          }}
+          style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}
+          className="md:flex-row md:justify-between"
         >
-          Filter by Type:
-        </div>
-        <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
-          <button
-            onClick={() => setTypeFilters((prev) => ({ ...prev, core: !prev.core }))}
-            style={{
-              padding: '0.5rem 1rem',
-              borderRadius: '0.375rem',
-              backgroundColor: typeFilters.core
-                ? 'var(--color-sat-purple)'
-                : 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: '1px solid var(--color-dark-border)',
-              cursor: 'pointer',
-              transition: 'all 0.2s',
-              fontWeight: typeFilters.core ? 'bold' : 'normal',
-            }}
-          >
-            Core
-          </button>
-          <button
-            onClick={() => setTypeFilters((prev) => ({ ...prev, secondary: !prev.secondary }))}
-            style={{
-              padding: '0.5rem 1rem',
-              borderRadius: '0.375rem',
-              backgroundColor: typeFilters.secondary
-                ? 'var(--color-stormy)'
-                : 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: '1px solid var(--color-dark-border)',
-              cursor: 'pointer',
-              transition: 'all 0.2s',
-              fontWeight: typeFilters.secondary ? 'bold' : 'normal',
-            }}
-          >
-            Secondary
-          </button>
+          {/* Search Bar */}
+          <div style={{ flexGrow: 1, maxWidth: '600px' }}>
+            <input
+              type="text"
+              placeholder="Search modules..."
+              value={searchTerm}
+              onChange={(e) => setSearchTerm(e.target.value)}
+              style={{
+                width: '100%',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '0.375rem',
+                padding: '0.75rem 1rem',
+              }}
+            />
+          </div>
+
+          {/* Filter Buttons */}
+          <div style={{ display: 'flex', gap: '0.5rem', flexWrap: 'wrap' }}>
+            <Button
+              variant={activeFilter === 'all' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('all')}
+            >
+              All
+            </Button>
+            <Button
+              variant={activeFilter === 'personality' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('personality')}
+            >
+              Personality
+            </Button>
+            <Button
+              variant={activeFilter === 'core' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('core')}
+            >
+              Core
+            </Button>
+            <Button
+              variant={activeFilter === 'secondary' ? 'accent' : 'secondary'}
+              onClick={() => setActiveFilter('secondary')}
+            >
+              Secondary
+            </Button>
+          </div>
         </div>
       </div>
 
@@ -701,7 +647,7 @@ const ModulesPage: React.FC = () => {
                               <div
                                 key={option.location}
                                 style={{
-                                  padding: '1rem',
+                                  padding: '0.75rem',
                                   borderRadius: '0.375rem',
                                   backgroundColor: isSelected
                                     ? 'var(--color-sat-purple-faded)'
@@ -720,6 +666,9 @@ const ModulesPage: React.FC = () => {
                                       : 1,
                                   position: 'relative',
                                   textAlign: 'center',
+                                  display: 'flex',
+                                  flexDirection: 'column',
+                                  minHeight: '120px',
                                 }}
                                 onClick={() => {
                                   if (canSelect && (isSelected || hasEnoughPointsForOption)) {
@@ -739,117 +688,136 @@ const ModulesPage: React.FC = () => {
                                   }
                                 }}
                               >
-                                {/* Top right indicators */}
+                                {/* Title row with centered name and location indicator */}
                                 <div
                                   style={{
-                                    position: 'absolute',
-                                    top: '0.5rem',
-                                    right: '0.5rem',
                                     display: 'flex',
-                                    gap: '0.5rem',
                                     alignItems: 'center',
+                                    justifyContent: 'space-between',
+                                    marginBottom: '0.5rem',
                                   }}
                                 >
-                                  {/* Parse action data for tags */}
-                                  {(() => {
-                                    const actionData = parseActionData(option.data || '');
-                                    const energyCost = getOptionEnergyCost(option);
+                                  {/* Empty element for centering */}
+                                  <div style={{ width: '2rem', flexShrink: 0 }}></div>
 
-                                    return (
-                                      <>
-                                        {/* Daily tag */}
-                                        {actionData && actionData.frequency === 'daily' && (
-                                          <div
-                                            style={{
-                                              backgroundColor: 'rgba(251, 191, 36, 0.2)',
-                                              color: 'rgb(251, 191, 36)',
-                                              padding: '0.125rem 0.375rem',
-                                              borderRadius: '0.25rem',
-                                              fontSize: '0.75rem',
-                                              fontWeight: 'bold',
-                                              border: '1px solid rgba(251, 191, 36, 0.3)',
-                                            }}
-                                          >
-                                            Daily
-                                          </div>
-                                        )}
-
-                                        {/* Magical tag */}
-                                        {actionData && actionData.magical && (
-                                          <div
-                                            style={{
-                                              backgroundColor: 'rgba(167, 139, 250, 0.2)',
-                                              color: 'rgb(167, 139, 250)',
-                                              padding: '0.125rem 0.375rem',
-                                              borderRadius: '0.25rem',
-                                              fontSize: '0.75rem',
-                                              fontWeight: 'bold',
-                                              border: '1px solid rgba(167, 139, 250, 0.3)',
-                                            }}
-                                          >
-                                            Magical
-                                          </div>
-                                        )}
-
-                                        {/* Energy cost tag */}
-                                        {energyCost !== null && (
-                                          <div
-                                            style={{
-                                              backgroundColor:
-                                                energyCost === 0
-                                                  ? 'var(--color-dark-elevated)'
-                                                  : 'rgba(59, 130, 246, 0.2)',
-                                              color:
-                                                energyCost === 0
-                                                  ? 'var(--color-cloud)'
-                                                  : 'rgb(147, 197, 253)',
-                                              padding: '0.125rem 0.375rem',
-                                              borderRadius: '0.25rem',
-                                              fontSize: '0.75rem',
-                                              fontWeight: 'bold',
-                                              border:
-                                                energyCost === 0
-                                                  ? '1px solid var(--color-dark-border)'
-                                                  : '1px solid rgba(59, 130, 246, 0.3)',
-                                            }}
-                                          >
-                                            {getEnergyDisplay(energyCost)}
-                                          </div>
-                                        )}
-                                      </>
-                                    );
-                                  })()}
+                                  {/* Centered name */}
+                                  <div
+                                    style={{
+                                      color: 'var(--color-white)',
+                                      fontWeight: 'bold',
+                                      fontSize: '1rem',
+                                      textAlign: 'center',
+                                      flex: 1,
+                                    }}
+                                  >
+                                    {option.name}
+                                  </div>
 
                                   {/* Tier indicator */}
                                   <div
                                     style={{
                                       color: 'var(--color-cloud)',
                                       fontSize: '0.75rem',
+                                      width: '2rem',
+                                      flexShrink: 0,
+                                      textAlign: 'right',
                                     }}
                                   >
                                     {option.location}
                                   </div>
                                 </div>
 
-                                <div
-                                  style={{
-                                    color: 'var(--color-white)',
-                                    fontWeight: 'bold',
-                                    fontSize: '1rem',
-                                    marginBottom: '0.5rem',
-                                    marginTop: '0.5rem',
-                                  }}
-                                >
-                                  {option.name}
+                                {/* Content area - grows to fill space */}
+                                <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
+                                  <p
+                                    style={{
+                                      color: isSelected ? 'var(--color-cloud)' : 'var(--color-white)',
+                                      fontSize: '0.875rem',
+                                      marginBottom: '0.5rem',
+                                    }}
+                                  >
+                                    {option.description}
+                                  </p>
                                 </div>
-                                <p
-                                  style={{
-                                    color: isSelected ? 'var(--color-cloud)' : 'var(--color-white)',
-                                    fontSize: '0.875rem',
-                                  }}
-                                >
-                                  {option.description}
-                                </p>
+
+                                {/* Tags at bottom - pushed down with marginTop: auto */}
+                                {(() => {
+                                  const actionData = parseActionData(option.data || '');
+                                  const energyCost = getOptionEnergyCost(option);
+
+                                  return (
+                                    <div
+                                      style={{
+                                        display: 'flex',
+                                        gap: '0.25rem',
+                                        alignItems: 'center',
+                                        justifyContent: 'center',
+                                        flexWrap: 'wrap',
+                                        marginTop: 'auto',
+                                      }}
+                                    >
+                                      {/* Daily tag */}
+                                      {actionData && actionData.frequency === 'daily' && (
+                                        <div
+                                          style={{
+                                            backgroundColor: 'rgba(251, 191, 36, 0.2)',
+                                            color: 'rgb(251, 191, 36)',
+                                            padding: '0.125rem 0.375rem',
+                                            borderRadius: '0.25rem',
+                                            fontSize: '0.625rem',
+                                            fontWeight: 'bold',
+                                            border: '1px solid rgba(251, 191, 36, 0.3)',
+                                          }}
+                                        >
+                                          Daily
+                                        </div>
+                                      )}
+
+                                      {/* Magical tag */}
+                                      {actionData && actionData.magical && (
+                                        <div
+                                          style={{
+                                            backgroundColor: 'rgba(167, 139, 250, 0.2)',
+                                            color: 'rgb(167, 139, 250)',
+                                            padding: '0.125rem 0.375rem',
+                                            borderRadius: '0.25rem',
+                                            fontSize: '0.625rem',
+                                            fontWeight: 'bold',
+                                            border: '1px solid rgba(167, 139, 250, 0.3)',
+                                          }}
+                                        >
+                                          Magical
+                                        </div>
+                                      )}
+
+                                      {/* Energy cost tag */}
+                                      {energyCost !== null && (
+                                        <div
+                                          style={{
+                                            backgroundColor:
+                                              energyCost === 0
+                                                ? 'var(--color-dark-elevated)'
+                                                : 'rgba(59, 130, 246, 0.2)',
+                                            color:
+                                              energyCost === 0
+                                                ? 'var(--color-cloud)'
+                                                : 'rgb(147, 197, 253)',
+                                            padding: '0.125rem 0.375rem',
+                                            borderRadius: '0.25rem',
+                                            fontSize: '0.625rem',
+                                            fontWeight: 'bold',
+                                            border:
+                                              energyCost === 0
+                                                ? '1px solid var(--color-dark-border)'
+                                                : '1px solid rgba(59, 130, 246, 0.3)',
+                                          }}
+                                        >
+                                          {getEnergyDisplay(energyCost)}
+                                        </div>
+                                      )}
+                                    </div>
+                                  );
+                                })()}
                               </div>
                             );
                           })}

@@ -2,6 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import anyventureCharacters from '../assets/anyventure.png';
+import anyventureLogo from '../assets/Logo-2-Color-B.png';
 
 const Home: React.FC = () => {
   return (
@@ -16,47 +17,15 @@ const Home: React.FC = () => {
       >
         <div className="container mx-auto px-4 py-8">
           {/* Logo */}
-          <div style={{ textAlign: 'center', marginBottom: '2rem' }}>
-            <h1
+          <div style={{ textAlign: 'center', marginBottom: '0.5rem' }}>
+            <img
+              src={anyventureLogo}
+              alt="Anyventure Logo"
               style={{
-                fontFamily: 'Orbitron, monospace',
-                fontSize: 'clamp(3rem, 8vw, 6rem)',
-                fontWeight: 700,
-                letterSpacing: '0.1em',
-                margin: '0',
-                textTransform: 'uppercase',
-                position: 'relative',
-              }}
-            >
-              <span
-                style={{
-                  background:
-                    'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
-                  WebkitBackgroundClip: 'text',
-                  WebkitTextFillColor: 'transparent',
-                  backgroundClip: 'text',
-                  textShadow: '0 0 30px rgba(215, 183, 64, 0.3)',
-                }}
-              >
-                Anyventure
-              </span>
-              <span
-                style={{
-                  color: 'var(--color-sat-purple)',
-                  textShadow: '0 0 30px rgba(138, 43, 226, 0.5)',
-                }}
-              >
-                DX
-              </span>
-            </h1>
-            <div
-              style={{
+                maxWidth: '800px',
                 width: '100%',
-                height: '4px',
-                background:
-                  'linear-gradient(90deg, transparent 0%, var(--color-metal-gold) 50%, transparent 100%)',
-                marginTop: '1rem',
-                borderRadius: '2px',
+                height: 'auto',
+                margin: '0 auto',
               }}
             />
           </div>
@@ -72,8 +41,7 @@ const Home: React.FC = () => {
               lineHeight: '1.8',
             }}
           >
-            A classless TTRPG where your choices shape your destiny. Build unique characters through
-            modules, not classes. Master skills through practice, not levels.
+          A classless, level-less TTRPG where your choices shape your destiny.
           </p>
 
           {/* Characters Image */}
@@ -134,98 +102,41 @@ const Home: React.FC = () => {
           style={{ maxWidth: '1200px', margin: '0 auto' }}
         >
           <FeatureCard
-            title="No Classes, Only Choices"
-            description="Build your character through a modular system. Mix and match personality, core, and secondary modules to create truly unique heroes."
+            title="No Classes. No Levels."
+            description="Build your character through a modular system where your skills grow over time. Create any archetype combination imaginable."
             icon="🎭"
             color="var(--color-sat-purple)"
           />
           <FeatureCard
-            title="Skill-Based Progression"
-            description="Master 20 basic skills across 5 attributes. Your talents determine how many dice you roll, while skill level determines the die type (d4 to d24)."
+            title="Talent / Skill Progression"
+            description="Talents determine how many dice you roll. Skills determine what tier of dice you roll (from d4 to d24)."
             icon="🎲"
             color="var(--color-stormy)"
           />
           <FeatureCard
             title="Dynamic Combat"
-            description="Use single-roll combat to determine your attack success and damage and roll defense checks against attacks."
+            description="Tactical, 2 Action system with one roll attack & damage resolution."
             icon="⚔️"
             color="var(--color-sunset)"
           />
           <FeatureCard
-            title="Six Schools of Magic"
-            description="Master Black, Primal, Mysticism, White, Metamagic, or Arcane. Each school has unique subschools and exotic branches to explore."
+            title="Magic System"
+            description="No Spell Slots. Fail and Fizzle magic system with 6 unique schools; Black, White, Primal, Meta, Mysticism and Arcane. Each school has three subschools."
             icon="✨"
             color="var(--color-old-gold)"
           />
           <FeatureCard
             title="Crafting System"
-            description="Create items through Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, or Biosculpting. All items have a recipe and can be crafted by players."
+            description="Create items through Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, or Biosculpting with hundreds of recipes and unique customization."
             icon="🔨"
             color="var(--color-evening)"
           />
           <FeatureCard
-            title="Rich World Building"
-            description="17 unique races, 18 cultures, and countless combinations. From the dragonkind to the tidewalkers, each brings unique abilities."
+            title="Unique Character Creation"
+            description="Choose from several ancestries, cultures, personalities and traits to customize your character."
             icon="🌍"
             color="var(--color-muted)"
           />
-        </div>
-      </div>
-
-      {/* How to Play Section */}
-      <div
-        style={{
-          backgroundColor: 'var(--color-dark-surface)',
-          padding: '4rem 0',
-          marginTop: '4rem',
-        }}
-      >
-        <div className="container mx-auto px-4">
-          <h2
-            style={{
-              textAlign: 'center',
-              fontSize: '2.5rem',
-              color: 'var(--color-metal-gold)',
-              marginBottom: '3rem',
-              fontWeight: 'bold',
-            }}
-          >
-            How to Get Started
-          </h2>
-
-          <div
-            className="grid grid-cols-1 md:grid-cols-4 gap-8"
-            style={{ maxWidth: '1000px', margin: '0 auto' }}
-          >
-            <StepCard
-              number="1"
-              title="Choose Your Race"
-              description="Select from 17 unique races, each with innate bonuses and traits that shape your character's potential."
-            />
-            <StepCard
-              number="2"
-              title="Pick Your Culture"
-              description="Your cultural background adds flavor and initial skills, representing where you grew up and learned."
-            />
-            <StepCard
-              number="3"
-              title="Allocate Attributes"
-              description="Distribute 6 points among Physique, Finesse, Mind, Knowledge, and Social to define your capabilities."
-            />
-            <StepCard
-              number="4"
-              title="Select Modules"
-              description="Choose core and secondary modules to gain abilities, actions, and specializations unique to your vision."
-            />
-          </div>
-
-          <div style={{ textAlign: 'center', marginTop: '3rem' }}>
-            <Link to="/modules">
-              <Button variant="secondary" size="lg">
-                Browse All Modules
-              </Button>
-            </Link>
-          </div>
         </div>
       </div>
 

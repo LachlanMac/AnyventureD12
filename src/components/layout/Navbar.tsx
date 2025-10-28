@@ -24,17 +24,37 @@ const Navbar: React.FC = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <Link to="/" className="flex items-center">
-            <span
-              className="text-glow"
+            <h1
               style={{
-                fontFamily: 'var(--font-display)',
+                fontFamily: 'Orbitron, monospace',
                 fontSize: '1.5rem',
-                fontWeight: 'bold',
-                color: 'var(--color-metal-gold)',
+                fontWeight: 700,
+                letterSpacing: '0.1em',
+                margin: '0',
+                textTransform: 'uppercase',
+                display: 'flex',
+                alignItems: 'center',
               }}
             >
-              Anyventure TTRPG
-            </span>
+              <span
+                style={{
+                  background:
+                    'linear-gradient(135deg, var(--color-metal-gold) 0%, var(--color-old-gold) 50%, var(--color-sunset) 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text',
+                }}
+              >
+                Anyventure
+              </span>
+              <span
+                style={{
+                  color: 'var(--color-sat-purple)',
+                }}
+              >
+                DX
+              </span>
+            </h1>
           </Link>
 
           {/* Desktop navigation */}
