@@ -1,0 +1,19 @@
+{
+  "name": "Dematerialize",
+  "description": "You target a creature within a short (10 unit) distance and attempt to unravel their physical form. The target must make an endurance check of 10 or take 10 true damage. If this spell reduces a creature to 0 health, they are completely disintegrated, leaving no body behind.",
+  "charge": "The damage increases to 20 true damage. Additionally, if the target rolls a 5 or less on their endurance check, they are instantly disintegrated regardless of their current health.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 12,
+  "components": [
+    "Void Amethyst"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 10,
+  "damageType": "True",
+  "foundry_id": "transdemateria12",
+  "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
+}

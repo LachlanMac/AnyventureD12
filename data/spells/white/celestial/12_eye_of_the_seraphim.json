@@ -1,0 +1,19 @@
+{
+  "name": "Eye of the Seraphim",
+  "description": "You conjure a hovering celestial eye that appears directly above you, hovering up to 5 units in the air and occupying your tile. The eye has 10 health and takes half damage from physical, dark, and aetheric damage. It is immune to all other damage types. While you maintain concentration, the eye reveals all invisible and obscured creatures within a short (10 unit) radius of itself. You can use subsequent actions to make a white magic check against the defense of a creature within the eye's radius, dealing 5 divine damage on each success. This attack costs 1 energy.",
+  "charge": "The eye becomes invisible and only reveals itself when it makes an attack, turning invisible again at the end of your turn. The eye automatically follows you, remaining above you as you move. The divine damage increases to 6 per hit.",
+  "duration": "Concentration",
+  "range": 4,
+  "checkToCast": 12,
+  "components": [
+    "Moonstone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 5,
+  "damageType": "Divine",
+  "foundry_id": "celeyeseraphim12",
+  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp"
+}

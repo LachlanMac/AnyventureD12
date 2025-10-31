@@ -1,6 +1,6 @@
 {
   "name": "Torment",
-  "description": "You target a creature within a short (10 unit) distance and prepare them for torment. The next time your target takes damage, they take psychic damage equal to the amount taken after mitigation.",
+  "description": "You target a creature within a short (10 unit) distance and prepare them for torment. The next time your target takes physical damage, they take additional psychic damage equal to the amount taken after mitigation.",
   "charge": "The affected target must also make a resilience check greater than the total amount of psychic damage taken after mitigation or become afraid.",
   "duration": "Instantaneous",
   "range": 4,

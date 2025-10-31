@@ -1,0 +1,19 @@
+{
+  "name": "Haven",
+  "description": "You touch a surface and create a doorway that opens into an interdimensional space. The space is a 3x3 unit empty room that lasts for 8 hours. Anything objects remaining inside when the duration ends is lost forever while creatures are pushed out to the entrance.",
+  "charge": "The space becomes 5x5 units and retains everything placed inside it so when it is resummoned again, it is in the same state it was left in.",
+  "duration": "8 hours",
+  "range": 1,
+  "checkToCast": 12,
+  "components": [
+    "Diatessite"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "arcHaven12doorxx",
+  "foundry_icon": "icons/magic/light/explosion-beam-impact-silhouette.webp"
+}

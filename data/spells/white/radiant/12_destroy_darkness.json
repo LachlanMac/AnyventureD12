@@ -1,0 +1,19 @@
+{
+  "name": "Destroy Darkness",
+  "description": "You target an undead or dark creature within a moderate (20 unit) distance and strike them with purifying light. The target must make a resilience check of 10 or take 15 divine damage. If they roll a 5 or less on their check, they are instantly destroyed instead.",
+  "charge": "The spell becomes a 5 unit radius centered on yourself, but only affecting all standard tier and lower undead or dark creatures in the area.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 12,
+  "components": [
+    "Moonstone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 15,
+  "damageType": "Divine",
+  "foundry_id": "raddestroydark12",
+  "foundry_icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp"
+}

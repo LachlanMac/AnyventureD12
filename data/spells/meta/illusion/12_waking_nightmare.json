@@ -1,0 +1,19 @@
+{
+  "name": "Waking Nightmare",
+  "description": "You target a creature within a short (10 unit) distance and trap them in a terrifying illusion. The target must make a resilience check of 10 or become Afraid. While you maintain concentration, the target takes 8 psychic damage at the start of each of their turns while they remain Afraid. If the target recovers from the Afraid condition, the spell ends on them.",
+  "charge": "The required resilience check to avoid the spell is increased to 12, and the Afraid condition requires a resilience check of 12 to recover from instead of the normal amount.",
+  "duration": "Concentration",
+  "range": 4,
+  "checkToCast": 12,
+  "components": [
+    "Shadow Onyx"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 8,
+  "damageType": "Psychic",
+  "foundry_id": "illwakenightmar12",
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
+}

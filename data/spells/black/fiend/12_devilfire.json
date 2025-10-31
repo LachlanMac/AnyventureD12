@@ -1,0 +1,19 @@
+{
+  "name": "Devilfire",
+  "description": "You target a creature within a moderate (20 unit) distance and engulf them in infernal flames, dealing 12 dark damage and giving them them the ignited condition if they fail a resilience check of 10.",
+  "charge": "The spell becomes a 3 unit radius centered on a point within a moderate (20 unit) distance. All creatures in the area take 12 dark damage and an additional 12 heat or cold damage. Creatures who succeed on this spell take half damage from both damage types.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 12,
+  "components": [
+    "Fire Opal"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 12,
+  "damageType": "Dark",
+  "foundry_id": "fienddevilfire12",
+  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Feywild Form",
+  "description": "You transform yourself into a pixie or sprite for the next hour, using the statblock of that creature. If you are reduced to 0 health while transformed, you immediately revert to your original form with whatever health you had before transforming.",
+  "charge": "You can transform up to 3 willing allies within a short (10 unit) distance alongside yourself, but the spell requires concentration.",
+  "duration": "1 hour",
+  "range": 0,
+  "checkToCast": 12,
+  "components": [
+    "Spirit Moonstone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "feyfeywildform12",
+  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"
+}

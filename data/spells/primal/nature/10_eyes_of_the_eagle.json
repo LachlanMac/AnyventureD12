@@ -4,7 +4,7 @@
   "charge": " The target also gains a bonus dice with ranged weapons.",
   "duration": "1 day",
   "range": 1,
-  "checkToCast": 11,
+  "checkToCast": 10,
   "components": [
     "Zephyr Dust"
   ],

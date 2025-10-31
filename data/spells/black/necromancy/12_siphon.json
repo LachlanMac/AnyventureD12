@@ -1,0 +1,19 @@
+{
+  "name": "Siphon",
+  "description": "You touch a creature and siphon their life force, dealing 3 true damage and healing yourself for 1 health. While you maintain concentration, at the end of the target's turn, they must make an endurance check of 6 or take 3 true damage again and you heal for 1 health. Humanoids must make an endurance check of 8 instead. This spell cannot heal you above half your maximum health. Elementals, undead, and constructs are immune to this spell.",
+  "charge": "The damage increases to 4 true damage and the healing increases to 2 health. This spell can heal you above half your maximum health.",
+  "duration": "Concentration",
+  "range": 1,
+  "checkToCast": 12,
+  "components": [
+    "Black Pearl"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 3,
+  "damageType": "True",
+  "foundry_id": "necsiphon12drain",
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
+}

@@ -1,0 +1,19 @@
+{
+  "name": "Warp",
+  "description": "You target a creature within a moderate (20 unit) distance and warp their physical form. They must make an endurance check of 10 or take 12 aetheric damage and suffer a penalty die on all physique and finesse checks until the end of their next turn. If you do not roll at least 2 successes on your spell check, the target instead doubles their physique and finesse talent dice and gains a bonus die on all melee attacks until the end of their next turn.",
+  "charge": "The spell becomes a 2 unit radius centered on you and deals 15 aetheric damage.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 12,
+  "components": [
+    "Void Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 12,
+  "damageType": "Aetheric",
+  "foundry_id": "chaoswarp12distx",
+  "foundry_icon": "icons/magic/unholy/barrier-shield-glowing-pink.webp"
+}

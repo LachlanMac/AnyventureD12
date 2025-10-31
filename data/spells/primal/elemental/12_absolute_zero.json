@@ -1,0 +1,19 @@
+{
+  "name": "Absolute Zero",
+  "description": "You target a point within a moderate (20 unit) distance and create a 2 unit radius sphere of absolute cold that freezes all water within into ice. While you maintain concentration, creatures that start their turn in the sphere must make a resilience check of 10 or take 18 cold damage and become impaired until the start of their next turn. On a success, they take 9 cold damage. As an action on subsequent turns, you can attempt another primal magic check of 12 to move the sphere up to 5 units. If you fail this check, the spell ends.",
+  "charge": "The sphere's radius increases to 3 units, and creatures that roll a 5 or less on their resilience check become frozen until the end of their next turn instead of impaired. If they start their turn frozen while within the sphere, they do not become unfrozen at the end of their turn.",
+  "duration": "Concentration",
+  "range": 5,
+  "checkToCast": 12,
+  "components": [
+    "Frost Sapphire"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 18,
+  "damageType": "Cold",
+  "foundry_id": "eleabszero12icpr",
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
+}

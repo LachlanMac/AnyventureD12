@@ -1,0 +1,19 @@
+{
+  "name": "Hold Fate",
+  "description": "You peer into the immediate future and lock in a favorable outcome. When you cast this spell, roll a single mysticism dice and store the result. While you maintain concentration, you can use a reaction to end the spell and replace one of your own checks with your stored result.",
+  "charge": "You roll your full mysticism check and take the highest dice instead of a single dice and can replace the check of any creature within a moderate (20 unit) distance instead of just yourself.",
+  "duration": "Concentration",
+  "range": 0,
+  "checkToCast": 12,
+  "components": [
+    "Amethyst"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": true,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "divholdfate12mys",
+  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-eye.webp"
+}

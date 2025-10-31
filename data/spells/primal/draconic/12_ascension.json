@@ -1,0 +1,19 @@
+{
+  "name": "Ascension",
+  "description": "You sprout magnificent dragon wings from your back and undergo a partial transformation, gaining draconic features. For the next minute, you gain 6 units of magical flight speed that does not require movement to stay aloft.",
+  "charge": "The spell becomes concentration and your flight speed increases to 8 units.",
+  "duration": "1 minute",
+  "range": 0,
+  "checkToCast": 12,
+  "components": [
+    "Star Ruby"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "draascension12wx",
+  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"
+}

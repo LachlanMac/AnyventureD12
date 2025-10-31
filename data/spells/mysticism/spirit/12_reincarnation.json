@@ -1,0 +1,19 @@
+{
+  "name": "Reincarnation",
+  "description": "You attempt to call back the willing soul of a beast or humanoid into a random, empty vessel on your current plane. The required check increases by 1 for each year the soul has been dead (maximum +10). If you fail this check, you cannot target that soul again.",
+  "charge": "You can reincarnate the soul into a specific body of a humanoid or beast that has died within the last day, bypassing the one year minimum.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 12,
+  "components": [
+    "Diamond"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "spireincarnat12",
+  "foundry_icon": "icons/magic/control/energy-stream-link-spiral-white.webp"
+}

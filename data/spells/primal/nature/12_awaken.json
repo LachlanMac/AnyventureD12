@@ -4,7 +4,7 @@
   "charge": "The plantoid is permanenty charmed by you, breakable only by dispelling magic.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Emerald"
   ],
