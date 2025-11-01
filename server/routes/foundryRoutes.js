@@ -391,6 +391,7 @@ const convertToFoundryFormat = (data, type) => {
 
     case 'spell':
       baseFoundryDoc.system = {
+        description: data.description,
         school: data.school,
         subschool: data.subschool,
         charge: data.charge || "",
