@@ -29,7 +29,7 @@ const DamageSchema = new Schema({
   damage_type: { type: String, default: "physical" },
   category: {
     type: String,
-    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "white_magic", "mysticism_magic", "meta_magic"],
+    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "white_magic", "mysticism_magic", "meta"],
     default: "blunt"
   },
   energy: { type: Number, default: 0 },             // Energy cost for this attack
