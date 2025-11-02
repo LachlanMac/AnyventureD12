@@ -2079,9 +2079,24 @@ export const exportCharacterToFoundry = async (req, res) => {
             }
 
             // Generate a unique 16-character foundry_id for this instance
-            // Combine trait ID and instance ID, then truncate to 16 chars
-            const combinedId = `${charTrait.traitId._id.toString()}${charTrait._id.toString()}`;
-            const uniqueFoundryId = combinedId.substring(0, 16);
+            // Use instance ID as seed to create deterministic unique ID
+            const generateDeterministicId = (seed) => {
+              let hash = 0;
+              for (let i = 0; i < seed.length; i++) {
+                const char = seed.charCodeAt(i);
+                hash = ((hash << 5) - hash) + char;
+                hash = hash & hash;
+              }
+              const chars = '0123456789abcdefghijklmnopqrstuvwxyz';
+              let result = '';
+              let currentSeed = Math.abs(hash);
+              for (let i = 0; i < 16; i++) {
+                currentSeed = (currentSeed * 1664525 + 1013904223) % Math.pow(2, 32);
+                result += chars.charAt(currentSeed % chars.length);
+              }
+              return result;
+            };
+            const uniqueFoundryId = generateDeterministicId(`extra-training-${charTrait._id.toString()}`);
 
             // Create simple "training" type item - Foundry will handle the rest
             const trainingItem = {
