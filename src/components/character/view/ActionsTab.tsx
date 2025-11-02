@@ -286,13 +286,6 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
       toxic: '#32CD32',
     };
 
-    const categoryColors: Record<string, string> = {
-      pierce: '#888888',
-      slash: '#888888',
-      blunt: '#888888',
-      ranged: '#888888',
-    };
-
     // Calculate dice roll
     const weaponSkillMap: Record<string, string> = {
       simpleMelee: 'simpleMeleeWeapons',

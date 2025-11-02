@@ -227,6 +227,7 @@ export interface Damage {
   damage_extra: string;
   damage_type: string;
   category: 'pierce' | 'slash' | 'blunt' | 'ranged' | 'extra';
+  bonus_attack?: number;
   energy?: number;
   secondary_damage: number;
   secondary_damage_extra: number;
@@ -276,6 +277,14 @@ export interface ResourceStat {
   recovery: number;
 }
 
+export interface ImplantData {
+  implant_type: 'eye' | 'hand' | 'arm' | 'leg' | 'skin' | 'internal';
+  pain_penalty: number;
+  health_penalty: number;
+  resolve_penalty: number;
+  rejection_check: number;
+}
+
 export interface Item {
   _id: string;
   name: string;
@@ -296,7 +305,8 @@ export interface Item {
     | 'consumable'
     | 'tool'
     | 'instrument'
-    | 'ammunition';
+    | 'ammunition'
+    | 'implant';
   weapon_category?:
     | 'simpleMelee'
     | 'simpleRanged'
@@ -336,6 +346,7 @@ export interface Item {
   substance?: Substance;
   side_effect?: string;
   properties?: string;
+  implant_data?: ImplantData;
   createdAt?: string;
   updatedAt?: string;
 }
@@ -345,6 +356,7 @@ export interface CharacterItem {
   itemId?: string | Item;
   itemData?: Item; // Full item data when customized
   isCustomized: boolean;
+  equipped?: boolean; // For implants - whether the implant is equipped
   quantity: number;
   condition: {
     current: number;
@@ -361,6 +373,7 @@ export interface EquipmentSlot {
 }
 
 export interface Equipment {
+  [key: string]: EquipmentSlot; // Allow indexing with string keys
   // Gear slots (matching FoundryVTT)
   hand: EquipmentSlot; // gloves/gauntlets
   boots: EquipmentSlot; // footwear
