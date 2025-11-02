@@ -5,14 +5,13 @@ const { Schema } = mongoose;
 // Define the skill data structure used throughout the schema
 const SkillBonusSchema = new Schema({
   add_bonus: { type: Number, default: 0 },
-  set_bonus: { type: Number, default: 0 },
+  set_bonus: { type: Number, default: 0 }
 }, { _id: false });
 
 const TalentBonusSchema = new Schema({
   add_talent: { type: Number, default: 0 },
   set_talent: { type: Number, default: 0 }
 }, { _id: false });
-
 
 const SkillTalentBonusSchema = new Schema({
   add_bonus: { type: Number, default: 0 },
@@ -32,6 +31,7 @@ const DamageSchema = new Schema({
     enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "white_magic", "mysticism_magic", "meta"],
     default: "blunt"
   },
+  bonus_attack: { type: Number, default: 0, min: 0 }, // Bonus attack dice for this attack
   energy: { type: Number, default: 0 },             // Energy cost for this attack
   secondary_damage: { type: Number, default: 0 },
   secondary_damage_extra: { type: Number, default: 0 },
@@ -135,11 +135,6 @@ const ItemSchema = new Schema({
       default: ""
     }
   },
-  bonus_attack: {
-    type: Number,
-    default: 0,
-    min: 0
-  },
   primary: DamageSchema,
   secondary: DamageSchema,
 
@@ -214,7 +209,8 @@ const ItemSchema = new Schema({
     primal: { type: SkillTalentBonusSchema, default: () => ({}) },
     meta: { type: SkillTalentBonusSchema, default: () => ({}) },
     white: { type: SkillTalentBonusSchema, default: () => ({}) },
-    mysticism: { type: SkillTalentBonusSchema, default: () => ({}) }
+    mysticism: { type: SkillTalentBonusSchema, default: () => ({}) },
+    arcane: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
   // Weapon skill bonuses

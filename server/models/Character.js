@@ -94,7 +94,13 @@ const CharacterItemSchema = new Schema({
     type: Boolean,
     default: false
   },
-  
+
+  // Flag for implants to indicate if equipped (implants don't use equipment slots)
+  equipped: {
+    type: Boolean,
+    default: false
+  },
+
   // Common fields for both cases
   quantity: {
     type: Number,
@@ -1042,6 +1048,14 @@ CharacterSchema.methods.equipItem = async function(itemIdentifier, slotName) {
       return { success: false, message: 'Invalid item data' };
     }
 
+    // Special handling for implants - they don't use equipment slots
+    if (itemData.type === 'implant') {
+      // Set equipped flag on inventory item
+      this.inventory[inventoryIndex].equipped = true;
+      await this.save();
+      console.log(`✅ Implant equipped at inventory index ${inventoryIndex}`);
+      return { success: true, message: 'Implant equipped successfully' };
+    }
 
     // Validate the item can be equipped to this slot
     const validation = this.validateItemSlot(itemData, slotName);
@@ -1113,6 +1127,23 @@ CharacterSchema.methods.unequipItem = async function(slotName) {
     // Initialize equipment if it doesn't exist
     if (!this.equipment) {
       this.equipment = {};
+    }
+
+    // Special handling for implants - slotName will be 'equipped' or inventory index
+    if (slotName === 'equipped' || !isNaN(parseInt(slotName))) {
+      const inventoryIndex = parseInt(slotName);
+      if (!isNaN(inventoryIndex) && inventoryIndex >= 0 && inventoryIndex < this.inventory.length) {
+        const inventoryItem = this.inventory[inventoryIndex];
+        const itemData = inventoryItem.isCustomized ? inventoryItem.itemData : inventoryItem.itemId;
+
+        if (itemData && itemData.type === 'implant') {
+          this.inventory[inventoryIndex].equipped = false;
+          await this.save();
+          console.log(`✅ Implant unequipped at inventory index ${inventoryIndex}`);
+          return { success: true, message: 'Implant unequipped successfully' };
+        }
+      }
+      return { success: false, message: 'Invalid implant or inventory index' };
     }
 
     // Check if it's a valid equipment slot

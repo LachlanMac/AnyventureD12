@@ -71,9 +71,9 @@ const Navbar: React.FC = () => {
             <NavLink to="/bestiary" isActive={isActive('/bestiary')}>
               Bestiary
             </NavLink>
-            <NavLink to="/homebrew" isActive={isActive('/homebrew')}>
+            {/* <NavLink to="/homebrew" isActive={isActive('/homebrew')}>
               Homebrew
-            </NavLink>
+            </NavLink> */}
             <NavLink to="/wiki" isActive={isActive('/wiki')}>
               Wiki
             </NavLink>
@@ -309,13 +309,13 @@ const Navbar: React.FC = () => {
               Bestiary
             </MobileNavLink>
 
-            <MobileNavLink
+            {/* <MobileNavLink
               to="/homebrew"
               isActive={isActive('/homebrew')}
               onClick={() => setIsOpen(false)}
             >
               Homebrew
-            </MobileNavLink>
+            </MobileNavLink> */}
 
             {isAuthenticated && (
               <>

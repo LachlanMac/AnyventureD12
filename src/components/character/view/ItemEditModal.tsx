@@ -38,7 +38,8 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
     weapon: false,
     bonuses: false,
     mitigation: false,
-    special: false,
+    detectionsImmunities: false,
+    implant: false,
   });
   const [expandedBonusTypes, setExpandedBonusTypes] = useState<Record<string, boolean>>({
     attributes: true,
@@ -50,6 +51,41 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
 
   useEffect(() => {
     const item = getItemData();
+
+    // Initialize primary and secondary attack objects for weapons if they don't exist
+    if (item.type === 'weapon') {
+      if (!item.primary) {
+        item.primary = {
+          damage: '0',
+          damage_extra: '0',
+          damage_type: 'physical',
+          category: 'slash',
+          bonus_attack: 0,
+          energy: 0,
+          secondary_damage: 0,
+          secondary_damage_extra: 0,
+          secondary_damage_type: 'none',
+          min_range: 1,
+          max_range: 1,
+        };
+      }
+      if (!item.secondary) {
+        item.secondary = {
+          damage: '0',
+          damage_extra: '0',
+          damage_type: 'physical',
+          category: 'slash',
+          bonus_attack: 0,
+          energy: 0,
+          secondary_damage: 0,
+          secondary_damage_extra: 0,
+          secondary_damage_type: 'none',
+          min_range: 1,
+          max_range: 1,
+        };
+      }
+    }
+
     setEditedItem(item);
     setQuantity(inventoryItem.quantity);
     setHasChanges(false);
@@ -60,7 +96,10 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
       weapon: item.type === 'weapon',
       bonuses: !!item.basic || !!item.weapon || !!item.magic || !!item.craft || !!item.attributes,
       mitigation: !!item.mitigation && Object.keys(item.mitigation).length > 0,
-      special: !!item.detections || !!item.immunities,
+      detectionsImmunities:
+        (!!item.detections && Object.keys(item.detections).length > 0) ||
+        (!!item.immunities && Object.keys(item.immunities).length > 0),
+      implant: item.type === 'implant',
     });
   }, [inventoryItem, isOpen]);
 
@@ -143,6 +182,22 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
     { value: 6, label: 'Distant' },
     { value: 7, label: 'Remote' },
     { value: 8, label: 'Unlimited' },
+  ];
+
+  const detectionOptions = [
+    { value: 0, label: 'None' },
+    { value: 2, label: '2' },
+    { value: 4, label: '4' },
+    { value: 6, label: '6' },
+    { value: 8, label: '8' },
+    { value: 10, label: '10' },
+    { value: 12, label: '12' },
+    { value: 15, label: '15' },
+    { value: 20, label: '20' },
+    { value: 30, label: '30' },
+    { value: 40, label: '40' },
+    { value: 60, label: '60' },
+    { value: 999, label: 'Unlimited' },
   ];
 
   const SectionHeader: React.FC<{ title: string; section: string }> = ({ title, section }) => (
@@ -529,6 +584,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                       <option value="instrument">Instrument</option>
                       <option value="ammunition">Ammunition</option>
                       <option value="runes">Runes</option>
+                      <option value="implant">Implant</option>
                     </select>
                   </div>
 
@@ -761,7 +817,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                   </div>
 
                   {/* Primary Attack */}
-                  {editedItem.primary && (
+                  {editedItem.type === 'weapon' && (
                     <div
                       style={{
                         backgroundColor: 'var(--color-dark-elevated)',
@@ -785,7 +841,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                       <div
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(3, 1fr)',
+                          gridTemplateColumns: 'repeat(4, 1fr)',
                           gap: '0.75rem',
                         }}
                       >
@@ -926,6 +982,66 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                             <option value="mysticism_magic">Mysticism Magic</option>
                             <option value="meta_magic">Meta Magic</option>
                           </select>
+                        </div>
+                        <div>
+                          <label
+                            style={{
+                              color: 'var(--color-cloud)',
+                              display: 'block',
+                              marginBottom: '0.25rem',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            Bonus Attack
+                          </label>
+                          <input
+                            type="number"
+                            value={editedItem.primary?.bonus_attack || 0}
+                            onChange={(e) =>
+                              handleFieldChange('primary', {
+                                ...editedItem.primary,
+                                bonus_attack: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            style={{
+                              width: '100%',
+                              padding: '0.5rem',
+                              backgroundColor: 'var(--color-dark-bg)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.25rem',
+                              color: 'var(--color-cloud)',
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <label
+                            style={{
+                              color: 'var(--color-cloud)',
+                              display: 'block',
+                              marginBottom: '0.25rem',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            Energy Cost
+                          </label>
+                          <input
+                            type="number"
+                            value={editedItem.primary?.energy || 0}
+                            onChange={(e) =>
+                              handleFieldChange('primary', {
+                                ...editedItem.primary,
+                                energy: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            style={{
+                              width: '100%',
+                              padding: '0.5rem',
+                              backgroundColor: 'var(--color-dark-bg)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.25rem',
+                              color: 'var(--color-cloud)',
+                            }}
+                          />
                         </div>
                         <div>
                           <label
@@ -1092,7 +1208,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                   )}
 
                   {/* Secondary Attack */}
-                  {editedItem.secondary && (
+                  {editedItem.type === 'weapon' && (
                     <div
                       style={{
                         backgroundColor: 'var(--color-dark-elevated)',
@@ -1116,7 +1232,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                       <div
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(3, 1fr)',
+                          gridTemplateColumns: 'repeat(4, 1fr)',
                           gap: '0.75rem',
                         }}
                       >
@@ -1257,6 +1373,66 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                             <option value="mysticism_magic">Mysticism Magic</option>
                             <option value="meta_magic">Meta Magic</option>
                           </select>
+                        </div>
+                        <div>
+                          <label
+                            style={{
+                              color: 'var(--color-cloud)',
+                              display: 'block',
+                              marginBottom: '0.25rem',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            Bonus Attack
+                          </label>
+                          <input
+                            type="number"
+                            value={editedItem.secondary?.bonus_attack || 0}
+                            onChange={(e) =>
+                              handleFieldChange('secondary', {
+                                ...editedItem.secondary,
+                                bonus_attack: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            style={{
+                              width: '100%',
+                              padding: '0.5rem',
+                              backgroundColor: 'var(--color-dark-bg)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.25rem',
+                              color: 'var(--color-cloud)',
+                            }}
+                          />
+                        </div>
+                        <div>
+                          <label
+                            style={{
+                              color: 'var(--color-cloud)',
+                              display: 'block',
+                              marginBottom: '0.25rem',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            Energy Cost
+                          </label>
+                          <input
+                            type="number"
+                            value={editedItem.secondary?.energy || 0}
+                            onChange={(e) =>
+                              handleFieldChange('secondary', {
+                                ...editedItem.secondary,
+                                energy: parseInt(e.target.value) || 0,
+                              })
+                            }
+                            style={{
+                              width: '100%',
+                              padding: '0.5rem',
+                              backgroundColor: 'var(--color-dark-bg)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.25rem',
+                              color: 'var(--color-cloud)',
+                            }}
+                          />
                         </div>
                         <div>
                           <label
@@ -1564,45 +1740,109 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                           style={{
                             display: 'grid',
                             gridTemplateColumns: 'repeat(2, 1fr)',
-                            gap: '0.75rem',
+                            gap: '1rem',
                           }}
                         >
                           {Object.entries(editedItem.basic).map(([skill, bonus]) => (
                             <div
                               key={skill}
-                              style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}
+                              style={{
+                                backgroundColor: 'var(--color-dark-bg)',
+                                padding: '0.75rem',
+                                borderRadius: '0.375rem',
+                                border: '1px solid var(--color-dark-border)',
+                              }}
                             >
                               <span
                                 style={{
-                                  color: 'var(--color-cloud)',
-                                  flex: 1,
+                                  color: 'var(--color-white)',
+                                  fontWeight: '600',
+                                  display: 'block',
+                                  marginBottom: '0.5rem',
+                                  fontSize: '0.9rem',
                                   textTransform: 'capitalize',
                                 }}
                               >
-                                {skill}:
+                                {skill}
                               </span>
-                              <input
-                                type="number"
-                                value={bonus?.add_bonus || 0}
-                                onChange={(e) =>
-                                  handleFieldChange('basic', {
-                                    ...editedItem.basic,
-                                    [skill]: {
-                                      ...bonus,
-                                      add_bonus: parseInt(e.target.value) || 0,
-                                    },
-                                  })
-                                }
-                                placeholder="Bonus"
+                              <div
                                 style={{
-                                  width: '60px',
-                                  padding: '0.25rem',
-                                  backgroundColor: 'var(--color-dark-bg)',
-                                  border: '1px solid var(--color-dark-border)',
-                                  borderRadius: '0.25rem',
-                                  color: 'var(--color-cloud)',
+                                  display: 'grid',
+                                  gridTemplateColumns: '1fr 1fr',
+                                  gap: '0.5rem',
                                 }}
-                              />
+                              >
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Skill Bonus
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.add_bonus || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('basic', {
+                                        ...editedItem.basic,
+                                        [skill]: {
+                                          ...bonus,
+                                          add_bonus: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set To
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_bonus || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('basic', {
+                                        ...editedItem.basic,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_bonus: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                              </div>
                             </div>
                           ))}
                         </div>
@@ -1698,7 +1938,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                       opacity: 0.8,
                                     }}
                                   >
-                                    Bonus
+                                    Skill Bonus
                                   </label>
                                   <input
                                     type="number"
@@ -1733,7 +1973,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                       opacity: 0.8,
                                     }}
                                   >
-                                    Talent
+                                    Talent Bonus
                                   </label>
                                   <input
                                     type="number"
@@ -1744,6 +1984,76 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                         [skill]: {
                                           ...bonus,
                                           add_talent: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set Skill
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_bonus || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('weapon', {
+                                        ...editedItem.weapon,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_bonus: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set Talent
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_talent || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('weapon', {
+                                        ...editedItem.weapon,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_talent: parseInt(e.target.value) || 0,
                                         },
                                       })
                                     }
@@ -1854,7 +2164,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                       opacity: 0.8,
                                     }}
                                   >
-                                    Bonus
+                                    Skill Bonus
                                   </label>
                                   <input
                                     type="number"
@@ -1889,7 +2199,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                       opacity: 0.8,
                                     }}
                                   >
-                                    Talent
+                                    Talent Bonus
                                   </label>
                                   <input
                                     type="number"
@@ -1900,6 +2210,76 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                         [skill]: {
                                           ...bonus,
                                           add_talent: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set Skill
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_bonus || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('craft', {
+                                        ...editedItem.craft,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_bonus: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set Talent
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_talent || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('craft', {
+                                        ...editedItem.craft,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_talent: parseInt(e.target.value) || 0,
                                         },
                                       })
                                     }
@@ -1986,7 +2366,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                   textTransform: 'capitalize',
                                 }}
                               >
-                                {skill}
+                                {skill === 'divine' ? 'White' : skill}
                               </span>
                               <div
                                 style={{
@@ -2005,7 +2385,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                       opacity: 0.8,
                                     }}
                                   >
-                                    Bonus
+                                    Skill Bonus
                                   </label>
                                   <input
                                     type="number"
@@ -2040,7 +2420,7 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                       opacity: 0.8,
                                     }}
                                   >
-                                    Talent
+                                    Talent Bonus
                                   </label>
                                   <input
                                     type="number"
@@ -2051,6 +2431,76 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                                         [skill]: {
                                           ...bonus,
                                           add_talent: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set Skill
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_bonus || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('magic', {
+                                        ...editedItem.magic,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_bonus: parseInt(e.target.value) || 0,
+                                        },
+                                      })
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.5rem',
+                                      backgroundColor: 'var(--color-dark-surface)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-white)',
+                                      fontSize: '0.9rem',
+                                    }}
+                                  />
+                                </div>
+                                <div>
+                                  <label
+                                    style={{
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.75rem',
+                                      display: 'block',
+                                      marginBottom: '0.25rem',
+                                      opacity: 0.8,
+                                    }}
+                                  >
+                                    Set Talent
+                                  </label>
+                                  <input
+                                    type="number"
+                                    value={bonus?.set_talent || 0}
+                                    onChange={(e) =>
+                                      handleFieldChange('magic', {
+                                        ...editedItem.magic,
+                                        [skill]: {
+                                          ...bonus,
+                                          set_talent: parseInt(e.target.value) || 0,
                                         },
                                       })
                                     }
@@ -2124,12 +2574,13 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
             </div>
           )}
 
-          {/* Special Properties */}
-          {(editedItem.detections || editedItem.immunities) && (
+          {/* Detections & Immunities */}
+          {((editedItem.detections && Object.keys(editedItem.detections).length > 0) ||
+            (editedItem.immunities && Object.keys(editedItem.immunities).length > 0)) && (
             <div>
-              <SectionHeader title="Special Properties" section="special" />
-              {expandedSections.special && (
-                <div style={{ display: 'grid', gap: '1rem' }}>
+              <SectionHeader title="Detections & Immunities" section="detectionsImmunities" />
+              {expandedSections.detectionsImmunities && (
+                <div style={{ display: 'grid', gap: '1.5rem' }}>
                   {/* Detections */}
                   {editedItem.detections && Object.keys(editedItem.detections).length > 0 && (
                     <div
@@ -2140,75 +2591,49 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                         border: '1px solid var(--color-dark-border)',
                       }}
                     >
-                      <h4 style={subHeaderStyle}>Detection Abilities</h4>
+                      <h4 style={subHeaderStyle}>Detections</h4>
                       <div
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(2, 1fr)',
+                          gridTemplateColumns: 'repeat(3, 1fr)',
                           gap: '0.75rem',
                         }}
                       >
                         {Object.entries(editedItem.detections).map(([type, value]) => (
-                          <div
-                            key={type}
-                            style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}
-                          >
-                            <span
+                          <div key={type} style={{ display: 'flex', flexDirection: 'column' }}>
+                            <label
                               style={{
                                 color: 'var(--color-cloud)',
-                                flex: 1,
                                 textTransform: 'capitalize',
+                                marginBottom: '0.25rem',
+                                fontSize: '0.875rem',
                               }}
                             >
-                              {type}:
-                            </span>
-                            {type.toLowerCase().includes('vision') ||
-                            type.toLowerCase().includes('sight') ||
-                            type.toLowerCase().includes('range') ? (
-                              <select
-                                value={value || 0}
-                                onChange={(e) =>
-                                  handleFieldChange('detections', {
-                                    ...editedItem.detections,
-                                    [type]: parseInt(e.target.value) || 0,
-                                  })
-                                }
-                                style={{
-                                  width: '120px',
-                                  padding: '0.25rem',
-                                  backgroundColor: 'var(--color-dark-bg)',
-                                  border: '1px solid var(--color-dark-border)',
-                                  borderRadius: '0.25rem',
-                                  color: 'var(--color-cloud)',
-                                  fontSize: '0.85rem',
-                                }}
-                              >
-                                {rangeOptions.map((option) => (
-                                  <option key={option.value} value={option.value}>
-                                    {option.label}
-                                  </option>
-                                ))}
-                              </select>
-                            ) : (
-                              <input
-                                type="number"
-                                value={value || 0}
-                                onChange={(e) =>
-                                  handleFieldChange('detections', {
-                                    ...editedItem.detections,
-                                    [type]: parseInt(e.target.value) || 0,
-                                  })
-                                }
-                                style={{
-                                  width: '60px',
-                                  padding: '0.25rem',
-                                  backgroundColor: 'var(--color-dark-bg)',
-                                  border: '1px solid var(--color-dark-border)',
-                                  borderRadius: '0.25rem',
-                                  color: 'var(--color-cloud)',
-                                }}
-                              />
-                            )}
+                              {type.replace(/_/g, ' ')}
+                            </label>
+                            <select
+                              value={value || 0}
+                              onChange={(e) =>
+                                handleFieldChange('detections', {
+                                  ...editedItem.detections,
+                                  [type]: parseInt(e.target.value) || 0,
+                                })
+                              }
+                              style={{
+                                width: '100%',
+                                padding: '0.5rem',
+                                backgroundColor: 'var(--color-dark-bg)',
+                                border: '1px solid var(--color-dark-border)',
+                                borderRadius: '0.25rem',
+                                color: 'var(--color-cloud)',
+                              }}
+                            >
+                              {detectionOptions.map((option) => (
+                                <option key={option.value} value={option.value}>
+                                  {option.label}
+                                </option>
+                              ))}
+                            </select>
                           </div>
                         ))}
                       </div>
@@ -2225,91 +2650,211 @@ const ItemEditModal: React.FC<ItemEditModalProps> = ({
                         border: '1px solid var(--color-dark-border)',
                       }}
                     >
-                      <h4 style={subHeaderStyle}>Condition Immunities</h4>
+                      <h4 style={subHeaderStyle}>Immunities</h4>
                       <div
                         style={{
                           display: 'grid',
-                          gridTemplateColumns: 'repeat(2, 1fr)',
+                          gridTemplateColumns: 'repeat(3, 1fr)',
                           gap: '0.75rem',
                         }}
                       >
-                        {Object.entries(editedItem.immunities).map(([condition, immune]) => (
-                          <div
-                            key={condition}
+                        {Object.entries(editedItem.immunities).map(([type, value]) => (
+                          <label
+                            key={type}
                             style={{
                               display: 'flex',
                               alignItems: 'center',
-                              justifyContent: 'space-between',
+                              gap: '0.5rem',
+                              color: 'var(--color-cloud)',
+                              cursor: 'pointer',
                               padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-bg)',
-                              borderRadius: '0.375rem',
-                              border: '1px solid var(--color-dark-border)',
+                              backgroundColor: value
+                                ? 'rgba(138, 116, 192, 0.15)'
+                                : 'transparent',
+                              borderRadius: '0.25rem',
+                              border: '1px solid',
+                              borderColor: value
+                                ? 'rgba(138, 116, 192, 0.3)'
+                                : 'var(--color-dark-border)',
+                              transition: 'all 0.2s',
                             }}
                           >
-                            <span
+                            <input
+                              type="checkbox"
+                              checked={!!value}
+                              onChange={(e) =>
+                                handleFieldChange('immunities', {
+                                  ...editedItem.immunities,
+                                  [type]: e.target.checked,
+                                })
+                              }
                               style={{
-                                color: 'var(--color-cloud)',
-                                textTransform: 'capitalize',
-                                fontWeight: '500',
-                              }}
-                            >
-                              {condition}
-                            </span>
-                            <label
-                              style={{
-                                position: 'relative',
-                                display: 'inline-block',
-                                width: '48px',
-                                height: '24px',
+                                width: '16px',
+                                height: '16px',
                                 cursor: 'pointer',
                               }}
-                            >
-                              <input
-                                type="checkbox"
-                                checked={immune as boolean}
-                                onChange={(e) =>
-                                  handleFieldChange('immunities', {
-                                    ...editedItem.immunities,
-                                    [condition]: e.target.checked,
-                                  })
-                                }
-                                style={{ display: 'none' }}
-                              />
-                              <span
-                                style={{
-                                  position: 'absolute',
-                                  top: 0,
-                                  left: 0,
-                                  right: 0,
-                                  bottom: 0,
-                                  backgroundColor: (immune as boolean)
-                                    ? 'var(--color-sat-purple)'
-                                    : 'var(--color-dark-border)',
-                                  borderRadius: '24px',
-                                  transition: 'all 0.3s ease',
-                                  boxShadow: 'inset 0 2px 4px rgba(0, 0, 0, 0.3)',
-                                }}
-                              >
-                                <span
-                                  style={{
-                                    position: 'absolute',
-                                    height: '18px',
-                                    width: '18px',
-                                    left: (immune as boolean) ? '26px' : '3px',
-                                    bottom: '3px',
-                                    backgroundColor: 'var(--color-white)',
-                                    borderRadius: '50%',
-                                    transition: 'all 0.3s ease',
-                                    boxShadow: '0 2px 4px rgba(0, 0, 0, 0.2)',
-                                  }}
-                                />
-                              </span>
-                            </label>
-                          </div>
+                            />
+                            <span style={{ textTransform: 'capitalize', fontSize: '0.875rem' }}>
+                              {type.replace(/_/g, ' ')}
+                            </span>
+                          </label>
                         ))}
                       </div>
                     </div>
                   )}
+                </div>
+              )}
+            </div>
+          )}
+
+          {/* Implant Data (if implant type) */}
+          {editedItem.type === 'implant' && (
+            <div>
+              <SectionHeader title="Implant Data" section="implant" />
+              {expandedSections.implant && (
+                <div
+                  style={{
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    padding: '1.5rem',
+                    borderRadius: '0.5rem',
+                    border: '1px solid var(--color-dark-border)',
+                  }}
+                >
+                  <div
+                    style={{
+                      display: 'grid',
+                      gridTemplateColumns: 'repeat(2, 1fr)',
+                      gap: '1.5rem',
+                    }}
+                  >
+                    <div>
+                      <label style={labelStyle}>Implant Type</label>
+                      <select
+                        value={editedItem.implant_data?.implant_type || 'internal'}
+                        onChange={(e) =>
+                          handleFieldChange('implant_data', {
+                            ...editedItem.implant_data,
+                            implant_type: e.target.value,
+                          })
+                        }
+                        style={{
+                          ...inputStyle,
+                          padding: '0.75rem',
+                        }}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-sat-purple)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(138, 116, 192, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      >
+                        <option value="eye">Eye</option>
+                        <option value="hand">Hand</option>
+                        <option value="arm">Arm</option>
+                        <option value="leg">Leg</option>
+                        <option value="skin">Skin</option>
+                        <option value="internal">Internal</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Rejection Check (RC)</label>
+                      <input
+                        type="number"
+                        value={editedItem.implant_data?.rejection_check || 0}
+                        onChange={(e) =>
+                          handleFieldChange('implant_data', {
+                            ...editedItem.implant_data,
+                            rejection_check: parseInt(e.target.value) || 0,
+                          })
+                        }
+                        min="0"
+                        style={inputStyle}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-sat-purple)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(138, 116, 192, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Pain Penalty</label>
+                      <input
+                        type="number"
+                        value={editedItem.implant_data?.pain_penalty || 0}
+                        onChange={(e) =>
+                          handleFieldChange('implant_data', {
+                            ...editedItem.implant_data,
+                            pain_penalty: parseInt(e.target.value) || 0,
+                          })
+                        }
+                        min="0"
+                        style={inputStyle}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-sat-purple)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(138, 116, 192, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Health Penalty</label>
+                      <input
+                        type="number"
+                        value={editedItem.implant_data?.health_penalty || 0}
+                        onChange={(e) =>
+                          handleFieldChange('implant_data', {
+                            ...editedItem.implant_data,
+                            health_penalty: parseInt(e.target.value) || 0,
+                          })
+                        }
+                        min="0"
+                        style={inputStyle}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-sat-purple)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(138, 116, 192, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      />
+                    </div>
+
+                    <div>
+                      <label style={labelStyle}>Resolve Penalty</label>
+                      <input
+                        type="number"
+                        value={editedItem.implant_data?.resolve_penalty || 0}
+                        onChange={(e) =>
+                          handleFieldChange('implant_data', {
+                            ...editedItem.implant_data,
+                            resolve_penalty: parseInt(e.target.value) || 0,
+                          })
+                        }
+                        min="0"
+                        style={inputStyle}
+                        onFocus={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-sat-purple)';
+                          e.currentTarget.style.boxShadow = '0 0 0 3px rgba(138, 116, 192, 0.1)';
+                        }}
+                        onBlur={(e) => {
+                          e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+                          e.currentTarget.style.boxShadow = 'none';
+                        }}
+                      />
+                    </div>
+                  </div>
                 </div>
               )}
             </div>

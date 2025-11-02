@@ -833,13 +833,26 @@ export const parseEquipmentEffects = (character) => {
       detections: {},
       immunities: []
     },
+    setters: {
+      skills: {},
+      weaponSkills: {},
+      magicSkills: {},
+      craftingSkills: {},
+      attributes: {}
+    },
     penalties: {
       skills: {},
       movement: 0,
       energy: 0
     },
     encumbrance_penalty: 0,
-    appliedItems: []
+    appliedItems: [],
+    implants: {
+      total_pain_penalty: 0,
+      total_health_penalty: 0,
+      total_resolve_penalty: 0,
+      highest_rejection_check: 0
+    }
   };
 
   if (!character.equipment || !character.inventory) {
@@ -932,9 +945,13 @@ export const parseEquipmentEffects = (character) => {
           }
           equipmentEffects.bonuses.attributes[attr] += bonus.add_talent;
         }
-        if (bonus.set_talent) {
-          equipmentEffects.bonuses.attributes[attr] = Math.max(
-            equipmentEffects.bonuses.attributes[attr] || 0, 
+        if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+          if (!equipmentEffects.setters.attributes[attr]) {
+            equipmentEffects.setters.attributes[attr] = 0;
+          }
+          // Take the highest set_talent value if multiple items try to set it
+          equipmentEffects.setters.attributes[attr] = Math.max(
+            equipmentEffects.setters.attributes[attr],
             bonus.set_talent
           );
         }
@@ -950,18 +967,26 @@ export const parseEquipmentEffects = (character) => {
         if (bonus.add_bonus) {
           equipmentEffects.bonuses.skills[skill].value += bonus.add_bonus;
         }
-        if (bonus.set_bonus) {
-          equipmentEffects.bonuses.skills[skill].value = Math.max(
-            equipmentEffects.bonuses.skills[skill].value, 
+        if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+          if (!equipmentEffects.setters.skills[skill]) {
+            equipmentEffects.setters.skills[skill] = { value: 0, talent: 0 };
+          }
+          // Take the highest set_bonus value if multiple items try to set it
+          equipmentEffects.setters.skills[skill].value = Math.max(
+            equipmentEffects.setters.skills[skill].value,
             bonus.set_bonus
           );
         }
         if (bonus.add_talent) {
           equipmentEffects.bonuses.skills[skill].talent += bonus.add_talent;
         }
-        if (bonus.set_talent) {
-          equipmentEffects.bonuses.skills[skill].talent = Math.max(
-            equipmentEffects.bonuses.skills[skill].talent, 
+        if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+          if (!equipmentEffects.setters.skills[skill]) {
+            equipmentEffects.setters.skills[skill] = { value: 0, talent: 0 };
+          }
+          // Take the highest set_talent value if multiple items try to set it
+          equipmentEffects.setters.skills[skill].talent = Math.max(
+            equipmentEffects.setters.skills[skill].talent,
             bonus.set_talent
           );
         }
@@ -977,8 +1002,26 @@ export const parseEquipmentEffects = (character) => {
         if (bonus.add_bonus) {
           equipmentEffects.bonuses.weaponSkills[weaponType].value += bonus.add_bonus;
         }
+        if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+          if (!equipmentEffects.setters.weaponSkills[weaponType]) {
+            equipmentEffects.setters.weaponSkills[weaponType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.weaponSkills[weaponType].value = Math.max(
+            equipmentEffects.setters.weaponSkills[weaponType].value,
+            bonus.set_bonus
+          );
+        }
         if (bonus.add_talent) {
           equipmentEffects.bonuses.weaponSkills[weaponType].talent += bonus.add_talent;
+        }
+        if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+          if (!equipmentEffects.setters.weaponSkills[weaponType]) {
+            equipmentEffects.setters.weaponSkills[weaponType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.weaponSkills[weaponType].talent = Math.max(
+            equipmentEffects.setters.weaponSkills[weaponType].talent,
+            bonus.set_talent
+          );
         }
       });
     }
@@ -992,8 +1035,26 @@ export const parseEquipmentEffects = (character) => {
         if (bonus.add_bonus) {
           equipmentEffects.bonuses.magicSkills[magicType].value += bonus.add_bonus;
         }
+        if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+          if (!equipmentEffects.setters.magicSkills[magicType]) {
+            equipmentEffects.setters.magicSkills[magicType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.magicSkills[magicType].value = Math.max(
+            equipmentEffects.setters.magicSkills[magicType].value,
+            bonus.set_bonus
+          );
+        }
         if (bonus.add_talent) {
           equipmentEffects.bonuses.magicSkills[magicType].talent += bonus.add_talent;
+        }
+        if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+          if (!equipmentEffects.setters.magicSkills[magicType]) {
+            equipmentEffects.setters.magicSkills[magicType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.magicSkills[magicType].talent = Math.max(
+            equipmentEffects.setters.magicSkills[magicType].talent,
+            bonus.set_talent
+          );
         }
       });
     }
@@ -1007,8 +1068,26 @@ export const parseEquipmentEffects = (character) => {
         if (bonus.add_bonus) {
           equipmentEffects.bonuses.craftingSkills[craftType].value += bonus.add_bonus;
         }
+        if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+          if (!equipmentEffects.setters.craftingSkills[craftType]) {
+            equipmentEffects.setters.craftingSkills[craftType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.craftingSkills[craftType].value = Math.max(
+            equipmentEffects.setters.craftingSkills[craftType].value,
+            bonus.set_bonus
+          );
+        }
         if (bonus.add_talent) {
           equipmentEffects.bonuses.craftingSkills[craftType].talent += bonus.add_talent;
+        }
+        if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+          if (!equipmentEffects.setters.craftingSkills[craftType]) {
+            equipmentEffects.setters.craftingSkills[craftType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.craftingSkills[craftType].talent = Math.max(
+            equipmentEffects.setters.craftingSkills[craftType].talent,
+            bonus.set_talent
+          );
         }
       });
     }
@@ -1125,34 +1204,134 @@ export const parseEquipmentEffects = (character) => {
         if (bonusData.add_talent) {
           equipmentEffects.bonuses.attributes[attr] += bonusData.add_talent;
         }
-        if (bonusData.set_talent !== undefined) {
-          equipmentEffects.bonuses.attributes[attr] = bonusData.set_talent;
+        if (bonusData.set_talent !== undefined && bonusData.set_talent !== 0) {
+          if (!equipmentEffects.setters.attributes[attr]) {
+            equipmentEffects.setters.attributes[attr] = 0;
+          }
+          equipmentEffects.setters.attributes[attr] = Math.max(
+            equipmentEffects.setters.attributes[attr],
+            bonusData.set_talent
+          );
         }
       });
     }
 
-    // Skill bonuses (basic, craft, magic, weapon)
-    ['basic', 'craft', 'magic', 'weapon'].forEach(skillCategory => {
-      if (item[skillCategory]) {
-        Object.entries(item[skillCategory]).forEach(([skill, bonusData]) => {
-          if (!equipmentEffects.bonuses.skills[skill]) {
-            equipmentEffects.bonuses.skills[skill] = { value: 0, talent: 0 };
+    // Skill bonuses from weapon slots - process each category separately to handle setters correctly
+    if (item.basic) {
+      Object.entries(item.basic).forEach(([skill, bonusData]) => {
+        if (!equipmentEffects.bonuses.skills[skill]) {
+          equipmentEffects.bonuses.skills[skill] = { value: 0, talent: 0 };
+        }
+        if (bonusData.add_bonus) {
+          equipmentEffects.bonuses.skills[skill].value += bonusData.add_bonus;
+        }
+        if (bonusData.set_bonus !== undefined && bonusData.set_bonus !== 0) {
+          if (!equipmentEffects.setters.skills[skill]) {
+            equipmentEffects.setters.skills[skill] = { value: 0, talent: 0 };
           }
-          if (bonusData.add_bonus) {
-            equipmentEffects.bonuses.skills[skill].value += bonusData.add_bonus;
+          equipmentEffects.setters.skills[skill].value = Math.max(
+            equipmentEffects.setters.skills[skill].value,
+            bonusData.set_bonus
+          );
+        }
+      });
+    }
+
+    if (item.weapon) {
+      Object.entries(item.weapon).forEach(([weaponType, bonusData]) => {
+        if (!equipmentEffects.bonuses.weaponSkills[weaponType]) {
+          equipmentEffects.bonuses.weaponSkills[weaponType] = { value: 0, talent: 0 };
+        }
+        if (bonusData.add_bonus) {
+          equipmentEffects.bonuses.weaponSkills[weaponType].value += bonusData.add_bonus;
+        }
+        if (bonusData.set_bonus !== undefined && bonusData.set_bonus !== 0) {
+          if (!equipmentEffects.setters.weaponSkills[weaponType]) {
+            equipmentEffects.setters.weaponSkills[weaponType] = { value: 0, talent: 0 };
           }
-          if (bonusData.set_bonus !== undefined) {
-            equipmentEffects.bonuses.skills[skill].value = bonusData.set_bonus;
+          equipmentEffects.setters.weaponSkills[weaponType].value = Math.max(
+            equipmentEffects.setters.weaponSkills[weaponType].value,
+            bonusData.set_bonus
+          );
+        }
+        if (bonusData.add_talent) {
+          equipmentEffects.bonuses.weaponSkills[weaponType].talent += bonusData.add_talent;
+        }
+        if (bonusData.set_talent !== undefined && bonusData.set_talent !== 0) {
+          if (!equipmentEffects.setters.weaponSkills[weaponType]) {
+            equipmentEffects.setters.weaponSkills[weaponType] = { value: 0, talent: 0 };
           }
-          if (bonusData.add_talent) {
-            equipmentEffects.bonuses.skills[skill].talent += bonusData.add_talent;
+          equipmentEffects.setters.weaponSkills[weaponType].talent = Math.max(
+            equipmentEffects.setters.weaponSkills[weaponType].talent,
+            bonusData.set_talent
+          );
+        }
+      });
+    }
+
+    if (item.magic) {
+      Object.entries(item.magic).forEach(([magicType, bonusData]) => {
+        if (!equipmentEffects.bonuses.magicSkills[magicType]) {
+          equipmentEffects.bonuses.magicSkills[magicType] = { value: 0, talent: 0 };
+        }
+        if (bonusData.add_bonus) {
+          equipmentEffects.bonuses.magicSkills[magicType].value += bonusData.add_bonus;
+        }
+        if (bonusData.set_bonus !== undefined && bonusData.set_bonus !== 0) {
+          if (!equipmentEffects.setters.magicSkills[magicType]) {
+            equipmentEffects.setters.magicSkills[magicType] = { value: 0, talent: 0 };
           }
-          if (bonusData.set_talent !== undefined) {
-            equipmentEffects.bonuses.skills[skill].talent = bonusData.set_talent;
+          equipmentEffects.setters.magicSkills[magicType].value = Math.max(
+            equipmentEffects.setters.magicSkills[magicType].value,
+            bonusData.set_bonus
+          );
+        }
+        if (bonusData.add_talent) {
+          equipmentEffects.bonuses.magicSkills[magicType].talent += bonusData.add_talent;
+        }
+        if (bonusData.set_talent !== undefined && bonusData.set_talent !== 0) {
+          if (!equipmentEffects.setters.magicSkills[magicType]) {
+            equipmentEffects.setters.magicSkills[magicType] = { value: 0, talent: 0 };
           }
-        });
-      }
-    });
+          equipmentEffects.setters.magicSkills[magicType].talent = Math.max(
+            equipmentEffects.setters.magicSkills[magicType].talent,
+            bonusData.set_talent
+          );
+        }
+      });
+    }
+
+    if (item.craft) {
+      Object.entries(item.craft).forEach(([craftType, bonusData]) => {
+        if (!equipmentEffects.bonuses.craftingSkills[craftType]) {
+          equipmentEffects.bonuses.craftingSkills[craftType] = { value: 0, talent: 0 };
+        }
+        if (bonusData.add_bonus) {
+          equipmentEffects.bonuses.craftingSkills[craftType].value += bonusData.add_bonus;
+        }
+        if (bonusData.set_bonus !== undefined && bonusData.set_bonus !== 0) {
+          if (!equipmentEffects.setters.craftingSkills[craftType]) {
+            equipmentEffects.setters.craftingSkills[craftType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.craftingSkills[craftType].value = Math.max(
+            equipmentEffects.setters.craftingSkills[craftType].value,
+            bonusData.set_bonus
+          );
+        }
+        if (bonusData.add_talent) {
+          equipmentEffects.bonuses.craftingSkills[craftType].talent += bonusData.add_talent;
+        }
+        if (bonusData.set_talent !== undefined && bonusData.set_talent !== 0) {
+          if (!equipmentEffects.setters.craftingSkills[craftType]) {
+            equipmentEffects.setters.craftingSkills[craftType] = { value: 0, talent: 0 };
+          }
+          equipmentEffects.setters.craftingSkills[craftType].talent = Math.max(
+            equipmentEffects.setters.craftingSkills[craftType].talent,
+            bonusData.set_talent
+          );
+        }
+      });
+    }
 
     // Mitigation bonuses
     if (item && item.mitigation) {
@@ -1189,7 +1368,331 @@ export const parseEquipmentEffects = (character) => {
     }
   });
 
+  // Process equipped implants from inventory
+  if (character.inventory && Array.isArray(character.inventory)) {
+    character.inventory.forEach((inventoryItem) => {
+      // Get the actual item data
+      const item = inventoryItem.itemData || inventoryItem.itemId;
+
+      // Skip if not an implant or not equipped
+      if (!item || item.type !== 'implant' || !inventoryItem.equipped) {
+        return;
+      }
+
+      // Track equipped implant
+      equipmentEffects.appliedItems.push({
+        name: item.name,
+        slot: 'implant',
+        type: item.type
+      });
+
+      // Apply all standard bonuses from the implant (same as regular equipment)
+      // Weapon bonuses
+      if (item.bonus_attack) {
+        equipmentEffects.bonuses.bonusAttack += item.bonus_attack;
+      }
+
+      // Resource bonuses
+      if (item.health && item.health.max !== undefined) {
+        equipmentEffects.bonuses.health.max += item.health.max || 0;
+        equipmentEffects.bonuses.health.recovery += item.health.recovery || 0;
+      }
+      if (item.energy && item.energy.max !== undefined) {
+        equipmentEffects.bonuses.energy.max += item.energy.max || 0;
+        equipmentEffects.bonuses.energy.recovery += item.energy.recovery || 0;
+      }
+      if (item.resolve && item.resolve.max !== undefined) {
+        equipmentEffects.bonuses.resolve.max += item.resolve.max || 0;
+        equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
+      }
+
+      // Movement bonus
+      if (item.movement) {
+        equipmentEffects.bonuses.movement += item.movement;
+      }
+
+      // Attribute bonuses
+      if (item.attributes) {
+        Object.entries(item.attributes).forEach(([attr, bonus]) => {
+          if (bonus.add_talent) {
+            if (!equipmentEffects.bonuses.attributes[attr]) {
+              equipmentEffects.bonuses.attributes[attr] = 0;
+            }
+            equipmentEffects.bonuses.attributes[attr] += bonus.add_talent;
+          }
+          if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+            if (!equipmentEffects.setters.attributes[attr]) {
+              equipmentEffects.setters.attributes[attr] = 0;
+            }
+            equipmentEffects.setters.attributes[attr] = Math.max(
+              equipmentEffects.setters.attributes[attr],
+              bonus.set_talent
+            );
+          }
+        });
+      }
+
+      // Skill bonuses
+      if (item.basic) {
+        Object.entries(item.basic).forEach(([skill, bonus]) => {
+          if (!equipmentEffects.bonuses.skills[skill]) {
+            equipmentEffects.bonuses.skills[skill] = { value: 0, talent: 0 };
+          }
+          if (bonus.add_bonus) {
+            equipmentEffects.bonuses.skills[skill].value += bonus.add_bonus;
+          }
+          if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+            if (!equipmentEffects.setters.skills[skill]) {
+              equipmentEffects.setters.skills[skill] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.skills[skill].value = Math.max(
+              equipmentEffects.setters.skills[skill].value,
+              bonus.set_bonus
+            );
+          }
+          if (bonus.add_talent) {
+            equipmentEffects.bonuses.skills[skill].talent += bonus.add_talent;
+          }
+          if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+            if (!equipmentEffects.setters.skills[skill]) {
+              equipmentEffects.setters.skills[skill] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.skills[skill].talent = Math.max(
+              equipmentEffects.setters.skills[skill].talent,
+              bonus.set_talent
+            );
+          }
+        });
+      }
+
+      // Weapon skill bonuses
+      if (item.weapon) {
+        Object.entries(item.weapon).forEach(([weaponType, bonus]) => {
+          if (!equipmentEffects.bonuses.weaponSkills[weaponType]) {
+            equipmentEffects.bonuses.weaponSkills[weaponType] = { value: 0, talent: 0 };
+          }
+          if (bonus.add_bonus) {
+            equipmentEffects.bonuses.weaponSkills[weaponType].value += bonus.add_bonus;
+          }
+          if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+            if (!equipmentEffects.setters.weaponSkills[weaponType]) {
+              equipmentEffects.setters.weaponSkills[weaponType] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.weaponSkills[weaponType].value = Math.max(
+              equipmentEffects.setters.weaponSkills[weaponType].value,
+              bonus.set_bonus
+            );
+          }
+          if (bonus.add_talent) {
+            equipmentEffects.bonuses.weaponSkills[weaponType].talent += bonus.add_talent;
+          }
+          if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+            if (!equipmentEffects.setters.weaponSkills[weaponType]) {
+              equipmentEffects.setters.weaponSkills[weaponType] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.weaponSkills[weaponType].talent = Math.max(
+              equipmentEffects.setters.weaponSkills[weaponType].talent,
+              bonus.set_talent
+            );
+          }
+        });
+      }
+
+      // Magic skill bonuses
+      if (item.magic) {
+        Object.entries(item.magic).forEach(([magicType, bonus]) => {
+          if (!equipmentEffects.bonuses.magicSkills[magicType]) {
+            equipmentEffects.bonuses.magicSkills[magicType] = { value: 0, talent: 0 };
+          }
+          if (bonus.add_bonus) {
+            equipmentEffects.bonuses.magicSkills[magicType].value += bonus.add_bonus;
+          }
+          if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+            if (!equipmentEffects.setters.magicSkills[magicType]) {
+              equipmentEffects.setters.magicSkills[magicType] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.magicSkills[magicType].value = Math.max(
+              equipmentEffects.setters.magicSkills[magicType].value,
+              bonus.set_bonus
+            );
+          }
+          if (bonus.add_talent) {
+            equipmentEffects.bonuses.magicSkills[magicType].talent += bonus.add_talent;
+          }
+          if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+            if (!equipmentEffects.setters.magicSkills[magicType]) {
+              equipmentEffects.setters.magicSkills[magicType] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.magicSkills[magicType].talent = Math.max(
+              equipmentEffects.setters.magicSkills[magicType].talent,
+              bonus.set_talent
+            );
+          }
+        });
+      }
+
+      // Crafting skill bonuses
+      if (item.craft) {
+        Object.entries(item.craft).forEach(([craftType, bonus]) => {
+          if (!equipmentEffects.bonuses.craftingSkills[craftType]) {
+            equipmentEffects.bonuses.craftingSkills[craftType] = { value: 0, talent: 0 };
+          }
+          if (bonus.add_bonus) {
+            equipmentEffects.bonuses.craftingSkills[craftType].value += bonus.add_bonus;
+          }
+          if (bonus.set_bonus !== undefined && bonus.set_bonus !== 0) {
+            if (!equipmentEffects.setters.craftingSkills[craftType]) {
+              equipmentEffects.setters.craftingSkills[craftType] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.craftingSkills[craftType].value = Math.max(
+              equipmentEffects.setters.craftingSkills[craftType].value,
+              bonus.set_bonus
+            );
+          }
+          if (bonus.add_talent) {
+            equipmentEffects.bonuses.craftingSkills[craftType].talent += bonus.add_talent;
+          }
+          if (bonus.set_talent !== undefined && bonus.set_talent !== 0) {
+            if (!equipmentEffects.setters.craftingSkills[craftType]) {
+              equipmentEffects.setters.craftingSkills[craftType] = { value: 0, talent: 0 };
+            }
+            equipmentEffects.setters.craftingSkills[craftType].talent = Math.max(
+              equipmentEffects.setters.craftingSkills[craftType].talent,
+              bonus.set_talent
+            );
+          }
+        });
+      }
+
+      // Mitigation bonuses
+      if (item.mitigation) {
+        Object.entries(item.mitigation).forEach(([damageType, value]) => {
+          if (!equipmentEffects.bonuses.mitigation[damageType]) {
+            equipmentEffects.bonuses.mitigation[damageType] = 0;
+          }
+          equipmentEffects.bonuses.mitigation[damageType] += value;
+        });
+      }
+
+      // Detection bonuses
+      if (item.detections) {
+        Object.entries(item.detections).forEach(([detectionType, value]) => {
+          if (!equipmentEffects.bonuses.detections[detectionType]) {
+            equipmentEffects.bonuses.detections[detectionType] = 0;
+          }
+          equipmentEffects.bonuses.detections[detectionType] += value;
+        });
+      }
+
+      // Immunities
+      if (item.immunities) {
+        Object.entries(item.immunities).forEach(([immunityType, hasImmunity]) => {
+          if (hasImmunity && !equipmentEffects.bonuses.immunities.includes(immunityType)) {
+            equipmentEffects.bonuses.immunities.push(immunityType);
+          }
+        });
+      }
+
+      // Process implant-specific penalties
+      if (item.implant_data) {
+        const implantData = item.implant_data;
+
+        // Add pain penalty
+        if (implantData.pain_penalty) {
+          equipmentEffects.implants.total_pain_penalty += implantData.pain_penalty;
+        }
+
+        // Add health penalty
+        if (implantData.health_penalty) {
+          equipmentEffects.implants.total_health_penalty += implantData.health_penalty;
+        }
+
+        // Add resolve penalty
+        if (implantData.resolve_penalty) {
+          equipmentEffects.implants.total_resolve_penalty += implantData.resolve_penalty;
+        }
+
+        // Track highest rejection check
+        if (implantData.rejection_check) {
+          equipmentEffects.implants.highest_rejection_check = Math.max(
+            equipmentEffects.implants.highest_rejection_check,
+            implantData.rejection_check
+          );
+        }
+      }
+    });
+  }
+
   return equipmentEffects;
+};
+
+// Apply set_bonus and set_talent overrides from equipped items
+// This must be called AFTER all additive bonuses have been applied
+const applyEquipmentSetBonuses = (character, equipmentEffects) => {
+  // Apply attribute set_talent overrides
+  if (equipmentEffects.setters.attributes) {
+    Object.entries(equipmentEffects.setters.attributes).forEach(([attr, setValue]) => {
+      if (setValue !== 0 && character.attributes && character.attributes[attr] !== undefined) {
+        character.attributes[attr] = setValue;
+      }
+    });
+  }
+
+  // Apply basic skill set_bonus overrides
+  if (equipmentEffects.setters.skills) {
+    Object.entries(equipmentEffects.setters.skills).forEach(([skill, setterData]) => {
+      if (character.skills[skill]) {
+        if (setterData.value !== 0) {
+          character.skills[skill].value = setterData.value;
+        }
+        if (setterData.talent !== 0) {
+          character.skills[skill].talent = setterData.talent;
+        }
+      }
+    });
+  }
+
+  // Apply weapon skill set_bonus and set_talent overrides
+  if (equipmentEffects.setters.weaponSkills) {
+    Object.entries(equipmentEffects.setters.weaponSkills).forEach(([weaponType, setterData]) => {
+      if (character.weaponSkills[weaponType]) {
+        if (setterData.value !== 0) {
+          character.weaponSkills[weaponType].value = setterData.value;
+        }
+        if (setterData.talent !== 0) {
+          character.weaponSkills[weaponType].talent = setterData.talent;
+        }
+      }
+    });
+  }
+
+  // Apply magic skill set_bonus and set_talent overrides
+  if (equipmentEffects.setters.magicSkills) {
+    Object.entries(equipmentEffects.setters.magicSkills).forEach(([magicType, setterData]) => {
+      if (character.magicSkills[magicType]) {
+        if (setterData.value !== 0) {
+          character.magicSkills[magicType].value = setterData.value;
+        }
+        if (setterData.talent !== 0) {
+          character.magicSkills[magicType].talent = setterData.talent;
+        }
+      }
+    });
+  }
+
+  // Apply crafting skill set_bonus and set_talent overrides
+  if (equipmentEffects.setters.craftingSkills) {
+    Object.entries(equipmentEffects.setters.craftingSkills).forEach(([craftType, setterData]) => {
+      if (character.craftingSkills[craftType]) {
+        if (setterData.value !== 0) {
+          character.craftingSkills[craftType].value = setterData.value;
+        }
+        if (setterData.talent !== 0) {
+          character.craftingSkills[craftType].talent = setterData.talent;
+        }
+      }
+    });
+  }
 };
 
 // Apply equipment effects to character
@@ -1246,6 +1749,10 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
       }
     });
   }
+
+  // FINAL STEP: Apply set_bonus and set_talent overrides from equipped items
+  // This must happen AFTER all additions to ensure the set values take precedence
+  applyEquipmentSetBonuses(character, equipmentEffects);
 
   // Apply resource bonuses
   if (equipmentEffects.bonuses.health.max) {
@@ -1332,6 +1839,38 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
   character.swim_speed = baseSwimSpeed + (character.movement_bonuses?.swim || 0);
   character.climb_speed = baseClimbSpeed + (character.movement_bonuses?.climb || 0);
   character.fly_speed = character.movement_bonuses?.fly || 0;
+
+  // Apply implant penalties
+  if (equipmentEffects.implants) {
+    // Store implant data on character for reference
+    character.implantEffects = {
+      total_pain_penalty: equipmentEffects.implants.total_pain_penalty,
+      total_health_penalty: equipmentEffects.implants.total_health_penalty,
+      total_resolve_penalty: equipmentEffects.implants.total_resolve_penalty,
+      highest_rejection_check: equipmentEffects.implants.highest_rejection_check
+    };
+
+    // Apply health penalty from implants
+    if (equipmentEffects.implants.total_health_penalty > 0) {
+      character.resources.health.max = Math.max(1, character.resources.health.max - equipmentEffects.implants.total_health_penalty);
+      // If current health exceeds new max, reduce it
+      if (character.resources.health.current > character.resources.health.max) {
+        character.resources.health.current = character.resources.health.max;
+      }
+    }
+
+    // Apply resolve penalty from implants
+    if (equipmentEffects.implants.total_resolve_penalty > 0) {
+      character.resources.resolve.max = Math.max(1, character.resources.resolve.max - equipmentEffects.implants.total_resolve_penalty);
+      // If current resolve exceeds new max, reduce it
+      if (character.resources.resolve.current > character.resources.resolve.max) {
+        character.resources.resolve.current = character.resources.resolve.max;
+      }
+    }
+
+    // Pain penalty is stored but not automatically applied - up to GM/system to use
+    // Rejection check is stored but not automatically applied - up to GM/system to use
+  }
 
   // Store equipment effects for reference
   character.equipmentEffects = equipmentEffects;

@@ -20,7 +20,6 @@ interface InventoryItemProps {
   onUnequip: (slotName: string) => void;
   onEdit: (index: number) => void;
   onQuantityChange: (index: number, quantity: number) => void;
-  isCustomized: boolean;
   isEquipped: boolean;
   equippedSlot?: string;
   canEquip: boolean;
@@ -48,7 +47,6 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   onUnequip,
   onEdit,
   onQuantityChange,
-  isCustomized,
   isEquipped,
   equippedSlot,
   canEquip,
@@ -66,6 +64,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       shield: ['offhand'],
       accessory: ['accessory1', 'accessory2'],
       ammunition: ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'], // Can be held
+      implant: [], // Implants are equipped via equipped flag, not via slots
     };
 
     // Determine potential slots based on item type
@@ -197,6 +196,12 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   // };
 
   const handleEquip = () => {
+    // Special handling for implants - they use equipped flag instead of slots
+    if (item.type === 'implant') {
+      onEquip(inventoryIndex.toString(), 'equipped');
+      return;
+    }
+
     const availableSlots = getAvailableSlots();
 
     // If only one slot available, equip directly
@@ -291,19 +296,6 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
           >
             {((item.weight || 0) * inventoryItem.quantity).toFixed(1)} bu
           </span>
-          {isCustomized && (
-            <span
-              style={{
-                color: 'var(--color-sat-purple)',
-                fontSize: '0.75rem',
-                backgroundColor: 'var(--color-sat-purple-faded)',
-                padding: '0.125rem 0.5rem',
-                borderRadius: '4px',
-              }}
-            >
-              Customized
-            </span>
-          )}
         </div>
       </div>
       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
@@ -717,6 +709,21 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
   // Helper function to check if an item is equipped
   const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
+    // Check for implants - they use the equipped flag on inventory item
+    if (item.type === 'implant') {
+      const inventoryIndex = character.inventory?.findIndex(invItem => {
+        const invItemData = getItemFromInventory(invItem);
+        return invItemData?._id === item._id;
+      });
+      if (inventoryIndex !== undefined && inventoryIndex >= 0) {
+        const inventoryItem = character.inventory?.[inventoryIndex];
+        if (inventoryItem?.equipped) {
+          return { equipped: true, slot: inventoryIndex.toString() };
+        }
+      }
+      return { equipped: false };
+    }
+
     if (!character.equipment) return { equipped: false };
 
     // Check all equipment slots including new structure
@@ -745,7 +752,8 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
       'gloves',
       'shield',
       'accessory',
-      'ammunition'
+      'ammunition',
+      'implant'
     ];
 
     // Check standard equipment types
@@ -965,6 +973,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
               <option value="tool">Tools</option>
               <option value="instrument">Instruments</option>
               <option value="ammunition">Ammunition</option>
+              <option value="implant">Implants</option>
             </select>
             <select
               value={equippedFilter}
@@ -1020,7 +1029,6 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                     onUnequip={handleUnequipItem}
                     onEdit={handleEditItem}
                     onQuantityChange={handleQuantityChange}
-                    isCustomized={invItem.isCustomized}
                     isEquipped={equipmentStatus.equipped}
                     equippedSlot={equipmentStatus.slot}
                     canEquip={canEquip}
