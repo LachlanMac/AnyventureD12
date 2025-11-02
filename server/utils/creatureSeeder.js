@@ -18,17 +18,18 @@ const loadCreaturesFromJson = async () => {
     let loadedCount = 0;
     let updatedCount = 0;
     const creatureNamesFromFiles = new Set();
+    const creatureNameTypesFromFiles = new Set(); // Track name+type combinations
 
     for (const type of creatureTypes) {
       const typePath = path.join(dataPath, type);
-      
+
       if (!fs.existsSync(typePath)) {
         console.log(`⚠️  Type directory not found: ${type}`);
         continue;
       }
 
       const files = fs.readdirSync(typePath).filter(file => file.endsWith('.json'));
-      
+
       for (const file of files) {
         try {
           const filePath = path.join(typePath, file);
@@ -37,6 +38,8 @@ const loadCreaturesFromJson = async () => {
 
           // Track creature names from files
           creatureNamesFromFiles.add(creatureData.name);
+          // Track name+type combinations to catch type changes
+          creatureNameTypesFromFiles.add(`${creatureData.name}|${type}`);
 
           // Ensure the creature has the correct type
           creatureData.type = type;
@@ -78,8 +81,14 @@ const loadCreaturesFromJson = async () => {
               console.log(`  Generated foundry_id for existing creature: ${updateData.foundry_id}`);
             }
 
+            // Log portrait changes
+            if (existingCreature.foundry_portrait !== updateData.foundry_portrait) {
+              console.log(`  📸 Portrait updated: "${existingCreature.foundry_portrait}" → "${updateData.foundry_portrait}"`);
+            }
+
             await Creature.findByIdAndUpdate(existingCreature._id, updateData, {
-              runValidators: true
+              runValidators: true,
+              new: true
             });
             updatedCount++;
             console.log(`✅ Updated creature: ${creatureData.name} (${type})`);
@@ -103,15 +112,19 @@ const loadCreaturesFromJson = async () => {
     }
 
     // Find and delete orphaned creatures (non-homebrew creatures not in JSON files)
+    // This includes creatures whose name+type combination no longer exists (e.g., type changed from "monster" to "construct")
     console.log('\n🧹 Checking for orphaned creatures...');
-    const creaturesInDatabase = await Creature.find({ isHomebrew: { $ne: true } }, 'name');
-    const orphanedCreatures = creaturesInDatabase.filter(dbCreature => !creatureNamesFromFiles.has(dbCreature.name));
+    const creaturesInDatabase = await Creature.find({ isHomebrew: { $ne: true } }, 'name type');
+    const orphanedCreatures = creaturesInDatabase.filter(dbCreature => {
+      const nameTypeKey = `${dbCreature.name}|${dbCreature.type}`;
+      return !creatureNameTypesFromFiles.has(nameTypeKey);
+    });
 
     let deletedCount = 0;
     if (orphanedCreatures.length > 0) {
       console.log(`Found ${orphanedCreatures.length} orphaned non-homebrew creatures to delete:`);
       for (const orphan of orphanedCreatures) {
-        console.log(`  🗑️  Deleting orphaned creature: ${orphan.name}`);
+        console.log(`  🗑️  Deleting orphaned creature: ${orphan.name} (${orphan.type})`);
         await Creature.deleteOne({ _id: orphan._id });
         deletedCount++;
       }

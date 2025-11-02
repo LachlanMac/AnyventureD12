@@ -5,7 +5,7 @@
   "tier": "grunt",
   "type": "beast",
   "size": "small",
-  "foundry_portrait": "",
+  "foundry_portrait": "lumberwasp.png",
   "health": {
     "max": 16,
     "current": 15

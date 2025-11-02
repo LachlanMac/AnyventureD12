@@ -1,11 +1,11 @@
 {
   "name": "Queen Lumberwasp",
   "description": "The queen of the lumberwasps is massive compared to her drones and larvae. She rarely shows herself unless the hive is in grave danger, and will expect her soldiers to fight to the death to defend her.",
-  "tactics": "",
+  "tactics": "queen_lumberwasp.png",
   "tier": "elite",
   "type": "beast",
   "size": "large",
-  "foundry_portrait": "",
+  "foundry_portrait": "queen_lumberwasp.png",
   "health": {
     "max": 100,
     "current": 15

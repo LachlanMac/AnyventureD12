@@ -5,7 +5,7 @@
   "tier": "standard",
   "type": "construct",
   "size": "large",
-  "foundry_portrait": "",
+  "foundry_portrait": "flesh_golem.png",
   "health": {
     "max": 35,
     "current": 15

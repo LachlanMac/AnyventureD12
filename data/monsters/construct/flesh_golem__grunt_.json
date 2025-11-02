@@ -5,7 +5,7 @@
   "tier": "grunt",
   "type": "construct",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "flesh_golem_grunt.png",
   "health": {
     "max": 18,
     "current": 15
