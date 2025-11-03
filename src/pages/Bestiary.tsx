@@ -280,50 +280,6 @@ const Bestiary: React.FC = () => {
                   ))}
                 </select>
               </div>
-
-              {/* Challenge Rating */}
-              <div>
-                <label
-                  style={{
-                    color: 'var(--color-cloud)',
-                    fontSize: '0.875rem',
-                    display: 'block',
-                    marginBottom: '0.25rem',
-                  }}
-                >
-                  Challenge Rating
-                </label>
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '0.5rem' }}>
-                  <input
-                    type="number"
-                    value={filters.minCR}
-                    onChange={(e) => setFilters({ ...filters, minCR: e.target.value })}
-                    placeholder="Min CR"
-                    min="1"
-                    style={{
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                  <input
-                    type="number"
-                    value={filters.maxCR}
-                    onChange={(e) => setFilters({ ...filters, maxCR: e.target.value })}
-                    placeholder="Max CR"
-                    min="1"
-                    style={{
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
-              </div>
             </div>
           </CardBody>
         </Card>
@@ -453,16 +409,16 @@ const Bestiary: React.FC = () => {
                                 Health:{' '}
                               </span>
                               <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                                {creature.health.max}
+                                {creature.health?.max || 0}
                               </span>
                             </div>
-                            {creature.resolve.max > 0 && (
+                            {(creature.resolve?.max || 0) > 0 && (
                               <div>
                                 <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
                                   Resolve:{' '}
                                 </span>
                                 <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                                  {creature.resolve.max}
+                                  {creature.resolve?.max || 0}
                                 </span>
                               </div>
                             )}
