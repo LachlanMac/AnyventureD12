@@ -123,6 +123,31 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
         </div>
       </div>
 
+      {/* Explanatory text for Personality */}
+      <div
+        style={{
+          padding: '0.75rem',
+          marginBottom: '1rem',
+          backgroundColor: 'rgba(85, 65, 130, 0.15)',
+          borderRadius: '0.375rem',
+          borderLeft: '3px solid var(--color-sat-purple)',
+        }}
+      >
+        <p
+          style={{
+            color: 'var(--color-cloud)',
+            fontSize: '0.875rem',
+            lineHeight: '1.5',
+            margin: 0,
+          }}
+        >
+          Choose a personality type that defines your character's approach to the world. Your
+          personality determines how your character interacts with others and reacts to different
+          situations. Your character is automatically granted the module associated with this
+          personality type.
+        </p>
+      </div>
+
       {expanded && (
         <>
           {/* Personality selection grid */}

@@ -235,7 +235,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
               marginTop: '0.5rem',
             }}
           >
-            How many module points you start with to spend on modules. Default is 10.
+            How many module points you start with to spend on modules. The default is 10, representing an individual who is just setting off to become an adventurer. You can spend module points to purchase and advance in modules.
           </p>
         </div>
       )}
@@ -278,8 +278,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
             marginTop: '0.5rem',
           }}
         >
-          How many Talent points you start with to distribute among weapon, magic, and crafting
-          skills. Default is 8.
+          How many Talent points you start with to distribute among weapon, magic, and crafting skills. The default is 8.
         </p>
       </div>
     </div>

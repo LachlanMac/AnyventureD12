@@ -36,23 +36,6 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
         Character Personality & Trait
       </h2>
 
-      <div
-        style={{
-          padding: '1rem',
-          backgroundColor: 'var(--color-dark-elevated)',
-          borderRadius: '0.5rem',
-          marginBottom: '1.5rem',
-          color: 'var(--color-cloud)',
-        }}
-      >
-        <p>
-          Choose a personality type that defines your character's approach to the world. Your
-          personality determines how your character interacts with others and reacts to different
-          situations. Your character is automatically granted the module associated with this
-          personality type.
-        </p>
-      </div>
-
       <PersonalitySelection
         selectedPersonality={selectedPersonality}
         onSelectPersonality={onSelectPersonality}
@@ -60,23 +43,6 @@ const PersonalityCreatorTab: React.FC<PersonalityCreatorTabProps> = ({
 
       {/* Character Trait Selection */}
       <div style={{ marginTop: '2rem' }}>
-        <div
-          style={{
-            padding: '1rem',
-            backgroundColor: 'var(--color-dark-elevated)',
-            borderRadius: '0.5rem',
-            marginBottom: '1.5rem',
-            color: 'var(--color-cloud)',
-          }}
-        >
-          <p>
-            Choose a character trait that represents your character's unique nature or background.
-            Traits provide special abilities, bonuses, and sometimes drawbacks that make your
-            character distinct. The default trait is "Born to Adventure" which grants bonus health,
-            resolve, and morale.
-          </p>
-        </div>
-
         <CharacterTraitSelectionWithSubchoices
           selectedTrait={selectedTrait}
           onSelectTrait={onSelectTrait}

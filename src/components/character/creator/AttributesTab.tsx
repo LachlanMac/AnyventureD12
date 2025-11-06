@@ -23,7 +23,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '1.5rem',
+          marginBottom: '0.5rem',
         }}
       >
         <h2
@@ -47,15 +47,27 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
         </div>
       </div>
 
-      <p
+      {/* Explanatory text for Attributes */}
+      <div
         style={{
-          color: 'var(--color-cloud)',
+          padding: '0.75rem',
           marginBottom: '1.5rem',
+          backgroundColor: 'rgba(85, 65, 130, 0.15)',
+          borderRadius: '0.375rem',
+          borderLeft: '3px solid var(--color-sat-purple)',
         }}
       >
-        Attributes define your character's basic capabilities. Each attribute has a maximum value of
-        4 and determines the number of dice you roll for related skills. All attributes start at 1.
-      </p>
+        <p
+          style={{
+            color: 'var(--color-cloud)',
+            fontSize: '0.875rem',
+            lineHeight: '1.5',
+            margin: 0,
+          }}
+        >
+          Attributes are the talents your character is born with, reflecting innate ability. Attributes determine how many dice you roll for the skills that fall under each attribute. For example, 3 points in finesse allow you to roll 3 dice for evasion, stealth, coordination and thievery and take the highest result. Under normal circumstances, you will not have an opportunity to increase these talents further, so allocate them wisely.
+        </p>
+      </div>
 
       <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
         {Object.entries(ATTRIBUTE_SKILLS).map(([attributeId, skills]) => (
@@ -189,15 +201,6 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
           </div>
         ))}
       </div>
-
-      <div
-        style={{
-          backgroundColor: 'var(--color-dark-elevated)',
-          borderRadius: '0.5rem',
-          padding: '1.5rem',
-          marginTop: '2rem',
-        }}
-      ></div>
     </div>
   );
 };

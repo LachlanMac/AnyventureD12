@@ -167,7 +167,7 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
           display: 'flex',
           justifyContent: 'space-between',
           alignItems: 'center',
-          marginBottom: '1.5rem',
+          marginBottom: '0.5rem',
         }}
       >
         <h2
@@ -191,15 +191,27 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
         </div>
       </div>
 
-      <p
+      {/* Explanatory text for Talents */}
+      <div
         style={{
-          color: 'var(--color-cloud)',
+          padding: '0.75rem',
           marginBottom: '1.5rem',
+          backgroundColor: 'rgba(85, 65, 130, 0.15)',
+          borderRadius: '0.375rem',
+          borderLeft: '3px solid var(--color-sat-purple)',
         }}
       >
-        Assign talent stars to specialized skills that don't depend on attributes. Ranged and Melee
-        weapons start with 1 talent star by default.
-      </p>
+        <p
+          style={{
+            color: 'var(--color-cloud)',
+            fontSize: '0.875rem',
+            lineHeight: '1.5',
+            margin: 0,
+          }}
+        >
+          Assign talent points into specialized skills that do not depend on attributes, allowing you to roll a number of dice equal to the amount of points allocated. You can gain additional specialized talents through core modules. Brawling, throwing and simple weapons all start with 1 talent. A character without any talent rolls any related check with a penalty dice, taking the lower of the two values.
+        </p>
+      </div>
 
       {/* Render all skill sections using the reusable function */}
       {renderSkillSection(
@@ -217,29 +229,6 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
         craftingSkills,
         onUpdateCraftingSkillTalent
       )}
-
-      <div
-        style={{
-          backgroundColor: 'var(--color-dark-elevated)',
-          borderRadius: '0.5rem',
-          padding: '1.5rem',
-          marginTop: '2rem',
-        }}
-      >
-        <h3
-          style={{
-            color: 'var(--color-metal-gold)',
-            fontWeight: 'bold',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Talent System
-        </h3>
-        <p style={{ color: 'var(--color-cloud)' }}>
-          Each talent star represents a die you roll when using that skill. For example, if you have
-          2 talent stars in Ranged Weapons, you'll roll 2 dice for ranged weapon checks.
-        </p>
-      </div>
     </div>
   );
 };

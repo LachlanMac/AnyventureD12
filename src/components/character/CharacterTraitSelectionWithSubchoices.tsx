@@ -215,6 +215,31 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
         </div>
       </div>
 
+      {/* Explanatory text for Character Trait */}
+      <div
+        style={{
+          padding: '0.75rem',
+          marginBottom: '1rem',
+          backgroundColor: 'rgba(85, 65, 130, 0.15)',
+          borderRadius: '0.375rem',
+          borderLeft: '3px solid var(--color-sat-purple)',
+        }}
+      >
+        <p
+          style={{
+            color: 'var(--color-cloud)',
+            fontSize: '0.875rem',
+            lineHeight: '1.5',
+            margin: 0,
+          }}
+        >
+          Choose a character trait that represents your character's unique nature or background.
+          Traits provide special abilities, bonuses, and sometimes drawbacks that make your
+          character distinct. The default trait is "Born to Adventure" which grants bonus health,
+          resolve, and morale.
+        </p>
+      </div>
+
       {/* Trait selection grid - this is what gets collapsed */}
       {expanded && (
         <div
