@@ -219,6 +219,55 @@ const CharacterView: React.FC = () => {
     }
   };
 
+  const handlePainStressChange = async (
+    type: 'pain' | 'stress',
+    newCustomValue: number
+  ) => {
+    if (!character) return;
+
+    try {
+      // Update character locally first for immediate feedback
+      const currentData = character.resources[type];
+      if (!currentData) return;
+
+      const updatedCharacter = {
+        ...character,
+        resources: {
+          ...character.resources,
+          [type]: {
+            ...currentData,
+            custom: newCustomValue,
+          },
+        },
+      };
+      setCharacter(updatedCharacter);
+
+      // Send update to server
+      const response = await fetch(`/api/characters/${id}/resources`, {
+        method: 'PATCH',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          resources: updatedCharacter.resources,
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error(`Failed to update character ${type}`);
+      }
+
+      // Get updated character from server to ensure sync
+      const updatedData = await response.json();
+      setCharacter(updatedData);
+    } catch (err) {
+      console.error(`Error updating character ${type}:`, err);
+      // Revert on error
+      setCharacter(character);
+      setError(`Failed to update ${type}. Please try again.`);
+    }
+  };
+
   const handleUpdateExoticSchools = async (exoticSchools: any) => {
     if (!character) return;
 
@@ -393,6 +442,7 @@ const CharacterView: React.FC = () => {
           character={character}
           onDelete={canEdit ? handleDelete : undefined}
           onResourceChange={canEdit ? handleResourceChange : undefined}
+          onPainStressChange={canEdit ? handlePainStressChange : undefined}
         />
 
         {/* Tab navigation */}
@@ -412,6 +462,10 @@ const CharacterView: React.FC = () => {
               modules={character.modules}
               modulePoints={character.modulePoints}
               onUpdateModulePoints={handleUpdateCharacter}
+              traits={character.traits}
+              onTraitsUpdate={(updatedTraits) => {
+                setCharacter({ ...character, traits: updatedTraits });
+              }}
             />
           )}
 

@@ -28,6 +28,8 @@ export interface Resources {
   energy: { current: number; max: number };
   resolve: { current: number; max: number };
   morale?: { current: number; max: number };
+  pain?: { custom: number; calculated: number };
+  stress?: { custom: number; calculated: number };
 }
 
 // Module point structure

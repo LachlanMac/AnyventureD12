@@ -428,7 +428,7 @@ const CharacterSchema = new Schema({
   
   // Resources
   resources: {
-    health: { 
+    health: {
       current: { type: Number, default: 0 },
       max: { type: Number, default: 0 }
     },
@@ -443,6 +443,14 @@ const CharacterSchema = new Schema({
     morale: {
       current: { type: Number, default: 0 },
       max: { type: Number, default: 0 }
+    },
+    pain: {
+      custom: { type: Number, default: 0 }, // Manual adjustments
+      calculated: { type: Number, default: 0 } // Auto-calculated from items
+    },
+    stress: {
+      custom: { type: Number, default: 0 }, // Manual adjustments
+      calculated: { type: Number, default: 0 } // Auto-calculated from items
     }
   },
 

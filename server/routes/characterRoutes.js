@@ -276,6 +276,20 @@ router.patch('/:id/resources', protect, async (req, res) => {
     character.resources.resolve.current = Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve));
     character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
 
+    // Update pain and stress custom values if provided
+    if (resources.pain) {
+      if (!character.resources.pain) {
+        character.resources.pain = { custom: 0, calculated: 0 };
+      }
+      character.resources.pain.custom = resources.pain.custom || 0;
+    }
+    if (resources.stress) {
+      if (!character.resources.stress) {
+        character.resources.stress = { custom: 0, calculated: 0 };
+      }
+      character.resources.stress.custom = resources.stress.custom || 0;
+    }
+
     await character.save();
 
     // Re-fetch the character with proper population, like in getCharacter

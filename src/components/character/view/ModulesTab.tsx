@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import Button from '../../../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../../../components/ui/Card';
+import ExtraTrainingManager from './ExtraTrainingManager';
 import { CharacterModule, Module, ModulePoints } from '../../../types/character';
 
 interface ModulesTabProps {
@@ -9,6 +10,8 @@ interface ModulesTabProps {
   modules: CharacterModule[]; // This represents the modules array in the character object
   modulePoints?: ModulePoints;
   onUpdateModulePoints?: (updatedCharacter: any) => void;
+  traits?: any[];
+  onTraitsUpdate?: (updatedTraits: any[]) => void;
 }
 
 const ModulesTab: React.FC<ModulesTabProps> = ({
@@ -16,6 +19,8 @@ const ModulesTab: React.FC<ModulesTabProps> = ({
   modules,
   modulePoints,
   onUpdateModulePoints,
+  traits = [],
+  onTraitsUpdate,
 }) => {
   const navigate = useNavigate();
   const [isChangingPoints, setIsChangingPoints] = useState(false);
@@ -45,6 +50,44 @@ const ModulesTab: React.FC<ModulesTabProps> = ({
 
   return (
     <div>
+      {/* Extra Training Section */}
+      <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+        <CardHeader>
+          <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <h2
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '1.25rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Extra Training
+            </h2>
+            <span
+              style={{
+                color: 'var(--color-cloud)',
+                fontSize: '0.875rem',
+              }}
+            >
+              (1 per 10 module points)
+            </span>
+          </div>
+        </CardHeader>
+        <CardBody>
+          <p style={{ color: 'var(--color-cloud)', marginBottom: '1rem', fontSize: '0.875rem' }}>
+            Through dedicated practice and experience, you can improve specific skills. Each skill
+            can only be selected once.
+          </p>
+
+          <ExtraTrainingManager
+            characterId={characterId}
+            modulePoints={modulePoints || { total: 0, spent: 0 }}
+            traits={traits}
+            onTraitsUpdate={onTraitsUpdate || (() => {})}
+          />
+        </CardBody>
+      </Card>
+
       <div
         style={{
           display: 'flex',

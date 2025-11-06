@@ -831,7 +831,9 @@ export const parseEquipmentEffects = (character) => {
       movement: 0,
       bonusAttack: 0,
       detections: {},
-      immunities: []
+      immunities: [],
+      pain: 0,
+      stress: 0
     },
     setters: {
       skills: {},
@@ -934,6 +936,14 @@ export const parseEquipmentEffects = (character) => {
     // Movement bonus
     if (item && item.movement) {
       equipmentEffects.bonuses.movement += item.movement;
+    }
+
+    // Pain and Stress from items
+    if (item && item.pain !== undefined) {
+      equipmentEffects.bonuses.pain += item.pain;
+    }
+    if (item && item.stress !== undefined) {
+      equipmentEffects.bonuses.stress += item.stress;
     }
 
     // Attribute bonuses
@@ -1784,6 +1794,16 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
   if (equipmentEffects.bonuses.movement) {
     character.movement += equipmentEffects.bonuses.movement;
   }
+
+  // Apply pain and stress calculated values from equipment
+  if (!character.resources.pain) {
+    character.resources.pain = { custom: 0, calculated: 0 };
+  }
+  if (!character.resources.stress) {
+    character.resources.stress = { custom: 0, calculated: 0 };
+  }
+  character.resources.pain.calculated = equipmentEffects.bonuses.pain || 0;
+  character.resources.stress.calculated = equipmentEffects.bonuses.stress || 0;
 
   // Apply mitigation bonuses
   if (equipmentEffects.bonuses.mitigation) {

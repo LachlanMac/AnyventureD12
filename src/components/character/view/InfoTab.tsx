@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import TalentDisplay from '../TalentDisplay';
 import MusicTalentDisplay from '../MusicTalentDisplay';
-import ExtraTrainingManager from './ExtraTrainingManager';
 import { Character, Language } from '../../../types/character';
 import { getModifiedDiceType, getDiceTierModifierIndicator } from '../../../utils/diceUtils';
 
@@ -61,14 +60,6 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
   const [availableLanguages, setAvailableLanguages] = useState<Language[]>([]);
   const [selectedLanguage, setSelectedLanguage] = useState<string>('');
   const [isAddingLanguage, setIsAddingLanguage] = useState(false);
-  const [traits, setTraits] = useState(character.traits || []);
-
-  // Handler for when traits are updated via ExtraTrainingManager
-  const handleTraitsUpdate = (updatedTraits: any[]) => {
-    setTraits(updatedTraits);
-    // Also refresh the page to update skill displays
-    window.location.reload();
-  };
 
   // Load available languages
   useEffect(() => {
@@ -328,150 +319,10 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
         </CardBody>
       </Card>
 
-      {/* Magic Skills */}
-      <Card variant="default">
-        <CardHeader>
-          <h2
-            style={{
-              color: 'var(--color-white)',
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-            }}
-          >
-            Magic Skills
-          </h2>
-        </CardHeader>
-        <CardBody>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {Object.entries(character.magicSkills)
-              .filter(([_, data]) => data.talent > 0) // Only show skills with talent
-              .map(([skillId, skillData]) => {
-                const diceTierModifier = skillData.diceTierModifier || 0;
-                // If skill value is negative, show automatic failure
-                const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
-                const diceType =
-                  skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
-                const modifierIndicator =
-                  skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
-
-                return (
-                  <div
-                    key={skillId}
-                    className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
-                  >
-                    <div>
-                      <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                        {skillId.charAt(0).toUpperCase() + skillId.slice(1)} Magic
-                        {modifierIndicator && (
-                          <span
-                            style={{
-                              color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
-                              marginLeft: '0.5rem',
-                              fontSize: '0.875rem',
-                              fontWeight: 'bold',
-                            }}
-                          >
-                            {modifierIndicator}
-                          </span>
-                        )}
-                      </div>
-                      <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.value < 0
-                          ? '1'
-                          : skillData.talent > 0
-                            ? `${effectiveTalent}${diceType}`
-                            : 'No dice'}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
-                    </div>
-                  </div>
-                );
-              })}
-            {!Object.values(character.magicSkills).some((skill) => skill.talent > 0) && (
-              <div className="col-span-2 text-center p-4 text-cloud">
-                No magic skills with talent points assigned.
-              </div>
-            )}
-          </div>
-        </CardBody>
-      </Card>
-
-      {/* Crafting Skills */}
-      <Card variant="default">
-        <CardHeader>
-          <h2
-            style={{
-              color: 'var(--color-white)',
-              fontSize: '1.25rem',
-              fontWeight: 'bold',
-            }}
-          >
-            Crafting Skills
-          </h2>
-        </CardHeader>
-        <CardBody>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {Object.entries(character.craftingSkills)
-              .filter(([_, data]) => data.talent > 0) // Only show skills with talent
-              .map(([skillId, skillData]) => {
-                const diceTierModifier = skillData.diceTierModifier || 0;
-                // If skill value is negative, show automatic failure
-                const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
-                const diceType =
-                  skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
-                const modifierIndicator =
-                  skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
-
-                return (
-                  <div
-                    key={skillId}
-                    className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
-                  >
-                    <div>
-                      <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                        {skillId.charAt(0).toUpperCase() + skillId.slice(1)}
-                        {modifierIndicator && (
-                          <span
-                            style={{
-                              color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
-                              marginLeft: '0.5rem',
-                              fontSize: '0.875rem',
-                              fontWeight: 'bold',
-                            }}
-                          >
-                            {modifierIndicator}
-                          </span>
-                        )}
-                      </div>
-                      <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        {skillData.value < 0
-                          ? '1'
-                          : skillData.talent > 0
-                            ? `${effectiveTalent}${diceType}`
-                            : 'No dice'}
-                      </div>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
-                    </div>
-                  </div>
-                );
-              })}
-            {!Object.values(character.craftingSkills).some((skill) => skill.talent > 0) && (
-              <div className="col-span-2 text-center p-4 text-cloud">
-                No crafting skills with talent points assigned.
-              </div>
-            )}
-          </div>
-        </CardBody>
-      </Card>
-
-      {/* Extra Training */}
-      <Card variant="default">
-        <CardHeader>
-          <div className="flex justify-between items-center">
+      {/* Magic Skills - Only show if character has any magic skill talents */}
+      {Object.values(character.magicSkills).some((skill) => skill.talent > 0) && (
+        <Card variant="default">
+          <CardHeader>
             <h2
               style={{
                 color: 'var(--color-white)',
@@ -479,28 +330,128 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                 fontWeight: 'bold',
               }}
             >
-              Extra Training
+              Magic Skills
             </h2>
-            <span style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-              {Math.floor((character.modulePoints?.total || 0) / 10)} available
-              (1 per 10 module points)
-            </span>
-          </div>
-        </CardHeader>
-        <CardBody>
-          <p style={{ color: 'var(--color-cloud)', marginBottom: '1rem', fontSize: '0.875rem' }}>
-            Through dedicated practice and experience, you can improve specific skills. Each skill
-            can only be selected once.
-          </p>
+          </CardHeader>
+          <CardBody>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.entries(character.magicSkills)
+                .filter(([_, data]) => data.talent > 0) // Only show skills with talent
+                .map(([skillId, skillData]) => {
+                  const diceTierModifier = skillData.diceTierModifier || 0;
+                  // If skill value is negative, show automatic failure
+                  const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
+                  const diceType =
+                    skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
+                  const modifierIndicator =
+                    skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
 
-          <ExtraTrainingManager
-            characterId={character._id || ''}
-            modulePoints={character.modulePoints || { total: 0, spent: 0 }}
-            traits={traits}
-            onTraitsUpdate={handleTraitsUpdate}
-          />
-        </CardBody>
-      </Card>
+                  return (
+                    <div
+                      key={skillId}
+                      className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
+                    >
+                      <div>
+                        <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                          {skillId.charAt(0).toUpperCase() + skillId.slice(1)} Magic
+                          {modifierIndicator && (
+                            <span
+                              style={{
+                                color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                                marginLeft: '0.5rem',
+                                fontSize: '0.875rem',
+                                fontWeight: 'bold',
+                              }}
+                            >
+                              {modifierIndicator}
+                            </span>
+                          )}
+                        </div>
+                        <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+                          {skillData.value < 0
+                            ? '1'
+                            : skillData.talent > 0
+                              ? `${effectiveTalent}${diceType}`
+                              : 'No dice'}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </CardBody>
+        </Card>
+      )}
+
+      {/* Crafting Skills - Only show if character has any crafting skill talents */}
+      {Object.values(character.craftingSkills).some((skill) => skill.talent > 0) && (
+        <Card variant="default">
+          <CardHeader>
+            <h2
+              style={{
+                color: 'var(--color-white)',
+                fontSize: '1.25rem',
+                fontWeight: 'bold',
+              }}
+            >
+              Crafting Skills
+            </h2>
+          </CardHeader>
+          <CardBody>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+              {Object.entries(character.craftingSkills)
+                .filter(([_, data]) => data.talent > 0) // Only show skills with talent
+                .map(([skillId, skillData]) => {
+                  const diceTierModifier = skillData.diceTierModifier || 0;
+                  // If skill value is negative, show automatic failure
+                  const effectiveTalent = skillData.value < 0 ? 0 : skillData.talent;
+                  const diceType =
+                    skillData.value < 0 ? '' : getModifiedDiceType(skillData.value, diceTierModifier);
+                  const modifierIndicator =
+                    skillData.value < 0 ? '' : getDiceTierModifierIndicator(diceTierModifier);
+
+                  return (
+                    <div
+                      key={skillId}
+                      className="flex justify-between items-center p-3 bg-dark-elevated rounded-lg"
+                    >
+                      <div>
+                        <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                          {skillId.charAt(0).toUpperCase() + skillId.slice(1)}
+                          {modifierIndicator && (
+                            <span
+                              style={{
+                                color: diceTierModifier > 0 ? '#10b981' : 'var(--color-sunset)',
+                                marginLeft: '0.5rem',
+                                fontSize: '0.875rem',
+                                fontWeight: 'bold',
+                              }}
+                            >
+                              {modifierIndicator}
+                            </span>
+                          )}
+                        </div>
+                        <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
+                          {skillData.value < 0
+                            ? '1'
+                            : skillData.talent > 0
+                              ? `${effectiveTalent}${diceType}`
+                              : 'No dice'}
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-2">
+                        <TalentDisplay talent={skillData.talent} maxTalent={4} size="md" />
+                      </div>
+                    </div>
+                  );
+                })}
+            </div>
+          </CardBody>
+        </Card>
+      )}
 
       {/* Music Skills */}
       <Card variant="default">

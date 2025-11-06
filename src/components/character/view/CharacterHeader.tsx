@@ -29,6 +29,8 @@ interface CharacterHeaderProps {
       energy: { current: number; max: number };
       resolve: { current: number; max: number };
       morale?: { current: number; max: number };
+      pain?: { custom: number; calculated: number };
+      stress?: { custom: number; calculated: number };
     };
     movement: number;
     sprintSpeed?: number;
@@ -58,12 +60,17 @@ interface CharacterHeaderProps {
     resource: 'health' | 'energy' | 'resolve' | 'morale',
     newCurrent: number
   ) => void;
+  onPainStressChange?: (
+    type: 'pain' | 'stress',
+    newCustomValue: number
+  ) => void;
 }
 
 const CharacterHeader: React.FC<CharacterHeaderProps> = ({
   character,
   onDelete,
   onResourceChange,
+  onPainStressChange,
 }) => {
   const [portraitUrl, setPortraitUrl] = useState<string | null>(character.portraitUrl || null);
   const [isPublic, setIsPublic] = useState(character.public ?? true);
@@ -577,6 +584,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
             <ResourceBars
               resources={character.resources}
               onResourceChange={onResourceChange}
+              onPainStressChange={onPainStressChange}
               readOnly={!onResourceChange}
             />
           </div>

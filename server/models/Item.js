@@ -235,7 +235,11 @@ const ItemSchema = new Schema({
     aether: { type: Number, default: 0 },
     toxic: { type: Number, default: 0 }
   },
-  
+
+  // Pain and Stress from items (can be positive or negative)
+  pain: { type: Number, default: 0 },
+  stress: { type: Number, default: 0 },
+
   // Detections - vision types with range values
   detections: {
     normal: { type: Number, default: 0 },

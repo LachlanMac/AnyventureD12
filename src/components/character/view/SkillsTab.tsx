@@ -253,96 +253,111 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
         ]}
       />
 
-      <SpecializedSkillsSection
-        title="Magic Skills"
-        description="Magic skills represent affinity with different sources of magical or planar power."
-        skills={[
-          {
-            id: 'black',
-            name: 'Black',
-            value: character.magicSkills.black.value,
-            talent: character.magicSkills.black.talent,
-            diceTierModifier: character.magicSkills.black.diceTierModifier,
-          },
-          {
-            id: 'primal',
-            name: 'Primal',
-            value: character.magicSkills.primal.value,
-            talent: character.magicSkills.primal.talent,
-            diceTierModifier: character.magicSkills.primal.diceTierModifier,
-          },
-          {
-            id: 'meta',
-            name: 'Metamagic',
-            value: character.magicSkills.meta.value,
-            talent: character.magicSkills.meta.talent,
-            diceTierModifier: character.magicSkills.meta.diceTierModifier,
-          },
-          {
-            id: 'white',
-            name: 'White',
-            value: character.magicSkills.white.value,
-            talent: character.magicSkills.white.talent,
-            diceTierModifier: character.magicSkills.white.diceTierModifier,
-          },
-          {
-            id: 'mystic',
-            name: 'Mystic',
-            value: character.magicSkills.mystic.value,
-            talent: character.magicSkills.mystic.talent,
-            diceTierModifier: character.magicSkills.mystic.diceTierModifier,
-          },
-          {
-            id: 'arcane',
-            name: 'Arcane',
-            value: character.magicSkills.arcane.value,
-            talent: character.magicSkills.arcane.talent,
-            diceTierModifier: character.magicSkills.arcane.diceTierModifier,
-          },
-        ]}
-      />
+      {/* Only show Magic Skills if character has talent in any magic skill */}
+      {(character.magicSkills.black.talent > 0 ||
+        character.magicSkills.primal.talent > 0 ||
+        character.magicSkills.meta.talent > 0 ||
+        character.magicSkills.white.talent > 0 ||
+        character.magicSkills.mystic.talent > 0 ||
+        character.magicSkills.arcane.talent > 0) && (
+        <SpecializedSkillsSection
+          title="Magic Skills"
+          description="Magic skills represent affinity with different sources of magical or planar power."
+          skills={[
+            {
+              id: 'black',
+              name: 'Black',
+              value: character.magicSkills.black.value,
+              talent: character.magicSkills.black.talent,
+              diceTierModifier: character.magicSkills.black.diceTierModifier,
+            },
+            {
+              id: 'primal',
+              name: 'Primal',
+              value: character.magicSkills.primal.value,
+              talent: character.magicSkills.primal.talent,
+              diceTierModifier: character.magicSkills.primal.diceTierModifier,
+            },
+            {
+              id: 'meta',
+              name: 'Metamagic',
+              value: character.magicSkills.meta.value,
+              talent: character.magicSkills.meta.talent,
+              diceTierModifier: character.magicSkills.meta.diceTierModifier,
+            },
+            {
+              id: 'white',
+              name: 'White',
+              value: character.magicSkills.white.value,
+              talent: character.magicSkills.white.talent,
+              diceTierModifier: character.magicSkills.white.diceTierModifier,
+            },
+            {
+              id: 'mystic',
+              name: 'Mystic',
+              value: character.magicSkills.mystic.value,
+              talent: character.magicSkills.mystic.talent,
+              diceTierModifier: character.magicSkills.mystic.diceTierModifier,
+            },
+            {
+              id: 'arcane',
+              name: 'Arcane',
+              value: character.magicSkills.arcane.value,
+              talent: character.magicSkills.arcane.talent,
+              diceTierModifier: character.magicSkills.arcane.diceTierModifier,
+            },
+          ]}
+        />
+      )}
 
-      <SpecializedSkillsSection
-        title="Crafting Skills"
-        description="Crafting skills are used to create and modify equipment and items."
-        skills={[
-          {
-            id: 'engineering',
-            name: 'Engineering',
-            value: character.craftingSkills.engineering.value,
-            talent: character.craftingSkills.engineering.talent,
-            diceTierModifier: character.craftingSkills.engineering.diceTierModifier,
-          },
-          {
-            id: 'fabrication',
-            name: 'Fabrication',
-            value: character.craftingSkills.fabrication.value,
-            talent: character.craftingSkills.fabrication.talent,
-            diceTierModifier: character.craftingSkills.fabrication.diceTierModifier,
-          },
-          {
-            id: 'alchemy',
-            name: 'Alchemy',
-            value: character.craftingSkills.alchemy.value,
-            talent: character.craftingSkills.alchemy.talent,
-            diceTierModifier: character.craftingSkills.alchemy.diceTierModifier,
-          },
-          {
-            id: 'cooking',
-            name: 'Cooking',
-            value: character.craftingSkills.cooking.value,
-            talent: character.craftingSkills.cooking.talent,
-            diceTierModifier: character.craftingSkills.cooking.diceTierModifier,
-          },
-          {
-            id: 'glyphcraft',
-            name: 'Glyphcraft',
-            value: character.craftingSkills.glyphcraft.value,
-            talent: character.craftingSkills.glyphcraft.talent,
-            diceTierModifier: character.craftingSkills.glyphcraft.diceTierModifier,
-          },
-        ]}
-      />
+      {/* Only show Crafting Skills if character has talent in any crafting skill */}
+      {(character.craftingSkills.engineering.talent > 0 ||
+        character.craftingSkills.fabrication.talent > 0 ||
+        character.craftingSkills.alchemy.talent > 0 ||
+        character.craftingSkills.cooking.talent > 0 ||
+        character.craftingSkills.glyphcraft.talent > 0) && (
+        <SpecializedSkillsSection
+          title="Crafting Skills"
+          description="Crafting skills are used to create and modify equipment and items."
+          skills={[
+            {
+              id: 'engineering',
+              name: 'Engineering',
+              value: character.craftingSkills.engineering.value,
+              talent: character.craftingSkills.engineering.talent,
+              diceTierModifier: character.craftingSkills.engineering.diceTierModifier,
+            },
+            {
+              id: 'fabrication',
+              name: 'Fabrication',
+              value: character.craftingSkills.fabrication.value,
+              talent: character.craftingSkills.fabrication.talent,
+              diceTierModifier: character.craftingSkills.fabrication.diceTierModifier,
+            },
+            {
+              id: 'alchemy',
+              name: 'Alchemy',
+              value: character.craftingSkills.alchemy.value,
+              talent: character.craftingSkills.alchemy.talent,
+              diceTierModifier: character.craftingSkills.alchemy.diceTierModifier,
+            },
+            {
+              id: 'cooking',
+              name: 'Cooking',
+              value: character.craftingSkills.cooking.value,
+              talent: character.craftingSkills.cooking.talent,
+              diceTierModifier: character.craftingSkills.cooking.diceTierModifier,
+            },
+            {
+              id: 'glyphcraft',
+              name: 'Glyphcraft',
+              value: character.craftingSkills.glyphcraft.value,
+              talent: character.craftingSkills.glyphcraft.talent,
+              diceTierModifier: character.craftingSkills.glyphcraft.diceTierModifier,
+            },
+          ]}
+        />
+      )}
 
       <Card variant="default">
         <CardHeader>

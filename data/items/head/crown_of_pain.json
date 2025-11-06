@@ -1,0 +1,11 @@
+{
+  "name": "Crown of Pain",
+  "description": "A twisted crown of blackened metal with inward-facing spikes that dig into the wearer's skull. Those who don this cursed artifact endure constant agony.",
+  "type": "headwear",
+  "weight": 2,
+  "value": 5000,
+  "rarity": "rare",
+  "pain": 3,
+  "foundry_icon": "icons/equipment/head/crown-simple-gold.webp",
+  "foundry_id": "crownofpain00001"
+}
