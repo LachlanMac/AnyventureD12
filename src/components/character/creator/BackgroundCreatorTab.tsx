@@ -247,7 +247,7 @@ const BackgroundCreatorTab: React.FC<BackgroundCreatorTabProps> = ({
         </div>
 
         <div style={{ marginBottom: '1rem' }}>
-          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Race</div>
+          <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Ancestry</div>
           <div style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
             {race || 'Not selected'}
           </div>

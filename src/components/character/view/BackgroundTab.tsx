@@ -87,7 +87,7 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
             }}
           >
             <div>
-              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Race</div>
+              <div style={{ color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Ancestry</div>
               <div style={{ color: 'var(--color-white)' }}>{race || 'Not specified'}</div>
             </div>
             <div>

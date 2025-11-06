@@ -265,7 +265,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
             {/* Main character info - 3 columns */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-x-4 gap-y-2 mb-4">
               <div>
-                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Race</div>
+                <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>Ancestry</div>
                 <div style={{ color: 'var(--color-white)' }}>{character.race}</div>
               </div>
 
