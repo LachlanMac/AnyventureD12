@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Attributes } from '../../../types/character';
 import { ATTRIBUTE_SKILLS } from '../../../constants/skillConstants';
+import { SKILL_DESCRIPTIONS } from '../../../constants/skillDescriptions';
 
 interface AttributesTabProps {
   attributes: Attributes;
@@ -16,6 +17,7 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
   attributePointsRemaining,
   onUpdateAttribute,
 }) => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
   return (
     <div>
       <div
@@ -82,15 +84,52 @@ const AttributesTab: React.FC<AttributesTabProps> = ({
               <label style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold' }}>
                 {attributeId.charAt(0).toUpperCase() + attributeId.slice(1)}
               </label>
-              <div>
-                <span
-                  style={{
-                    color: 'var(--color-cloud)',
-                    fontSize: '0.875rem',
-                  }}
-                >
-                   {skills.map((skill) => skill.name).join(', ')} 
-                </span>
+              <div
+                style={{
+                  display: 'flex',
+                  gap: '0.5rem',
+                  position: 'relative',
+                }}
+              >
+                {skills.map((skill, index) => (
+                  <span key={skill.id} style={{ position: 'relative', display: 'inline-block' }}>
+                    <span
+                      style={{
+                        color: 'var(--color-cloud)',
+                        fontSize: '0.875rem',
+                        cursor: 'help',
+                      }}
+                      onMouseEnter={() => setHoveredSkill(skill.id)}
+                      onMouseLeave={() => setHoveredSkill(null)}
+                    >
+                      {skill.name}
+                      {index < skills.length - 1 && ','}
+                    </span>
+                    {/* Tooltip */}
+                    {hoveredSkill === skill.id && SKILL_DESCRIPTIONS[skill.id] && (
+                      <div
+                        style={{
+                          position: 'absolute',
+                          bottom: '100%',
+                          right: '0',
+                          marginBottom: '0.5rem',
+                          backgroundColor: 'var(--color-dark-surface)',
+                          color: 'var(--color-cloud)',
+                          padding: '0.5rem 0.75rem',
+                          borderRadius: '0.375rem',
+                          fontSize: '0.875rem',
+                          whiteSpace: 'nowrap',
+                          zIndex: 1000,
+                          border: '1px solid var(--color-dark-border)',
+                          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+                          pointerEvents: 'none',
+                        }}
+                      >
+                        {SKILL_DESCRIPTIONS[skill.id]}
+                      </div>
+                    )}
+                  </span>
+                ))}
               </div>
             </div>
 

@@ -314,12 +314,12 @@ const ItemBrowser: React.FC = () => {
                 <Button
                   onClick={() => handlePurchaseClick(item)}
                   disabled={addingItem}
-                  variant="primary"
+                  variant="accent"
                 >
                   Purchase
                 </Button>
               )}
-              <Button onClick={() => handleAddItemClick(item)} disabled={addingItem} variant="secondary">
+              <Button onClick={() => handleAddItemClick(item)} disabled={addingItem} variant="accent">
                 {addingItem ? 'Adding...' : 'Add to Inventory'}
               </Button>
             </div>

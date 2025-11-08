@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useSearchParams } from 'react-router-dom';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { getOptionEnergyCost, getEnergyDisplay, parseActionData } from '../utils/actionParser';
@@ -20,6 +21,7 @@ interface Module {
 }
 
 const ModuleCompendium: React.FC = () => {
+  const [searchParams] = useSearchParams();
   const [modules, setModules] = useState<Module[]>([]);
   const [filteredModules, setFilteredModules] = useState<Module[]>([]);
   const [selectedModule, setSelectedModule] = useState<Module | null>(null);
@@ -61,6 +63,21 @@ const ModuleCompendium: React.FC = () => {
 
     fetchModules();
   }, []);
+
+  // Handle URL parameter for pre-selecting a module
+  useEffect(() => {
+    const moduleName = searchParams.get('module');
+    if (moduleName && modules.length > 0) {
+      const moduleToSelect = modules.find(
+        (m) => m.name.toLowerCase() === moduleName.toLowerCase()
+      );
+      if (moduleToSelect) {
+        setSelectedModule(moduleToSelect);
+        // Also set the filter to match the module type
+        setActiveFilter(moduleToSelect.mtype);
+      }
+    }
+  }, [searchParams, modules]);
 
   // Apply filters
   useEffect(() => {

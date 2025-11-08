@@ -235,8 +235,7 @@ const CharacterTraitSelectionWithSubchoices: React.FC<CharacterTraitSelectionPro
         >
           Choose a character trait that represents your character's unique nature or background.
           Traits provide special abilities, bonuses, and sometimes drawbacks that make your
-          character distinct. The default trait is "Born to Adventure" which grants bonus health,
-          resolve, and morale.
+          character distinct.
         </p>
       </div>
 

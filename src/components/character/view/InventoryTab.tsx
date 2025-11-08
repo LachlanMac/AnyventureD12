@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Character, Item, CharacterItem } from '../../../types/character';
+import Button from '../../ui/Button';
 import ItemEditModal from './ItemEditModal';
 import CurrencyModal from './CurrencyModal';
 import { useToast } from '../../../context/ToastContext';
@@ -859,20 +860,9 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                 *Equipped items excluded
               </div>
             </div>
-            <button
-              onClick={handleAddItem}
-              style={{
-                backgroundColor: 'var(--color-primary)',
-                color: 'white',
-                border: 'none',
-                borderRadius: '6px',
-                padding: '0.5rem 1rem',
-                cursor: 'pointer',
-                fontWeight: 'bold',
-              }}
-            >
+            <Button variant="accent" onClick={handleAddItem}>
               Add Item
-            </button>
+            </Button>
           </div>
 
           {/* Wealth Display */}

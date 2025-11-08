@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { SkillMap } from '../../../types/character';
 import {
   SPECIALIZED_SKILLS,
   MAGIC_SKILLS,
   CRAFTING_SKILLS,
 } from '../../../constants/skillConstants';
+import { SKILL_DESCRIPTIONS } from '../../../constants/skillDescriptions';
 
 interface TalentsTabProps {
   weaponSkills: SkillMap;
@@ -25,6 +26,8 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
   onUpdateSpecializedSkillTalent,
   onUpdateCraftingSkillTalent,
 }) => {
+  const [hoveredSkill, setHoveredSkill] = useState<string | null>(null);
+
   // Render stars for a skill's talent with toggle functionality
   // Modify renderTalentStars to accept defaultTalent parameter
   const renderTalentStars = (
@@ -133,16 +136,44 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
                 display: 'flex',
                 justifyContent: 'space-between',
                 alignItems: 'center',
+                position: 'relative',
               }}
+              onMouseEnter={() => setHoveredSkill(skill.id)}
+              onMouseLeave={() => setHoveredSkill(null)}
             >
               <div
                 style={{
                   color: 'var(--color-white)',
                   fontWeight: 'bold',
+                  cursor: 'help',
                 }}
               >
                 {skill.name}
               </div>
+
+              {/* Tooltip */}
+              {hoveredSkill === skill.id && SKILL_DESCRIPTIONS[skill.id] && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    bottom: '100%',
+                    left: '0',
+                    marginBottom: '0.5rem',
+                    backgroundColor: 'var(--color-dark-surface)',
+                    color: 'var(--color-cloud)',
+                    padding: '0.5rem 0.75rem',
+                    borderRadius: '0.375rem',
+                    fontSize: '0.875rem',
+                    whiteSpace: 'nowrap',
+                    zIndex: 1000,
+                    border: '1px solid var(--color-dark-border)',
+                    boxShadow: '0 4px 6px rgba(0, 0, 0, 0.3)',
+                    pointerEvents: 'none',
+                  }}
+                >
+                  {SKILL_DESCRIPTIONS[skill.id]}
+                </div>
+              )}
 
               <div style={{ display: 'flex', gap: '0.25rem' }}>
                 {/* Pass the defaultTalent value to renderTalentStars */}

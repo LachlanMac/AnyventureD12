@@ -159,32 +159,83 @@ const PersonalitySelection: React.FC<PersonalitySelectionProps> = ({
             }}
           >
             {personalityModules.map((module) => (
-              <button
+              <div
                 key={module.name || module._id}
-                type="button"
                 style={{
                   position: 'relative',
-                  padding: '0.75rem 1.5rem',
-                  borderRadius: '0.375rem',
-                  backgroundColor:
-                    selectedPersonality === module.name
-                      ? 'var(--color-sat-purple)'
-                      : 'var(--color-dark-elevated)',
-                  color: 'var(--color-white)',
-                  border: 'none',
-                  cursor: 'pointer',
-                  transition: 'background-color 0.2s',
-                  height: '60px',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'flex-start',
-                  textAlign: 'left',
-                  overflow: 'hidden',
                 }}
-                onClick={() => handlePersonalitySelect(module.name)}
               >
-                <span>{module.name || 'Unnamed'}</span>
-              </button>
+                <button
+                  type="button"
+                  style={{
+                    width: '100%',
+                    position: 'relative',
+                    padding: '0.75rem 1.5rem',
+                    paddingRight: '2.5rem',
+                    borderRadius: '0.375rem',
+                    backgroundColor:
+                      selectedPersonality === module.name
+                        ? 'var(--color-sat-purple)'
+                        : 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: 'none',
+                    cursor: 'pointer',
+                    transition: 'background-color 0.2s',
+                    height: '60px',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'flex-start',
+                    textAlign: 'left',
+                    overflow: 'hidden',
+                  }}
+                  onClick={() => handlePersonalitySelect(module.name)}
+                >
+                  <span>{module.name || 'Unnamed'}</span>
+                </button>
+                {/* External link icon */}
+                <a
+                  href={`/modules?module=${encodeURIComponent(module.name)}`}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()}
+                  style={{
+                    position: 'absolute',
+                    right: '0.75rem',
+                    top: '50%',
+                    transform: 'translateY(-50%)',
+                    color: 'var(--color-cloud)',
+                    transition: 'color 0.2s',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    padding: '0.25rem',
+                    zIndex: 10,
+                  }}
+                  onMouseEnter={(e) => {
+                    e.currentTarget.style.color = 'var(--color-white)';
+                  }}
+                  onMouseLeave={(e) => {
+                    e.currentTarget.style.color = 'var(--color-cloud)';
+                  }}
+                  title="View full module details"
+                >
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="18"
+                    height="18"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                  >
+                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path>
+                    <polyline points="15 3 21 3 21 9"></polyline>
+                    <line x1="10" y1="14" x2="21" y2="3"></line>
+                  </svg>
+                </a>
+              </div>
             ))}
           </div>
 
