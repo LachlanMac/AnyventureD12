@@ -1,14 +1,18 @@
-import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import React from 'react';
+import { Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { useCharacters } from '../hooks/useCharacters';
-import { charactersApi } from '../api/characters';
+// TODO: Random character generation - not ready for implementation
+// import { useState } from 'react';
+// import { useNavigate } from 'react-router-dom';
+// import { charactersApi } from '../api/characters';
 
 const Characters: React.FC = () => {
   const { data: characters, loading, error, refetch } = useCharacters();
-  const navigate = useNavigate();
-  const [isGenerating, setIsGenerating] = useState(false);
+  // TODO: Random character generation - not ready for implementation
+  // const navigate = useNavigate();
+  // const [isGenerating, setIsGenerating] = useState(false);
 
   // Function to generate a gradient based on race
   const getRaceColor = (race: string) => {
@@ -71,21 +75,21 @@ const Characters: React.FC = () => {
     }
   };
 
-  // Handle random character generation (fresh character, no modules)
-  const handleGenerateRandom = async () => {
-    setIsGenerating(true);
-    try {
-      const character = await charactersApi.generateRandom();
-      // Navigate to the newly created character
-      navigate(`/characters/${character._id}`);
-      refetch(); // Refresh the character list
-    } catch (error) {
-      console.error('Error generating random character:', error);
-      alert('Failed to generate random character. Please try again.');
-    } finally {
-      setIsGenerating(false);
-    }
-  };
+  // TODO: Random character generation - not ready for implementation
+  // const handleGenerateRandom = async () => {
+  //   setIsGenerating(true);
+  //   try {
+  //     const character = await charactersApi.generateRandom();
+  //     // Navigate to the newly created character
+  //     navigate(`/characters/${character._id}`);
+  //     refetch(); // Refresh the character list
+  //   } catch (error) {
+  //     console.error('Error generating random character:', error);
+  //     alert('Failed to generate random character. Please try again.');
+  //   } finally {
+  //     setIsGenerating(false);
+  //   }
+  // };
 
   if (loading) {
     return <LoadingSpinner size="lg" message="Loading your characters..." />;
