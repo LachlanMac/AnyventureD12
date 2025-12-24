@@ -83,10 +83,11 @@ export const ogTagsMiddleware = async (req, res, next) => {
     const title = escapeHtml(`${character.name} | ${siteName}`);
 
     // Build description from biography or character info
+    // Discord shows ~300-350 chars, Twitter ~200, but we'll provide more and let them truncate
     let description = '';
     if (character.biography) {
-      description = character.biography.substring(0, 200);
-      if (character.biography.length > 200) description += '...';
+      description = character.biography.substring(0, 500);
+      if (character.biography.length > 500) description += '...';
     } else {
       const parts = [];
       if (character.race) parts.push(character.race);
@@ -128,15 +129,15 @@ export const ogTagsMiddleware = async (req, res, next) => {
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:locale" content="en_US">
 
-  <!-- Twitter Card -->
-  <meta name="twitter:card" content="summary_large_image">
+  <!-- Twitter Card (summary = small thumbnail on left, text on right) -->
+  <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="${escapeHtml(character.name)}">
   <meta name="twitter:description" content="${description}">
   <meta name="twitter:image" content="${imageUrl}">
 
-  <!-- Discord specific (uses OG tags but prefers larger images) -->
-  <meta property="og:image:width" content="512">
-  <meta property="og:image:height" content="512">
+  <!-- Image dimensions - smaller size for thumbnail-style preview -->
+  <meta property="og:image:width" content="128">
+  <meta property="og:image:height" content="128">
 
   <!-- Theme color for Discord embed -->
   <meta name="theme-color" content="#554182">
