@@ -320,14 +320,6 @@ const App: React.FC = () => {
                     }
                   />
                   <Route
-                    path="/characters/:id"
-                    element={
-                      <MainLayout>
-                        <CharacterView />
-                      </MainLayout>
-                    }
-                  />
-                  <Route
                     path="/characters/:id/modules"
                     element={
                       <MainLayout>
@@ -417,6 +409,16 @@ const App: React.FC = () => {
                   />
                   {/* Add other protected routes here */}
                 </Route>
+
+                {/* Public character view - allows viewing public characters without login */}
+                <Route
+                  path="/characters/:id"
+                  element={
+                    <MainLayout>
+                      <CharacterView />
+                    </MainLayout>
+                  }
+                />
               </Routes>
             </div>
           </div>

@@ -16,6 +16,7 @@ interface SpellTabProps {
     chaos: boolean;
   };
   onUpdateExoticSchools?: (schools: any) => void;
+  canEdit?: boolean;
 }
 
 // Define a spell interface
@@ -60,7 +61,8 @@ const SpellsTab: React.FC<SpellTabProps> = ({
     cosmic: false,
     chaos: false
   },
-  onUpdateExoticSchools
+  onUpdateExoticSchools,
+  canEdit = true
 }) => {
   // State for storing fetched spell data
   const [enhancedSpells, setEnhancedSpells] = useState<CharacterSpell[]>([]);
@@ -163,9 +165,11 @@ const SpellsTab: React.FC<SpellTabProps> = ({
             {spells.length} / {spellSlots} spell slots used
           </p>
         </div>
-        <Link to={`/characters/${characterId}/spells`}>
-          <Button variant="accent">Manage Spells</Button>
-        </Link>
+        {canEdit && (
+          <Link to={`/characters/${characterId}/spells`}>
+            <Button variant="accent">Manage Spells</Button>
+          </Link>
+        )}
       </div>
 
       {loading ? (
@@ -198,14 +202,16 @@ const SpellsTab: React.FC<SpellTabProps> = ({
               <div
                 style={{
                   color: 'var(--color-cloud)',
-                  marginBottom: '1rem',
+                  marginBottom: canEdit ? '1rem' : '0',
                 }}
               >
-                No spells known yet. Add spells to enhance your magical abilities.
+                No spells known yet.{canEdit && ' Add spells to enhance your magical abilities.'}
               </div>
-              <Link to={`/characters/${characterId}/spells`}>
-                <Button variant="secondary">Add Spells</Button>
-              </Link>
+              {canEdit && (
+                <Link to={`/characters/${characterId}/spells`}>
+                  <Button variant="secondary">Add Spells</Button>
+                </Link>
+              )}
             </div>
           </CardBody>
         </Card>

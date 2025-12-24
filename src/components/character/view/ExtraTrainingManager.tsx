@@ -5,6 +5,7 @@ interface ExtraTrainingProps {
   modulePoints: { total: number; spent: number };
   traits: any[];
   onTraitsUpdate: (updatedTraits: any[]) => void;
+  canEdit?: boolean;
 }
 
 interface SkillOption {
@@ -19,6 +20,7 @@ const ExtraTrainingManager: React.FC<ExtraTrainingProps> = ({
   modulePoints,
   traits,
   onTraitsUpdate,
+  canEdit = true,
 }) => {
   const [extraTrainingTrait, setExtraTrainingTrait] = useState<any>(null);
   const [loading, setLoading] = useState(true);
@@ -265,18 +267,20 @@ const ExtraTrainingManager: React.FC<ExtraTrainingProps> = ({
                 {selectedSkill?.category} Skill +1
               </div>
             </div>
-            <button
-              onClick={() => handleRemoveSkill(trait._id)}
-              className="px-3 py-1 bg-sunset/20 hover:bg-sunset/30 text-sunset rounded text-sm transition-colors"
-            >
-              Remove
-            </button>
+            {canEdit && (
+              <button
+                onClick={() => handleRemoveSkill(trait._id)}
+                className="px-3 py-1 bg-sunset/20 hover:bg-sunset/30 text-sunset rounded text-sm transition-colors"
+              >
+                Remove
+              </button>
+            )}
           </div>
         );
       })}
 
       {/* Add new Extra Training slot */}
-      {extraTrainingInstances.length < availableSlots && (
+      {canEdit && extraTrainingInstances.length < availableSlots && (
         <div className="p-3 bg-dark-elevated rounded-lg">
           <label className="block text-white font-bold mb-2 text-sm">
             Select a skill to train:

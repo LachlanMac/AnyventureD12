@@ -18,6 +18,7 @@ interface BackgroundTabProps {
   portraitUrl?: string | null;
   characterId: string;
   onBiographyUpdate: (biography: string) => void;
+  canEdit?: boolean;
 }
 
 const BackgroundTab: React.FC<BackgroundTabProps> = ({
@@ -29,6 +30,7 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
   portraitUrl,
   characterId,
   onBiographyUpdate,
+  canEdit = true,
 }) => {
   const [isGenerating, setIsGenerating] = useState(false);
   const { showToast } = useToast();
@@ -224,14 +226,16 @@ const BackgroundTab: React.FC<BackgroundTabProps> = ({
             >
               Biography
             </h2>
-            <Button
-              onClick={handleGenerateBiography}
-              disabled={isGenerating}
-              size="sm"
-              variant="secondary"
-            >
-              {isGenerating ? 'Generating...' : 'Generate Biography'}
-            </Button>
+            {canEdit && (
+              <Button
+                onClick={handleGenerateBiography}
+                disabled={isGenerating}
+                size="sm"
+                variant="secondary"
+              >
+                {isGenerating ? 'Generating...' : 'Generate Biography'}
+              </Button>
+            )}
           </div>
         </CardHeader>
         <CardBody>

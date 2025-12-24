@@ -453,7 +453,7 @@ const CharacterView: React.FC = () => {
         {/* Tab content */}
         <div style={{ marginTop: '1.5rem' }}>
           {/* Character Info Tab (now combining Info and Skills) */}
-          {activeTab === 'info' && <InfoTab character={character} />}
+          {activeTab === 'info' && <InfoTab character={character} canEdit={canEdit} />}
 
           {/* Modules Tab */}
           {activeTab === 'modules' && (
@@ -466,6 +466,7 @@ const CharacterView: React.FC = () => {
               onTraitsUpdate={(updatedTraits) => {
                 setCharacter({ ...character, traits: updatedTraits });
               }}
+              canEdit={canEdit}
             />
           )}
 
@@ -487,15 +488,17 @@ const CharacterView: React.FC = () => {
               spellSlots={character.spellSlots || 10}
               exoticSchools={character.exoticSchools}
               onUpdateExoticSchools={canEdit ? handleUpdateExoticSchools : undefined}
+              canEdit={canEdit}
             />
           )}
-          {activeTab === 'songs' && <SongsTab characterId={character._id} />}
+          {activeTab === 'songs' && <SongsTab characterId={character._id} canEdit={canEdit} />}
 
           {/* Inventory Tab */}
           {activeTab === 'inventory' && (
             <InventoryTab
               character={character}
               onCharacterUpdate={(updatedChar) => setCharacter(updatedChar as CharacterWithAPI)}
+              canEdit={canEdit}
             />
           )}
 
@@ -512,6 +515,7 @@ const CharacterView: React.FC = () => {
               onBiographyUpdate={(biography: string) => {
                 setCharacter((prev) => (prev ? { ...prev, biography } : null));
               }}
+              canEdit={canEdit}
             />
           )}
         </div>

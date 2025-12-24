@@ -7,6 +7,7 @@ import { getModifiedDiceType, getDiceTierModifierIndicator } from '../../../util
 
 interface InfoTabProps {
   character: Character;
+  canEdit?: boolean;
 }
 
 // Attribute skill mappings
@@ -45,7 +46,7 @@ const ATTRIBUTE_SKILLS = {
 
 // Dice type mapping (removed - using diceUtils instead)
 
-const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
+const InfoTab: React.FC<InfoTabProps> = ({ character, canEdit = true }) => {
   const [musicSkills, setMusicSkills] = useState(
     character.musicSkills || {
       vocal: 0,
@@ -480,7 +481,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                   talent={skillValue}
                   maxTalent={3}
                   size="md"
-                  onChange={(newValue) => handleMusicSkillChange(skillName, newValue)}
+                  onChange={canEdit ? (newValue) => handleMusicSkillChange(skillName, newValue) : undefined}
                 />
               </div>
             ))}
@@ -501,7 +502,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
             >
               Language Skills
             </h2>
-            {!isAddingLanguage && (
+            {canEdit && !isAddingLanguage && (
               <button
                 onClick={() => setIsAddingLanguage(true)}
                 className="px-3 py-1 bg-dark-elevated hover:bg-dark-border rounded text-white text-sm transition-colors"
@@ -512,7 +513,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
           </div>
         </CardHeader>
         <CardBody>
-          {isAddingLanguage && (
+          {canEdit && isAddingLanguage && (
             <div className="mb-4 p-3 bg-dark-elevated rounded-lg">
               <div className="flex gap-2">
                 <select
@@ -572,7 +573,7 @@ const InfoTab: React.FC<InfoTabProps> = ({ character }) => {
                       talent={proficiency}
                       maxTalent={3}
                       size="md"
-                      onChange={(newValue) => handleLanguageSkillChange(languageId, newValue)}
+                      onChange={canEdit ? (newValue) => handleLanguageSkillChange(languageId, newValue) : undefined}
                     />
                   </div>
                 );

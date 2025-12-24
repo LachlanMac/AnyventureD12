@@ -9,6 +9,7 @@ import { useToast } from '../../../context/ToastContext';
 interface InventoryTabProps {
   character: Character;
   onCharacterUpdate: (character: Character) => void;
+  canEdit?: boolean;
 }
 
 interface InventoryItemProps {
@@ -25,6 +26,7 @@ interface InventoryItemProps {
   equippedSlot?: string;
   canEquip: boolean;
   showError: (message: string) => void;
+  canEditItem?: boolean;
 }
 
 // Helper function to get item data from hybrid inventory item
@@ -52,6 +54,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   equippedSlot,
   canEquip,
   showError,
+  canEditItem = true,
 }) => {
   const getAvailableSlots = (): string[] => {
     // Equipment types that have dedicated slots
@@ -302,7 +305,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       <div style={{ display: 'flex', gap: '0.5rem', alignItems: 'center' }}>
         {/* Quantity Controls or Equip/Unequip - Same space allocation */}
         <div style={{ width: '120px', display: 'flex', justifyContent: 'flex-end' }}>
-          {allowsQuantityChange ? (
+          {canEditItem && allowsQuantityChange ? (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
               <button
                 onClick={() => handleQuantityChange(inventoryItem.quantity - 1)}
@@ -362,7 +365,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
                 +
               </button>
             </div>
-          ) : canEquip ? (
+          ) : canEditItem && canEquip ? (
             <button
               onClick={isEquipped ? handleUnequip : handleEquip}
               style={{
@@ -387,34 +390,38 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
         </div>
 
         {/* Standard Action Buttons */}
-        <button
-          onClick={() => onEdit(inventoryIndex)}
-          style={{
-            backgroundColor: 'var(--color-primary)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            padding: '0.25rem 0.5rem',
-            cursor: 'pointer',
-            fontSize: '0.75rem',
-          }}
-        >
-          Edit
-        </button>
-        <button
-          onClick={() => onRemove(inventoryIndex)}
-          style={{
-            backgroundColor: 'var(--color-destructive)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '4px',
-            padding: '0.25rem 0.5rem',
-            cursor: 'pointer',
-            fontSize: '0.75rem',
-          }}
-        >
-          Remove
-        </button>
+        {canEditItem && (
+          <>
+            <button
+              onClick={() => onEdit(inventoryIndex)}
+              style={{
+                backgroundColor: 'var(--color-primary)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '0.25rem 0.5rem',
+                cursor: 'pointer',
+                fontSize: '0.75rem',
+              }}
+            >
+              Edit
+            </button>
+            <button
+              onClick={() => onRemove(inventoryIndex)}
+              style={{
+                backgroundColor: 'var(--color-destructive)',
+                color: 'white',
+                border: 'none',
+                borderRadius: '4px',
+                padding: '0.25rem 0.5rem',
+                cursor: 'pointer',
+                fontSize: '0.75rem',
+              }}
+            >
+              Remove
+            </button>
+          </>
+        )}
       </div>
 
       {/* Slot Selection Modal */}
@@ -507,7 +514,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   );
 };
 
-const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdate }) => {
+const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdate, canEdit = true }) => {
   const navigate = useNavigate();
   const { showError } = useToast();
   const [filter, setFilter] = useState('');
@@ -860,9 +867,11 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                 *Equipped items excluded
               </div>
             </div>
-            <Button variant="accent" onClick={handleAddItem}>
-              Add Item
-            </Button>
+            {canEdit && (
+              <Button variant="accent" onClick={handleAddItem}>
+                Add Item
+              </Button>
+            )}
           </div>
 
           {/* Wealth Display */}
@@ -903,21 +912,23 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                   </div>
                 </div>
               </div>
-              <button
-                onClick={() => setShowCurrencyModal(true)}
-                style={{
-                  padding: '0.4rem 0.8rem',
-                  backgroundColor: 'var(--color-old-gold)',
-                  color: 'var(--color-dark-bg)',
-                  border: 'none',
-                  borderRadius: '4px',
-                  cursor: 'pointer',
-                  fontWeight: 'bold',
-                  fontSize: '0.85rem',
-                }}
-              >
-                Manage Currency
-              </button>
+              {canEdit && (
+                <button
+                  onClick={() => setShowCurrencyModal(true)}
+                  style={{
+                    padding: '0.4rem 0.8rem',
+                    backgroundColor: 'var(--color-old-gold)',
+                    color: 'var(--color-dark-bg)',
+                    border: 'none',
+                    borderRadius: '4px',
+                    cursor: 'pointer',
+                    fontWeight: 'bold',
+                    fontSize: '0.85rem',
+                  }}
+                >
+                  Manage Currency
+                </button>
+              )}
             </div>
           </div>
 
@@ -1023,6 +1034,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
                     equippedSlot={equipmentStatus.slot}
                     canEquip={canEquip}
                     showError={showError}
+                    canEditItem={canEdit}
                   />
                 );
               })

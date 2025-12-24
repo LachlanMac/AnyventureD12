@@ -12,6 +12,7 @@ interface ModulesTabProps {
   onUpdateModulePoints?: (updatedCharacter: any) => void;
   traits?: any[];
   onTraitsUpdate?: (updatedTraits: any[]) => void;
+  canEdit?: boolean;
 }
 
 const ModulesTab: React.FC<ModulesTabProps> = ({
@@ -21,6 +22,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({
   onUpdateModulePoints,
   traits = [],
   onTraitsUpdate,
+  canEdit = true,
 }) => {
   const navigate = useNavigate();
   const [isChangingPoints, setIsChangingPoints] = useState(false);
@@ -84,6 +86,7 @@ const ModulesTab: React.FC<ModulesTabProps> = ({
             modulePoints={modulePoints || { total: 0, spent: 0 }}
             traits={traits}
             onTraitsUpdate={onTraitsUpdate || (() => {})}
+            canEdit={canEdit}
           />
         </CardBody>
       </Card>
@@ -210,9 +213,11 @@ const ModulesTab: React.FC<ModulesTabProps> = ({
           </div>
         </div>
 
-        <Button variant="accent" onClick={() => navigate(`/characters/${characterId}/modules`)}>
-          Manage Modules
-        </Button>
+        {canEdit && (
+          <Button variant="accent" onClick={() => navigate(`/characters/${characterId}/modules`)}>
+            Manage Modules
+          </Button>
+        )}
       </div>
 
       {/* Note that we're checking modules.length - these are specifically the character's modules */}

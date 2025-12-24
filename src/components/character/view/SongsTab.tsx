@@ -23,7 +23,7 @@ interface CharacterSong {
   songId: SongData;
 }
 
-const SongsTab: React.FC<{ characterId: string }> = ({ characterId }) => {
+const SongsTab: React.FC<{ characterId: string; canEdit?: boolean }> = ({ characterId, canEdit = true }) => {
   const [songs, setSongs] = useState<CharacterSong[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -58,9 +58,11 @@ const SongsTab: React.FC<{ characterId: string }> = ({ characterId }) => {
         <h2 style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
           Songs
         </h2>
-        <Link to={`/characters/${characterId}/songs`}>
-          <Button variant="accent">Manage Songs</Button>
-        </Link>
+        {canEdit && (
+          <Link to={`/characters/${characterId}/songs`}>
+            <Button variant="accent">Manage Songs</Button>
+          </Link>
+        )}
       </div>
 
       {loading ? (
