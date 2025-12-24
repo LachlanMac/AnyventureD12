@@ -31,6 +31,7 @@ import injuryRoutes from './routes/injuryRoutes.js';
 import conditionRoutes from './routes/conditionRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
+import { ogTagsMiddleware } from './middleware/ogTags.js';
 
 // Import config and utils
 import setupPassport from './config/passport.js';
@@ -190,6 +191,9 @@ console.log(`Static files path: ${path.join(__dirname, '../dist')}`);
 // Static file serving - make sure this path is correct
 const distPath = path.resolve(__dirname, '../dist');
 app.use(express.static(distPath));
+
+// OG tags middleware for social media link previews (must be after static but before catch-all)
+app.use(ogTagsMiddleware);
 
 // For any route that doesn't match above, send the React app
 app.get('*', (req, res) => {
