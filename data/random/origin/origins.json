@@ -1,0 +1,112 @@
+{
+  "origins": [
+    {
+      "name": "Large City",
+      "description": "You hail from a bustling metropolis, filled with diverse peoples, opportunities, and dangers.",
+      "data": "SSS=1",
+      "modules": {}
+    },
+    {
+      "name": "Small Village",
+      "description": "You come from a quiet hamlet where everyone knows everyone, and life moves at a slower pace.",
+      "data": "SSM=1",
+      "modules": {}
+    },
+    {
+      "name": "Nomadic Tribe",
+      "description": "Your people wander, following herds, trade routes, or ancient traditions. Home is wherever your tribe makes camp.",
+      "data": "SSA=1",
+      "modules": {}
+    },
+    {
+      "name": "Mountain Settlement",
+      "description": "You grew up in the heights, where the air is thin and the peaks touch the sky. Your home was carved from stone.",
+      "data": "SSC=1",
+      "modules": {}
+    },
+    {
+      "name": "Coastal Town",
+      "description": "The sea shaped your upbringing. You know the smell of salt air and the rhythm of the tides.",
+      "data": "SSG=1",
+      "modules": {}
+    },
+    {
+      "name": "Forest Community",
+      "description": "You lived among the trees, in harmony with nature. The forest provided all you needed.",
+      "data": "SSK=1",
+      "modules": {}
+    },
+    {
+      "name": "Desert Oasis",
+      "description": "In the harsh desert, your community clustered around precious water. Survival required cooperation and resilience.",
+      "data": "SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Underground City",
+      "description": "You were raised beneath the earth, in caverns and tunnels. Sunlight was rare, stone and darkness familiar.",
+      "data": "SSK=1",
+      "modules": {}
+    },
+    {
+      "name": "Island",
+      "description": "Surrounded by water, your island home was isolated but self-sufficient. The sea was both barrier and highway.",
+      "data": "SSG=1",
+      "modules": {}
+    },
+    {
+      "name": "Frontier Settlement",
+      "description": "Your home was on the edge of civilization, where dangers lurked and pioneers carved out new lives.",
+      "data": "SSA=1",
+      "modules": {}
+    },
+    {
+      "name": "Magical Academy",
+      "description": "You were raised within the walls of a school of magic, surrounded by arcane knowledge and fellow students.",
+      "data": "SSO=1",
+      "modules": {}
+    },
+    {
+      "name": "Military Fort",
+      "description": "Your childhood was spent in a garrison or fortress, where soldiers trained and battles were prepared for.",
+      "data": "SSB=1",
+      "modules": {}
+    },
+    {
+      "name": "Trading Hub",
+      "description": "At the crossroads of commerce, your home saw travelers and goods from all over the world.",
+      "data": "SST=1",
+      "modules": {}
+    },
+    {
+      "name": "Religious Sanctuary",
+      "description": "You grew up in a temple, monastery, or holy site dedicated to a deity or spiritual practice.",
+      "data": "SSI=1",
+      "modules": {}
+    },
+    {
+      "name": "Planar Crossroads",
+      "description": "Your home existed at a convergence of planes, where reality was thin and the impossible became possible.",
+      "data": "SSO=1",
+      "modules": {}
+    },
+    {
+      "name": "Ruined City",
+      "description": "You were born in the remnants of a once-great civilization, living among the echoes of a glorious past.",
+      "data": "SSK=1",
+      "modules": {}
+    },
+    {
+      "name": "Swamp Settlement",
+      "description": "The murky wetlands were your home, where life was hard but the land provided for those who knew its secrets.",
+      "data": "SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Floating City",
+      "description": "Your home defied gravity, floating in the sky or hovering over water. The views were spectacular, the falls deadly.",
+      "data": "SSE=1",
+      "modules": {}
+    }
+  ]
+}

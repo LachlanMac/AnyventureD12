@@ -1,0 +1,110 @@
+{
+  "childhoods": [
+    {
+      "name": "Street Urchin",
+      "description": "You grew up on the streets, learning to survive through wit and quick fingers. The alleys were your home, and other outcasts your family.",
+      "data": "SSH=1,SSF=1",
+      "modules": {
+        "thief": 1
+      }
+    },
+    {
+      "name": "Noble Upbringing",
+      "description": "Born into privilege, you were tutored in etiquette, politics, and the arts. Your childhood was one of comfort, but also expectation and duty.",
+      "data": "SSR=1,SST=1",
+      "modules": {}
+    },
+    {
+      "name": "Merchant Family",
+      "description": "Raised in a trading family, you learned the value of coin and conversation. You traveled to many places as a child, seeing diverse cultures.",
+      "data": "SST=1,SSS=1",
+      "modules": {}
+    },
+    {
+      "name": "Farm Life",
+      "description": "You grew up working the land, rising with the sun and laboring until dusk. Hard work and simple pleasures defined your youth.",
+      "data": "SSA=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Military Brat",
+      "description": "Your parent(s) served in the military, and you moved from garrison to garrison. You learned discipline and saw the cost of war early.",
+      "data": "SSC=1,SSB=1",
+      "modules": {
+        "armsman": 1
+      }
+    },
+    {
+      "name": "Wilderness Survivor",
+      "description": "You grew up far from civilization, in the wilds. Nature was your teacher, and survival your daily lesson.",
+      "data": "SSM=1,SSK=1",
+      "modules": {
+        "scout": 1
+      }
+    },
+    {
+      "name": "Temple Ward",
+      "description": "Raised in a temple or monastery, you were taught in the ways of faith and devotion. Prayer and meditation were your daily routine.",
+      "data": "SSI=1,SSJ=1",
+      "modules": {
+        "acolyte": 1
+      }
+    },
+    {
+      "name": "Artisan Apprentice",
+      "description": "From a young age, you apprenticed to a craftsperson, learning a trade with your hands. Creation and precision became second nature.",
+      "data": "SSG=1",
+      "modules": {
+        "fabricator": 1
+      }
+    },
+    {
+      "name": "Entertainer's Child",
+      "description": "Born into a troupe of performers, you learned to sing, dance, or act. Life was a constant performance, moving from town to town.",
+      "data": "SSQ=1,SSG=1",
+      "modules": {
+        "skald": 1
+      }
+    },
+    {
+      "name": "Orphaned",
+      "description": "You lost your family young and had to fend for yourself. Whether in an orphanage or on your own, you learned self-reliance.",
+      "data": "SSA=1,SSI=1",
+      "modules": {}
+    },
+    {
+      "name": "Scholar's Protégé",
+      "description": "A learned individual took you under their wing, teaching you to read, write, and think critically. Books were your companions.",
+      "data": "SSN=1,SSL=1",
+      "modules": {
+        "historian": 1
+      }
+    },
+    {
+      "name": "Outcast",
+      "description": "For some reason—your ancestry, abilities, or circumstances—you were shunned by your community. Loneliness shaped your early years.",
+      "data": "SSF=1,SSI=1",
+      "modules": {}
+    },
+    {
+      "name": "Sailor's Youth",
+      "description": "You grew up on ships or by the sea, learning the ways of sailors and the ocean's moods. The water has always called to you.",
+      "data": "SSG=1,SSA=1",
+      "modules": {}
+    },
+    {
+      "name": "Gang Member",
+      "description": "You ran with a gang or thieves' guild as a youth, learning the codes of the underworld and how to watch your back.",
+      "data": "SSH=1,SSS=1",
+      "modules": {
+        "thief": 1
+      }
+    },
+    {
+      "name": "Magical Prodigy",
+      "description": "Your magical talents manifested early, and you received special training or were feared for your abilities. Magic has always been part of you.",
+      "data": "SSO=1,SSJ=1",
+      "modules": {}
+    }
+  ]
+}

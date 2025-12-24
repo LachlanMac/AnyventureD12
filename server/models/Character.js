@@ -347,30 +347,30 @@ const CharacterSchema = new Schema({
   // Skills based on attributes - now using updated SkillSchema
   skills: {
     // Physique Skills
-    fitness: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
-    deflection: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
-    might: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
-    endurance: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.physique.default }) },
+    fitness: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    deflection: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    might: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    endurance: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
     // Agility Skills
-    evasion: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
-    stealth: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
-    coordination: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
-    thievery: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.finesse.default }) },
+    evasion: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    stealth: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    coordination: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    thievery: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
     // Mind Skills
-    resilience: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
-    concentration: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
-    senses: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
-    logic: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.mind.default }) },
+    resilience: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    concentration: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    senses: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    logic: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
     // Knowledge Skills
-    wildcraft: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
-    academics: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
-    magic: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
-    medicine: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.knowledge.default }) },
+    wildcraft: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    academics: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    magic: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    medicine: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
     // Social Skills
-    expression: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
-    presence: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
-    insight: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) },
-    persuasion: { type: SkillSchema, default: () => ({ value: 0, talent: attributes.social.default }) }
+    expression: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    presence: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    insight: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) },
+    persuasion: { type: SkillSchema, default: () => ({ value: 0, talent: 1 }) }
   },
   
 

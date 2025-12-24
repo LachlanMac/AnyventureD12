@@ -1,11 +1,14 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
 import { useCharacters } from '../hooks/useCharacters';
+import { charactersApi } from '../api/characters';
 
 const Characters: React.FC = () => {
   const { data: characters, loading, error, refetch } = useCharacters();
+  const navigate = useNavigate();
+  const [isGenerating, setIsGenerating] = useState(false);
 
   // Function to generate a gradient based on race
   const getRaceColor = (race: string) => {
@@ -68,6 +71,22 @@ const Characters: React.FC = () => {
     }
   };
 
+  // Handle random character generation (fresh character, no modules)
+  const handleGenerateRandom = async () => {
+    setIsGenerating(true);
+    try {
+      const character = await charactersApi.generateRandom();
+      // Navigate to the newly created character
+      navigate(`/characters/${character._id}`);
+      refetch(); // Refresh the character list
+    } catch (error) {
+      console.error('Error generating random character:', error);
+      alert('Failed to generate random character. Please try again.');
+    } finally {
+      setIsGenerating(false);
+    }
+  };
+
   if (loading) {
     return <LoadingSpinner size="lg" message="Loading your characters..." />;
   }
@@ -115,9 +134,12 @@ const Characters: React.FC = () => {
         >
           Your Characters
         </h1>
-        <Link to="/characters/create">
+        <div style={{ display: 'flex', gap: '0.75rem' }}>
+          {/* TODO: Random character generation - not ready for implementation
           <Button
-            variant="accent"
+            variant="secondary"
+            onClick={handleGenerateRandom}
+            disabled={isGenerating}
             rightIcon={
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -125,13 +147,35 @@ const Characters: React.FC = () => {
                 fill="currentColor"
                 className="w-5 h-5"
               >
-                <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                <path
+                  fillRule="evenodd"
+                  d="M15.312 11.424a5.5 5.5 0 01-9.201 2.466l-.312-.311h2.433a.75.75 0 000-1.5H3.989a.75.75 0 00-.75.75v4.242a.75.75 0 001.5 0v-2.43l.31.31a7 7 0 0011.712-3.138.75.75 0 00-1.449-.39zm1.23-3.723a.75.75 0 00.219-.53V2.929a.75.75 0 00-1.5 0V5.36l-.31-.31A7 7 0 003.239 8.188a.75.75 0 101.448.389A5.5 5.5 0 0113.89 6.11l.311.31h-2.432a.75.75 0 000 1.5h4.243a.75.75 0 00.53-.219z"
+                  clipRule="evenodd"
+                />
               </svg>
             }
           >
-            Create New
+            {isGenerating ? 'Generating...' : 'Create Random'}
           </Button>
-        </Link>
+          */}
+          <Link to="/characters/create">
+            <Button
+              variant="accent"
+              rightIcon={
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path d="M10.75 4.75a.75.75 0 00-1.5 0v4.5h-4.5a.75.75 0 000 1.5h4.5v4.5a.75.75 0 001.5 0v-4.5h4.5a.75.75 0 000-1.5h-4.5v-4.5z" />
+                </svg>
+              }
+            >
+              Create New
+            </Button>
+          </Link>
+        </div>
       </div>
 
       {!characters || characters.length === 0 ? (

@@ -1,0 +1,2107 @@
+{
+  "traits": [
+    {
+      "positive": "Brave",
+      "description": "You face danger without flinching, your courage bolstering your mental resilience against fear and intimidation.",
+      "data": "SSI=1",
+      "modules": {},
+      "incompatible": [
+        "Cowardly",
+        "Nonconfrontational"
+      ]
+    },
+    {
+      "positive": "Compassionate",
+      "description": "You feel deeply for others' suffering and are moved to help those in need, your empathy making you more skilled at healing and medicine.",
+      "data": "SSP=1",
+      "modules": {},
+      "incompatible": [
+        "Ruthless",
+        "Evil",
+        "Psychopath",
+        "Sociopath",
+        "Narcissist",
+        "Emotionally Cold",
+        "Cannibal"
+      ]
+    },
+    {
+      "positive": "Curious",
+      "description": "You have an insatiable desire to learn and discover new things, your constant study making you more academically knowledgeable.",
+      "data": "SSN=1",
+      "modules": {},
+      "incompatible": [
+        "Oblivious",
+        "Sheltered"
+      ]
+    },
+    {
+      "positive": "Honest",
+      "description": "You value truth and speak it even when it's difficult, your transparent nature making you more persuasive when your sincerity shines through.",
+      "data": "SST=1",
+      "modules": {},
+      "incompatible": [
+        "Liar",
+        "Deceitful"
+      ]
+    },
+    {
+      "positive": "Loyal",
+      "description": "Once you give your word or friendship, you keep it no matter the cost, your unwavering dedication strengthening your mental fortitude.",
+      "data": "SSI=1",
+      "modules": {},
+      "incompatible": [
+        "Snitch",
+        "Betrayer",
+        "Oathbreaker"
+      ]
+    },
+    {
+      "positive": "Optimistic",
+      "description": "You see the bright side of situations and believe things will work out, your positive demeanor naturally attracting others to your company.",
+      "data": "SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Cynical",
+        "Pessimist",
+        "Depressed",
+        "Gloomy"
+      ]
+    },
+    {
+      "positive": "Disciplined",
+      "description": "You have strong self-control and stick to routines and commitments, your mental training enhancing your ability to maintain concentration.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Lazy",
+        "Impulsive",
+        "Erratic",
+        "Short Attention Span"
+      ]
+    },
+    {
+      "positive": "Witty",
+      "description": "You have a sharp mind and quick tongue, often lightening moods with humor and clever verbal expressions.",
+      "data": "SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Daft",
+        "Simple",
+        "Childish",
+        "Oblivious"
+      ]
+    },
+    {
+      "negative": "Stubborn",
+      "description": "Once you've made up your mind, it's nearly impossible to change it, your mental fortitude making you resistant to influence but also harder to persuade.",
+      "data": "SSI=1,SBT=-1",
+      "modules": {},
+      "incompatible": [
+        "Impulsive"
+      ]
+    },
+    {
+      "negative": "Arrogant",
+      "description": "You believe yourself superior to others and aren't shy about showing it, your condescending attitude making your presence less appealing to those around you.",
+      "data": "SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Humble",
+        "Bashful",
+        "Underconfident"
+      ]
+    },
+    {
+      "negative": "Cynical",
+      "description": "You expect the worst from people and situations, trust earned slowly if at all, though your jaded worldview makes you perceptive to deceit even as it diminishes your charisma.",
+      "data": "SSS=1,SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Optimistic",
+        "Optimist",
+        "Idealistic",
+        "Trusting",
+        "Naive"
+      ]
+    },
+    {
+      "negative": "Impulsive",
+      "description": "You act on instinct and emotion, rarely thinking through consequences, your quick reflexes and coordination offset by poor logical reasoning.",
+      "data": "SSG=1,SBL=-1",
+      "modules": {},
+      "incompatible": [
+        "Disciplined",
+        "Careful",
+        "Stubborn",
+        "Calm",
+        "Patient"
+      ]
+    },
+    {
+      "negative": "Greedy",
+      "description": "You desire wealth and possessions above most other values, your avarice making others less inclined to trust or believe your words.",
+      "data": "SBT=-1",
+      "modules": {},
+      "incompatible": [
+        "Generous",
+        "Charitable",
+        "Frugal"
+      ]
+    },
+    {
+      "negative": "Vengeful",
+      "description": "You never forget a slight and will go to great lengths to settle scores, your keen memory for grudges sharpening your ability to read others' intentions.",
+      "data": "SSS=1",
+      "modules": {},
+      "incompatible": [
+        "Forgiving",
+        "Compassionate",
+        "Good"
+      ]
+    },
+    {
+      "negative": "Paranoid",
+      "description": "You see threats everywhere and trust almost no one, your constant vigilance heightening your senses but making you seem less approachable.",
+      "data": "SSK=1,SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Trusting",
+        "Loyal",
+        "Optimistic"
+      ]
+    },
+    {
+      "negative": "Lazy",
+      "description": "You avoid work and effort when possible, preferring comfort and ease, your sedentary lifestyle leaving you less physically fit and coordinated than you could be.",
+      "data": "SSA=-1,SBG=-1",
+      "modules": {},
+      "incompatible": [
+        "Disciplined",
+        "Energetic",
+        "Ambitious",
+        "Entrepreneur",
+        "Industrious"
+      ]
+    },
+    {
+      "neutral": "Reserved",
+      "description": "You keep your thoughts and feelings close, revealing little to others, your quiet nature making you naturally skilled at moving unseen.",
+      "data": "SSF=1",
+      "modules": {},
+      "incompatible": [
+        "Extrovert",
+        "Charismatic",
+        "Alluring",
+        "Eloquent Speaker"
+      ]
+    },
+    {
+      "neutral": "Pragmatic",
+      "description": "You focus on practical solutions and what works, not ideals or theories, your logical approach to problem-solving serving you well in analysis.",
+      "data": "SSL=1",
+      "modules": {},
+      "incompatible": [
+        "Idealistic",
+        "Spiritual",
+        "Romantic"
+      ]
+    },
+    {
+      "neutral": "Eccentric",
+      "description": "Your habits and interests are unusual, making you stand out from the crowd with your unique and expressive personality.",
+      "data": "SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Ordinary",
+        "Grounded",
+        "Well Groomed",
+        "Conservative"
+      ]
+    },
+    {
+      "neutral": "Ambitious",
+      "description": "You have big goals and will work tirelessly to achieve them, your drive and determination making you a persuasive advocate for your vision.",
+      "data": "SST=1",
+      "modules": {},
+      "incompatible": [
+        "Lazy",
+        "Laid Back",
+        "Depressed",
+        "Apathetic"
+      ]
+    },
+    {
+      "positive": "Smart",
+      "description": "You are exceptionally clever with a superior intellect that allows you to solve complex problems and absorb knowledge faster than most.",
+      "data": "A4=1",
+      "modules": {},
+      "incompatible": [
+        "Simple",
+        "Daft",
+        "Illiterate",
+        "Oblivious"
+      ]
+    },
+    {
+      "positive": "Charismatic",
+      "description": "You possess natural charm and magnetism that draws people to you, making you exceptionally skilled in all social interactions.",
+      "data": "A5=1",
+      "modules": {},
+      "incompatible": [
+        "Bashful",
+        "Emotionally Cold",
+        "Sociopath"
+      ]
+    },
+    {
+      "neutral": "Funny",
+      "description": "You have a great sense of humor and tell really good jokes, able to lighten any mood with your comedic timing and expressive delivery.",
+      "data": "SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Gloomy",
+        "Depressed",
+        "Serious"
+      ]
+    },
+    {
+      "positive": "Humble",
+      "description": "You are grounded and down to earth, never boasting about your accomplishments despite your capabilities, your modesty making you more likeable.",
+      "data": "SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Arrogant",
+        "Narcissist",
+        "Overconfident",
+        "Pretentious"
+      ]
+    },
+    {
+      "positive": "Generous",
+      "description": "You freely share what you have with others, sometimes to your own detriment, finding joy in giving rather than receiving.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Greedy",
+        "Selfish",
+        "Stingy"
+      ]
+    },
+    {
+      "neutral": "Wild",
+      "description": "You are untamed and hard to contain, a true free spirit who resists any attempt to bind or restrict your nature, your unpredictable movements making you harder to pin down.",
+      "data": "SSE=1",
+      "modules": {},
+      "incompatible": [
+        "Disciplined",
+        "Calm",
+        "Careful",
+        "Reserved"
+      ]
+    },
+    {
+      "positive": "Calm",
+      "description": "You are composed and focused, slow to anger, your mental discipline allowing you to maintain concentration even in chaos.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Impulsive",
+        "Hot Headed",
+        "Excitable",
+        "Nervous"
+      ]
+    },
+    {
+      "negative": "Abrasive",
+      "description": "You are harsh and rough in your demeanor, your blunt manner making it difficult to get along with others and hindering social interactions.",
+      "data": "SBR=-1,SBT=-1",
+      "modules": {},
+      "incompatible": [
+        "Polite",
+        "Charming",
+        "Considerate",
+        "Compassionate"
+      ]
+    },
+    {
+      "positive": "Head Strong",
+      "description": "You are extremely determined and stubborn, your iron will making you nearly impossible to sway once you've set your mind to something.",
+      "data": "SSI=1",
+      "modules": {},
+      "incompatible": [
+        "Impulsive",
+        "Flexible"
+      ]
+    },
+    {
+      "positive": "Confident",
+      "description": "You carry yourself with assurance and a bit of swagger, your self-belief strengthening your mental resilience and presence.",
+      "data": "SSI=1,SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Underconfident",
+        "Bashful",
+        "Anxious",
+        "Nervous"
+      ]
+    },
+    {
+      "neutral": "Oblivious",
+      "description": "You struggle to grasp even basic social cues and subtle details, your limited awareness reducing your perception and insight.",
+      "data": "SSK=-1,SSS=-1",
+      "modules": {},
+      "incompatible": [
+        "Smart",
+        "Perceptive",
+        "Insightful",
+        "Alert"
+      ]
+    },
+    {
+      "negative": "Irrational",
+      "description": "You make decisions driven by emotion rather than reason, often acting in ways that defy logic and common sense, your poor reasoning skills severely limiting your analytical abilities.",
+      "data": "SSL=-1",
+      "modules": {},
+      "incompatible": [
+        "Rational",
+        "Pragmatic",
+        "Logic"
+      ]
+    },
+    {
+      "positive": "Rational",
+      "description": "You think things through carefully and try to make the most logical choice in every situation, prioritizing reason over emotion.",
+      "data": "SSL=1",
+      "modules": {},
+      "incompatible": [
+        "Irrational",
+        "Impulsive",
+        "Insane",
+        "Chaotic"
+      ]
+    },
+    {
+      "negative": "Cowardly",
+      "description": "You are easily frightened and avoid danger whenever possible, your weak resolve making you crumble under pressure.",
+      "data": "SSI=-1",
+      "modules": {},
+      "incompatible": [
+        "Brave",
+        "Confident",
+        "Adventurous"
+      ]
+    },
+    {
+      "negative": "Ruthless",
+      "description": "You will go to any lengths to achieve your goals, unconcerned with who gets hurt along the way, your cold calculation making you perceptive to weakness but alienating to others.",
+      "data": "SSS=1,SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Compassionate",
+        "Merciful",
+        "Caring",
+        "Good"
+      ]
+    },
+    {
+      "positive": "Caring",
+      "description": "You naturally want to take care of others and ensure their wellbeing, always putting their needs before your own comfort, making you skilled at medicine.",
+      "data": "SSP=1",
+      "modules": {},
+      "incompatible": [
+        "Ruthless",
+        "Emotionally Cold",
+        "Narcissist",
+        "Evil"
+      ]
+    },
+    {
+      "positive": "Considerate",
+      "description": "You are thoughtful of other people's feelings and mindful of how your actions affect them, your awareness making you more insightful and persuasive.",
+      "data": "SSS=1,SST=1",
+      "modules": {},
+      "incompatible": [
+        "Rude",
+        "Abrasive",
+        "Narcissist",
+        "Selfish"
+      ]
+    },
+    {
+      "negative": "Evil",
+      "description": "You actively scheme to bring misery to everyone around you, delighting in the suffering of others.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Good",
+        "Charitable",
+        "Compassionate",
+        "Devout"
+      ]
+    },
+    {
+      "positive": "Good",
+      "description": "You have a good heart and are always trying to do the right thing, guided by moral principles and compassion.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Evil",
+        "Ruthless",
+        "Cruel",
+        "Vengeful"
+      ]
+    },
+    {
+      "negative": "Psychopath",
+      "description": "You lack empathy and remorse, viewing others as objects to manipulate rather than people with feelings, though your cold manipulation makes you skilled at deception.",
+      "data": "SSQ=1,SSS=1",
+      "modules": {},
+      "incompatible": [
+        "Compassionate",
+        "Empath",
+        "Caring",
+        "Good"
+      ]
+    },
+    {
+      "negative": "Sociopath",
+      "description": "You struggle to form genuine emotional connections and understand social norms, your antisocial tendencies severely limiting your social capabilities.",
+      "data": "A5=-1",
+      "modules": {},
+      "incompatible": [
+        "Charismatic",
+        "Empathetic",
+        "Caring",
+        "Good"
+      ]
+    },
+    {
+      "negative": "Cannibal",
+      "description": "You have been caught eating your own kind on more than one occasion, a dark secret that marks you as fundamentally disturbed.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Compassionate",
+        "Vegetarian",
+        "Vegan",
+        "Devout"
+      ]
+    },
+    {
+      "positive": "Nimble",
+      "description": "You are quick and agile, able to move with exceptional grace and dexterity that sets you apart.",
+      "data": "A2=1",
+      "modules": {},
+      "incompatible": [
+        "Slothful",
+        "Lazy",
+        "Clumsy"
+      ]
+    },
+    {
+      "positive": "Hustler",
+      "description": "You are always looking for opportunities to profit from your skills and knowledge, your street smarts making you skilled at persuasion and reading people.",
+      "data": "SST=1,SSS=1",
+      "modules": {},
+      "incompatible": [
+        "Lazy",
+        "Honest",
+        "Generous"
+      ]
+    },
+    {
+      "positive": "Lucky",
+      "description": "Fortune seems to favor you, with improbable events working in your favor more often than can be explained by chance alone.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Unlucky",
+        "Paranoid"
+      ]
+    },
+    {
+      "negative": "Simple",
+      "description": "You lack depth in both intellect and social understanding, your limited cognitive abilities making the world a confusing place.",
+      "data": "A4=-1,A5=-1",
+      "modules": {},
+      "incompatible": [
+        "Smart",
+        "Genius",
+        "Clever",
+        "Quick Learner"
+      ]
+    },
+    {
+      "negative": "Daft",
+      "description": "You struggle with basic comprehension and reasoning, your mental limitations making complex concepts difficult to grasp.",
+      "data": "A4=-1",
+      "modules": {},
+      "incompatible": [
+        "Smart",
+        "Genius",
+        "Clever"
+      ]
+    },
+    {
+      "negative": "Overconfident",
+      "description": "You vastly overestimate your own abilities and it frequently gets you into trouble, though your bravado does bolster your resilience and presence.",
+      "data": "SSI=1,SSR=1,SBL=-1",
+      "modules": {},
+      "incompatible": [
+        "Underconfident",
+        "Anxious",
+        "Nervous",
+        "Humble"
+      ]
+    },
+    {
+      "negative": "Underconfident",
+      "description": "You constantly doubt yourself and your abilities, your lack of self-assurance severely hampering both your resilience and concentration.",
+      "data": "SSI=-2,SSJ=-1",
+      "modules": {},
+      "incompatible": [
+        "Confident",
+        "Overconfident",
+        "Brave",
+        "Arrogant"
+      ]
+    },
+    {
+      "positive": "Alluring",
+      "description": "You possess a magnetic charm and captivating presence that naturally draws others to you, making you exceptionally socially adept.",
+      "data": "A5=1",
+      "modules": {},
+      "incompatible": [
+        "Bashful",
+        "Emotionally Cold",
+        "Oblivious"
+      ]
+    },
+    {
+      "neutral": "Romantic",
+      "description": "You are a hopeless romantic who frequently attempts to woo others, your focused attention on matters of the heart making you expressive but sometimes oblivious to other social cues.",
+      "data": "SSQ=1,SBS=-1",
+      "modules": {},
+      "incompatible": [
+        "Pragmatic",
+        "Emotionally Cold",
+        "Cynical"
+      ]
+    },
+    {
+      "neutral": "Gloomy",
+      "description": "You dwell on dark and morbid topics, bringing them up at inappropriate times and casting a shadow over otherwise pleasant moments.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Happy",
+        "Optimistic",
+        "Cheerful",
+        "Funny",
+        "Witty"
+      ]
+    },
+    {
+      "negative": "Hot Headed",
+      "description": "You have a volatile temper that erupts frequently and explosively, making it difficult to maintain your composure and weakening your concentration.",
+      "data": "SSJ=-1",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Patient",
+        "Laid Back",
+        "Cool Headed"
+      ]
+    },
+    {
+      "neutral": "Perfectionist",
+      "description": "You will spend countless hours attempting to achieve perfection in all your tasks, unable to settle for anything less than flawless, your intense focus sharpening your concentration.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Lazy",
+        "Pragmatic",
+        "Imperfect"
+      ]
+    },
+    {
+      "negative": "Childish",
+      "description": "You act like a child despite your age, making juvenile jokes and behaving immaturely, which hinders your social credibility.",
+      "data": "SBR=-1,SBT=-1",
+      "modules": {},
+      "incompatible": [
+        "Mature",
+        "Serious",
+        "Old Soul"
+      ]
+    },
+    {
+      "negative": "Erratic",
+      "description": "Your behavior is unpredictable and inconsistent, making it impossible for others to know what to expect from you, your scattered nature weakening your concentration.",
+      "data": "SSJ=-1",
+      "modules": {},
+      "incompatible": [
+        "Disciplined",
+        "Calm",
+        "Careful",
+        "Stable"
+      ]
+    },
+    {
+      "neutral": "Careful",
+      "description": "You would rather be safe than sorry, taking precautions and moving cautiously, your vigilance sharpening both your concentration and stealth.",
+      "data": "SSJ=1,SSF=1",
+      "modules": {},
+      "incompatible": [
+        "Impulsive",
+        "Reckless",
+        "Wild",
+        "Adventurous"
+      ]
+    },
+    {
+      "positive": "Sneaky",
+      "description": "You find it easy to conceal yourself from others' vision and move without being detected, a natural talent for going unseen.",
+      "data": "SSF=1",
+      "modules": {},
+      "incompatible": [
+        "Honest",
+        "Open",
+        "Transparent"
+      ]
+    },
+    {
+      "positive": "Perceptive",
+      "description": "You are highly attentive to your surroundings, noticing details that others miss with your keen observational skills.",
+      "data": "SSK=1",
+      "modules": {},
+      "incompatible": [
+        "Oblivious",
+        "Naive",
+        "Sheltered"
+      ]
+    },
+    {
+      "positive": "Devout",
+      "description": "You are dedicated to your religion and god with unwavering faith, your spiritual discipline strengthening your resilience and endurance.",
+      "data": "SSI=1,SSD=1",
+      "modules": {},
+      "incompatible": [
+        "Evil",
+        "Cynical",
+        "Godless"
+      ]
+    },
+    {
+      "neutral": "Zealot",
+      "description": "You are fanatically devoted to your deity and make your worship abundantly clear to everyone you meet, your fervent conviction bolstering your resilience.",
+      "data": "SSI=1",
+      "modules": {},
+      "incompatible": [
+        "Pragmatic",
+        "Skeptical",
+        "Agnostic"
+      ]
+    },
+    {
+      "negative": "Liar",
+      "description": "You habitually deceive others with practiced ease, your skill at fabricating stories and manipulating conversations honed through constant use.",
+      "data": "SSQ=1,SBT=-1",
+      "modules": {},
+      "incompatible": [
+        "Honest",
+        "Transparent",
+        "Trustworthy"
+      ]
+    },
+    {
+      "positive": "Polite",
+      "description": "You have excellent manners and are unfailingly courteous, your refined social graces making you more persuasive and well-received.",
+      "data": "SST=1,SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Rude",
+        "Abrasive",
+        "Crude",
+        "Offensive"
+      ]
+    },
+    {
+      "negative": "Rude",
+      "description": "You are disrespectful and offensive to people without regard for their feelings, your poor manners undermining social interactions.",
+      "data": "SBR=-1,SBT=-1",
+      "modules": {},
+      "incompatible": [
+        "Polite",
+        "Charming",
+        "Considerate",
+        "Courteous"
+      ]
+    },
+    {
+      "positive": "Clever",
+      "description": "You excel at solving problems in creative and innovative ways, your sharp logical thinking allowing you to find solutions others miss.",
+      "data": "SSL=1",
+      "modules": {},
+      "incompatible": [
+        "Simple",
+        "Daft",
+        "Foolish"
+      ]
+    },
+    {
+      "neutral": "Dirty",
+      "description": "You maintain poor hygiene and are generally unkempt, with little concern for cleanliness or appearance, your unkempt state diminishing your social presence.",
+      "data": "SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Clean",
+        "Well Groomed",
+        "Fastidious"
+      ]
+    },
+    {
+      "neutral": "Clean",
+      "description": "You maintain meticulous personal hygiene and prefer your surroundings to be equally spotless and orderly.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Dirty",
+        "Slovenly"
+      ]
+    },
+    {
+      "neutral": "Well Groomed",
+      "description": "You take pride in your appearance, always presenting yourself as neat, proper, and well-maintained, your polished appearance enhancing your social presence.",
+      "data": "SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Dirty",
+        "Slovenly",
+        "Unkempt"
+      ]
+    },
+    {
+      "negative": "Illiterate",
+      "description": "You cannot read or write, your lack of education severely limiting both your knowledge and academic abilities.",
+      "data": "A4=-1,SSN=-1",
+      "modules": {},
+      "incompatible": [
+        "Smart",
+        "Quick Learner",
+        "Bookworm",
+        "Genius"
+      ]
+    },
+    {
+      "positive": "Bookworm",
+      "description": "You can always be found with your nose in a book, your voracious reading habit expanding your knowledge significantly.",
+      "data": "A4=1",
+      "modules": {},
+      "incompatible": [
+        "Illiterate"
+      ]
+    },
+    {
+      "neutral": "Suspicious",
+      "description": "You are wary of nearly everyone and trust no one easily, your constant vigilance keeping your senses sharp and focused.",
+      "data": "SSK=1,SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Trusting",
+        "Optimistic",
+        "Naive"
+      ]
+    },
+    {
+      "negative": "Narcissist",
+      "description": "You are completely self-absorbed, making everything about yourself with no regard for how it affects others, your obsession with self severely limiting your insight into others.",
+      "data": "SSS=-1",
+      "modules": {},
+      "incompatible": [
+        "Humble",
+        "Considerate",
+        "Selfless",
+        "Compassionate"
+      ]
+    },
+    {
+      "negative": "Snitch",
+      "description": "You will betray your friends' confidences without hesitation, tattling on them to authority figures or enemies alike.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Loyal",
+        "Trustworthy",
+        "Discreet"
+      ]
+    },
+    {
+      "positive": "Mentally Fit",
+      "description": "You can endure tremendous psychological turmoil without breaking, your mental fortitude far exceeding that of ordinary people.",
+      "data": "A3=1",
+      "modules": {},
+      "incompatible": [
+        "Unstable",
+        "Neurotic",
+        "Insane"
+      ]
+    },
+    {
+      "neutral": "Nervous",
+      "description": "You feel anxious and on edge in many different situations, struggling to find calm even when there's no clear threat, your anxiety diminishing your concentration.",
+      "data": "SSJ=-1",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Confident",
+        "Cool Headed"
+      ]
+    },
+    {
+      "negative": "Violent",
+      "description": "You frequently resort to physical aggression to settle disagreements, preferring fists to words in any conflict.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Peaceful",
+        "Compassionate",
+        "Calm"
+      ]
+    },
+    {
+      "negative": "Neurotic",
+      "description": "You are plagued by excessive worry and anxiety, your unstable mental state weakening your psychological resilience.",
+      "data": "SSI=-1",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Confident",
+        "Stable"
+      ]
+    },
+    {
+      "neutral": "Optimist",
+      "description": "You maintain a positive attitude despite circumstances, always believing that things will work out for the best.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Pessimist",
+        "Cynic",
+        "Depressed"
+      ]
+    },
+    {
+      "neutral": "Pessimist",
+      "description": "You always expect the worst possible outcome, preparing for disaster even when success seems likely.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Optimistic",
+        "Optimist",
+        "Happy"
+      ]
+    },
+    {
+      "negative": "Depressed",
+      "description": "You suffer from persistent melancholy and rarely find the motivation to engage with life or pursue activities, your sadness draining your mental energy.",
+      "data": "SSI=-1,SBJ=-1",
+      "modules": {},
+      "incompatible": [
+        "Happy",
+        "Energetic",
+        "Optimistic",
+        "Content"
+      ]
+    },
+    {
+      "neutral": "Happy",
+      "description": "You are genuinely content and cheerful, finding joy in everyday experiences and radiating positivity.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Depressed",
+        "Sad",
+        "Gloomy",
+        "Melancholic"
+      ]
+    },
+    {
+      "neutral": "Introvert",
+      "description": "You prefer solitude and small groups over large social gatherings, your reserved nature limiting your social capabilities.",
+      "data": "A5=-1",
+      "modules": {},
+      "incompatible": [
+        "Extrovert",
+        "Charismatic",
+        "Social"
+      ]
+    },
+    {
+      "neutral": "Extrovert",
+      "description": "You thrive in social situations and gain energy from being around others, your outgoing nature enhancing your social abilities.",
+      "data": "A5=1",
+      "modules": {},
+      "incompatible": [
+        "Introvert",
+        "Reserved",
+        "Solitary"
+      ]
+    },
+    {
+      "neutral": "Hermit",
+      "description": "You prefer isolation and staying indoors, avoiding social contact and the outside world whenever possible.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Extrovert",
+        "Social",
+        "Adventurous"
+      ]
+    },
+    {
+      "neutral": "Inquisitive",
+      "description": "You constantly seek truth and answers, your curious nature driving you to investigate and maintain focus on mysteries.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Oblivious",
+        "Indifferent"
+      ]
+    },
+    {
+      "negative": "Complainer",
+      "description": "You always find something to gripe about, constantly voicing your dissatisfaction with any situation.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Content",
+        "Grateful",
+        "Optimistic"
+      ]
+    },
+    {
+      "positive": "Entrepreneur",
+      "description": "You constantly seek to invent the next breakthrough or develop innovative ideas, always looking for new opportunities, your business acumen sharpening your logic and persuasion.",
+      "data": "SSL=1,SST=1",
+      "modules": {},
+      "incompatible": [
+        "Lazy",
+        "Risk-averse"
+      ]
+    },
+    {
+      "negative": "Short Attention Span",
+      "description": "You struggle to maintain focus and often forget what you were doing moments after starting, your scattered concentration severely limiting your mental abilities.",
+      "data": "SSJ=-2",
+      "modules": {},
+      "incompatible": [
+        "Focused",
+        "Disciplined",
+        "Patient",
+        "Perfect Memory"
+      ]
+    },
+    {
+      "positive": "Perfect Memory",
+      "description": "You can recall events from years ago with flawless accuracy, your exceptional memory enhancing both your knowledge and concentration.",
+      "data": "A4=1,SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Forgetful",
+        "Short Attention Span",
+        "Oblivious"
+      ]
+    },
+    {
+      "negative": "Gambling Addiction",
+      "description": "You compulsively gamble away your money, unable to resist the thrill despite consistently losing, though your focus at the tables sharpens your concentration and ability to read tells.",
+      "data": "SSJ=1,SSS=1",
+      "modules": {},
+      "incompatible": [
+        "Frugal",
+        "Cautious",
+        "Risk-averse"
+      ]
+    },
+    {
+      "negative": "Substance Abuser",
+      "description": "You are addicted to harmful substances that damage both your mental faculties and your body's ability to think clearly.",
+      "data": "A3=-1,A4=-1",
+      "modules": {},
+      "incompatible": [
+        "Clean",
+        "Healthy",
+        "Disciplined",
+        "Straight Edge"
+      ]
+    },
+    {
+      "neutral": "Excitable",
+      "description": "You become extremely animated over the smallest things, your enthusiasm bursting forth at the slightest provocation.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Reserved",
+        "Depressed"
+      ]
+    },
+    {
+      "positive": "Laid Back",
+      "description": "You are an overall chill individual who doesn't sweat the small stuff, though your relaxed attitude sometimes undermines your resilience.",
+      "data": "SSI=-1",
+      "modules": {},
+      "incompatible": [
+        "Ambitious",
+        "Anxious",
+        "Nervous",
+        "Hot Headed"
+      ]
+    },
+    {
+      "positive": "Impersonator",
+      "description": "You excel at mimicking others' voices, mannerisms, and expressions, your talents in deception making you a master of disguise.",
+      "data": "SSQ=1,SSH=1",
+      "modules": {},
+      "incompatible": [
+        "Honest",
+        "Sincere"
+      ]
+    },
+    {
+      "positive": "Empath",
+      "description": "You feel the emotions of others as if they were your own, your heightened sensitivity allowing you to read feelings and offer genuine healing comfort.",
+      "data": "SSS=1,SSP=1",
+      "modules": {},
+      "incompatible": [
+        "Psychopath",
+        "Sociopath",
+        "Emotionally Cold"
+      ]
+    },
+    {
+      "neutral": "Sleezy",
+      "description": "You have a greasy, untrustworthy demeanor that makes people uncomfortable and wary of your intentions, your slimy nature reducing your social presence.",
+      "data": "SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Honest",
+        "Trustworthy",
+        "Noble"
+      ]
+    },
+    {
+      "neutral": "Quirky",
+      "description": "You are charmingly odd and endearingly goofy, your unusual behavior making you expressive if unconventional.",
+      "data": "SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Ordinary",
+        "Conventional",
+        "Normal"
+      ]
+    },
+    {
+      "positive": "Creative",
+      "description": "You generate interesting and innovative ideas, seeing possibilities and solutions that others would never imagine.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Pragmatic",
+        "Literal",
+        "Uncreative"
+      ]
+    },
+    {
+      "positive": "Genius",
+      "description": "You are one of the smartest people around, your exceptional intellect and mental capabilities setting you far above the average person.",
+      "data": "A4=2",
+      "modules": {},
+      "incompatible": [
+        "Simple",
+        "Daft",
+        "Illiterate"
+      ]
+    },
+    {
+      "neutral": "Foreign",
+      "description": "You hail from a distant land with different customs and traditions, making you an outsider in your current location.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Native",
+        "Local"
+      ]
+    },
+    {
+      "neutral": "Insightful",
+      "description": "You can read people and situations with remarkable accuracy, your keen perception revealing truths others miss.",
+      "data": "SSS=1",
+      "modules": {},
+      "incompatible": [
+        "Oblivious",
+        "Naive",
+        "Foolish"
+      ]
+    },
+    {
+      "neutral": "Hypochondriac",
+      "description": "You constantly worry something is wrong with your health and overreact to minor symptoms, your medical knowledge enhanced by obsessive self-diagnosis.",
+      "data": "SSP=1",
+      "modules": {},
+      "incompatible": [
+        "Healthy",
+        "Carefree"
+      ]
+    },
+    {
+      "neutral": "Anxious",
+      "description": "You feel constantly on edge and worried, your pervasive anxiety weakening your mental resilience.",
+      "data": "SSI=-1",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Confident",
+        "Relaxed"
+      ]
+    },
+    {
+      "negative": "Insane",
+      "description": "You act completely irrationally and have lost touch with reality, your fractured mind diminishing your cognitive abilities.",
+      "data": "A4=-1",
+      "modules": {},
+      "incompatible": [
+        "Rational",
+        "Sane",
+        "Logical"
+      ]
+    },
+    {
+      "negative": "Unstable",
+      "description": "You are prone to mental breaks and emotional collapse, your fragile mental state making it difficult to cope with stress.",
+      "data": "SSI=-1,SSJ=-1",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Disciplined",
+        "Stable",
+        "Mentally Fit"
+      ]
+    },
+    {
+      "neutral": "Youthful",
+      "description": "You dwell on innocent childhood days despite your age, your carefree spirit enhancing both your resilience and stealth.",
+      "data": "SSI=1,SSF=1",
+      "modules": {},
+      "incompatible": [
+        "Old Soul",
+        "Mature"
+      ]
+    },
+    {
+      "positive": "Old Soul",
+      "description": "You possess wisdom and insight far beyond your years, your mature perspective enhancing both your mental strength and knowledge.",
+      "data": "A3=1,A4=1",
+      "modules": {},
+      "incompatible": [
+        "Youthful",
+        "Childish",
+        "Naive"
+      ]
+    },
+    {
+      "positive": "Resourceful",
+      "description": "You can accomplish much with very little, your clever logic allowing you to make the most of limited materials and resources.",
+      "data": "SSL=1",
+      "modules": {},
+      "incompatible": [
+        "Dependent",
+        "Incompetent"
+      ]
+    },
+    {
+      "negative": "Emotionally Cold",
+      "description": "You maintain emotional distance from others, your inability to connect limiting your social capabilities.",
+      "data": "A5=-1",
+      "modules": {},
+      "incompatible": [
+        "Compassionate",
+        "Empath",
+        "Caring",
+        "Charismatic"
+      ]
+    },
+    {
+      "negative": "Bashful",
+      "description": "You are painfully shy and timid in social situations, your reserved nature severely limiting your social abilities.",
+      "data": "A5=-1",
+      "modules": {},
+      "incompatible": [
+        "Charismatic",
+        "Confident",
+        "Bold"
+      ]
+    },
+    {
+      "positive": "Energetic",
+      "description": "You seem to have boundless energy, your vitality enhancing your fitness and coordination.",
+      "data": "SSA=1,SSG=1",
+      "modules": {},
+      "incompatible": [
+        "Lazy",
+        "Depressed",
+        "Slothful"
+      ]
+    },
+    {
+      "neutral": "Fidgeter",
+      "description": "You cannot seem to stay still, constantly moving and fidgeting, though your restlessness keeps your concentration heightened.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Calm",
+        "Still",
+        "Patient"
+      ]
+    },
+    {
+      "neutral": "Eloquent Speaker",
+      "description": "You have a masterful way with words, articulating thoughts and ideas with clarity and persuasive precision.",
+      "data": "SSQ=1,SST=1",
+      "modules": {},
+      "incompatible": [
+        "Silent",
+        "Inarticulate",
+        "Soft Spoken"
+      ]
+    },
+    {
+      "neutral": "Night Owl",
+      "description": "You are most active and alert during the nighttime hours, functioning best when others are asleep.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Early Bird"
+      ]
+    },
+    {
+      "neutral": "Early Bird",
+      "description": "You are most active and alert during the early morning hours, greeting each dawn with energy and focus.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Night Owl"
+      ]
+    },
+    {
+      "negative": "Unlucky",
+      "description": "Misfortune seems to follow you everywhere, with the worst possible outcomes befalling you more often than chance would suggest.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Lucky",
+        "Blessed"
+      ]
+    },
+    {
+      "neutral": "Ravenous Appetite",
+      "description": "You have an insatiable hunger and are constantly seeking your next meal, always thinking about food.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Temperate",
+        "Abstinent"
+      ]
+    },
+    {
+      "negative": "Argumentative",
+      "description": "You will start a verbal altercation at the slightest provocation, constantly looking for opportunities to debate and dispute.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Nonconfrontational",
+        "Peaceful",
+        "Agreeable"
+      ]
+    },
+    {
+      "negative": "Nonconfrontational",
+      "description": "You are extremely hesitant to confront anyone even when wronged, your avoidance of conflict severely weakening your resilience.",
+      "data": "SSI=-2",
+      "modules": {},
+      "incompatible": [
+        "Argumentative",
+        "Brave",
+        "Assertive"
+      ]
+    },
+    {
+      "neutral": "Brooder",
+      "description": "When upset, you retreat into yourself to silently brood and ruminate rather than expressing your feelings.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Social",
+        "Communicative",
+        "Open"
+      ]
+    },
+    {
+      "neutral": "Rebellious",
+      "description": "You constantly look for ways to defy authority and stick it to the system, your defiant nature making you skilled at thievery and stealth.",
+      "data": "SSH=1,SSF=1",
+      "modules": {},
+      "incompatible": [
+        "Obedient",
+        "Law-abiding",
+        "Straight Edge"
+      ]
+    },
+    {
+      "neutral": "Stoic",
+      "description": "You remain emotionally unmoved by events, maintaining composure through your strengthened mental resilience.",
+      "data": "SSI=1",
+      "modules": {},
+      "incompatible": [
+        "Emotional",
+        "Excitable",
+        "Animated"
+      ]
+    },
+    {
+      "neutral": "Noble",
+      "description": "You hold yourself to high standards of honor and conduct, striving to do what is right and just.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Dishonorable",
+        "Scheming",
+        "Selfish"
+      ]
+    },
+    {
+      "positive": "Quick Learner",
+      "description": "You absorb new information and pick up skills with exceptional speed, your enhanced learning capacity setting you apart.",
+      "data": "A4=1",
+      "modules": {},
+      "incompatible": [
+        "Slow Learner",
+        "Daft"
+      ]
+    },
+    {
+      "neutral": "Idealistic",
+      "description": "You believe in noble principles and high ideals, prioritizing your vision of how things should be over practical reality.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Pragmatic",
+        "Cynical",
+        "Realist"
+      ]
+    },
+    {
+      "negative": "Naive",
+      "description": "You are incredibly trusting and gullible, your lack of worldly experience severely undermining your insight and judgment.",
+      "data": "SSS=-2",
+      "modules": {},
+      "incompatible": [
+        "Perceptive",
+        "Cynical",
+        "Suspicious",
+        "Paranoid"
+      ]
+    },
+    {
+      "neutral": "Street Smart",
+      "description": "You know how to handle yourself in big cities, your urban savvy enhancing your insight and thievery skills.",
+      "data": "SSS=1,SSH=1",
+      "modules": {},
+      "incompatible": [
+        "Sheltered",
+        "Naive",
+        "Oblivious"
+      ]
+    },
+    {
+      "negative": "Guilt Complex",
+      "description": "You constantly feel guilty about everything, your excessive self-blame undermining your resilience and mental clarity.",
+      "data": "SSI=-1",
+      "modules": {},
+      "incompatible": [
+        "Shameless",
+        "Narcissist"
+      ]
+    },
+    {
+      "neutral": "Sheltered",
+      "description": "You have been protected from the harsh realities of the world, your limited experience leaving you less skilled in wilderness survival and social awareness.",
+      "data": "SSM=-1,SBS=-1",
+      "modules": {},
+      "incompatible": [
+        "Street Smart",
+        "World-wise",
+        "Well Traveled"
+      ]
+    },
+    {
+      "positive": "Temperate",
+      "description": "You practice moderation in all things and rarely overindulge, maintaining self-control over your appetites and desires.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Gluttonous",
+        "Indulgent",
+        "Excessive"
+      ]
+    },
+    {
+      "negative": "Gluttonous",
+      "description": "You frequently overindulge in food and pleasures, your lack of self-control leaving you less agile and fit than you could be.",
+      "data": "A2=-1",
+      "modules": {},
+      "incompatible": [
+        "Temperate",
+        "Frugal",
+        "Disciplined"
+      ]
+    },
+    {
+      "neutral": "Overprotective",
+      "description": "You are fiercely protective of your family and close friends, sometimes to the point of being overbearing.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Neglectful",
+        "Indifferent"
+      ]
+    },
+    {
+      "negative": "Easily Offended",
+      "description": "You take offense at even the most minor slights, perceiving insults where none were intended.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Thick-skinned",
+        "Confident",
+        "Unbothered"
+      ]
+    },
+    {
+      "positive": "Relaxed",
+      "description": "You are exceptionally chill and easygoing, your calm demeanor enhancing your endurance.",
+      "data": "SSD=1",
+      "modules": {},
+      "incompatible": [
+        "Anxious",
+        "Tense",
+        "Nervous"
+      ]
+    },
+    {
+      "neutral": "Hoarder",
+      "description": "You compulsively collect and keep many useless items, unable to throw anything away no matter how worthless.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Minimalist",
+        "Frugal",
+        "Generous"
+      ]
+    },
+    {
+      "negative": "Bad With Money",
+      "description": "You have no concept of financial management or saving, consistently making poor decisions with your wealth.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Frugal",
+        "Resourceful",
+        "Smart"
+      ]
+    },
+    {
+      "positive": "Frugal",
+      "description": "You are incredibly careful with money, scrutinizing every expense and seeking the best value in all transactions.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Greedy",
+        "Gluttonous",
+        "Generous"
+      ]
+    },
+    {
+      "positive": "Strategizer",
+      "description": "You constantly develop tactical plans and optimal strategies, your logical mind always seeking the best approach.",
+      "data": "SSL=1",
+      "modules": {},
+      "incompatible": [
+        "Impulsive",
+        "Reckless",
+        "Hasty"
+      ]
+    },
+    {
+      "neutral": "Dramatic",
+      "description": "You make everything theatrical and grandiose, your flair for the dramatic enhancing your expressive abilities.",
+      "data": "SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Stoic",
+        "Understated",
+        "Reserved"
+      ]
+    },
+    {
+      "neutral": "Multiple Personalities",
+      "description": "You have distinct personalities that emerge at different times, making you unpredictable and difficult to understand.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Stable",
+        "Consistent"
+      ]
+    },
+    {
+      "positive": "Patient",
+      "description": "You rarely act hastily and can wait for the right moment, your patience improving your endurance and concentration.",
+      "data": "SSD=1,SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Impulsive",
+        "Impatient",
+        "Hasty",
+        "Excitable"
+      ]
+    },
+    {
+      "positive": "Pure",
+      "description": "You possess an innocent and unblemished nature, untainted by the corruption and darkness of the world.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Evil",
+        "Corrupt",
+        "Cynical",
+        "Ruthless"
+      ]
+    },
+    {
+      "neutral": "Spiritual",
+      "description": "You are deeply connected to matters of faith and the metaphysical, prioritizing the soul over material concerns.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Materialistic",
+        "Atheistic",
+        "Pragmatic"
+      ]
+    },
+    {
+      "neutral": "Cryptic",
+      "description": "You speak in riddles and obscure references, making yourself difficult to read and understand, though your mysterious nature intrigues others.",
+      "data": "SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Open",
+        "Honest",
+        "Transparent"
+      ]
+    },
+    {
+      "neutral": "Alert",
+      "description": "You are constantly vigilant and nearly impossible to surprise, your heightened awareness sharpening both your resilience and senses.",
+      "data": "SSI=1,SSK=1",
+      "modules": {},
+      "incompatible": [
+        "Oblivious",
+        "Distracted",
+        "Naive"
+      ]
+    },
+    {
+      "neutral": "Charming",
+      "description": "You have a natural magnetism that affects people positively, your expressive charm making you delightful company.",
+      "data": "SSQ=1,SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Abrasive",
+        "Rude",
+        "Awkward"
+      ]
+    },
+    {
+      "negative": "Pretentious",
+      "description": "You act superior and affected, putting on airs that alienate others and undermine social interactions.",
+      "data": "SBR=-1",
+      "modules": {},
+      "incompatible": [
+        "Humble",
+        "Down-to-earth",
+        "Genuine"
+      ]
+    },
+    {
+      "neutral": "Bossy",
+      "description": "You constantly tell others what to do, taking charge whether or not anyone asked for your leadership.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Submissive",
+        "Obedient",
+        "Meek"
+      ]
+    },
+    {
+      "neutral": "Serial Killer",
+      "description": "You harbor a dark secret—you have murdered multiple people and will likely kill again.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Compassionate",
+        "Devout",
+        "Good"
+      ]
+    },
+    {
+      "neutral": "Oathbreaker",
+      "description": "You violated a sacred oath, a betrayal that weighs on your reputation and defines how others see you.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Loyal",
+        "Trustworthy",
+        "Devout"
+      ]
+    },
+    {
+      "neutral": "Outcast",
+      "description": "You have been banished from your homeland for a serious offense, forced to wander without a community to call your own.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Loyal",
+        "Community-oriented"
+      ]
+    },
+    {
+      "negative": "Drunk",
+      "description": "You spend most of your time inebriated at the local tavern, frequently under the influence of alcohol, your constant intoxication diminishing your coordination and logic.",
+      "data": "SSG=-1,SSL=-1",
+      "modules": {},
+      "incompatible": [
+        "Straight Edge",
+        "Disciplined",
+        "Sober"
+      ]
+    },
+    {
+      "negative": "Kleptomaniac",
+      "description": "You have an uncontrollable compulsion to steal things, your sticky fingers making you skilled at thievery whether you want to be or not.",
+      "data": "SSH=1",
+      "modules": {},
+      "incompatible": [
+        "Honest",
+        "Generous",
+        "Trustworthy"
+      ]
+    },
+    {
+      "negative": "Pyromaniac",
+      "description": "You are obsessed with fire and can't resist setting things ablaze, finding satisfaction in watching flames consume.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Careful",
+        "Responsible",
+        "Cautious"
+      ]
+    },
+    {
+      "negative": "Slothful",
+      "description": "You move slowly and with great reluctance, your lethargic nature significantly reducing your walking speed and physical capabilities.",
+      "data": "K1=-2,SSA=-1",
+      "modules": {},
+      "incompatible": [
+        "Energetic",
+        "Ambitious",
+        "Industrious"
+      ]
+    },
+    {
+      "neutral": "Lisp",
+      "description": "You have a speech impediment that causes you to mispronounce certain words with a slight lisp.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Clear Speaker",
+        "Articulate"
+      ]
+    },
+    {
+      "neutral": "Soft Spoken",
+      "description": "You speak quietly and rarely interject in conversations, preferring to listen rather than dominate discussion.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Loud",
+        "Brash",
+        "Argumentative"
+      ]
+    },
+    {
+      "neutral": "Dishonorable",
+      "description": "You have no sense of honor whatsoever, willing to cheat and steal without compunction, your underhanded skills improving your thievery.",
+      "data": "SSH=1",
+      "modules": {},
+      "incompatible": [
+        "Noble",
+        "Honorable",
+        "Devout"
+      ]
+    },
+    {
+      "neutral": "Fabulous",
+      "description": "You are magnificent and incredibly flamboyant in every way, making a dramatic impression wherever you go, your flair enhancing your social presence.",
+      "data": "SSR=1,SSQ=1",
+      "modules": {},
+      "incompatible": [
+        "Ordinary",
+        "Understated",
+        "Simple"
+      ]
+    },
+    {
+      "neutral": "Morbid Curiosity",
+      "description": "You are fascinated by death, decay, and other dark topics that most find disturbing or taboo.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Cheerful",
+        "Optimistic",
+        "Innocent"
+      ]
+    },
+    {
+      "neutral": "Vegetarian",
+      "description": "You have forsaken eating meat, living entirely on plant-based foods as a matter of principle or preference.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Cannibal"
+      ]
+    },
+    {
+      "neutral": "Vegan",
+      "description": "You have forsaken all animal products including meat, dairy, and eggs, adhering to a strict plant-based lifestyle.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Cannibal"
+      ]
+    },
+    {
+      "neutral": "Cultist",
+      "description": "You belong to a secretive cult that practices magic and worships entities beyond mainstream religion, your occult studies enhancing your magical knowledge.",
+      "data": "SSO=1",
+      "modules": {},
+      "incompatible": [
+        "Devout",
+        "Skeptical"
+      ]
+    },
+    {
+      "neutral": "Acolyte",
+      "description": "You serve at a local religious establishment, assisting with ceremonies and studying sacred texts to deepen your magical understanding.",
+      "data": "SSO=1",
+      "modules": {},
+      "incompatible": [
+        "Atheistic",
+        "Skeptical"
+      ]
+    },
+    {
+      "neutral": "Magician's Apprentice",
+      "description": "You study under a great magician, dedicating yourself to learning the arcane arts and expanding your magical knowledge.",
+      "data": "SSO=1",
+      "modules": {},
+      "incompatible": [
+        "Pragmatic",
+        "Skeptical"
+      ]
+    },
+    {
+      "neutral": "Arcane Prodigy",
+      "description": "You show exceptional talent for magic and are expected to become a legendary wizard, destined for greatness in the arcane arts, your innate gifts boosting your magical aptitude.",
+      "data": "SSO=1",
+      "modules": {},
+      "incompatible": [
+        "Magically-inept",
+        "Incompetent"
+      ]
+    },
+    {
+      "neutral": "Channeler",
+      "description": "You spend considerable time communing with spirits from beyond, acting as a medium between worlds, your spiritual focus enhancing your concentration.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Skeptical",
+        "Materialistic"
+      ]
+    },
+    {
+      "neutral": "Witch",
+      "description": "You practice dark magic and forbidden arts, wielding powers that most societies view with suspicion and fear.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Devout",
+        "Holy",
+        "Righteous"
+      ]
+    },
+    {
+      "neutral": "Ordinary",
+      "description": "You are completely unremarkable with nothing particularly special or unique about you whatsoever.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Eccentric",
+        "Fabulous",
+        "Unique"
+      ]
+    },
+    {
+      "neutral": "Green Thumb",
+      "description": "You possess tremendous skill with growing plants and gardening, your expertise in cultivation enhancing your wilderness knowledge.",
+      "data": "SSM=1",
+      "modules": {},
+      "incompatible": [
+        "Incompetent",
+        "Destructive"
+      ]
+    },
+    {
+      "neutral": "Good with Animals",
+      "description": "You have a natural affinity for animals and often keep many pets, your understanding of beasts improving your wilderness skills.",
+      "data": "SSM=1",
+      "modules": {},
+      "incompatible": [
+        "Cruel",
+        "Violent",
+        "Abusive"
+      ]
+    },
+    {
+      "neutral": "Blessed",
+      "description": "The gods themselves have granted you their favor, strengthening your mental fortitude with divine protection.",
+      "data": "A3=1",
+      "modules": {},
+      "incompatible": [
+        "Cursed",
+        "Unlucky"
+      ]
+    },
+    {
+      "neutral": "Hunting Hobbyist",
+      "description": "You enjoy the thrill of tracking and hunting game, your experience in the field sharpening your wilderness expertise.",
+      "data": "SSM=1",
+      "modules": {},
+      "incompatible": [
+        "Vegetarian",
+        "Vegan",
+        "Pacifist"
+      ]
+    },
+    {
+      "neutral": "Loves the Outdoors",
+      "description": "You are most comfortable in nature and thrive when surrounded by wilderness, your outdoor experience enhancing your survival skills.",
+      "data": "SSM=1",
+      "modules": {},
+      "incompatible": [
+        "Hermit",
+        "Indoorsy"
+      ]
+    },
+    {
+      "neutral": "Homeopath",
+      "description": "You believe in natural remedies and treatments that can be prepared at home, your herbal knowledge improving your medical expertise.",
+      "data": "SSP=1",
+      "modules": {},
+      "incompatible": [
+        "Modern",
+        "Skeptical"
+      ]
+    },
+    {
+      "neutral": "Scavenger",
+      "description": "You can find useful items in refuse that others overlook, your keen eye for salvage sharpening your perception.",
+      "data": "SSK=1",
+      "modules": {},
+      "incompatible": [
+        "Clean",
+        "Fastidious",
+        "Wealthy"
+      ]
+    },
+    {
+      "neutral": "Well Traveled",
+      "description": "You have journeyed far and wide, accumulating cultural experience and wilderness knowledge from your extensive travels.",
+      "data": "SSM=1",
+      "modules": {},
+      "incompatible": [
+        "Sheltered",
+        "Homebody"
+      ]
+    },
+    {
+      "neutral": "Trustfund Baby",
+      "description": "You inherited significant wealth from your family, never having to work for your fortune.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Poor",
+        "Self-made"
+      ]
+    },
+    {
+      "neutral": "Vengeful Widow",
+      "description": "You lost your partner and have delved into necromancy in a desperate attempt to bring them back at any cost.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Forgiving",
+        "Peaceful"
+      ]
+    },
+    {
+      "neutral": "Fascinated by Magic",
+      "description": "You are utterly captivated by magical phenomena and yearn to understand every aspect of the arcane, your obsessive study dramatically improving your magical knowledge.",
+      "data": "SSO=2",
+      "modules": {},
+      "incompatible": [
+        "Skeptical",
+        "Pragmatic"
+      ]
+    },
+    {
+      "neutral": "Obsessed with Weapons",
+      "description": "You are consumed by fascination with weaponry and want to learn everything about their construction, use, and history.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Pacifist",
+        "Peace-loving"
+      ]
+    },
+    {
+      "neutral": "Quick Hands",
+      "description": "You possess exceptional manual dexterity and can grab or manipulate objects with lightning speed, your swift fingers improving both your coordination and thievery.",
+      "data": "SSG=1,SSH=1",
+      "modules": {},
+      "incompatible": [
+        "Clumsy",
+        "Slow"
+      ]
+    },
+    {
+      "neutral": "Stylish",
+      "description": "You always look fresh and fashionable in whatever you wear, maintaining a sense of style that sets you apart.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Slovenly",
+        "Unkempt",
+        "Dirty"
+      ]
+    },
+    {
+      "neutral": "Tattooed",
+      "description": "Your body is marked with several tribal tattoos that tell stories of your heritage and experiences.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Plain",
+        "Unmarked"
+      ]
+    },
+    {
+      "neutral": "Grounded",
+      "description": "You love the feeling of grass on your bare feet and rarely wear shoes, preferring direct contact with the earth.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Pretentious",
+        "Vain"
+      ]
+    },
+    {
+      "neutral": "Straight Edge",
+      "description": "You strictly avoid drugs, alcohol, and anything illegal, your clean lifestyle making you more disciplined and focused.",
+      "data": "SSJ=1",
+      "modules": {},
+      "incompatible": [
+        "Drunk",
+        "Substance Abuser",
+        "Rebellious"
+      ]
+    },
+    {
+      "neutral": "Bully",
+      "description": "You pick on those weaker than yourself, using intimidation and force to get your way, your aggressive nature making you more imposing.",
+      "data": "SSR=1",
+      "modules": {},
+      "incompatible": [
+        "Considerate",
+        "Weak",
+        "Meek"
+      ]
+    },
+    {
+      "neutral": "Hearty",
+      "description": "You are filled with mirth and vigor, your robust constitution granting you enhanced endurance and additional health.",
+      "data": "SSD=1,H1=5",
+      "modules": {},
+      "incompatible": [
+        "Depressed",
+        "Melancholic",
+        "Gloomy"
+      ]
+    },
+    {
+      "neutral": "Masochist",
+      "description": "You derive satisfaction from pain and cannot seem to get enough of it, seeking out experiences that would repel others, your tolerance for pain increasing your endurance.",
+      "data": "SSD=1",
+      "modules": {},
+      "incompatible": [
+        "Protective of self",
+        "Self-preserving"
+      ]
+    },
+    {
+      "neutral": "Brawler",
+      "description": "You are always ready to throw down and settle things with your fists, eager for physical confrontation.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Peaceful",
+        "Conflict-averse"
+      ]
+    },
+    {
+      "neutral": "Charitable",
+      "description": "You freely donate to causes you believe in, finding fulfillment in helping others through financial support.",
+      "data": "",
+      "modules": {},
+      "incompatible": [
+        "Greedy",
+        "Selfish",
+        "Stingy"
+      ]
+    }
+  ]
+}

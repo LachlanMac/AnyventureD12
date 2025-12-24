@@ -2,9 +2,12 @@ import Character from '../models/Character.js';
 import Item from '../models/Item.js';
 import Trait from '../models/Trait.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
+import { generateRandomCharacterData } from '../utils/randomCharacterGenerator.js';
+import { generateFoundryId } from '../utils/foundryIdGenerator.js';
 import { v4 as uuidv4 } from 'uuid';
 import fs from 'fs';
 import path from 'path';
+import axios from 'axios';
 
 // Helper function to expand trait/ancestry options with subchoices
 const expandTraitOptions = (options) => {
@@ -73,6 +76,15 @@ export const getCharacters = async (req, res) => {
       const characterWithBonuses = character.toObject();
       applyModuleBonusesToCharacter(characterWithBonuses);
       characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+      // Set deprecated race and culture fields from populated data for frontend compatibility
+      if (characterWithBonuses.ancestry?.ancestryId?.name) {
+        characterWithBonuses.race = characterWithBonuses.ancestry.ancestryId.name;
+      }
+      if (characterWithBonuses.characterCulture?.cultureId?.name) {
+        characterWithBonuses.culture = characterWithBonuses.characterCulture.cultureId.name;
+      }
+
       return characterWithBonuses;
     });
 
@@ -182,8 +194,15 @@ export const getCharacter = async (req, res) => {
     // Apply module bonuses directly to the character's attributes
     applyModuleBonusesToCharacter(characterWithBonuses);
     characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
-    
-    
+
+    // Set deprecated race and culture fields from populated data for frontend compatibility
+    if (characterWithBonuses.ancestry?.ancestryId?.name) {
+      characterWithBonuses.race = characterWithBonuses.ancestry.ancestryId.name;
+    }
+    if (characterWithBonuses.characterCulture?.cultureId?.name) {
+      characterWithBonuses.culture = characterWithBonuses.characterCulture.cultureId.name;
+    }
+
     res.json(characterWithBonuses);
   } catch (error) {
     console.error('Error fetching character:', error);
@@ -292,7 +311,12 @@ export const createCharacter = async (req, res) => {
       finalCharacterData.physicalTraits = {};
     }
     if (!finalCharacterData.physicalTraits.size) {
-      finalCharacterData.physicalTraits.size = 'medium';
+      finalCharacterData.physicalTraits.size = 'Medium';
+    } else {
+      // Clean up size value - remove any leading numbers and capitalize (fixes legacy "0large" issue)
+      let cleanSize = finalCharacterData.physicalTraits.size.toString().replace(/^\d+/, '');
+      cleanSize = cleanSize.charAt(0).toUpperCase() + cleanSize.slice(1);
+      finalCharacterData.physicalTraits.size = cleanSize;
     }
 
     const character = new Character(finalCharacterData);
@@ -2233,5 +2257,359 @@ export const exportCharacterToFoundry = async (req, res) => {
   } catch (error) {
     console.error('Error exporting character to FoundryVTT:', error);
     res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Generate a random character (fresh, no modules invested)
+// @route   POST /api/characters/random
+// @access  Private
+export const generateRandomCharacter = async (req, res) => {
+  try {
+    // Get the user ID from the authenticated user
+    const userId = req.user ? req.user._id : null;
+
+    if (!userId) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    // Generate random character data (no options needed - always fresh)
+    const characterData = await generateRandomCharacterData();
+
+    // Add user ID
+    characterData.userId = userId.toString();
+
+    // Handle pending traits - create them in the database first
+    const pendingTraits = characterData._pendingTraits || [];
+    delete characterData._pendingTraits; // Remove from character data
+
+    const createdTraits = [];
+    console.log(`\n📝 Creating ${pendingTraits.length} traits in database...`);
+
+    for (const traitData of pendingTraits) {
+      // Check if a trait with this name already exists (name is unique in DB)
+      let existingTrait = await Trait.findOne({
+        name: traitData.name
+      });
+
+      if (existingTrait) {
+        // Reuse existing trait
+        console.log(`  ♻️  Reusing existing trait: ${traitData.name}`);
+        createdTraits.push({
+          traitId: existingTrait._id,
+          selectedOptions: existingTrait.options.length > 0 ? [{
+            name: existingTrait.options[0].name,
+            selectedSubchoice: null
+          }] : []
+        });
+      } else {
+        // Create a new trait in the database
+        // Put the data in an option since that's how the system expects it
+        // Add TG (General Trait) category code if data exists
+        let dataWithCategory = traitData.data || '';
+        if (dataWithCategory && !dataWithCategory.includes('TG')) {
+          dataWithCategory = 'TG:' + dataWithCategory;
+        } else if (!dataWithCategory) {
+          dataWithCategory = 'TG';
+        }
+
+        const traitOption = {
+          name: traitData.name,
+          description: traitData.description,
+          data: dataWithCategory,
+          selected: true
+        };
+
+        const trait = new Trait({
+          name: traitData.name,
+          description: traitData.description,
+          foundry_id: generateFoundryId(),
+          options: [traitOption]
+        });
+        const savedTrait = await trait.save();
+        console.log(`  ✅ Created new trait: ${traitData.name} (ID: ${savedTrait._id})`);
+        createdTraits.push({
+          traitId: savedTrait._id,
+          selectedOptions: [{
+            name: traitData.name,
+            selectedSubchoice: null
+          }]
+        });
+      }
+    }
+
+    console.log(`\n💾 Adding ${createdTraits.length} traits to character...`);
+    // Add the traits to character data
+    characterData.traits = createdTraits;
+
+    // Create and save the character
+    const character = new Character(characterData);
+    const savedCharacter = await character.save();
+    console.log(`\n✅ Character saved! ID: ${savedCharacter._id}`);
+    console.log(`   Ancestry: ${savedCharacter.ancestry?.ancestryId || 'none'}`);
+    console.log(`   Culture: ${savedCharacter.characterCulture?.cultureId || 'none'}`);
+    console.log(`   Traits: ${savedCharacter.traits?.length || 0}`);
+
+    // Populate and return the character with bonuses applied
+    const populatedCharacter = await Character.findById(savedCharacter._id)
+      .populate('modules.moduleId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    const characterWithBonuses = populatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    res.status(201).json(characterWithBonuses);
+  } catch (error) {
+    console.error('Error generating random character:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Generate AI biography for character
+// @route   POST /api/characters/:id/generate-biography
+// @access  Private
+export const generateAIBiography = async (req, res) => {
+  try {
+    // Configuration variables (easy to modify)
+    const LLM_HOST = '192.168.1.170';
+    const LLM_PORT = 8080;
+    const LLM_ENDPOINT = '/v1/chat/completions';
+    const LLM_MODEL = 'llama3';
+    const LLM_TIMEOUT = 120000; // 2 minutes
+    const MAX_TOKENS = 1000;
+    const TEMPERATURE = 0.8;
+
+    const SYSTEM_PROMPT = `You are a creative writer specializing in fantasy tabletop RPG character biographies. You write engaging, immersive character backstories for the AnyventureD12 TTRPG system.
+
+IMPORTANT: You must write ONLY in English. Do not use any other language.
+
+Your biographies should be:
+- Written in English language
+- Written in 3rd person explaining the life of the character
+- 3-4 paragraphs long
+- Rich with personality and detail
+- Include specific events and moments from their past
+- Reflect their traits, quirks, and background
+- Avoid generic fantasy tropes
+- Be narratively compelling and unique`;
+
+    const characterId = req.params.id;
+
+    // Fetch character with all populated data
+    const character = await Character.findById(characterId)
+      .populate('modules.moduleId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    // Check ownership
+    if (character.userId.toString() !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized to modify this character' });
+    }
+
+    // Build comprehensive character facts
+    const characterFacts = [];
+
+    // Basic info
+    characterFacts.push(`Name: ${character.name}`);
+    characterFacts.push(`Age: ${character.age || 'unknown'}`);
+
+    // Ancestry
+    if (character.ancestry?.ancestryId) {
+      const ancestry = character.ancestry.ancestryId;
+      characterFacts.push(`Ancestry: ${ancestry.name}`);
+
+      // Ancestry options (like half-races)
+      if (character.ancestry.selectedOptions && character.ancestry.selectedOptions.length > 0) {
+        character.ancestry.selectedOptions.forEach(opt => {
+          if (opt.selectedSubchoice) {
+            characterFacts.push(`${opt.name}: ${opt.selectedSubchoice}`);
+          }
+        });
+      }
+    }
+
+    // Culture
+    if (character.characterCulture?.cultureId) {
+      characterFacts.push(`Culture: ${character.characterCulture.cultureId.name}`);
+    }
+
+    // Physical traits
+    if (character.physicalTraits) {
+      if (character.physicalTraits.gender) {
+        characterFacts.push(`Gender: ${character.physicalTraits.gender}`);
+      }
+      if (character.physicalTraits.height) {
+        characterFacts.push(`Height: ${character.physicalTraits.height}`);
+      }
+      if (character.physicalTraits.weight) {
+        characterFacts.push(`Weight: ${character.physicalTraits.weight}`);
+      }
+      if (character.physicalTraits.size) {
+        characterFacts.push(`Size: ${character.physicalTraits.size}`);
+      }
+      if (character.physicalTraits.eyes) {
+        characterFacts.push(`Eyes: ${character.physicalTraits.eyes}`);
+      }
+      if (character.physicalTraits.hair) {
+        characterFacts.push(`Hair: ${character.physicalTraits.hair}`);
+      }
+      if (character.physicalTraits.skin) {
+        characterFacts.push(`Skin: ${character.physicalTraits.skin}`);
+      }
+    }
+
+    // Attributes
+    if (character.attributes) {
+      const attrs = [];
+      if (character.attributes.physique) attrs.push(`Physique ${character.attributes.physique}`);
+      if (character.attributes.finesse) attrs.push(`Finesse ${character.attributes.finesse}`);
+      if (character.attributes.mind) attrs.push(`Mind ${character.attributes.mind}`);
+      if (character.attributes.knowledge) attrs.push(`Knowledge ${character.attributes.knowledge}`);
+      if (character.attributes.social) attrs.push(`Social ${character.attributes.social}`);
+      if (attrs.length > 0) {
+        characterFacts.push(`Attributes: ${attrs.join(', ')}`);
+      }
+    }
+
+    // Traits with descriptions
+    if (character.traits && character.traits.length > 0) {
+      const traitDescriptions = character.traits
+        .filter(t => t.traitId)
+        .map(t => `${t.traitId.name}${t.traitId.description ? ` (${t.traitId.description})` : ''}`)
+        .join('; ');
+      if (traitDescriptions) {
+        characterFacts.push(`Traits: ${traitDescriptions}`);
+      }
+    }
+
+    // Modules (their training/specializations)
+    if (character.modules && character.modules.length > 0) {
+      const moduleNames = character.modules
+        .filter(m => m.moduleId)
+        .map(m => m.moduleId.name)
+        .join(', ');
+      if (moduleNames) {
+        characterFacts.push(`Training/Specializations: ${moduleNames}`);
+      }
+    }
+
+    // Background text (if it exists from random generation)
+    if (character.biography && character.biography.length > 0) {
+      characterFacts.push(`Existing Background Notes: ${character.biography}`);
+    }
+
+    // Build the user prompt
+    const USER_PROMPT = `Generate a compelling third-person fantasy biography for this character based on these facts:
+
+${characterFacts.join('\n')}
+
+Write a 3-5 paragraph biography in THIRD PERSON that brings this character to life. Describe their specific memories, formative experiences, and defining moments that explain how they became who they are today. Refer to them by name or as "they/them/he/she". Make it unique and memorable. /nothink`;
+
+    console.log('\n🤖 Generating AI Biography...');
+    console.log(`📡 LLM Endpoint: http://${LLM_HOST}:${LLM_PORT}${LLM_ENDPOINT}`);
+    console.log(`📝 Character: ${character.name}`);
+    console.log(`📝 Character Facts: ${characterFacts}`);
+    // Make request to local LLM
+    const llmResponse = await axios.post(
+      `http://${LLM_HOST}:${LLM_PORT}${LLM_ENDPOINT}`,
+      {
+        model: LLM_MODEL,
+        messages: [
+          { role: 'system', content: SYSTEM_PROMPT },
+          { role: 'user', content: USER_PROMPT }
+        ],
+        max_tokens: MAX_TOKENS,
+        temperature: TEMPERATURE,
+        stream: false
+      },
+      {
+        timeout: LLM_TIMEOUT,
+        headers: {
+          'Content-Type': 'application/json'
+        }
+      }
+    );
+
+    // Extract the generated biography
+    let generatedBiography = llmResponse.data.choices?.[0]?.message?.content;
+
+    // Try alternative response formats
+    if (!generatedBiography || generatedBiography.trim().length === 0) {
+      // GLM models without /nothink put content in reasoning_content
+      generatedBiography = llmResponse.data.choices?.[0]?.message?.reasoning_content;
+    }
+    if (!generatedBiography) {
+      // Some servers return text directly
+      generatedBiography = llmResponse.data.choices?.[0]?.text;
+    }
+    if (!generatedBiography) {
+      // llama.cpp format
+      generatedBiography = llmResponse.data.content;
+    }
+
+    if (!generatedBiography || generatedBiography.trim().length === 0) {
+      console.error('❌ No content found in response');
+      console.log('📦 Full response:', JSON.stringify(llmResponse.data, null, 2));
+      throw new Error('No biography generated from LLM');
+    }
+
+    // Clean up any chat template tags that might remain
+    generatedBiography = generatedBiography.replace(/<think>[\s\S]*?<\/think>/g, '').trim();
+    generatedBiography = generatedBiography.replace(/<\|assistant\|>/g, '').trim();
+    generatedBiography = generatedBiography.replace(/<\|user\|>/g, '').trim();
+    generatedBiography = generatedBiography.replace(/<\|system\|>/g, '').trim();
+
+    console.log(`✅ Biography generated (${generatedBiography.length} characters)`);
+
+    // Update character's biography
+    character.biography = generatedBiography;
+    await character.save();
+
+    // Return updated character with bonuses
+    const updatedCharacter = await Character.findById(characterId)
+      .populate('modules.moduleId')
+      .populate('ancestry.ancestryId')
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId');
+
+    const characterWithBonuses = updatedCharacter.toObject();
+    applyModuleBonusesToCharacter(characterWithBonuses);
+    characterWithBonuses.derivedTraits = extractTraitsFromModules(characterWithBonuses);
+
+    res.json({
+      success: true,
+      biography: generatedBiography,
+      character: characterWithBonuses
+    });
+
+  } catch (error) {
+    console.error('❌ Error generating AI biography:', error.message);
+
+    // Provide helpful error messages
+    if (error.code === 'ECONNREFUSED') {
+      return res.status(503).json({
+        message: 'Cannot connect to LLM server. Please ensure the LLM server is running.',
+        error: error.message
+      });
+    }
+
+    if (error.code === 'ETIMEDOUT') {
+      return res.status(504).json({
+        message: 'LLM server request timed out. The server may be overloaded.',
+        error: error.message
+      });
+    }
+
+    res.status(500).json({
+      message: 'Failed to generate biography',
+      error: error.message
+    });
   }
 };

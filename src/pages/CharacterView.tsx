@@ -508,6 +508,10 @@ const CharacterView: React.FC = () => {
               race={character.race}
               culture={character.culture}
               portraitUrl={character.portraitUrl}
+              characterId={character._id}
+              onBiographyUpdate={(biography: string) => {
+                setCharacter((prev) => (prev ? { ...prev, biography } : null));
+              }}
             />
           )}
         </div>

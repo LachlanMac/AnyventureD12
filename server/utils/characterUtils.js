@@ -14,7 +14,12 @@ export const applyModuleBonusesToCharacter = (character) => {
     character.physicalTraits = {};
   }
   if (!character.physicalTraits.size) {
-    character.physicalTraits.size = 'medium';
+    character.physicalTraits.size = 'Medium';
+  } else {
+    // Clean up size value - remove any leading numbers and capitalize (fixes legacy "0large" issue)
+    let cleanSize = character.physicalTraits.size.toString().replace(/^\d+/, '');
+    cleanSize = cleanSize.charAt(0).toUpperCase() + cleanSize.slice(1);
+    character.physicalTraits.size = cleanSize;
   }
   
   // Store original values to track changes
@@ -711,7 +716,11 @@ const applyBonusesToCharacter = (character, bonuses) => {
     if (!character.physicalTraits) {
       character.physicalTraits = {};
     }
-    character.physicalTraits.size = bonuses.size;
+    // Clean up size value - remove any leading numbers (fixes legacy "0large" issue)
+    let cleanSize = bonuses.size.toString().replace(/^\d+/, '');
+    // Capitalize first letter
+    cleanSize = cleanSize.charAt(0).toUpperCase() + cleanSize.slice(1);
+    character.physicalTraits.size = cleanSize;
   }
 
   // Apply simple skill bonuses (skills.value)

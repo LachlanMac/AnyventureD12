@@ -18,7 +18,9 @@ import {
   removeTrait,
   updateTraitOptions,
   updateCultureSelections,
-  exportCharacterToFoundry
+  exportCharacterToFoundry,
+  generateRandomCharacter,
+  generateAIBiography
 } from '../controllers/characterController.js';
 import { protect } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
@@ -36,11 +38,19 @@ router.route('/')
   .get(protect, getCharacters)
   .post(protect, createCharacter);
 
+// Random character generation route
+router.route('/random')
+  .post(protect, generateRandomCharacter);
+
 // Character view route (public access for public characters)
 router.route('/:id')
   .get(getCharacter) // No protect middleware - handled in controller
   .put(protect, updateCharacter)
   .delete(protect, deleteCharacter);
+
+// AI Biography generation route
+router.route('/:id/generate-biography')
+  .post(protect, generateAIBiography);
 
 // Inventory management routes
 router.route('/:id/inventory')

@@ -1,0 +1,364 @@
+{
+  "traits": [
+    {
+      "name": "Giant",
+      "description": "You tower over others of your kind, your exceptional size granting you raw power but making you an easier target to hit.",
+      "data": "A1=2,SBC=1,SBE=-1,K1=-1",
+      "modules": {}
+    },
+    {
+      "name": "Small",
+      "description": "Your diminutive frame allows you to slip through tight spaces and dodge with ease, though your reach and physical presence suffer for it.",
+      "data": "A1=-1,SSE=1,SSF=1,SBR=-1,K1=-1",
+      "modules": {}
+    },
+    {
+      "name": "Limp",
+      "description": "An old injury left you with a permanent limp that slows your stride and makes prolonged physical exertion painful.",
+      "data": "SBA=-1,SSD=-1,K1=-2",
+      "modules": {}
+    },
+    {
+      "name": "Scarred",
+      "description": "Your body is a tapestry of battle scars and old wounds—each one a story of survival that hardened your mind but marked you forever.",
+      "data": "SSI=1,SBR=-1",
+      "modules": {}
+    },
+    {
+      "name": "Missing Eye",
+      "description": "The empty socket where your eye once was serves as a constant reminder of your loss, making depth perception a daily challenge.",
+      "data": "SBK=-2,SSG=-1",
+      "modules": {}
+    },
+    {
+      "name": "Missing Hand",
+      "description": "You've learned to adapt to life with one hand, but two-handed tasks and delicate work remain frustratingly difficult.",
+      "data": "SBG=-2,SBH=-2,SBC=-1",
+      "modules": {}
+    },
+    {
+      "name": "Blind",
+      "description": "Darkness is your constant companion, forcing you to rely on sound, touch, and intuition to navigate a world you cannot see.",
+      "data": "SBK=-3,SSK=2,SSL=1,SSI=1",
+      "modules": {}
+    },
+    {
+      "name": "Deaf",
+      "description": "You exist in perpetual silence, your eyes becoming sharper to compensate for what your ears cannot hear.",
+      "data": "SBK=-2,SSK=2,SBQ=-1,SBT=-1",
+      "modules": {}
+    },
+    {
+      "name": "Muscular",
+      "description": "Years of training or natural gifts have sculpted your body into a powerful instrument, every movement radiating strength.",
+      "data": "A1=2,SSC=1,SBF=-1",
+      "modules": {}
+    },
+    {
+      "name": "Gaunt",
+      "description": "Your skeletal frame makes you appear frail and sickly, though hunger has taught you to move quietly and endure hardship.",
+      "data": "A1=-1,SSD=-1,SSF=1,H1=-2",
+      "modules": {}
+    },
+    {
+      "name": "Albino",
+      "description": "Your pale skin and colorless hair mark you as different wherever you go, your light-sensitive eyes struggling in bright conditions but commanding attention in any crowd.",
+      "data": "SBK=-1,SSR=1,M3=1",
+      "modules": {}
+    },
+    {
+      "name": "Heterochromia",
+      "description": "Your mismatched eyes—each a different color—make you unforgettable to anyone who meets your gaze.",
+      "data": "SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "Chronic Pain",
+      "description": "Pain is your constant companion, draining your mental reserves but teaching you to push through suffering that would break lesser souls.",
+      "data": "SSI=2,SBD=-1,R1=-3",
+      "modules": {}
+    },
+    {
+      "name": "Quick Reflexes",
+      "description": "Your body responds to danger before your mind even registers it, muscles twitching into action with lightning speed.",
+      "data": "A2=2,SSE=1",
+      "modules": {}
+    },
+    {
+      "name": "Slow",
+      "description": "Whether from injury, build, or simply poor coordination, you lumber along while others rush past.",
+      "data": "K1=-2,SBA=-1,SBE=-1",
+      "modules": {}
+    },
+    {
+      "name": "Ambidextrous",
+      "description": "Both hands work with equal grace and precision, giving you an edge in tasks that leave others fumbling.",
+      "data": "SSG=1,SSH=1",
+      "modules": {}
+    },
+    {
+      "name": "Frail",
+      "description": "Your body seems made of glass—delicate, fragile, and prone to breaking under stresses others shrug off.",
+      "data": "A1=-2,H1=-5,SSD=-1",
+      "modules": {}
+    },
+    {
+      "name": "Hardy",
+      "description": "You possess an iron constitution that shrugs off illness and injury, your body bouncing back from punishment that would hospitalize others.",
+      "data": "A1=2,SSD=2,M9=1",
+      "modules": {}
+    },
+    {
+      "name": "Mute",
+      "description": "Silence is your only voice, forcing you to communicate through gestures and expressions while relying on stealth and nimble fingers.",
+      "data": "SBQ=-3,SSF=2,SSG=1",
+      "modules": {}
+    },
+    {
+      "name": "Disfigured",
+      "description": "Burns, scars, or birth defects have left your appearance twisted and unsettling, though pain has made you perceptive to the suffering of others.",
+      "data": "SBR=-2,SSI=2,SBT=-1",
+      "modules": {}
+    },
+    {
+      "name": "Short",
+      "description": "You stand well below average height, making you harder to spot but easier to overlook in a crowd.",
+      "data": "SSF=1,SBR=-1,K1=-1",
+      "modules": {}
+    },
+    {
+      "name": "Tall",
+      "description": "You tower over most people you meet, your height granting you presence and reach but making concealment difficult.",
+      "data": "SSR=1,SBF=-1,K1=1",
+      "modules": {}
+    },
+    {
+      "name": "One Eyed",
+      "description": "You lost one eye but kept the other, learning to compensate for the loss of depth perception through hard-earned experience.",
+      "data": "SBK=-1,SSG=-1",
+      "modules": {}
+    },
+    {
+      "name": "Healthy",
+      "description": "Vitality flows through you like a spring river—you rarely fall ill and wounds heal faster than they have any right to.",
+      "data": "H1=5,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Unhealthy",
+      "description": "Your body is a battlefield of ailments and weaknesses, sickness clinging to you like a shadow you can't escape.",
+      "data": "H1=-5,SSD=-1,M9=-1",
+      "modules": {}
+    },
+    {
+      "name": "Loud",
+      "description": "Your voice booms like thunder even when you try to whisper, making stealth an exercise in futility.",
+      "data": "SSF=-2,SBQ=-1",
+      "modules": {}
+    },
+    {
+      "name": "Quiet",
+      "description": "You speak in hushed tones that others strain to hear, but your soft footsteps make you a natural at going unnoticed.",
+      "data": "SSF=2,SBQ=-1",
+      "modules": {}
+    },
+    {
+      "name": "Sickly",
+      "description": "Illness finds you like a moth to flame—every plague, every fever seems drawn to your weakened constitution.",
+      "data": "A1=-1,SSD=-1,M9=-2",
+      "modules": {}
+    },
+    {
+      "name": "Strong",
+      "description": "Raw strength courses through your muscles, making feats of power that challenge others feel effortless to you.",
+      "data": "A1=1,SSC=1",
+      "modules": {}
+    },
+    {
+      "name": "Dumb Brute",
+      "description": "You're built like an ox and about as clever—your massive frame and brute strength compensate for your lack of wit and charm.",
+      "data": "A1=2,A4=-2,A5=-1,SSC=1",
+      "modules": {}
+    },
+    {
+      "name": "Runt",
+      "description": "You're the smallest and weakest of your family, a fact that's been hammered into you through years of being overshadowed.",
+      "data": "A1=-1,H1=-3,SSF=1",
+      "modules": {}
+    },
+    {
+      "name": "Wimp",
+      "description": "You've always been the target of bullies and intimidation, your meek demeanor inviting abuse but also teaching you when to run.",
+      "data": "SBI=-1,SSE=1,R1=-2",
+      "modules": {}
+    },
+    {
+      "name": "Tough as Nails",
+      "description": "Pain washes over you like water off stone—you've weathered so much that one more bruise hardly matters.",
+      "data": "SSI=2,SSD=1,H1=3",
+      "modules": {}
+    },
+    {
+      "name": "Attractive",
+      "description": "You turn heads wherever you go, your natural beauty opening doors and winning favor with minimal effort.",
+      "data": "A5=1,SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "Unattractive",
+      "description": "Your features are harsh and uninviting, making social interactions awkward as people avert their eyes.",
+      "data": "A5=-1,SBR=-1",
+      "modules": {}
+    },
+    {
+      "name": "Eagle Eyes",
+      "description": "Your vision is extraordinarily sharp, allowing you to pick out details at distances that leave others squinting.",
+      "data": "SSK=2",
+      "modules": {}
+    },
+    {
+      "name": "Physically Fit",
+      "description": "Your body is a well-oiled machine, muscles toned and endurance seemingly limitless from disciplined training.",
+      "data": "SSA=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Ginger",
+      "description": "Your fiery red hair and freckled complexion mark you as distinctive, for better or worse depending on local superstitions.",
+      "data": "",
+      "modules": {}
+    },
+    {
+      "name": "Hairy",
+      "description": "Thick body hair covers you like a pelt, making you distinctly memorable and occasionally uncomfortable in social settings.",
+      "data": "M3=1",
+      "modules": {}
+    },
+    {
+      "name": "Balding",
+      "description": "Your hair has been in steady retreat for years now, leaving you with a receding hairline that makes you look older than you are.",
+      "data": "",
+      "modules": {}
+    },
+    {
+      "name": "Masculine",
+      "description": "You carry yourself with rugged, traditionally masculine traits—broad shoulders, strong jaw, and commanding presence.",
+      "data": "SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "Feminine",
+      "description": "Your features and mannerisms lean toward the traditionally feminine—graceful, delicate, and disarming.",
+      "data": "SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "Hunch Back",
+      "description": "Your spine curves unnaturally, forcing you into a permanent stoop that makes movement painful and speed difficult.",
+      "data": "A2=-1,SSA=-2,K1=-2,M1=1",
+      "modules": {}
+    },
+    {
+      "name": "Tremors",
+      "description": "Your hands shake constantly with involuntary tremors, making fine motor control a frustrating challenge.",
+      "data": "SBG=-1,SBH=-1,SSH=-1,SBI=-1",
+      "modules": {}
+    },
+    {
+      "name": "Allergies",
+      "description": "Pollen, dust, and various substances send you into sneezing fits and watery-eyed misery, especially outdoors.",
+      "data": "SBK=-1,SBN=-1",
+      "modules": {}
+    },
+    {
+      "name": "Thick",
+      "description": "You're built wide and solid—stocky rather than tall—giving you stability but making quick movements awkward.",
+      "data": "A2=-1,SBE=-1,SSB=1,M1=1",
+      "modules": {}
+    },
+    {
+      "name": "Pale",
+      "description": "Your skin is ghostly white, lacking any color or vitality and suggesting underlying weakness to those who see you.",
+      "data": "SBD=-1,H1=-2,M2=-1",
+      "modules": {}
+    },
+    {
+      "name": "Maimed",
+      "description": "A brutal old wound left permanent damage—the kind that aches on cold days and never fully heals.",
+      "data": "H1=-4,SSD=-1",
+      "modules": {}
+    },
+    {
+      "name": "Bent Nose",
+      "description": "Your nose has been broken and healed crooked, giving your face a rough, brawler's character.",
+      "data": "",
+      "modules": {}
+    },
+    {
+      "name": "Fast",
+      "description": "You move with exceptional speed, your legs carrying you across ground faster than anyone has a right to travel.",
+      "data": "K1=2,SSA=1",
+      "modules": {}
+    },
+    {
+      "name": "Weak Stomach",
+      "description": "Your stomach turns at the slightest provocation—gore, bad food, rough travel all leave you retching and miserable.",
+      "data": "SBI=-1,SBD=-1",
+      "modules": {}
+    },
+    {
+      "name": "Steady Feet",
+      "description": "Your balance is exceptional, making you nearly impossible to knock down or trip even on treacherous ground.",
+      "data": "SSB=1,SSE=1,SSA=1",
+      "modules": {}
+    },
+    {
+      "name": "Talks Fast",
+      "description": "Words tumble from your mouth in a rapid-fire stream that often leaves listeners struggling to keep up.",
+      "data": "SBT=-1,SBQ=-1",
+      "modules": {}
+    },
+    {
+      "name": "Always Hot",
+      "description": "Your body runs like a furnace, making you sweat in comfortable weather and suffer in heat while thriving in cold.",
+      "data": "M3=-1,M2=2",
+      "modules": {}
+    },
+    {
+      "name": "Always Cold",
+      "description": "You shiver even in warm weather, your body seemingly unable to generate enough heat no matter how many layers you wear.",
+      "data": "M2=-1,M3=2",
+      "modules": {}
+    },
+    {
+      "name": "Decrepit",
+      "description": "Age, injury, or illness has left you a withered husk, your body barely functional and threatening to fail at any moment.",
+      "data": "A1=-2,A2=-2,A3=-2,H1=-8,K1=-3,SSD=-2",
+      "modules": {}
+    },
+    {
+      "name": "Beautiful",
+      "description": "You possess striking beauty that captivates those around you, your appearance opening doors and turning heads effortlessly.",
+      "data": "A5=2,SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "One Legged",
+      "description": "You've learned to move with a peg leg or crutch, but running and complex movements remain severely compromised.",
+      "data": "A2=-2,K1=-4,SBA=-2,SBE=-2",
+      "modules": {}
+    },
+    {
+      "name": "One Armed",
+      "description": "You've adapted to life with a single arm, though tasks requiring two hands remain frustratingly out of reach.",
+      "data": "A1=-1,SBC=-2,SBG=-2,SBH=-1",
+      "modules": {}
+    },
+    {
+      "name": "Arthritic",
+      "description": "Your joints ache with inflammation and stiffness, making every movement a reminder of your body's deterioration.",
+      "data": "H1=-2,SBA=-1,SBG=-1,K1=-1",
+      "modules": {}
+    }
+  ]
+}

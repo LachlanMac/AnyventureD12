@@ -94,4 +94,14 @@ export const charactersApi = {
       file,
       'portrait'
     ),
+
+  // Generate random character (fresh, no modules)
+  generateRandom: () => apiClient.post<Character>('/characters/random', {}),
+
+  // Generate AI biography for character
+  generateBiography: (characterId: string) =>
+    apiClient.post<{ success: boolean; biography: string; character: Character }>(
+      `/characters/${characterId}/generate-biography`,
+      {}
+    ),
 };

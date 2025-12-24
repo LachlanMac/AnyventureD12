@@ -34,7 +34,8 @@ const MAGIC_MAPPINGS = {
   '2': 'primal',
   '3': 'meta',
   '4': 'white',
-  '5': 'mystic'
+  '5': 'mystic',
+  '6': 'arcane'
 };
 
 const CRAFTING_MAPPINGS = {
@@ -106,7 +107,7 @@ const PARSERS = [
   },
   {
     name: 'Skills',
-    pattern: /^S([ST])([A-T0-9])=(-?\d+|[XY])$/,
+    pattern: /^S([STB])([A-T0-9])=(-?\d+|[XY])$/,
     parse: (match, bonuses) => {
       const [_, type, code, valueStr] = match;
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
@@ -140,12 +141,19 @@ const PARSERS = [
             bonuses.attributeTalents[attrName] = (bonuses.attributeTalents[attrName] || 0) + value;
           }
         }
+      } else if (type === 'B') {
+        // Bonus/Penalty dice for skills (SBA=1, SBR=-1)
+        const skillName = SKILL_MAPPINGS[code];
+        if (skillName) {
+          if (!bonuses.skillBonusDice) bonuses.skillBonusDice = {};
+          bonuses.skillBonusDice[skillName] = (bonuses.skillBonusDice[skillName] || 0) + value;
+        }
       }
     }
   },
   {
     name: 'Weapons',
-    pattern: /^W([ST])([1-6])=(-?\d+|[XY])$/,
+    pattern: /^W([STB])([1-6])=(-?\d+|[XY])$/,
     parse: (match, bonuses) => {
       const [_, type, code, valueStr] = match;
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
@@ -163,13 +171,17 @@ const PARSERS = [
           }
         } else if (type === 'T') {
           bonuses.weaponSkills[weaponName].talent = (bonuses.weaponSkills[weaponName].talent || 0) + value;
+        } else if (type === 'B') {
+          // Bonus/Penalty dice for weapon checks (WB1=1)
+          if (!bonuses.weaponBonusDice) bonuses.weaponBonusDice = {};
+          bonuses.weaponBonusDice[weaponName] = (bonuses.weaponBonusDice[weaponName] || 0) + value;
         }
       }
     }
   },
   {
     name: 'Magic',
-    pattern: /^Y([ST])([1-5])=(-?\d+)$/,
+    pattern: /^Y([STB])([1-6])=(-?\d+)$/,
     parse: (match, bonuses) => {
       const [_, type, code, valueStr] = match;
       const value = parseInt(valueStr);
@@ -183,13 +195,17 @@ const PARSERS = [
           bonuses.magicSkills[magicName].value = (bonuses.magicSkills[magicName].value || 0) + value;
         } else if (type === 'T') {
           bonuses.magicSkills[magicName].talent = (bonuses.magicSkills[magicName].talent || 0) + value;
+        } else if (type === 'B') {
+          // Bonus/Penalty dice for magic checks (YB1=1)
+          if (!bonuses.magicBonusDice) bonuses.magicBonusDice = {};
+          bonuses.magicBonusDice[magicName] = (bonuses.magicBonusDice[magicName] || 0) + value;
         }
       }
     }
   },
   {
     name: 'Crafting',
-    pattern: /^C([ST])([1-6])=(-?\d+|[XY])$/,
+    pattern: /^C([STB])([1-6])=(-?\d+|[XY])$/,
     parse: (match, bonuses) => {
       const [_, type, code, valueStr] = match;
       const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
@@ -207,6 +223,10 @@ const PARSERS = [
           }
         } else if (type === 'T') {
           bonuses.craftingSkills[craftingName].talent = (bonuses.craftingSkills[craftingName].talent || 0) + value;
+        } else if (type === 'B') {
+          // Bonus/Penalty dice for crafting checks (CB1=1)
+          if (!bonuses.craftingBonusDice) bonuses.craftingBonusDice = {};
+          bonuses.craftingBonusDice[craftingName] = (bonuses.craftingBonusDice[craftingName] || 0) + value;
         }
       }
     }
@@ -339,8 +359,8 @@ export function parseDataString(dataString, bonuses = {}, character = null) {
     character.conditionals = {};
   }
 
-  // Split by colon for multiple effects
-  const effects = dataString.split(':');
+  // Split by colon or comma for multiple effects (support both formats)
+  const effects = dataString.split(/[:,]/);
 
   for (const effect of effects) {
     if (!effect.trim()) continue;

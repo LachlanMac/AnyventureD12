@@ -1,0 +1,106 @@
+{
+  "ancestries": {
+    "Arah-Ka": {
+      "mature": 25,
+      "average": 170,
+      "size": "Medium",
+      "heightRange": "5'6\" - 6'6\""
+    },
+    "Dragonkind": {
+      "mature": 20,
+      "average": 300,
+      "size": "Medium",
+      "heightRange": "5'8\" - 6'8\""
+    },
+    "Elf": {
+      "mature": 18,
+      "average": 250,
+      "size": "Medium",
+      "heightRange": "5'0\" - 6'0\""
+    },
+    "Gloxy": {
+      "mature": 14,
+      "average": 60,
+      "size": "Small",
+      "heightRange": "3'0\" - 4'0\""
+    },
+    "Gnoll": {
+      "mature": 10,
+      "average": 50,
+      "size": "Medium",
+      "heightRange": "5'8\" - 7'0\""
+    },
+    "Gnome": {
+      "mature": 18,
+      "average": 90,
+      "size": "Small",
+      "heightRange": "3'0\" - 4'0\""
+    },
+    "Goblin": {
+      "mature": 5,
+      "average": 30,
+      "size": "Small",
+      "heightRange": "3'0\" - 4'0\""
+    },
+    "Half-Giant": {
+      "mature": 30,
+      "average": 150,
+      "size": "Large",
+      "heightRange": "7'0\" - 9'0\""
+    },
+    "Human": {
+      "mature": 18,
+      "average": 75,
+      "size": "Medium",
+      "heightRange": "5'0\" - 6'6\""
+    },
+    "Kobold": {
+      "mature": 10,
+      "average": 40,
+      "size": "Small",
+      "heightRange": "2'6\" - 3'6\""
+    },
+    "Lizardfolk": {
+      "mature": 15,
+      "average": 80,
+      "size": "Medium",
+      "heightRange": "5'6\" - 7'0\""
+    },
+    "Minotaur": {
+      "mature": 20,
+      "average": 110,
+      "size": "Large",
+      "heightRange": "6'6\" - 8'0\""
+    },
+    "Orc": {
+      "mature": 20,
+      "average": 160,
+      "size": "Medium",
+      "heightRange": "5'8\" - 7'0\""
+    },
+    "Orycotal": {
+      "mature": 18,
+      "average": 85,
+      "size": "Medium",
+      "heightRange": "4'8\" - 5'8\""
+    },
+    "Stout-Folk": {
+      "mature": 16,
+      "average": 110,
+      "size": "Small",
+      "heightRange": "3'6\" - 4'6\""
+    },
+    "Tidewalker": {
+      "mature": 20,
+      "average": 120,
+      "size": "Medium",
+      "heightRange": "5'6\" - 6'6\""
+    },
+    "Vethi": {
+      "mature": 18,
+      "average": 100,
+      "size": "Medium",
+      "heightRange": "5'0\" - 6'0\""
+    }
+  }
+}

@@ -1,0 +1,152 @@
+{
+  "occupations": [
+    {
+      "name": "Soldier",
+      "description": "You served in an army or militia, trained in combat and military tactics. War shaped you into what you are today.",
+      "data": "SSC=1,SSB=1",
+      "modules": {
+        "melee_specialist": 2
+      }
+    },
+    {
+      "name": "Merchant",
+      "description": "You bought and sold goods, traveling trade routes and negotiating deals. Coin and commerce were your trade.",
+      "data": "SST=1,SSS=1",
+      "modules": {}
+    },
+    {
+      "name": "Sailor",
+      "description": "You worked on ships, whether as crew, navigator, or captain. The sea was your workplace and sometimes your battlefield.",
+      "data": "SSG=1,SSA=1",
+      "modules": {
+        "athlete": 1
+      }
+    },
+    {
+      "name": "Farmer",
+      "description": "You worked the land, growing crops or raising livestock. Your life was dictated by seasons and weather.",
+      "data": "SSA=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Criminal",
+      "description": "You made your living outside the law—as a thief, smuggler, or con artist. The shadows were your domain.",
+      "data": "SSH=1,SSF=1",
+      "modules": {
+        "thief": 2
+      }
+    },
+    {
+      "name": "Entertainer",
+      "description": "You performed for crowds—as a musician, actor, dancer, or storyteller. You lived to bring joy or provoke emotion.",
+      "data": "SSQ=1,SSR=1",
+      "modules": {
+        "skald": 1
+      }
+    },
+    {
+      "name": "Scholar",
+      "description": "You dedicated yourself to study and research, whether in a university, library, or on your own. Knowledge was your pursuit.",
+      "data": "SSN=1,SSL=1",
+      "modules": {
+        "historian": 1
+      }
+    },
+    {
+      "name": "Priest",
+      "description": "You served a deity or faith, ministering to the faithful and performing sacred rites. Your life was one of devotion.",
+      "data": "SSI=1,SSR=1",
+      "modules": {
+        "acolyte": 2
+      }
+    },
+    {
+      "name": "Artisan",
+      "description": "You crafted goods with your hands—whether as a blacksmith, carpenter, weaver, or other tradesperson. Your skill was your living.",
+      "data": "SSG=1",
+      "modules": {
+        "fabricator": 1
+      }
+    },
+    {
+      "name": "Hunter",
+      "description": "You tracked and killed game for food and pelts, living off the land. The wilderness was your hunting ground.",
+      "data": "SSK=1,SSM=1",
+      "modules": {
+        "hunter": 2
+      }
+    },
+    {
+      "name": "Guard",
+      "description": "You protected people or places—as a city guard, bodyguard, or caravan escort. Your job was to stand watch and keep others safe.",
+      "data": "SSB=1,SSK=1",
+      "modules": {
+        "armsman": 2
+      }
+    },
+    {
+      "name": "Miner",
+      "description": "You worked underground, extracting ore and gems from the earth. The darkness and danger of the mines tested you daily.",
+      "data": "SSC=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Herbalist",
+      "description": "You gathered and prepared plants for medicine and potions. Your knowledge of nature's remedies was sought after.",
+      "data": "SSP=1,SSM=1",
+      "modules": {
+        "alchemist": 1
+      }
+    },
+    {
+      "name": "Scribe",
+      "description": "You copied documents, kept records, or wrote letters for others. Your skill with words and writing was valuable.",
+      "data": "SSN=1",
+      "modules": {}
+    },
+    {
+      "name": "Gambler",
+      "description": "You made your living through games of chance and skill, taking risks for reward. Lady Luck was your patron.",
+      "data": "SSS=1,SST=1",
+      "modules": {}
+    },
+    {
+      "name": "Guide",
+      "description": "You led others through dangerous or unfamiliar territory, using your knowledge of the land to keep them safe.",
+      "data": "SSK=1,SSM=1",
+      "modules": {
+        "scout": 1
+      }
+    },
+    {
+      "name": "Gladiator",
+      "description": "You fought for sport and spectacle in arenas, your life a constant battle for survival and glory.",
+      "data": "SSC=1,SSE=1",
+      "modules": {
+        "gladiator": 2
+      }
+    },
+    {
+      "name": "Spy",
+      "description": "You gathered information and secrets for those who paid you, working in the shadows to uncover what others wished to hide.",
+      "data": "SSF=1,SSS=1",
+      "modules": {
+        "spy": 2
+      }
+    },
+    {
+      "name": "Wanderer",
+      "description": "You had no fixed occupation, drifting from place to place and taking odd jobs. Freedom was more important than stability.",
+      "data": "SSA=1,SSK=1",
+      "modules": {}
+    },
+    {
+      "name": "Noble",
+      "description": "You were born or elevated to nobility, your occupation one of politics, management of estates, or military command.",
+      "data": "SSR=1,SST=1",
+      "modules": {
+        "diplomat": 1
+      }
+    }
+  ]
+}

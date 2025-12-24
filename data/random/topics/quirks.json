@@ -1,0 +1,129 @@
+{
+  "quirks": [
+    {
+      "id": 1,
+      "template": "Loves talking about {topic}",
+      "type": "positive"
+    },
+    {
+      "id": 2,
+      "template": "Has an irrational phobia of {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 3,
+      "template": "Had a bad experience with {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 4,
+      "template": "Obsessed with {topic}",
+      "type": "neutral"
+    },
+    {
+      "id": 5,
+      "template": "Knows an unusual amount about {topic}",
+      "type": "positive"
+    },
+    {
+      "id": 6,
+      "template": "Refuses to discuss {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 7,
+      "template": "Collects things related to {topic}",
+      "type": "neutral"
+    },
+    {
+      "id": 8,
+      "template": "Once had a dream about {topic} that changed their life",
+      "type": "neutral"
+    },
+    {
+      "id": 9,
+      "template": "Believes they can communicate with {topic}",
+      "type": "quirky"
+    },
+    {
+      "id": 10,
+      "template": "Lost someone they loved to {topic}",
+      "type": "tragic"
+    },
+    {
+      "id": 11,
+      "template": "Claims to be an expert on {topic} (but isn't)",
+      "type": "quirky"
+    },
+    {
+      "id": 12,
+      "template": "Secretly fascinated by {topic}",
+      "type": "neutral"
+    },
+    {
+      "id": 13,
+      "template": "Thinks {topic} is deeply misunderstood",
+      "type": "neutral"
+    },
+    {
+      "id": 14,
+      "template": "Has recurring nightmares about {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 15,
+      "template": "Was saved by {topic} once",
+      "type": "positive"
+    },
+    {
+      "id": 16,
+      "template": "Cannot stand being near {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 17,
+      "template": "Writes poetry about {topic}",
+      "type": "quirky"
+    },
+    {
+      "id": 18,
+      "template": "Has a lucky charm related to {topic}",
+      "type": "neutral"
+    },
+    {
+      "id": 19,
+      "template": "Believes {topic} will bring about the end of the world",
+      "type": "paranoid"
+    },
+    {
+      "id": 20,
+      "template": "Once made a fortune dealing with {topic}",
+      "type": "positive"
+    },
+    {
+      "id": 21,
+      "template": "Lost a fortune because of {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 22,
+      "template": "Swears an oath never to interact with {topic}",
+      "type": "negative"
+    },
+    {
+      "id": 23,
+      "template": "Dedicates every seventh day to honoring {topic}",
+      "type": "quirky"
+    },
+    {
+      "id": 24,
+      "template": "Has an uncanny resemblance to {topic}",
+      "type": "quirky"
+    },
+    {
+      "id": 25,
+      "template": "Keeps bringing up {topic} in unrelated conversations",
+      "type": "quirky"
+    }
+  ]
+}

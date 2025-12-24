@@ -1,0 +1,90 @@
+{
+  "ageGroups": {
+    "young": {
+      "name": "Young",
+      "weight": 20,
+      "percentageRange": { "min": 0, "max": 30 },
+      "description": "You are in the prime of youth, full of energy and vigor but lacking experience.",
+      "guaranteedData": [
+        "A3=1"
+      ],
+      "potentialData": [
+        "SSA=1",
+        "SSE=1",
+        "SSG=1",
+        "SSD=1",
+        "SBN=-1",
+        "SBL=-1",
+        "SSI=1",
+        "SSC=1",
+        "A1=1",
+        "SSK=1"
+      ]
+    },
+    "adult": {
+      "name": "Adult",
+      "weight": 50,
+      "percentageRange": { "min": 30, "max": 70 },
+      "description": "You are in your prime years, balanced in body and mind.",
+      "guaranteedData": [],
+      "potentialData": [
+        "SSA=1",
+        "SSE=1",
+        "SSI=1",
+        "SSC=1",
+        "SSB=1",
+        "SSN=1",
+        "SSL=1",
+        "SST=1",
+        "SSS=1",
+        "SSG=1"
+      ]
+    },
+    "middleAge": {
+      "name": "Middle-Aged",
+      "weight": 20,
+      "percentageRange": { "min": 70, "max": 90 },
+      "description": "Experience has tempered your vigor. What you've lost in physicality, you've gained in wisdom.",
+      "guaranteedData": [
+        "SBA=-1"
+      ],
+      "potentialData": [
+        "SSN=1",
+        "SSL=1",
+        "SSS=1",
+        "SSI=1",
+        "SSP=1",
+        "SST=1",
+        "SSO=1",
+        "SSJ=1",
+        "SBE=-1",
+        "SBG=-1"
+      ]
+    },
+    "elder": {
+      "name": "Elder",
+      "weight": 10,
+      "percentageRange": { "min": 90, "max": 115 },
+      "description": "You have lived a long life and bear the wisdom of years, though your body shows the wear of time.",
+      "guaranteedData": [
+        "A1=-2",
+        "SBA=-1",
+        "SBE=-1"
+      ],
+      "potentialData": [
+        "SSN=1",
+        "SSL=1",
+        "SSS=1",
+        "SSI=1",
+        "SSP=1",
+        "SSO=1",
+        "SSJ=1",
+        "SST=1",
+        "A2=1",
+        "SBC=-1",
+        "SBG=-1",
+        "SBD=-1"
+      ]
+    }
+  }
+}

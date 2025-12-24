@@ -1,0 +1,154 @@
+{
+  "births": [
+    {
+      "name": "Sickly",
+      "description": "You were born frail and weak, prone to illness. Though you survived, your body never quite caught up.",
+      "data": "A1=-2,SSD=1,SBA=-1",
+      "modules": {}
+    },
+    {
+      "name": "Healthy",
+      "description": "You were born strong and vigorous, a healthy child who thrived from the start.",
+      "data": "A1=2,SSA=1",
+      "modules": {}
+    },
+    {
+      "name": "Runt",
+      "description": "You were the smallest of your siblings or peers, forcing you to rely on cunning rather than strength.",
+      "data": "SSF=1,SSS=1,SBC=-1",
+      "modules": {}
+    },
+    {
+      "name": "Robust",
+      "description": "You were born large and sturdy, your constitution stronger than most from birth.",
+      "data": "A1=3,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Twin",
+      "description": "You shared the womb with a sibling. You learned cooperation and reading others from your earliest moments.",
+      "data": "SSS=1,SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "Born Under the Blood Moon",
+      "description": "You entered the world during a blood moon, an omen of dark power. Magic flows through you unnaturally.",
+      "data": "YS1=1,SBR=-1,SSO=1",
+      "modules": {}
+    },
+    {
+      "name": "Storm Child",
+      "description": "Born during a violent tempest, you carry the storm's fury within you. Adversity barely fazes you.",
+      "data": "SSI=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Winter Born",
+      "description": "You arrived in the depths of winter, your first breath cold air. You adapted to hardship early.",
+      "data": "M3=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Summer Blessed",
+      "description": "Born on the longest day of summer, warmth and vitality mark your existence.",
+      "data": "A2=2,SSR=1",
+      "modules": {}
+    },
+    {
+      "name": "Omen Child",
+      "description": "Your birth was accompanied by strange signs—prophets and seers took note. You were touched by fate.",
+      "data": "SSO=1,SSJ=1,SSS=1",
+      "modules": {}
+    },
+    {
+      "name": "Marked",
+      "description": "You bear an unusual birthmark or feature that sets you apart. Some see it as a blessing, others a curse.",
+      "data": "SSK=1,YS3=1,SBR=-1",
+      "modules": {}
+    },
+    {
+      "name": "Stillborn (Returned)",
+      "description": "You were born without breath, declared dead—but somehow returned to life. Death feels familiar.",
+      "data": "SSI=2,A2=-3,V4=1",
+      "modules": {}
+    },
+    {
+      "name": "Noble Birth",
+      "description": "You were born into privilege and status, your bloodline carrying weight and expectation.",
+      "data": "SST=1,SSR=1,SSN=1",
+      "modules": {}
+    },
+    {
+      "name": "Commoner Birth",
+      "description": "Born to common folk, you learned early that nothing comes easy and work builds character.",
+      "data": "SSA=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Orphaned at Birth",
+      "description": "Your parents died in childbirth or shortly after. You've never known family.",
+      "data": "SSI=1,SSA=1,SBR=-1",
+      "modules": {}
+    },
+    {
+      "name": "Blessed by Clergy",
+      "description": "Religious figures attended your birth, blessing you in the name of their deity.",
+      "data": "YS4=1,SSI=1",
+      "modules": {}
+    },
+    {
+      "name": "Cursed Birth",
+      "description": "Something went wrong at your birth—a curse, a hex, or dark magic. You've carried it ever since.",
+      "data": "YS1=1,SSI=1,A1=-1",
+      "modules": {}
+    },
+    {
+      "name": "Breech Birth",
+      "description": "You came into the world backwards, a difficult and dangerous delivery. You survived against the odds.",
+      "data": "SSI=1,SSD=1",
+      "modules": {}
+    },
+    {
+      "name": "Born Abroad",
+      "description": "Your birth occurred far from your ancestral homeland, in a foreign land. You've always been between worlds.",
+      "data": "SSS=1,SST=1",
+      "modules": {}
+    },
+    {
+      "name": "Prodigy",
+      "description": "From birth, you showed signs of exceptional intelligence or talent beyond your years.",
+      "data": "SSL=1,SSN=1,SSJ=1",
+      "modules": {}
+    },
+    {
+      "name": "Feral Birth",
+      "description": "You were born in the wild, away from civilization. Nature was your first teacher.",
+      "data": "SSM=1,SSK=1,SBT=-1",
+      "modules": {}
+    },
+    {
+      "name": "Touched by Fey",
+      "description": "Fey creatures were present at your birth, leaving their otherworldly mark upon you.",
+      "data": "YS3=1,SSQ=1,V8=1",
+      "modules": {}
+    },
+    {
+      "name": "Born in Battle",
+      "description": "You were born on a battlefield or during a siege. War was the first sound you heard.",
+      "data": "SSC=1,SSI=1,SSB=1",
+      "modules": {}
+    },
+    {
+      "name": "Miracle Child",
+      "description": "Your birth was deemed impossible—your mother was barren, dying, or cursed. Yet here you are.",
+      "data": "A2=3,SSI=1,YS4=1",
+      "modules": {}
+    },
+    {
+      "name": "Seventh Son/Daughter",
+      "description": "You are the seventh child of a seventh child, a numerologically significant birth bringing mystical potential.",
+      "data": "SSO=1,YS5=1,SSJ=1",
+      "modules": {}
+    }
+  ]
+}
