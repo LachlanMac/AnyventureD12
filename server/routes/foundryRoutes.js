@@ -736,16 +736,16 @@ const convertToFoundryFormat = (data, type) => {
           climb: data.movement?.climb || 0,
           fly: data.movement?.fly || 0
         },
-        mitigation: data.mitigation || {
-          physical: 0,
-          heat: 0,
-          cold: 0,
-          electric: 0,
-          dark: 0,
-          divine: 0,
-          aether: 0,
-          psychic: 0,
-          toxic: 0
+        mitigation: {
+          physical: data.mitigation?.physical || 0,
+          heat: data.mitigation?.heat || 0,
+          cold: data.mitigation?.cold || 0,
+          electric: data.mitigation?.electric || 0,
+          dark: data.mitigation?.dark || 0,
+          divine: data.mitigation?.divine || 0,
+          aether: data.mitigation?.aetheric || 0,
+          psychic: data.mitigation?.psychic || 0,
+          toxic: data.mitigation?.toxic || 0
         },
         detection: data.detections || {
           normal: 8,

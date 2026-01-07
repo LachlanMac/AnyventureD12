@@ -50,7 +50,7 @@ interface CharacterHeaderProps {
       electric?: number;
       dark?: number;
       divine?: number;
-      aether?: number;
+      aetheric?: number;
       psychic?: number;
       toxic?: number;
     };

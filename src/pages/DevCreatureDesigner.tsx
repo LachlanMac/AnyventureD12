@@ -204,7 +204,7 @@ const DevCreatureDesigner: React.FC = () => {
     psychic: 0,
     dark: 0,
     divine: 0,
-    aether: 0,
+    aetheric: 0,
     toxic: 0,
   });
 
@@ -536,7 +536,7 @@ const DevCreatureDesigner: React.FC = () => {
       });
       setMitigation({
         physical: 0, cold: 0, heat: 0, electric: 0,
-        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0,
+        psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0,
       });
       setDetections({
         normal: 5, darksight: 0, infravision: 0, deadsight: 0,

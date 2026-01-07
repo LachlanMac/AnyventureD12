@@ -203,7 +203,7 @@ const ItemManager: React.FC = () => {
         psychic: 0,
         dark: 0,
         divine: 0,
-        aether: 0,
+        aetheric: 0,
         toxic: 0,
       },
       encumbrance_penalty: 0,
