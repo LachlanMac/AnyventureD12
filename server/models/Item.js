@@ -232,7 +232,7 @@ const ItemSchema = new Schema({
     psychic: { type: Number, default: 0 },
     dark: { type: Number, default: 0 },
     divine: { type: Number, default: 0 },
-    aether: { type: Number, default: 0 },
+    aetheric: { type: Number, default: 0 },
     toxic: { type: Number, default: 0 }
   },
 

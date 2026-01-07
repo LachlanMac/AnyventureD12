@@ -187,7 +187,7 @@ export const getCharacter = async (req, res) => {
       psychic: 0,
       dark: 0,
       divine: 0,
-      aether: 0,
+      aetheric: 0,
       toxic: 0
     };
 
@@ -623,7 +623,7 @@ export const equipItem = async (req, res) => {
       characterWithBonuses.spellSlots = 10;
       characterWithBonuses.mitigation = {
         physical: 0, cold: 0, heat: 0, electric: 0,
-        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+        psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0
       };
 
       applyModuleBonusesToCharacter(characterWithBonuses);
@@ -706,7 +706,7 @@ export const unequipItem = async (req, res) => {
       characterWithBonuses.spellSlots = 10;
       characterWithBonuses.mitigation = {
         physical: 0, cold: 0, heat: 0, electric: 0,
-        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+        psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0
       };
 
       applyModuleBonusesToCharacter(characterWithBonuses);
@@ -789,7 +789,7 @@ export const customizeItem = async (req, res) => {
       characterWithBonuses.spellSlots = 10;
       characterWithBonuses.mitigation = {
         physical: 0, cold: 0, heat: 0, electric: 0,
-        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+        psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0
       };
 
       applyModuleBonusesToCharacter(characterWithBonuses);
@@ -872,7 +872,7 @@ export const updateItemQuantity = async (req, res) => {
       characterWithBonuses.spellSlots = 10;
       characterWithBonuses.mitigation = {
         physical: 0, cold: 0, heat: 0, electric: 0,
-        psychic: 0, dark: 0, divine: 0, aether: 0, toxic: 0
+        psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0
       };
 
       applyModuleBonusesToCharacter(characterWithBonuses);

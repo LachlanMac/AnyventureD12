@@ -312,7 +312,7 @@ const creatureSchema = new mongoose.Schema({
     psychic: { type: Number, min: 0, default: 0 },
     dark: { type: Number, min: 0, default: 0 },
     divine: { type: Number, min: 0, default: 0 },
-    aether: { type: Number, min: 0, default: 0 },
+    aetheric: { type: Number, min: 0, default: 0 },
     toxic: { type: Number, min: 0, default: 0 }
   },
 
