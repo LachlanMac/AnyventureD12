@@ -42,9 +42,9 @@
     },
     {
       "name": "Transmutation Mastery",
-      "description": "Your understanding of flesh manipulation has deepened your knowledge of transmutation. Gain +1 skill with metamagic.",
+      "description": "Your understanding of flesh manipulation has deepened your knowledge of transmutation. Gain +1 skill with metamagic and +1 skill with medicine knowledge.",
       "location": "5",
-      "data": "YS3=1"
+      "data": "YS3=1:SSP=1"
     },
     {
       "name": "Master of Flesh",

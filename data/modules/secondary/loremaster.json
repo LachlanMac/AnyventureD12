@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Lore Master",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Etiquette Training",
+      "description": "Gain +1 skill with persuasion. When you only know a language at a basic level, you do not suffer the penalty dice to social checks while using it.",
+      "location": "1",
+      "data": "SST=1:TG"
+    },
+    {
+      "name": "Action : Take Notes",
+      "description": "After witnessing a creature use a non-basic action, reaction, or spell, you quickly record observations. For the next 10 rounds, when you make a defense or contested check against that same ability, add a single academics dice to your pool.",
+      "location": "2a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Reaction : Myth",
+      "description": "In response to entering combat with an Elite or Legendary creature, but before the preparation phase, you recall everything you know about this foe and make a brief statement, rolling an academics check. If the highest tiered creature is Elite, distribute each die result to a different ally within short (10 unit) distance. If there is a Legendary creature, all allies instead receive a die equal to your highest result. Once during the encounter, when making an attack, defense, or contested roll against this creature, a recipient can add their recorded value as a bonus die to the roll. This must be declared before the result is known.",
+      "location": "2b",
+      "data": "ZINE=0"
+    },
+    {
+      "name": "Worldly",
+      "description": "Gain +1 skill with academics and gain +2 language points.",
+      "location": "3",
+      "data": "SSN=1"
+    },
+    {
+      "name": "Grand Strategy",
+      "description": "Gain +1 skill with logic. When you encounter an enemy you've fought before, you always act in the preparation phase at the start of combat.",
+      "location": "4a",
+      "data": "SSL=1:TG"
+    },
+    {
+      "name": "Anatomy and Physiology",
+      "description": "You have studied texts of ancient medicine. You gain +1 skill with medicine knowledge. When making a medicine check to identify a disease or diagnose a death, add an academics dice into the pool.",
+      "location": "4b",
+      "data": "SSP=1:TG"
+    },
+    {
+      "name": "Master of Lore",
+      "description": "Can identify objects by making an academics or magical knowledge check, revealing information about the object such as magical properties or a brief description of its history. Uncommon items require a check of 5; Rare 7; Epic 9, Legendary 11 and Artifact 14.",
+      "location": "5",
+      "data": "TG"
+    },
+    {
+      "name": "Planar Thesis",
+      "description": "You gain +1 skill with magic knowledge. Additionally, you gain the ability to learn skills from one exotic subschool.",
+      "location": "6a",
+      "data": "SSO=1:TG"
+    },
+    {
+      "name": "Spoken Word",
+      "description": "Gain +1 skill with expression. You can perform ballads as spoken stories rather than musical performances. When you perform a ballad this way, recipients automatically benefit from two harmony effects without requiring additional performers. However, no additional harmonies can be contributed to a ballad performed as spoken word.",
+      "location": "6b",
+      "data": "SSQ=1:TG"
+    },
+    {
+      "name": "Daily Action : Applied Knowledge",
+      "description": "You dedicate your concentration to recalling information you have learned to aid you. While you maintain your focus in this way, you can add a single knowledge skill dice to a skill check. However, you can only use each unique knowledge skill once during the duration of this ability.",
+      "location": "7",
+      "data": "XDNE=0"
+    }
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "id": 201,
+  "name": "Treasure Hunter",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "",
+      "description": "",
+      "location": "1",
+      "data": ""
+    },
+    {
+      "name": "Trapfinder",
+      "description": "Gain +1 skill with coordination. You can use coordination instead of thievery when attempting to disarm or bypass traps.",
+      "location": "2a",
+      "data": "SSG=1:TG"
+    },
+    {
+      "name": "Tomb Robber",
+      "description": "Gain +1 skill with thievery. You automatically know the approximate value of any epic or rarer item.",
+      "location": "2b",
+      "data": "SSH=1:TG"
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "3",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "4a",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "4b",
+      "data": ""
+    },
+    {
+      "name": "",
+      "description": "",
+      "location": "5",
+      "data": ""
+    },
+    {
+      "name": "Ardent Explorer",
+      "description": "Gain +1 skill with senses. You automatically identify creatures disguised as objects when you are within very short (5 unit) distance of them.",
+      "location": "6a",
+      "data": "SSK=1:TG"
+    },
+    {
+      "name": "Whip Expert",
+      "description": "Gain +1 skill with simple melee weapons. Your range with a whip becomes very short (5 units) distance.",
+      "location": "6b",
+      "data": "WS3=1:TG"
+    },
+    {
+      "name": "Reaction : Narrow Escape",
+      "description": "Once per day, in response to an attack or effect that can be avoided with an evasion or coordination check, you automatically avoid it. You can then immediately move up to your movement speed without provoking reactions.",
+      "location": "7",
+      "data": "ZDNE=0"
+    }
+  ]
+}

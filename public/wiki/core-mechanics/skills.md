@@ -42,7 +42,7 @@ A character's skill can range from 0 to 6 for a total of 7 levels, with each lev
 <br> 
 
 <div class="example-box">
-A character that wants help care of their allies with medicine takes the medic module. They spend their module points investing into traits in that module. The first tier of that module is Field : Medicine, granting +1 skill with medicine.
+A character that wants to function as a healer for their allies with medicine takes the medic module. They spend their module points investing into traits in that module. The first tier of that module is Field : Medicine, granting +1 skill with medicine.
 </div> 
 
 <br> 

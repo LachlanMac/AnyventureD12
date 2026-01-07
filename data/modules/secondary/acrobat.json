@@ -41,10 +41,10 @@
       "data": "TG:SSG=1"
     },
     {
-      "name": "Evasive Master",
-      "description": "Your ability to avoid attacks has reached professional levels. Gain +1 skill with evasion.",
+      "name": "Ready to Move",
+      "description": "Your ability to quickly shift in unexpected ways makes you unpredictable. Gain +1 skill with evasion and +1 skill with thievery.",
       "location": "5",
-      "data": "TG:SSE=1"
+      "data": "TG:SSE=1:SSH=1"
     },
     {
       "name": "Daily Action : Escape Artist",

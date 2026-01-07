@@ -24,9 +24,9 @@
     },
     {
       "name": "Inconspicuous",
-      "description": "You are a master of blending in. When you are attempting to hide or go unnoticed among humanoids, you can make an expression check instead of a stealth check.",
+      "description": "You are a master of blending in and making subtle actions. Gain +1 skill with thievery. When you are attempting to hide or go unnoticed among humanoids, you can make an expression check instead of a stealth check.",
       "location": "3",
-      "data": "TG"
+      "data": "SSH=1:TG"
     },
     {
       "name": "Trained Diplomat",

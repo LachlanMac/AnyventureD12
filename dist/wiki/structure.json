@@ -296,9 +296,9 @@
       "order": 6
     },
     {
-      "id": "bioshaping",
-      "title": "Bioshaping",
-      "path": "crafting/bioshaping.md",
+      "id": "biosculpting",
+      "title": "Biosculpting",
+      "path": "crafting/biosculpting.md",
       "category": "Crafting",
       "order": 7
     },

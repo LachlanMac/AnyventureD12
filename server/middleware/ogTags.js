@@ -78,7 +78,7 @@ export const ogTagsMiddleware = async (req, res, next) => {
     if (!character) return next();
 
     // Build the meta tag content
-    const siteName = 'AnyventureD12';
+    const siteName = 'AnyventureDX';
     const siteUrl = process.env.SITE_URL || 'https://anyventuredx.com';
     const title = escapeHtml(`${character.name} | ${siteName}`);
 
@@ -95,7 +95,7 @@ export const ogTagsMiddleware = async (req, res, next) => {
       if (character.physicalTraits?.gender) parts.push(character.physicalTraits.gender);
       description = parts.length > 0
         ? `A ${parts.join(' ')} character`
-        : 'A character on AnyventureD12';
+        : 'A character on AnyventureDX';
     }
     description = escapeHtml(description);
 
@@ -125,7 +125,7 @@ export const ogTagsMiddleware = async (req, res, next) => {
   <meta property="og:title" content="${escapeHtml(character.name)}">
   <meta property="og:description" content="${description}">
   <meta property="og:image" content="${imageUrl}">
-  <meta property="og:image:alt" content="${character.portraitUrl ? `Portrait of ${escapeHtml(character.name)}` : 'AnyventureD12 Logo'}">
+  <meta property="og:image:alt" content="${character.portraitUrl ? `Portrait of ${escapeHtml(character.name)}` : 'AnyventureDX Logo'}">
   <meta property="og:url" content="${pageUrl}">
   <meta property="og:locale" content="en_US">
 

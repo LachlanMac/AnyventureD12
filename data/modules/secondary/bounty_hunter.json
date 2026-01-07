@@ -24,9 +24,9 @@
     },
     {
       "name": "Bounty Handler",
-      "description": "Gain +1 skill with coordination. When you Grab a creature that is your size or smaller and it has the prone, incapacitated, or impaired condition, you can immediately move 2 units, bringing the creature to a tile adjacent to you.",
+      "description": "When you want something or someone, you take it. Gain +1 skill with coordination and +1 skill with thievery. When you Grab a creature that is your size or smaller and it has the prone, incapacitated, or impaired condition, you can immediately move 2 units, bringing the creature to a tile adjacent to you.",
       "location": "3",
-      "data": "TG:SSG=1"
+      "data": "TG:SSG=1:SSH=1"
     },
     {
       "name": "Reaction : Hunter's Chase",

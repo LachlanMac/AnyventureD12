@@ -42,9 +42,9 @@
     },
     {
       "name": "Bushcraft Expert",
-      "description": "You are an expert in wilderness survival and preparing game. Gain +1 skill with cooking. You can spend 10 minutes examining an area with a moderate radius (20 units) to accurately determine what beasts, humanoid or monster passed through it within the last day. You also know if the target of your Track action has passed through and which way it went.",
+      "description": "You are an expert in survival and preparing game. Gain +1 skill with cooking and +1 skill in wildcraft. You can spend 10 minutes examining an area with a moderate radius (20 units) to accurately determine what beasts, humanoid or monster passed through it within the last day. You also know if the target of your Track action has passed through and which way it went.",
       "location": "5",
-      "data": "CS4=1:TG"
+      "data": "CS4=1:TG:SSM=1"
     },
     {
       "name": "Action : Heart-Piercer",

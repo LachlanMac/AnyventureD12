@@ -1,0 +1,68 @@
+{
+  "id": 999,
+  "name": "Naturalist",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Reaction : Ambusher",
+      "description": "While hidden in a natural environment and either entering or about to start combat, you immediately take a valid action. This action takes place before the initial preparation phase.",
+      "location": "1",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Windsense",
+      "description": "You are naturally attuned to the motion of the wind. Gain +1 skill with senses. When making a ranged or throwing attack in an environment with wind, you can curve your projectile around a single tile, potentially negating cover bonuses or avoiding obstacles.",
+      "location": "2a",
+      "data": "SSK=1"
+    },
+    {
+      "name": "Zoologist",
+      "description": "Gain +1 skill with academics. When making a check to recall information about a plant or beast, you can add an academics dice into the dice pool.",
+      "location": "2b",
+      "data": "SSN=1"
+    },
+    {
+      "name": "Outdoorsy",
+      "description": "Gain +1 skill with wildcraft. While you are in a natural environment, you gain a bonus dice to any resilience checks.",
+      "location": "3",
+      "data": "SSM=1"
+    },
+    {
+      "name": "Action : Kick Dirt",
+      "description": "While in a natural environment, you use the natural terrain to your advantage and kick particles of sand, silt, dirt at a creature within a very short (5 unit) distance. Roll a wildcraft check contested by the target's coordination. For each of your dice that exceeds their result, the target suffers a penalty dice on their next attack and defense roll.",
+      "location": "4a",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Action : Bestial Call",
+      "description": "Choose a beast you have encountered and perfectly mimic its call. Roll a wildcraft check against the resilience of all beasts within a moderate (20 unit) distance whose tier is lower than the beast you are mimicking. Any beast that fails this check gains the afraid condition and takes 5 psychic damage. A creature cannot be affected by this ability more than one time per day.",
+      "location": "4b",
+      "data": "XINE=2"
+    },
+    {
+      "name": "Rugged Conditions",
+      "description": "You are used to severe exposure to the elements. Gain +1 skill with endurance and +1 mitigation to cold and heat damage.",
+      "location": "5",
+      "data": "SSD=1:M2=1:M3=1"
+    },
+    {
+      "name": "Toxicologist",
+      "description": "Your knowledge of naturally occurring chemical compounds makes you an especially skilled alchemist. Gain +1 skill with alchemy. Additionally, when someone consumes an antidote you create that utilizes a venom, they become immune to that venom for one year.",
+      "location": "6a",
+      "data": "CS3=1"
+    },
+    {
+      "name": "Snares",
+      "description": "+1 skill with engineering. While in a natural environment, you can spend an hour to create a snare that can trap a medium or smaller creature by making a engineering check to determine the quality of the trap. A creature trapped int his way gets the impaired condition only if it would not be possible for them to roll a higher fitness check contested against your engineering check.",
+      "location": "6b",
+      "data": "CS1=1"
+    },
+    {
+      "name": "At Peace with Nature",
+      "description": "Gain +1 with wildcraft. While completing a full rest in a natural environment while suffering a long term mental condition or stress injury that forces you to roll a resilience or endurance check, roll a wildcraft check instead.",
+      "location": "7",
+      "data": "SSM=1"
+    }
+  ]
+}

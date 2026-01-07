@@ -24,7 +24,7 @@
     },
     {
       "name": "Daily Action : Second Wind",
-      "description": "You dig deep to find reserves of energy when exhausted. Remove the winded condition and restore your energy completely.",
+      "description": "You reach down within yourself to find reserves of energy when exhausted. Remove the winded condition and restore your energy completely.",
       "location": "3",
       "data": "XDNE=0"
     },
@@ -62,7 +62,7 @@
       "name": "Dig Deep",
       "description": "You have increased energy levels that allow you to persevere physically and mentally. Gain +1 energy regeneration and +1 skill with resilience.",
       "location": "7",
-      "data": "A3=7:SSI=1"
+      "data": "A7=1:SSI=1"
     }
   ]
 }

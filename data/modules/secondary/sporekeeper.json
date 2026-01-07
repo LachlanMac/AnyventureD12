@@ -24,7 +24,7 @@
     },
     {
       "name": "Fungal Exposure",
-      "description": "Your constant exposure to spores has made you especially resistant to affects. Gain +1 skill with endurance. Additionally, when you make a check against any spore cloud or similar effect, your contested check is doubled.",
+      "description": "Your constant exposure to spores has made you especially resistant to the effects. Gain +1 skill with endurance. Additionally, when you make a check against any spore cloud or similar effect, your contested check is doubled.",
       "location": "3",
       "data": "SSD=1:TG"
     },
@@ -42,7 +42,7 @@
     },
     {
       "name": "Master Sporekeeper",
-      "description": "Your mastery of sporecraft is unmatched. Gain +1 skill with biosculpting. Your spore clouds last 1 additional round and have an extra 1 unit of radius.",
+      "description": "Your mastery of sporecraft and how they interact with biology is unmatched. Gain +1 skill with biosculpting and +1 skill with wildcraft. Your spore clouds last 1 additional round and have an extra 1 unit of radius.",
       "location": "5",
       "data": "CS6=1:TC"
     },
