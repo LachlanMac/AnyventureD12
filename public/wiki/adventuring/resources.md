@@ -42,7 +42,7 @@ When a character takes 10 or more damage while in lifeline, they must roll on th
 | 9 | **Cosmetic Injury** - You receive a cosmetic injury such as a massive gash, severed ear or broken horn. |
 | 10 | **Nothing Happens** - Adrenaline and luck carry you through as you shrug off the blow. |
 
-<div class="note-box">If a character takes damage that puts them in lifeline, and the excess damage results in 10 or more damage, they must roll on the lifeline table. For example, a character with 5 health takes 17 damage. The character goes to 0 health, and hten takes the remaining 12 damage, forcing them to roll on the lifeline table.<div>
+<div class="note-box">If a character takes damage that puts them in lifeline, and the excess damage results in 10 or more damage, they must roll on the lifeline table. For example, a character with 5 health takes 17 damage. The character goes to 0 health, and hten takes the remaining 12 damage, forcing them to roll on the lifeline table.</div>
 
 <div class="example-box">
 It is the arcane archer's turn, and the first thing they have to do is decide if they want to risk staying up and fighting or going down. Because of their predicament; two goblins surrounding them with no  help on the way, they have no choice but to spend 2 resolve to take a turn instead of falling unconscious. They  attempt to make a daring escape and use their movement to create as much distance as they can. Both the goblins take attacks of opportunity, with one hitting our hero and dealing 4 physical damage. Because the arcane
