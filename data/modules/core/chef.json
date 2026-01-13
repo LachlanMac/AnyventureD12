@@ -30,7 +30,7 @@
     },
     {
       "name": "Exotic Cooking",
-      "description": "Your experience has given you a perspective on other cultures. Gain +1 skill with insight and gain +1 language points.",
+      "description": "Your experience has given you a perspective on other cultures. Gain +1 skill with insight and gain +1 language point.",
       "location": "4a",
       "data": "SSS=1:TG"
     },

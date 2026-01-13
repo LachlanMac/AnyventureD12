@@ -4,22 +4,22 @@ All characters have resources that they need to manage. These include Health, Re
 
 ## Health
 <div class="triangle-line"></div>
-All characters have health which is an abstraction of how close to death they are. By default, a player character has 20 health. This number is able to be improved by certain traits in modules as well as equipment.
+All characters have health which is an abstraction of how close to death they are. By default, a player character has 20 health. Because there are no levels, the total health of a character can only be improved through modules and equipment.
 
 
 ### Recovering Health
-Losing and managing health is a large part of AnyventureDX. Character's have several ways of recovering health, but the most simple is **resting**. When a character completes a full rest with favorable conditions, such as staying in an inn or a safe and sheltered location, they recover 4 health. If they complete a full rest in unfavorable conditions, like a tent or sleeping on the ground, they only recover 2 health.
+Losing and managing health is a large part of an AnyventureDX adventure. Character's have several ways of recovering health, but the most simple is **resting**. When a character completes a full rest with favorable conditions, such as staying in an inn or a safe and sheltered location, they recover 4 health. If they complete a full rest in unfavorable conditions, like a tent or sleeping on the ground, they only recover 2 health.
 
 <br>
 
-There are also several ways to recover health:
+There are many ways to recover health:
 - Potions
 - Treatment from someone with the Medic Module
 - Magic
 - Items and Skills that impact your regeneration rate
 
 ### Reaching 0 Health
-When a character reaches 0 health, they are not immediately dead. A player can have their character and continue to fight on, although at great risk using their resolve. At the start of their turn where they have 0 health, a player can spend 2 resolve to continue to take a turn as normal. This is considered being in **lifeline**. Once in lifeline, any further damage that would normally be taken as damage to health, is instead deducted from resolve.
+When a character reaches 0 health, they are not immediately dead. A player character can continue to fight on (although at great risk) using their resolve. At the start of their turn where they have 0 health, a player can spend 2 resolve to continue to take a turn as normal. This is considered being in **lifeline**. Once in lifeline, any further damage that would normally be taken as damage to health, is instead deducted from resolve.
 
 <div class="example-box">
 An arcane archer had their position compromised and have two angry goblins surrounding them. The battle has turned for the worse, and our hero is at 5 health. One of the goblins manages to land a brutal blow for 9 physical damage. The arcane archer reduces their health to 0 and enters lifeline. No other action is needed at this point.
@@ -42,12 +42,12 @@ When a character takes 10 or more damage while in lifeline, they must roll on th
 | 9 | **Cosmetic Injury** - You receive a cosmetic injury such as a massive gash, severed ear or broken horn. |
 | 10 | **Nothing Happens** - Adrenaline and luck carry you through as you shrug off the blow. |
 
+<div class="note-box">If a character takes damage that puts them in lifeline, and the excess damage results in 10 or more damage, they must roll on the lifeline table. For example, a character with 5 health takes 17 damage. The character goes to 0 health, and hten takes the remaining 12 damage, forcing them to roll on the lifeline table.<div>
+
 <div class="example-box">
 It is the arcane archer's turn, and the first thing they have to do is decide if they want to risk staying up and fighting or going down. Because of their predicament; two goblins surrounding them with no  help on the way, they have no choice but to spend 2 resolve to take a turn instead of falling unconscious. They  attempt to make a daring escape and use their movement to create as much distance as they can. Both the goblins take attacks of opportunity, with one hitting our hero and dealing 4 physical damage. Because the arcane
 archer is in lifeline and has 0 health, they take 4 more damage to resolve. However, because the damage is not 10 or higher, they do not need to roll on the Lifeline table.
 </div>
-
-
 
 ### Going Unconscious
 When a character falls unconscious due to having 0 health, they will regain consciousness in 1 hour if they gain at least 10 health back. Otherwise, they use the normal rules for recovering from being unconscious listed in [Conditions](/wiki/conditions).

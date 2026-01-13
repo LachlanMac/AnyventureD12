@@ -142,13 +142,14 @@ Very Far	41–60	Clearly far; limited detail
 Distant	61–100	Hard to perceive clearly
 A longbow may have a Distant range, giving a penalty for anything outside of it. 
 Spells work in a similar way.  here are the types of magic:
-Magic Types: Black, Primal, Metamagic, Divine, Mysticism
+Magic Types: Black, Primal, Metamagic, White, Mysticism, Arcane
 Each magic has 2 subschools, and 1 exotic spellschool
 Black -> Necromancy, Witchcraft, (ex) Fiend
-Primal -> Elemental, Nature, (ex) Cosmic
+Primal -> Elemental, Nature, (ex) Draconic
 Metamagic -> Transmutation, Illusion, (ex) Fey
-Divine -> Abjuration, Radiant, (ex) Draconic
-Mysticism -> Spirit, Divination, (ex) Astral
+White -> Abjuration, Radiant, (ex) Celestial
+Mysticism -> Spirit, Divination, (ex) Cosmic
+Arcane -> Conjuration, Enchantment, (ex) Chaos
 When a person wants to channel a spell, they must know the spell. All spells will have a "minimum" number of complexity to be able to channel successfully. Say I have a firebolt, a fairly simple spell, that requires a "4" in primal magic to channel. 
 I have 3 talents in primal magic and a +3 skill for a 3d10. I take the highest dice and compare it to the "4". If I succeed, i channel the spell. My roll on the spell doesnt' have an effect for how hard the spell is to avoid. It is hardcoded into the spell. So firebolt may require a 6 in evasion to dodge. The enemy would have to make a check against that, or it hits. The damage is likewise hardcoded into the spell.  This deals 5 damage. 
 There are two options to reduce the difficulty of a spell: Channeling it as a ritual, and having a component. A ritual takes 1 hour and a component may be expensive. Every spell will have a component to make it easier to channel at the cost of financial contribution. Obviously, it makes no sense to channel a firebolt as a ritual in combat.
@@ -168,7 +169,7 @@ A 11-20 means they are okay. a 1 means they are executed. a 2-9 means they recei
 If a creature does fall unconscious, to regain consciousness, they must either be stabilized and gain at least 1 health or complete a full rest at half health. 
 Crafting:
 Crafting works the same as the other skills (weapon & magic)
-Crafting Skills: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Bioshaping
+Crafting Skills: Engineering, Fabrication, Alchemy, Cooking, Glyphcraft, Biosculpting
 There are talents and skills that determine what you can craft. Like spells, recipes can be learned.
 There will be recipes for crafting which determine extra ingredients (like research) and such to make things.
 Once a player character knows a recipie, they dont need that anymore
@@ -243,7 +244,7 @@ Possible other conditions (poisoned, diseased, panic?,
 Creature tiers
 Minion
 Grunt
-Foe
+Standard
 Champion
 Elite
 Legend
@@ -253,3 +254,4 @@ Bonus social dice with different groups, like merchants, nobles, soldiers, etc.
 - NEVER COMPILE CSS, ALWAYS WRITE TO SCSS FILES, NEVER CSS. I WILL COMPILE CSS, JUST TELL ME TO.
 - when you run my server (backend or front end) kill it after you are done testing. Do not leave it running as a background process
 - anyventure-core-data is located in the %Appdata%/Local/FoundryVTT folder
+- dont ever use DC for checks. Use Required Check (RC). DC is a dungeons and dragon term.

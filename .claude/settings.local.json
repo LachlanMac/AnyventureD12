@@ -83,7 +83,17 @@
       "Bash(do echo -n \"$file: \")",
       "Bash(do echo \"=== $dir ===\")",
       "Bash(while read file)",
-      "Bash(do grep -A 2 '\"\"\"\"damage\"\"\"\":' \"$file\")"
+      "Bash(do grep -A 2 '\"\"\"\"damage\"\"\"\":' \"$file\")",
+      "Bash(if ! grep -q \"YS[1-6]=1\" \"$file\")",
+      "Bash(then)",
+      "Bash(basename:*)",
+      "Bash(xargs:*)",
+      "Bash(do echo \"=== $gem ===\")",
+      "Bash(if [ \"$file\" != \"/mnt/c/Code/AnyventureD12/data/items/runes/rune_of_true_sight.json\" ])",
+      "Bash(do grep -q \"$icon\" /mnt/c/Code/AnyventureD12/data/foundry/foundry_icons_list.txt)",
+      "Bash(do jq:*)",
+      "Bash(if [ -f \"$file\" ])",
+      "Bash(cat:*)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

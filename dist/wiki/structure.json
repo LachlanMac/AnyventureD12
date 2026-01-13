@@ -79,9 +79,9 @@
       "order": 5
     },
     {
-      "id": "hazards",
-      "title": "Environmental Hazards",
-      "path": "core-mechanics/hazards.md",
+      "id": "environments",
+      "title": "Environments",
+      "path": "core-mechanics/environments.md",
       "category": "Core Mechanics",
       "order": 6
     },
