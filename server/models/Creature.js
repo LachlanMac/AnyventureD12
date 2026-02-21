@@ -55,7 +55,8 @@ const actionSchema = new mongoose.Schema({
     },
     defense_difficulty: Number, // DC for the target to avoid/resist
     min_range: Number,
-    max_range: Number
+    max_range: Number,
+    charge: String
   }
 }, { _id: false });
 
@@ -162,7 +163,8 @@ const reactionSchema = new mongoose.Schema({
     },
     defense_difficulty: Number,
     min_range: Number,
-    max_range: Number
+    max_range: Number,
+    charge: String
   }
 }, { _id: false });
 

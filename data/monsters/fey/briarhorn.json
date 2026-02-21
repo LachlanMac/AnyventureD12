@@ -198,7 +198,7 @@
       "cost": 3,
       "type": "utility",
       "magic": false,
-      "description": "The briarnhorn chooses one condition that it is currently affected by and removes it and gains 10 temporary health. While under the effect of these temporary health, the briarhorn gains a bonus dice to all mind checks.",
+      "description": "The briarhorn chooses one condition that it is currently affected by and removes it and gains 10 temporary health. While under the effect of these temporary health, the briarhorn gains a bonus dice to all mind checks.",
       "reaction": false,
       "basic": false,
       "round": false,
@@ -242,7 +242,7 @@
       "cost": 1,
       "type": "spell",
       "magic": false,
-      "description": "In response to taking damage from a melee attack from an adjacent tile, the briarthorn spews it's sap-like blood on the attacker, which lasts until the end of the attacker's next turn. While covered in sap in this way, melee attacks made by the attacker have a penalty dice and their encumbrance penalty is doubled. ",
+      "description": "In response to taking damage from a melee attack from an adjacent tile, the briarhorn spews it's sap-like blood on the attacker, which lasts until the end of the attacker's next turn. While covered in sap in this way, melee attacks made by the attacker have a penalty dice and their encumbrance penalty is doubled. ",
       "reaction": true,
       "basic": false,
       "round": false,
@@ -271,7 +271,7 @@
   "traits": [
     {
       "name": "Magic Defense",
-      "description": "The briarthorn gains a bonus dice when making a check to defend against a spell."
+      "description": "The briarhorn gains a bonus dice when making a check to defend against a spell."
     },
     {
       "name": "Aversion to Iron",

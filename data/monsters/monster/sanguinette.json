@@ -1,0 +1,305 @@
+{
+  "name": "Sanguinette",
+  "description": "A sanguinette is the result of a humanoid female who was infected with vampirism but not successfully turned. These wretched creatures grow deadly claws and fangs, coarse fur, and large ears which they use to echolocate their prey. Like their undead kin, sanguinettes persist on a diet of blood and hide in the dark awaiting the unlucky beast or humanoid that happens to wander their way. They retain a ghastly resemblance to their former selves, walking upright but hunched, with elongated limbs and hollow eyes that reflect no light.",
+  "tactics": "The sanguinette is a patient ambush predator. It lurks in darkness using echolocation to track prey, waiting for them to wander close before lunging from hiding. It opens with a Lunge or Claw to inflict bleeding, then follows up with Rending Claws to maximize damage through Blood Frenzy. When wounded below half health, it uses Glide to reposition and re-hide for another ambush. It prioritizes bleeding targets and will use Bite to heal when low on health.",
+  "tier": "champion",
+  "type": "monster",
+  "size": "medium",
+  "foundry_portrait": "",
+  "health": {
+    "max": 48,
+    "current": 48
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 3
+  },
+  "resolve": {
+    "max": 25,
+    "current": 12,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 7,
+    "climb": 3,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 3
+    },
+    "finesse": {
+      "talent": 3
+    },
+    "mind": {
+      "talent": 2
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 1
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 3,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 0,
+      "tier": 0
+    },
+    "might": {
+      "value": 2,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 3,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 3,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 4,
+      "tier": 1
+    },
+    "coordination": {
+      "value": 1,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 2,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 0,
+      "tier": 0
+    },
+    "senses": {
+      "value": 3,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 1,
+      "tier": 0
+    },
+    "academics": {
+      "value": -1,
+      "tier": 0
+    },
+    "magic": {
+      "value": -1,
+      "tier": 0
+    },
+    "medicine": {
+      "value": -1,
+      "tier": 0
+    },
+    "expression": {
+      "value": -1,
+      "tier": 0
+    },
+    "presence": {
+      "value": 1,
+      "tier": 0
+    },
+    "insight": {
+      "value": -1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": -1,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 3,
+    "cold": 2,
+    "heat": 0,
+    "electric": 0,
+    "psychic": 2,
+    "dark": 4,
+    "divine": 0,
+    "aetheric": 0,
+    "toxic": 2
+  },
+  "detections": {
+    "normal": 2,
+    "darksight": 4,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 5,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": true,
+    "bleeding": false,
+    "blinded": true,
+    "charmed": true,
+    "confused": false,
+    "dazed": false,
+    "diseased": true,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": false,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Claw",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "The sanguinette rakes a target with its elongated claws. If any damage is dealt after mitigation, the target gains the bleeding condition.",
+      "reaction": false,
+      "basic": true,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d10",
+        "damage": "5",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Bite",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The sanguinette sinks its fangs into a creature, dealing physical and dark damage. The sanguinette heals for the amount of dark damage dealt after mitigation. This attack gains 2 bonus dice when the target is grappled. ",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d8",
+        "damage": "4",
+        "damage_extra": "2",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 1,
+        "secondary_damage": "3",
+        "secondary_damage_extra": "2",
+        "secondary_damage_type": "dark"
+      }
+    },
+    {
+      "name": "Rending Claws",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The sanguinette makes two separate Claw attacks against a creature that has the bleeding condition. This attack cannot be used if the sanguinette has someone held using the grab action.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "2d12",
+        "damage": "8",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Glide",
+      "cost": 1,
+      "type": "movement",
+      "magic": false,
+      "description": "The sanguinette jumps and glides up to 4 units in a single direction. If the sanguinette moves 3 or more units with this action, they can also make a grab check against the target.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 0
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Lunge",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The sanguinette lunges at the creature that has taken movement within a very short (5 unit) distance, dealing physical damage and preventing any further movement on that turn. If the sanguinette was hidden when it triggered this reaction and the target is medium size or smaller, the sanguinette also makes a grab check.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d10",
+        "damage": "5",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 3
+      }
+    }
+  ],
+  "traits": [
+    {
+      "name": "Blood Frenzy",
+      "description": "The sanguinette can smell blood from a creature with the bleeding condition from over a mile away. When the sanguinette is in combat with a creature that has the bleeding condition, it must make a resilience check of 5 or higher or become maddened. While maddened, the sanguinette gains +2 movement speed and always targets the nearest creature with the bleeding condition."
+    },
+    {
+      "name": "Echolocator",
+      "description": "The sanguinette cannot be affected by the blinded condition. It can detect all creatures within its echolocation range regardless of visibility, magical darkness, or the obscured condition."
+    },
+    {
+      "name": "Vampiric Weakness",
+      "description": "While not a true vampire, the sanguinette shares her undead cousin's weakness towards silver. After taking damage from a weapon or ammunition with the silvered property, the sanguinette cannot regain health from their bite attack until the end of their next turn."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

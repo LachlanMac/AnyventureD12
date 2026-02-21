@@ -37,34 +37,6 @@ const CreatureSidebar: React.FC<CreatureSidebarProps> = ({ creature }) => {
         </CardBody>
       </Card>
 
-      {/* Tactics */}
-      <Card variant="default">
-        <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
-          <h2
-            style={{
-              color: 'var(--color-white)',
-              fontSize: '0.875rem',
-              fontWeight: 'bold',
-              margin: 0,
-            }}
-          >
-            Tactics
-          </h2>
-        </CardHeader>
-        <CardBody style={{ padding: '0.75rem 1.25rem' }}>
-          <p
-            style={{
-              color: 'var(--color-cloud)',
-              lineHeight: '1.4',
-              margin: 0,
-              fontSize: '0.75rem',
-            }}
-          >
-            {creature.tactics}
-          </p>
-        </CardBody>
-      </Card>
-
       {/* Taming */}
       {creature.taming && creature.taming.tame_check !== -1 && (
         <Card variant="default">

@@ -34,6 +34,7 @@ export interface CreatureAction {
     defense_difficulty: number;
     min_range: number;
     max_range: number;
+    charge?: string;
   };
 }
 
@@ -72,6 +73,7 @@ export interface CreatureReaction {
     defense_difficulty: number;
     min_range: number;
     max_range: number;
+    charge?: string;
   };
 }
 

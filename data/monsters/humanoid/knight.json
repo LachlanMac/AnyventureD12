@@ -1,0 +1,300 @@
+{
+  "name": "Knight",
+  "description": "A Knight is a warrior sworn to uphold the values of courage, honor, and loyalty. They are heavily armored, skilled in combat, and often serve as protectors of the realm, engaging in battles and quests to defend their people and lands.",
+  "tactics": "",
+  "tier": "standard",
+  "type": "humanoid",
+  "size": "medium",
+  "foundry_portrait": "",
+  "health": {
+    "max": 30,
+    "current": 30
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 3
+  },
+  "resolve": {
+    "max": 15,
+    "current": 15,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 5,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 2
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 3
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 2,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 3,
+      "tier": 0
+    },
+    "might": {
+      "value": 3,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 4,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 1,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 0,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 2,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 3,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 1,
+      "tier": 0
+    },
+    "senses": {
+      "value": 1,
+      "tier": 0
+    },
+    "logic": {
+      "value": 1,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 1,
+      "tier": 0
+    },
+    "academics": {
+      "value": 1,
+      "tier": 0
+    },
+    "magic": {
+      "value": 1,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 1,
+      "tier": 0
+    },
+    "expression": {
+      "value": 0,
+      "tier": 0
+    },
+    "presence": {
+      "value": 2,
+      "tier": 0
+    },
+    "insight": {
+      "value": 1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 2,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 5,
+    "cold": 2,
+    "heat": 2,
+    "electric": 0,
+    "psychic": 2,
+    "dark": 2,
+    "divine": 0,
+    "aetheric": 0,
+    "toxic": 0
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": false,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Long Sword",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "The knight attacks a target with their long sword dealing slashing damage.",
+      "reaction": false,
+      "basic": true,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "4d10",
+        "damage": "8",
+        "damage_extra": "2",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Engage",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The knight moves up to two units towards a creature and slams their shield against them dealing a small amount of blunt damage. If any damage is dealt after mitigation, the target becomes dazed.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "2d8",
+        "damage": "3",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Honorable Kill",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The knight makes an attack against a humanoid with their long sword in an attempt to finish their opponent. If the opponent is at or brought to 0 health by the damage of this attack, they must also roll an endurance check of 6 or higher or they are killed.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "spellType": "normal",
+      "attack": {
+        "roll": "4d8",
+        "damage": "4",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Honorable Challenge",
+      "cost": 1,
+      "type": "utility",
+      "magic": false,
+      "description": "The knight calls out a creature that they share a language with within a short (10 unit) range, demanding they face the knight in combat. The target must make an insight check of 6 or higher or suffer a penalty to all attack checks against any other creature besides the knight until the end of their next turn.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 0
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Riposte",
+      "cost": 1,
+      "type": "utility",
+      "magic": false,
+      "description": "In response to being attacked by a melee weapon, the knight rolls their deflection check with a bonus die. If the attacker deals no damage after mitigation is calculated, the knight can optionally use their Long Sword ability against the attacker.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 0
+      }
+    }
+  ],
+  "traits": [
+    {
+      "name": "Stalwart Resolve",
+      "description": "The knight is immune to the Afraid condition. Allies within a very short (5 unit) radius of the knight gain a bonus die on checks made to recover from the Afraid condition."
+    },
+    {
+      "name": "Code of Honor",
+      "description": "A knight is honorable and will not kill a defenseless humanoid. When the knight brings a humanoid to 0 health, that humanoid can yield to become a non-combatant. If that humanoid accepts a yield and takes an aggressive action or rejects the yield, the knight is allowed to kill them. When a humanoid yields to the knight, the knight gains 5 morale."
+    }
+  ],
+  "loot": [],
+  "languages": [
+    "Common"
+  ],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

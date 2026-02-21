@@ -169,7 +169,7 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
           <span style={statPillStyle}>
             <strong>Dice:</strong> {action.spell.roll}
           </span>
-          {action.spell.damage !== '0' && (
+          {action.spell.damage && action.spell.damage !== '0' && (
             <>
               <span style={statPillStyle}>
                 <strong>Damage:</strong>{' '}
@@ -201,6 +201,12 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
               <strong>Range:</strong> {formatRangeSpan(action.spell.min_range, action.spell.max_range, 'spell')}
             </span>
           )}
+        </div>
+      )}
+
+      {action.type === 'spell' && action.spell?.charge && (
+        <div style={{ marginTop: '0.375rem', fontSize: '0.7rem', color: 'var(--color-old-gold)', fontStyle: 'italic' }}>
+          <strong>Overcharge:</strong> {action.spell.charge}
         </div>
       )}
     </div>
