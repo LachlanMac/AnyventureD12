@@ -11,7 +11,7 @@ import CreatureSpellCard from '../components/creature/CreatureSpellCard';
 import CreatureTraitCard from '../components/creature/CreatureTraitCard';
 import CreatureSidebar from '../components/creature/CreatureSidebar';
 import { useCreature } from '../hooks/useCreatures';
-import { hasSpells, getAllSpells } from '../utils/creatureUtils';
+import { getAllSpells } from '../utils/creatureUtils';
 
 const CreatureDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -47,6 +47,13 @@ const CreatureDetail: React.FC = () => {
 
   const { regular: regularSpells, custom: customSpells } = getAllSpells(creature);
 
+  // Separate spell-type abilities from regular actions/reactions
+  const nonSpellActions = creature.actions.filter((a: any) => a.type !== 'spell');
+  const nonSpellReactions = creature.reactions.filter((r: any) => r.type !== 'spell');
+  const spellActions = creature.actions.filter((a: any) => a.type === 'spell');
+  const spellReactions = creature.reactions.filter((r: any) => r.type === 'spell');
+  const hasAnySpells = regularSpells.length > 0 || customSpells.length > 0 || spellActions.length > 0 || spellReactions.length > 0;
+
   return (
     <div className="container mx-auto px-4 py-8">
       {/* Header */}
@@ -76,7 +83,7 @@ const CreatureDetail: React.FC = () => {
           </Card>
 
           {/* Actions */}
-          {creature.actions.length > 0 && (
+          {nonSpellActions.length > 0 && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
                 <h2
@@ -92,7 +99,7 @@ const CreatureDetail: React.FC = () => {
               </CardHeader>
               <CardBody style={{ padding: '0.75rem 1.25rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {creature.actions.map((action, index) => (
+                  {nonSpellActions.map((action: any, index: number) => (
                     <CreatureActionCard key={index} action={action} creatureTier={creature.tier} />
                   ))}
                 </div>
@@ -101,7 +108,7 @@ const CreatureDetail: React.FC = () => {
           )}
 
           {/* Reactions */}
-          {creature.reactions.length > 0 && (
+          {nonSpellReactions.length > 0 && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
                 <h2
@@ -117,7 +124,7 @@ const CreatureDetail: React.FC = () => {
               </CardHeader>
               <CardBody style={{ padding: '0.75rem 1.25rem' }}>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
-                  {creature.reactions.map((reaction, index) => (
+                  {nonSpellReactions.map((reaction: any, index: number) => (
                     <CreatureReactionCard key={index} reaction={reaction} creatureTier={creature.tier} />
                   ))}
                 </div>
@@ -126,7 +133,7 @@ const CreatureDetail: React.FC = () => {
           )}
 
           {/* Spells */}
-          {hasSpells(creature) && (
+          {hasAnySpells && (
             <Card variant="default">
               <CardHeader style={{ padding: '0.75rem 1.25rem' }}>
                 <h2
@@ -150,6 +157,16 @@ const CreatureDetail: React.FC = () => {
                   {/* Custom Spells */}
                   {customSpells.map((spell, index) => (
                     <CreatureSpellCard key={`custom-${index}`} spell={spell} isCustom />
+                  ))}
+
+                  {/* Spell-type Actions */}
+                  {spellActions.map((action: any, index: number) => (
+                    <CreatureActionCard key={`spell-action-${index}`} action={action} creatureTier={creature.tier} label="Action" />
+                  ))}
+
+                  {/* Spell-type Reactions */}
+                  {spellReactions.map((reaction: any, index: number) => (
+                    <CreatureReactionCard key={`spell-reaction-${index}`} reaction={reaction} creatureTier={creature.tier} label="Reaction" />
                   ))}
                 </div>
               </CardBody>

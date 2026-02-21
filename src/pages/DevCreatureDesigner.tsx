@@ -12,6 +12,9 @@ interface CreatureAbility {
   description: string;
   reaction: boolean;
   basic: boolean;
+  round: boolean;
+  daily: boolean;
+  spellType: 'normal' | 'innate' | 'unique';
   attack?: {
     roll: string;
     damage: string;
@@ -83,6 +86,39 @@ interface SkillSet {
   persuasion: SkillValue;
 }
 
+
+const subschoolMap = {
+  primal: [
+    { value: 'elemental', label: 'Elemental' },
+    { value: 'nature', label: 'Nature' },
+    { value: 'draconic', label: 'Draconic' },
+  ],
+  black: [
+    { value: 'necromancy', label: 'Necromancy' },
+    { value: 'witchcraft', label: 'Witchcraft' },
+    { value: 'fiend', label: 'Fiend' },
+  ],
+  white: [
+    { value: 'radiant', label: 'Radiant' },
+    { value: 'protection', label: 'Protection' },
+    { value: 'celestial', label: 'Celestial' },
+  ],
+  mysticism: [
+    { value: 'spirit', label: 'Spirit' },
+    { value: 'divination', label: 'Divination' },
+    { value: 'cosmic', label: 'Cosmic' },
+  ],
+  meta: [
+    { value: 'transmutation', label: 'Transmutation' },
+    { value: 'illusion', label: 'Illusion' },
+    { value: 'fey', label: 'Fey' },
+  ],
+  arcane: [
+    { value: 'conjuration', label: 'Conjuration' },
+    { value: 'enchantment', label: 'Enchantment' },
+    { value: 'chaos', label: 'Chaos' },
+  ],
+};
 
 const DevCreatureDesigner: React.FC = () => {
   const navigate = useNavigate();
@@ -242,6 +278,15 @@ const DevCreatureDesigner: React.FC = () => {
   const [spellNames, setSpellNames] = useState<string[]>([]);
   const [availableSpells, setAvailableSpells] = useState<any[]>([]);
   const [showSpellSelector, setShowSpellSelector] = useState(false);
+  const [spellSearch, setSpellSearch] = useState('');
+  const [spellSchoolFilter, setSpellSchoolFilter] = useState('all');
+  const [spellSubschoolFilter, setSpellSubschoolFilter] = useState('all');
+  const [spellCheckFilter, setSpellCheckFilter] = useState('all');
+  const [showMonsterBrowser, setShowMonsterBrowser] = useState(false);
+  const [monsterFiles, setMonsterFiles] = useState<Record<string, { filename: string; name: string; tier: string }[]>>({});
+  const [monsterCategoryFilter, setMonsterCategoryFilter] = useState('all');
+  const [monsterSearch, setMonsterSearch] = useState('');
+  const [editingFile, setEditingFile] = useState<{ category: string; filename: string } | null>(null);
 
   useEffect(() => {
     fetchAvailableSpells();
@@ -266,6 +311,144 @@ const DevCreatureDesigner: React.FC = () => {
       }
     } catch (err) {
       console.error('Failed to fetch spells:', err);
+    }
+  };
+
+  const fetchMonsterFiles = async () => {
+    try {
+      const response = await fetch('/api/creatures/files');
+      if (response.ok) {
+        const data = await response.json();
+        setMonsterFiles(data);
+      }
+    } catch (err) {
+      console.error('Failed to fetch monster files:', err);
+    }
+  };
+
+  const loadMonsterFile = async (category: string, filename: string) => {
+    try {
+      const response = await fetch(`/api/creatures/files/${category}/${filename}`);
+      if (!response.ok) throw new Error('Failed to load');
+      const jsonData = await response.json();
+
+      // Reuse same logic as loadFromJSON
+      setCreatureData({
+        name: jsonData.name || '',
+        description: jsonData.description || '',
+        tactics: jsonData.tactics || '',
+        tier: jsonData.tier || 'standard',
+        type: jsonData.type || 'humanoid',
+        size: jsonData.size || 'medium',
+        challenge_rating: jsonData.challenge_rating || 1,
+        languages: jsonData.languages || [],
+        loot: jsonData.loot || [],
+        foundry_portrait: jsonData.foundry_portrait || '',
+      });
+
+      setResources(jsonData.health && jsonData.energy && jsonData.resolve ? {
+        health: jsonData.health,
+        energy: jsonData.energy,
+        resolve: jsonData.resolve,
+      } : resources);
+
+      setMovement(jsonData.movement || movement);
+      setAttributes(jsonData.attributes || attributes);
+
+      if (jsonData.skills) {
+        const normalizedSkills = Object.entries(jsonData.skills).reduce((acc, [skillName, skillData]) => {
+          if (typeof skillData === 'object' && skillData !== null) {
+            const skillObj = skillData as any;
+            if (typeof skillObj.value === 'object' && skillObj.value !== null && 'value' in skillObj.value) {
+              (acc as any)[skillName] = { value: skillObj.value.value ?? 0, tier: skillObj.value.tier ?? 0 };
+            } else {
+              (acc as any)[skillName] = { value: skillObj.value ?? 0, tier: skillObj.tier ?? 0 };
+            }
+          } else {
+            (acc as any)[skillName] = { value: 0, tier: 0 };
+          }
+          return acc;
+        }, {} as SkillSet);
+        setSkills(normalizedSkills);
+      }
+
+      setMitigation(jsonData.mitigation || mitigation);
+      setDetections(jsonData.detections || detections);
+      setTaming(jsonData.taming || taming);
+
+      if (jsonData.immunities) {
+        const activeImmunities = Object.entries(jsonData.immunities)
+          .filter(([_, value]) => value === true)
+          .map(([key, _]) => key);
+        setImmunities(activeImmunities);
+      }
+
+      const combinedAbilities = [
+        ...(jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' })),
+        ...(jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }))
+      ];
+      setAbilities(combinedAbilities);
+      setTraits(jsonData.traits || []);
+      setSpellNames(jsonData.spellNames || []);
+
+      setEditingFile({ category, filename });
+      setShowMonsterBrowser(false);
+      setMonsterSearch('');
+      setMonsterCategoryFilter('all');
+      showSuccess(`Loaded ${jsonData.name || filename} for editing`);
+    } catch (err) {
+      showError('Failed to load monster file');
+    }
+  };
+
+  const saveMonsterFile = async () => {
+    if (!editingFile) return;
+
+    const jsonData = {
+      name: creatureData.name,
+      description: creatureData.description,
+      tactics: creatureData.tactics,
+      tier: creatureData.tier,
+      type: creatureData.type,
+      size: creatureData.size,
+      foundry_portrait: creatureData.foundry_portrait || '',
+      health: resources.health,
+      energy: resources.energy,
+      resolve: resources.resolve,
+      movement,
+      attributes,
+      skills,
+      mitigation,
+      detections: {
+        ...detections,
+        normal: Math.max(0, Math.min(8, detections.normal)),
+      },
+      immunities: immunityOptions.reduce((acc, immunity) => ({
+        ...acc,
+        [immunity]: immunities.includes(immunity)
+      }), {}),
+      taming,
+      actions: abilities.filter(a => !a.reaction),
+      reactions: abilities.filter(a => a.reaction),
+      traits,
+      loot: creatureData.loot,
+      languages: creatureData.languages,
+      challenge_rating: creatureData.challenge_rating,
+      spellNames: spellNames.length > 0 ? spellNames : undefined,
+      source: 'Official',
+      isHomebrew: false,
+    };
+
+    try {
+      const response = await fetch(`/api/creatures/files/${editingFile.category}/${editingFile.filename}`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(jsonData),
+      });
+      if (!response.ok) throw new Error('Failed to save');
+      showSuccess(`Saved ${creatureData.name} to ${editingFile.category}/${editingFile.filename}`);
+    } catch (err) {
+      showError('Failed to save monster file');
     }
   };
 
@@ -480,8 +663,8 @@ const DevCreatureDesigner: React.FC = () => {
 
         // Convert old format to new unified abilities format
         const combinedAbilities = [
-          ...(jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: false })),
-          ...(jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: false, type: 'utility' }))
+          ...(jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' })),
+          ...(jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }))
         ];
         setAbilities(combinedAbilities);
         setTraits(jsonData.traits || []);
@@ -550,6 +733,7 @@ const DevCreatureDesigner: React.FC = () => {
       setAbilities([]);
       setTraits([]);
       setSpellNames([]);
+      setEditingFile(null);
     }
   };
 
@@ -565,6 +749,9 @@ const DevCreatureDesigner: React.FC = () => {
         description: '',
         reaction: false,
         basic: false,
+        round: false,
+        daily: false,
+        spellType: 'normal',
         attack: {
           roll: '0',
           damage: '2',
@@ -587,6 +774,9 @@ const DevCreatureDesigner: React.FC = () => {
       description: spell.description,
       reaction: false,
       basic: false,
+      round: false,
+      daily: false,
+      spellType: 'normal',
       spell: {
         roll: '2d8', // Default, user can edit
         damage: spell.damage.toString(),
@@ -675,7 +865,7 @@ const DevCreatureDesigner: React.FC = () => {
         </p>
 
         {/* File Controls */}
-        <div className="flex gap-4 mb-6">
+        <div className="flex gap-4 mb-6 flex-wrap">
           <Button onClick={downloadJSON} variant="primary">
             📥 Download JSON
           </Button>
@@ -698,10 +888,28 @@ const DevCreatureDesigner: React.FC = () => {
             />
           </label>
 
+          <Button onClick={() => { fetchMonsterFiles(); setShowMonsterBrowser(true); }} variant="secondary">
+            ✏️ Edit Creature
+          </Button>
+
+          {editingFile && (
+            <Button onClick={saveMonsterFile} variant="primary">
+              💾 Save to {editingFile.category}/{editingFile.filename}
+            </Button>
+          )}
+
           <Button onClick={clearForm} variant="danger">
             🗑️ Clear Form
           </Button>
         </div>
+
+        {editingFile && (
+          <div className="mb-4 px-3 py-2 rounded text-sm flex items-center gap-2"
+               style={{ backgroundColor: 'rgba(200, 170, 80, 0.15)', border: '1px solid rgba(200, 170, 80, 0.3)', color: 'var(--color-old-gold)' }}>
+            Editing: <strong>{editingFile.category}/{editingFile.filename}</strong>
+            <button onClick={() => setEditingFile(null)} className="ml-2 text-gray-400 hover:text-white text-xs">✕ clear</button>
+          </div>
+        )}
 
         {/* Step Navigation */}
         <div className="flex space-x-2 mb-6">
@@ -1367,7 +1575,18 @@ const DevCreatureDesigner: React.FC = () => {
                       <option value="utility">Utility</option>
                       <option value="movement">Movement</option>
                     </select>
-                    <div className="flex gap-2">
+                    {ability.type === 'spell' && (
+                      <select
+                        value={ability.spellType}
+                        onChange={(e) => updateAbility(index, 'spellType', e.target.value)}
+                        className="p-2 bg-gray-800 border border-gray-600 rounded"
+                      >
+                        <option value="normal">Normal</option>
+                        <option value="innate">Innate</option>
+                        <option value="unique">Unique</option>
+                      </select>
+                    )}
+                    <div className="flex gap-2 flex-wrap">
                       <label className="flex items-center gap-2">
                         <input
                           type="checkbox"
@@ -1379,10 +1598,34 @@ const DevCreatureDesigner: React.FC = () => {
                       <label className="flex items-center gap-2">
                         <input
                           type="checkbox"
+                          checked={ability.magic}
+                          onChange={(e) => updateAbility(index, 'magic', e.target.checked)}
+                        />
+                        <span className="text-sm">Magical</span>
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
                           checked={ability.basic}
                           onChange={(e) => updateAbility(index, 'basic', e.target.checked)}
                         />
                         <span className="text-sm">Basic</span>
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={ability.round}
+                          onChange={(e) => updateAbility(index, 'round', e.target.checked)}
+                        />
+                        <span className="text-sm">1/Round</span>
+                      </label>
+                      <label className="flex items-center gap-2">
+                        <input
+                          type="checkbox"
+                          checked={ability.daily}
+                          onChange={(e) => updateAbility(index, 'daily', e.target.checked)}
+                        />
+                        <span className="text-sm">Daily</span>
                       </label>
                     </div>
                   </div>
@@ -1421,7 +1664,7 @@ const DevCreatureDesigner: React.FC = () => {
                           <div>
                             <label className="block text-xs font-medium mb-1">Min Range</label>
                             <select
-                              value={ability.attack?.min_range || 1}
+                              value={ability.attack?.min_range ?? 1}
                               onChange={(e) => updateAbilityProperty(index, 'attack', 'min_range', parseInt(e.target.value))}
                               className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                             >
@@ -1435,7 +1678,7 @@ const DevCreatureDesigner: React.FC = () => {
                           <div>
                             <label className="block text-xs font-medium mb-1">Max Range</label>
                             <select
-                              value={ability.attack?.max_range || 1}
+                              value={ability.attack?.max_range ?? 1}
                               onChange={(e) => updateAbilityProperty(index, 'attack', 'max_range', parseInt(e.target.value))}
                               className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                             >
@@ -1529,22 +1772,29 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
                         <select
                           value={ability.spell?.school || 'primal'}
-                          onChange={(e) => updateAbilityProperty(index, 'spell', 'school', e.target.value)}
+                          onChange={(e) => {
+                            updateAbilityProperty(index, 'spell', 'school', e.target.value);
+                            const firstSub = subschoolMap[e.target.value as keyof typeof subschoolMap]?.[0]?.value || '';
+                            updateAbilityProperty(index, 'spell', 'subschool', firstSub);
+                          }}
                           className="p-2 bg-gray-800 border border-gray-600 rounded"
                         >
                           <option value="primal">Primal</option>
                           <option value="black">Black</option>
-                          <option value="divine">Divine</option>
+                          <option value="white">White</option>
                           <option value="mysticism">Mysticism</option>
                           <option value="meta">Meta</option>
+                          <option value="arcane">Arcane</option>
                         </select>
-                        <input
-                          type="text"
-                          placeholder="Subschool"
+                        <select
                           value={ability.spell?.subschool || ''}
                           onChange={(e) => updateAbilityProperty(index, 'spell', 'subschool', e.target.value)}
                           className="p-2 bg-gray-800 border border-gray-600 rounded"
-                        />
+                        >
+                          {(subschoolMap[ability.spell?.school as keyof typeof subschoolMap] || []).map((sub) => (
+                            <option key={sub.value} value={sub.value}>{sub.label}</option>
+                          ))}
+                        </select>
                         <input
                           type="number"
                           placeholder="Check to cast"
@@ -1555,13 +1805,23 @@ const DevCreatureDesigner: React.FC = () => {
                         />
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
-                        <input
-                          type="text"
-                          placeholder="Duration"
+                        <select
                           value={ability.spell?.duration || 'Instantaneous'}
                           onChange={(e) => updateAbilityProperty(index, 'spell', 'duration', e.target.value)}
                           className="p-2 bg-gray-800 border border-gray-600 rounded"
-                        />
+                        >
+                          <option value="Instantaneous">Instantaneous</option>
+                          <option value="1 round">1 Round</option>
+                          <option value="1 minute">1 Minute</option>
+                          <option value="10 minutes">10 Minutes</option>
+                          <option value="1 hour">1 Hour</option>
+                          <option value="8 hours">8 Hours</option>
+                          <option value="1 day">1 Day</option>
+                          <option value="3 days">3 Days</option>
+                          <option value="Concentration">Concentration</option>
+                          <option value="Permanent">Permanent</option>
+                          <option value="Until expended or 1 minute">Until Expended or 1 Minute</option>
+                        </select>
                         <select
                           value={ability.spell?.target_defense || 'evasion'}
                           onChange={(e) => updateAbilityProperty(index, 'spell', 'target_defense', e.target.value)}
@@ -1572,19 +1832,25 @@ const DevCreatureDesigner: React.FC = () => {
                           <option value="resilience">Resilience</option>
                           <option value="none">None</option>
                         </select>
-                        <input
-                          type="text"
-                          placeholder="Range description (optional)"
+                        <select
                           value={ability.spell?.range || 'Self'}
                           onChange={(e) => updateAbilityProperty(index, 'spell', 'range', e.target.value)}
                           className="p-2 bg-gray-800 border border-gray-600 rounded"
-                        />
+                        >
+                          <option value="Self">Self</option>
+                          <option value="Single Target">Single Target</option>
+                          <option value="Multiple Targets">Multiple Targets</option>
+                          <option value="Area of Effect">Area of Effect</option>
+                          <option value="Cone">Cone</option>
+                          <option value="Line">Line</option>
+                          <option value="Touch">Touch</option>
+                        </select>
                       </div>
                       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
                         <div>
                           <label className="block text-xs font-medium mb-1">Min Range</label>
                           <select
-                            value={ability.spell?.min_range || 0}
+                            value={ability.spell?.min_range ?? 0}
                             onChange={(e) => updateAbilityProperty(index, 'spell', 'min_range', parseInt(e.target.value))}
                             className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                           >
@@ -1598,7 +1864,7 @@ const DevCreatureDesigner: React.FC = () => {
                         <div>
                           <label className="block text-xs font-medium mb-1">Max Range</label>
                           <select
-                            value={ability.spell?.max_range || 5}
+                            value={ability.spell?.max_range ?? 5}
                             onChange={(e) => updateAbilityProperty(index, 'spell', 'max_range', parseInt(e.target.value))}
                             className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                           >
@@ -1708,51 +1974,247 @@ const DevCreatureDesigner: React.FC = () => {
       </div>
 
       {/* Spell Selector Modal */}
-      {showSpellSelector && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
-          <div className="bg-gray-800 rounded-lg p-6 max-w-4xl w-full max-h-[80vh] overflow-hidden">
-            <div className="flex justify-between items-center mb-4">
-              <h3 className="text-xl font-bold">Select Spell to Add</h3>
-              <Button onClick={() => setShowSpellSelector(false)} variant="ghost">✕</Button>
-            </div>
+      {showSpellSelector && (() => {
+        let filtered = [...availableSpells];
+        if (spellSearch.trim()) {
+          const term = spellSearch.toLowerCase().trim();
+          filtered = filtered.filter(s =>
+            s.name.toLowerCase().includes(term) ||
+            s.description?.toLowerCase().includes(term)
+          );
+        }
+        if (spellSchoolFilter !== 'all') {
+          filtered = filtered.filter(s => s.school?.toLowerCase() === spellSchoolFilter);
+        }
+        if (spellSubschoolFilter !== 'all') {
+          filtered = filtered.filter(s => s.subschool?.toLowerCase() === spellSubschoolFilter);
+        }
+        if (spellCheckFilter !== 'all') {
+          filtered = filtered.filter(s => s.checkToCast === parseInt(spellCheckFilter));
+        }
 
-            <div className="overflow-y-auto max-h-[60vh]">
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                {availableSpells.map((spell) => (
-                  <div key={spell._id} className="border border-gray-600 rounded p-4 hover:bg-gray-700 cursor-pointer">
-                    <div className="flex justify-between items-start mb-2">
-                      <div>
-                        <h4 className="font-semibold text-lg">{spell.name}</h4>
-                        <p className="text-sm text-gray-400">
-                          {spell.school} • {spell.subschool} • Energy: {spell.energy}
-                        </p>
-                      </div>
-                      <Button
-                        onClick={() => addSpellAbility(spell)}
-                        size="sm"
-                        variant="accent"
-                      >
-                        Add
-                      </Button>
-                    </div>
-                    <p className="text-sm text-gray-300 mb-2">{spell.description}</p>
-                    <div className="text-xs text-gray-400">
-                      <p>Cast: {spell.checkToCast} • Damage: {spell.damage} • Range: {spell.range}</p>
-                      {spell.charge && <p className="mt-1"><strong>Charge:</strong> {spell.charge}</p>}
-                    </div>
-                  </div>
-                ))}
+        const schools = [...new Set(availableSpells.map((s: any) => s.school?.toLowerCase()).filter(Boolean))].sort() as string[];
+        const filteredSubschools = spellSchoolFilter !== 'all'
+          ? [...new Set(availableSpells.filter((s: any) => s.school?.toLowerCase() === spellSchoolFilter).map((s: any) => s.subschool?.toLowerCase()).filter(Boolean))].sort() as string[]
+          : [];
+        const checkValues = [...new Set(availableSpells.map((s: any) => s.checkToCast).filter((v: any) => v != null))].sort((a, b) => a - b) as number[];
+
+        return (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-gray-800 rounded-lg p-6 max-w-4xl w-full max-h-[80vh] overflow-hidden flex flex-col">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold">Select Spell to Add</h3>
+                <Button onClick={() => { setShowSpellSelector(false); setSpellSearch(''); setSpellSchoolFilter('all'); setSpellSubschoolFilter('all'); setSpellCheckFilter('all'); }} variant="ghost">✕</Button>
               </div>
 
-              {availableSpells.length === 0 && (
-                <div className="text-center py-8 text-gray-400">
-                  <p>No spells available. Loading...</p>
+              {/* Filters */}
+              <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mb-4">
+                <input
+                  type="text"
+                  placeholder="Search spells..."
+                  value={spellSearch}
+                  onChange={(e) => setSpellSearch(e.target.value)}
+                  className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                />
+                <select
+                  value={spellSchoolFilter}
+                  onChange={(e) => { setSpellSchoolFilter(e.target.value); setSpellSubschoolFilter('all'); }}
+                  className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                >
+                  <option value="all">All Schools</option>
+                  {schools.map(s => (
+                    <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>
+                  ))}
+                </select>
+                <select
+                  value={spellSubschoolFilter}
+                  onChange={(e) => setSpellSubschoolFilter(e.target.value)}
+                  className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                  disabled={spellSchoolFilter === 'all'}
+                >
+                  <option value="all">All Subschools</option>
+                  {filteredSubschools.map(s => (
+                    <option key={s} value={s}>{s.charAt(0).toUpperCase() + s.slice(1)}</option>
+                  ))}
+                </select>
+                <select
+                  value={spellCheckFilter}
+                  onChange={(e) => setSpellCheckFilter(e.target.value)}
+                  className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                >
+                  <option value="all">All RC</option>
+                  {checkValues.map(v => (
+                    <option key={v} value={v}>RC {v}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="text-xs text-gray-400 mb-2">{filtered.length} spell{filtered.length !== 1 ? 's' : ''}</div>
+
+              <div className="overflow-y-auto flex-1">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                  {filtered.map((spell) => (
+                    <div key={spell._id} className="border border-gray-600 rounded p-4 hover:bg-gray-700 cursor-pointer">
+                      <div className="flex justify-between items-start mb-2">
+                        <div>
+                          <h4 className="font-semibold text-lg">{spell.name}</h4>
+                          <p className="text-sm text-gray-400">
+                            {spell.school} • {spell.subschool} • Energy: {spell.energy}
+                          </p>
+                        </div>
+                        <Button
+                          onClick={() => addSpellAbility(spell)}
+                          size="sm"
+                          variant="accent"
+                        >
+                          Add
+                        </Button>
+                      </div>
+                      <p className="text-sm text-gray-300 mb-2">{spell.description}</p>
+                      <div className="text-xs text-gray-400">
+                        <p>RC: {spell.checkToCast} • Damage: {spell.damage} • Range: {spell.range}</p>
+                        {spell.charge && <p className="mt-1"><strong>Overcharge:</strong> {spell.charge}</p>}
+                      </div>
+                    </div>
+                  ))}
                 </div>
-              )}
+
+                {filtered.length === 0 && (
+                  <div className="text-center py-8 text-gray-400">
+                    <p>{availableSpells.length === 0 ? 'No spells available. Loading...' : 'No spells match your filters.'}</p>
+                  </div>
+                )}
+              </div>
             </div>
           </div>
-        </div>
-      )}
+        );
+      })()}
+
+      {/* Monster File Browser Modal */}
+      {showMonsterBrowser && (() => {
+        const categories = Object.keys(monsterFiles).sort();
+        let allEntries: { category: string; filename: string; name: string; tier: string }[] = [];
+        const catsToShow = monsterCategoryFilter === 'all' ? categories : [monsterCategoryFilter];
+        for (const cat of catsToShow) {
+          if (monsterFiles[cat]) {
+            allEntries.push(...monsterFiles[cat].map(f => ({ ...f, category: cat })));
+          }
+        }
+        if (monsterSearch.trim()) {
+          const term = monsterSearch.toLowerCase().trim();
+          allEntries = allEntries.filter(e => e.name.toLowerCase().includes(term));
+        }
+
+        const tierColors: Record<string, string> = {
+          minion: 'var(--color-cloud)',
+          grunt: 'var(--color-stormy)',
+          standard: 'var(--color-white)',
+          champion: 'var(--color-old-gold)',
+          elite: 'var(--color-sat-purple)',
+          legend: '#d4af37',
+          mythic: '#ff6b35',
+        };
+
+        return (
+          <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+            <div className="bg-gray-800 rounded-lg p-6 max-w-3xl w-full max-h-[80vh] overflow-hidden flex flex-col">
+              <div className="flex justify-between items-center mb-4">
+                <h3 className="text-xl font-bold">Edit Creature File</h3>
+                <Button onClick={() => { setShowMonsterBrowser(false); setMonsterSearch(''); setMonsterCategoryFilter('all'); }} variant="ghost">✕</Button>
+              </div>
+
+              {/* Filters */}
+              <div className="grid grid-cols-2 gap-3 mb-4">
+                <input
+                  type="text"
+                  placeholder="Search creatures..."
+                  value={monsterSearch}
+                  onChange={(e) => setMonsterSearch(e.target.value)}
+                  className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                />
+                <select
+                  value={monsterCategoryFilter}
+                  onChange={(e) => setMonsterCategoryFilter(e.target.value)}
+                  className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                >
+                  <option value="all">All Categories</option>
+                  {categories.map(c => (
+                    <option key={c} value={c}>{c.charAt(0).toUpperCase() + c.slice(1)}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="text-xs text-gray-400 mb-2">{allEntries.length} creature{allEntries.length !== 1 ? 's' : ''}</div>
+
+              <div className="overflow-y-auto flex-1">
+                {monsterCategoryFilter === 'all' ? (
+                  // Grouped by category
+                  categories.filter(cat => {
+                    const entries = monsterFiles[cat] || [];
+                    if (!monsterSearch.trim()) return entries.length > 0;
+                    return entries.some(e => e.name.toLowerCase().includes(monsterSearch.toLowerCase().trim()));
+                  }).map(cat => {
+                    let entries = monsterFiles[cat] || [];
+                    if (monsterSearch.trim()) {
+                      const term = monsterSearch.toLowerCase().trim();
+                      entries = entries.filter(e => e.name.toLowerCase().includes(term));
+                    }
+                    return (
+                      <div key={cat} className="mb-4">
+                        <h4 className="text-sm font-bold uppercase tracking-wider mb-2" style={{ color: 'var(--color-stormy)' }}>
+                          {cat} ({entries.length})
+                        </h4>
+                        <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                          {entries.map(entry => (
+                            <button
+                              key={entry.filename}
+                              onClick={() => loadMonsterFile(cat, entry.filename)}
+                              className="text-left p-3 rounded border border-gray-600 hover:bg-gray-700 transition-colors"
+                            >
+                              <div className="flex justify-between items-center">
+                                <span className="font-medium text-white">{entry.name}</span>
+                                <span className="text-xs capitalize px-2 py-0.5 rounded" style={{ color: tierColors[entry.tier] || 'var(--color-cloud)', backgroundColor: 'var(--color-dark-surface)' }}>
+                                  {entry.tier}
+                                </span>
+                              </div>
+                              <span className="text-xs text-gray-500">{entry.filename}</span>
+                            </button>
+                          ))}
+                        </div>
+                      </div>
+                    );
+                  })
+                ) : (
+                  // Flat list for single category
+                  <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                    {allEntries.map(entry => (
+                      <button
+                        key={`${entry.category}-${entry.filename}`}
+                        onClick={() => loadMonsterFile(entry.category, entry.filename)}
+                        className="text-left p-3 rounded border border-gray-600 hover:bg-gray-700 transition-colors"
+                      >
+                        <div className="flex justify-between items-center">
+                          <span className="font-medium text-white">{entry.name}</span>
+                          <span className="text-xs capitalize px-2 py-0.5 rounded" style={{ color: tierColors[entry.tier] || 'var(--color-cloud)', backgroundColor: 'var(--color-dark-surface)' }}>
+                            {entry.tier}
+                          </span>
+                        </div>
+                        <span className="text-xs text-gray-500">{entry.filename}</span>
+                      </button>
+                    ))}
+                  </div>
+                )}
+
+                {allEntries.length === 0 && (
+                  <div className="text-center py-8 text-gray-400">
+                    <p>{Object.keys(monsterFiles).length === 0 ? 'Loading monster files...' : 'No creatures match your filters.'}</p>
+                  </div>
+                )}
+              </div>
+            </div>
+          </div>
+        );
+      })()}
     </div>
   );
 };

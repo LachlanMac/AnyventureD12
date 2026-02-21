@@ -6,9 +6,19 @@ import { formatRangeSpan } from '../../utils/rangeUtils';
 interface CreatureReactionCardProps {
   reaction: CreatureReaction;
   creatureTier: string;
+  label?: string;
 }
 
-const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, creatureTier }) => {
+const statPillStyle: React.CSSProperties = {
+  color: 'var(--color-white)',
+  backgroundColor: 'var(--color-dark-surface)',
+  padding: '0.2rem 0.5rem',
+  borderRadius: '0.25rem',
+  fontSize: '0.7rem',
+  whiteSpace: 'nowrap',
+};
+
+const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, creatureTier, label }) => {
   return (
     <div
       style={{
@@ -43,6 +53,51 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
           {reaction.magic && (
             <span style={{ color: 'var(--color-sat-purple)', fontSize: '0.75rem' }}>✨</span>
           )}
+          {label && (
+            <span
+              style={{
+                color: 'var(--color-cloud)',
+                fontSize: '0.625rem',
+                backgroundColor: 'var(--color-dark-surface)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                fontWeight: 'normal',
+              }}
+            >
+              {label}
+            </span>
+          )}
+          {reaction.spellType && reaction.spellType !== 'normal' && (
+            <span
+              style={{
+                color: reaction.spellType === 'innate' ? 'var(--color-stormy)' : 'var(--color-sunset)',
+                fontSize: '0.625rem',
+                backgroundColor: reaction.spellType === 'innate' ? 'rgba(120, 140, 170, 0.15)' : 'rgba(200, 100, 50, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: reaction.spellType === 'innate' ? '1px solid rgba(120, 140, 170, 0.3)' : '1px solid rgba(200, 100, 50, 0.3)',
+                fontWeight: 'normal',
+                textTransform: 'capitalize',
+              }}
+            >
+              {reaction.spellType}
+            </span>
+          )}
+          {reaction.round && (
+            <span
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                backgroundColor: 'rgba(200, 170, 80, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: '1px solid rgba(200, 170, 80, 0.3)',
+                fontWeight: 'normal',
+              }}
+            >
+              1/round
+            </span>
+          )}
         </h3>
         {creatureTier !== 'minion' && creatureTier !== 'grunt' && (
           <span
@@ -70,17 +125,17 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
       {reaction.type === 'attack' && reaction.attack && (
         <div
           style={{
-            marginTop: '0.375rem',
+            marginTop: '0.5rem',
             display: 'flex',
-            gap: '0.75rem',
-            fontSize: '0.75rem',
+            gap: '0.375rem',
             flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
-          <span style={{ color: 'var(--color-white)' }}>
-            <strong>Roll:</strong> {reaction.attack.roll}
+          <span style={statPillStyle}>
+            <strong>Dice:</strong> {reaction.attack.roll}
           </span>
-          <span style={{ color: 'var(--color-white)' }}>
+          <span style={statPillStyle}>
             <strong>Damage:</strong>{' '}
             {formatDamage(
               reaction.attack.damage,
@@ -89,7 +144,7 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
             )}
           </span>
           {reaction.attack.secondary_damage && (
-            <span style={{ color: 'var(--color-white)' }}>
+            <span style={statPillStyle}>
               {formatSecondaryDamage(
                 reaction.attack.secondary_damage,
                 reaction.attack.secondary_damage_extra,
@@ -98,8 +153,8 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
             </span>
           )}
           {hasRange(reaction.attack.min_range, reaction.attack.max_range) && (
-            <span style={{ color: 'var(--color-cloud)' }}>
-              Range: {formatRangeSpan(reaction.attack.min_range, reaction.attack.max_range, 'weapon')}
+            <span style={statPillStyle}>
+              <strong>Range:</strong> {formatRangeSpan(reaction.attack.min_range, reaction.attack.max_range, 'weapon')}
             </span>
           )}
         </div>
@@ -108,19 +163,19 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
       {reaction.type === 'spell' && reaction.spell && (
         <div
           style={{
-            marginTop: '0.375rem',
+            marginTop: '0.5rem',
             display: 'flex',
-            gap: '0.75rem',
-            fontSize: '0.75rem',
+            gap: '0.375rem',
             flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
-          <span style={{ color: 'var(--color-white)' }}>
-            <strong>Roll:</strong> {reaction.spell.roll}
+          <span style={statPillStyle}>
+            <strong>Dice:</strong> {reaction.spell.roll}
           </span>
           {reaction.spell.damage !== '0' && (
             <>
-              <span style={{ color: 'var(--color-white)' }}>
+              <span style={statPillStyle}>
                 <strong>Damage:</strong>{' '}
                 {formatDamage(
                   reaction.spell.damage,
@@ -129,7 +184,7 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
                 )}
               </span>
               {reaction.spell.secondary_damage && (
-                <span style={{ color: 'var(--color-white)' }}>
+                <span style={statPillStyle}>
                   {formatSecondaryDamage(
                     reaction.spell.secondary_damage,
                     reaction.spell.secondary_damage_extra,
@@ -140,14 +195,14 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
             </>
           )}
           {reaction.spell.target_defense !== 'none' && (
-            <span style={{ color: 'var(--color-white)' }}>
-              <strong>Defense:</strong> {reaction.spell.target_defense} DC{' '}
+            <span style={statPillStyle}>
+              <strong>Defense:</strong> {reaction.spell.target_defense} RC{' '}
               {reaction.spell.defense_difficulty}
             </span>
           )}
           {hasRange(reaction.spell.min_range, reaction.spell.max_range) && (
-            <span style={{ color: 'var(--color-cloud)' }}>
-              Range: {formatRangeSpan(reaction.spell.min_range, reaction.spell.max_range, 'spell')}
+            <span style={statPillStyle}>
+              <strong>Range:</strong> {formatRangeSpan(reaction.spell.min_range, reaction.spell.max_range, 'spell')}
             </span>
           )}
         </div>

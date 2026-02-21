@@ -44,9 +44,11 @@ const CreatureHeader: React.FC<CreatureHeaderProps> = ({ creature }) => {
           >
             {creature.size} {creature.type}
           </span>
-          <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
-            <TalentDisplay talent={creature.challenge_rating} size="sm" />
-          </div>
+          {(creature.tier === 'elite' || creature.tier === 'legend') && (
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+              <TalentDisplay talent={creature.challenge_rating} size="sm" />
+            </div>
+          )}
           {creature.isHomebrew && (
             <span
               style={{

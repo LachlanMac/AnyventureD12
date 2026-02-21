@@ -5,6 +5,10 @@ export interface CreatureAction {
   cost: number;
   type: string;
   magic?: boolean;
+  basic?: boolean;
+  round?: boolean;
+  daily?: boolean;
+  spellType?: 'normal' | 'innate' | 'unique';
   description: string;
   attack?: {
     roll: string;
@@ -39,6 +43,9 @@ export interface CreatureReaction {
   type: 'attack' | 'spell' | 'utility' | 'movement';
   magic?: boolean;
   basic?: boolean;
+  round?: boolean;
+  daily?: boolean;
+  spellType?: 'normal' | 'innate' | 'unique';
   trigger?: string;
   description: string;
   attack?: {

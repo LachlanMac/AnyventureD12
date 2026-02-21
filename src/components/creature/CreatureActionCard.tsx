@@ -6,9 +6,19 @@ import { formatRangeSpan } from '../../utils/rangeUtils';
 interface CreatureActionCardProps {
   action: CreatureAction;
   creatureTier: string;
+  label?: string;
 }
 
-const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatureTier }) => {
+const statPillStyle: React.CSSProperties = {
+  color: 'var(--color-white)',
+  backgroundColor: 'var(--color-dark-surface)',
+  padding: '0.2rem 0.5rem',
+  borderRadius: '0.25rem',
+  fontSize: '0.7rem',
+  whiteSpace: 'nowrap',
+};
+
+const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatureTier, label }) => {
   return (
     <div
       style={{
@@ -43,6 +53,51 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
           {action.magic && (
             <span style={{ color: 'var(--color-sat-purple)', fontSize: '0.75rem' }}>✨</span>
           )}
+          {label && (
+            <span
+              style={{
+                color: 'var(--color-cloud)',
+                fontSize: '0.625rem',
+                backgroundColor: 'var(--color-dark-surface)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                fontWeight: 'normal',
+              }}
+            >
+              {label}
+            </span>
+          )}
+          {action.spellType && action.spellType !== 'normal' && (
+            <span
+              style={{
+                color: action.spellType === 'innate' ? 'var(--color-stormy)' : 'var(--color-sunset)',
+                fontSize: '0.625rem',
+                backgroundColor: action.spellType === 'innate' ? 'rgba(120, 140, 170, 0.15)' : 'rgba(200, 100, 50, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: action.spellType === 'innate' ? '1px solid rgba(120, 140, 170, 0.3)' : '1px solid rgba(200, 100, 50, 0.3)',
+                fontWeight: 'normal',
+                textTransform: 'capitalize',
+              }}
+            >
+              {action.spellType}
+            </span>
+          )}
+          {action.round && (
+            <span
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                backgroundColor: 'rgba(200, 170, 80, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: '1px solid rgba(200, 170, 80, 0.3)',
+                fontWeight: 'normal',
+              }}
+            >
+              1/round
+            </span>
+          )}
         </h3>
         {creatureTier !== 'minion' && creatureTier !== 'grunt' && (
           <span
@@ -66,17 +121,17 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
       {action.type === 'attack' && action.attack && (
         <div
           style={{
-            marginTop: '0.375rem',
+            marginTop: '0.5rem',
             display: 'flex',
-            gap: '0.75rem',
-            fontSize: '0.75rem',
+            gap: '0.375rem',
             flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
-          <span style={{ color: 'var(--color-white)' }}>
-            <strong>Roll:</strong> {action.attack.roll}
+          <span style={statPillStyle}>
+            <strong>Dice:</strong> {action.attack.roll}
           </span>
-          <span style={{ color: 'var(--color-white)' }}>
+          <span style={statPillStyle}>
             <strong>Damage:</strong>{' '}
             {formatDamage(
               action.attack.damage,
@@ -85,7 +140,7 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
             )}
           </span>
           {action.attack.secondary_damage && (
-            <span style={{ color: 'var(--color-white)' }}>
+            <span style={statPillStyle}>
               {formatSecondaryDamage(
                 action.attack.secondary_damage,
                 action.attack.secondary_damage_extra,
@@ -94,8 +149,8 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
             </span>
           )}
           {hasRange(action.attack.min_range, action.attack.max_range) && (
-            <span style={{ color: 'var(--color-cloud)' }}>
-              Range: {formatRangeSpan(action.attack.min_range, action.attack.max_range, 'weapon')}
+            <span style={statPillStyle}>
+              <strong>Range:</strong> {formatRangeSpan(action.attack.min_range, action.attack.max_range, 'weapon')}
             </span>
           )}
         </div>
@@ -104,19 +159,19 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
       {action.type === 'spell' && action.spell && (
         <div
           style={{
-            marginTop: '0.375rem',
+            marginTop: '0.5rem',
             display: 'flex',
-            gap: '0.75rem',
-            fontSize: '0.75rem',
+            gap: '0.375rem',
             flexWrap: 'wrap',
+            alignItems: 'center',
           }}
         >
-          <span style={{ color: 'var(--color-white)' }}>
-            <strong>Roll:</strong> {action.spell.roll}
+          <span style={statPillStyle}>
+            <strong>Dice:</strong> {action.spell.roll}
           </span>
           {action.spell.damage !== '0' && (
             <>
-              <span style={{ color: 'var(--color-white)' }}>
+              <span style={statPillStyle}>
                 <strong>Damage:</strong>{' '}
                 {formatDamage(
                   action.spell.damage,
@@ -125,7 +180,7 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
                 )}
               </span>
               {action.spell.secondary_damage && (
-                <span style={{ color: 'var(--color-white)' }}>
+                <span style={statPillStyle}>
                   {formatSecondaryDamage(
                     action.spell.secondary_damage,
                     action.spell.secondary_damage_extra,
@@ -136,14 +191,14 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
             </>
           )}
           {action.spell.target_defense !== 'none' && (
-            <span style={{ color: 'var(--color-white)' }}>
-              <strong>Defense:</strong> {action.spell.target_defense} DC{' '}
+            <span style={statPillStyle}>
+              <strong>Defense:</strong> {action.spell.target_defense} RC{' '}
               {action.spell.defense_difficulty}
             </span>
           )}
           {hasRange(action.spell.min_range, action.spell.max_range) && (
-            <span style={{ color: 'var(--color-cloud)' }}>
-              Range: {formatRangeSpan(action.spell.min_range, action.spell.max_range, 'spell')}
+            <span style={statPillStyle}>
+              <strong>Range:</strong> {formatRangeSpan(action.spell.min_range, action.spell.max_range, 'spell')}
             </span>
           )}
         </div>

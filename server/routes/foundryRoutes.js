@@ -537,10 +537,12 @@ const convertToFoundryFormat = (data, type) => {
             system: {
               description: action.description || "",
               energy: action.cost || 0,
-              daily: false,
+              daily: action.daily || false,
+              round: action.round || false,
               used: false,
               anyventure_id: "",
               magic: action.magic || false,
+              spellType: action.spellType || "normal",
               abilityType: abilityType,
               // Add attackData to system section
               roll: action.attack?.roll || "0",
@@ -584,10 +586,12 @@ const convertToFoundryFormat = (data, type) => {
             system: {
               description: reaction.description || "",
               energy: reaction.cost || 0,
-              daily: false,
+              daily: reaction.daily || false,
+              round: reaction.round || false,
               used: false,
               anyventure_id: "",
-              magic: false,
+              magic: reaction.magic || false,
+              spellType: reaction.spellType || "normal",
               abilityType: abilityType,
               roll: reaction.attack?.roll || "0",
               damage: reaction.attack?.damage || "0",

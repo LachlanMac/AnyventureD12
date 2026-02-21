@@ -1,0 +1,261 @@
+{
+  "name": "Satyr Goreling",
+  "description": "Satyr Gorelings are the foot soldiers of the Court of Thorns, fighting in tight herds with thorn staves and woven bark shields. They endure wounds without flinching and follow orders without question, loyal to whoever commands them. Standing on cloven hooves with the legs of a goat and the torso of a man, they are crowned with short, curved horns built more for battering than beauty.",
+  "tactics": "",
+  "tier": "grunt",
+  "type": "fey",
+  "size": "medium",
+  "foundry_portrait": "satyr.png",
+  "health": {
+    "max": 22,
+    "current": 15
+  },
+  "energy": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 10,
+    "current": 5,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 6,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 2
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 3
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 1
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 2,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 1,
+      "tier": 0
+    },
+    "might": {
+      "value": 1,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 1,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 1,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 1,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 2,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 3,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 1,
+      "tier": 0
+    },
+    "senses": {
+      "value": 1,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 0,
+      "tier": 0
+    },
+    "academics": {
+      "value": 0,
+      "tier": 0
+    },
+    "magic": {
+      "value": 2,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 0,
+      "tier": 0
+    },
+    "expression": {
+      "value": 1,
+      "tier": 0
+    },
+    "presence": {
+      "value": 0,
+      "tier": 0
+    },
+    "insight": {
+      "value": 0,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 0,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 0,
+    "cold": 0,
+    "heat": 0,
+    "electric": 0,
+    "psychic": 0,
+    "dark": 2,
+    "divine": 0,
+    "aetheric": 2,
+    "toxic": 0
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": false,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Thorned Club",
+      "cost": 0,
+      "type": "attack",
+      "magic": false,
+      "description": "The satyr goreling makes an attack with a wooden club that is barbed in thorns. If this attack deals 8 or more damage after mitigation, the target gains the bleeding condition.",
+      "reaction": false,
+      "basic": true,
+      "attack": {
+        "roll": "3d6",
+        "damage": "4",
+        "damage_extra": "2",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Ram",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "Immediately after using their movement, the satyr goreling takes the shove action but deals 4 physical damage. If the satyr goreling moved 5 or more units in a straight line, this damage is increased to 6.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Shield Wall",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "The satyr goreling lifts their bark shield, taking a specialized version of the defend action. Any adjacent satyrs also gain the benefits of this defend action.",
+      "reaction": false,
+      "basic": false,
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Sure-Hooved",
+      "cost": 0,
+      "type": "utility",
+      "magic": false,
+      "description": "In response to making a check against being displaced or moved against their will, the satyr goreling adds a 1d20 their dice pool. If the displacement is secondary to taking damage or doesn't require a check, the satyr goreling cannot be displaced by the ability.",
+      "reaction": true,
+      "basic": false,
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "traits": [
+    {
+      "name": "Aversion to Iron",
+      "description": "Satyr Gorelings are fey creatures and have an aversion to iron. When they end their turn while in contact with any object that contains iron, the goreling takes 1 true damage down to a minimum of 1 health. "
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

@@ -10,6 +10,9 @@ const actionSchema = new mongoose.Schema({
   },
   magic: { type: Boolean, default: false },
   basic: { type: Boolean, default: false },
+  round: { type: Boolean, default: false },
+  daily: { type: Boolean, default: false },
+  spellType: { type: String, enum: ['normal', 'innate', 'unique'], default: 'normal' },
   description: { type: String, required: true },
   attack: {
     roll: String, // e.g., "2d6", "3d10", "1d12+2"
@@ -113,6 +116,9 @@ const reactionSchema = new mongoose.Schema({
   },
   magic: { type: Boolean, default: false },
   basic: { type: Boolean, default: false },
+  round: { type: Boolean, default: false },
+  daily: { type: Boolean, default: false },
+  spellType: { type: String, enum: ['normal', 'innate', 'unique'], default: 'normal' },
   trigger: { type: String, required: false }, // Optional, not required
   description: { type: String, required: true },
   attack: {
