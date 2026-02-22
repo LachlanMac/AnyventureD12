@@ -159,6 +159,17 @@ export const seedItems = async (purgeFirst = false) => {
           updateData.recipe.output = 1;
         }
 
+        // Normalize movement from flat number to object structure
+        if (typeof updateData.movement === 'number' || typeof updateData.movement === 'undefined') {
+          const oldVal = Number(updateData.movement) || 0;
+          updateData.movement = {
+            walk: { bonus: oldVal, set: 0 },
+            swim: { bonus: 0, set: 0 },
+            climb: { bonus: 0, set: 0 },
+            fly: { bonus: 0, set: 0 }
+          };
+        }
+
         // Preserve critical fields that should never change
         updateData._id = existingItem._id;
         updateData.foundry_id = existingItem.foundry_id;
@@ -180,6 +191,17 @@ export const seedItems = async (purgeFirst = false) => {
         // Ensure recipe.output has a default value if missing
         if (itemData.recipe && !itemData.recipe.hasOwnProperty('output')) {
           itemData.recipe.output = 1;
+        }
+
+        // Normalize movement from flat number to object structure
+        if (typeof itemData.movement === 'number' || typeof itemData.movement === 'undefined') {
+          const oldVal = Number(itemData.movement) || 0;
+          itemData.movement = {
+            walk: { bonus: oldVal, set: 0 },
+            swim: { bonus: 0, set: 0 },
+            climb: { bonus: 0, set: 0 },
+            fly: { bonus: 0, set: 0 }
+          };
         }
 
         // Generate foundry_id if missing

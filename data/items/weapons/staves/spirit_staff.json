@@ -20,7 +20,7 @@
     "max_range": 4
   },
   "secondary": {
-     "damage": "5",
+    "damage": "5",
     "damage_extra": "2",
     "damage_type": "physical",
     "category": "blunt",
@@ -43,7 +43,24 @@
     "max": 0,
     "recovery": 0
   },
-  "movement": 0,
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
   "attributes": {},
   "basic": {},
   "weapon": {},

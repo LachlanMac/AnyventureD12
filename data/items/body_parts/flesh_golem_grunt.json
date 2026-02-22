@@ -2,11 +2,14 @@
   "name": "Flesh Golem (Grunt)",
   "description": "A more robust construct stitched together from disparate body parts and animated through biosculpting. The parts can be harvested from humanoid, beast, or monster creatures, but each part must come from a separate creature to ensure the golem's stability. Golems can be activated or deactivated, counting against the owner's pet limit and taking the form of their equivalent statblock.",
   "type": "body_parts",
-  "tags": ["construct", "flesh_golem", "grunt"],
+  "tags": [
+    "construct",
+    "flesh_golem",
+    "grunt"
+  ],
   "weight": 0,
   "value": 1500,
   "rarity": "rare",
-
   "health": {
     "max": 0,
     "recovery": 0
@@ -19,7 +22,24 @@
     "max": 0,
     "recovery": 0
   },
-  "movement": 0,
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
   "attributes": {},
   "basic": {},
   "weapon": {},
@@ -28,7 +48,6 @@
   "mitigation": {},
   "detections": {},
   "immunities": {},
-
   "recipe": {
     "type": "biosculpting",
     "difficulty": 8,
@@ -40,7 +59,6 @@
       "1x Amethyst"
     ]
   },
-
   "foundry_icon": "icons/creatures/magical/construct-gargoyle-stone-gray.webp",
   "foundry_id": ""
 }

@@ -2,11 +2,12 @@
   "name": "Arm Implant",
   "description": "Surgical replacement of a natural arm with a harvested biological arm from another creature. The effects depend on the creature whose arm is implanted.",
   "type": "implant",
-  "tags": ["implant"],
+  "tags": [
+    "implant"
+  ],
   "weight": 2,
   "value": 0,
   "rarity": "common",
-
   "implant_data": {
     "implant_type": "arm",
     "pain_penalty": 2,
@@ -14,7 +15,6 @@
     "resolve_penalty": 1,
     "rejection_check": 8
   },
-
   "health": {
     "max": 0,
     "recovery": 0
@@ -27,7 +27,24 @@
     "max": 0,
     "recovery": 0
   },
-  "movement": 0,
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
   "attributes": {},
   "basic": {},
   "weapon": {},
@@ -36,7 +53,6 @@
   "mitigation": {},
   "detections": {},
   "immunities": {},
-
   "recipe": {
     "type": "biosculpting",
     "difficulty": 8,
@@ -44,7 +60,6 @@
       "Fresh Arm"
     ]
   },
-
   "foundry_icon": "icons/commodities/biological/hand-gnarled-green.webp",
   "foundry_id": ""
 }

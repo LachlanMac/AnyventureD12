@@ -2,11 +2,12 @@
   "name": "Eye Implant",
   "description": "Surgical replacement of natural eyes with harvested biological eyes from another creature. The effects depend on the creature whose eyes are implanted.",
   "type": "implant",
-  "tags": ["implant"],
+  "tags": [
+    "implant"
+  ],
   "weight": 0.1,
   "value": 0,
   "rarity": "common",
-
   "implant_data": {
     "implant_type": "eye",
     "pain_penalty": 1,
@@ -14,7 +15,6 @@
     "resolve_penalty": 1,
     "rejection_check": 6
   },
-
   "health": {
     "max": 0,
     "recovery": 0
@@ -27,7 +27,24 @@
     "max": 0,
     "recovery": 0
   },
-  "movement": 0,
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
   "attributes": {},
   "basic": {},
   "weapon": {},
@@ -36,7 +53,6 @@
   "mitigation": {},
   "detections": {},
   "immunities": {},
-
   "recipe": {
     "type": "biosculpting",
     "difficulty": 6,
@@ -44,7 +60,6 @@
       "Fresh Eyes"
     ]
   },
-
   "foundry_icon": "icons/commodities/biological/eye-lizard-green.webp",
   "foundry_id": ""
 }
