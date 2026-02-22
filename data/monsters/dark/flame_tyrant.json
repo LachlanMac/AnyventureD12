@@ -5,7 +5,7 @@
   "tier": "elite",
   "type": "dark",
   "size": "large",
-  "foundry_portrait": "",
+  "foundry_portrait": "flame_tyrant.png",
   "health": {
     "max": 90,
     "current": 90

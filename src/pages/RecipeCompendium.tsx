@@ -241,7 +241,7 @@ const RecipeCompendium: React.FC = () => {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '20% 15% 35% 30%',
+              gridTemplateColumns: '2fr 1.5fr 3.5fr 3fr',
               gap: '1rem',
               padding: '0.75rem 1rem',
               borderBottom: '1px solid var(--color-dark-border)',
@@ -263,7 +263,7 @@ const RecipeCompendium: React.FC = () => {
                 onClick={() => navigate(`/items/${item._id}`)}
                 style={{
                   display: 'grid',
-                  gridTemplateColumns: '20% 15% 35% 30%',
+                  gridTemplateColumns: '2fr 1.5fr 3.5fr 3fr',
                   gap: '1rem',
                   alignItems: 'center',
                   padding: '0.75rem 1rem',

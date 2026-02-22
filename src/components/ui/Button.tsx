@@ -20,11 +20,12 @@ const Button: React.FC<ButtonProps> = ({
   children,
   className = '',
   disabled,
+  style: propStyle,
   ...rest
 }) => {
   // Base classes
   let classes =
-    'inline-flex items-center justify-center font-medium rounded-md transition-all duration-200 focus:outline-none';
+    'inline-flex items-center justify-center font-medium rounded-md transition-colors duration-200 focus:outline-none';
 
   // Size classes
   const sizeClasses = {
@@ -37,7 +38,7 @@ const Button: React.FC<ButtonProps> = ({
   const widthClass = fullWidth ? 'w-full' : '';
 
   // Disabled state
-  const disabledClass = disabled || isLoading ? 'opacity-60 cursor-not-allowed' : '';
+  const disabledClass = disabled || isLoading ? 'opacity-60 cursor-not-allowed' : 'cursor-pointer';
 
   // Combine all classes
   classes = `${classes} ${sizeClasses[size]} ${widthClass} ${disabledClass} ${className}`;
@@ -112,7 +113,7 @@ const Button: React.FC<ButtonProps> = ({
       disabled={disabled || isLoading}
       style={{
         ...variantStyle,
-        ...(rest.style || {}),
+        ...(propStyle || {}),
       }}
       onMouseOver={(e) => {
         if (!disabled && !isLoading) {

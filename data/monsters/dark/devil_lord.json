@@ -5,7 +5,7 @@
   "tier": "legend",
   "type": "dark",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "devil_lord.png",
   "health": {
     "max": 200,
     "current": 200

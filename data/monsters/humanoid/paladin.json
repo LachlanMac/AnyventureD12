@@ -5,7 +5,7 @@
   "tier": "champion",
   "type": "humanoid",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "paladin.png",
   "health": {
     "max": 50,
     "current": 50

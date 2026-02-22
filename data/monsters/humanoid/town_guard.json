@@ -5,7 +5,7 @@
   "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "town_guard.png",
   "health": {
     "max": 18,
     "current": 18

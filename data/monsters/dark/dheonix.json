@@ -5,7 +5,7 @@
   "tier": "elite",
   "type": "dark",
   "size": "huge",
-  "foundry_portrait": "",
+  "foundry_portrait": "dhenix.png",
   "health": {
     "max": 110,
     "current": 110

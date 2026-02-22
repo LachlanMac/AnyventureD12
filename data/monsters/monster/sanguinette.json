@@ -5,7 +5,7 @@
   "tier": "champion",
   "type": "monster",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "sanguinette.png",
   "health": {
     "max": 48,
     "current": 48

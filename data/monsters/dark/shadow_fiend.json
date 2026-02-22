@@ -5,7 +5,7 @@
   "tier": "standard",
   "type": "dark",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "shadow_fiend.png",
   "health": {
     "max": 30,
     "current": 30

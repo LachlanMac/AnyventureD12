@@ -5,7 +5,7 @@
   "tier": "grunt",
   "type": "fey",
   "size": "medium",
-  "foundry_portrait": "satyr.png",
+  "foundry_portrait": "satyr_goreling.png",
   "health": {
     "max": 22,
     "current": 15

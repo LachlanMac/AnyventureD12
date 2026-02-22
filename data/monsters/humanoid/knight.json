@@ -5,7 +5,7 @@
   "tier": "standard",
   "type": "humanoid",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "knight.png",
   "health": {
     "max": 30,
     "current": 30

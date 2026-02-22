@@ -89,6 +89,7 @@ const ItemBrowser: React.FC = () => {
   const [itemToPurchase, setItemToPurchase] = useState<APIItem | null>(null);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [itemToAdd, setItemToAdd] = useState<APIItem | null>(null);
+  const [sourceFilter, setSourceFilter] = useState<'core' | 'homebrew' | 'all'>('core');
 
   // Helper function to check if a skill bonus has any non-zero values
   const hasSkillBonus = (skill: any): boolean => {
@@ -127,12 +128,37 @@ const ItemBrowser: React.FC = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        // Fetch items
-        const itemsResponse = await fetch('/api/items');
-        if (!itemsResponse.ok) {
-          throw new Error('Failed to fetch items');
+        setLoading(true);
+        setSelectedItem(null);
+
+        // Fetch items based on source filter
+        let itemsData: APIItem[] = [];
+        if (sourceFilter === 'core') {
+          const res = await fetch('/api/items');
+          if (!res.ok) throw new Error('Failed to fetch items');
+          itemsData = await res.json();
+        } else if (sourceFilter === 'homebrew') {
+          const res = await fetch('/api/homebrew/items?status=published&limit=500', {
+            credentials: 'include',
+          });
+          if (!res.ok) throw new Error('Failed to fetch homebrew items');
+          const data = await res.json();
+          itemsData = (data.items || data).map((item: any) => ({ ...item, isHomebrew: true }));
+        } else {
+          // 'all' — fetch both in parallel
+          const [coreRes, homebrewRes] = await Promise.all([
+            fetch('/api/items'),
+            fetch('/api/homebrew/items?status=published&limit=500', { credentials: 'include' }),
+          ]);
+          if (!coreRes.ok) throw new Error('Failed to fetch items');
+          const coreData = await coreRes.json();
+          let homebrewData: APIItem[] = [];
+          if (homebrewRes.ok) {
+            const hbJson = await homebrewRes.json();
+            homebrewData = (hbJson.items || hbJson).map((item: any) => ({ ...item, isHomebrew: true }));
+          }
+          itemsData = [...coreData, ...homebrewData];
         }
-        const itemsData = await itemsResponse.json();
         setItems(itemsData);
 
         // Fetch character data
@@ -155,7 +181,7 @@ const ItemBrowser: React.FC = () => {
     };
 
     fetchData();
-  }, [characterId]);
+  }, [characterId, sourceFilter]);
 
   const handleAddItemClick = (item: APIItem) => {
     setItemToAdd(item);
@@ -300,15 +326,32 @@ const ItemBrowser: React.FC = () => {
       <Card variant="default">
         <CardHeader>
           <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
-            <h2
-              style={{
-                color: 'var(--color-white)',
-                fontSize: '1.5rem',
-                fontWeight: 'bold',
-              }}
-            >
-              {item.name}
-            </h2>
+            <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
+              <h2
+                style={{
+                  color: 'var(--color-white)',
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                }}
+              >
+                {item.name}
+              </h2>
+              {(item as any).isHomebrew && (
+                <span
+                  style={{
+                    fontSize: '0.7rem',
+                    fontWeight: 'bold',
+                    color: 'var(--color-white)',
+                    backgroundColor: 'var(--color-sat-purple)',
+                    padding: '0.2rem 0.5rem',
+                    borderRadius: '9999px',
+                    letterSpacing: '0.05em',
+                  }}
+                >
+                  HOMEBREW
+                </span>
+              )}
+            </div>
             <div style={{ display: 'flex', gap: '0.5rem' }}>
               {character && (
                 <Button
@@ -1106,6 +1149,43 @@ const ItemBrowser: React.FC = () => {
             )}
           </div>
 
+          {/* Source Toggle */}
+          <div
+            style={{
+              display: 'flex',
+              borderRadius: '0.375rem',
+              overflow: 'hidden',
+              border: '1px solid var(--color-dark-border)',
+            }}
+          >
+            {(['core', 'homebrew', 'all'] as const).map((source) => (
+              <button
+                key={source}
+                onClick={() => setSourceFilter(source)}
+                style={{
+                  padding: '0.75rem 1rem',
+                  backgroundColor:
+                    sourceFilter === source
+                      ? source === 'homebrew'
+                        ? 'var(--color-sat-purple)'
+                        : 'var(--color-metal-gold)'
+                      : 'var(--color-dark-elevated)',
+                  color:
+                    sourceFilter === source
+                      ? 'var(--color-white)'
+                      : 'var(--color-cloud)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '0.875rem',
+                  fontWeight: sourceFilter === source ? 'bold' : 'normal',
+                  textTransform: 'capitalize',
+                }}
+              >
+                {source}
+              </button>
+            ))}
+          </div>
+
           <select
             value={typeFilter}
             onChange={(e) => {
@@ -1285,15 +1365,32 @@ const ItemBrowser: React.FC = () => {
                             </div>
                           </div>
 
-                          <div
-                            style={{
-                              fontSize: '0.75rem',
-                              color: rarityColors[item.rarity],
-                              fontWeight: 'bold',
-                              textTransform: 'capitalize',
-                            }}
-                          >
-                            {item.rarity}
+                          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.25rem' }}>
+                            <div
+                              style={{
+                                fontSize: '0.75rem',
+                                color: rarityColors[item.rarity],
+                                fontWeight: 'bold',
+                                textTransform: 'capitalize',
+                              }}
+                            >
+                              {item.rarity}
+                            </div>
+                            {(item as any).isHomebrew && (
+                              <span
+                                style={{
+                                  fontSize: '0.6rem',
+                                  fontWeight: 'bold',
+                                  color: 'var(--color-white)',
+                                  backgroundColor: 'var(--color-sat-purple)',
+                                  padding: '0.1rem 0.375rem',
+                                  borderRadius: '9999px',
+                                  letterSpacing: '0.05em',
+                                }}
+                              >
+                                HOMEBREW
+                              </span>
+                            )}
                           </div>
                         </div>
                       </div>
