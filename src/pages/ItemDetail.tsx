@@ -4,6 +4,7 @@ import { Item, Damage, ArmorData } from '../types/character';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { formatGoldDisplay } from '../utils/valueUtils';
+import { useAuth } from '../context/AuthContext';
 
 // Extended Item type that matches backend API response
 interface APIItem extends Item {
@@ -19,6 +20,10 @@ interface APIItem extends Item {
     difficulty: number;
     ingredients: string[];
   };
+  isHomebrew?: boolean;
+  creatorId?: string;
+  creatorName?: string;
+  status?: 'draft' | 'private' | 'published' | 'approved' | 'rejected';
 }
 
 // Helper function to convert range numbers to descriptive text
@@ -53,6 +58,7 @@ const getRangeDescription = (minRange: number, maxRange: number): string => {
 const ItemDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
+  const { user } = useAuth();
   const [item, setItem] = useState<APIItem | null>(null);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -94,7 +100,24 @@ const ItemDetail: React.FC = () => {
 
   const copyItemLink = () => {
     navigator.clipboard.writeText(window.location.href);
-    // You could add a toast notification here
+  };
+
+  const handlePublish = async () => {
+    if (!item || !id) return;
+
+    try {
+      const response = await fetch(`/api/homebrew/items/${id}/publish`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        const updatedItem = await response.json();
+        setItem({ ...item, status: updatedItem.status });
+      }
+    } catch (err) {
+      console.error('Failed to publish:', err);
+    }
   };
 
   if (loading) {
@@ -135,6 +158,27 @@ const ItemDetail: React.FC = () => {
           <Button variant="outline" onClick={copyItemLink}>
             📋 Copy Link
           </Button>
+          {user && (
+            <Button
+              variant="outline"
+              onClick={() => navigate(`/homebrew/items/create?template=${id}`)}
+            >
+              Use as Template
+            </Button>
+          )}
+          {item.isHomebrew && user && item.creatorId === user.id && item.status === 'draft' && (
+            <Button variant="accent" onClick={handlePublish}>
+              Publish
+            </Button>
+          )}
+          {item.isHomebrew && user && item.creatorId === user.id && (
+            <Button
+              variant="secondary"
+              onClick={() => navigate(`/homebrew/items/${id}/edit`)}
+            >
+              Edit
+            </Button>
+          )}
         </div>
 
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '0.5rem' }}>
@@ -159,6 +203,24 @@ const ItemDetail: React.FC = () => {
           >
             {item.rarity}
           </span>
+          {item.isHomebrew && item.status && (
+            <span
+              style={{
+                backgroundColor:
+                  item.status === 'published' ? 'var(--color-forest)' :
+                  item.status === 'draft' ? 'var(--color-cloud)' :
+                  'var(--color-stormy)',
+                color: 'var(--color-white)',
+                padding: '0.25rem 0.625rem',
+                borderRadius: '9999px',
+                fontSize: '0.75rem',
+                fontWeight: 'bold',
+                textTransform: 'capitalize',
+              }}
+            >
+              {item.status}
+            </span>
+          )}
         </div>
 
         <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
@@ -171,11 +233,27 @@ const ItemDetail: React.FC = () => {
           >
             {item.type}
           </span>
-          {item.weapon_category && (
+          {item.type === 'weapon' && item.weapon_category && (
             <>
               <span style={{ color: 'var(--color-muted)' }}>•</span>
               <span style={{ color: 'var(--color-cloud)', fontSize: '1.125rem' }}>
                 {item.weapon_category.replace(/([A-Z])/g, ' $1').trim()}
+              </span>
+            </>
+          )}
+          {item.type === 'consumable' && item.consumable_category && (
+            <>
+              <span style={{ color: 'var(--color-muted)' }}>•</span>
+              <span style={{ color: 'var(--color-cloud)', fontSize: '1.125rem', textTransform: 'capitalize' }}>
+                {item.consumable_category}
+              </span>
+            </>
+          )}
+          {item.type === 'shield' && item.shield_category && (
+            <>
+              <span style={{ color: 'var(--color-muted)' }}>•</span>
+              <span style={{ color: 'var(--color-cloud)', fontSize: '1.125rem', textTransform: 'capitalize' }}>
+                {item.shield_category}
               </span>
             </>
           )}
@@ -219,7 +297,7 @@ const ItemDetail: React.FC = () => {
           )}
 
           {/* Combat Stats */}
-          {item.primary && (
+          {item.type === 'weapon' && item.primary && item.primary.damage !== '0' && (
             <Card variant="default" style={{ marginBottom: '1.5rem' }}>
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Combat Statistics</h2>
@@ -294,7 +372,7 @@ const ItemDetail: React.FC = () => {
             item.energy?.recovery !== 0 ||
             item.resolve?.max !== 0 ||
             item.resolve?.recovery !== 0 ||
-            item.movement !== 0) && (
+            (item.movement && Object.values(item.movement).some((v: any) => v?.bonus || v?.set))) && (
             <Card variant="default" style={{ marginBottom: '1.5rem' }}>
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Bonuses & Effects</h2>
@@ -334,10 +412,18 @@ const ItemDetail: React.FC = () => {
                         ` ${item.resolve.recovery > 0 ? '+' : ''}${item.resolve.recovery} recovery`}
                     </div>
                   )}
-                  {item.movement !== 0 && (
+                  {item.movement && Object.entries(item.movement).some(([, v]: [string, any]) => v?.bonus || v?.set) && (
                     <div style={{ color: 'var(--color-cloud)' }}>
-                      <strong>Movement:</strong> {item.movement > 0 ? '+' : ''}
-                      {item.movement} speed
+                      <strong>Movement:</strong>{' '}
+                      {Object.entries(item.movement)
+                        .filter(([, v]: [string, any]) => v?.bonus || v?.set)
+                        .map(([k, v]: [string, any]) => {
+                          const parts: string[] = [];
+                          if (v.bonus) parts.push(`${v.bonus > 0 ? '+' : ''}${v.bonus}`);
+                          if (v.set) parts.push(`set ${v.set}`);
+                          return `${k}: ${parts.join(', ')}`;
+                        })
+                        .join(' | ')}
                     </div>
                   )}
                 </div>
@@ -346,7 +432,7 @@ const ItemDetail: React.FC = () => {
           )}
 
           {/* Recipe Information */}
-          {item.recipe && (
+          {item.recipe && item.recipe.type && (
             <Card variant="default">
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Crafting Recipe</h2>
@@ -422,7 +508,7 @@ const ItemDetail: React.FC = () => {
                       fontSize: '1.125rem',
                     }}
                   >
-                    {item.weight}
+                    {item.weight} bu
                   </div>
                 </div>
 

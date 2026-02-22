@@ -24,6 +24,7 @@
     "fix-module-refs": "node server/scripts/fixBrokenModuleRefs.js",
     "fix-campaign-index": "node server/scripts/fixCampaignIndex.js",
     "migrate-aether": "node server/scripts/migrate-aether.js",
+    "migrate-movement": "node server/scripts/migrate-movement.js",
     "dev:full": "concurrently \"npm run dev\" \"npm run server:dev\"",
     "dev:clean": "npm run kill-ports && npm run reset-all && npm run dev:full",
     "lint": "eslint --ext .ts,.tsx src/",

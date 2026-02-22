@@ -14,7 +14,7 @@ Darksight is magical in nature and allows a creature to see normally even in pit
 Infravision allows a creature to see into the infrared spectrum. This allows them to determine differences in temperatures between creatures and objects.
 
 ### Deadsight
-Deadsight is a special type of magical vision that not only allows creatures to see normally in conditions without light. This sense is also unique because it allows the creature to see invisible and obscured creatures.
+Deadsight is a special type of magical sight that allows a creature to see normally in pitch-black conditions but also see creatures that are affected by magical invisibility effects.
 
 ### Echolocation
 A special sense that allows a creature to gain information about their surroundings by using sound to to determine distances. A deafened creature would be considered blinded if they relied completely on this sense.

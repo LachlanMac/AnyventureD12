@@ -1,6 +1,6 @@
 // server/routes/homebrewRoutes.js
 import express from 'express';
-import { protect, requirePermanentUser } from '../middleware/auth.js';
+import { protect, requirePermanentUser, requireAdmin } from '../middleware/auth.js';
 import {
   createHomebrewItem,
   getHomebrewItems,
@@ -30,8 +30,8 @@ router.post('/items/:id/vote', requirePermanentUser, voteHomebrewItem);
 router.post('/items/:id/report', requirePermanentUser, reportHomebrewItem);
 router.post('/items/:id/fork', requirePermanentUser, forkHomebrewItem);
 
-// Admin routes (TODO: Add admin middleware)
-router.post('/admin/items/:id/approve', protect, approveHomebrewItem);
-router.post('/admin/items/:id/reject', protect, rejectHomebrewItem);
+// Admin routes
+router.post('/admin/items/:id/approve', requireAdmin, approveHomebrewItem);
+router.post('/admin/items/:id/reject', requireAdmin, rejectHomebrewItem);
 
 export default router;

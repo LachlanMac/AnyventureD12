@@ -27,7 +27,7 @@ const EquipmentEffectsPanel: React.FC<EquipmentEffectsPanelProps> = ({ character
       bonuses.health.max !== 0 ||
       bonuses.energy.max !== 0 ||
       bonuses.resolve.max !== 0 ||
-      bonuses.movement !== 0 ||
+      (bonuses.movement && Object.values(bonuses.movement).some((v: any) => v !== 0)) ||
       bonuses.bonusAttack !== 0 ||
       Object.keys(bonuses.detections).length > 0 ||
       bonuses.immunities.length > 0 ||
@@ -222,7 +222,7 @@ const EquipmentEffectsPanel: React.FC<EquipmentEffectsPanelProps> = ({ character
         {(equipmentEffects.bonuses.health.max !== 0 ||
           equipmentEffects.bonuses.energy.max !== 0 ||
           equipmentEffects.bonuses.resolve.max !== 0 ||
-          equipmentEffects.bonuses.movement !== 0 ||
+          (equipmentEffects.bonuses.movement && Object.values(equipmentEffects.bonuses.movement).some((v: any) => v !== 0)) ||
           equipmentEffects.bonuses.bonusAttack !== 0) && (
           <div style={{ marginBottom: '1rem' }}>
             <h4
@@ -279,20 +279,23 @@ const EquipmentEffectsPanel: React.FC<EquipmentEffectsPanelProps> = ({ character
                   {equipmentEffects.bonuses.resolve.max}
                 </span>
               )}
-              {equipmentEffects.bonuses.movement !== 0 && (
-                <span
-                  style={{
-                    backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                    color: '#10b981',
-                    fontSize: '0.75rem',
-                    padding: '0.125rem 0.375rem',
-                    borderRadius: '0.25rem',
-                    fontWeight: 'bold',
-                  }}
-                >
-                  Movement: +{equipmentEffects.bonuses.movement}
-                </span>
-              )}
+              {equipmentEffects.bonuses.movement && Object.entries(equipmentEffects.bonuses.movement)
+                .filter(([, v]: [string, any]) => v !== 0)
+                .map(([type, value]: [string, any]) => (
+                  <span
+                    key={type}
+                    style={{
+                      backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                      color: '#10b981',
+                      fontSize: '0.75rem',
+                      padding: '0.125rem 0.375rem',
+                      borderRadius: '0.25rem',
+                      fontWeight: 'bold',
+                    }}
+                  >
+                    {type.charAt(0).toUpperCase() + type.slice(1)}: +{value}
+                  </span>
+                ))}
               {equipmentEffects.bonuses.bonusAttack !== 0 && (
                 <span
                   style={{

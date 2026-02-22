@@ -837,7 +837,7 @@ export const parseEquipmentEffects = (character) => {
       health: { max: 0, recovery: 0 },
       energy: { max: 0, recovery: 0 },
       resolve: { max: 0, recovery: 0 },
-      movement: 0,
+      movement: { walk: 0, swim: 0, climb: 0, fly: 0 },
       bonusAttack: 0,
       detections: {},
       immunities: [],
@@ -849,7 +849,8 @@ export const parseEquipmentEffects = (character) => {
       weaponSkills: {},
       magicSkills: {},
       craftingSkills: {},
-      attributes: {}
+      attributes: {},
+      movement: { walk: 0, swim: 0, climb: 0, fly: 0 }
     },
     penalties: {
       skills: {},
@@ -942,9 +943,19 @@ export const parseEquipmentEffects = (character) => {
       equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
     }
 
-    // Movement bonus
+    // Movement bonuses (new object structure)
     if (item && item.movement) {
-      equipmentEffects.bonuses.movement += item.movement;
+      const mov = item.movement;
+      ['walk', 'swim', 'climb', 'fly'].forEach(type => {
+        if (mov[type]) {
+          if (mov[type].bonus) equipmentEffects.bonuses.movement[type] += mov[type].bonus;
+          if (mov[type].set > 0) {
+            equipmentEffects.setters.movement[type] = Math.max(
+              equipmentEffects.setters.movement[type], mov[type].set
+            );
+          }
+        }
+      });
     }
 
     // Pain and Stress from items
@@ -1209,9 +1220,19 @@ export const parseEquipmentEffects = (character) => {
       equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
     }
 
-    // Movement bonus
+    // Movement bonuses (new object structure)
     if (item && item.movement) {
-      equipmentEffects.bonuses.movement += item.movement;
+      const mov = item.movement;
+      ['walk', 'swim', 'climb', 'fly'].forEach(type => {
+        if (mov[type]) {
+          if (mov[type].bonus) equipmentEffects.bonuses.movement[type] += mov[type].bonus;
+          if (mov[type].set > 0) {
+            equipmentEffects.setters.movement[type] = Math.max(
+              equipmentEffects.setters.movement[type], mov[type].set
+            );
+          }
+        }
+      });
     }
 
     // Attribute bonuses
@@ -1425,9 +1446,19 @@ export const parseEquipmentEffects = (character) => {
         equipmentEffects.bonuses.resolve.recovery += item.resolve.recovery || 0;
       }
 
-      // Movement bonus
+      // Movement bonuses (new object structure)
       if (item.movement) {
-        equipmentEffects.bonuses.movement += item.movement;
+        const mov = item.movement;
+        ['walk', 'swim', 'climb', 'fly'].forEach(type => {
+          if (mov[type]) {
+            if (mov[type].bonus) equipmentEffects.bonuses.movement[type] += mov[type].bonus;
+            if (mov[type].set > 0) {
+              equipmentEffects.setters.movement[type] = Math.max(
+                equipmentEffects.setters.movement[type], mov[type].set
+              );
+            }
+          }
+        });
       }
 
       // Attribute bonuses
@@ -1799,9 +1830,13 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
     }
   }
 
-  // Apply movement bonuses
-  if (equipmentEffects.bonuses.movement) {
-    character.movement += equipmentEffects.bonuses.movement;
+  // Apply movement bonuses (walk bonus applies to base character.movement)
+  if (equipmentEffects.bonuses.movement.walk) {
+    character.movement += equipmentEffects.bonuses.movement.walk;
+  }
+  // Apply movement set overrides (walk set overrides base movement)
+  if (equipmentEffects.setters.movement.walk > 0) {
+    character.movement = equipmentEffects.setters.movement.walk;
   }
 
   // Apply pain and stress calculated values from equipment
@@ -1865,9 +1900,20 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
   const baseSwimSpeed = Math.floor(character.movement / 2);
   const baseClimbSpeed = Math.floor(character.movement / 2);
 
-  character.swim_speed = baseSwimSpeed + (character.movement_bonuses?.swim || 0);
-  character.climb_speed = baseClimbSpeed + (character.movement_bonuses?.climb || 0);
-  character.fly_speed = character.movement_bonuses?.fly || 0;
+  // Combine module bonuses and equipment bonuses for swim/climb/fly
+  const swimBonus = (character.movement_bonuses?.swim || 0) + (equipmentEffects.bonuses.movement.swim || 0);
+  const climbBonus = (character.movement_bonuses?.climb || 0) + (equipmentEffects.bonuses.movement.climb || 0);
+  const flyBonus = (character.movement_bonuses?.fly || 0) + (equipmentEffects.bonuses.movement.fly || 0);
+
+  character.swim_speed = equipmentEffects.setters.movement.swim > 0
+    ? equipmentEffects.setters.movement.swim
+    : baseSwimSpeed + swimBonus;
+  character.climb_speed = equipmentEffects.setters.movement.climb > 0
+    ? equipmentEffects.setters.movement.climb
+    : baseClimbSpeed + climbBonus;
+  character.fly_speed = equipmentEffects.setters.movement.fly > 0
+    ? equipmentEffects.setters.movement.fly
+    : flyBonus;
 
   // Apply implant penalties
   if (equipmentEffects.implants) {

@@ -370,12 +370,26 @@ const convertToFoundryFormat = (data, type) => {
         implant_data: data.implant_data || null,
         primary: data.primary,
         secondary: data.secondary,
-        bonus_attack: data.bonus_attack,
         encumbrance_penalty: data.encumbrance_penalty,
         health: data.health,
         energy: data.energy,
         resolve: data.resolve,
-        movement: data.movement,
+        pain: data.pain || 0,
+        stress: data.stress || 0,
+        side_effect: data.side_effect || "",
+        movement: {
+          walk: { bonus: data.movement?.walk?.bonus || 0, set: data.movement?.walk?.set || 0 },
+          swim: { bonus: data.movement?.swim?.bonus || 0, set: data.movement?.swim?.set || 0 },
+          climb: { bonus: data.movement?.climb?.bonus || 0, set: data.movement?.climb?.set || 0 },
+          fly: { bonus: data.movement?.fly?.bonus || 0, set: data.movement?.fly?.set || 0 }
+        },
+        recipe: {
+          type: data.recipe?.type || "",
+          difficulty: data.recipe?.difficulty || 0,
+          ingredients: data.recipe?.ingredients || [],
+          output: data.recipe?.output || 1,
+          details: data.recipe?.details || ""
+        },
         attributes: data.attributes,
         basic: data.basic,
         weapon: data.weapon,
@@ -747,7 +761,7 @@ const convertToFoundryFormat = (data, type) => {
           electric: data.mitigation?.electric || 0,
           dark: data.mitigation?.dark || 0,
           divine: data.mitigation?.divine || 0,
-          aether: data.mitigation?.aetheric || 0,
+          aetheric: data.mitigation?.aetheric || 0,
           psychic: data.mitigation?.psychic || 0,
           toxic: data.mitigation?.toxic || 0
         },

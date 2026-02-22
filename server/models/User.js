@@ -49,6 +49,10 @@ const UserSchema = new Schema({
     type: Array,
     default: []
   },
+  isAdmin: {
+    type: Boolean,
+    default: false
+  },
   lastLogin: {
     type: Date,
     default: Date.now

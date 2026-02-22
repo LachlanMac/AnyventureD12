@@ -350,7 +350,7 @@ A mythic encounter should never be "just hit it until it dies." The party should
 
 Attack dice follow this format: `NdX` where N = number of dice, X = die size.
 
-**Die size progression:** d4 < d6 < d8 < d10 < d12 < d16 < d20 < d24
+**Die size progression:** d4 < d6 < d8 < d10 < d12 < d16 < d20 < d24 < d30
 
 ### Typical Attack Dice by Tier
 | Tier | Basic Attack | Strongest Attack |
@@ -358,10 +358,12 @@ Attack dice follow this format: `NdX` where N = number of dice, X = die size.
 | Minion | 2d4 | 2d4 |
 | Grunt | 2d6 to 3d8 | 4d6 |
 | Standard | 2d8 to 3d10 | 2d12 |
-| Champion | 3d8 to 4d8 | 5d12 |
-| Elite | 3d10 to 4d12 | 4d12+ |
-| Legend | 4d10+ | 5d12+ |
-| Mythic | 5d12+ | 6d16+ |
+| Champion | 3d8 to 4d10 | 5d12 |
+| Elite | 3d10 to 4d12 | 4d16 |
+| Legend | 3d20 to 4d20 | 4d24 to 5d24 |
+| Mythic | 4d24 to 5d24 | 5d30 to 6d30 |
+
+**IMPORTANT for Legend and Mythic:** These creatures should use dice in the d20-d30 range, NOT d10-d12. A Legend creature rolling d12s feels like a Champion — the die size should convey overwhelming power. Think of it this way: a d12 is expert-level (skill 4), a d20 is mastery (skill 6), and d24/d30 are beyond mortal capability. Legends fight with d20s. Mythics fight with d24s and d30s.
 
 ---
 

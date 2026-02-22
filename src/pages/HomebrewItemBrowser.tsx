@@ -21,7 +21,6 @@ interface HomebrewItem {
   source?: string;
   upvotes: number;
   downvotes: number;
-  timesUsed: number;
   publishedAt?: string;
   createdAt: string;
   isHomebrew: true;
@@ -105,6 +104,33 @@ const HomebrewItemBrowser: React.FC = () => {
     } catch (err) {
       console.error('Failed to vote:', err);
       showError('Failed to record vote. Please try again.');
+    }
+  };
+
+  const handlePublish = async (itemId: string) => {
+    if (!user) return;
+
+    try {
+      const response = await fetch(`/api/homebrew/items/${itemId}/publish`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        const updatedItem = await response.json();
+        setItems(
+          items.map((item) =>
+            item._id === itemId ? { ...item, status: updatedItem.status } : item
+          )
+        );
+        showSuccess('Item published successfully!');
+      } else {
+        const data = await response.json();
+        showError(data.message || 'Failed to publish item');
+      }
+    } catch (err) {
+      console.error('Failed to publish:', err);
+      showError('Failed to publish item. Please try again.');
     }
   };
 
@@ -299,8 +325,6 @@ const HomebrewItemBrowser: React.FC = () => {
                   }}
                 >
                   <option value="published">Published</option>
-                  <option value="approved">Approved</option>
-                  <option value="all">All Public</option>
                   {user && <option value="mine">My Items</option>}
                 </select>
               </div>
@@ -394,7 +418,7 @@ const HomebrewItemBrowser: React.FC = () => {
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(auto-fill, minmax(320px, 1fr))',
+            gridTemplateColumns: 'repeat(auto-fill, minmax(400px, 1fr))',
             gap: '1.5rem',
             marginBottom: '2rem',
           }}
@@ -512,7 +536,6 @@ const HomebrewItemBrowser: React.FC = () => {
                   }}
                 >
                   <span>by {item.creatorName}</span>
-                  <span>{item.timesUsed} uses</span>
                 </div>
 
                 <div
@@ -527,7 +550,7 @@ const HomebrewItemBrowser: React.FC = () => {
                   <span style={{ color: 'var(--color-metal-gold)' }}>
                     {formatGoldDisplay(item.value)}
                   </span>
-                  <span style={{ color: 'var(--color-cloud)' }}>{item.weight} lbs</span>
+                  <span style={{ color: 'var(--color-cloud)' }}>{item.weight} bu</span>
                 </div>
 
                 <div
@@ -586,6 +609,15 @@ const HomebrewItemBrowser: React.FC = () => {
 
                     {user && user.id === item.creatorId && (
                       <>
+                        {item.status === 'draft' && (
+                          <Button
+                            variant="accent"
+                            size="sm"
+                            onClick={() => handlePublish(item._id)}
+                          >
+                            Publish
+                          </Button>
+                        )}
                         <Button
                           variant="secondary"
                           size="sm"

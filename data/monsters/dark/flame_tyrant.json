@@ -1,0 +1,329 @@
+{
+  "name": "Flame Tyrant",
+  "description": "The flame tyrant is an infernal humanoid-like creature with a distinct ram-skull head that is known to wreathe itself in hellfire. They are typically servants of higher infernal powers that bring their master's justice upon the unlucky. These creatures wield heavy armor and a menacing flail, and don black cloaks that make them nearly impossible to spot while not ignited.",
+  "tactics": "The flame tyrant prefers to stalk its prey from the shadows while unignited, leveraging Cloak of Shadows to approach undetected before activating Ignis and unleashing its full combat power. In open combat it leads with Annihilation Field to mark clustered targets, then follows up with Infernal Flail attacks to trigger the mark. Against heavily armored foes it uses Concussive Strike to set up a stun, and hurls Heart Piercer at targets attempting to stay at range. While ignited it is content to let melee attackers trigger Hellfire Rebuke.",
+  "tier": "elite",
+  "type": "dark",
+  "size": "large",
+  "foundry_portrait": "",
+  "health": {
+    "max": 90,
+    "current": 90
+  },
+  "energy": {
+    "max": 7,
+    "current": 7,
+    "recovery": 5
+  },
+  "resolve": {
+    "max": 30,
+    "current": 30,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 7,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 4
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 3
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 1
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 3,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 2,
+      "tier": 0
+    },
+    "might": {
+      "value": 4,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 4,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 1,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 4,
+      "tier": 1
+    },
+    "coordination": {
+      "value": 1,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 3,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 2,
+      "tier": 0
+    },
+    "senses": {
+      "value": 3,
+      "tier": 0
+    },
+    "logic": {
+      "value": 1,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 0,
+      "tier": 0
+    },
+    "academics": {
+      "value": 0,
+      "tier": 0
+    },
+    "magic": {
+      "value": 2,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 0,
+      "tier": 0
+    },
+    "expression": {
+      "value": 0,
+      "tier": 0
+    },
+    "presence": {
+      "value": 4,
+      "tier": 0
+    },
+    "insight": {
+      "value": 1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 0,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 5,
+    "cold": 2,
+    "heat": 8,
+    "electric": 2,
+    "psychic": 2,
+    "dark": 5,
+    "divine": 0,
+    "aetheric": 0,
+    "toxic": 2
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 4,
+    "infravision": 4,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": true,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": false,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": true,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Infernal Flail",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The flame tyrant swings its massive flail at a creature within nearby (2 unit) range, dealing physical and heat damage.",
+      "reaction": false,
+      "basic": true,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "4d10",
+        "damage": "7",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 1,
+        "max_range": 2,
+        "secondary_damage": "3",
+        "secondary_damage_extra": "2",
+        "secondary_damage_type": "heat"
+      }
+    },
+    {
+      "name": "Heart Piercer",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The flame tyrant hurls an infernal dagger at a creature within short (10 unit) range, dealing physical and dark damage. The dagger remains lodged in the target unless removed with a might check of 8 or higher as an action. At the end of each of the target's turns while the dagger is lodged, they take 3 dark damage that bypasses mitigation.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d8",
+        "damage": "3",
+        "damage_extra": "2",
+        "damage_type": "physical",
+        "category": "ranged",
+        "min_range": 1,
+        "max_range": 4,
+        "secondary_damage": "3",
+        "secondary_damage_extra": "2",
+        "secondary_damage_type": "dark"
+      }
+    },
+    {
+      "name": "Ignis",
+      "cost": 2,
+      "type": "utility",
+      "magic": true,
+      "description": "The flame tyrant ignites itself with hellfire, gaining the ignited condition. This hellfire can only be doused by magical means. If there is an open flame within short (10 unit) range, the flame tyrant can instead teleport to that location, converting that flame to hellfire. While ignited, the flame tyrant loses the benefits of Cloak of Shadows but gains the benefits of Wreathed in Flame.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "innate",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Annihilation Field",
+      "cost": 3,
+      "type": "spell",
+      "magic": true,
+      "description": "The flame tyrant pulses with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take dark damage. Any creature that takes damage after mitigation becomes marked until the end of their next turn. While marked, the first time that creature takes physical damage, they take an additional 4 dark damage.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "unique",
+      "spell": {
+        "roll": "3d10",
+        "damage": "5",
+        "damage_extra": "3",
+        "damage_type": "dark",
+        "target_defense": "resilience",
+        "defense_difficulty": 7,
+        "min_range": 0,
+        "max_range": 3
+      }
+    },
+    {
+      "name": "Concussive Strike",
+      "cost": 1,
+      "type": "utility",
+      "magic": false,
+      "description": "The flame tyrant aims for the creature's head on its next Infernal Flail attack. The next Infernal Flail attack this turn suffers a penalty die but if any physical damage is dealt after mitigation, the target becomes stunned until the end of their next turn.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Hellfire Rebuke",
+      "cost": 2,
+      "type": "spell",
+      "magic": true,
+      "description": "Trigger: A creature deals damage to the flame tyrant with a melee attack while the flame tyrant is ignited. The flame tyrant's hellfire lashes out at the attacker, dealing heat damage.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "innate",
+      "trigger": "A creature deals damage to the flame tyrant with a melee attack while the flame tyrant is ignited.",
+      "spell": {
+        "roll": "3d8",
+        "damage": "5",
+        "damage_extra": "3",
+        "damage_type": "heat",
+        "target_defense": "evasion",
+        "defense_difficulty": 6,
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "traits": [
+    {
+      "name": "Wreathed in Flame",
+      "description": "While ignited, the flame tyrant gains a bonus die on all deflection and evasion checks. Any creature that hits the flame tyrant with a melee attack while it is ignited takes 2 heat damage."
+    },
+    {
+      "name": "Cloak of Shadows",
+      "description": "While not ignited, the flame tyrant gains 2 bonus dice on stealth checks and can attempt to hide even without cover, provided it is in dim light or darkness."
+    }
+  ],
+  "loot": [],
+  "languages": ["Infernal"],
+  "spells": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

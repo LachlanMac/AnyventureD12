@@ -59,6 +59,34 @@ export const getUser = async (req, res, next) => {
   }
 };
 
+// Middleware to require admin access
+export const requireAdmin = async (req, res, next) => {
+  try {
+    const token = req.cookies.token;
+
+    if (!token) {
+      return res.status(401).json({ message: 'Authentication required' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id).select('-accessToken -refreshToken');
+
+    if (!user) {
+      return res.status(401).json({ message: 'User not found' });
+    }
+
+    if (!user.isAdmin) {
+      return res.status(403).json({ message: 'Admin access required' });
+    }
+
+    req.user = user;
+    next();
+  } catch (error) {
+    console.error('Admin auth middleware error:', error);
+    res.status(401).json({ message: 'Not authorized' });
+  }
+};
+
 // Middleware to block temporary users from homebrew features
 export const blockTemporaryUsers = (req, res, next) => {
   if (req.user && req.user.isTemporary) {

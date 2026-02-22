@@ -1,0 +1,398 @@
+{
+  "name": "Devil Lord",
+  "description": "A devil lord is a powerful entity from the infernal plane, known for commanding legions and binding souls through dark pacts. Cloaked in shadow and armed with ruthless cunning, it uses both magic and manipulation to bend others to its will. A devil lord is as deadly in negotiation as it is in direct combat, exploiting every rule to its advantage.",
+  "tactics": "The devil lord opens with Dire Charm to seize control of the most dangerous or isolated combatant, then uses Binding Word as a reaction to keep enemies from repositioning. It prefers to fight at moderate range, directing its charmed thrall into melee while lashing with its Flame Whip from a safe distance. When pressed into melee, it uses Demon Claws and keeps Hellshield ready to soften incoming blows. Against spellcasters, it saves Infernal Rebuke for high-damage spells. Metamorphosis is a last resort when reduced to roughly half health, used to turn the tide of a losing fight. Call Servant is deployed early to provide a screen and absorb damage.",
+  "tier": "legend",
+  "type": "dark",
+  "size": "medium",
+  "foundry_portrait": "",
+  "health": {
+    "max": 200,
+    "current": 200
+  },
+  "energy": {
+    "max": 10,
+    "current": 10,
+    "recovery": 8
+  },
+  "resolve": {
+    "max": 50,
+    "current": 50,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 7,
+    "climb": 0,
+    "swim": 0,
+    "fly": 8
+  },
+  "attributes": {
+    "physique": {
+      "talent": 3
+    },
+    "finesse": {
+      "talent": 3
+    },
+    "mind": {
+      "talent": 5
+    },
+    "knowledge": {
+      "talent": 3
+    },
+    "social": {
+      "talent": 4
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 3,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 2,
+      "tier": 0
+    },
+    "might": {
+      "value": 4,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 4,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 3,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 3,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 2,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 1,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 5,
+      "tier": 1
+    },
+    "concentration": {
+      "value": 5,
+      "tier": 0
+    },
+    "senses": {
+      "value": 4,
+      "tier": 0
+    },
+    "logic": {
+      "value": 4,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 1,
+      "tier": 0
+    },
+    "academics": {
+      "value": 4,
+      "tier": 0
+    },
+    "magic": {
+      "value": 5,
+      "tier": 1
+    },
+    "medicine": {
+      "value": 1,
+      "tier": 0
+    },
+    "expression": {
+      "value": 3,
+      "tier": 0
+    },
+    "presence": {
+      "value": 5,
+      "tier": 1
+    },
+    "insight": {
+      "value": 4,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 4,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 4,
+    "cold": 3,
+    "heat": 8,
+    "electric": 3,
+    "psychic": 4,
+    "dark": 6,
+    "divine": 0,
+    "aetheric": 2,
+    "toxic": 3
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 5,
+    "infravision": 5,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": true,
+    "bleeding": false,
+    "blinded": false,
+    "charmed": true,
+    "confused": true,
+    "dazed": false,
+    "diseased": false,
+    "exhausted": false,
+    "frightened": true,
+    "grappled": false,
+    "incapacitated": false,
+    "invisible": false,
+    "paralyzed": false,
+    "petrified": false,
+    "poisoned": true,
+    "prone": false,
+    "restrained": false,
+    "stunned": false,
+    "unconscious": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Demon Claws",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The devil lord rakes a creature with its claws, dealing devastating physical damage.",
+      "reaction": false,
+      "basic": true,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "4d20",
+        "damage": "9",
+        "damage_extra": "5",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Flame Whip",
+      "cost": 2,
+      "type": "attack",
+      "magic": true,
+      "description": "The devil lord lashes a creature with a whip of infernal flame, dealing heat damage. If all attacking dice exceed the target's defense, the target is muted until the end of their next turn.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "innate",
+      "attack": {
+        "roll": "3d20",
+        "damage": "7",
+        "damage_extra": "4",
+        "damage_type": "heat",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 3
+      }
+    },
+    {
+      "name": "Dire Charm",
+      "cost": 3,
+      "type": "spell",
+      "magic": true,
+      "description": "The devil lord attempts to charm a creature within moderate (20 unit) range. The target must make a resilience check of 8 or higher or become charmed for up to one minute. While charmed, the target cannot take hostile actions against the devil lord and must obey simple commands. The devil lord must maintain concentration to sustain this effect. Creatures immune to the charmed condition are unaffected.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "unique",
+      "spell": {
+        "roll": "4d20",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "psychic",
+        "target_defense": "resilience",
+        "defense_difficulty": 8,
+        "min_range": 1,
+        "max_range": 5
+      }
+    },
+    {
+      "name": "Discard",
+      "cost": 1,
+      "type": "spell",
+      "magic": true,
+      "description": "The devil lord ends its Dire Charm on a creature, shattering the target's mind. The target takes psychic damage that bypasses all defenses. For each full round the creature was charmed, the damage increases by 2.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "unique",
+      "spell": {
+        "roll": "0",
+        "damage": "4",
+        "damage_extra": "4",
+        "damage_type": "psychic",
+        "target_defense": "none",
+        "defense_difficulty": 0,
+        "min_range": 0,
+        "max_range": 0
+      }
+    },
+    {
+      "name": "Call Servant",
+      "cost": 3,
+      "type": "utility",
+      "magic": true,
+      "description": "The devil lord summons a dark creature of standard tier or lower, which appears in an unoccupied space within a short (10 unit) distance. The servant acts on the devil lord's initiative and persists until destroyed or until the devil lord is destroyed. The devil lord can maintain up to two servants at once.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "innate",
+      "attack": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 0
+      }
+    },
+    {
+      "name": "Metamorphosis",
+      "cost": 0,
+      "type": "utility",
+      "magic": true,
+      "description": "The devil lord transforms into its true demonic form. While transformed, the devil lord's size becomes large, it gains 50 temporary health, its Demon Claws damage increases to 12/7, and its Flame Aura radius increases to 5 units. This form lasts until the temporary health is depleted, at which point the devil lord reverts to its original form with the health it had before transforming.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "spellType": "unique",
+      "attack": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 0
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Binding Word",
+      "cost": 2,
+      "type": "spell",
+      "magic": true,
+      "description": "Trigger: A creature within moderate (20 unit) range takes movement. The devil lord speaks a word in the infernal tongue. The target must make a resilience check of 7 or higher or have their movement speed become 0 until the start of their next turn.",
+      "reaction": true,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "innate",
+      "spell": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "psychic",
+        "target_defense": "resilience",
+        "defense_difficulty": 7,
+        "min_range": 1,
+        "max_range": 5
+      }
+    },
+    {
+      "name": "Hellshield",
+      "cost": 2,
+      "type": "utility",
+      "magic": true,
+      "description": "Trigger: The devil lord is targeted by a melee or ranged attack. The devil lord conjures a shield of infernal flame, gaining a bonus die on its deflection check against the triggering attack. The shield persists until the start of the devil lord's next turn, granting a bonus die on all deflection checks. If an attacker's melee attack is fully mitigated while the shield is active, that attacker takes 4 heat damage.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "innate",
+      "attack": {
+        "roll": "0",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 0,
+        "max_range": 0
+      }
+    },
+    {
+      "name": "Infernal Rebuke",
+      "cost": 2,
+      "type": "spell",
+      "magic": true,
+      "description": "Trigger: The devil lord takes damage from a spell. When the devil lord takes damage from a spell, it retaliates with a blast of dark energy at the caster. The target must make a resilience check of 7 or higher or take dark damage and lose concentration on any active spell.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "innate",
+      "spell": {
+        "roll": "3d20",
+        "damage": "6",
+        "damage_extra": "4",
+        "damage_type": "dark",
+        "target_defense": "resilience",
+        "defense_difficulty": 7,
+        "min_range": 1,
+        "max_range": 5
+      }
+    }
+  ],
+  "traits": [
+    {
+      "name": "Greater Devil",
+      "description": "The devil lord takes only half damage from physical sources that are not the result of a magical effect or a weapon with the silvered property."
+    },
+    {
+      "name": "Flame Aura",
+      "description": "While in combat, any creature that ends its turn within a very short (5 unit) radius of the devil lord takes 5 heat damage. This damage bypasses mitigation of 3 or less."
+    },
+    {
+      "name": "Pact Maker",
+      "description": "The devil lord is an entity capable of bestowing infernal pacts upon mortal creatures. A creature that enters a pact with the devil lord gains a boon of the devil lord's choosing but is bound by the terms of the contract. Breaking the terms of the pact results in the creature's soul being forfeit."
+    },
+    {
+      "name": "Infernal Resilience",
+      "description": "Twice per encounter, when the devil lord fails a resilience, concentration, or endurance check, it can choose to succeed instead."
+    }
+  ],
+  "loot": [],
+  "languages": [
+    "Common",
+    "Infernal"
+  ],
+  "spells": [],
+  "challenge_rating": 1,
+  "source": "Official",
+  "isHomebrew": false
+}

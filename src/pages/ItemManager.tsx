@@ -183,7 +183,12 @@ const ItemManager: React.FC = () => {
       health: { max: 0, recovery: 0 },
       energy: { max: 0, recovery: 0 },
       resolve: { max: 0, recovery: 0 },
-      movement: 0,
+      movement: {
+        walk: { bonus: 0, set: 0 },
+        swim: { bonus: 0, set: 0 },
+        climb: { bonus: 0, set: 0 },
+        fly: { bonus: 0, set: 0 },
+      },
       attributes: {
         physique: { add_talent: 0, set_talent: 0 },
         finesse: { add_talent: 0, set_talent: 0 },
@@ -1299,14 +1304,18 @@ const ItemManager: React.FC = () => {
                         </div>
                         <div>
                           <h4 style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                            Movement
+                            Movement (Walk Bonus)
                           </h4>
                           <input
                             type="number"
-                            value={editedItem.movement || 0}
-                            onChange={(e) =>
-                              handleFieldChange('movement', parseInt(e.target.value) || 0)
-                            }
+                            value={(editedItem.movement as any)?.walk?.bonus || 0}
+                            onChange={(e) => {
+                              const mov = editedItem.movement || { walk: { bonus: 0, set: 0 }, swim: { bonus: 0, set: 0 }, climb: { bonus: 0, set: 0 }, fly: { bonus: 0, set: 0 } };
+                              handleFieldChange('movement', {
+                                ...mov,
+                                walk: { ...(mov as any).walk, bonus: parseInt(e.target.value) || 0 },
+                              });
+                            }}
                             style={{
                               width: '100%',
                               padding: '0.5rem',

@@ -155,9 +155,11 @@ const ItemSchema = new Schema({
     recovery: { type: Number, default: 0 }    
   },
 
-  movement: {                               
-    type: Number,
-    default: 0
+  movement: {
+    walk:  { bonus: { type: Number, default: 0 }, set: { type: Number, default: 0 } },
+    swim:  { bonus: { type: Number, default: 0 }, set: { type: Number, default: 0 } },
+    climb: { bonus: { type: Number, default: 0 }, set: { type: Number, default: 0 } },
+    fly:   { bonus: { type: Number, default: 0 }, set: { type: Number, default: 0 } }
   },
   
   attributes :{
@@ -254,25 +256,30 @@ const ItemSchema = new Schema({
   
   // Immunities - condition immunities
   immunities: {
+    // Mental conditions (9)
     afraid: { type: Boolean, default: false },
-    bleeding: { type: Boolean, default: false },
-    blinded: { type: Boolean, default: false },
+    alert: { type: Boolean, default: false },
+    broken: { type: Boolean, default: false },
     charmed: { type: Boolean, default: false },
     confused: { type: Boolean, default: false },
     dazed: { type: Boolean, default: false },
-    diseased: { type: Boolean, default: false },
-    exhausted: { type: Boolean, default: false },
-    frightened: { type: Boolean, default: false },
-    grappled: { type: Boolean, default: false },
+    maddened: { type: Boolean, default: false },
+    numbed: { type: Boolean, default: false },
+    stunned: { type: Boolean, default: false },
+    // Physical conditions (13)
+    bleeding: { type: Boolean, default: false },
+    blinded: { type: Boolean, default: false },
+    deafened: { type: Boolean, default: false },
+    ignited: { type: Boolean, default: false },
+    impaired: { type: Boolean, default: false },
     incapacitated: { type: Boolean, default: false },
-    invisible: { type: Boolean, default: false },
-    paralyzed: { type: Boolean, default: false },
-    petrified: { type: Boolean, default: false },
+    muted: { type: Boolean, default: false },
+    obscured: { type: Boolean, default: false },
     poisoned: { type: Boolean, default: false },
     prone: { type: Boolean, default: false },
-    restrained: { type: Boolean, default: false },
-    stunned: { type: Boolean, default: false },
-    unconscious: { type: Boolean, default: false }
+    stasis: { type: Boolean, default: false },
+    unconscious: { type: Boolean, default: false },
+    winded: { type: Boolean, default: false }
   },
   
   // Recipe information for craftable items
@@ -283,7 +290,8 @@ const ItemSchema = new Schema({
     },
     difficulty: { type: Number, default: 0 },
     ingredients: [{ type: String }],
-    output: { type: Number, default: 1 }
+    output: { type: Number, default: 1 },
+    details: { type: String, default: "" }
   },
   
   // Properties description for items (e.g., special effects, bonuses)
@@ -302,7 +310,17 @@ const ItemSchema = new Schema({
     default: 'published'
   },
   publishedAt: { type: Date },
-  
+  rejectionReason: { type: String },
+  votes: [{
+    userId: { type: String, required: true },
+    vote: { type: String, enum: ['up', 'down'], required: true }
+  }],
+  upvotes: { type: Number, default: 0 },
+  downvotes: { type: Number, default: 0 },
+  tags: [{ type: String }],
+  source: { type: String },
+  balanceNotes: { type: String },
+
   // Metadata
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

@@ -335,7 +335,12 @@ export interface Item {
   health: ResourceStat;
   resolve: ResourceStat;
   energy: ResourceStat;
-  movement: number;
+  movement: {
+    walk: { bonus: number; set: number };
+    swim: { bonus: number; set: number };
+    climb: { bonus: number; set: number };
+    fly: { bonus: number; set: number };
+  };
   attributes?: Record<string, TalentBonus>;
   basic?: Record<string, SkillBonus>;
   craft?: Record<string, SkillBonus>;
@@ -346,9 +351,18 @@ export interface Item {
   immunities?: Record<string, boolean>;
   effects?: ItemEffect[];
   substance?: Substance;
+  pain?: number;
+  stress?: number;
   side_effect?: string;
   properties?: string;
   implant_data?: ImplantData;
+  recipe?: {
+    type?: string;
+    difficulty?: number;
+    ingredients?: string[];
+    output?: number;
+    details?: string;
+  };
   createdAt?: string;
   updatedAt?: string;
 }

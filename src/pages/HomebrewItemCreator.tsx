@@ -1,152 +1,252 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate, useParams } from 'react-router-dom';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
-import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import { ChevronDown, ChevronRight } from 'lucide-react';
 import { Item } from '../types/character';
-import { valueToGold, goldToValue, formatGoldDisplay } from '../utils/valueUtils';
+import ItemHeaderFields from '../components/item/ItemHeaderFields';
+import ItemBasicFields from '../components/item/ItemBasicFields';
+import ItemWeaponFields from '../components/item/ItemWeaponFields';
+import ItemResourceFields from '../components/item/ItemResourceFields';
+import ItemMitigationFields from '../components/item/ItemMitigationFields';
+import ItemBonusFields from '../components/item/ItemBonusFields';
+import ItemDetectionFields from '../components/item/ItemDetectionFields';
+import ItemRecipeFields from '../components/item/ItemRecipeFields';
+import ItemImplantFields from '../components/item/ItemImplantFields';
+import { fieldInputStyle, fieldLabelStyle } from '../components/item/itemFormConstants';
 
 const HomebrewItemCreator: React.FC = () => {
   const { id } = useParams<{ id: string }>();
+  const [searchParams] = useSearchParams();
+  const templateId = searchParams.get('template');
   const navigate = useNavigate();
   const { user } = useAuth();
   const { showSuccess, showError } = useToast();
   const [error, setError] = useState<string | null>(null);
   const [saving, setSaving] = useState(false);
-  const [loading, setLoading] = useState(!!id);
+  const [loading, setLoading] = useState(!!id || !!templateId);
 
-  // Basic item data
-  const [itemData, setItemData] = useState({
+  // Single unified item state
+  const [item, setItem] = useState<Partial<Item>>({
     name: '',
     description: '',
-    type: 'weapon' as Item['type'],
-    weapon_category: '' as Item['weapon_category'],
-    consumable_category: '' as Item['consumable_category'],
-    rarity: 'common' as Item['rarity'],
+    type: 'weapon',
+    weapon_category: 'simpleMelee',
+    rarity: 'common',
     weight: 1,
     value: 0,
-    tags: [] as string[],
-    source: '',
-    balanceNotes: '',
-  });
-
-  // Weapon data
-  const [weaponData, setWeaponData] = useState({
     bonus_attack: 0,
     primary: {
       damage: '0',
       damage_extra: '0',
       damage_type: 'physical',
-      category: 'slash' as 'pierce' | 'slash' | 'blunt' | 'ranged',
+      category: 'slash',
+      bonus_attack: 0,
+      energy: 0,
       secondary_damage: 0,
       secondary_damage_extra: 0,
       secondary_damage_type: 'none',
-      min_range: 0,
-      max_range: 0,
+      min_range: 1,
+      max_range: 1,
     },
     secondary: {
       damage: '0',
       damage_extra: '0',
       damage_type: 'physical',
-      category: 'slash' as 'pierce' | 'slash' | 'blunt' | 'ranged',
+      category: 'slash',
+      bonus_attack: 0,
+      energy: 0,
       secondary_damage: 0,
       secondary_damage_extra: 0,
       secondary_damage_type: 'none',
-      min_range: 0,
-      max_range: 0,
+      min_range: 1,
+      max_range: 1,
     },
-  });
-
-  const [hasSecondaryDamage, setHasSecondaryDamage] = useState(false);
-
-  // Encumbrance penalty
-  const [encumbrancePenalty, setEncumbrancePenalty] = useState(0);
-
-  // Resource bonuses
-  const [resourceBonuses, setResourceBonuses] = useState({
     health: { max: 0, recovery: 0 },
     energy: { max: 0, recovery: 0 },
     resolve: { max: 0, recovery: 0 },
-    movement: 0,
+    movement: {
+      walk: { bonus: 0, set: 0 },
+      swim: { bonus: 0, set: 0 },
+      climb: { bonus: 0, set: 0 },
+      fly: { bonus: 0, set: 0 },
+    },
+    encumbrance_penalty: 0,
+    mitigation: {
+      physical: 0,
+      cold: 0,
+      heat: 0,
+      electric: 0,
+      psychic: 0,
+      dark: 0,
+      divine: 0,
+      aetheric: 0,
+      toxic: 0,
+    },
+    detections: {
+      normal: 0,
+      darksight: 0,
+      infravision: 0,
+      deadsight: 0,
+      echolocation: 0,
+      tremorsense: 0,
+      truesight: 0,
+      aethersight: 0,
+    },
+    immunities: {
+      afraid: false,
+      bleeding: false,
+      blinded: false,
+      charmed: false,
+      confused: false,
+      dazed: false,
+      diseased: false,
+      exhausted: false,
+      frightened: false,
+      grappled: false,
+      incapacitated: false,
+      invisible: false,
+      paralyzed: false,
+      petrified: false,
+      poisoned: false,
+      prone: false,
+      restrained: false,
+      stunned: false,
+      unconscious: false,
+    },
   });
 
-  // Mitigation
-  const [mitigation, setMitigation] = useState({
-    physical: 0,
-    cold: 0,
-    heat: 0,
-    electric: 0,
-    psychic: 0,
-    dark: 0,
-    divine: 0,
-    aetheric: 0,
-    toxic: 0,
-  });
+  // Homebrew-specific fields
+  const [tags, setTags] = useState<string[]>([]);
+  const [source, setSource] = useState('');
+  const [balanceNotes, setBalanceNotes] = useState('');
+  const [tagInput, setTagInput] = useState('');
 
-  // Current step
-  const [currentStep, setCurrentStep] = useState(1);
-  const totalSteps = itemData.type === 'weapon' ? 5 : 4;
+  // Collapsible section state
+  const [expandedSections, setExpandedSections] = useState<Record<string, boolean>>({
+    basic: true,
+    resources: false,
+    weapon: false,
+    recipe: false,
+    bonuses: false,
+    mitigation: false,
+    detectionsImmunities: false,
+    implant: false,
+    homebrew: true,
+  });
 
   useEffect(() => {
     if (id) {
-      fetchItem();
+      fetchItem(`/api/homebrew/items/${id}`);
+    } else if (templateId) {
+      fetchItem(`/api/items/${templateId}`, true);
+    } else {
+      setLoading(false);
     }
-  }, [id]);
+  }, [id, templateId]);
 
-  const fetchItem = async () => {
+  const fetchItem = async (url: string, isTemplate = false) => {
     try {
-      const response = await fetch(`/api/homebrew/items/${id}`);
+      const response = await fetch(url, { credentials: 'include' });
       if (!response.ok) throw new Error('Failed to fetch item');
+      const data = await response.json();
 
-      const item = await response.json();
-
-      // Populate form with existing data
-      setItemData({
-        name: item.name,
-        description: item.description,
-        type: item.type,
-        weapon_category: item.weapon_category || '',
-        consumable_category: item.consumable_category || '',
-        rarity: item.rarity,
-        weight: item.weight,
-        value: item.value,
-        tags: item.tags || [],
-        source: item.source || '',
-        balanceNotes: item.balanceNotes || '',
+      setItem({
+        ...data,
+        // Clear ID fields when using as template
+        ...(isTemplate && { _id: undefined }),
+        // Ensure name indicates template
+        name: isTemplate ? `${data.name} (Custom)` : data.name,
+        // Ensure weapon attack objects exist
+        primary: data.primary || {
+          damage: '0',
+          damage_extra: '0',
+          damage_type: 'physical',
+          category: 'slash',
+          bonus_attack: 0,
+          energy: 0,
+          secondary_damage: 0,
+          secondary_damage_extra: 0,
+          secondary_damage_type: 'none',
+          min_range: 1,
+          max_range: 1,
+        },
+        secondary: data.secondary || {
+          damage: '0',
+          damage_extra: '0',
+          damage_type: 'physical',
+          category: 'slash',
+          bonus_attack: 0,
+          energy: 0,
+          secondary_damage: 0,
+          secondary_damage_extra: 0,
+          secondary_damage_type: 'none',
+          min_range: 1,
+          max_range: 1,
+        },
+        // Ensure mitigation exists
+        mitigation: data.mitigation || {
+          physical: 0, cold: 0, heat: 0, electric: 0,
+          psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0,
+        },
+        // Ensure detections exists
+        detections: data.detections || {
+          normal: 0, darksight: 0, infravision: 0, deadsight: 0,
+          echolocation: 0, tremorsense: 0, truesight: 0, aethersight: 0,
+        },
+        // Ensure immunities exists
+        immunities: data.immunities || {
+          afraid: false, alert: false, broken: false, charmed: false,
+          confused: false, dazed: false, maddened: false, numbed: false, stunned: false,
+          bleeding: false, blinded: false, deafened: false, ignited: false,
+          impaired: false, incapacitated: false, muted: false, obscured: false,
+          poisoned: false, prone: false, stasis: false, unconscious: false, winded: false,
+        },
+        health: data.health || { max: 0 },
+        energy: data.energy || { max: 0 },
+        resolve: data.resolve || { max: 0 },
+        movement: data.movement || {
+          walk: { bonus: 0, set: 0 },
+          swim: { bonus: 0, set: 0 },
+          climb: { bonus: 0, set: 0 },
+          fly: { bonus: 0, set: 0 },
+        },
+        encumbrance_penalty: data.encumbrance_penalty || 0,
       });
 
-      if (item.type === 'weapon') {
-        setWeaponData({
-          bonus_attack: item.bonus_attack || 0,
-          primary: item.primary || { damage: '', damage_extra: '', damage_type: 'physical' },
-          secondary: item.secondary || { damage: '', damage_extra: '', damage_type: 'physical' },
-        });
-        setHasSecondaryDamage(!!item.secondary);
+      if (!isTemplate) {
+        setTags(data.tags || []);
+        setSource(data.source || '');
+        setBalanceNotes(data.balanceNotes || '');
       }
 
-      if (item.encumbrance_penalty) {
-        setEncumbrancePenalty(item.encumbrance_penalty);
-      }
-
-      if (item.health || item.energy || item.resolve || item.movement) {
-        setResourceBonuses({
-          health: item.health || { max: 0, recovery: 0 },
-          energy: item.energy || { max: 0, recovery: 0 },
-          resolve: item.resolve || { max: 0, recovery: 0 },
-          movement: item.movement || 0,
-        });
-      }
-
-      if (item.mitigation) {
-        setMitigation(item.mitigation);
-      }
+      // Auto-expand relevant sections
+      setExpandedSections({
+        basic: true,
+        resources: true,
+        weapon: data.type === 'weapon',
+        bonuses: !!data.basic || !!data.weapon || !!data.magic || !!data.craft || !!data.attributes,
+        mitigation: !!data.mitigation && Object.values(data.mitigation).some((v: any) => v > 0),
+        detectionsImmunities:
+          (!!data.detections && Object.values(data.detections).some((v: any) => v > 0)) ||
+          (!!data.immunities && Object.values(data.immunities).some((v: any) => v === true)),
+        implant: data.type === 'implant',
+        homebrew: true,
+      });
     } catch (err) {
-      showError('Failed to load item for editing');
-      navigate('/homebrew/items');
+      showError(isTemplate ? 'Failed to load template item' : 'Failed to load item for editing');
+      navigate('/homebrew');
     } finally {
       setLoading(false);
     }
+  };
+
+  const handleFieldChange = (field: string, value: any) => {
+    setItem((prev) => ({
+      ...prev,
+      [field]: value,
+    }));
   };
 
   const handleSubmit = async () => {
@@ -155,24 +255,20 @@ const HomebrewItemCreator: React.FC = () => {
       return;
     }
 
+    if (!item.name || !item.description) {
+      setError('Name and description are required');
+      return;
+    }
+
     setSaving(true);
     setError(null);
 
     try {
-      // Combine all data
       const completeItem = {
-        ...itemData,
-        ...(itemData.type === 'weapon' && {
-          bonus_attack: weaponData.bonus_attack,
-          primary: weaponData.primary,
-          ...(hasSecondaryDamage && { secondary: weaponData.secondary }),
-        }),
-        encumbrance_penalty: encumbrancePenalty,
-        health: resourceBonuses.health,
-        energy: resourceBonuses.energy,
-        resolve: resourceBonuses.resolve,
-        movement: resourceBonuses.movement,
-        mitigation,
+        ...item,
+        tags,
+        source,
+        balanceNotes,
       };
 
       const url = id ? `/api/homebrew/items/${id}` : '/api/homebrew/items';
@@ -180,9 +276,7 @@ const HomebrewItemCreator: React.FC = () => {
 
       const response = await fetch(url, {
         method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
+        headers: { 'Content-Type': 'application/json' },
         credentials: 'include',
         body: JSON.stringify(completeItem),
       });
@@ -204,6 +298,25 @@ const HomebrewItemCreator: React.FC = () => {
     }
   };
 
+  const toggleSection = (section: string) => {
+    setExpandedSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
+  const addTag = () => {
+    const trimmed = tagInput.trim();
+    if (trimmed && !tags.includes(trimmed)) {
+      setTags([...tags, trimmed]);
+      setTagInput('');
+    }
+  };
+
+  const removeTag = (tag: string) => {
+    setTags(tags.filter((t) => t !== tag));
+  };
+
   if (loading) {
     return (
       <div className="container mx-auto px-4 py-8">
@@ -214,1334 +327,304 @@ const HomebrewItemCreator: React.FC = () => {
     );
   }
 
-  const renderStep = () => {
-    switch (currentStep) {
-      case 1:
-        return (
-          <Card variant="default">
-            <CardHeader>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>Basic Information</h2>
-            </CardHeader>
-            <CardBody>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-cloud)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Item Name
-                  </label>
-                  <input
-                    type="text"
-                    value={itemData.name}
-                    onChange={(e) => setItemData({ ...itemData, name: e.target.value })}
-                    placeholder="e.g., Flaming Sword of Justice"
-                    style={{
-                      width: '100%',
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
+  const SectionHeader: React.FC<{ title: string; section: string }> = ({ title, section }) => (
+    <div
+      onClick={() => toggleSection(section)}
+      style={{
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'space-between',
+        cursor: 'pointer',
+        backgroundColor: 'var(--color-dark-elevated)',
+        marginBottom: expandedSections[section] ? '1rem' : '0.5rem',
+        padding: '0.75rem 1rem',
+        borderRadius: '0.5rem',
+        border: '1px solid var(--color-dark-border)',
+        userSelect: 'none',
+        transition: 'all 0.2s ease',
+      }}
+      onMouseEnter={(e) => {
+        e.currentTarget.style.backgroundColor = 'rgba(212, 175, 55, 0.1)';
+        e.currentTarget.style.borderColor = 'var(--color-metal-gold)';
+      }}
+      onMouseLeave={(e) => {
+        e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)';
+        e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+      }}
+    >
+      <h3 style={{ margin: 0, fontSize: '1rem', color: 'var(--color-white)', fontWeight: '600' }}>
+        {title}
+      </h3>
+      {expandedSections[section] ? (
+        <ChevronDown size={18} style={{ color: 'var(--color-metal-gold)' }} />
+      ) : (
+        <ChevronRight size={18} style={{ color: 'var(--color-metal-gold)' }} />
+      )}
+    </div>
+  );
 
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-cloud)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Description
-                  </label>
-                  <textarea
-                    value={itemData.description}
-                    onChange={(e) => setItemData({ ...itemData, description: e.target.value })}
-                    placeholder="Describe your item's appearance and lore..."
-                    rows={4}
-                    style={{
-                      width: '100%',
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Item Type
-                    </label>
-                    <select
-                      value={itemData.type}
-                      onChange={(e) =>
-                        setItemData({ ...itemData, type: e.target.value as Item['type'] })
-                      }
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    >
-                      <option value="weapon">Weapon</option>
-                      <option value="boots">Boots</option>
-                      <option value="body">Body Armor</option>
-                      <option value="gloves">Gloves</option>
-                      <option value="headwear">Headwear</option>
-                      <option value="cloak">Cloak</option>
-                      <option value="accessory">Accessory</option>
-                      <option value="shield">Shield</option>
-                      <option value="consumable">Consumable</option>
-                      <option value="tool">Tool</option>
-                      <option value="instrument">Instrument</option>
-                      <option value="ammunition">Ammunition</option>
-                      <option value="adventure">Adventure</option>
-                      <option value="goods">Trade Good</option>
-                      <option value="runes">Runes</option>
-                    </select>
-                  </div>
-
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Rarity
-                    </label>
-                    <select
-                      value={itemData.rarity}
-                      onChange={(e) =>
-                        setItemData({ ...itemData, rarity: e.target.value as Item['rarity'] })
-                      }
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    >
-                      <option value="common">Common</option>
-                      <option value="uncommon">Uncommon</option>
-                      <option value="rare">Rare</option>
-                      <option value="epic">Epic</option>
-                      <option value="legendary">Legendary</option>
-                      <option value="artifact">Artifact</option>
-                    </select>
-                  </div>
-                </div>
-
-                {itemData.type === 'weapon' && (
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Weapon Category
-                    </label>
-                    <select
-                      value={itemData.weapon_category}
-                      onChange={(e) =>
-                        setItemData({
-                          ...itemData,
-                          weapon_category: e.target.value as Item['weapon_category'],
-                        })
-                      }
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    >
-                      <option value="">Select category...</option>
-                      <option value="simpleMelee">Simple Melee</option>
-                      <option value="simpleRanged">Simple Ranged</option>
-                      <option value="complexMelee">Complex Melee</option>
-                      <option value="complexRanged">Complex Ranged</option>
-                      <option value="brawling">Brawling</option>
-                      <option value="throwing">Throwing</option>
-                    </select>
-                  </div>
-                )}
-
-                {itemData.type === 'consumable' && (
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Consumable Category
-                    </label>
-                    <select
-                      value={itemData.consumable_category}
-                      onChange={(e) =>
-                        setItemData({
-                          ...itemData,
-                          consumable_category: e.target.value as Item['consumable_category'],
-                        })
-                      }
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    >
-                      <option value="">Select category...</option>
-                      <option value="poisons">Poisons</option>
-                      <option value="elixirs">Elixirs</option>
-                      <option value="potions">Potions</option>
-                      <option value="explosives">Explosives</option>
-                    </select>
-                  </div>
-                )}
-
-                <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Weight
-                    </label>
-                    <input
-                      type="number"
-                      value={itemData.weight}
-                      onChange={(e) => setItemData({ ...itemData, weight: Number(e.target.value) })}
-                      min={0}
-                      step={0.1}
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    />
-                  </div>
-
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Value (Gold) - {formatGoldDisplay(itemData.value)}
-                    </label>
-                    <input
-                      type="number"
-                      value={valueToGold(itemData.value)}
-                      onChange={(e) =>
-                        setItemData({ ...itemData, value: goldToValue(Number(e.target.value)) })
-                      }
-                      min={0}
-                      step={0.1}
-                      placeholder="e.g., 1.5 for 1 gold 5 silver"
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    />
-                    <div
-                      style={{
-                        color: 'var(--color-cloud)',
-                        fontSize: '0.75rem',
-                        marginTop: '0.25rem',
-                      }}
-                    >
-                      Enter value in gold (e.g., 1.5 = 1 gold, 5 silver)
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardBody>
-          </Card>
-        );
-
-      case 2:
-        if (itemData.type === 'weapon') {
-          const rangeOptions = [
-            { label: 'Adjacent', value: 1 },
-            { label: 'Nearby', value: 2 },
-            { label: 'Very Short', value: 3 },
-            { label: 'Short', value: 4 },
-            { label: 'Moderate', value: 5 },
-            { label: 'Far', value: 6 },
-            { label: 'Very Far', value: 6 },
-            { label: 'Distant', value: 8 },
-          ];
-
-          return (
-            <Card variant="default">
-              <CardHeader>
-                <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>
-                  Weapon Properties
-                </h2>
-              </CardHeader>
-              <CardBody>
-                <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                  {/* Attack Bonus - applies to whole weapon */}
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        display: 'block',
-                        marginBottom: '0.5rem',
-                      }}
-                    >
-                      Attack Bonus (applies to all attacks)
-                    </label>
-                    <input
-                      type="number"
-                      value={weaponData.bonus_attack}
-                      onChange={(e) =>
-                        setWeaponData({ ...weaponData, bonus_attack: Number(e.target.value) })
-                      }
-                      min={0}
-                      max={5}
-                      style={{
-                        width: '100px',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                      }}
-                    />
-                  </div>
-
-                  {/* Primary Damage */}
-                  <div>
-                    <h3 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>
-                      Primary Damage
-                    </h3>
-                    <div
-                      style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(2, 1fr)',
-                        gap: '1rem',
-                      }}
-                    >
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Base Damage
-                        </label>
-                        <input
-                          type="text"
-                          value={weaponData.primary.damage}
-                          onChange={(e) =>
-                            setWeaponData({
-                              ...weaponData,
-                              primary: { ...weaponData.primary, damage: e.target.value },
-                            })
-                          }
-                          placeholder="e.g., 3 or 1d6"
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                          }}
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Extra Damage
-                        </label>
-                        <input
-                          type="text"
-                          value={weaponData.primary.damage_extra}
-                          onChange={(e) =>
-                            setWeaponData({
-                              ...weaponData,
-                              primary: { ...weaponData.primary, damage_extra: e.target.value },
-                            })
-                          }
-                          placeholder="e.g., 2"
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                          }}
-                        />
-                      </div>
-
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Damage Type
-                        </label>
-                        <select
-                          value={weaponData.primary.damage_type}
-                          onChange={(e) =>
-                            setWeaponData({
-                              ...weaponData,
-                              primary: { ...weaponData.primary, damage_type: e.target.value },
-                            })
-                          }
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                          }}
-                        >
-                          <option value="physical">Physical</option>
-                          <option value="heat">Heat</option>
-                          <option value="cold">Cold</option>
-                          <option value="electric">Electric</option>
-                          <option value="dark">Dark</option>
-                          <option value="divine">Divine</option>
-                          <option value="arcane">Arcane</option>
-                          <option value="psychic">Psychic</option>
-                          <option value="toxic">Toxic</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Damage Category
-                        </label>
-                        <select
-                          value={weaponData.primary.category}
-                          onChange={(e) =>
-                            setWeaponData({
-                              ...weaponData,
-                              primary: { ...weaponData.primary, category: e.target.value as any },
-                            })
-                          }
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                          }}
-                        >
-                          <option value="slash">Slash</option>
-                          <option value="pierce">Pierce</option>
-                          <option value="blunt">Blunt</option>
-                          <option value="ranged">Ranged</option>
-                          <option value="black_magic">Black Magic</option>
-                          <option value="primal_magic">Primal Magic</option>
-                          <option value="white_magic">White Magic</option>
-                          <option value="mysticism_magic">Mysticism Magic</option>
-                          <option value="meta_magic">Meta Magic</option>
-                        </select>
-                      </div>
-
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Min Range
-                        </label>
-                        <select
-                          value={weaponData.primary.min_range}
-                          onChange={(e) =>
-                            setWeaponData({
-                              ...weaponData,
-                              primary: { ...weaponData.primary, min_range: Number(e.target.value) },
-                            })
-                          }
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                          }}
-                        >
-                          {rangeOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label} ({option.value})
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Max Range
-                        </label>
-                        <select
-                          value={weaponData.primary.max_range}
-                          onChange={(e) =>
-                            setWeaponData({
-                              ...weaponData,
-                              primary: { ...weaponData.primary, max_range: Number(e.target.value) },
-                            })
-                          }
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                          }}
-                        >
-                          {rangeOptions.map((option) => (
-                            <option key={option.value} value={option.value}>
-                              {option.label} ({option.value})
-                            </option>
-                          ))}
-                        </select>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Secondary Damage Toggle */}
-                  <div>
-                    <label
-                      style={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        gap: '0.5rem',
-                        color: 'var(--color-cloud)',
-                      }}
-                    >
-                      <input
-                        type="checkbox"
-                        checked={hasSecondaryDamage}
-                        onChange={(e) => setHasSecondaryDamage(e.target.checked)}
-                        style={{ transform: 'scale(1.2)' }}
-                      />
-                      Add Secondary Damage Type (like a halberd with both slash and pierce)
-                    </label>
-                  </div>
-
-                  {/* Secondary Damage */}
-                  {hasSecondaryDamage && (
-                    <div>
-                      <h3 style={{ color: 'var(--color-white)', marginBottom: '1rem' }}>
-                        Secondary Damage
-                      </h3>
-                      <div
-                        style={{
-                          display: 'grid',
-                          gridTemplateColumns: 'repeat(2, 1fr)',
-                          gap: '1rem',
-                        }}
-                      >
-                        <div>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              display: 'block',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            Base Damage
-                          </label>
-                          <input
-                            type="text"
-                            value={weaponData.secondary.damage}
-                            onChange={(e) =>
-                              setWeaponData({
-                                ...weaponData,
-                                secondary: { ...weaponData.secondary, damage: e.target.value },
-                              })
-                            }
-                            placeholder="e.g., 3 or 1d6"
-                            style={{
-                              width: '100%',
-                              padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.375rem',
-                            }}
-                          />
-                        </div>
-
-                        <div>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              display: 'block',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            Extra Damage
-                          </label>
-                          <input
-                            type="text"
-                            value={weaponData.secondary.damage_extra}
-                            onChange={(e) =>
-                              setWeaponData({
-                                ...weaponData,
-                                secondary: {
-                                  ...weaponData.secondary,
-                                  damage_extra: e.target.value,
-                                },
-                              })
-                            }
-                            placeholder="e.g., 2"
-                            style={{
-                              width: '100%',
-                              padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.375rem',
-                            }}
-                          />
-                        </div>
-
-                        <div>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              display: 'block',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            Damage Type
-                          </label>
-                          <select
-                            value={weaponData.secondary.damage_type}
-                            onChange={(e) =>
-                              setWeaponData({
-                                ...weaponData,
-                                secondary: { ...weaponData.secondary, damage_type: e.target.value },
-                              })
-                            }
-                            style={{
-                              width: '100%',
-                              padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.375rem',
-                            }}
-                          >
-                            <option value="physical">Physical</option>
-                            <option value="heat">Heat</option>
-                            <option value="cold">Cold</option>
-                            <option value="electric">Electric</option>
-                            <option value="dark">Dark</option>
-                            <option value="divine">Divine</option>
-                            <option value="arcane">Arcane</option>
-                            <option value="psychic">Psychic</option>
-                            <option value="toxic">Toxic</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              display: 'block',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            Damage Category
-                          </label>
-                          <select
-                            value={weaponData.secondary.category}
-                            onChange={(e) =>
-                              setWeaponData({
-                                ...weaponData,
-                                secondary: {
-                                  ...weaponData.secondary,
-                                  category: e.target.value as any,
-                                },
-                              })
-                            }
-                            style={{
-                              width: '100%',
-                              padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.375rem',
-                            }}
-                          >
-                            <option value="slash">Slash</option>
-                            <option value="pierce">Pierce</option>
-                            <option value="blunt">Blunt</option>
-                            <option value="ranged">Ranged</option>
-                            <option value="black_magic">Black Magic</option>
-                            <option value="primal_magic">Primal Magic</option>
-                            <option value="white_magic">White Magic</option>
-                            <option value="mysticism_magic">Mysticism Magic</option>
-                            <option value="meta_magic">Meta Magic</option>
-                          </select>
-                        </div>
-
-                        <div>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              display: 'block',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            Min Range
-                          </label>
-                          <select
-                            value={weaponData.secondary.min_range}
-                            onChange={(e) =>
-                              setWeaponData({
-                                ...weaponData,
-                                secondary: {
-                                  ...weaponData.secondary,
-                                  min_range: Number(e.target.value),
-                                },
-                              })
-                            }
-                            style={{
-                              width: '100%',
-                              padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.375rem',
-                            }}
-                          >
-                            {rangeOptions.map((option) => (
-                              <option key={option.value} value={option.value}>
-                                {option.label} ({option.value})
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-
-                        <div>
-                          <label
-                            style={{
-                              color: 'var(--color-cloud)',
-                              display: 'block',
-                              marginBottom: '0.5rem',
-                            }}
-                          >
-                            Max Range
-                          </label>
-                          <select
-                            value={weaponData.secondary.max_range}
-                            onChange={(e) =>
-                              setWeaponData({
-                                ...weaponData,
-                                secondary: {
-                                  ...weaponData.secondary,
-                                  max_range: Number(e.target.value),
-                                },
-                              })
-                            }
-                            style={{
-                              width: '100%',
-                              padding: '0.5rem',
-                              backgroundColor: 'var(--color-dark-elevated)',
-                              color: 'var(--color-white)',
-                              border: '1px solid var(--color-dark-border)',
-                              borderRadius: '0.375rem',
-                            }}
-                          >
-                            {rangeOptions.map((option) => (
-                              <option key={option.value} value={option.value}>
-                                {option.label} ({option.value})
-                              </option>
-                            ))}
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                  )}
-                </div>
-              </CardBody>
-            </Card>
-          );
-        }
-        // For non-weapon items, show bonuses directly
-        return (
-          <Card variant="default">
-            <CardHeader>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>
-                Bonuses & Penalties
-              </h2>
-            </CardHeader>
-            <CardBody>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {/* Resource Bonuses */}
-                <div>
-                  <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
-                    Resource Bonuses
-                  </h3>
-                  <div
-                    style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
-                  >
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Health Max
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.health.max}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            health: { ...resourceBonuses.health, max: Number(e.target.value) },
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Energy Max
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.energy.max}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            energy: { ...resourceBonuses.energy, max: Number(e.target.value) },
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Resolve Max
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.resolve.max}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            resolve: { ...resourceBonuses.resolve, max: Number(e.target.value) },
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Balance Notes */}
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-cloud)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Balance Notes
-                  </label>
-                  <textarea
-                    value={itemData.balanceNotes}
-                    onChange={(e) => setItemData({ ...itemData, balanceNotes: e.target.value })}
-                    placeholder="Explain your design choices and balance considerations..."
-                    rows={4}
-                    style={{
-                      width: '100%',
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
-              </div>
-            </CardBody>
-          </Card>
-        );
-
-      case 3:
-        return (
-          <Card variant="default">
-            <CardHeader>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>
-                Bonuses & Penalties
-              </h2>
-            </CardHeader>
-            <CardBody>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {/* Resource Bonuses */}
-                <div>
-                  <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
-                    Resource Bonuses
-                  </h3>
-                  <div
-                    style={{ display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '1rem' }}
-                  >
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Health Max
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.health.max}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            health: { ...resourceBonuses.health, max: Number(e.target.value) },
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Energy Max
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.energy.max}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            energy: { ...resourceBonuses.energy, max: Number(e.target.value) },
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Resolve Max
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.resolve.max}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            resolve: { ...resourceBonuses.resolve, max: Number(e.target.value) },
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                    <div>
-                      <label style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-                        Movement
-                      </label>
-                      <input
-                        type="number"
-                        value={resourceBonuses.movement}
-                        onChange={(e) =>
-                          setResourceBonuses({
-                            ...resourceBonuses,
-                            movement: Number(e.target.value),
-                          })
-                        }
-                        style={{
-                          width: '100%',
-                          padding: '0.25rem',
-                          backgroundColor: 'var(--color-dark-elevated)',
-                          color: 'var(--color-white)',
-                          border: '1px solid var(--color-dark-border)',
-                          borderRadius: '0.25rem',
-                        }}
-                      />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Encumbrance Penalty */}
-                <div>
-                  <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
-                    Encumbrance Penalty
-                  </h3>
-                  <div>
-                    <label
-                      style={{
-                        color: 'var(--color-cloud)',
-                        fontSize: '0.75rem',
-                      }}
-                    >
-                      Penalty Value
-                    </label>
-                    <input
-                      type="number"
-                      value={encumbrancePenalty}
-                      onChange={(e) => setEncumbrancePenalty(Number(e.target.value))}
-                      min={0}
-                      style={{
-                        width: '100%',
-                        padding: '0.25rem',
-                        backgroundColor: 'var(--color-dark-elevated)',
-                        color: 'var(--color-white)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.25rem',
-                      }}
-                    />
-                  </div>
-                </div>
-              </div>
-            </CardBody>
-          </Card>
-        );
-
-      case 4:
-        return (
-          <Card variant="default">
-            <CardHeader>
-              <h2 style={{ color: 'var(--color-white)', fontSize: '1.5rem' }}>Mitigation & Meta</h2>
-            </CardHeader>
-            <CardBody>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
-                {/* Mitigation */}
-                <div>
-                  <h3 style={{ color: 'var(--color-white)', marginBottom: '0.5rem' }}>
-                    Damage Mitigation
-                  </h3>
-                  <div
-                    style={{
-                      display: 'grid',
-                      gridTemplateColumns: 'repeat(3, 1fr)',
-                      gap: '0.5rem',
-                    }}
-                  >
-                    {Object.entries(mitigation).map(([damageType, value]) => (
-                      <div key={damageType}>
-                        <label
-                          style={{
-                            color: 'var(--color-cloud)',
-                            fontSize: '0.75rem',
-                            textTransform: 'capitalize',
-                          }}
-                        >
-                          {damageType}
-                        </label>
-                        <input
-                          type="number"
-                          value={value}
-                          onChange={(e) =>
-                            setMitigation({
-                              ...mitigation,
-                              [damageType]: Number(e.target.value),
-                            })
-                          }
-                          min={0}
-                          style={{
-                            width: '100%',
-                            padding: '0.25rem',
-                            backgroundColor: 'var(--color-dark-elevated)',
-                            color: 'var(--color-white)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.25rem',
-                          }}
-                        />
-                      </div>
-                    ))}
-                  </div>
-                </div>
-
-                {/* Tags */}
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-cloud)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Tags (comma-separated)
-                  </label>
-                  <input
-                    type="text"
-                    value={itemData.tags.join(', ')}
-                    onChange={(e) =>
-                      setItemData({
-                        ...itemData,
-                        tags: e.target.value
-                          .split(',')
-                          .map((tag) => tag.trim())
-                          .filter((tag) => tag),
-                      })
-                    }
-                    placeholder="e.g., magic, cursed, elemental"
-                    style={{
-                      width: '100%',
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
-
-                {/* Source */}
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-cloud)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Source/Campaign
-                  </label>
-                  <input
-                    type="text"
-                    value={itemData.source}
-                    onChange={(e) => setItemData({ ...itemData, source: e.target.value })}
-                    placeholder="e.g., My Campaign Setting"
-                    style={{
-                      width: '100%',
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
-
-                {/* Balance Notes */}
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-cloud)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Balance Notes
-                  </label>
-                  <textarea
-                    value={itemData.balanceNotes}
-                    onChange={(e) => setItemData({ ...itemData, balanceNotes: e.target.value })}
-                    placeholder="Explain your design choices and balance considerations..."
-                    rows={4}
-                    style={{
-                      width: '100%',
-                      padding: '0.5rem',
-                      backgroundColor: 'var(--color-dark-elevated)',
-                      color: 'var(--color-white)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                    }}
-                  />
-                </div>
-              </div>
-            </CardBody>
-          </Card>
-        );
-
-      default:
-        return null;
-    }
+  const sectionContentStyle: React.CSSProperties = {
+    backgroundColor: 'var(--color-dark-elevated)',
+    padding: '1.5rem',
+    borderRadius: '0.5rem',
+    border: '1px solid var(--color-dark-border)',
   };
 
   return (
-    <div className="container mx-auto px-4 py-8">
+    <div className="container mx-auto px-4 py-8" style={{ maxWidth: '900px' }}>
       <h1
         style={{
           color: 'var(--color-white)',
-          fontSize: '2.5rem',
+          fontSize: '2rem',
           fontWeight: 'bold',
-          marginBottom: '2rem',
+          marginBottom: '0.5rem',
         }}
       >
-        {id ? 'Edit' : 'Create'} Homebrew Item
+        {id ? 'Edit' : templateId ? 'Create from Template' : 'Create'} Homebrew Item
       </h1>
+      <p style={{ color: 'var(--color-cloud)', marginBottom: '2rem', fontSize: '0.95rem' }}>
+        {templateId
+          ? 'Customize your item based on the template below.'
+          : 'Fill in the sections below to create your homebrew item. Expand sections as needed.'}
+      </p>
 
       {error && (
         <div
           style={{
-            backgroundColor: 'var(--color-stormy)',
-            color: 'var(--color-white)',
+            backgroundColor: 'rgba(220, 53, 69, 0.15)',
+            color: '#ff6b6b',
             padding: '1rem',
-            borderRadius: '0.375rem',
+            borderRadius: '0.5rem',
             marginBottom: '1rem',
+            border: '1px solid rgba(220, 53, 69, 0.3)',
           }}
         >
           {error}
         </div>
       )}
 
-      {/* Progress indicator */}
-      <div style={{ marginBottom: '2rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: '0.5rem' }}>
-          {Array.from({ length: totalSteps }, (_, i) => (
-            <div
-              key={i}
-              style={{
-                flex: 1,
-                height: '4px',
-                backgroundColor:
-                  i < currentStep ? 'var(--color-metal-gold)' : 'var(--color-dark-elevated)',
-                marginRight: i < totalSteps - 1 ? '0.5rem' : '0',
-                borderRadius: '2px',
-              }}
-            />
-          ))}
+      {/* Always-visible header: Name, Type, Category */}
+      <div style={{ ...sectionContentStyle, marginBottom: '1rem' }}>
+        <ItemHeaderFields item={item} onChange={handleFieldChange} />
+      </div>
+
+      <div style={{ display: 'grid', gap: '1rem' }}>
+        {/* Basic Information */}
+        <div>
+          <SectionHeader title="Basic Information" section="basic" />
+          {expandedSections.basic && (
+            <div style={sectionContentStyle}>
+              <ItemBasicFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
         </div>
-        <div style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
-          Step {currentStep} of {totalSteps}
+
+        {/* Resource Bonuses */}
+        <div>
+          <SectionHeader title="Resource Bonuses" section="resources" />
+          {expandedSections.resources && (
+            <div style={sectionContentStyle}>
+              <ItemResourceFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
+        </div>
+
+        {/* Weapon Properties */}
+        {item.type === 'weapon' && (
+          <div>
+            <SectionHeader title="Weapon Properties" section="weapon" />
+            {expandedSections.weapon && (
+              <div style={sectionContentStyle}>
+                <ItemWeaponFields item={item} onChange={handleFieldChange} />
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Recipe */}
+        <div>
+          <SectionHeader title="Recipe" section="recipe" />
+          {expandedSections.recipe && (
+            <div style={sectionContentStyle}>
+              <ItemRecipeFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
+        </div>
+
+        {/* Bonuses & Modifiers */}
+        <div>
+          <SectionHeader title="Bonuses & Modifiers" section="bonuses" />
+          {expandedSections.bonuses && (
+            <div style={sectionContentStyle}>
+              <ItemBonusFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
+        </div>
+
+        {/* Damage Mitigation */}
+        <div>
+          <SectionHeader title="Damage Mitigation" section="mitigation" />
+          {expandedSections.mitigation && (
+            <div style={sectionContentStyle}>
+              <ItemMitigationFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
+        </div>
+
+        {/* Detections & Immunities */}
+        <div>
+          <SectionHeader title="Detections & Immunities" section="detectionsImmunities" />
+          {expandedSections.detectionsImmunities && (
+            <div style={sectionContentStyle}>
+              <ItemDetectionFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
+        </div>
+
+        {/* Implant Data */}
+        {item.type === 'implant' && (
+          <div>
+            <SectionHeader title="Implant Data" section="implant" />
+            {expandedSections.implant && (
+              <div style={sectionContentStyle}>
+                <ItemImplantFields item={item} onChange={handleFieldChange} />
+              </div>
+            )}
+          </div>
+        )}
+
+        {/* Homebrew Details */}
+        <div>
+          <SectionHeader title="Homebrew Details" section="homebrew" />
+          {expandedSections.homebrew && (
+            <div style={sectionContentStyle}>
+              <div style={{ display: 'grid', gap: '1rem' }}>
+                {/* Tags */}
+                <div>
+                  <label style={fieldLabelStyle}>Tags</label>
+                  <div style={{ display: 'flex', gap: '0.5rem', marginBottom: '0.5rem' }}>
+                    <input
+                      type="text"
+                      value={tagInput}
+                      onChange={(e) => setTagInput(e.target.value)}
+                      onKeyDown={(e) => {
+                        if (e.key === 'Enter') {
+                          e.preventDefault();
+                          addTag();
+                        }
+                      }}
+                      placeholder="Add a tag..."
+                      style={{ ...fieldInputStyle, flex: 1 }}
+                    />
+                    <button
+                      onClick={addTag}
+                      style={{
+                        padding: '0.5rem 1rem',
+                        backgroundColor: 'var(--color-sat-purple)',
+                        border: 'none',
+                        borderRadius: '0.25rem',
+                        color: 'var(--color-white)',
+                        cursor: 'pointer',
+                        fontSize: '0.875rem',
+                      }}
+                    >
+                      Add
+                    </button>
+                  </div>
+                  {tags.length > 0 && (
+                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                      {tags.map((tag) => (
+                        <span
+                          key={tag}
+                          style={{
+                            backgroundColor: 'rgba(138, 116, 192, 0.15)',
+                            color: 'var(--color-sat-purple)',
+                            padding: '0.25rem 0.75rem',
+                            borderRadius: '1rem',
+                            fontSize: '0.8rem',
+                            border: '1px solid rgba(138, 116, 192, 0.3)',
+                            display: 'flex',
+                            alignItems: 'center',
+                            gap: '0.5rem',
+                          }}
+                        >
+                          {tag}
+                          <button
+                            onClick={() => removeTag(tag)}
+                            style={{
+                              background: 'none',
+                              border: 'none',
+                              color: 'var(--color-cloud)',
+                              cursor: 'pointer',
+                              padding: 0,
+                              fontSize: '1rem',
+                              lineHeight: 1,
+                            }}
+                          >
+                            ×
+                          </button>
+                        </span>
+                      ))}
+                    </div>
+                  )}
+                </div>
+
+                {/* Source */}
+                <div>
+                  <label style={fieldLabelStyle}>Source / Campaign</label>
+                  <input
+                    type="text"
+                    value={source}
+                    onChange={(e) => setSource(e.target.value)}
+                    placeholder="e.g., My Campaign Setting"
+                    style={fieldInputStyle}
+                  />
+                </div>
+
+                {/* Balance Notes */}
+                <div>
+                  <label style={fieldLabelStyle}>Balance Notes</label>
+                  <textarea
+                    value={balanceNotes}
+                    onChange={(e) => setBalanceNotes(e.target.value)}
+                    placeholder="Explain your design choices and balance considerations..."
+                    rows={3}
+                    style={{ ...fieldInputStyle, resize: 'vertical' }}
+                  />
+                </div>
+              </div>
+            </div>
+          )}
         </div>
       </div>
 
-      {renderStep()}
-
-      {/* Navigation buttons */}
+      {/* Footer buttons */}
       <div
         style={{
           display: 'flex',
           justifyContent: 'space-between',
+          alignItems: 'center',
           marginTop: '2rem',
+          paddingTop: '2rem',
+          borderTop: '2px solid var(--color-dark-border)',
         }}
       >
         <Button
           variant="secondary"
-          onClick={() =>
-            currentStep > 1 ? setCurrentStep(currentStep - 1) : navigate('/homebrew')
-          }
+          onClick={() => navigate('/homebrew')}
           disabled={saving}
         >
-          {currentStep === 1 ? 'Cancel' : 'Previous'}
+          Cancel
         </Button>
 
         <Button
           variant="primary"
-          onClick={() =>
-            currentStep < totalSteps ? setCurrentStep(currentStep + 1) : handleSubmit()
-          }
-          disabled={saving || !itemData.name || !itemData.description}
+          onClick={handleSubmit}
+          disabled={saving || !item.name || !item.description}
         >
-          {currentStep === totalSteps
-            ? saving
-              ? `${id ? 'Updating' : 'Creating'}...`
-              : `${id ? 'Update' : 'Create'} Item`
-            : 'Next'}
+          {saving
+            ? `${id ? 'Updating' : 'Creating'}...`
+            : `${id ? 'Update' : 'Create'} Item`}
         </Button>
       </div>
     </div>

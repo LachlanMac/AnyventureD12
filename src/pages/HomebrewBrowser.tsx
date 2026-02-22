@@ -147,8 +147,8 @@ const HomebrewBrowser: React.FC = () => {
           </CardBody>
         </Card>
 
-        {/* Spells Section */}
-        <Card variant="default" hoverEffect>
+        {/* Spells Section - Coming Soon */}
+        <Card variant="default" style={{ opacity: 0.6, position: 'relative' }}>
           <CardHeader
             style={{
               backgroundColor: 'var(--color-sat-purple)',
@@ -174,15 +174,15 @@ const HomebrewBrowser: React.FC = () => {
               </h2>
               <span
                 style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                  color: 'var(--color-white)',
+                  backgroundColor: 'rgba(212, 175, 55, 0.9)',
+                  color: 'var(--color-dark-bg)',
                   padding: '0.25rem 0.75rem',
                   borderRadius: '9999px',
                   fontSize: '0.875rem',
                   fontWeight: 'bold',
                 }}
               >
-                ✨ SPELLS
+                COMING SOON
               </span>
             </div>
           </CardHeader>
@@ -192,61 +192,17 @@ const HomebrewBrowser: React.FC = () => {
                 color: 'var(--color-cloud)',
                 fontSize: '1rem',
                 lineHeight: '1.6',
-                marginBottom: '2rem',
+                marginBottom: '1rem',
               }}
             >
-              Explore and craft custom magic spells across all schools of magic. Design unique
-              effects, casting requirements, and magical properties.
+              Homebrew spells are coming in a future update. You'll be able to explore and craft
+              custom magic spells across all schools of magic.
             </p>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem',
-              }}
-            >
-              <Button
-                variant="primary"
-                onClick={() => navigate('/homebrew/spells')}
-                style={{ width: '100%' }}
-              >
-                Browse Spells
-              </Button>
-
-              {user && (
-                <Button
-                  variant="accent"
-                  onClick={() => navigate('/homebrew/spells/create')}
-                  style={{ width: '100%' }}
-                >
-                  Create New Spell
-                </Button>
-              )}
-
-              {!user && (
-                <div
-                  style={{
-                    textAlign: 'center',
-                    padding: '1rem',
-                    backgroundColor: 'var(--color-dark-elevated)',
-                    borderRadius: '0.375rem',
-                  }}
-                >
-                  <p style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', margin: 0 }}>
-                    <Link to="/login" style={{ color: 'var(--color-metal-gold)' }}>
-                      Sign in
-                    </Link>{' '}
-                    to create your own spells
-                  </p>
-                </div>
-              )}
-            </div>
           </CardBody>
         </Card>
 
-        {/* Creatures Section */}
-        <Card variant="default" hoverEffect>
+        {/* Creatures Section - Coming Soon */}
+        <Card variant="default" style={{ opacity: 0.6, position: 'relative' }}>
           <CardHeader
             style={{
               backgroundColor: 'var(--color-stormy)',
@@ -272,15 +228,15 @@ const HomebrewBrowser: React.FC = () => {
               </h2>
               <span
                 style={{
-                  backgroundColor: 'rgba(0, 0, 0, 0.3)',
-                  color: 'var(--color-white)',
+                  backgroundColor: 'rgba(212, 175, 55, 0.9)',
+                  color: 'var(--color-dark-bg)',
                   padding: '0.25rem 0.75rem',
                   borderRadius: '9999px',
                   fontSize: '0.875rem',
                   fontWeight: 'bold',
                 }}
               >
-                🐲 CREATURES
+                COMING SOON
               </span>
             </div>
           </CardHeader>
@@ -290,56 +246,12 @@ const HomebrewBrowser: React.FC = () => {
                 color: 'var(--color-cloud)',
                 fontSize: '1rem',
                 lineHeight: '1.6',
-                marginBottom: '2rem',
+                marginBottom: '1rem',
               }}
             >
-              Browse and create custom monsters, beasts, and legendary creatures. Design unique stat
-              blocks, abilities, and challenge encounters for your campaigns.
+              Homebrew creatures are coming in a future update. You'll be able to browse and create
+              custom monsters, beasts, and legendary creatures.
             </p>
-
-            <div
-              style={{
-                display: 'flex',
-                flexDirection: 'column',
-                gap: '1rem',
-              }}
-            >
-              <Button
-                variant="primary"
-                onClick={() => navigate('/homebrew/creatures')}
-                style={{ width: '100%' }}
-              >
-                Browse Creatures
-              </Button>
-
-              {user && (
-                <Button
-                  variant="accent"
-                  onClick={() => navigate('/homebrew/creatures/create')}
-                  style={{ width: '100%' }}
-                >
-                  Create New Creature
-                </Button>
-              )}
-
-              {!user && (
-                <div
-                  style={{
-                    textAlign: 'center',
-                    padding: '1rem',
-                    backgroundColor: 'var(--color-dark-elevated)',
-                    borderRadius: '0.375rem',
-                  }}
-                >
-                  <p style={{ color: 'var(--color-cloud)', fontSize: '0.875rem', margin: 0 }}>
-                    <Link to="/login" style={{ color: 'var(--color-metal-gold)' }}>
-                      Sign in
-                    </Link>{' '}
-                    to create your own creatures
-                  </p>
-                </div>
-              )}
-            </div>
           </CardBody>
         </Card>
       </div>

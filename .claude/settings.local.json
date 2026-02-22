@@ -93,7 +93,8 @@
       "Bash(do grep -q \"$icon\" /mnt/c/Code/AnyventureD12/data/foundry/foundry_icons_list.txt)",
       "Bash(do jq:*)",
       "Bash(if [ -f \"$file\" ])",
-      "Bash(cat:*)"
+      "Bash(cat:*)",
+      "Bash(do echo \"=== $f ===\")"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

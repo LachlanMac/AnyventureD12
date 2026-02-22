@@ -485,10 +485,18 @@ const ItemBrowser: React.FC = () => {
                       ` ${item.resolve.recovery > 0 ? '+' : ''}${item.resolve.recovery} recovery`}
                   </div>
                 )}
-                {item.movement !== 0 && (
+                {item.movement && Object.entries(item.movement).some(([, v]: [string, any]) => v?.bonus || v?.set) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
-                    <strong>Movement:</strong> {item.movement > 0 ? '+' : ''}
-                    {item.movement}
+                    <strong>Movement:</strong>{' '}
+                    {Object.entries(item.movement)
+                      .filter(([, v]: [string, any]) => v?.bonus || v?.set)
+                      .map(([k, v]: [string, any]) => {
+                        const parts: string[] = [];
+                        if (v.bonus) parts.push(`${v.bonus > 0 ? '+' : ''}${v.bonus}`);
+                        if (v.set) parts.push(`set ${v.set}`);
+                        return `${k}: ${parts.join(', ')}`;
+                      })
+                      .join(' | ')}
                   </div>
                 )}
               </div>

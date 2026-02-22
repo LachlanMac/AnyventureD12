@@ -2,6 +2,7 @@
 import Item from '../models/Item.js';
 import Creature from '../models/Creature.js';
 import Spell from '../models/Spell.js';
+import { generateFoundryId } from '../utils/foundryIdGenerator.js';
 
 // @desc    Create a new homebrew item
 // @route   POST /api/homebrew/items
@@ -16,7 +17,8 @@ export const createHomebrewItem = async (req, res) => {
       isHomebrew: true,
       creatorId: userId,
       creatorName: userName,
-      status: 'draft'
+      status: 'draft',
+      foundry_id: generateFoundryId()
     };
     
     const item = new Item(itemData);
@@ -250,19 +252,38 @@ export const voteHomebrewItem = async (req, res) => {
       return res.status(400).json({ message: 'Can only vote on published items' });
     }
     
-    // In a real app, you'd track who voted to prevent duplicates
-    // For now, just update the count
-    if (vote === 'up') {
-      item.upvotes += 1;
-    } else {
-      item.downvotes += 1;
+    // Initialize votes array if missing
+    if (!item.votes) {
+      item.votes = [];
     }
-    
+
+    // Check for existing vote by this user
+    const existingVoteIndex = item.votes.findIndex(v => v.userId === userId);
+
+    if (existingVoteIndex !== -1) {
+      const existingVote = item.votes[existingVoteIndex];
+      if (existingVote.vote === vote) {
+        // Same vote = remove it (toggle off)
+        item.votes.splice(existingVoteIndex, 1);
+      } else {
+        // Different vote = change it
+        item.votes[existingVoteIndex].vote = vote;
+      }
+    } else {
+      // New vote
+      item.votes.push({ userId, vote });
+    }
+
+    // Recalculate totals from votes array
+    item.upvotes = item.votes.filter(v => v.vote === 'up').length;
+    item.downvotes = item.votes.filter(v => v.vote === 'down').length;
+
     await item.save();
-    
-    res.json({ 
-      upvotes: item.upvotes, 
-      downvotes: item.downvotes 
+
+    res.json({
+      upvotes: item.upvotes,
+      downvotes: item.downvotes,
+      userVote: item.votes.find(v => v.userId === userId)?.vote || null
     });
   } catch (error) {
     console.error('Error voting on homebrew item:', error);
@@ -329,6 +350,7 @@ export const forkHomebrewItem = async (req, res) => {
       creatorId: req.user._id.toString(),
       creatorName: req.user.username || 'Anonymous',
       status: 'draft',
+      foundry_id: generateFoundryId(),
       parentItemId: originalItem._id,
       version: 1,
       upvotes: 0,
