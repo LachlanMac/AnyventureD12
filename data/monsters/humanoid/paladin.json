@@ -125,6 +125,32 @@
       "tier": 0
     }
   },
+  "magicSkills": {
+    "blackMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "primalMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "metaMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "whiteMagic": {
+      "talent": 3,
+      "skill": 2
+    },
+    "mysticismMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "arcaneMagic": {
+      "talent": 0,
+      "skill": 0
+    }
+  },
   "mitigation": {
     "physical": 7,
     "cold": 2,
@@ -258,6 +284,11 @@
     "Common"
   ],
   "challenge_rating": 1,
+  "spellNames": [
+    "Ward the Dead",
+    "Holy Fire",
+    "Divine Protection"
+  ],
   "source": "Official",
   "isHomebrew": false
 }

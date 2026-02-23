@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreatureSpell, CreatureCustomSpell } from '../../types/creature';
-import { formatRangeSpan } from '../../utils/rangeUtils';
+import { formatRange, formatRangeSpan } from '../../utils/rangeUtils';
 
 interface CreatureSpellCardProps {
   spell: CreatureSpell | CreatureCustomSpell;
@@ -107,7 +107,7 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
         {isRegularSpell && (
           <>
             <span style={{ color: 'var(--color-white)' }}>
-              <strong>Cast:</strong> {(spell as CreatureSpell).checkToCast}+
+              <strong>Cast:</strong> {(spell as CreatureSpell).checkToCast}
             </span>
             {(spell as CreatureSpell).damage > 0 && (
               <span style={{ color: 'var(--color-white)' }}>
@@ -115,12 +115,12 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
                 {(spell as CreatureSpell).damageType}
               </span>
             )}
-            <span style={{ color: 'var(--color-cloud)' }}>
-              Range: {(spell as CreatureSpell).range}
+            <span style={{ color: 'var(--color-white)' }}>
+              <strong>Range:</strong> {formatRange((spell as CreatureSpell).range, 'spell')}
             </span>
             {(spell as CreatureSpell).duration !== 'Instantaneous' && (
-              <span style={{ color: 'var(--color-cloud)' }}>
-                Duration: {(spell as CreatureSpell).duration}
+              <span style={{ color: 'var(--color-white)' }}>
+                <strong>Duration:</strong> {(spell as CreatureSpell).duration}
               </span>
             )}
             {(spell as CreatureSpell).concentration && (
@@ -150,13 +150,13 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
             )}
             {(spell as CreatureCustomSpell).target_defense &&
               (spell as CreatureCustomSpell).target_defense !== 'none' && (
-                <span style={{ color: 'var(--color-cloud)' }}>
-                  Target: {(spell as CreatureCustomSpell).target_defense}{' '}
+                <span style={{ color: 'var(--color-white)' }}>
+                  <strong>Target:</strong> {(spell as CreatureCustomSpell).target_defense}{' '}
                   {(spell as CreatureCustomSpell).defense_difficulty}+
                 </span>
               )}
-            <span style={{ color: 'var(--color-cloud)' }}>
-              Range:{' '}
+            <span style={{ color: 'var(--color-white)' }}>
+              <strong>Range:</strong>{' '}
               {formatRangeSpan(
                 (spell as CreatureCustomSpell).min_range,
                 (spell as CreatureCustomSpell).max_range,
@@ -166,6 +166,20 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
           </>
         )}
       </div>
+
+      {isRegularSpell && (spell as CreatureSpell).charge && (
+        <p
+          style={{
+            color: 'var(--color-cloud)',
+            margin: 0,
+            marginTop: '0.375rem',
+            lineHeight: '1.3',
+            fontSize: '0.75rem',
+          }}
+        >
+          <strong style={{ color: 'var(--color-white)' }}>Charge:</strong> {(spell as CreatureSpell).charge}
+        </p>
+      )}
 
       {isRegularSpell && (spell as CreatureSpell).components.length > 0 && (
         <div style={{ marginTop: '0.25rem', fontSize: '0.625rem', color: 'var(--color-cloud)' }}>

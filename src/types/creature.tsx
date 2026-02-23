@@ -92,8 +92,9 @@ export interface CreatureSpell {
   energy: number;
   damage: number;
   damageType?: string;
-  range: string;
+  range: number | string;
   duration: string;
+  charge?: string;
   concentration: boolean;
   reaction: boolean;
   components: string[];
@@ -111,6 +112,20 @@ export interface CreatureCustomSpell {
   defense_difficulty?: number;
   min_range: number;
   max_range: number;
+}
+
+export interface CreatureMagicSkill {
+  talent: number;
+  skill: number;
+}
+
+export interface CreatureMagicSkills {
+  blackMagic: CreatureMagicSkill;
+  primalMagic: CreatureMagicSkill;
+  metaMagic: CreatureMagicSkill;
+  whiteMagic: CreatureMagicSkill;
+  mysticismMagic: CreatureMagicSkill;
+  arcaneMagic: CreatureMagicSkill;
 }
 
 export interface CreatureMovement {
@@ -169,6 +184,7 @@ export interface Creature {
   challenge_rating: number;
   isHomebrew: boolean;
   source: string;
+  magicSkills?: CreatureMagicSkills;
   spells: CreatureSpell[];
   customSpells?: CreatureCustomSpell[];
 }

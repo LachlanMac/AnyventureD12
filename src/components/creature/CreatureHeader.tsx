@@ -82,6 +82,9 @@ const CreatureHeader: React.FC<CreatureHeaderProps> = ({ creature }) => {
             </div>
             <div style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
               {creature.energy.max}
+              <span style={{ color: creature.energy.recovery > 0 ? 'var(--color-old-gold)' : 'var(--color-cloud)', fontSize: '0.75rem', fontWeight: 'normal', marginLeft: '0.25rem' }}>
+                [+{creature.energy.recovery}]
+              </span>
             </div>
           </div>
         )}

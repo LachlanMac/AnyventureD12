@@ -929,24 +929,28 @@ const convertToFoundryFormat = (data, type) => {
         },
         magic: {
           black: {
-            value: 0,
-            talent: 0
+            value: data.magicSkills?.blackMagic?.skill ?? 0,
+            talent: data.magicSkills?.blackMagic?.talent ?? 0
           },
           primal: {
-            value: 0,
-            talent: 0
+            value: data.magicSkills?.primalMagic?.skill ?? 0,
+            talent: data.magicSkills?.primalMagic?.talent ?? 0
           },
           meta: {
-            value: 0,
-            talent: 0
+            value: data.magicSkills?.metaMagic?.skill ?? 0,
+            talent: data.magicSkills?.metaMagic?.talent ?? 0
           },
           white: {
-            value: 0,
-            talent: 0
+            value: data.magicSkills?.whiteMagic?.skill ?? 0,
+            talent: data.magicSkills?.whiteMagic?.talent ?? 0
           },
           mysticism: {
-            value: 0,
-            talent: 0
+            value: data.magicSkills?.mysticismMagic?.skill ?? 0,
+            talent: data.magicSkills?.mysticismMagic?.talent ?? 0
+          },
+          arcane: {
+            value: data.magicSkills?.arcaneMagic?.skill ?? 0,
+            talent: data.magicSkills?.arcaneMagic?.talent ?? 0
           }
         },
         crafting: {

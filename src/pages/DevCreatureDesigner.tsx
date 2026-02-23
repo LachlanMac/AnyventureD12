@@ -3,7 +3,8 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
-import { CREATURE_SUBCATEGORIES } from '../utils/creatureUtils';
+import { CREATURE_SUBCATEGORIES, MAGIC_SCHOOLS } from '../utils/creatureUtils';
+import { getDiceForSkill } from '../utils/combatUtils';
 
 interface CreatureAbility {
   name: string;
@@ -59,6 +60,24 @@ interface CreatureTrait {
   description: string;
 }
 
+interface KnownSpell {
+  name: string;
+  energyCost: number;
+  spellType: 'normal' | 'innate' | 'unique';
+  school?: string;
+  subschool?: string;
+  // Override fields shown when innate/unique
+  description?: string;
+  roll?: string;
+  damage?: string;
+  damage_extra?: string;
+  damage_type?: string;
+  target_defense?: string;
+  defense_difficulty?: number;
+  min_range?: number;
+  max_range?: number;
+}
+
 interface SkillValue {
   value: number;
   tier: number;
@@ -93,31 +112,37 @@ const subschoolMap = {
     { value: 'elemental', label: 'Elemental' },
     { value: 'nature', label: 'Nature' },
     { value: 'draconic', label: 'Draconic' },
+    { value: 'custom', label: 'Custom' },
   ],
   black: [
     { value: 'necromancy', label: 'Necromancy' },
     { value: 'witchcraft', label: 'Witchcraft' },
     { value: 'fiend', label: 'Fiend' },
+    { value: 'custom', label: 'Custom' },
   ],
   white: [
     { value: 'radiant', label: 'Radiant' },
     { value: 'protection', label: 'Protection' },
     { value: 'celestial', label: 'Celestial' },
+    { value: 'custom', label: 'Custom' },
   ],
   mysticism: [
     { value: 'spirit', label: 'Spirit' },
     { value: 'divination', label: 'Divination' },
     { value: 'cosmic', label: 'Cosmic' },
+    { value: 'custom', label: 'Custom' },
   ],
   meta: [
     { value: 'transmutation', label: 'Transmutation' },
     { value: 'illusion', label: 'Illusion' },
     { value: 'fey', label: 'Fey' },
+    { value: 'custom', label: 'Custom' },
   ],
   arcane: [
     { value: 'conjuration', label: 'Conjuration' },
     { value: 'enchantment', label: 'Enchantment' },
     { value: 'chaos', label: 'Chaos' },
+    { value: 'custom', label: 'Custom' },
   ],
 };
 
@@ -233,6 +258,17 @@ const DevCreatureDesigner: React.FC = () => {
     persuasion: { value: 0, tier: 0 },
   });
 
+  // Magic Skills
+  const defaultMagicSkills = {
+    blackMagic: { talent: 0, skill: 0 },
+    primalMagic: { talent: 0, skill: 0 },
+    metaMagic: { talent: 0, skill: 0 },
+    whiteMagic: { talent: 0, skill: 0 },
+    mysticismMagic: { talent: 0, skill: 0 },
+    arcaneMagic: { talent: 0, skill: 0 },
+  };
+  const [magicSkills, setMagicSkills] = useState({ ...defaultMagicSkills });
+
   // Defenses
   const [mitigation, setMitigation] = useState({
     physical: 0,
@@ -279,7 +315,7 @@ const DevCreatureDesigner: React.FC = () => {
   // Abilities
   const [abilities, setAbilities] = useState<CreatureAbility[]>([]);
   const [traits, setTraits] = useState<CreatureTrait[]>([]);
-  const [spellNames, setSpellNames] = useState<string[]>([]);
+  const [knownSpells, setKnownSpells] = useState<KnownSpell[]>([]);
   const [availableSpells, setAvailableSpells] = useState<any[]>([]);
   const [showSpellSelector, setShowSpellSelector] = useState(false);
   const [spellSearch, setSpellSearch] = useState('');
@@ -377,6 +413,7 @@ const DevCreatureDesigner: React.FC = () => {
         setSkills(normalizedSkills);
       }
 
+      setMagicSkills(jsonData.magicSkills || { ...defaultMagicSkills });
       setMitigation(jsonData.mitigation || mitigation);
       setDetections(jsonData.detections || detections);
       setTaming(jsonData.taming || taming);
@@ -388,13 +425,37 @@ const DevCreatureDesigner: React.FC = () => {
         setImmunities(activeImmunities);
       }
 
-      const combinedAbilities = [
-        ...(jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' })),
-        ...(jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }))
-      ];
-      setAbilities(combinedAbilities);
+      // Separate innate/unique spell-type actions into knownSpells
+      const allLoadActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' }));
+      const allLoadReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }));
+
+      const innateActions = allLoadActions.filter((a: any) => a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique'));
+      const regularActions = allLoadActions.filter((a: any) => !(a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique')));
+
+      setAbilities([...regularActions, ...allLoadReactions]);
       setTraits(jsonData.traits || []);
-      setSpellNames(jsonData.spellNames || []);
+
+      // Build knownSpells from spellNames (normal) + innate spell actions
+      const normalSpells: KnownSpell[] = (jsonData.spellNames || []).map((name: string) => ({
+        name, energyCost: 1, spellType: 'normal' as const,
+      }));
+      const innateSpells: KnownSpell[] = innateActions.map((a: any) => ({
+        name: a.name,
+        energyCost: a.cost || 1,
+        spellType: a.spellType as 'innate' | 'unique',
+        school: a.spell?.school || '',
+        subschool: a.spell?.subschool || '',
+        description: a.description || '',
+        roll: a.spell?.roll || '',
+        damage: a.spell?.damage || '',
+        damage_extra: a.spell?.damage_extra || '0',
+        damage_type: a.spell?.damage_type || 'aetheric',
+        target_defense: a.spell?.target_defense || 'evasion',
+        defense_difficulty: a.spell?.defense_difficulty || 6,
+        min_range: a.spell?.min_range ?? 0,
+        max_range: a.spell?.max_range ?? 5,
+      }));
+      setKnownSpells([...normalSpells, ...innateSpells]);
 
       setEditingFile({ category, filename });
       setShowMonsterBrowser(false);
@@ -406,8 +467,48 @@ const DevCreatureDesigner: React.FC = () => {
     }
   };
 
+  // Build save data from knownSpells: normal → spellNames, innate/unique → actions
+  const buildSpellSaveData = () => {
+    const normalSpellNames = knownSpells
+      .filter(s => s.spellType === 'normal')
+      .map(s => s.name);
+
+    const innateSpellActions = knownSpells
+      .filter(s => s.spellType !== 'normal')
+      .map(s => ({
+        name: s.name,
+        cost: s.energyCost,
+        type: 'spell' as const,
+        magic: true,
+        description: s.description || '',
+        basic: false,
+        round: false,
+        daily: false,
+        spellType: s.spellType,
+        spell: {
+          roll: s.roll || '',
+          damage: s.damage || '',
+          damage_extra: s.damage_extra || '0',
+          damage_type: s.damage_type || 'aetheric',
+          target_defense: s.target_defense || 'evasion',
+          defense_difficulty: s.defense_difficulty || 6,
+          min_range: s.min_range ?? 0,
+          max_range: s.max_range ?? 5,
+          school: s.school || '',
+          subschool: s.subschool || '',
+        },
+      }));
+
+    return { normalSpellNames, innateSpellActions };
+  };
+
   const saveMonsterFile = async () => {
     if (!editingFile) return;
+
+    // Only include magicSkills if any school has talent > 0
+    const hasMagicSkills = Object.values(magicSkills).some(s => s.talent > 0);
+
+    const { normalSpellNames, innateSpellActions } = buildSpellSaveData();
 
     const jsonData = {
       name: creatureData.name,
@@ -424,6 +525,7 @@ const DevCreatureDesigner: React.FC = () => {
       movement,
       attributes,
       skills,
+      ...(hasMagicSkills ? { magicSkills } : {}),
       mitigation,
       detections: {
         ...detections,
@@ -434,13 +536,13 @@ const DevCreatureDesigner: React.FC = () => {
         [immunity]: immunities.includes(immunity)
       }), {}),
       taming,
-      actions: abilities.filter(a => !a.reaction),
+      actions: [...abilities.filter(a => !a.reaction), ...innateSpellActions],
       reactions: abilities.filter(a => a.reaction),
       traits,
       loot: creatureData.loot,
       languages: creatureData.languages,
       challenge_rating: creatureData.challenge_rating,
-      spellNames: spellNames.length > 0 ? spellNames : undefined,
+      spellNames: normalSpellNames.length > 0 ? normalSpellNames : undefined,
       source: 'Official',
       isHomebrew: false,
     };
@@ -464,6 +566,9 @@ const DevCreatureDesigner: React.FC = () => {
       return;
     }
 
+    const hasMagicSkillsForJSON = Object.values(magicSkills).some(s => s.talent > 0);
+    const { normalSpellNames: dlNormalSpells, innateSpellActions: dlInnateActions } = buildSpellSaveData();
+
     const jsonData = {
       name: creatureData.name,
       description: creatureData.description,
@@ -479,6 +584,7 @@ const DevCreatureDesigner: React.FC = () => {
       movement,
       attributes,
       skills,
+      ...(hasMagicSkillsForJSON ? { magicSkills } : {}),
       mitigation,
       detections: {
         ...detections,
@@ -489,13 +595,13 @@ const DevCreatureDesigner: React.FC = () => {
         [immunity]: immunities.includes(immunity)
       }), {}),
       taming,
-      actions: abilities.filter(a => !a.reaction),
+      actions: [...abilities.filter(a => !a.reaction), ...dlInnateActions],
       reactions: abilities.filter(a => a.reaction),
       traits,
       loot: creatureData.loot,
       languages: creatureData.languages,
       challenge_rating: creatureData.challenge_rating,
-      spellNames: spellNames.length > 0 ? spellNames : undefined,
+      spellNames: dlNormalSpells.length > 0 ? dlNormalSpells : undefined,
       source: 'Official',
       isHomebrew: false,
     };
@@ -543,6 +649,7 @@ const DevCreatureDesigner: React.FC = () => {
         movement,
         attributes,
         skills,
+        magicSkills,
         mitigation,
         detections: {
           ...detections,
@@ -553,12 +660,12 @@ const DevCreatureDesigner: React.FC = () => {
           [immunity]: immunities.includes(immunity)
         }), {}),
         taming,
-        actions: abilities.filter(a => !a.reaction),
+        actions: [...abilities.filter(a => !a.reaction), ...buildSpellSaveData().innateSpellActions],
         reactions: abilities.filter(a => a.reaction),
         traits,
         loot: creatureData.loot,
         languages: creatureData.languages,
-        spells: [], // Empty for now, could be populated if needed
+        spells: [], // Spell references resolved server-side
       };
 
       // Make API call to convert to Foundry format
@@ -658,6 +765,7 @@ const DevCreatureDesigner: React.FC = () => {
           setSkills(skills);
         }
 
+        setMagicSkills(jsonData.magicSkills || { ...defaultMagicSkills });
         setMitigation(jsonData.mitigation || mitigation);
         setDetections(jsonData.detections || detections);
         setTaming(jsonData.taming || taming);
@@ -671,13 +779,39 @@ const DevCreatureDesigner: React.FC = () => {
         }
 
         // Convert old format to new unified abilities format
-        const combinedAbilities = [
-          ...(jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' })),
-          ...(jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }))
-        ];
+        // Filter out spell-type actions with innate/unique spellType — those go to knownSpells
+        const allActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' }));
+        const allReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }));
+
+        // Separate innate/unique spell actions into knownSpells
+        const innateSpellActions = allActions.filter((a: any) => a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique'));
+        const nonInnateActions = allActions.filter((a: any) => !(a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique')));
+
+        const combinedAbilities = [...nonInnateActions, ...allReactions];
         setAbilities(combinedAbilities);
         setTraits(jsonData.traits || []);
-        setSpellNames(jsonData.spellNames || []);
+
+        // Build knownSpells from spellNames (normal) + innate spell actions
+        const normalSpells: KnownSpell[] = (jsonData.spellNames || []).map((name: string) => ({
+          name, energyCost: 1, spellType: 'normal' as const,
+        }));
+        const innateSpells: KnownSpell[] = innateSpellActions.map((a: any) => ({
+          name: a.name,
+          energyCost: a.cost || 1,
+          spellType: a.spellType as 'innate' | 'unique',
+          school: a.spell?.school || '',
+          subschool: a.spell?.subschool || '',
+          description: a.description || '',
+          roll: a.spell?.roll || '',
+          damage: a.spell?.damage || '',
+          damage_extra: a.spell?.damage_extra || '0',
+          damage_type: a.spell?.damage_type || 'aetheric',
+          target_defense: a.spell?.target_defense || 'evasion',
+          defense_difficulty: a.spell?.defense_difficulty || 6,
+          min_range: a.spell?.min_range ?? 0,
+          max_range: a.spell?.max_range ?? 5,
+        }));
+        setKnownSpells([...normalSpells, ...innateSpells]);
 
         showSuccess('Creature data loaded from JSON!');
       } catch (err) {
@@ -727,6 +861,7 @@ const DevCreatureDesigner: React.FC = () => {
         wildcraft: { value: 0, tier: 0 }, academics: { value: 0, tier: 0 }, magic: { value: 0, tier: 0 }, medicine: { value: 0, tier: 0 },
         expression: { value: 0, tier: 0 }, presence: { value: 0, tier: 0 }, insight: { value: 0, tier: 0 }, persuasion: { value: 0, tier: 0 },
       });
+      setMagicSkills({ ...defaultMagicSkills });
       setMitigation({
         physical: 0, cold: 0, heat: 0, electric: 0,
         psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0,
@@ -742,7 +877,7 @@ const DevCreatureDesigner: React.FC = () => {
       });
       setAbilities([]);
       setTraits([]);
-      setSpellNames([]);
+      setKnownSpells([]);
       setEditingFile(null);
     }
   };
@@ -776,40 +911,35 @@ const DevCreatureDesigner: React.FC = () => {
   };
 
   const addSpellAbility = (spell: any) => {
-    const spellAbility: CreatureAbility = {
-      name: spell.name,
-      cost: spell.energy,
-      type: 'spell',
-      magic: true,
-      description: spell.description,
-      reaction: false,
-      basic: false,
-      round: false,
-      daily: false,
-      spellType: 'normal',
-      spell: {
-        roll: '2d8', // Default, user can edit
-        damage: spell.damage.toString(),
+    // Add as a known spell reference
+    if (spell.name && !knownSpells.some(s => s.name === spell.name)) {
+      setKnownSpells([...knownSpells, {
+        name: spell.name,
+        energyCost: spell.energy || 1,
+        spellType: 'normal',
+        school: spell.school || '',
+        subschool: spell.subschool || '',
+        description: spell.description || '',
+        damage: spell.damage?.toString() || '',
         damage_extra: '0',
-        damage_type: spell.damageType?.toLowerCase() || 'dark',
+        damage_type: spell.damageType?.toLowerCase() || 'aetheric',
         target_defense: 'evasion',
         defense_difficulty: 6,
         min_range: 0,
-        max_range: 3,
-        charge: spell.charge || '',
-        duration: spell.duration || 'Instantaneous',
-        range: spell.range || 'Self',
-        school: spell.school || 'primal',
-        subschool: spell.subschool || '',
-        checkToCast: spell.checkToCast || 4,
-        components: spell.components || [],
-        ritualDuration: spell.ritualDuration || '',
-        concentration: spell.concentration || false,
-        foundry_icon: spell.foundry_icon || '',
-      },
-    };
-    setAbilities([...abilities, spellAbility]);
+        max_range: 5,
+      }]);
+    }
     setShowSpellSelector(false);
+  };
+
+  const updateKnownSpell = (index: number, field: string, value: any) => {
+    const updated = [...knownSpells];
+    (updated[index] as any)[field] = value;
+    setKnownSpells(updated);
+  };
+
+  const removeKnownSpell = (index: number) => {
+    setKnownSpells(knownSpells.filter((_, i) => i !== index));
   };
 
   const removeAbility = (index: number) => {
@@ -1434,6 +1564,62 @@ const DevCreatureDesigner: React.FC = () => {
               </div>
             </div>
 
+            {/* Magic Skills */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-3">Magic Skills</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {(Object.entries(MAGIC_SCHOOLS) as [string, { label: string; color: string }][]).map(([key, { label, color }]) => {
+                  const school = magicSkills[key as keyof typeof magicSkills];
+                  const diceSize = getDiceForSkill(school.skill);
+                  const preview = school.talent > 0 ? `${school.talent}d${diceSize}` : '--';
+                  return (
+                    <div key={key} className="border border-gray-600 rounded p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="text-sm font-medium" style={{ color }}>{label}</label>
+                        <span className="text-sm font-bold text-white">{preview}</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="flex-1">
+                          <label className="block text-xs text-gray-400 mb-1">Talent (dice)</label>
+                          <select
+                            value={school.talent}
+                            onChange={(e) => setMagicSkills({
+                              ...magicSkills,
+                              [key]: { ...school, talent: parseInt(e.target.value) }
+                            })}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded text-sm"
+                          >
+                            {[0,1,2,3,4,5,6,7,8].map(v => (
+                              <option key={v} value={v}>{v}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="flex-1">
+                          <label className="block text-xs text-gray-400 mb-1">Skill (die size)</label>
+                          <select
+                            value={school.skill}
+                            onChange={(e) => setMagicSkills({
+                              ...magicSkills,
+                              [key]: { ...school, skill: parseInt(e.target.value) }
+                            })}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded text-sm"
+                          >
+                            {[
+                              { v: 0, l: 'd4' }, { v: 1, l: 'd6' }, { v: 2, l: 'd8' },
+                              { v: 3, l: 'd10' }, { v: 4, l: 'd12' }, { v: 5, l: 'd16' },
+                              { v: 6, l: 'd20' }, { v: 7, l: 'd24' }, { v: 8, l: 'd30' },
+                            ].map(({ v, l }) => (
+                              <option key={v} value={v}>{l}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
             <div className="mb-6">
               <h3 className="text-lg font-semibold mb-1">Mitigation</h3>
               <p className="text-sm text-gray-400 mb-3">Set to 25+ for immunity</p>
@@ -1568,12 +1754,208 @@ const DevCreatureDesigner: React.FC = () => {
           <CardBody>
             <h2 className="text-xl font-bold mb-4">Abilities</h2>
 
+            {/* Known Spells */}
+            <div className="mb-6">
+              <div className="flex justify-between items-center mb-3">
+                <h3 className="text-lg font-semibold">Known Spells</h3>
+                <Button onClick={() => setShowSpellSelector(true)} variant="accent">Add Spell from Compendium</Button>
+              </div>
+              {knownSpells.length > 0 ? (
+                <div className="space-y-3">
+                  {knownSpells.map((spell, index) => (
+                    <div key={index} className="border border-gray-600 rounded p-4">
+                      {/* Top row: Name, Energy Cost, Type, Remove */}
+                      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
+                        <div>
+                          <label className="block text-xs font-medium mb-1 text-gray-400">Spell Name</label>
+                          <span className="text-purple-300 font-medium">{spell.name}</span>
+                        </div>
+                        <div>
+                          <label className="block text-xs font-medium mb-1 text-gray-400">Energy Cost</label>
+                          <input
+                            type="number"
+                            min="0"
+                            value={spell.energyCost}
+                            onChange={(e) => updateKnownSpell(index, 'energyCost', parseInt(e.target.value) || 0)}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                          />
+                        </div>
+                        <div>
+                          <label className="block text-xs font-medium mb-1 text-gray-400">Type</label>
+                          <select
+                            value={spell.spellType}
+                            onChange={(e) => updateKnownSpell(index, 'spellType', e.target.value)}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                          >
+                            <option value="normal">Normal</option>
+                            <option value="innate">Innate</option>
+                            <option value="unique">Unique</option>
+                          </select>
+                        </div>
+                        <div className="flex items-end">
+                          <Button onClick={() => removeKnownSpell(index)} variant="danger" size="sm">Remove</Button>
+                        </div>
+                      </div>
+
+                      {/* Expanded fields for innate/unique spells */}
+                      {spell.spellType !== 'normal' && (
+                        <div className="border-t border-gray-600 pt-4 mt-4">
+                          <textarea
+                            placeholder="Spell description"
+                            value={spell.description || ''}
+                            onChange={(e) => updateKnownSpell(index, 'description', e.target.value)}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded mb-4"
+                            rows={2}
+                          />
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">School</label>
+                              <select
+                                value={spell.school || 'primal'}
+                                onChange={(e) => {
+                                  updateKnownSpell(index, 'school', e.target.value);
+                                  const firstSub = subschoolMap[e.target.value as keyof typeof subschoolMap]?.[0]?.value || '';
+                                  updateKnownSpell(index, 'subschool', firstSub);
+                                }}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              >
+                                <option value="primal">Primal</option>
+                                <option value="black">Black</option>
+                                <option value="white">White</option>
+                                <option value="mysticism">Mysticism</option>
+                                <option value="meta">Meta</option>
+                                <option value="arcane">Arcane</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Subschool</label>
+                              <select
+                                value={spell.subschool || ''}
+                                onChange={(e) => updateKnownSpell(index, 'subschool', e.target.value)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              >
+                                {(subschoolMap[spell.school as keyof typeof subschoolMap] || subschoolMap.primal).map((sub) => (
+                                  <option key={sub.value} value={sub.value}>{sub.label}</option>
+                                ))}
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Roll Formula</label>
+                              <input
+                                type="text"
+                                placeholder="e.g., 3d10"
+                                value={spell.roll || ''}
+                                onChange={(e) => updateKnownSpell(index, 'roll', e.target.value)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              />
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Damage</label>
+                              <input
+                                type="text"
+                                placeholder="Damage"
+                                value={spell.damage || ''}
+                                onChange={(e) => updateKnownSpell(index, 'damage', e.target.value)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Extra Damage</label>
+                              <input
+                                type="text"
+                                placeholder="Extra damage"
+                                value={spell.damage_extra || '0'}
+                                onChange={(e) => updateKnownSpell(index, 'damage_extra', e.target.value)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              />
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Damage Type</label>
+                              <select
+                                value={spell.damage_type || 'aetheric'}
+                                onChange={(e) => updateKnownSpell(index, 'damage_type', e.target.value)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              >
+                                <option value="physical">Physical</option>
+                                <option value="heat">Heat</option>
+                                <option value="cold">Cold</option>
+                                <option value="electric">Electric</option>
+                                <option value="dark">Dark</option>
+                                <option value="divine">Divine</option>
+                                <option value="aetheric">Aetheric</option>
+                                <option value="psychic">Psychic</option>
+                                <option value="toxic">Toxic</option>
+                              </select>
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-4">
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Target Defense</label>
+                              <select
+                                value={spell.target_defense || 'evasion'}
+                                onChange={(e) => updateKnownSpell(index, 'target_defense', e.target.value)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              >
+                                <option value="evasion">Evasion</option>
+                                <option value="deflection">Deflection</option>
+                                <option value="resilience">Resilience</option>
+                                <option value="none">None</option>
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Defense Difficulty</label>
+                              <input
+                                type="number"
+                                min="0"
+                                value={spell.defense_difficulty ?? 6}
+                                onChange={(e) => updateKnownSpell(index, 'defense_difficulty', parseInt(e.target.value) || 0)}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              />
+                            </div>
+                          </div>
+                          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Min Range</label>
+                              <select
+                                value={spell.min_range ?? 0}
+                                onChange={(e) => updateKnownSpell(index, 'min_range', parseInt(e.target.value))}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              >
+                                {getRangeOptions().map(option => (
+                                  <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                              </select>
+                            </div>
+                            <div>
+                              <label className="block text-xs font-medium mb-1 text-gray-400">Max Range</label>
+                              <select
+                                value={spell.max_range ?? 5}
+                                onChange={(e) => updateKnownSpell(index, 'max_range', parseInt(e.target.value))}
+                                className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                              >
+                                {getRangeOptions().map(option => (
+                                  <option key={option.value} value={option.value}>{option.label}</option>
+                                ))}
+                              </select>
+                            </div>
+                          </div>
+                        </div>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              ) : (
+                <p className="text-sm text-gray-400">No spells added. Use "Add Spell from Compendium" to reference existing spells.</p>
+              )}
+            </div>
+
             <div className="mb-6">
               <div className="flex justify-between items-center mb-3">
                 <h3 className="text-lg font-semibold">All Abilities</h3>
                 <div className="flex gap-2">
                   <Button onClick={addAbility}>Add Ability</Button>
-                  <Button onClick={() => setShowSpellSelector(true)} variant="accent">Add Spell</Button>
                 </div>
               </div>
 

@@ -5,6 +5,7 @@ import Button from '../components/ui/Button';
 import CreatureHeader from '../components/creature/CreatureHeader';
 import CreatureStatGrid from '../components/creature/CreatureStatGrid';
 import MitigationGrid from '../components/creature/MitigationGrid';
+import CreatureCastingAbilities from '../components/creature/CreatureCastingAbilities';
 import CreatureActionCard from '../components/creature/CreatureActionCard';
 import CreatureReactionCard from '../components/creature/CreatureReactionCard';
 import CreatureSpellCard from '../components/creature/CreatureSpellCard';
@@ -79,6 +80,7 @@ const CreatureDetail: React.FC = () => {
               <CreatureHeader creature={creature} />
               <CreatureStatGrid attributes={creature.attributes} skills={creature.skills} />
               <MitigationGrid mitigation={creature.mitigation} />
+              <CreatureCastingAbilities magicSkills={creature.magicSkills} />
             </CardBody>
           </Card>
 

@@ -412,6 +412,19 @@ const Bestiary: React.FC = () => {
                                 {creature.health?.max || 0}
                               </span>
                             </div>
+                            {creature.tier !== 'minion' && creature.tier !== 'grunt' && (
+                              <div>
+                                <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>
+                                  Energy:{' '}
+                                </span>
+                                <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                                  {creature.energy?.max || 0}
+                                </span>
+                                <span style={{ color: (creature.energy?.recovery || 0) > 0 ? 'var(--color-old-gold)' : 'var(--color-cloud)', fontSize: '0.675rem' }}>
+                                  {' '}[+{creature.energy?.recovery || 0}]
+                                </span>
+                              </div>
+                            )}
                             {(creature.resolve?.max || 0) > 0 && (
                               <div>
                                 <span style={{ color: 'var(--color-cloud)', fontSize: '0.75rem' }}>

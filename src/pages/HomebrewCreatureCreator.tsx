@@ -5,7 +5,8 @@ import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
 import type { CreatureMovement } from '../types/creature';
-import { CREATURE_SUBCATEGORIES } from '../utils/creatureUtils';
+import { CREATURE_SUBCATEGORIES, MAGIC_SCHOOLS } from '../utils/creatureUtils';
+import { getDiceForSkill } from '../utils/combatUtils';
 
 interface CreatureAction {
   name: string;
@@ -198,6 +199,17 @@ const HomebrewCreatureCreator: React.FC = () => {
     persuasion: 0,
   });
 
+  // Magic Skills
+  const defaultMagicSkills = {
+    blackMagic: { talent: 0, skill: 0 },
+    primalMagic: { talent: 0, skill: 0 },
+    metaMagic: { talent: 0, skill: 0 },
+    whiteMagic: { talent: 0, skill: 0 },
+    mysticismMagic: { talent: 0, skill: 0 },
+    arcaneMagic: { talent: 0, skill: 0 },
+  };
+  const [magicSkills, setMagicSkills] = useState({ ...defaultMagicSkills });
+
   // Defenses
   const [mitigation, setMitigation] = useState({
     physical: 0,
@@ -304,6 +316,7 @@ const HomebrewCreatureCreator: React.FC = () => {
       });
       setAttributes(creature.attributes || attributes);
       setSkills(creature.skills || skills);
+      setMagicSkills(creature.magicSkills || { ...defaultMagicSkills });
       setMitigation(creature.mitigation || mitigation);
       setDetections(creature.detections || detections);
       setActions(creature.actions || []);
@@ -337,6 +350,9 @@ const HomebrewCreatureCreator: React.FC = () => {
     setSaving(true);
 
     try {
+      // Only include magicSkills if any school has talent > 0
+      const hasMagicSkillsData = Object.values(magicSkills).some(s => s.talent > 0);
+
       const submitData = {
         ...creatureData,
         health: resources.health,
@@ -345,6 +361,7 @@ const HomebrewCreatureCreator: React.FC = () => {
         movement: { ...resources.movement },
         attributes,
         skills,
+        ...(hasMagicSkillsData ? { magicSkills } : {}),
         mitigation,
         detections,
         actions,
@@ -1638,6 +1655,100 @@ const HomebrewCreatureCreator: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+
+              {/* Magic Skills */}
+              <h3
+                style={{
+                  color: 'var(--color-old-gold)',
+                  fontSize: '1.25rem',
+                  marginBottom: '1rem',
+                  marginTop: '2rem',
+                }}
+              >
+                Magic Skills
+              </h3>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))',
+                  gap: '1rem',
+                  marginBottom: '1rem',
+                }}
+              >
+                {(Object.entries(MAGIC_SCHOOLS) as [string, { label: string; color: string }][]).map(([key, { label, color }]) => {
+                  const school = magicSkills[key as keyof typeof magicSkills];
+                  const diceSize = getDiceForSkill(school.skill);
+                  const preview = school.talent > 0 ? `${school.talent}d${diceSize}` : '--';
+                  return (
+                    <div
+                      key={key}
+                      style={{
+                        padding: '0.75rem',
+                        backgroundColor: 'var(--color-dark-surface)',
+                        border: '1px solid var(--color-dark-border)',
+                        borderRadius: '0.375rem',
+                      }}
+                    >
+                      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: '0.5rem' }}>
+                        <label style={{ color, fontSize: '0.875rem', fontWeight: 500 }}>{label}</label>
+                        <span style={{ color: 'var(--color-white)', fontWeight: 'bold', fontSize: '0.875rem' }}>{preview}</span>
+                      </div>
+                      <div style={{ display: 'flex', gap: '0.5rem' }}>
+                        <div style={{ flex: 1 }}>
+                          <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Talent</label>
+                          <select
+                            value={school.talent}
+                            onChange={(e) => setMagicSkills({
+                              ...magicSkills,
+                              [key]: { ...school, talent: parseInt(e.target.value) }
+                            })}
+                            style={{
+                              width: '100%',
+                              padding: '0.5rem',
+                              backgroundColor: 'var(--color-dark-surface)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.375rem',
+                              color: 'var(--color-white)',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            {[0,1,2,3,4,5,6,7,8].map(v => (
+                              <option key={v} value={v}>{v}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div style={{ flex: 1 }}>
+                          <label style={{ display: 'block', fontSize: '0.75rem', color: 'var(--color-cloud)', marginBottom: '0.25rem' }}>Skill</label>
+                          <select
+                            value={school.skill}
+                            onChange={(e) => setMagicSkills({
+                              ...magicSkills,
+                              [key]: { ...school, skill: parseInt(e.target.value) }
+                            })}
+                            style={{
+                              width: '100%',
+                              padding: '0.5rem',
+                              backgroundColor: 'var(--color-dark-surface)',
+                              border: '1px solid var(--color-dark-border)',
+                              borderRadius: '0.375rem',
+                              color: 'var(--color-white)',
+                              fontSize: '0.875rem',
+                            }}
+                          >
+                            {[
+                              { v: 0, l: 'd4' }, { v: 1, l: 'd6' }, { v: 2, l: 'd8' },
+                              { v: 3, l: 'd10' }, { v: 4, l: 'd12' }, { v: 5, l: 'd16' },
+                              { v: 6, l: 'd20' }, { v: 7, l: 'd24' }, { v: 8, l: 'd30' },
+                            ].map(({ v, l }) => (
+                              <option key={v} value={v}>{l}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
           )}

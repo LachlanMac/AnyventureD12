@@ -95,7 +95,22 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
                 fontWeight: 'normal',
               }}
             >
-              1/round
+              round
+            </span>
+          )}
+          {reaction.daily && (
+            <span
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                backgroundColor: 'rgba(200, 170, 80, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: '1px solid rgba(200, 170, 80, 0.3)',
+                fontWeight: 'normal',
+              }}
+            >
+              daily
             </span>
           )}
         </h3>

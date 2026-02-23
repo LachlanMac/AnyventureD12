@@ -125,6 +125,14 @@
       "tier": 0
     }
   },
+  "magicSkills": {
+    "blackMagic": { "talent": 5, "skill": 5 },
+    "primalMagic": { "talent": 0, "skill": 0 },
+    "metaMagic": { "talent": 3, "skill": 3 },
+    "whiteMagic": { "talent": 0, "skill": 0 },
+    "mysticismMagic": { "talent": 0, "skill": 0 },
+    "arcaneMagic": { "talent": 0, "skill": 0 }
+  },
   "mitigation": {
     "physical": 4,
     "cold": 3,

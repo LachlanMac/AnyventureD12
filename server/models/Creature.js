@@ -315,6 +315,34 @@ const creatureSchema = new mongoose.Schema({
     }
   },
 
+  // Magic Skills
+  magicSkills: {
+    blackMagic: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    primalMagic: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    metaMagic: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    whiteMagic: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    mysticismMagic: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    arcaneMagic: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+  },
+
   // Defenses
   mitigation: {
     physical: { type: Number, min: 0, default: 0 },
