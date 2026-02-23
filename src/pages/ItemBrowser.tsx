@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { Item, Damage, ArmorData, Character } from '../types/character';
 import { useToast } from '../context/ToastContext';
+import { useAuth } from '../context/AuthContext';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import PurchaseItemModal from '../components/character/view/PurchaseItemModal';
@@ -74,6 +75,7 @@ const renderEnergyStars = (energy: number | undefined): React.ReactElement => {
 const ItemBrowser: React.FC = () => {
   const { characterId } = useParams<{ characterId: string }>();
   const { showSuccess, showError } = useToast();
+  const { user } = useAuth();
 
   const [items, setItems] = useState<APIItem[]>([]);
   const [selectedItem, setSelectedItem] = useState<APIItem | null>(null);
@@ -89,7 +91,7 @@ const ItemBrowser: React.FC = () => {
   const [itemToPurchase, setItemToPurchase] = useState<APIItem | null>(null);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [itemToAdd, setItemToAdd] = useState<APIItem | null>(null);
-  const [sourceFilter, setSourceFilter] = useState<'core' | 'homebrew' | 'all'>('core');
+  const [sourceFilter, setSourceFilter] = useState<'core' | 'homebrew' | 'mine'>('core');
 
   // Helper function to check if a skill bonus has any non-zero values
   const hasSkillBonus = (skill: any): boolean => {
@@ -144,20 +146,13 @@ const ItemBrowser: React.FC = () => {
           if (!res.ok) throw new Error('Failed to fetch homebrew items');
           const data = await res.json();
           itemsData = (data.items || data).map((item: any) => ({ ...item, isHomebrew: true }));
-        } else {
-          // 'all' — fetch both in parallel
-          const [coreRes, homebrewRes] = await Promise.all([
-            fetch('/api/items'),
-            fetch('/api/homebrew/items?status=published&limit=500', { credentials: 'include' }),
-          ]);
-          if (!coreRes.ok) throw new Error('Failed to fetch items');
-          const coreData = await coreRes.json();
-          let homebrewData: APIItem[] = [];
-          if (homebrewRes.ok) {
-            const hbJson = await homebrewRes.json();
-            homebrewData = (hbJson.items || hbJson).map((item: any) => ({ ...item, isHomebrew: true }));
-          }
-          itemsData = [...coreData, ...homebrewData];
+        } else if (sourceFilter === 'mine') {
+          const res = await fetch('/api/homebrew/items?status=mine&limit=500', {
+            credentials: 'include',
+          });
+          if (!res.ok) throw new Error('Failed to fetch your items');
+          const data = await res.json();
+          itemsData = (data.items || data).map((item: any) => ({ ...item, isHomebrew: true }));
         }
         setItems(itemsData);
 
@@ -588,6 +583,13 @@ const ItemBrowser: React.FC = () => {
                           item.primary.max_range || 1
                         )}
                       </div>
+
+                      {/* Ammo Capacity */}
+                      {item.primary.ammo_capacity !== undefined && item.primary.ammo_capacity > 0 && (
+                        <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
+                          <strong>Ammo Capacity:</strong> {item.primary.ammo_capacity} (Reload)
+                        </div>
+                      )}
                     </>
                   )}
 
@@ -1158,30 +1160,33 @@ const ItemBrowser: React.FC = () => {
               border: '1px solid var(--color-dark-border)',
             }}
           >
-            {(['core', 'homebrew', 'all'] as const).map((source) => (
+            {(
+              [
+                { key: 'core' as const, label: 'Core', color: 'var(--color-metal-gold)' },
+                { key: 'homebrew' as const, label: 'Homebrew', color: 'var(--color-sat-purple)' },
+                ...(user
+                  ? [{ key: 'mine' as const, label: 'My Items', color: 'var(--color-stormy)' }]
+                  : []),
+              ]
+            ).map(({ key, label, color }) => (
               <button
-                key={source}
-                onClick={() => setSourceFilter(source)}
+                key={key}
+                onClick={() => setSourceFilter(key)}
                 style={{
                   padding: '0.75rem 1rem',
                   backgroundColor:
-                    sourceFilter === source
-                      ? source === 'homebrew'
-                        ? 'var(--color-sat-purple)'
-                        : 'var(--color-metal-gold)'
-                      : 'var(--color-dark-elevated)',
+                    sourceFilter === key ? color : 'var(--color-dark-elevated)',
                   color:
-                    sourceFilter === source
+                    sourceFilter === key
                       ? 'var(--color-white)'
                       : 'var(--color-cloud)',
                   border: 'none',
                   cursor: 'pointer',
                   fontSize: '0.875rem',
-                  fontWeight: sourceFilter === source ? 'bold' : 'normal',
-                  textTransform: 'capitalize',
+                  fontWeight: sourceFilter === key ? 'bold' : 'normal',
                 }}
               >
-                {source}
+                {label}
               </button>
             ))}
           </div>

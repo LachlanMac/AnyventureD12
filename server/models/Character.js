@@ -535,7 +535,9 @@ const CharacterSchema = new Schema({
   },
   moduleBonuses: Schema.Types.Mixed
 }, {
-  timestamps: true
+  timestamps: true,
+  toObject: { flattenMaps: true },
+  toJSON: { flattenMaps: true }
 });
 
 

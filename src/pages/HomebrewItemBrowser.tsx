@@ -134,6 +134,37 @@ const HomebrewItemBrowser: React.FC = () => {
     }
   };
 
+  const handleToggleVisibility = async (itemId: string) => {
+    if (!user) return;
+
+    try {
+      const response = await fetch(`/api/homebrew/items/${itemId}/toggle-visibility`, {
+        method: 'POST',
+        credentials: 'include',
+      });
+
+      if (response.ok) {
+        const updatedItem = await response.json();
+        setItems(
+          items.map((item) =>
+            item._id === itemId
+              ? { ...item, status: updatedItem.status, publishedAt: updatedItem.publishedAt }
+              : item
+          )
+        );
+        showSuccess(
+          updatedItem.status === 'published' ? 'Item is now public!' : 'Item is now private.'
+        );
+      } else {
+        const data = await response.json();
+        showError(data.message || 'Failed to toggle visibility');
+      }
+    } catch (err) {
+      console.error('Failed to toggle visibility:', err);
+      showError('Failed to toggle visibility. Please try again.');
+    }
+  };
+
   const handleDelete = async (itemId: string) => {
     if (
       !user ||
@@ -616,6 +647,15 @@ const HomebrewItemBrowser: React.FC = () => {
                             onClick={() => handlePublish(item._id)}
                           >
                             Publish
+                          </Button>
+                        )}
+                        {(item.status === 'published' || item.status === 'private') && (
+                          <Button
+                            variant={item.status === 'published' ? 'outline' : 'accent'}
+                            size="sm"
+                            onClick={() => handleToggleVisibility(item._id)}
+                          >
+                            {item.status === 'published' ? 'Make Private' : 'Make Public'}
                           </Button>
                         )}
                         <Button

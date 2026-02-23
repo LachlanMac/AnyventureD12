@@ -42,7 +42,7 @@ const CreatureHeader: React.FC<CreatureHeaderProps> = ({ creature }) => {
               textTransform: 'capitalize',
             }}
           >
-            {creature.size} {creature.type}
+            {creature.size}{creature.subcategory ? ` ${creature.subcategory}` : ''} {creature.type}
           </span>
           {(creature.tier === 'elite' || creature.tier === 'legend') && (
             <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>

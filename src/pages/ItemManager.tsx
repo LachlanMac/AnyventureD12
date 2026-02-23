@@ -123,25 +123,12 @@ const ItemManager: React.FC = () => {
   ];
 
   const immunityTypes = [
-    'afraid',
-    'bleeding',
-    'blinded',
-    'charmed',
-    'confused',
-    'dazed',
-    'diseased',
-    'exhausted',
-    'frightened',
-    'grappled',
-    'incapacitated',
-    'invisible',
-    'paralyzed',
-    'petrified',
-    'poisoned',
-    'prone',
-    'restrained',
-    'stunned',
-    'unconscious',
+    // Mental conditions (9)
+    'afraid', 'alert', 'broken', 'charmed', 'confused', 'dazed',
+    'maddened', 'numbed', 'stunned',
+    // Physical conditions (13)
+    'bleeding', 'blinded', 'deafened', 'ignited', 'impaired', 'incapacitated',
+    'muted', 'obscured', 'poisoned', 'prone', 'stasis', 'unconscious', 'winded',
   ];
 
   useEffect(() => {

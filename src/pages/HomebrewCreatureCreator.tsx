@@ -5,6 +5,7 @@ import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
 import type { CreatureMovement } from '../types/creature';
+import { CREATURE_SUBCATEGORIES } from '../utils/creatureUtils';
 
 interface CreatureAction {
   name: string;
@@ -143,6 +144,7 @@ const HomebrewCreatureCreator: React.FC = () => {
       | 'fey'
       | 'elemental'
       | 'beast',
+    subcategory: '',
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
     languages: [] as string[],
@@ -283,6 +285,7 @@ const HomebrewCreatureCreator: React.FC = () => {
         tactics: creature.tactics,
         tier: creature.tier,
         type: creature.type,
+        subcategory: creature.subcategory || '',
         size: creature.size,
         challenge_rating: creature.challenge_rating,
         languages: creature.languages || [],
@@ -750,9 +753,10 @@ const HomebrewCreatureCreator: React.FC = () => {
                   </label>
                   <select
                     value={creatureData.type}
-                    onChange={(e) =>
-                      setCreatureData((prev) => ({ ...prev, type: e.target.value as any }))
-                    }
+                    onChange={(e) => {
+                      const newType = e.target.value as any;
+                      setCreatureData((prev) => ({ ...prev, type: newType, subcategory: CREATURE_SUBCATEGORIES[newType] ? prev.subcategory : '' }));
+                    }}
                     style={{
                       width: '100%',
                       padding: '0.75rem',
@@ -773,6 +777,39 @@ const HomebrewCreatureCreator: React.FC = () => {
                     <option value="elemental">Elemental</option>
                   </select>
                 </div>
+
+                {CREATURE_SUBCATEGORIES[creatureData.type] && (
+                  <div>
+                    <label
+                      style={{
+                        color: 'var(--color-white)',
+                        display: 'block',
+                        marginBottom: '0.5rem',
+                      }}
+                    >
+                      Subcategory
+                    </label>
+                    <select
+                      value={creatureData.subcategory}
+                      onChange={(e) =>
+                        setCreatureData((prev) => ({ ...prev, subcategory: e.target.value }))
+                      }
+                      style={{
+                        width: '100%',
+                        padding: '0.75rem',
+                        backgroundColor: 'var(--color-dark-surface)',
+                        border: '1px solid var(--color-dark-border)',
+                        borderRadius: '0.375rem',
+                        color: 'var(--color-white)',
+                      }}
+                    >
+                      <option value="">None</option>
+                      {CREATURE_SUBCATEGORIES[creatureData.type].map((sub) => (
+                        <option key={sub} value={sub}>{sub}</option>
+                      ))}
+                    </select>
+                  </div>
+                )}
 
                 <div>
                   <label
@@ -1623,6 +1660,9 @@ const HomebrewCreatureCreator: React.FC = () => {
               >
                 Damage Mitigation
               </h3>
+              <p style={{ color: 'var(--color-cloud)', fontSize: '0.8rem', marginBottom: '0.75rem', marginTop: '-0.5rem' }}>
+                Set to 25+ for immunity
+              </p>
               <div
                 style={{
                   display: 'grid',

@@ -365,7 +365,7 @@ const Bestiary: React.FC = () => {
                                   textTransform: 'capitalize',
                                 }}
                               >
-                                {creature.size} {creature.type}
+                                {creature.size} {creature.subcategory ? `${creature.subcategory} ` : ''}{creature.type}
                               </span>
                             </div>
                           </div>

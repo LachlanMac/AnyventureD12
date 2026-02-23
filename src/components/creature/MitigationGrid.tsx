@@ -17,7 +17,8 @@ const MitigationGrid: React.FC<MitigationGridProps> = ({ mitigation }) => {
         }}
       >
         {DAMAGE_TYPES.map((type) => {
-          const mit = getMitigationFormat(mitigation[type] || 0);
+          const rawValue = mitigation[type] ?? 0;
+          const mit = getMitigationFormat(rawValue);
           return (
             <div key={type}>
               <div
@@ -30,47 +31,66 @@ const MitigationGrid: React.FC<MitigationGridProps> = ({ mitigation }) => {
               >
                 {type}
               </div>
-              <div
-                style={{
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
-                  fontSize: '0.75rem',
-                  fontWeight: 'bold',
-                  borderRadius: '0.25rem',
-                  overflow: 'hidden',
-                  height: '1.25rem',
-                }}
-              >
+              {mit.immune ? (
                 <div
                   style={{
-                    backgroundColor: 'var(--color-dark-elevated)',
-                    color: 'var(--color-cloud)',
-                    padding: '0 0.25rem',
-                    flex: 1,
-                    height: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    fontSize: '0.625rem',
+                    fontWeight: 'bold',
+                    borderRadius: '0.25rem',
+                    height: '1.25rem',
+                    backgroundColor: 'rgba(85, 65, 130, 0.3)',
+                    color: 'var(--color-old-gold)',
+                    letterSpacing: '0.05em',
                   }}
                 >
-                  {mit.half}
+                  IMMUNE
                 </div>
+              ) : (
                 <div
                   style={{
-                    backgroundColor: 'rgba(85, 65, 130, 0.15)',
-                    color: 'var(--color-white)',
-                    padding: '0 0.25rem',
-                    flex: 1,
-                    height: '100%',
                     display: 'flex',
                     alignItems: 'center',
                     justifyContent: 'center',
+                    fontSize: '0.75rem',
+                    fontWeight: 'bold',
+                    borderRadius: '0.25rem',
+                    overflow: 'hidden',
+                    height: '1.25rem',
                   }}
                 >
-                  {mit.full}
+                  <div
+                    style={{
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      color: 'var(--color-cloud)',
+                      padding: '0 0.25rem',
+                      flex: 1,
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {mit.half}
+                  </div>
+                  <div
+                    style={{
+                      backgroundColor: 'rgba(85, 65, 130, 0.15)',
+                      color: 'var(--color-white)',
+                      padding: '0 0.25rem',
+                      flex: 1,
+                      height: '100%',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'center',
+                    }}
+                  >
+                    {mit.full}
+                  </div>
                 </div>
-              </div>
+              )}
             </div>
           );
         })}

@@ -230,6 +230,40 @@ export const publishHomebrewItem = async (req, res) => {
   }
 };
 
+// @desc    Toggle homebrew item visibility (published <-> private)
+// @route   POST /api/homebrew/items/:id/toggle-visibility
+// @access  Private (creator only)
+export const toggleHomebrewVisibility = async (req, res) => {
+  try {
+    const item = await Item.findById(req.params.id);
+
+    if (!item || !item.isHomebrew) {
+      return res.status(404).json({ message: 'Homebrew item not found' });
+    }
+
+    // Check ownership
+    if (item.creatorId !== req.user._id.toString()) {
+      return res.status(403).json({ message: 'Not authorized' });
+    }
+
+    if (item.status === 'published') {
+      item.status = 'private';
+      item.publishedAt = null;
+    } else if (item.status === 'private' || item.status === 'draft') {
+      item.status = 'published';
+      item.publishedAt = new Date();
+    } else {
+      return res.status(400).json({ message: `Cannot toggle visibility for items with status: ${item.status}` });
+    }
+
+    await item.save();
+    res.json(item);
+  } catch (error) {
+    console.error('Error toggling homebrew visibility:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // @desc    Vote on a homebrew item
 // @route   POST /api/homebrew/items/:id/vote
 // @access  Private

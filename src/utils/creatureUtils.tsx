@@ -22,6 +22,12 @@ export const CREATURE_TYPE_ICONS = {
   elemental: '🔥',
 } as const;
 
+export const CREATURE_SUBCATEGORIES: Record<string, string[]> = {
+  undead: ['Risen', 'Incorporeal', 'Living Dead'],
+  dark: ['Devil', 'Daemon', 'Void'],
+  divine: ['Ardent', 'Revenant'],
+} as const;
+
 export const DAMAGE_TYPES = [
   'physical',
   'heat',
@@ -51,10 +57,11 @@ export function getTypeIcon(type: string): string {
 /**
  * Format mitigation values for display
  */
-export function getMitigationFormat(value: number): { half: string; full: string } {
-  if (value === 0) return { half: '0', full: '0' };
+export function getMitigationFormat(value: number): { half: string; full: string; immune: boolean } {
+  if (value >= 25) return { half: 'IMM', full: 'IMM', immune: true };
+  if (value === 0) return { half: '0', full: '0', immune: false };
   const half = Math.ceil(value / 2);
-  return { half: half.toString(), full: value.toString() };
+  return { half: half.toString(), full: value.toString(), immune: false };
 }
 
 /**

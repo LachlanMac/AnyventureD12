@@ -8,6 +8,7 @@ import {
   updateHomebrewItem,
   deleteHomebrewItem,
   publishHomebrewItem,
+  toggleHomebrewVisibility,
   voteHomebrewItem,
   reportHomebrewItem,
   forkHomebrewItem,
@@ -26,6 +27,7 @@ router.post('/items', requirePermanentUser, createHomebrewItem);
 router.put('/items/:id', requirePermanentUser, updateHomebrewItem);
 router.delete('/items/:id', requirePermanentUser, deleteHomebrewItem);
 router.post('/items/:id/publish', requirePermanentUser, publishHomebrewItem);
+router.post('/items/:id/toggle-visibility', requirePermanentUser, toggleHomebrewVisibility);
 router.post('/items/:id/vote', requirePermanentUser, voteHomebrewItem);
 router.post('/items/:id/report', requirePermanentUser, reportHomebrewItem);
 router.post('/items/:id/fork', requirePermanentUser, forkHomebrewItem);

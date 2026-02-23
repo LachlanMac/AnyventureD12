@@ -1,0 +1,286 @@
+{
+  "name": "Wraith",
+  "description": "A wraith is the remnant of a creature consumed by anguish, rage, or a powerful death curse. It exists as a tear between the material world and the spectral plane, drawn toward the living with a cold, purposeless hatred. Wraiths cannot be bargained with and do not remember who they were. Their presence chills the air and extinguishes small flames.",
+  "tactics": "The wraith begins incorporeal, stalking the party unseen. It manifests adjacent to the most isolated target and opens with Wail of the Forsaken to inflict afraid on as many creatures as possible, then follows up with Drain Life against an afraid target to recover energy. On subsequent turns it uses Spectral Grasp on weakened targets. If threatened by divine damage or silvered weapons, it uses Phase Step to escape back to incorporeal form and repositions before manifesting again.",
+  "tier": "standard",
+  "type": "undead",
+  "subcategory": "Incorporeal",
+  "size": "medium",
+  "foundry_portrait": "wraith.png",
+  "health": {
+    "max": 28,
+    "current": 28
+  },
+  "energy": {
+    "max": 12,
+    "current": 12,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": 0,
+    "climb": 0,
+    "swim": 0,
+    "fly": 6
+  },
+  "attributes": {
+    "physique": {
+      "talent": 1
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 3
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 0,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 0,
+      "tier": 0
+    },
+    "might": {
+      "value": 0,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 2,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 2,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 4,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 2,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 4,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 3,
+      "tier": 0
+    },
+    "senses": {
+      "value": 3,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": -1,
+      "tier": 0
+    },
+    "academics": {
+      "value": 0,
+      "tier": 0
+    },
+    "magic": {
+      "value": 3,
+      "tier": 0
+    },
+    "medicine": {
+      "value": -1,
+      "tier": 0
+    },
+    "expression": {
+      "value": -1,
+      "tier": 0
+    },
+    "presence": {
+      "value": 3,
+      "tier": 0
+    },
+    "insight": {
+      "value": 2,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": -1,
+      "tier": 0
+    }
+  },
+  "mitigation": {
+    "physical": 0,
+    "cold": 3,
+    "heat": 3,
+    "electric": 3,
+    "psychic": 25,
+    "dark": 5,
+    "divine": 0,
+    "aetheric": 2,
+    "toxic": 25
+  },
+  "detections": {
+    "normal": 0,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 6,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 6
+  },
+  "immunities": {
+    "afraid": true,
+    "alert": false,
+    "broken": false,
+    "charmed": true,
+    "confused": false,
+    "dazed": true,
+    "maddened": false,
+    "numbed": false,
+    "stunned": true,
+    "bleeding": true,
+    "blinded": true,
+    "deafened": false,
+    "ignited": true,
+    "impaired": true,
+    "incapacitated": false,
+    "muted": false,
+    "obscured": false,
+    "poisoned": true,
+    "prone": true,
+    "stasis": false,
+    "unconscious": true,
+    "winded": true
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Manifest",
+      "cost": 1,
+      "type": "utility",
+      "magic": false,
+      "description": "While in their incorporeal form, the wraith forces itself into partial material existence and enters their manifested form. At the end of each turn manifested, the wraith must makes a resilience check of 4 or higher or immediately enter their incorporeal form. ",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal"
+    },
+    {
+      "name": "Spectral Grasp",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "While in their manifested form, the wraith rakes a spectral hand through a creature, dealing cold damage.",
+      "reaction": false,
+      "basic": true,
+      "round": false,
+      "daily": false,
+      "spellType": "innate",
+      "attack": {
+        "roll": "3d8",
+        "damage": "3",
+        "damage_extra": "3",
+        "damage_type": "cold",
+        "category": "pierce",
+        "min_range": 0,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Wail of the Forsaken",
+      "cost": 3,
+      "type": "utility",
+      "magic": false,
+      "description": "While in their manifested form, the wraith releases a shriek of pure despair. All creatures within a very short (5 unit) radius that can hear the wraith take 8 psychic damage and must make a resilience check of 7 or gain the afraid condition.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "spellType": "innate",
+      "spell": {
+        "damage": "4",
+        "damage_type": "psychic",
+        "target_defense": "resilience",
+        "defense_difficulty": 7,
+        "min_range": 0,
+        "max_range": 5,
+        "school": "black",
+        "subschool": "necromancy"
+      }
+    },
+    {
+      "name": "Drain Life",
+      "cost": 2,
+      "type": "utility",
+      "magic": false,
+      "description": "While in their manifested form, the wraith tears at a creature's life force, dealing 6 aetheric damage if the target fails a resilience check of 5. If this attack deals damage after mitigations are calculated, the wraith gains 3 energy, increased to 5 if the target has the afraid condition.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "innate",
+      "spell": {
+        "roll": "3d10",
+        "damage": "3",
+        "damage_extra": "2",
+        "damage_type": "aetheric",
+        "target_defense": "resilience",
+        "defense_difficulty": 6,
+        "min_range": 0,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Phase Step",
+      "cost": 1,
+      "type": "utility",
+      "magic": false,
+      "description": "When targeted by an attack while manifested, the wraith partially shifts into the spectral plane, adding 1d20 to its defense check against that attack. After the attack resolves, the wraith reverts to incorporeal and may move up to 5 units, passing through solid objects. This movement does not provoke reactions.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "innate"
+    }
+  ],
+  "traits": [
+    {
+      "name": "Spectral Nature",
+      "description": "The wraith exists between the material world and the spectral plane. It is always in one of two states: Incorporeal or Manifested.\n\nIncorporeal (default): The wraith has the obscured condition and cannot be detected without aethersight or truesight. It cannot be targeted by attacks or spells, cannot deal damage, and cannot interact with physical objects. It can move freely through solid objects and terrain, and its movement does not provoke reactions. The wraith does not regenerate energy.\n\nManifested: The wraith has anchored itself to the material plane. It loses the obscured condition and can be perceived and targeted normally. It can use all of its actions. Physical damage dealt to the wraith while manifested is halved before applying mitigation.\n\nWhile incorporeal, the wraith is immune to all damage except divine damage and damage from silvered weapons. If reduced to 0 health while incorporeal, the wraith is permanently destroyed."
+    },
+    {
+      "name": "Undead",
+      "description": "The wraith has no resolve and cannot be affected by resolve-targeting effects. It does not need to breathe, eat, or sleep."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 2,
+  "source": "Official",
+  "isHomebrew": false
+}

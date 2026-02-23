@@ -187,6 +187,10 @@ const creatureSchema = new mongoose.Schema({
     required: true,
     enum: ['dark', 'undead', 'divine', 'monster', 'humanoid', 'construct', 'plantoid', 'fey', 'elemental', 'beast']
   },
+  subcategory: {
+    type: String,
+    default: ''
+  },
   size: {
     type: String,
     required: true,

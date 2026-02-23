@@ -236,6 +236,7 @@ export interface Damage {
   secondary_damage_type: string;
   min_range: number;
   max_range: number;
+  ammo_capacity?: number;
 }
 
 export interface WeaponData {

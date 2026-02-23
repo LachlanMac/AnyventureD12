@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router-dom';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
+import { CREATURE_SUBCATEGORIES } from '../utils/creatureUtils';
 
 interface CreatureAbility {
   name: string;
@@ -176,6 +177,7 @@ const DevCreatureDesigner: React.FC = () => {
       | 'fey'
       | 'elemental'
       | 'beast',
+    subcategory: '',
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
     languages: [] as string[],
@@ -260,10 +262,12 @@ const DevCreatureDesigner: React.FC = () => {
 
   // Available immunity options
   const immunityOptions = [
-    'afraid', 'bleeding', 'blinded', 'charmed', 'confused', 'dazed',
-    'diseased', 'exhausted', 'frightened', 'grappled', 'incapacitated',
-    'invisible', 'paralyzed', 'petrified', 'poisoned', 'prone',
-    'restrained', 'stunned', 'unconscious'
+    // Mental conditions (9)
+    'afraid', 'alert', 'broken', 'charmed', 'confused', 'dazed',
+    'maddened', 'numbed', 'stunned',
+    // Physical conditions (13)
+    'bleeding', 'blinded', 'deafened', 'ignited', 'impaired', 'incapacitated',
+    'muted', 'obscured', 'poisoned', 'prone', 'stasis', 'unconscious', 'winded'
   ];
 
   // Taming
@@ -339,6 +343,7 @@ const DevCreatureDesigner: React.FC = () => {
         tactics: jsonData.tactics || '',
         tier: jsonData.tier || 'standard',
         type: jsonData.type || 'humanoid',
+        subcategory: jsonData.subcategory || '',
         size: jsonData.size || 'medium',
         challenge_rating: jsonData.challenge_rating || 1,
         languages: jsonData.languages || [],
@@ -410,6 +415,7 @@ const DevCreatureDesigner: React.FC = () => {
       tactics: creatureData.tactics,
       tier: creatureData.tier,
       type: creatureData.type,
+      ...(creatureData.subcategory ? { subcategory: creatureData.subcategory } : {}),
       size: creatureData.size,
       foundry_portrait: creatureData.foundry_portrait || '',
       health: resources.health,
@@ -464,6 +470,7 @@ const DevCreatureDesigner: React.FC = () => {
       tactics: creatureData.tactics,
       tier: creatureData.tier,
       type: creatureData.type,
+      ...(creatureData.subcategory ? { subcategory: creatureData.subcategory } : {}),
       size: creatureData.size,
       foundry_portrait: creatureData.foundry_portrait || '',
       health: resources.health,
@@ -527,6 +534,7 @@ const DevCreatureDesigner: React.FC = () => {
         tactics: creatureData.tactics,
         tier: creatureData.tier,
         type: creatureData.type,
+        ...(creatureData.subcategory ? { subcategory: creatureData.subcategory } : {}),
         size: creatureData.size,
         foundry_portrait: creatureData.foundry_portrait || '',
         health: resources.health,
@@ -979,7 +987,10 @@ const DevCreatureDesigner: React.FC = () => {
                 <label className="block text-sm font-medium mb-2">Type</label>
                 <select
                   value={creatureData.type}
-                  onChange={(e) => setCreatureData({ ...creatureData, type: e.target.value as any })}
+                  onChange={(e) => {
+                    const newType = e.target.value as any;
+                    setCreatureData({ ...creatureData, type: newType, subcategory: CREATURE_SUBCATEGORIES[newType] ? creatureData.subcategory : '' });
+                  }}
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                 >
                   <option value="dark">Dark</option>
@@ -994,6 +1005,22 @@ const DevCreatureDesigner: React.FC = () => {
                   <option value="beast">Beast</option>
                 </select>
               </div>
+
+              {CREATURE_SUBCATEGORIES[creatureData.type] && (
+                <div>
+                  <label className="block text-sm font-medium mb-2">Subcategory</label>
+                  <select
+                    value={creatureData.subcategory}
+                    onChange={(e) => setCreatureData({ ...creatureData, subcategory: e.target.value })}
+                    className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                  >
+                    <option value="">None</option>
+                    {CREATURE_SUBCATEGORIES[creatureData.type].map((sub) => (
+                      <option key={sub} value={sub}>{sub}</option>
+                    ))}
+                  </select>
+                </div>
+              )}
 
               <div>
                 <label className="block text-sm font-medium mb-2">Size</label>
@@ -1406,7 +1433,8 @@ const DevCreatureDesigner: React.FC = () => {
             </div>
 
             <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-3">Mitigation</h3>
+              <h3 className="text-lg font-semibold mb-1">Mitigation</h3>
+              <p className="text-sm text-gray-400 mb-3">Set to 25+ for immunity</p>
               <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
                 {Object.entries(mitigation).map(([type, value]) => (
                   <div key={type}>

@@ -16,7 +16,7 @@
     "recovery": 5
   },
   "resolve": {
-    "max": 35,
+    "max": 45,
     "current": 35,
     "recovery": 1
   },
@@ -148,24 +148,27 @@
   },
   "immunities": {
     "afraid": true,
-    "bleeding": false,
-    "blinded": false,
+    "alert": false,
+    "broken": false,
     "charmed": true,
     "confused": false,
     "dazed": false,
-    "diseased": true,
-    "exhausted": false,
-    "frightened": false,
-    "grappled": false,
+    "maddened": false,
+    "numbed": false,
+    "stunned": false,
+    "bleeding": false,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
     "incapacitated": false,
-    "invisible": false,
-    "paralyzed": false,
-    "petrified": false,
+    "muted": false,
+    "obscured": false,
     "poisoned": true,
     "prone": false,
-    "restrained": false,
-    "stunned": false,
-    "unconscious": false
+    "stasis": false,
+    "unconscious": false,
+    "winded": false
   },
   "taming": {
     "tame_check": -1,
@@ -177,14 +180,14 @@
       "cost": 2,
       "type": "attack",
       "magic": false,
-      "description": "The dheonix swoops past a creature, raking them with its massive talons for physical damage. If the dheonix has moved at least 3 units this turn before using this action, it deals an additional 2 damage.",
+      "description": "The dheonix swoops past a creature, raking them with its massive talons for physical damage. The dheonix does not provoke reactions to creatures who take damage from this attack.",
       "reaction": false,
       "basic": true,
       "round": false,
       "daily": false,
       "spellType": "normal",
       "attack": {
-        "roll": "3d10",
+        "roll": "4d12",
         "damage": "6",
         "damage_extra": "4",
         "damage_type": "physical",
@@ -219,7 +222,7 @@
       "cost": 1,
       "type": "utility",
       "magic": true,
-      "description": "The dheonix targets a flame within moderate (20 unit) range and converts it to dheonix fire — the flame turns black and pulses with dark energy. Any creature that touches a dheonix fire to extinguish it takes 5 dark damage. Dheonix fires cannot be extinguished by nonmagical means.",
+      "description": "The dheonix targets a flame within moderate (20 unit) range and converts it to dheonix fire. This fire burns with a purple fire, absorbing all light around it and dealing 5 dark damage to anyone who starts their turn within a nearby (1 unit) radius. Dheonix fire cannot be extinguished by non-magical means and burns while the dheonix is alive.",
       "reaction": false,
       "basic": false,
       "round": false,
@@ -238,9 +241,9 @@
     {
       "name": "Dark Pulse",
       "cost": 3,
-      "type": "spell",
+      "type": "utility",
       "magic": true,
-      "description": "The dheonix targets itself or a dheonix fire within moderate (20 unit) range, causing it to pulse with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take dark damage. Any normal flames in the area are converted to dheonix fires.",
+      "description": "The dheonix targets itself or a dheonix fire within moderate (20 unit) range, causing it to pulse with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take 8 dark damage.",
       "reaction": false,
       "basic": false,
       "round": true,
@@ -263,19 +266,22 @@
         "target_defense": "resilience",
         "defense_difficulty": 7,
         "min_range": 0,
-        "max_range": 3
+        "max_range": 3,
+        "school": "black",
+        "subschool": "fiend",
+        "checkToCast": 5
       }
     },
     {
       "name": "Font of Flames",
-      "cost": 3,
-      "type": "spell",
+      "cost": 5,
+      "type": "utility",
       "magic": true,
-      "description": "The dheonix detonates itself in a catastrophic explosion of fire and dark energy, striking all creatures within a very short (5 unit) radius. The dheonix is destroyed by this action. All flames created by the explosion are automatically converted to dheonix fires. The dheonix cannot reform via Dark Rebirth in the same round it uses this action.",
+      "description": "The dheonix detonates itself in a catastrophic explosion of fire and dark energy, striking all creatures within a short (10 unit) radius. The dheonix is destroyed by this action. All flames created or hit by the explosion are automatically converted to dheonix fires.",
       "reaction": false,
       "basic": false,
-      "round": true,
-      "daily": false,
+      "round": false,
+      "daily": true,
       "spellType": "unique",
       "attack": {
         "roll": "0",
@@ -301,43 +307,15 @@
       }
     }
   ],
-  "reactions": [
-    {
-      "name": "Noxious Smoke",
-      "cost": 2,
-      "type": "utility",
-      "magic": true,
-      "description": "Trigger: A creature targets the dheonix with an attack or spell. The dheonix emits a cloud of noxious smoke in a very short (5 unit) radius around itself or around a dheonix fire within moderate (20 unit) range. The attacking creature must make a resilience check of 7 or higher or suffer a penalty die on their attack.",
-      "reaction": true,
-      "basic": false,
-      "round": true,
-      "daily": false,
-      "spellType": "innate",
-      "trigger": "A creature targets the dheonix with an attack or spell.",
-      "attack": {
-        "roll": "0",
-        "damage": "2",
-        "damage_extra": "1",
-        "damage_type": "physical",
-        "category": "slash",
-        "min_range": 1,
-        "max_range": 1
-      }
-    }
-  ],
+  "reactions": [],
   "traits": [
     {
       "name": "Dark Rebirth",
-      "description": "As long as at least one dheonix fire exists, the dheonix cannot be permanently destroyed. At the start of the round after being destroyed, the dheonix reforms 4 units above one of its dheonix fires with 60 health. The dheonix cannot reform in the same round it used Font of Flames. If all dheonix fires are extinguished before the dheonix reforms, it is destroyed permanently."
-    },
-    {
-      "name": "Greater Demon",
-      "description": "The dheonix takes only half damage from physical sources that are not the result of a magical effect or a weapon with the silvered property."
+      "description": "As long as at least one dheonix fire exists, the dheonix cannot be permanently destroyed. At the start of the round after being destroyed, the dheonix reforms 4 units above one of its dheonix fires with 30 health. If all dheonix fires are extinguished before the dheonix reforms, it is destroyed permanently."
     }
   ],
   "loot": [],
   "languages": [],
-  "spells": [],
   "challenge_rating": 3,
   "source": "Official",
   "isHomebrew": false

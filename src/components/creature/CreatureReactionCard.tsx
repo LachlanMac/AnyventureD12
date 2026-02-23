@@ -70,12 +70,12 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
           {reaction.spellType && reaction.spellType !== 'normal' && (
             <span
               style={{
-                color: reaction.spellType === 'innate' ? 'var(--color-stormy)' : 'var(--color-sunset)',
+                color: reaction.spellType === 'innate' ? '#a8c4e0' : 'var(--color-sunset)',
                 fontSize: '0.625rem',
-                backgroundColor: reaction.spellType === 'innate' ? 'rgba(120, 140, 170, 0.15)' : 'rgba(200, 100, 50, 0.15)',
+                backgroundColor: reaction.spellType === 'innate' ? 'rgba(120, 160, 200, 0.25)' : 'rgba(200, 100, 50, 0.15)',
                 padding: '0.1rem 0.35rem',
                 borderRadius: '0.25rem',
-                border: reaction.spellType === 'innate' ? '1px solid rgba(120, 140, 170, 0.3)' : '1px solid rgba(200, 100, 50, 0.3)',
+                border: reaction.spellType === 'innate' ? '1px solid rgba(140, 180, 220, 0.5)' : '1px solid rgba(200, 100, 50, 0.3)',
                 fontWeight: 'normal',
                 textTransform: 'capitalize',
               }}

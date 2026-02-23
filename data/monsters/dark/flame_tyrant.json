@@ -11,12 +11,12 @@
     "current": 90
   },
   "energy": {
-    "max": 7,
+    "max": 6,
     "current": 7,
-    "recovery": 5
+    "recovery": 4
   },
   "resolve": {
-    "max": 30,
+    "max": 40,
     "current": 30,
     "recovery": 1
   },
@@ -148,24 +148,27 @@
   },
   "immunities": {
     "afraid": true,
-    "bleeding": false,
-    "blinded": false,
+    "alert": false,
+    "broken": false,
     "charmed": false,
     "confused": false,
     "dazed": false,
-    "diseased": false,
-    "exhausted": false,
-    "frightened": false,
-    "grappled": false,
+    "maddened": false,
+    "numbed": false,
+    "stunned": false,
+    "bleeding": false,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
     "incapacitated": false,
-    "invisible": false,
-    "paralyzed": false,
-    "petrified": false,
+    "muted": false,
+    "obscured": false,
     "poisoned": true,
     "prone": false,
-    "restrained": false,
-    "stunned": false,
-    "unconscious": false
+    "stasis": false,
+    "unconscious": false,
+    "winded": false
   },
   "taming": {
     "tame_check": -1,
@@ -201,7 +204,7 @@
       "cost": 2,
       "type": "attack",
       "magic": false,
-      "description": "The flame tyrant hurls an infernal dagger at a creature within short (10 unit) range, dealing physical and dark damage. The dagger remains lodged in the target unless removed with a might check of 8 or higher as an action. At the end of each of the target's turns while the dagger is lodged, they take 3 dark damage that bypasses mitigation.",
+      "description": "The flame tyrant hurls an infernal dagger at a creature within short (10 unit) range, dealing physical and dark damage. The dagger remains lodged in the target unless removed with a might check of 8 or higher as an action. At the end of each of the target's turns while the dagger is lodged, they take 3 dark damage, plus 1 for each successive round.",
       "reaction": false,
       "basic": false,
       "round": true,
@@ -215,7 +218,7 @@
         "category": "ranged",
         "min_range": 1,
         "max_range": 4,
-        "secondary_damage": "3",
+        "secondary_damage": "2",
         "secondary_damage_extra": "2",
         "secondary_damage_type": "dark"
       }
@@ -246,7 +249,7 @@
       "cost": 3,
       "type": "spell",
       "magic": true,
-      "description": "The flame tyrant pulses with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take dark damage. Any creature that takes damage after mitigation becomes marked until the end of their next turn. While marked, the first time that creature takes physical damage, they take an additional 4 dark damage.",
+      "description": "The flame tyrant pulses with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take dark damage. Any creature that takes damage after mitigation becomes marked until the end of their next turn. While marked, the first time that creature takes physical damage within the last minute, they take an additional 4 dark damage.",
       "reaction": false,
       "basic": false,
       "round": true,
@@ -260,7 +263,10 @@
         "target_defense": "resilience",
         "defense_difficulty": 7,
         "min_range": 0,
-        "max_range": 3
+        "max_range": 3,
+        "school": "black",
+        "subschool": "fiend",
+        "checkToCast": 6
       }
     },
     {
@@ -313,16 +319,17 @@
   "traits": [
     {
       "name": "Wreathed in Flame",
-      "description": "While ignited, the flame tyrant gains a bonus die on all deflection and evasion checks. Any creature that hits the flame tyrant with a melee attack while it is ignited takes 2 heat damage."
+      "description": "While ignited, the flame tyrant gains a bonus dice on all deflection and evasion checks. Any creature that hits the flame tyrant with a melee attack while it is ignited takes 5 heat damage."
     },
     {
       "name": "Cloak of Shadows",
-      "description": "While not ignited, the flame tyrant gains 2 bonus dice on stealth checks and can attempt to hide even without cover, provided it is in dim light or darkness."
+      "description": "While not ignited, the flame tyrant gains a bonus dice on stealth checks and can attempt to hide even without cover, provided it is in dim light or darkness."
     }
   ],
   "loot": [],
-  "languages": ["Infernal"],
-  "spells": [],
+  "languages": [
+    "Infernal"
+  ],
   "challenge_rating": 1,
   "source": "Official",
   "isHomebrew": false

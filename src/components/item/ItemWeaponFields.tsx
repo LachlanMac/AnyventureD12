@@ -98,11 +98,11 @@ const ItemWeaponFields: React.FC<ItemWeaponFieldsProps> = ({ item, onChange }) =
           </div>
         </div>
 
-        {/* Row 2: Bonus Attack, Energy Cost, Min Range, Max Range */}
+        {/* Row 2: Bonus Attack, Energy Cost, Min Range, Max Range, Ammo Capacity */}
         <div
           style={{
             display: 'grid',
-            gridTemplateColumns: 'repeat(4, 1fr)',
+            gridTemplateColumns: 'repeat(5, 1fr)',
             gap: '0.75rem',
             marginTop: '0.75rem',
           }}
@@ -152,6 +152,16 @@ const ItemWeaponFields: React.FC<ItemWeaponFieldsProps> = ({ item, onChange }) =
                 </option>
               ))}
             </select>
+          </div>
+          <div>
+            <label style={smallLabelStyle}>Ammo Capacity</label>
+            <input
+              type="number"
+              value={data.ammo_capacity || 0}
+              onChange={(e) => handleChange('ammo_capacity', parseInt(e.target.value) || 0)}
+              min="0"
+              style={fieldInputStyle}
+            />
           </div>
         </div>
 

@@ -37,7 +37,8 @@ const DamageSchema = new Schema({
   secondary_damage_extra: { type: Number, default: 0 },
   secondary_damage_type: { type: String, default: "none" },
   min_range: { type: Number, default: 0 },
-  max_range: { type: Number, default: 0 }
+  max_range: { type: Number, default: 0 },
+  ammo_capacity: { type: Number, default: 0 }
 }, { _id: false });
 
 // Main Item Schema

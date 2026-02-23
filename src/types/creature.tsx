@@ -135,6 +135,7 @@ export interface Creature {
   tactics: string;
   tier: string;
   type: string;
+  subcategory?: string;
   size: string;
   health: {
     max: number;
