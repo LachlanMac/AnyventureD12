@@ -785,7 +785,7 @@ CharacterSchema.methods.removeModule = async function(moduleId) {
   }
 }
 
-CharacterSchema.methods.addSpell = async function(spellId) {
+CharacterSchema.methods.addSpell = async function(spellId, effectiveSpellSlots) {
   try {
     // Check if spell already exists in character's spells
     if (this.spells.some(s => s.spellId.toString() === spellId.toString())) {
@@ -793,7 +793,8 @@ CharacterSchema.methods.addSpell = async function(spellId) {
     }
     
     // Check if character has available spell slots
-    if (this.spells.length >= this.spellSlots) {
+    const maxSlots = effectiveSpellSlots || this.spellSlots;
+    if (this.spells.length >= maxSlots) {
       return { success: false, message: 'No spell slots available' };
     }
     

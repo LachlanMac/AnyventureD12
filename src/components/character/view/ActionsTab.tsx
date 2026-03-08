@@ -274,6 +274,16 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
       throwing: 'Throwing',
     };
 
+    // Display labels for magic attack categories
+    const magicCategoryLabels: Record<string, string> = {
+      black_magic: 'Black Magic',
+      primal_magic: 'Primal Magic',
+      meta_magic: 'Metamagic',
+      white_magic: 'White Magic',
+      mysticism_magic: 'Mysticism',
+      arcane_magic: 'Arcane Magic',
+    };
+
     const damageTypeColors: Record<string, string> = {
       physical: '#CD7F32',
       heat: '#FF4444',
@@ -296,11 +306,33 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
       throwing: 'throwing',
     };
 
-    const skillKey = weaponSkillMap[weapon.weapon_category];
-    const weaponSkill = character.weaponSkills?.[skillKey];
-    const talent = weaponSkill?.talent || 0;
-    const skillValue = weaponSkill?.value || 0;
-    const bonusAttack = attack.bonus_attack || 0;
+    // Map magic attack categories to character magicSkills keys
+    const magicCategoryMap: Record<string, string> = {
+      black_magic: 'black',
+      primal_magic: 'primal',
+      meta_magic: 'meta',
+      white_magic: 'white',
+      mysticism_magic: 'mystic',
+      arcane_magic: 'arcane',
+    };
+
+    const isMagicAttack = attack.category && magicCategoryMap[attack.category];
+    let talent: number;
+    let skillValue: number;
+
+    if (isMagicAttack) {
+      const magicKey = magicCategoryMap[attack.category];
+      const magicSkill = character.magicSkills?.[magicKey];
+      talent = magicSkill?.talent || 0;
+      skillValue = magicSkill?.value || 0;
+    } else {
+      const skillKey = weaponSkillMap[weapon.weapon_category];
+      const weaponSkill = character.weaponSkills?.[skillKey];
+      talent = weaponSkill?.talent || 0;
+      skillValue = weaponSkill?.value || 0;
+    }
+
+    const bonusAttack = attack.bonus_attack || weapon.bonus_attack || 0;
     const totalDice = talent + bonusAttack;
 
     // Dice tier map
@@ -385,7 +417,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
                 margin: 0,
               }}
             >
-              {handsText} {categoryMap[weapon.weapon_category] || weapon.weapon_category}
+              {handsText} {isMagicAttack ? magicCategoryLabels[attack.category] : (categoryMap[weapon.weapon_category] || weapon.weapon_category)}
             </p>
             <span
               style={{

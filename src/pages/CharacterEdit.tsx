@@ -931,8 +931,11 @@ const CharacterEdit: React.FC = () => {
               });
             }
           } else {
-            // Keep non-personality modules
-            updatedModules.push(module);
+            // Keep non-personality modules - normalize moduleId to just the ID string
+            updatedModules.push({
+              moduleId: moduleId,
+              selectedOptions: module.selectedOptions || [],
+            });
           }
         });
       }
@@ -981,15 +984,29 @@ const CharacterEdit: React.FC = () => {
           talentStarsRemaining: talentStarsRemaining,
         },
         modules: updatedModules,
-        traits: selectedTrait
-          ? [
-              {
+        traits: (() => {
+          // Preserve all existing traits beyond the starting trait (index 0)
+          // Extra training, vampirism, lycanthropy, etc. are added post-creation
+          const existingTraits = character.traits ? [...character.traits] : [];
+
+          // Build the starting trait entry (replaces index 0)
+          const startingTrait = selectedTrait
+            ? {
                 traitId: selectedTrait,
                 selectedOptions: selectedTraitOptions,
-                dateAdded: new Date().toISOString(),
-              },
-            ]
-          : [],
+                dateAdded: existingTraits[0]?.dateAdded || new Date().toISOString(),
+              }
+            : null;
+
+          // Keep all non-starting traits (index 1+) exactly as they are
+          const additionalTraits = existingTraits.slice(1).map((t: any) => ({
+            traitId: typeof t.traitId === 'object' ? t.traitId._id : t.traitId,
+            selectedOptions: t.selectedOptions || [],
+            dateAdded: t.dateAdded,
+          }));
+
+          return startingTrait ? [startingTrait, ...additionalTraits] : additionalTraits;
+        })(),
       };
 
       const response = await fetch(`/api/characters/${id}`, {

@@ -1,6 +1,7 @@
 // server/controllers/spellController.js
 import Spell from '../models/Spell.js';
 import Character from '../models/Character.js';
+import { applyModuleBonusesToCharacter } from '../utils/characterUtils.js';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
@@ -118,25 +119,32 @@ export const getCharacterSpells = async (req, res) => {
 // @access  Private
 export const addSpellToCharacter = async (req, res) => {
   try {
-    const character = await Character.findById(req.params.characterId);
-    
+    const character = await Character.findById(req.params.characterId)
+      .populate('modules.moduleId');
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
-    
+
     // Check authorization - character should belong to user
     if (character.userId !== req.user.id) {
       return res.status(401).json({ message: 'Not authorized' });
     }
-    
+
     const spell = await Spell.findById(req.params.spellId);
-    
+
     if (!spell) {
       return res.status(404).json({ message: 'Spell not found' });
     }
-    
-    // Add spell to character
-    const result = await character.addSpell(spell._id);
+
+    // Compute effective spell slots (base + module bonuses)
+    const charWithBonuses = character.toObject();
+    charWithBonuses.spellSlots = 10;
+    applyModuleBonusesToCharacter(charWithBonuses);
+    const effectiveSpellSlots = charWithBonuses.spellSlots;
+
+    // Add spell to character using effective spell slots
+    const result = await character.addSpell(spell._id, effectiveSpellSlots);
     
     if (!result.success) {
       return res.status(400).json({ message: result.message });

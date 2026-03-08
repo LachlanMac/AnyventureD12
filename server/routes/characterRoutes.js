@@ -354,7 +354,7 @@ router.patch('/:id/public', protect, async (req, res) => {
 router.put('/:id/culture-selections', protect, updateCultureSelections);
 
 // FoundryVTT export route
-router.get('/:id/export-foundry', protect, exportCharacterToFoundry);
+router.get('/:id/export-foundry', exportCharacterToFoundry);
 
 // Debug route for foundry export (no auth for testing)
 router.get('/:id/debug-foundry', async (req, res) => {

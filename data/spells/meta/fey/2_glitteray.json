@@ -9,7 +9,7 @@
     "Pinch of Crystal Dust"
   ],
   "ritualDuration": "1 hour",
-  "concentration": true,
+  "concentration": false,
   "reaction": false,
   "energy": 1,
   "damage": 3,

@@ -10,7 +10,7 @@
   ],
   "ritualDuration": "1 hour",
   "concentration": false,
-  "reaction": true,
+  "reaction": false,
   "energy": 2,
   "damage": 0,
   "damageType": null,

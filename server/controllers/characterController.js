@@ -1245,11 +1245,6 @@ export const exportCharacterToFoundry = async (req, res) => {
       return res.status(404).json({ message: 'Character not found' });
     }
 
-    // Check if user owns this character or if it's public
-    if (character.userId !== req.user._id.toString() && !character.public) {
-      return res.status(403).json({ message: 'Not authorized to export this character' });
-    }
-
     // Apply bonuses to get computed values
     const characterWithBonuses = character.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
@@ -1486,6 +1481,11 @@ export const exportCharacterToFoundry = async (req, res) => {
             value: 0,
             talent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0,
             baseTalent: character.magicSkills?.mystic?.baseTalent || character.magicSkills?.mystic?.talent || 0
+          },
+          arcane: {
+            value: 0,
+            talent: character.magicSkills?.arcane?.baseTalent || character.magicSkills?.arcane?.talent || 0,
+            baseTalent: character.magicSkills?.arcane?.baseTalent || character.magicSkills?.arcane?.talent || 0
           }
         },
 
