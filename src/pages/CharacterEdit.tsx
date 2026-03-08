@@ -987,7 +987,7 @@ const CharacterEdit: React.FC = () => {
         traits: (() => {
           // Preserve all existing traits beyond the starting trait (index 0)
           // Extra training, vampirism, lycanthropy, etc. are added post-creation
-          const existingTraits = character.traits ? [...character.traits] : [];
+          const existingTraits: any[] = character.traits ? [...character.traits] : [];
 
           // Build the starting trait entry (replaces index 0)
           const startingTrait = selectedTrait
