@@ -28,7 +28,7 @@ const DamageSchema = new Schema({
   damage_type: { type: String, default: "physical" },
   category: {
     type: String,
-    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "white_magic", "mysticism_magic", "meta"],
+    enum: ["pierce", "slash", "blunt", "ranged", "extra", "magic", "black_magic", "primal_magic", "white_magic", "mysticism_magic", "meta_magic", "arcane_magic", "meta"],
     default: "blunt"
   },
   bonus_attack: { type: Number, default: 0, min: 0 }, // Bonus attack dice for this attack
