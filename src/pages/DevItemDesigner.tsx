@@ -76,6 +76,12 @@ const DevItemDesigner: React.FC = () => {
   const [searchFilter, setSearchFilter] = useState('');
   const [editingFile, setEditingFile] = useState<{ path: string } | null>(null);
 
+  // Template browser state
+  const [templateFiles, setTemplateFiles] = useState<Record<string, FileEntry[]>>({});
+  const [showTemplateBrowser, setShowTemplateBrowser] = useState(false);
+  const [templateCategoryFilter, setTemplateCategoryFilter] = useState('all');
+  const [templateSearchFilter, setTemplateSearchFilter] = useState('');
+
   // Save-as modal state
   const [showSaveAs, setShowSaveAs] = useState(false);
   const [saveAsCategory, setSaveAsCategory] = useState('');
@@ -121,6 +127,77 @@ const DevItemDesigner: React.FC = () => {
       }
     } catch (err) {
       console.error('Failed to fetch item files:', err);
+    }
+  };
+
+  const fetchTemplateFiles = async () => {
+    try {
+      const response = await fetch('/api/items/templates');
+      if (response.ok) {
+        const data = await response.json();
+        setTemplateFiles(data);
+      }
+    } catch (err) {
+      console.error('Failed to fetch template files:', err);
+    }
+  };
+
+  const loadTemplate = async (filePath: string) => {
+    try {
+      const response = await fetch(`/api/items/templates/${filePath}`);
+      if (!response.ok) throw new Error('Failed to load');
+      const jsonData = await response.json();
+
+      // Strip IDs — this is a template, not an edit
+      delete jsonData._id;
+      delete jsonData.foundry_id;
+
+      // Initialize weapon attack objects if needed
+      if (jsonData.type === 'weapon') {
+        if (!jsonData.primary) {
+          jsonData.primary = {
+            damage: '0', damage_extra: '0', damage_type: 'physical',
+            category: 'slash', bonus_attack: 0, energy: 0,
+            secondary_damage: 0, secondary_damage_extra: 0, secondary_damage_type: 'none',
+            min_range: 1, max_range: 1,
+          };
+        }
+        if (!jsonData.secondary) {
+          jsonData.secondary = {
+            damage: '0', damage_extra: '0', damage_type: 'physical',
+            category: 'slash', bonus_attack: 0, energy: 0,
+            secondary_damage: 0, secondary_damage_extra: 0, secondary_damage_type: 'none',
+            min_range: 1, max_range: 1,
+          };
+        }
+      }
+
+      setItem(jsonData);
+      setEditingFile(null); // Not editing — loaded as template
+      setShowTemplateBrowser(false);
+      setTemplateSearchFilter('');
+      setTemplateCategoryFilter('all');
+
+      // Auto-expand relevant sections
+      setExpandedSections({
+        header: true,
+        basic: true,
+        resources: true,
+        weapon: jsonData.type === 'weapon',
+        implant: jsonData.type === 'implant',
+        recipe: !!jsonData.recipe?.type,
+        bonuses: !!(jsonData.basic || jsonData.weapon || jsonData.magic || jsonData.craft || jsonData.attributes),
+        mitigation: !!(jsonData.mitigation && Object.keys(jsonData.mitigation).length > 0),
+        detectionsImmunities:
+          !!(jsonData.detections && Object.keys(jsonData.detections).length > 0) ||
+          !!(jsonData.immunities && Object.keys(jsonData.immunities).length > 0),
+        abilities: !!(jsonData.actions?.length || jsonData.reactions?.length),
+        extras: !!(jsonData.properties || jsonData.substance || jsonData.holdable || jsonData.foundry_icon),
+      });
+
+      showSuccess(`Loaded template: ${jsonData.name || filePath}`);
+    } catch (err) {
+      showError('Failed to load template');
     }
   };
 
@@ -329,6 +406,10 @@ const DevItemDesigner: React.FC = () => {
           Load JSON
           <input type="file" accept=".json" onChange={loadFromFile} className="hidden" />
         </label>
+
+        <Button onClick={() => { fetchTemplateFiles(); setShowTemplateBrowser(true); }} variant="secondary">
+          Load Template
+        </Button>
 
         <Button onClick={() => { fetchItemFiles(); setShowBrowser(true); }} variant="secondary">
           Browse Server Files
@@ -790,6 +871,161 @@ const DevItemDesigner: React.FC = () => {
                     <div className="text-center py-8 text-gray-400">
                       <p>
                         {Object.keys(itemFiles).length === 0
+                          ? 'Loading item files...'
+                          : 'No items match your filters.'}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+            </div>
+          );
+        })()}
+
+      {/* Template Browser Modal */}
+      {showTemplateBrowser &&
+        (() => {
+          const categories = Object.keys(templateFiles).sort();
+          let allEntries: { category: string; filename: string; name: string; type: string; rarity: string }[] = [];
+          const catsToShow = templateCategoryFilter === 'all' ? categories : [templateCategoryFilter];
+          for (const cat of catsToShow) {
+            if (templateFiles[cat]) {
+              allEntries.push(...templateFiles[cat].map((f) => ({ ...f, category: cat })));
+            }
+          }
+          if (templateSearchFilter.trim()) {
+            const term = templateSearchFilter.toLowerCase().trim();
+            allEntries = allEntries.filter((e) => e.name.toLowerCase().includes(term));
+          }
+
+          return (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+              <div className="bg-gray-800 rounded-lg p-6 max-w-3xl w-full max-h-[80vh] overflow-hidden flex flex-col">
+                <div className="flex justify-between items-center mb-4">
+                  <h3 className="text-xl font-bold">Load Template from Items</h3>
+                  <Button
+                    onClick={() => {
+                      setShowTemplateBrowser(false);
+                      setTemplateSearchFilter('');
+                      setTemplateCategoryFilter('all');
+                    }}
+                    variant="ghost"
+                  >
+                    ×
+                  </Button>
+                </div>
+
+                <div className="text-xs text-gray-400 mb-3" style={{ color: 'var(--color-stormy)' }}>
+                  Load a standard item as a starting template. IDs will be cleared so you can save as a new item.
+                </div>
+
+                {/* Filters */}
+                <div className="grid grid-cols-2 gap-3 mb-4">
+                  <input
+                    type="text"
+                    placeholder="Search items..."
+                    value={templateSearchFilter}
+                    onChange={(e) => setTemplateSearchFilter(e.target.value)}
+                    className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                  />
+                  <select
+                    value={templateCategoryFilter}
+                    onChange={(e) => setTemplateCategoryFilter(e.target.value)}
+                    className="p-2 bg-gray-900 border border-gray-600 rounded text-sm"
+                  >
+                    <option value="all">All Categories</option>
+                    {categories.map((c) => (
+                      <option key={c} value={c}>
+                        {c}
+                      </option>
+                    ))}
+                  </select>
+                </div>
+
+                <div className="text-xs text-gray-400 mb-2">
+                  {allEntries.length} item{allEntries.length !== 1 ? 's' : ''}
+                </div>
+
+                <div className="overflow-y-auto flex-1">
+                  {templateCategoryFilter === 'all' ? (
+                    categories
+                      .filter((cat) => {
+                        const entries = templateFiles[cat] || [];
+                        if (!templateSearchFilter.trim()) return entries.length > 0;
+                        return entries.some((e) =>
+                          e.name.toLowerCase().includes(templateSearchFilter.toLowerCase().trim())
+                        );
+                      })
+                      .map((cat) => {
+                        let entries = templateFiles[cat] || [];
+                        if (templateSearchFilter.trim()) {
+                          const term = templateSearchFilter.toLowerCase().trim();
+                          entries = entries.filter((e) => e.name.toLowerCase().includes(term));
+                        }
+                        return (
+                          <div key={cat} className="mb-4">
+                            <h4
+                              className="text-sm font-bold uppercase tracking-wider mb-2"
+                              style={{ color: 'var(--color-stormy)' }}
+                            >
+                              {cat} ({entries.length})
+                            </h4>
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                              {entries.map((entry) => (
+                                <button
+                                  key={entry.filename}
+                                  onClick={() => loadTemplate(`${cat}/${entry.filename}`)}
+                                  className="text-left p-3 rounded border border-gray-600 hover:bg-gray-700 transition-colors"
+                                >
+                                  <div className="flex justify-between items-center">
+                                    <span className="font-medium text-white">{entry.name}</span>
+                                    <span
+                                      className="text-xs capitalize px-2 py-0.5 rounded"
+                                      style={{
+                                        color: rarityColors[entry.rarity] || '#a0aec0',
+                                        backgroundColor: 'var(--color-dark-surface)',
+                                      }}
+                                    >
+                                      {entry.rarity}
+                                    </span>
+                                  </div>
+                                  <span className="text-xs text-gray-500">{entry.filename}</span>
+                                </button>
+                              ))}
+                            </div>
+                          </div>
+                        );
+                      })
+                  ) : (
+                    <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
+                      {allEntries.map((entry) => (
+                        <button
+                          key={`${entry.category}-${entry.filename}`}
+                          onClick={() => loadTemplate(`${entry.category}/${entry.filename}`)}
+                          className="text-left p-3 rounded border border-gray-600 hover:bg-gray-700 transition-colors"
+                        >
+                          <div className="flex justify-between items-center">
+                            <span className="font-medium text-white">{entry.name}</span>
+                            <span
+                              className="text-xs capitalize px-2 py-0.5 rounded"
+                              style={{
+                                color: rarityColors[entry.rarity] || '#a0aec0',
+                                backgroundColor: 'var(--color-dark-surface)',
+                              }}
+                            >
+                              {entry.rarity}
+                            </span>
+                          </div>
+                          <span className="text-xs text-gray-500">{entry.filename}</span>
+                        </button>
+                      ))}
+                    </div>
+                  )}
+
+                  {allEntries.length === 0 && (
+                    <div className="text-center py-8 text-gray-400">
+                      <p>
+                        {Object.keys(templateFiles).length === 0
                           ? 'Loading item files...'
                           : 'No items match your filters.'}
                       </p>

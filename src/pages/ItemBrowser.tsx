@@ -415,7 +415,7 @@ const ItemBrowser: React.FC = () => {
             </div>
 
             {/* Effects (for consumables with substance data) */}
-            {item.substance && (
+            {item.substance && item.substance.category && (
               <div>
                 <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
                   Effects
@@ -452,7 +452,7 @@ const ItemBrowser: React.FC = () => {
             )}
 
             {/* Effects (for items with effects array) */}
-            {!item.substance && item.effects && item.effects.length > 0 && (
+            {!(item.substance && item.substance.category) && item.effects && item.effects.length > 0 && (
               <div>
                 <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
                   Effects

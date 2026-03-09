@@ -17,6 +17,7 @@ import { protect } from '../middleware/auth.js';
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const magicItemsDir = path.resolve(__dirname, '../../data/magic_items');
+const standardItemsDir = path.resolve(__dirname, '../../data/items');
 
 const router = express.Router();
 
@@ -98,6 +99,29 @@ router.put('/files/*', protect, (req, res) => {
     res.json({ success: true });
   } catch (err) {
     res.status(500).json({ error: 'Failed to save item file' });
+  }
+});
+
+// Standard item template browsing routes (read-only, for loading templates)
+router.get('/templates', (req, res) => {
+  try {
+    const result = walkDir(standardItemsDir);
+    res.json(result);
+  } catch (err) {
+    res.status(500).json({ error: 'Failed to list item templates' });
+  }
+});
+
+router.get('/templates/*', (req, res) => {
+  const filePath = path.join(standardItemsDir, ...req.params[0].split('/').map(s => path.basename(s)));
+  if (!filePath.startsWith(standardItemsDir)) {
+    return res.status(403).json({ error: 'Access denied' });
+  }
+  try {
+    const data = fs.readFileSync(filePath, 'utf-8');
+    res.json(JSON.parse(data));
+  } catch (err) {
+    res.status(404).json({ error: 'Template file not found' });
   }
 });
 
