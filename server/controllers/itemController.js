@@ -7,9 +7,17 @@ import Item from '../models/Item.js';
 export const getItems = async (req, res) => {
   try {
     // By default, exclude homebrew items unless explicitly requested
-    const { includeHomebrew = 'false' } = req.query;
+    const { includeHomebrew = 'false', summary = 'false' } = req.query;
     const query = includeHomebrew === 'true' ? {} : { $or: [{ isHomebrew: false }, { isHomebrew: { $exists: false } }] };
-    
+
+    if (summary === 'true') {
+      // Return only fields needed for list views (filtering, display, search)
+      const items = await Item.find(query).select(
+        '_id name description type rarity value weight weapon_category consumable_category slot hands holdable isHomebrew'
+      ).lean();
+      return res.json(items);
+    }
+
     const items = await Item.find(query);
     res.json(items);
   } catch (error) {

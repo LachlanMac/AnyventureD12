@@ -92,6 +92,30 @@ const ItemBrowser: React.FC = () => {
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [itemToAdd, setItemToAdd] = useState<APIItem | null>(null);
   const [sourceFilter, setSourceFilter] = useState<'core' | 'homebrew' | 'mine'>('core');
+  const [loadingDetail, setLoadingDetail] = useState(false);
+
+  const selectItem = async (item: APIItem) => {
+    // If we already have the full data (e.g. homebrew with all fields), use it directly
+    if (item.primary || item.health || item.mitigation) {
+      setSelectedItem(item);
+      return;
+    }
+    // Otherwise fetch full item detail
+    setLoadingDetail(true);
+    try {
+      const isHomebrew = (item as any).isHomebrew;
+      const url = isHomebrew ? `/api/homebrew/items/${item._id}` : `/api/items/${item._id}`;
+      const res = await fetch(url, { credentials: 'include' });
+      if (!res.ok) throw new Error('Failed to fetch item details');
+      const fullItem = await res.json();
+      if (isHomebrew) fullItem.isHomebrew = true;
+      setSelectedItem(fullItem);
+    } catch (err) {
+      showError('Failed to load item details');
+    } finally {
+      setLoadingDetail(false);
+    }
+  };
 
   // Helper function to check if a skill bonus has any non-zero values
   const hasSkillBonus = (skill: any): boolean => {
@@ -136,7 +160,7 @@ const ItemBrowser: React.FC = () => {
         // Fetch items based on source filter
         let itemsData: APIItem[] = [];
         if (sourceFilter === 'core') {
-          const res = await fetch('/api/items');
+          const res = await fetch('/api/items?summary=true');
           if (!res.ok) throw new Error('Failed to fetch items');
           itemsData = await res.json();
         } else if (sourceFilter === 'homebrew') {
@@ -1341,7 +1365,7 @@ const ItemBrowser: React.FC = () => {
                               ? '1px solid var(--color-metal-gold)'
                               : '1px solid transparent',
                         }}
-                        onClick={() => setSelectedItem(item)}
+                        onClick={() => selectItem(item)}
                       >
                         <div
                           style={{
@@ -1409,7 +1433,17 @@ const ItemBrowser: React.FC = () => {
 
         {/* Item details */}
         <div className="md:col-span-2">
-          <ItemDetail item={selectedItem} />
+          {loadingDetail ? (
+            <Card variant="default">
+              <CardBody>
+                <div style={{ textAlign: 'center', padding: '2rem', color: 'var(--color-cloud)' }}>
+                  Loading item details...
+                </div>
+              </CardBody>
+            </Card>
+          ) : (
+            <ItemDetail item={selectedItem} />
+          )}
         </div>
       </div>
 

@@ -30,7 +30,7 @@ const ItemCompendium: React.FC = () => {
   useEffect(() => {
     const fetchItems = async () => {
       try {
-        const response = await fetch('/api/items');
+        const response = await fetch('/api/items?summary=true');
         if (!response.ok) {
           throw new Error('Failed to fetch items');
         }
