@@ -1,0 +1,69 @@
+{
+  "name": "Cloak of Fallen Leaves",
+  "description": "A cloak comprised of leaves that change shape and color to match the foliage around them. Said to have been crafted by the archfey Levil under the swollen moon, this garment protects the wearer from light and shadow.",
+  "type": "cloak",
+  "rarity": "epic",
+  "weight": 0,
+  "value": 20000,
+  "encumbrance_penalty": 0,
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
+  "mitigation": {
+    "divine": 2,
+    "dark": 2
+  },
+  "pain": 0,
+  "stress": 0,
+  "actions": [
+    {
+      "name": "Blowing in the Wind",
+      "cost": 0,
+      "type": "utility",
+      "magic": true,
+      "description": "The wearer of this cloak vanishes with only the individual leaves of the cloak remaining as they swirl around an area. While transformed in this way, the wearer can fly up to 4 units by spending 1 energy. If the user does not use fly speed on their turn, the leaves will slowly fall to the ground and remain inert and indistinguishable from real leaves. While transformed into the leaves, the user is considered in stasis, cannot regenerate energy and has a static defense of 4. Any damage taken while in this form ends the effect.",
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "charges": 3,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": []
+}

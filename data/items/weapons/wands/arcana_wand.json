@@ -1,0 +1,72 @@
+{
+  "name": "Arcana Wand",
+  "description": "A magical wand infused with arcane energy that channels pure aetheric damage.",
+  "type": "weapon",
+  "weapon_category": "simpleMelee",
+  "weight": 0.5,
+  "value": 1100,
+  "bonus_attack": 0,
+  "rarity": "uncommon",
+  "primary": {
+    "damage": "5",
+    "damage_extra": "2",
+    "damage_type": "aetheric",
+    "category": "arcane_magic",
+    "energy": 2,
+    "secondary_damage": 0,
+    "secondary_damage_extra": 0,
+    "secondary_damage_type": "none",
+    "min_range": 1,
+    "max_range": 3
+  },
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
+  "attributes": {},
+  "basic": {},
+  "weapon": {},
+  "magic": {},
+  "craft": {},
+  "mitigation": {},
+  "detections": {},
+  "immunities": {},
+  "recipe": {
+    "type": "glyphcraft",
+    "difficulty": 8,
+    "ingredients": [
+      "Aetheric Core",
+      "Ash Wood",
+      "Bindings"
+    ]
+  },
+  "encumbrance_penalty": 0,
+  "foundry_icon": "icons/weapons/wands/wand-gem-purple.webp",
+  "foundry_id": ""
+}

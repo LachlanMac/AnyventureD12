@@ -1,7 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useParams, useNavigate, Link } from 'react-router-dom';
 import { Item, Damage, ArmorData } from '../types/character';
+import { CreatureAction, CreatureReaction } from '../types/creature';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
+import CreatureActionCard from '../components/creature/CreatureActionCard';
+import CreatureReactionCard from '../components/creature/CreatureReactionCard';
 import Button from '../components/ui/Button';
 import { formatGoldDisplay } from '../utils/valueUtils';
 import { useAuth } from '../context/AuthContext';
@@ -372,7 +375,8 @@ const ItemDetail: React.FC = () => {
             item.energy?.recovery !== 0 ||
             item.resolve?.max !== 0 ||
             item.resolve?.recovery !== 0 ||
-            (item.movement && Object.values(item.movement).some((v: any) => v?.bonus || v?.set))) && (
+            (item.movement && Object.values(item.movement).some((v: any) => v?.bonus || v?.set)) ||
+            (item.mitigation && Object.values(item.mitigation).some((v: number) => v !== 0))) && (
             <Card variant="default" style={{ marginBottom: '1.5rem' }}>
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Bonuses & Effects</h2>
@@ -426,6 +430,42 @@ const ItemDetail: React.FC = () => {
                         .join(' | ')}
                     </div>
                   )}
+                  {item.mitigation && Object.entries(item.mitigation).some(([, v]) => v !== 0) && (
+                    <div style={{ color: 'var(--color-cloud)' }}>
+                      <strong>Mitigation:</strong>{' '}
+                      {Object.entries(item.mitigation)
+                        .filter(([, v]) => v !== 0)
+                        .map(([k, v]) => `${v > 0 ? '+' : ''}${v} ${k}`)
+                        .join(', ')}
+                    </div>
+                  )}
+                </div>
+              </CardBody>
+            </Card>
+          )}
+
+          {/* Abilities (Actions & Reactions) */}
+          {((item as any).actions?.length > 0 || (item as any).reactions?.length > 0) && (
+            <Card variant="default" style={{ marginBottom: '1.5rem' }}>
+              <CardHeader>
+                <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Abilities</h2>
+              </CardHeader>
+              <CardBody>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '0.75rem' }}>
+                  {(item as any).actions?.map((action: CreatureAction, idx: number) => (
+                    <CreatureActionCard
+                      key={`action-${idx}`}
+                      action={action}
+                      creatureTier="standard"
+                    />
+                  ))}
+                  {(item as any).reactions?.map((reaction: CreatureReaction, idx: number) => (
+                    <CreatureReactionCard
+                      key={`reaction-${idx}`}
+                      reaction={reaction}
+                      creatureTier="standard"
+                    />
+                  ))}
                 </div>
               </CardBody>
             </Card>

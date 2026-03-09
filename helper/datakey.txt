@@ -222,12 +222,14 @@ EX. V2=5 is DARKSIGHT equal to MODERATE
 
 ########### ABILITIES ######################
 TYPE (X,Z,D,Y) [Action, Reaction, Downtime Action, Both Action/Reaction]
-FREQUENCY (I, D, C) [Instant, Daily, Combat]
+FREQUENCY (I, D, C, or a number) [Instant, Daily, Combat, or Charges per day]
 MAGIC (N,M) [Non-Magical, Magical]
 ENERGY (E=num) [Number]
 
 EX. XIME=3  Action, Instant, Magical, 3 Energy
 EX. ZDNE=1  Reaction, Daily, Non-Magical, 1 Energy
+EX. X3ME=0  Action, 3 charges/day, Magical, 0 Energy
+EX. Z1NE=1  Reaction, 1 charge/day, Non-Magical, 1 Energy
 
 
 ######## TRAITS #########################

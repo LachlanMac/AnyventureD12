@@ -113,6 +113,21 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
               daily
             </span>
           )}
+          {action.charges != null && action.charges > 0 && (
+            <span
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                backgroundColor: 'rgba(200, 170, 80, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: '1px solid rgba(200, 170, 80, 0.3)',
+                fontWeight: 'normal',
+              }}
+            >
+              {action.charges}/day
+            </span>
+          )}
         </h3>
         {creatureTier !== 'minion' && creatureTier !== 'grunt' && (
           <span

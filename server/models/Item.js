@@ -41,6 +41,69 @@ const DamageSchema = new Schema({
   ammo_capacity: { type: Number, default: 0 }
 }, { _id: false });
 
+// Action/Reaction attack sub-schema
+const AbilityAttackSchema = new Schema({
+  roll: { type: String, default: '0' },
+  damage: { type: String, default: '0' },
+  damage_extra: { type: String, default: '0' },
+  damage_type: { type: String, default: 'physical' },
+  secondary_damage: { type: String },
+  secondary_damage_extra: { type: String },
+  secondary_damage_type: { type: String },
+  category: { type: String, enum: ['pierce', 'slash', 'blunt', 'ranged'], default: 'slash' },
+  min_range: { type: Number, default: 1 },
+  max_range: { type: Number, default: 1 }
+}, { _id: false });
+
+// Action/Reaction spell sub-schema
+const AbilitySpellSchema = new Schema({
+  roll: { type: String, default: '0' },
+  damage: { type: String, default: '0' },
+  damage_extra: { type: String, default: '0' },
+  damage_type: { type: String, default: 'aetheric' },
+  secondary_damage: { type: String },
+  secondary_damage_extra: { type: String },
+  secondary_damage_type: { type: String },
+  target_defense: { type: String, enum: ['evasion', 'deflection', 'resilience', 'none'], default: 'evasion' },
+  defense_difficulty: { type: Number, default: 6 },
+  min_range: { type: Number, default: 0 },
+  max_range: { type: Number, default: 5 },
+  charge: { type: String }
+}, { _id: false });
+
+// Item action sub-schema (matches creature action format + charges)
+const ItemActionSchema = new Schema({
+  name: { type: String, required: true },
+  cost: { type: Number, default: 0 },
+  type: { type: String, enum: ['attack', 'spell', 'utility', 'movement'], default: 'utility' },
+  magic: { type: Boolean, default: false },
+  basic: { type: Boolean, default: false },
+  round: { type: Boolean, default: false },
+  daily: { type: Boolean, default: false },
+  charges: { type: Number, default: 0 },
+  spellType: { type: String, enum: ['normal', 'innate', 'unique'], default: 'normal' },
+  description: { type: String, default: '' },
+  attack: AbilityAttackSchema,
+  spell: AbilitySpellSchema
+}, { _id: false });
+
+// Item reaction sub-schema (matches creature reaction format + charges)
+const ItemReactionSchema = new Schema({
+  name: { type: String, required: true },
+  cost: { type: Number, default: 0 },
+  type: { type: String, enum: ['attack', 'spell', 'utility', 'movement'], default: 'utility' },
+  magic: { type: Boolean, default: false },
+  basic: { type: Boolean, default: false },
+  round: { type: Boolean, default: false },
+  daily: { type: Boolean, default: false },
+  charges: { type: Number, default: 0 },
+  spellType: { type: String, enum: ['normal', 'innate', 'unique'], default: 'normal' },
+  trigger: { type: String, default: '' },
+  description: { type: String, default: '' },
+  attack: AbilityAttackSchema,
+  spell: AbilitySpellSchema
+}, { _id: false });
+
 // Main Item Schema
 const ItemSchema = new Schema({
   // Basic item information
@@ -295,6 +358,10 @@ const ItemSchema = new Schema({
     details: { type: String, default: "" }
   },
   
+  // Item actions and reactions (for magic items with innate abilities)
+  actions: [ItemActionSchema],
+  reactions: [ItemReactionSchema],
+
   // Properties description for items (e.g., special effects, bonuses)
   properties: { type: String, default: "" },
   

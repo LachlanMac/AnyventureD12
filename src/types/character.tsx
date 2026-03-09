@@ -1,6 +1,8 @@
 // src/types/character.ts
 // Central location for all character-related type definitions
 
+import { CreatureAction, CreatureReaction } from './creature';
+
 // Basic skill data structure
 export interface SkillData {
   value: number; // Dice type (0-6)
@@ -53,7 +55,7 @@ export interface Action {
   type: 'Action' | 'Reaction' | 'Daily Action' | 'Daily Reaction' | 'Free Action';
   energyCost?: number;
   source: string;
-  sourceType: 'ancestry' | 'culture' | 'module';
+  sourceType: 'ancestry' | 'culture' | 'module' | 'item';
   data?: string;
 }
 
@@ -351,6 +353,8 @@ export interface Item {
   detections?: Record<string, number>;
   immunities?: Record<string, boolean>;
   effects?: ItemEffect[];
+  actions?: CreatureAction[];
+  reactions?: CreatureReaction[];
   substance?: Substance;
   pain?: number;
   stress?: number;

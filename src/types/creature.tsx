@@ -8,6 +8,7 @@ export interface CreatureAction {
   basic?: boolean;
   round?: boolean;
   daily?: boolean;
+  charges?: number;
   spellType?: 'normal' | 'innate' | 'unique';
   description: string;
   attack?: {
@@ -46,6 +47,7 @@ export interface CreatureReaction {
   basic?: boolean;
   round?: boolean;
   daily?: boolean;
+  charges?: number;
   spellType?: 'normal' | 'innate' | 'unique';
   trigger?: string;
   description: string;

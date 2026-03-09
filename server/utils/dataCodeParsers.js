@@ -273,17 +273,20 @@ const PARSERS = [
   },
   {
     name: 'Abilities',
-    pattern: /^([XZDY])([IDC])([NM])E=(\d+)$/,
+    pattern: /^([XZDY])([IDC]|\d+)([NM])E=(\d+)$/,
     parse: (match, bonuses) => {
       // Abilities don't modify bonuses, they define actions/reactions
       // Just parse and store in bonuses.abilities for reference
-      const [_, type, frequency, magic, energy] = match;
+      const [_, type, frequencyOrCharges, magic, energy] = match;
 
       if (!bonuses.abilities) bonuses.abilities = [];
 
+      const isCharges = /^\d+$/.test(frequencyOrCharges);
+
       bonuses.abilities.push({
         type: type === 'X' ? 'action' : type === 'Z' ? 'reaction' : type === 'D' ? 'downtime' : 'both',
-        frequency: frequency === 'I' ? 'instant' : frequency === 'D' ? 'daily' : 'combat',
+        frequency: isCharges ? 'charges' : (frequencyOrCharges === 'I' ? 'instant' : frequencyOrCharges === 'D' ? 'daily' : 'combat'),
+        charges: isCharges ? parseInt(frequencyOrCharges) : 0,
         magical: magic === 'M',
         energy: parseInt(energy)
       });

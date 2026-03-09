@@ -15,6 +15,8 @@ import ItemDetectionFields from '../components/item/ItemDetectionFields';
 import ItemRecipeFields from '../components/item/ItemRecipeFields';
 import ItemImplantFields from '../components/item/ItemImplantFields';
 import { fieldInputStyle, fieldLabelStyle } from '../components/item/itemFormConstants';
+import AbilityEditor, { AbilityEntry } from '../components/shared/AbilityEditor';
+import { CreatureAction, CreatureReaction } from '../types/creature';
 
 const HomebrewItemCreator: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -132,6 +134,7 @@ const HomebrewItemCreator: React.FC = () => {
     bonuses: false,
     mitigation: false,
     detectionsImmunities: false,
+    abilities: false,
     implant: false,
     homebrew: true,
   });
@@ -231,6 +234,7 @@ const HomebrewItemCreator: React.FC = () => {
         detectionsImmunities:
           (!!data.detections && Object.values(data.detections).some((v: any) => v > 0)) ||
           (!!data.immunities && Object.values(data.immunities).some((v: any) => v === true)),
+        abilities: !!(data.actions?.length || data.reactions?.length),
         implant: data.type === 'implant',
         homebrew: true,
       });
@@ -477,6 +481,37 @@ const HomebrewItemCreator: React.FC = () => {
           {expandedSections.detectionsImmunities && (
             <div style={sectionContentStyle}>
               <ItemDetectionFields item={item} onChange={handleFieldChange} />
+            </div>
+          )}
+        </div>
+
+        {/* Abilities (Actions & Reactions) */}
+        <div>
+          <SectionHeader title="Abilities (Actions & Reactions)" section="abilities" />
+          {expandedSections.abilities && (
+            <div style={sectionContentStyle}>
+              <AbilityEditor
+                showCharges={true}
+                abilities={(() => {
+                  const list: AbilityEntry[] = [];
+                  (item.actions || []).forEach((a: any) => list.push({ ...a, reaction: false }));
+                  (item.reactions || []).forEach((r: any) => list.push({ ...r, reaction: true }));
+                  return list;
+                })()}
+                onAbilitiesChange={(updated) => {
+                  const actions: CreatureAction[] = [];
+                  const reactions: CreatureReaction[] = [];
+                  updated.forEach((ab) => {
+                    const { reaction: isReaction, trigger, ...rest } = ab;
+                    if (isReaction) {
+                      reactions.push({ ...rest, trigger } as unknown as CreatureReaction);
+                    } else {
+                      actions.push(rest as unknown as CreatureAction);
+                    }
+                  });
+                  setItem((prev) => ({ ...prev, actions, reactions }));
+                }}
+              />
             </div>
           )}
         </div>

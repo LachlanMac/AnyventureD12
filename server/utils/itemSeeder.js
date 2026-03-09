@@ -10,6 +10,7 @@ const __dirname = path.dirname(__filename);
 
 // Path to items data directory
 const itemsDir = path.resolve(__dirname, '../../data/items');
+const magicItemsDir = path.resolve(__dirname, '../../data/magic_items');
 
 // Function to purge all items from the database
 export const purgeAllItems = async () => {
@@ -25,28 +26,29 @@ export const purgeAllItems = async () => {
 };
 
 // Recursive function to read all JSON files in a directory
-const readItemsFromDirectory = (directory) => {
+// baseDir is used for computing relative paths/categories (defaults to directory)
+const readItemsFromDirectory = (directory, baseDir = directory) => {
   const items = [];
-  
+
   // Get all files and directories in the current directory
   const entries = fs.readdirSync(directory, { withFileTypes: true });
-  
+
   for (const entry of entries) {
     const fullPath = path.join(directory, entry.name);
-    
+
     if (entry.isDirectory()) {
-      // Recursively process subdirectories
-      const subItems = readItemsFromDirectory(fullPath);
+      // Recursively process subdirectories, passing baseDir through
+      const subItems = readItemsFromDirectory(fullPath, baseDir);
       items.push(...subItems);
     } else if (entry.isFile() && entry.name.endsWith('.json')) {
       // Process JSON files
       try {
         const fileContent = fs.readFileSync(fullPath, 'utf8');
         const itemData = JSON.parse(fileContent);
-        
-        // Get the category from the directory structure
+
+        // Get the category from the directory structure relative to baseDir
         // e.g., for '/data/items/weapons/simpleMelee/dagger.json', category would be 'weapons'
-        const relativePath = path.relative(itemsDir, fullPath);
+        const relativePath = path.relative(baseDir, fullPath);
         const pathParts = relativePath.split(path.sep);
         
         if (pathParts.length >= 1) {
@@ -106,8 +108,11 @@ export const seedItems = async (purgeFirst = false) => {
       return true;
     }
     
-    // Read all items from the directory
+    // Read all items from both directories
     const itemsData = readItemsFromDirectory(itemsDir);
+    if (fs.existsSync(magicItemsDir)) {
+      itemsData.push(...readItemsFromDirectory(magicItemsDir));
+    }
     
     if (itemsData.length === 0) {
       console.log('No item data found.');
@@ -261,8 +266,11 @@ export const resetAndReseedItems = async () => {
   try {
     console.log('Updating and reseeding all items (preserving references)...');
     
-    // First, get all items from JSON files
+    // First, get all items from JSON files (both directories)
     const itemsData = readItemsFromDirectory(itemsDir);
+    if (fs.existsSync(magicItemsDir)) {
+      itemsData.push(...readItemsFromDirectory(magicItemsDir));
+    }
     const itemNamesFromFiles = new Set(itemsData.map(item => item.name));
     
     // Get all non-homebrew items from database

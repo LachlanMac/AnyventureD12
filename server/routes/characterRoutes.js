@@ -185,6 +185,7 @@ router.patch('/:id/language-skills', protect, async (req, res) => {
     // Update the language skills
     // Convert object to Map for MongoDB
     character.languageSkills = new Map(Object.entries(languageSkills));
+    character.markModified('languageSkills');
     await character.save();
     
     // Re-fetch the character with proper population, like in getCharacter

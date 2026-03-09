@@ -38,6 +38,33 @@ const generateDeterministicFoundryId = (seed) => {
   return result;
 };
 
+// Helper to generate a datakey string from an action/reaction object
+// e.g. { cost: 0, magic: true, charges: 3 } => "X3ME=0"
+const generateAbilityDataKey = (ability, abilityType) => {
+  // TYPE: X=action, Z=reaction
+  const type = abilityType === 'reaction' ? 'Z' : 'X';
+
+  // FREQUENCY/CHARGES
+  let freq;
+  if (ability.charges && ability.charges > 0) {
+    freq = ability.charges.toString();
+  } else if (ability.daily) {
+    freq = 'D';
+  } else if (ability.round) {
+    freq = 'C';
+  } else {
+    freq = 'I';
+  }
+
+  // MAGIC
+  const magic = ability.magic ? 'M' : 'N';
+
+  // ENERGY
+  const energy = ability.cost || 0;
+
+  return `${type}${freq}${magic}E=${energy}`;
+};
+
 const router = express.Router();
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -399,7 +426,29 @@ const convertToFoundryFormat = (data, type) => {
         detections: data.detections,
         immunities: data.immunities,
         effects: data.effects,
-        properties: data.properties
+        properties: data.properties,
+        actions: (data.actions || []).map(a => ({
+          name: a.name,
+          description: a.description || "",
+          data: generateAbilityDataKey(a, 'action'),
+          abilityType: a.type || 'action',
+          spellType: a.spellType || 'normal',
+          basic: a.basic || false,
+          trigger: null,
+          attack: a.attack || null,
+          spell: a.spell || null
+        })),
+        reactions: (data.reactions || []).map(r => ({
+          name: r.name,
+          description: r.description || "",
+          data: generateAbilityDataKey(r, 'reaction'),
+          abilityType: r.type || 'reaction',
+          spellType: r.spellType || 'normal',
+          basic: r.basic || false,
+          trigger: r.trigger || null,
+          attack: r.attack || null,
+          spell: r.spell || null
+        }))
       };
       break;
 

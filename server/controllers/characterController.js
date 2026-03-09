@@ -1098,6 +1098,24 @@ const convertToFoundryId = (mongoId) => {
   return idString.substring(0, 16);
 };
 
+// Helper to generate a datakey string from an action/reaction object
+const generateAbilityDataKey = (ability, abilityType) => {
+  const type = abilityType === 'reaction' ? 'Z' : 'X';
+  let freq;
+  if (ability.charges && ability.charges > 0) {
+    freq = ability.charges.toString();
+  } else if (ability.daily) {
+    freq = 'D';
+  } else if (ability.round) {
+    freq = 'C';
+  } else {
+    freq = 'I';
+  }
+  const magic = ability.magic ? 'M' : 'N';
+  const energy = ability.cost || 0;
+  return `${type}${freq}${magic}E=${energy}`;
+};
+
 // Helper function to get icon based on type and properties (reuse from foundryRoutes.js)
 const getGenericIcon = (data, type) => {
   // For items, traits, modules, and spells, check for foundry_icon first
@@ -1761,7 +1779,29 @@ export const exportCharacterToFoundry = async (req, res) => {
               detections: item.detections,
               immunities: item.immunities,
               effects: item.effects,
-              properties: item.properties
+              properties: item.properties,
+              actions: (item.actions || []).map(a => ({
+                name: a.name,
+                description: a.description || "",
+                data: generateAbilityDataKey(a, 'action'),
+                abilityType: a.type || 'action',
+                spellType: a.spellType || 'normal',
+                basic: a.basic || false,
+                trigger: null,
+                attack: a.attack || null,
+                spell: a.spell || null
+              })),
+              reactions: (item.reactions || []).map(r => ({
+                name: r.name,
+                description: r.description || "",
+                data: generateAbilityDataKey(r, 'reaction'),
+                abilityType: r.type || 'reaction',
+                spellType: r.spellType || 'normal',
+                basic: r.basic || false,
+                trigger: r.trigger || null,
+                attack: r.attack || null,
+                spell: r.spell || null
+              }))
             },
             effects: [],
             flags: {
@@ -1856,7 +1896,29 @@ export const exportCharacterToFoundry = async (req, res) => {
               detections: item.detections,
               immunities: item.immunities,
               effects: item.effects,
-              properties: item.properties
+              properties: item.properties,
+              actions: (item.actions || []).map(a => ({
+                name: a.name,
+                description: a.description || "",
+                data: generateAbilityDataKey(a, 'action'),
+                abilityType: a.type || 'action',
+                spellType: a.spellType || 'normal',
+                basic: a.basic || false,
+                trigger: null,
+                attack: a.attack || null,
+                spell: a.spell || null
+              })),
+              reactions: (item.reactions || []).map(r => ({
+                name: r.name,
+                description: r.description || "",
+                data: generateAbilityDataKey(r, 'reaction'),
+                abilityType: r.type || 'reaction',
+                spellType: r.spellType || 'normal',
+                basic: r.basic || false,
+                trigger: r.trigger || null,
+                attack: r.attack || null,
+                spell: r.spell || null
+              }))
             }
           },
           equippedAt: slot.equippedAt || Date.now(),

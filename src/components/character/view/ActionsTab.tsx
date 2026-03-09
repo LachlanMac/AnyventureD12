@@ -1,6 +1,9 @@
 import React, { useMemo } from 'react';
 import Card, { CardHeader, CardBody } from '../../ui/Card';
 import { Action, Character, Ancestry, Culture } from '../../../types/character';
+import { CreatureAction, CreatureReaction } from '../../../types/creature';
+import CreatureActionCard from '../../creature/CreatureActionCard';
+import CreatureReactionCard from '../../creature/CreatureReactionCard';
 
 interface ActionsTabProps {
   character: Character;
@@ -46,6 +49,74 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     });
 
     return attacks;
+  }, [character.equipment, character.inventory]);
+
+  // Parse item abilities from equipped items
+  const { itemActions, itemReactions } = useMemo(() => {
+    const actions: { action: CreatureAction; itemName: string }[] = [];
+    const reactions: { reaction: CreatureReaction; itemName: string }[] = [];
+
+    const getItemData = (invItem: any) => {
+      if (invItem.isCustomized && invItem.itemData) return invItem.itemData;
+      return invItem.itemId;
+    };
+
+    // Check all equipment slots
+    const allSlots = [
+      'mainhand', 'offhand', 'extra1', 'extra2', 'extra3',
+      'hand', 'boots', 'body', 'head', 'back',
+      'accessory1', 'accessory2',
+    ];
+
+    allSlots.forEach((slotName) => {
+      const slot = character.equipment?.[slotName];
+      if (!slot?.itemId) return;
+
+      const inventoryItem = character.inventory?.find((invItem) => {
+        const itemData = getItemData(invItem);
+        return itemData?._id === slot.itemId || itemData?._id?.toString() === slot.itemId?.toString();
+      });
+
+      if (!inventoryItem) return;
+      const itemData = getItemData(inventoryItem);
+      if (!itemData) return;
+
+      if (itemData.actions?.length) {
+        itemData.actions.forEach((a: CreatureAction) => {
+          actions.push({ action: a, itemName: itemData.name });
+        });
+      }
+      if (itemData.reactions?.length) {
+        itemData.reactions.forEach((r: CreatureReaction) => {
+          reactions.push({ reaction: r, itemName: itemData.name });
+        });
+      }
+    });
+
+    // Also check equipped implants
+    character.inventory?.forEach((invItem) => {
+      if (!invItem.equipped) return;
+      const itemData = getItemData(invItem);
+      if (!itemData || itemData.type !== 'implant') return;
+
+      if (itemData.actions?.length) {
+        itemData.actions.forEach((a: CreatureAction) => {
+          // Avoid duplicates if already captured via equipment slots
+          if (!actions.some(x => x.action.name === a.name && x.itemName === itemData.name)) {
+            actions.push({ action: a, itemName: itemData.name });
+          }
+        });
+      }
+      if (itemData.reactions?.length) {
+        itemData.reactions.forEach((r: CreatureReaction) => {
+          if (!reactions.some(x => x.reaction.name === r.name && x.itemName === itemData.name)) {
+            reactions.push({ reaction: r, itemName: itemData.name });
+          }
+        });
+      }
+    });
+
+    return { itemActions: actions, itemReactions: reactions };
   }, [character.equipment, character.inventory]);
 
   // Parse actions and reactions from all sources
@@ -537,7 +608,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     );
   };
 
-  const hasAnyActions = actions.length > 0 || reactions.length > 0;
+  const hasAnyActions = actions.length > 0 || reactions.length > 0 || itemActions.length > 0 || itemReactions.length > 0;
 
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '2rem' }}>
@@ -644,6 +715,74 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
                 }}
               >
                 {reactions.map(renderActionCard)}
+              </div>
+            </div>
+          )}
+
+          {/* Item Actions Section */}
+          {itemActions.length > 0 && (
+            <div>
+              <h2
+                style={{
+                  color: 'var(--color-white)',
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1rem',
+                  borderBottom: '2px solid var(--color-metal-gold)',
+                  paddingBottom: '0.5rem',
+                }}
+              >
+                Item Actions ({itemActions.length})
+              </h2>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                  gap: '1rem',
+                }}
+              >
+                {itemActions.map(({ action, itemName }, idx) => (
+                  <CreatureActionCard
+                    key={`item-action-${itemName}-${idx}`}
+                    action={action}
+                    creatureTier="standard"
+                    label={itemName}
+                  />
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Item Reactions Section */}
+          {itemReactions.length > 0 && (
+            <div>
+              <h2
+                style={{
+                  color: 'var(--color-white)',
+                  fontSize: '1.5rem',
+                  fontWeight: 'bold',
+                  marginBottom: '1rem',
+                  borderBottom: '2px solid var(--color-metal-gold)',
+                  paddingBottom: '0.5rem',
+                }}
+              >
+                Item Reactions ({itemReactions.length})
+              </h2>
+              <div
+                style={{
+                  display: 'grid',
+                  gridTemplateColumns: 'repeat(auto-fill, minmax(350px, 1fr))',
+                  gap: '1rem',
+                }}
+              >
+                {itemReactions.map(({ reaction, itemName }, idx) => (
+                  <CreatureReactionCard
+                    key={`item-reaction-${itemName}-${idx}`}
+                    reaction={reaction}
+                    creatureTier="standard"
+                    label={itemName}
+                  />
+                ))}
               </div>
             </div>
           )}
