@@ -10,15 +10,16 @@
   "rarity": "common",
   "primary": {
     "damage": "8",
-    "damage_extra": "2",
+    "damage_extra": "1",
     "damage_type": "physical",
     "category": "ranged",
-    "energy": 1,
+    "energy": 0,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 3,
-    "max_range": 6
+    "max_range": 6,
+    "ammo_capacity": 1
   },
   "health": {
     "max": 0,

@@ -1,6 +1,6 @@
 {
-  "name": "Reinforced Leather Boots",
-  "description": "Leather boots with flexible mail reinforcement sewn into key areas, providing protection without sacrificing mobility.",
+  "name": "Reinforced Boots",
+  "description": "Boots reinforced with mail or scale armor sewn into key areas, providing solid protection.",
   "type": "boots",
   "weight": 2.5,
   "value": 1950,
@@ -10,7 +10,7 @@
     "difficulty": 6,
     "ingredients": [
       "Hide",
-      "Mail",
+      "Mail/Scales",
       "Padding",
       "Bindings"
     ]
@@ -18,5 +18,6 @@
   "mitigation": {
     "physical": 1
   },
+  "encumbrance_penalty": 1,
   "foundry_icon": "icons/equipment/feet/boots-armored-steel-purple.webp"
 }

@@ -8,8 +8,8 @@
   "bonus_attack": 0,
   "rarity": "uncommon",
   "primary": {
-    "damage": "5",
-    "damage_extra": "2",
+    "damage": "3",
+    "damage_extra": "3",
     "damage_type": "heat",
     "category": "primal_magic",
     "energy": 2,

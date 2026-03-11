@@ -15,7 +15,7 @@
   },
   "armor_category": "light",
   "mitigation": {
-    "physical": 2
+    "physical": 1
   },
   "encumbrance_penalty": 1,
   "foundry_icon": "icons/equipment/chest/breastplate-layered-leather-studded.webp",

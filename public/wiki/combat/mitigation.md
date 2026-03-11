@@ -28,17 +28,17 @@ A bandit with 4 physical mitigation is struck by a dagger for 3 damage. Since 3 
 </div>
 
 ### Partial Mitigation
-All characters have a partial mitigation score that is **double** their normal mitigation. When the damage taken is less than or equal to the partial mitigation, but greater than the full mitigation, the damage is reduced by half and rounded down.
+All characters have a partial mitigation score that is **triple** their normal mitigation. When the damage taken is less than or equal to the partial mitigation, but greater than the full mitigation, the damage is reduced by half and rounded down.
 
 <div class="example-box">
-A flame scholar with 6 heat mitigation has a partial heat mitigation score of 12 (6 + 6) and are hit with a powerful fireball spell that deals 11 damage. Since 11 is greater than 6 but 11 is less than 12, the attack is partially mitigated and the flame scholar takes 6 heat damage (half of 11 rounded down).  
+A flame scholar with 6 heat mitigation has a partial heat mitigation score of 18 (6 × 3) and are hit with a powerful fireball spell that deals 15 damage. Since 15 is greater than 6 but 15 is less than 18, the attack is partially mitigated and the flame scholar takes 7 heat damage (half of 15 rounded down).
 </div>
 
 ### No Mitigation
 If the damage exceeds your mitigation value, you take **full damage**.
 
 <div class="example-box">
-A mage with 2 Physical mitigation is struck by a greatsword for 7 damage. Since 7 is greater than 2, the mage takes the full 7 damage.
+A mage with 2 Physical mitigation is struck by a greatsword for 7 damage. Since 7 is greater than 6 (2 × 3), the mage takes the full 7 damage.
 </div>
 
 ## Sources of Mitigation

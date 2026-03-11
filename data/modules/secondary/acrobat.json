@@ -26,7 +26,7 @@
       "name": "Reaction : Rolling Dodge",
       "description": "In response to being targeted with a melee attack, you roll out of the way, moving to an adjacent tile. If you successfully evade the attack, you get a bonus dice to all evasion checks until the start of your turn. This effect can stack when using this reaction multiple times in a round.",
       "location": "3",
-      "data": "ZINE=0"
+      "data": "ZINE=1"
     },
     {
       "name": "Swift Climber",

@@ -1,0 +1,271 @@
+{
+  "name": "Pixie",
+  "description": "Pixies are tiny fey with thin, shimmering wings like those of a dragonfly. They look like miniature humans, usually with bright eyes, wild hair, and simple clothes made from leaves, petals, or bits of forest. While appearing innocent, pixies can be quite malicious, using their innate magic to trick and torment vulnerable humanoids.",
+  "tactics": "",
+  "tier": "grunt",
+  "type": "fey",
+  "size": "tiny",
+  "foundry_portrait": "pixie.png",
+  "health": {
+    "max": 8,
+    "current": 15
+  },
+  "energy": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 12,
+    "current": 5,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 1,
+    "climb": 0,
+    "swim": 0,
+    "fly": 4
+  },
+  "attributes": {
+    "physique": {
+      "talent": 1
+    },
+    "finesse": {
+      "talent": 3
+    },
+    "mind": {
+      "talent": 4
+    },
+    "knowledge": {
+      "talent": 2
+    },
+    "social": {
+      "talent": 2
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": null,
+      "tier": -1
+    },
+    "deflection": {
+      "value": 0,
+      "tier": -1
+    },
+    "might": {
+      "value": 0,
+      "tier": -1
+    },
+    "endurance": {
+      "value": 0,
+      "tier": -1
+    },
+    "evasion": {
+      "value": 3,
+      "tier": 1
+    },
+    "stealth": {
+      "value": 2,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 3,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 3,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 2,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 3,
+      "tier": 0
+    },
+    "senses": {
+      "value": 1,
+      "tier": 0
+    },
+    "logic": {
+      "value": 2,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": 0,
+      "tier": 0
+    },
+    "academics": {
+      "value": 0,
+      "tier": 0
+    },
+    "magic": {
+      "value": 3,
+      "tier": 0
+    },
+    "medicine": {
+      "value": 0,
+      "tier": 0
+    },
+    "expression": {
+      "value": 2,
+      "tier": 0
+    },
+    "presence": {
+      "value": 1,
+      "tier": 0
+    },
+    "insight": {
+      "value": 1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": 3,
+      "tier": 0
+    }
+  },
+  "magicSkills": {
+    "blackMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "primalMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "metaMagic": {
+      "talent": 3,
+      "skill": 3
+    },
+    "whiteMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "mysticismMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "arcaneMagic": {
+      "talent": 0,
+      "skill": 0
+    }
+  },
+  "mitigation": {
+    "physical": 0,
+    "cold": 0,
+    "heat": 0,
+    "electric": 0,
+    "psychic": 0,
+    "dark": 4,
+    "divine": 4,
+    "aetheric": 0,
+    "toxic": 0
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "alert": false,
+    "broken": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "maddened": false,
+    "numbed": false,
+    "stunned": false,
+    "bleeding": false,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
+    "incapacitated": false,
+    "muted": false,
+    "obscured": false,
+    "poisoned": false,
+    "prone": false,
+    "stasis": false,
+    "unconscious": false,
+    "winded": false
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Tease",
+      "cost": 0,
+      "type": "utility",
+      "magic": true,
+      "description": "The pixie teases a creature within a very short (5 unit) distance, dealing 5 psychic damage if the target fails a resilience check of 4. If a creature is brought to 0 resolve by this attack, their resolve instead becomes 1 and the pixie can choose to either charm, confuse or madden the creature. If the pixie knows the creature's true name, the resilience check becomes an 8 instead.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "charges": 0,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 3
+      }
+    },
+    {
+      "name": "Poof",
+      "cost": 0,
+      "type": "utility",
+      "magic": true,
+      "description": "The pixie becomes invisible and immediately teleports up a very short (5 units) distance away.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "charges": 0,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [],
+  "traits": [
+    {
+      "name": "Aversion to Iron",
+      "description": "Pixies are fey creatures and have an aversion to iron. When they end their turn while in contact with any object that contains iron, they takes 1 true damage down to a minimum of 1 health."
+    },
+    {
+      "name": "Feywild Connection",
+      "description": "If the pixie remains invisible for 1 minute, they can shift to either the feywild or the material realm."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "spellNames": [
+    "Malice",
+    "Clumsy",
+    "Glitteray",
+    "Polify"
+  ],
+  "source": "Official",
+  "isHomebrew": false
+}

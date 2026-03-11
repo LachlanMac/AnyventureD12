@@ -63,7 +63,7 @@ export function getTypeIcon(type: string): string {
 export function getMitigationFormat(value: number): { half: string; full: string; immune: boolean } {
   if (value >= 25) return { half: 'IMM', full: 'IMM', immune: true };
   if (value === 0) return { half: '0', full: '0', immune: false };
-  const half = Math.ceil(value / 2);
+  const half = Math.ceil(value / 3);
   return { half: half.toString(), full: value.toString(), immune: false };
 }
 

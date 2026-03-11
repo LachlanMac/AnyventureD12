@@ -8,8 +8,8 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "8",
-    "damage_extra": "2",
+    "damage": "7",
+    "damage_extra": "1",
     "damage_type": "physical",
     "category": "slash",
     "energy": 1,
@@ -20,8 +20,8 @@
     "max_range": 1
   },
   "secondary": {
-    "damage": "5",
-    "damage_extra": "2",
+    "damage": "4",
+    "damage_extra": "1",
     "damage_type": "physical",
     "category": "pierce",
     "energy": 1,

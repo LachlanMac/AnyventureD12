@@ -10,7 +10,7 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "2",
+    "damage": "1",
     "damage_extra": "1",
     "damage_type": "physical",
     "category": "pierce",

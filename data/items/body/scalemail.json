@@ -15,7 +15,7 @@
   },
   "armor_category": "heavy",
   "mitigation": {
-    "physical": 5
+    "physical": 4
   },
   "encumbrance_penalty": 4,
   "foundry_icon": "icons/equipment/chest/breastplate-metal-scaled-grey.webp",

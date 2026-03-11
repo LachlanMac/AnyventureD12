@@ -10,7 +10,7 @@
   "rarity": "common",
   "primary": {
     "damage": "4",
-    "damage_extra": "2",
+    "damage_extra": "1",
     "damage_type": "physical",
     "category": "blunt",
     "energy": 0,

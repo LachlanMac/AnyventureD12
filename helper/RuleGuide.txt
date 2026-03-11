@@ -131,7 +131,7 @@ Critical Hits (weapon attacks)
 Mitigation (Damage & Types)
 - Damage types include: Physical, Heat, Cold, Electric, Dark, Divine, Aetheric (replaces Arcane), Psychic, Toxic.
 - Full Mitigation: If mitigation ≥ incoming damage → 0 damage.
-- Partial Mitigation: Each mitigation has a partial threshold = 2× mitigation. If incoming damage is > full but ≤ partial → take half damage (round down).
+- Partial Mitigation: Each mitigation has a partial threshold = 3× mitigation. If incoming damage is > full but ≤ partial → take half damage (round down).
 - No Mitigation: If damage > partial → take full damage.
 - Order: Halving/doubling occurs before applying mitigation calculations.
 

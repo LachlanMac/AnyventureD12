@@ -9,7 +9,7 @@
   "rarity": "uncommon",
   "primary": {
     "damage": "4",
-    "damage_extra": "2",
+    "damage_extra": "3",
     "damage_type": "aetheric",
     "category": "mysticism_magic",
     "energy": 2,
@@ -20,8 +20,8 @@
     "max_range": 4
   },
   "secondary": {
-    "damage": "5",
-    "damage_extra": "2",
+    "damage": "4",
+    "damage_extra": "1",
     "damage_type": "physical",
     "category": "blunt",
     "energy": 0,

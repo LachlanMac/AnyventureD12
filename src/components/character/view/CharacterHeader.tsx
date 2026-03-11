@@ -699,7 +699,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                               fontSize: '1rem',
                             }}
                           >
-                            {value * 2}
+                            {value * 3}
                           </td>
                         </tr>
                       ))}
