@@ -54,7 +54,7 @@
     },
     {
       "name": "Parry",
-      "description": "You can use a simple or complex melee check instead of your deflection skill when defending against melee attacks from large or smaller creatures.",
+      "description": "You can use a simple or complex melee check instead of your deflection skill when defending against weapon melee attacks from large or smaller creatures.",
       "location": "6b",
       "data": "TG"
     },
