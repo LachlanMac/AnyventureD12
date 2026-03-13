@@ -2,6 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
 import Item from '../models/Item.js';
+import Character from '../models/Character.js';
 import { generateFoundryId } from './foundryIdGenerator.js';
 
 // Get __dirname equivalent in ES modules
@@ -279,11 +280,37 @@ export const resetAndReseedItems = async () => {
     // Find orphaned items (non-homebrew items in database but not in files)
     const orphanedItems = itemsInDatabase.filter(dbItem => !itemNamesFromFiles.has(dbItem.name));
     
-    // Delete orphaned items (non-homebrew only)
+    // Delete orphaned items (non-homebrew only) and clean up character references
     if (orphanedItems.length > 0) {
       console.log(`Found ${orphanedItems.length} orphaned non-homebrew items to delete:`);
+      const equipmentSlots = [
+        'hand', 'boots', 'body', 'head', 'back',
+        'accessory1', 'accessory2',
+        'mainhand', 'offhand', 'extra1', 'extra2', 'extra3'
+      ];
       for (const orphan of orphanedItems) {
         console.log(`Deleting orphaned item: ${orphan.name}`);
+
+        // Clear equipment slots referencing this item on all characters
+        for (const slot of equipmentSlots) {
+          const result = await Character.updateMany(
+            { [`equipment.${slot}.itemId`]: orphan._id },
+            { $set: { [`equipment.${slot}.itemId`]: null, [`equipment.${slot}.equippedAt`]: null } }
+          );
+          if (result.modifiedCount > 0) {
+            console.log(`  Cleared ${result.modifiedCount} character(s) with ${orphan.name} in ${slot} slot`);
+          }
+        }
+
+        // Remove from character inventories
+        const invResult = await Character.updateMany(
+          { 'inventory.itemId': orphan._id },
+          { $pull: { inventory: { itemId: orphan._id } } }
+        );
+        if (invResult.modifiedCount > 0) {
+          console.log(`  Removed from ${invResult.modifiedCount} character inventory(s)`);
+        }
+
         await Item.deleteOne({ _id: orphan._id });
       }
     } else {
