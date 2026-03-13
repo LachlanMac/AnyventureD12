@@ -1,0 +1,150 @@
+{
+  "name": "Pendent of Saintly Blood",
+  "description": "A small glass brooch filled with the blood of a long dead saint laced with a platinum chain that is worn around the neck. The wearer of this gains a +1 bonus to their resilience skill.",
+  "type": "accessory",
+  "rarity": "epic",
+  "weight": 0,
+  "value": 20000,
+  "encumbrance_penalty": 0,
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
+  "mitigation": {},
+  "pain": 0,
+  "stress": 0,
+  "actions": [
+    {
+      "name": "Saint's Blessing",
+      "cost": 0,
+      "type": "utility",
+      "magic": true,
+      "description": "You channel a spell with the charge effect, using the pendent as the component, consuming it. A spell channeled this way takes no energy and cannot fail. The pendent is destroyed when using this action.",
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "charges": 1,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [],
+  "basic": {
+    "fitness": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "deflection": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "might": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "endurance": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "evasion": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "stealth": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "coordination": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "thievery": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "resilience": {
+      "add_bonus": 1,
+      "set_bonus": 0
+    },
+    "concentration": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "senses": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "logic": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "wildcraft": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "academics": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "magic": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "medicine": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "expression": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "presence": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "insight": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "persuasion": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    }
+  },
+   "foundry_icon": "icons/equipment/neck/amulet-round-gold-red.webp"
+}
+

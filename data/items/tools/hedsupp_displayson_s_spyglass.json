@@ -1,0 +1,149 @@
+{
+  "name": "Hedsupp Displayson's Spyglass",
+  "description": "Crafted by the great wizard Hedsupp, this spyglass can be used to identify creature type, tier and size up to a far (40 unit) distance away.",
+  "type": "tool",
+  "rarity": "epic",
+  "weight": 0,
+  "value": 20000,
+  "encumbrance_penalty": 0,
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
+  "mitigation": {},
+  "pain": 0,
+  "stress": 0,
+  "actions": [
+    {
+      "name": "Hedsupp's Insights",
+      "cost": 0,
+      "type": "utility",
+      "magic": true,
+      "description": "You point your spyglass at a creature within a short (10 unit) distance and can request one of the following insights; if the creature is immune to a condition, a creature's mitigation to a certain damage type or the creature's current health.",
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "charges": 3,
+      "spellType": "normal",
+      "attack": {
+        "roll": "0",
+        "damage": "2",
+        "damage_extra": "1",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "foundry_icon": "icons/tools/navigation/spyglass-telescope-blue.webp",
+  "reactions": [],
+  "basic": {
+    "fitness": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "deflection": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "might": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "endurance": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "evasion": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "stealth": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "coordination": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "thievery": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "resilience": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "concentration": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "senses": {
+      "add_bonus": 1,
+      "set_bonus": 0
+    },
+    "logic": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "wildcraft": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "academics": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "magic": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "medicine": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "expression": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "presence": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "insight": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    },
+    "persuasion": {
+      "add_bonus": 0,
+      "set_bonus": 0
+    }
+  }
+}

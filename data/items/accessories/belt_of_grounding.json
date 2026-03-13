@@ -1,0 +1,47 @@
+{
+  "name": "Belt of Grounding",
+  "description": "A belt of seemingly simple leather with a brass buckle, this belt makes the wearer 5 times as heavy when equipping, making them immune to being displaced. When not equipped, this belt is indistinguishable from a normal belt. This belt also grants the wearer +4 electric mitigation.",
+  "type": "accessory",
+  "rarity": "epic",
+  "weight": 0,
+  "value": 20000,
+  "encumbrance_penalty": 0,
+  "health": {
+    "max": 0,
+    "recovery": 0
+  },
+  "foundry_icon": "icons/equipment/waist/belt-buckle-round-red.webp",
+  "energy": {
+    "max": 0,
+    "recovery": 0
+  },
+  "resolve": {
+    "max": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": {
+      "bonus": 0,
+      "set": 0
+    },
+    "swim": {
+      "bonus": 0,
+      "set": 0
+    },
+    "climb": {
+      "bonus": 0,
+      "set": 0
+    },
+    "fly": {
+      "bonus": 0,
+      "set": 0
+    }
+  },
+  "mitigation": {
+    "electric": 4
+  },
+  "pain": 0,
+  "stress": 0
+}
+
+
