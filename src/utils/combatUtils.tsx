@@ -61,7 +61,7 @@ export function formatSecondaryDamage(
 ): string | null {
   if (!damage || !damageType) return null;
   const base = parseInt(damage) || 0;
-  const growth = parseInt(extraDamage) || 0;
+  const growth = parseInt(extraDamage || '0') || 0;
   return `+ [${getDamageChart(base, growth, aimed || false, hands || 1)}] ${damageType}`;
 }
 
