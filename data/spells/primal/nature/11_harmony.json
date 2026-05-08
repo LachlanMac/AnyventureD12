@@ -1,6 +1,6 @@
 {
   "name": "Harmony",
-  "description": "You target a beast or plantoid within a short (10 unit) distance and fill them with calming natural energy. The spell immediately removes the Maddened condition. While you maintain concentration, whenever an affected creature takes an aggressive action, they must succeed on a resilience check of 10 or take 8 psychic damage - greatly discouraging them from doing so.",
+  "description": "You target a beast or plantoid within a short (10 unit) distance and fill them with calming natural energy. The spell immediately removes the Maddened condition. While you maintain concentration, whenever an affected creature takes an aggressive action, make a spell check against their resilience. If you succeed, they take 8 psychic damage, greatly discouraging them from doing so.",
   "charge": "The spell affects everyone all beasts and plantoids within a short (10 unit) radius.",
   "duration": "concentration",
   "range": 4,

@@ -8,8 +8,8 @@
   "bonus_attack": 0,
   "rarity": "uncommon",
   "primary": {
-    "damage": "3",
-    "damage_extra": "3",
+    "damage": "4",
+    "damage_extra": "4",
     "damage_type": "aetheric",
     "category": "arcane_magic",
     "energy": 2,
@@ -17,7 +17,8 @@
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 1,
-    "max_range": 3
+    "max_range": 3,
+    "aimed": true
   },
   "health": {
     "max": 0,

@@ -1,6 +1,6 @@
 {
   "name": "Comet",
-  "description": "You transform into a streak of icy cosmic energy and launch yourself to an empty tile within a very short (5 unit) distance that you can see. When you arrive, you can make an attack against one adjacent creature, dealing 10 cold damage if they fail a defense check of 7.",
+  "description": "You transform into a streak of icy cosmic energy and launch yourself to an empty tile within a very short (5 unit) distance that you can see. When you arrive, you can make an attack against one adjacent creature, dealing 14 cold damage if your spell check beats the target's defense.",
   "charge": "The range increases to short (10 units) and you deal the cold damage to all adjacent creatures instead of just one.",
   "duration": "Instantaneous",
   "range": 2,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 2,
-  "damage": 10,
+  "damage": 14,
   "damageType": "Cold",
   "foundry_id": "f7cd3otd4s2z4g7l",
   "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp"

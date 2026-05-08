@@ -1,6 +1,6 @@
 {
   "name": "Glitteray",
-  "description": "You target a creature within a short (10 unit) distance and fire three quick bursts of colorful energy at them. If the target fails a defense check of 6, they take 3 aether damage three times.",
+  "description": "You target a creature within a short (10 unit) distance and fire three quick bursts of colorful energy at them. If your spell check beats the target's defense, they take 3 aetheric damage three times.",
   "charge": "You fire four rays, but they all must target a different creature.",
   "duration": "Instantaneous",
   "range": 4,

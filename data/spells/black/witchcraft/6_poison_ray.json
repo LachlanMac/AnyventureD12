@@ -1,6 +1,6 @@
 {
   "name": "Poison Bolt",
-  "description": "You shoot a bolt of poison a moderate (20 unit) distance at a target, dealing 8 toxic damage if they fail a defense check of 9.",
+  "description": "You shoot a bolt of poison at a target within a moderate (20 unit) distance, dealing 10 toxic damage if your spell check beats the target's defense.",
   "charge": "Instead of dealing initial damage, the target takes 6 toxic damage at the start of each of their next 3 turns.",
   "duration": "Instantaneous",
   "range": 4,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 1,
-  "damage": 8,
+  "damage": 10,
   "damageType": "Toxic",
   "foundry_id": "4og1j8279lit3wpf",
   "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"

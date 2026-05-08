@@ -340,7 +340,7 @@
       "cost": 2,
       "type": "utility",
       "magic": true,
-      "description": "Trigger: The devil lord is targeted by a melee or ranged attack. The devil lord conjures a shield of infernal flame, gaining a bonus die on its deflection check against the triggering attack. The shield persists until the start of the devil lord's next turn, granting a bonus die on all deflection checks. If an attacker's melee attack is fully mitigated while the shield is active, that attacker takes 4 heat damage.",
+      "description": "Trigger: The devil lord is targeted by a melee or ranged attack. The devil lord conjures a shield of infernal flame, gaining a +2 bonus to Deflection against the triggering attack. The shield persists until the start of the devil lord's next turn, granting a +2 bonus to Deflection. If an attacker's melee attack is fully mitigated while the shield is active, that attacker takes 4 heat damage.",
       "reaction": true,
       "basic": false,
       "round": false,

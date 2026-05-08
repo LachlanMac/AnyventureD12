@@ -54,13 +54,13 @@
     },
     {
       "name": "Glory Strikes",
-      "description": "When you land a killing blow against creature of a standard tier or higher with a melee or throwing attack, you gain 2 morale. Gain an additional morale for each critical hit in the attack roll.",
+      "description": "When you land a killing blow against a creature of a standard tier or higher with a melee or throwing attack, you gain 2 morale. If all dice hit as part of your attack, you gain 5 morale instead.",
       "location": "6b",
       "data": "TG"
     },
     {
       "name": "Action : Called Shot",
-      "description": "You target a limb on a large or smaller creature with a melee weapon attack, dealing damage. If 3 or more dice hit, you can target a limb to disable. At the end of each turn, the target must roll an endurance check of 7 or higher to regain function of the limb. If 3 or more dice are critical hits, this attack amputates or mangles the chosen limb instead. This attack can be used against huge creatures, but the dice requirements are raised to 4.",
+      "description": "You target a limb on a large or smaller creature with a melee weapon attack, dealing damage. If 3 or more dice hit, you can target a limb to disable. At the end of each turn, the target must roll an endurance check of 7 or higher to regain function of the limb. If 5 or more dice hit, this attack amputates or mangles the chosen limb instead. This attack can be used against huge creatures, but the dice requirements are raised to 4 and 6.",
       "location": "7",
       "data": "XINE=2"
     }

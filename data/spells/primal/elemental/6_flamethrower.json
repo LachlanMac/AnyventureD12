@@ -1,6 +1,6 @@
 {
   "name": "Flamethrower",
-  "description": "You spray a wild jet of flames in a very short (5 unit) cone with you as the origin, dealing 7 heat damage to any creature that fails a defense check of 5.",
+  "description": "You spray a wild jet of flames in a very short (5 unit) cone with you as the origin, dealing 7 heat damage to any creature who fails a defense check against your spell check.",
   "charge": "Instead of taking damage, creatures that fail this check become ignited instead.",
   "duration": "Instantaneous",
   "range": 3,

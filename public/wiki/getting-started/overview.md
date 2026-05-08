@@ -31,7 +31,7 @@ A character gets 2 actions and movement on each turn, but they are limited what 
 
 ### 6. One Roll Combat Resolution
 
-Instead of rolling to attack and then rolling damage separately, AnyventureDX uses a 'one roll' resolution system with the defender rolling a defense check and the attacker rolling an attack check. The more attack dice that beat the highest value of the defense check, the more damage the attack does. All weapons have a damage and extra damage stat. For example, an attack with a sword that has 5 damage and 3 extra damage where the attacker has three successful dice that beat the defense check would deal 11 total damage. (5 for the damage, 3 for each additional).
+Instead of rolling to attack and then rolling damage separately, AnyventureDX uses a 'one roll' resolution system with the attacker rolling an attack check against the defender's defense check. Player characters usually roll defense checks, while NPCs usually use static defense checks. The more attack dice that beat the defense check, the more damage the attack does. All weapons have a damage chart based on their base and growth values. For example, a longsword (base 5, growth 4) has a damage chart of [9, 13, 17, 21, 25]. If three dice beat the defense check, the attack deals 17 damage. Just count the hits and read the chart.
 
 
 ### 7. Simple Bonus/Penalty System

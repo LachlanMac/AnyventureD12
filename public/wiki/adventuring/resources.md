@@ -53,7 +53,7 @@ archer is in lifeline and has 0 health, they take 4 more damage to resolve. Howe
 When a character falls unconscious due to having 0 health, they will regain consciousness in 1 hour if they gain at least 10 health back. Otherwise, they use the normal rules for recovering from being unconscious listed in [Conditions](/wiki/conditions).
 
 <div class="example-box">
-The archer manages to take out one of the goblins, but the situation is looking dire when the second scores a critical hit dealing a total of 11 damage. Because this is over the threshold, the arcane archer must roll on the lifeline table and take the damage to resolve. They roll a 1d10 and land on a 9, getting fairly lucky with a cosmetic injury. However; once it comes to their turn again, they only have 3 resolve remaining. They have no choice but to spend 2 of it, knowing that this is their last turn of consciousness and make a desperate attack with a melee weapon. Success! The goblin falls.
+The archer manages to take out one of the goblins, but the situation is looking dire when the second lands a devastating hit dealing a total of 11 damage. Because this is over the threshold, the arcane archer must roll on the lifeline table and take the damage to resolve. They roll a 1d10 and land on a 9, getting fairly lucky with a cosmetic injury. However; once it comes to their turn again, they only have 3 resolve remaining. They have no choice but to spend 2 of it, knowing that this is their last turn of consciousness and make a desperate attack with a melee weapon. Success! The goblin falls.
 </div>
 
 

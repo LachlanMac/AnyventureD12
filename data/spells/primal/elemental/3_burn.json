@@ -1,6 +1,6 @@
 {
   "name": "Burn",
-  "description": "You touch a creature, emmiting massive amounts of heat from your hand, dealing 5 heat damage if the target fails a defense check of 5.",
+  "description": "You touch a creature, emitting massive amounts of heat from your hand, dealing 6 heat damage if your spell check beats the target's defense.",
   "charge": "You can cauterize a cut and stop the bleeding condition, while dealing no damage.",
   "duration": "Instantaneous",
   "range": 0,
@@ -12,8 +12,8 @@
   "concentration": false,
   "reaction": false,
   "energy": 1,
-  "damage": 0,
-  "damageType": null,
+  "damage": 6,
+  "damageType": "Heat",
   "foundry_id": "9eahu2nfedzxptcv",
   "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
 }

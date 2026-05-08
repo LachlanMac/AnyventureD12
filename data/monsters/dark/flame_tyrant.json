@@ -327,7 +327,7 @@
   "traits": [
     {
       "name": "Wreathed in Flame",
-      "description": "While ignited, the flame tyrant gains a bonus dice on all deflection and evasion checks. Any creature that hits the flame tyrant with a melee attack while it is ignited takes 5 heat damage."
+      "description": "While ignited, the flame tyrant gains a +1 bonus to Deflection and Evasion. Any creature that hits the flame tyrant with a melee attack while it is ignited takes 5 heat damage."
     },
     {
       "name": "Cloak of Shadows",

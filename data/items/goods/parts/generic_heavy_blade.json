@@ -65,7 +65,7 @@
       "difficulty": 9,
       "type": "fabrication"
     },
-    "properties": "Adds +1 damage when fabricated into an item.",
+    "properties": "Adds +1 base when fabricated into an item.",
     "foundry_icon": "icons/commodities/metal/barstock-heated-steel.webp"
   },
   {
@@ -89,7 +89,7 @@
       "difficulty": 15,
       "type": "fabrication"
     },
-    "properties": "Adds +2 damage and +1 extra damage when fabricated into an item.",
+    "properties": "Adds +2 base and +1 growth when fabricated into an item.",
     "foundry_icon": "icons/commodities/metal/barstock-heated-steel.webp"
   }
 ]

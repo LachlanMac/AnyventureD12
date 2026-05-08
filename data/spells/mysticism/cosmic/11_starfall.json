@@ -1,6 +1,6 @@
 {
   "name": "Starfall",
-  "description": "You target an area within a moderate (20 unit) distance and call down a shard of a star that explodes, dealing 14 aetheric damage to any creatures within a 2 unit radius from that point who fail a defense check of 10. The radius is increased to 3 units when this spell is channeled under visible stars.",
+  "description": "You target an area within a moderate (20 unit) distance and call down a shard of a star that explodes, dealing 14 aetheric damage to any creatures within a 2 unit radius whose defense is beaten by your spell check. The radius is increased to 3 units when this spell is channeled under visible stars.",
   "charge": "You call down two additional shards, that cannot overlap with each other or the original shard.",
   "duration": "Instantaneous",
   "range": 5,

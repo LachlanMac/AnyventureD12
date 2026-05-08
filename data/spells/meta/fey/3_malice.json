@@ -1,6 +1,6 @@
 {
   "name": "Malice",
-  "description": "You target a creature within a short (10 unit) distance and deal 4 psychic damage to them if they fail a resilience check of 5.",
+  "description": "You target a creature within a short (10 unit) distance and deal 5 psychic damage to them if your spell check beats the target's resilience.",
   "charge": "If the creature takes damage, they suffer a penalty dice to their first attack they take if it is against another target besides you.",
   "duration": "Instantaneous",
   "range": 4,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 1,
-  "damage": 4,
+  "damage": 5,
   "damageType": "Psychic",
   "foundry_id": "y1fw2epfd0v2ngpb",
   "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"

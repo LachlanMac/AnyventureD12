@@ -1,7 +1,7 @@
 {
   "name": "Dematerialize",
-  "description": "You target a creature within a short (10 unit) distance and attempt to unravel their physical form. The target must make an endurance check of 10 or take 12 true damage. If this spell reduces a creature to 0 health, they are completely disintegrated, leaving no body behind.",
-  "charge": "The damage increases to 24 true damage. Additionally, if the target rolls a 5 or less on their endurance check, they are instantly disintegrated regardless of their current health.",
+  "description": "You target a creature within a short (10 unit) distance and attempt to unravel their physical form. If your spell check beats the target's endurance, they take 15 true damage. If your spell check doubles the target's endurance, the damage is doubled. If this spell reduces a creature to 0 health, they are completely disintegrated, leaving no body behind.",
+  "charge": "The base damage increases to 30 true damage.",
   "duration": "Instantaneous",
   "range": 4,
   "checkToCast": 12,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 4,
-  "damage": 10,
+  "damage": 15,
   "damageType": "True",
   "foundry_id": "transdemateria12",
   "foundry_icon": "icons/magic/time/arrows-circling-green.webp"

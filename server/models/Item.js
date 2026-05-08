@@ -23,8 +23,9 @@ const SkillTalentBonusSchema = new Schema({
 
 // Define weapon damage structure
 const DamageSchema = new Schema({
-  damage: { type: String, default: "0" },           // Base damage value as string to allow dice notation
-  damage_extra: { type: String, default: "0" },     // Additional damage as string
+  damage: { type: String, default: "0" },           // Base damage value
+  damage_extra: { type: String, default: "0" },     // Growth per hit
+  aimed: { type: Boolean, default: false },         // If true, first hit die doesn't count (skip tier 1)
   damage_type: { type: String, default: "physical" },
   category: {
     type: String,

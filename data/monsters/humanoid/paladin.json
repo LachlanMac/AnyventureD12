@@ -272,7 +272,7 @@
   "traits": [
     {
       "name": "Divine Warrior",
-      "description": "The paladin gains a bonus die on attack checks and resilience checks against dark and undead creatures. This bonus also applies to creatures who have channeled a spell from the dark school of magic within the last turn."
+      "description": "The paladin rolls one extra attack die against dark and undead creatures. It also gains a +2 bonus to Resilience against dark and undead creatures. These bonuses also apply against creatures who have channeled a spell from the dark school of magic within the last turn."
     },
     {
       "name": "Aura of Courage",

@@ -1,6 +1,6 @@
 {
   "name": "Fear",
-  "description": "You attempt to scare a creature within a very short (5 unit) range, with you making a presence check with a bonus dice against a contested resilience check. On a failure, the target takes 4 psychic damage and becomes afraid of you.",
+  "description": "You attempt to scare a creature within a very short (5 unit) range. If your spell check beats the target's resilience, they take 6 psychic damage and become afraid of you.",
   "charge": "The target takes an additional 4 psychic damage.",
   "duration": "Instantaneous",
   "range": 3,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 2,
-  "damage": 4,
+  "damage": 6,
   "damageType": "Psychic",
   "foundry_id": "7h1buy86usvjwl0g",
   "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"

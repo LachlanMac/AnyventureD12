@@ -25,9 +25,9 @@ When inscribing magical items, glyphcrafters can add infusions using different m
 
 | Name | Description | Ingredients |
 |------|-------------|-------------|
-| Power Enhancement | Adds +1 primary damage to weapons | Silver shavings |
-| Potency Enhancement | Adds +1 secondary damage to weapons | Electrum shavings |
+| Power Enhancement | Adds +1 base damage to weapons | Silver shavings |
+| Potency Enhancement | Adds +1 growth to weapons | Electrum shavings |
 | Precision Enhancement | Adds +1 bonus die to attack rolls | Platinum shavings |
 | Focus Enhancement | Adds +1 to maximum range | Gold shavings |
-| Warding Enhancement | Add +1 primary damage, weapon becomes immutable (cannot be altered by magic) | Lead shavings |
-| Conservation Enhancement | Add +1 primary damage, Reduces energy cost by 1 | Aetherium shavings |
+| Warding Enhancement | Adds +1 base damage, weapon becomes immutable (cannot be altered by magic) | Lead shavings |
+| Conservation Enhancement | Adds +1 base damage, reduces energy cost by 1 | Aetherium shavings |

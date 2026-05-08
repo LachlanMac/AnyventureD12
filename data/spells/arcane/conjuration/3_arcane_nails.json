@@ -1,6 +1,6 @@
 {
   "name": "Arcane Nails",
-  "description": "You summon several 1d4 arcane shards that all strike a creature within a short (10 unit) distance that fails a defense check of 5. For each shard you summon, deal 2 aetheric damage.",
+  "description": "You summon 1d4 arcane shards that all strike a creature within a short (10 unit) distance if your spell check beats the target's defense. For each shard, deal 2 aetheric damage.",
   "charge": "You summon an additional 1d4 shards. When you roll a 6 or higher for the number of shards, the target also gains the bleeding condition.",
   "duration": "Instantaneous",
   "range": 4,

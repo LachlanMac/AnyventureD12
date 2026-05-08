@@ -60,7 +60,7 @@
     },
     {
       "name": "Action : Mindbreaker",
-      "description": "You target a creature within a short (10 unit) distance and infiltrate their mind, causing them to see whatever you choose by rolling a meta magic spell attack against a contested logic or resilience check. For each dice that hits, deal 2 psychic damage. For each dice that is a critical hit, the damage is increased to 4. If they take at least 10 psychic damage after mitigation is calculated, they become confused. A creature can only be the target of this ability once until you complete a full rest.",
+      "description": "You target a creature within a short (10 unit) distance and infiltrate their mind, causing them to see whatever you choose by rolling a meta magic spell attack against a contested logic or resilience check. For each dice that hits, deal 2 psychic damage. If all dice are successful, each dice deals 4 psychic damage instead. If they take at least 10 psychic damage after mitigation is calculated, they become confused. A creature can only be the target of this ability once until you complete a full rest.",
       "location": "7",
       "data": "XIME=2"
     }

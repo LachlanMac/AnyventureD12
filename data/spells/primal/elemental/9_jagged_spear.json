@@ -1,6 +1,6 @@
 {
   "name": "Jagged Spear",
-  "description": "You conjure a spear made of raw metal and earth that is lobbed at a target within a short (10 unit) distance, dealing 15 physical damage if the target fails a defense check of 10. If the damage is not mitigated at all, the creature hit also starts bleeding.",
+  "description": "You conjure a spear made of raw metal and earth that is lobbed at a target within a short (10 unit) distance, dealing 15 physical damage if your spell check beats the target's defense. If the damage is not mitigated at all, the creature hit also starts bleeding.",
   "charge": "The spear executes grunts and minions.",
   "duration": "Instantaneous",
   "range": 3,

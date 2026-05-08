@@ -61,11 +61,11 @@ Weapons also have categories which determines what types of actions they can ben
 Some weapons can have more than one category, with different damage and energy costs.
 
 <div class="example-box">
-    A glaive is a versatile complex weapon that has both a slashing and blunt category. The slashing category is much more effective, as that is the main mechanism in which the weapon deals damage. It can hit creatures at a longer range than most melee weapons and deals 6 damage with 4 extra damage (6/4). A glaive can also be used to bludgeon someone with the other end in the same way someone would swing a staff. This damage is much less (3/3), but it allows the user to use special actions that require a blunt weapon.
+    A glaive is a versatile complex weapon that has both a slashing and blunt category. The slashing category is much more effective, as that is the main mechanism in which the weapon deals damage. It can hit creatures at a longer range than most melee weapons and has a damage chart of [10, 14, 18, 22, 26, 30]. A glaive can also be used to bludgeon someone with the other end in the same way someone would swing a staff. This secondary attack has a lower damage chart of [8, 12, 16, 20, 24, 28], but it allows the user to use special actions that require a blunt weapon.
 </div>
 
 <div class="example-box">
-    A flame staff is an item that has a unique magic property on it. Primarily, it allows the wielder to use their primal magic skill to make a ranged attack that deals heat damage (4/3) and consumes 1 energy. The secondary property allows it to be used just like a normal staff by making a simple melee attack that requires no energy, is of the blunt category, and deals 4 damage and 2 extra damage (4/2).
+    A flame staff is an item that has a unique magic property on it. Primarily, it allows the wielder to use their primal magic skill to make a ranged attack that deals heat damage with a damage chart of [—, 8, 12, 16, 20, 24]. This attack has the aimed property, meaning the first die does not count. The secondary property allows it to be used just like a normal staff by making a simple melee attack that requires no energy, is of the blunt category, with a damage chart of [9, 12, 15, 18, 21, 24].
 </div>
 
 <div class="triangle-line"></div>
@@ -80,11 +80,11 @@ Normally, when being attacked by a ranged weapon, a character that uses the defl
 With a light shield, this penalty is removed and the shield user uses the value of their deflection check against range attacks that target a single creature.
 
 <div class="example-box">
-A fighter with a long sword and no shield is attacked by an archer. The archer rolls a 4d8 for their attack and rolls a 8, 5, 4 and 3. The fighter makes a deflection check of 2d10 and rolls an 8 as their highest value. Because they are defending against a ranged attack, the 8 becomes a 4. In effect, the 8, 5 and 4 all hit. The archer's weapon has 5 damage and 3 extra damage (5/3), dealing a total of 11 damage (5 + 3 + 3).
+A fighter with a long sword and no shield is attacked by an archer using a warbow (base 4, growth 4, aimed). The archer rolls 4d8 and gets 8, 5, 4 and 3. The fighter makes a deflection check of 2d10 and rolls an 8 as their highest value. Because they are defending against a ranged attack, the 8 becomes a 4. In effect, the 8, 5 and 4 all hit for 3 dice. Looking at the warbow's damage chart [—, 8, 12, 16, 20, 24], 3 dice = 12 damage.
 </div>
 
 <div class="example-box">
-Consider the previous example where the fighter has a light shield; instead of being halved, their 8 manages to defend against the 5, 4 and 3. Only the 8 hits causing the total damage to be 5 from the attack.
+Consider the previous example where the fighter has a light shield; instead of being halved, their 8 manages to defend against the 5, 4 and 3. Only the 8 hits, which is 1 die. Because the warbow is aimed, 1 die deals no damage. The shield completely negated the attack.
 </div>
 
 ### Heavy

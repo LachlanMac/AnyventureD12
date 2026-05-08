@@ -58,6 +58,23 @@ const getRangeDescription = (minRange: number, maxRange: number): string => {
   return `${minDesc} - ${maxDesc}`;
 };
 
+const getDamageChartDisplay = (attackData: any, hands: number): string => {
+  const base = parseInt(attackData.damage) || 0;
+  const growth = parseInt(attackData.damage_extra) || 0;
+  const aimed = attackData.aimed || false;
+  const maxHits = hands === 2 ? 6 : 5;
+  const tiers: string[] = [];
+  for (let i = 1; i <= maxHits; i++) {
+    if (aimed && i === 1) {
+      tiers.push('—');
+    } else {
+      const effectiveHits = aimed ? i - 1 : i;
+      tiers.push(String(base + growth * effectiveHits));
+    }
+  }
+  return tiers.join(', ');
+};
+
 const ItemDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
@@ -320,17 +337,20 @@ const ItemDetail: React.FC = () => {
                       </h3>
                       <div style={{ color: 'var(--color-cloud)' }}>
                         <div>
-                          <strong>Damage:</strong> {item.primary.damage} {item.primary.damage_type}
+                          <strong>Damage Chart:</strong>{' '}
+                          [{getDamageChartDisplay(item.primary, item.hands || 1)}]
                         </div>
-                        {item.primary.damage_extra !== '0' && (
-                          <div>
-                            <strong>Extra Damage:</strong> +{item.primary.damage_extra} per extra
-                            hit
-                          </div>
-                        )}
+                        <div>
+                          <strong>Type:</strong> {item.primary.damage_type}
+                        </div>
                         <div>
                           <strong>Category:</strong> {item.primary.category}
                         </div>
+                        {item.primary.aimed && (
+                          <div>
+                            <strong>Aimed</strong> (first die doesn't count)
+                          </div>
+                        )}
                         {(item.primary.min_range > 0 || item.primary.max_range > 0) && (
                           <div>
                             <strong>Range:</strong>{' '}
@@ -348,18 +368,20 @@ const ItemDetail: React.FC = () => {
                       </h3>
                       <div style={{ color: 'var(--color-cloud)' }}>
                         <div>
-                          <strong>Damage:</strong> {item.secondary.damage}{' '}
-                          {item.secondary.damage_type}
+                          <strong>Damage Chart:</strong>{' '}
+                          [{getDamageChartDisplay(item.secondary, item.hands || 1)}]
                         </div>
-                        {item.secondary.damage_extra !== '0' && (
-                          <div>
-                            <strong>Extra Damage:</strong> +{item.secondary.damage_extra} per extra
-                            hit
-                          </div>
-                        )}
+                        <div>
+                          <strong>Type:</strong> {item.secondary.damage_type}
+                        </div>
                         <div>
                           <strong>Category:</strong> {item.secondary.category}
                         </div>
+                        {item.secondary.aimed && (
+                          <div>
+                            <strong>Aimed</strong> (first die doesn't count)
+                          </div>
+                        )}
                       </div>
                     </div>
                   )}
@@ -575,7 +597,7 @@ const ItemDetail: React.FC = () => {
                         fontSize: '1.125rem',
                       }}
                     >
-                      {item.primary.damage}
+                      [{getDamageChartDisplay(item.primary, item.hands || 1)}]
                     </div>
                   </div>
                 )}

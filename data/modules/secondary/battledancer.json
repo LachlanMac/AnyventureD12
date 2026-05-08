@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Flowing Strikes",
-      "description": "Your attacks are woven together in a masterclass performance. Gain +1 skill with expression. When you score a critical hit on a brawling attack, roll an additional expression dice as if it were part of the same attack.",
+      "description": "Your attacks are woven together in a masterclass performance. Gain +1 skill with expression. When you make a brawling attack where all your dice are successes, make a secondary brawling attack using 2 expression dice. This can only trigger once per turn.",
       "location": "1",
       "data": "TG:SSQ=1"
     },

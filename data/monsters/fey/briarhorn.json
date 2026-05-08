@@ -282,7 +282,7 @@
   "traits": [
     {
       "name": "Magic Defense",
-      "description": "The briarhorn gains a bonus dice when making a check to defend against a spell."
+      "description": "The briarhorn gains a +2 bonus to its relevant defense against spells."
     },
     {
       "name": "Aversion to Iron",

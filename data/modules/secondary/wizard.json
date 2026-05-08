@@ -24,7 +24,7 @@
     },
     {
       "name": "Action : Mana Burn",
-      "description": "You channel 1 or more remaining mana you have available at a creature within a short (10 unit) distance. Roll a concentration dice for each Mana Point you have as an attack check against your target's resilience check. For each success, you deal 6 aethericic damage. Critical dice deal 10 aethericic damage instead.",
+      "description": "You channel 1 or more remaining mana you have available at a creature within a short (10 unit) distance. Roll a concentration dice for each Mana Point you have as an attack check against your target's resilience check. For each success, you deal 6 aetheric damage. If all dice are successful, each dice deals 10 aetheric damage instead.",
       "location": "3",
       "data": "XIME=1"
     },
@@ -54,7 +54,7 @@
     },
     {
       "name": "Wizard's Meditation",
-      "description": "You spend an uninterrupted hour meditating where you cannot move or make any skill checks. Roll a concentration check; for each dice that is 10 or higher, restore a mana point. On any critical dice, you can also restore a fizzled spell.",
+      "description": "You spend an uninterrupted hour meditating where you cannot move or make any skill checks. Roll a concentration check; for each dice that is 10 or higher, restore a mana point. On any dice that is 20 or higher, you can also restore a fizzled spell.",
       "location": "6b",
       "data": "TG"
     },

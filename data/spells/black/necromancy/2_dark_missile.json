@@ -1,6 +1,6 @@
 {
   "name": "Dark Missile",
-  "description": "You launch a tainted projectile that deals 4 dark damage on a hit if the target fails a defense check of 5.",
+  "description": "You launch a tainted projectile at a creature within a moderate (20 unit) distance that deals 6 dark damage if your spell check beats the target's defense.",
   "charge": "The damage is increased to 7 dark damage.",
   "duration": "Instantaneous",
   "range": 5,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 1,
-  "damage": 4,
+  "damage": 6,
   "damageType": "Dark",
   "foundry_id": "sfai0hbjiqlqrf2h",
   "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"

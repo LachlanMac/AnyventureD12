@@ -194,7 +194,7 @@
       "cost": 0,
       "type": "utility",
       "magic": false,
-      "description": "While next to their sworn knight, the squire takes the defense action and gains an additional bonus dice to defense checks on top of the usual benefit.",
+      "description": "While next to their sworn knight, the squire takes the defense action and gains an additional +1 bonus to defense on top of the usual benefit.",
       "reaction": false,
       "basic": false,
       "attack": {

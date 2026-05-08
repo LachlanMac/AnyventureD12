@@ -153,7 +153,7 @@ There are different types of special checks that have specific rules or are refe
 <br> 
 
 - **Attack Checks** - Attacking with a weapon, throwing something or making a brawling attack.
-- **Defense Check** - Making an evasion or deflection check
+- **Defense Check** - Making an evasion or deflection check. Defense checks may be rolled or static; NPCs usually use static defense checks.
 - **Crafting Check** - Attempting to create a new item based on a recipe
 - **Magic Check** - Attempting to channel a spell
 - **Death Check** - A completely random roll not affected by any abilities

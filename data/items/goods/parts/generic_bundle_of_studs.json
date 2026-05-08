@@ -65,7 +65,7 @@
       "difficulty": 6,
       "type": "fabrication"
     },
-    "properties": "+1 physical mitigation when crafted into armor. Adds +2 damage and +1 extra damage to brawling attacks when crafted into boots or gloves",
+    "properties": "+1 physical mitigation when crafted into armor. Adds +2 base and +1 growth to brawling attacks when crafted into boots or gloves",
   "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   },
   {
@@ -89,7 +89,7 @@
       "difficulty": 12,
       "type": "fabrication"
     },
-    "properties": "+3 physical mitigation when crafted into armor. Adds +3 damage and +3 extra damage to brawling attacks when crafted into boots or gloves",
+    "properties": "+3 physical mitigation when crafted into armor. Adds +3 base and +3 growth to brawling attacks when crafted into boots or gloves",
     "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   }
 ]

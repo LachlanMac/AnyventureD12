@@ -1,6 +1,6 @@
 {
   "name": "Chu-ko-nu",
-  "description": "A repeating crossbow that fires several bolts at the same time. Unlike a normal ranged weapon, you keep the highest 3 dice of your ranged attack, with each dice dealing primary damage, but being mitigated separately.",
+  "description": "A repeating crossbow that fires several bolts at the same time. Unlike a normal ranged weapon, you keep the highest 3 dice of your ranged attack, with each dice dealing base damage, but being mitigated separately.",
   "type": "weapon",
   "weapon_category": "complexRanged",
   "hands": 2,
@@ -9,7 +9,7 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "5",
+    "damage": "6",
     "damage_extra": "0",
     "damage_type": "physical",
     "category": "ranged",

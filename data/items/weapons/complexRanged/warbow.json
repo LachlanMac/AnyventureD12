@@ -10,7 +10,7 @@
   "rarity": "common",
   "primary": {
     "damage": "4",
-    "damage_extra": "2",
+    "damage_extra": "4",
     "damage_type": "physical",
     "category": "ranged",
     "energy": 1,
@@ -18,7 +18,8 @@
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 3,
-    "max_range": 5
+    "max_range": 5,
+    "aimed": true
   },
   "health": {
     "max": 0,

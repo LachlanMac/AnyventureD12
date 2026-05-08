@@ -266,7 +266,7 @@
       "cost": 1,
       "type": "utility",
       "magic": false,
-      "description": "In response to being attacked by a melee weapon, the knight rolls their deflection check with a bonus die. If the attacker deals no damage after mitigation is calculated, the knight can optionally use their Long Sword ability against the attacker.",
+      "description": "In response to being attacked by a melee weapon, the knight gains a +2 bonus to Deflection against the triggering attack. If the attacker deals no damage after mitigation is calculated, the knight can optionally use their Long Sword ability against the attacker.",
       "reaction": true,
       "basic": false,
       "round": false,

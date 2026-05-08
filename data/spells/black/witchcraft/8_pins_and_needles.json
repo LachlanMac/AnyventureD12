@@ -1,6 +1,6 @@
 {
   "name": "Pins and Needles",
-  "description": "You target a creature and cause their limbs to become numb and uncoordinated if the fail a coordination check of 8. Until the start of your next turn, your target suffers a penalty to finesse, physique and attack checks. This spell does not affect elementals, constructs or undead creatures.",
+  "description": "You target a creature and cause their limbs to become numb and uncoordinated if your spell check beats the target's coordination. Until the start of your next turn, your target suffers a penalty to finesse, physique and attack checks. This spell does not affect elementals, constructs or undead creatures.",
   "charge": "The affected target rolls an additional penalty dice.",
   "duration": "1 Round",
   "range": 4,

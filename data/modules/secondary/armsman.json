@@ -30,7 +30,7 @@
     },
     {
       "name": "Training",
-      "description": "Your extensive weapon training has honed your reflexes. Gain +1 skill with coordination. When using the attack action, you can use your coordination skill with a penalty dice as your attack check. These weapon attacks are not eligible for critical hits and cannot be used as part of other actions or reactions.",
+      "description": "Your extensive weapon training has honed your reflexes. Gain +1 skill with coordination. When using the attack action, you can use your coordination skill with a penalty dice as your attack check. These weapon attacks cannot be used as part of other actions or reactions.",
       "location": "4a",
       "data": "TG:SSG=1"
     },

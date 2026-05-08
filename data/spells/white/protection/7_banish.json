@@ -1,7 +1,7 @@
 {
   "name": "Banish",
-  "description": "You target an extra-planar creature with a short (10 unit) distance and attempt to banish them back to their home plane. If the target fails a resilience check of 6, they are banished and cannot return to your plane for at least an hour if they have the means to do so. If the creature is below half health, the check resilience check requires becomes an 8 instead.",
-  "charge": "The base resilience check required is an 8, and the half-health threshold check becomes a 10.",
+  "description": "You target an extra-planar creature within a short (10 unit) distance and attempt to banish them back to their home plane. If your spell check beats the target's resilience, they are banished and cannot return to your plane for at least an hour if they have the means to do so. If the creature is below half health, they suffer a -2 penalty to resilience against this spell.",
+  "charge": "The resilience penalty increases to -4.",
   "duration": "1 Hour",
   "range": 4,
   "checkToCast": 7,

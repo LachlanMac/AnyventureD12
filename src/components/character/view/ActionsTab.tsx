@@ -4,6 +4,7 @@ import { Action, Character, Ancestry, Culture } from '../../../types/character';
 import { CreatureAction, CreatureReaction } from '../../../types/creature';
 import CreatureActionCard from '../../creature/CreatureActionCard';
 import CreatureReactionCard from '../../creature/CreatureReactionCard';
+import { getDamageChart } from '../../../utils/combatUtils';
 
 interface ActionsTabProps {
   character: Character;
@@ -518,7 +519,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
                 fontWeight: 'bold',
               }}
             >
-              [{attack.damage}/{attack.damage_extra}]
+              [{getDamageChart(parseInt(attack.damage)||0, parseInt(attack.damage_extra)||0, attack.aimed || false)}]
             </span>
             <span
               style={{
@@ -544,7 +545,7 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
                   fontWeight: 'bold',
                 }}
               >
-                [{attack.secondary_damage}/{attack.secondary_damage_extra}]
+                [{getDamageChart(parseInt(attack.secondary_damage)||0, parseInt(attack.secondary_damage_extra)||0)}]
               </span>
               <span
                 style={{

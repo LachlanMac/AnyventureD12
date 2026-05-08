@@ -1,6 +1,6 @@
 {
   "name": "Hemorrhage",
-  "description": "You open the wounds of a creature, causing them to gain the bleeding condition if they fail an endurance check of 4.",
+  "description": "You open the wounds of a creature, causing them to gain the bleeding condition if your spell check beats the target's endurance.",
   "charge": "The endurance check needed to avoid this spell becomes an 7.",
   "duration": "Instantaneous",
   "range": 4,

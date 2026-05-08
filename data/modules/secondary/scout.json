@@ -30,7 +30,7 @@
     },
     {
       "name": "First Strike Advantage",
-      "description": "You strike decisively before enemies can react. Gain +1 skill with stealth. On your first attack of combat, you deal extra damage equal to the difference in initiative between you and your target if you are hidden. Otherwise, the extra damage is halved.",
+      "description": "You strike decisively before enemies can react. Gain +1 skill with stealth. On your first attack of combat, you deal additional damage equal to the difference in initiative between you and your target if you are hidden. Otherwise, the additional damage is halved.",
       "location": "4a",
       "data": "SSF=1:TG"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Action : Scout's Flank",
-      "description": "You exploit your positioning to strike multiple targets. Make two attacks with a ranged weapon using one attack roll. Each target that you deal damage that is at least a short (10 unit) distance from you suffers a penalty dice on the first defense check it makes before the start of its next turn.",
+      "description": "You exploit your positioning to strike multiple targets. Make two attacks with a ranged weapon using one attack roll. Each target that you deal damage that is at least a short (10 unit) distance from you suffers a -1 penalty to the first Defense Check it makes before the start of its next turn.",
       "location": "7",
       "data": "XINE=2"
     }

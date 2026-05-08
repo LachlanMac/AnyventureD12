@@ -198,7 +198,7 @@
       "cost": 0,
       "type": "utility",
       "magic": false,
-      "description": "The fox moves it's full movement speed. Evasion checks it makes until the end of it's turn are doubled.",
+      "description": "The fox moves it's full movement speed and gains a +3 bonus to Evasion until the end of it's turn.",
       "reaction": false,
       "basic": false,
       "attack": {

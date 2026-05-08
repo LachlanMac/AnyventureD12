@@ -243,7 +243,7 @@
       "cost": 0,
       "type": "utility",
       "magic": false,
-      "description": "The guard takes a modified defend action, bracing behind their light shield. If the guard makes a successful deflection check against an adjacent attacker making a melee attack in this way, they immediately make a counter-attack with their Sword Strike action with a bonus die.",
+      "description": "The guard takes a modified defend action, bracing behind their light shield. If an adjacent melee attack deals no damage after mitigation while the guard is defending this way, they immediately make a counter-attack with their Sword Strike action with a bonus die.",
       "reaction": false,
       "basic": false,
       "round": false,

@@ -1,6 +1,6 @@
 {
   "name": "Entropy Bolt",
-  "description": "You launch a crackling bolt of chaotic energy at a creature within a short (10 unit) distance that decays matter it touches, dealing 5 aetheric damage if the target fails a defense check of 5. If you do not roll at least 2 successes on your spell check, you and the target swap positions after the bolt resolves.",
+  "description": "You launch a crackling bolt of chaotic energy at a creature within a short (10 unit) distance that decays matter it touches, dealing 5 aetheric damage if your spell check beats the target's defense. If you do not roll at least 2 successes on your spell check, you and the target swap positions after the bolt resolves.",
   "charge": "This spell can target a transmutable, unequipped object that is under 5 bulk and destroy it.",
   "duration": "Instantaneous",
   "range": 4,

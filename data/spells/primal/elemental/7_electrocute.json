@@ -1,7 +1,7 @@
 {
   "name": "Electrocute",
-  "description": "You send an almost instantaneous bolt of electricity towards a target within a short (10 unit) distance, dealing 10 electric damage if the target fails a defense check of 6. If the target of this spell is within a very short (5 unit) range, the defense check required is 8.",
-  "charge": "If the damage is not mitigated at all, the target must also roll a concentration check of 7 or higher or become stunned.",
+  "description": "You send an almost instantaneous bolt of electricity towards a target within a short (10 unit) distance, dealing 10 electric damage if your spell check beats the target's defense. If the target is within a very short (5 unit) range, they suffer a -2 penalty to their defense.",
+  "charge": "If the damage is not mitigated at all, the target must also make a concentration check against your spell check or become stunned.",
   "duration": "Instantaneous",
   "range": 3,
   "checkToCast": 7,

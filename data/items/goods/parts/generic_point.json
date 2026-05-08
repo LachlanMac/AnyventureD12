@@ -113,7 +113,7 @@
       "difficulty": 16,
       "type": "fabrication"
     },
-    "properties": "Piercing attacks gain +2  damage and +1 extra damage",
+    "properties": "Piercing attacks gain +2 base and +1 growth",
     "foundry_icon": "icons/commodities/metal/arrowhead-steel.webp"
   }
 ]

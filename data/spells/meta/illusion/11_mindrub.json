@@ -1,6 +1,6 @@
 {
   "name": "Mindrub",
-  "description": "You touch a creature and remove any memories they have of you that occurred in the past minute if they fail a concentration check of 9 or higher. For the next 3 days, the creature makes this check again at the end of each full rest. If they succeed, they will recall the memory, otherwise it is lost forever.",
+  "description": "You touch a creature and remove any memories they have of you that occurred in the past minute if your spell check beats the target's concentration. For the next 3 days, make a spell check against their concentration at the end of each full rest. If you fail, they recall the memory; otherwise it is lost forever.",
   "charge": "Instead of removing the memory, you can instead alter it.",
   "duration": "Concentration",
   "range": 1,

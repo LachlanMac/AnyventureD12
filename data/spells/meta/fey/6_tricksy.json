@@ -1,7 +1,7 @@
 {
   "name": "Tricksy",
-  "description": "You target a creature within a short (10 unit) and cause them to become confused if they fail a concentration check of 6. When the confused condition ends, the target of this spell takes 5 psychic damage.",
-  "charge": "The check required to avoid this spell becomes an 8.",
+  "description": "You target a creature within a short (10 unit) distance and cause them to become confused if your spell check beats the target's concentration. When the confused condition ends, the target of this spell takes 5 psychic damage.",
+  "charge": "The target also takes 3 psychic damage each time the confused condition causes them to lose their action.",
   "duration": "Instantaneous",
   "range": 4,
   "checkToCast": 6,

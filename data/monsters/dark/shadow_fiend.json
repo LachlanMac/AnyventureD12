@@ -212,7 +212,7 @@
       "cost": 2,
       "type": "spell",
       "magic": true,
-      "description": "The shadow fiend latches onto a creature and drains its life force, dealing psychic damage that bypasses mitigation. The shadow fiend heals for the total damage dealt. A creature that has the afraid condition suffers a penalty die on their resilience check to resist this ability.",
+      "description": "The shadow fiend latches onto a creature and drains its life force, dealing psychic damage that bypasses mitigation. The shadow fiend heals for the total damage dealt. A creature that has the afraid condition suffers a -1 penalty to Resilience against this ability.",
       "reaction": false,
       "basic": false,
       "round": true,

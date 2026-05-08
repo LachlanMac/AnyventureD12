@@ -1,6 +1,6 @@
 {
   "name": "Curse",
-  "description": "You target a creature within a short (10 unit) distance and place a curse on them if they fail a resilience check of 7. While you concentrate on this spell, your target must remake the resilience check again at the start of each turn if they are still within a moderate (20 unit) range, or they take 5 dark damage.",
+  "description": "You target a creature within a short (10 unit) distance and place a curse on them if your spell check beats the target's resilience. While you concentrate on this spell, make a spell check against their resilience at the start of each of their turns if they are still within a moderate (20 unit) range. On success, they take 5 dark damage.",
   "charge": "Deal 7 initial dark damage if the spell succeeds.",
   "duration": "Instantaneous",
   "range": 4,

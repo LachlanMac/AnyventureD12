@@ -1,6 +1,6 @@
 {
   "name": "Wyrmfire",
-  "description": "You unleash a flash of wyrmfire around you, dealing 6 heat damage to any creature within a 2 unit radius if they fail a resilience check of 6.",
+  "description": "You unleash a flash of wyrmfire around you, dealing 10 heat damage to any creature within a 2 unit radius if your spell check beats their resilience.",
   "charge": "Creatures who take more than 4 heat damage become ignited.",
   "duration": "Instantaneous",
   "range": 0,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 3,
-  "damage": 6,
+  "damage": 10,
   "damageType": "Heat",
   "foundry_id": "6k4u5bi2fuad85qn",
   "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"

@@ -44,7 +44,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -92,7 +92,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -140,7 +140,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -188,7 +188,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -236,7 +236,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -284,7 +284,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -332,7 +332,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   },
   {
@@ -380,7 +380,7 @@
       "difficulty": 12,
       "type": "glyphcraft"
     },
-    "properties": "Adds +2 damage and +1 extra damage when installed in a glyphcraft weapon",
+    "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
     "foundry_icon": "icons/commodities/gems/gem-faceted-radiant-blue.webp"
   }
 ]

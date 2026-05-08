@@ -1,6 +1,6 @@
 {
   "name": "Sleep",
-  "description": "You attempt to touch a standard or lower creature and put them to sleep if they fail a resilience or endurance check of 5. A creature who falls asleep in this way can wake up after 1 hour or if they are disturbed by loud noises or taking damage.",
+  "description": "You attempt to touch a standard or lower creature and put them to sleep if your spell check beats the target's resilience or endurance. A creature who falls asleep in this way can wake up after 1 hour or if they are disturbed by loud noises or taking damage.",
   "charge": "A willing creature who does not elect to get up after 1 hour and completes a full rest gets credit for a favorable rest, regardless of conditions, pain or stress.",
   "duration": "1 hour",
   "range": 1,

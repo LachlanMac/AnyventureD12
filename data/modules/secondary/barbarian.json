@@ -24,7 +24,7 @@
     },
     {
       "name": "Action : Savage Strike",
-      "description": "While under the effects of the Frenzy action, you make a savage melee attack, doubling the primary damage on your weapon.",
+      "description": "While under the effects of the Frenzy action, you make a savage melee attack that deals 5 additional damage.",
       "location": "3",
       "data": "XINE=1"
     },

@@ -268,7 +268,7 @@
       "cost": 1,
       "type": "utility",
       "magic": false,
-      "description": "When targeted by an attack while manifested, the wraith partially shifts into the spectral plane, adding 1d20 to its defense check against that attack. After the attack resolves, the wraith reverts to incorporeal and may move up to 5 units, passing through solid objects. This movement does not provoke reactions.",
+      "description": "When targeted by an attack while manifested, the wraith partially shifts into the spectral plane, gaining a +4 bonus to defense against that attack. After the attack resolves, the wraith reverts to incorporeal and may move up to 5 units, passing through solid objects. This movement does not provoke reactions.",
       "reaction": true,
       "basic": false,
       "round": false,

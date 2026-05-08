@@ -34,7 +34,7 @@
     },
     {
       "name": "Spiked Crown",
-      "description": "A jagged metal band with protruding spikes that dig into the skull and cause constant pain. When you wear this during a full rest, make an endurance or resilience check of 7 or higher to gain 1 morale - otherwise you lose 1 morale. An unwilling creature that wears this crown has a penalty dice to all resilience and endurance checks after wearing it for 1 hour.",
+      "description": "A jagged metal band with protruding spikes that dig into the skull and cause constant pain. When you wear this during a full rest, make an endurance or resilience check of 7 or higher to gain 1 morale - otherwise you lose 1 morale. An unwilling creature that wears this crown suffers a -1 penalty to all resilience and endurance checks after wearing it for 1 hour.",
       "data": ""
     },
     {

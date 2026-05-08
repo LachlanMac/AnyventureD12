@@ -1,6 +1,6 @@
 {
   "name": "Bombardment",
-  "description": "You call down shards of pure aether within a 3-unit radius originating from a point you can see within a moderate (20 unit) distance, dealing 12 aetheric damage to anyone who fails a defense check of 10, or 6 aetheric damage on a success.",
+  "description": "You call down shards of pure aether within a 3-unit radius originating from a point you can see within a moderate (20 unit) distance, dealing 12 aetheric damage to anyone whose defense is beaten by your spell check, or 6 aetheric damage if not.",
   "charge": "The radius is increased by 1 unit, and the damage is increased to 17.",
   "duration": "Instantaneous",
   "range": 8,

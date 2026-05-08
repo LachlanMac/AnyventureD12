@@ -1,7 +1,7 @@
 {
   "name": "Shock Field",
-  "description": "You create an area of static electricity with a radius of 3 units at a point you can see within a moderate (20 unit) distance. While you concentrate on this spell, you can use subsequent actions to target a creature within the field that you can see and force them to make a resilience check of 9 or higher, or take 10 electric damage.",
-  "charge": "Instead of shocking a creature, you can attempt to daze them by forcing them to make a concentration check of 8, or stun them by forcing them to make a concentration check of 6.",
+  "description": "You create an area of static electricity with a radius of 3 units at a point you can see within a moderate (20 unit) distance. While you concentrate on this spell, you can use subsequent actions to make a spell check against a creature within the field that you can see. If your spell check beats the target's resilience, they take 10 electric damage.",
+  "charge": "The damage increases to 15 electric damage. Alternatively, instead of dealing damage, you can make a spell check against the target's concentration. If your spell check beats their concentration, they become dazed. If your spell check is double their concentration, they become stunned.",
   "duration": "Instantaneous",
   "range": 5,
   "checkToCast": 10,

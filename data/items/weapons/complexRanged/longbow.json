@@ -9,8 +9,8 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "7",
-    "damage_extra": "2",
+    "damage": "6",
+    "damage_extra": "4",
     "damage_type": "physical",
     "category": "ranged",
     "energy": 2,
@@ -18,7 +18,8 @@
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
     "min_range": 3,
-    "max_range": 7
+    "max_range": 7,
+    "aimed": true
   },
   "health": {
     "max": 0,

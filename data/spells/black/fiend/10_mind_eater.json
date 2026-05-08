@@ -1,6 +1,6 @@
 {
   "name": "Mind Eater",
-  "description": "You target a creature within a short (10 unit) distance and force them to make a concentration check of 8 or higher or they take 10 psychic damage. A sleeping, afraid, charmed or unconscious target fails this check automatically and takes double damage. A creature bought to 0 resolve by this spell falls unconscious.",
+  "description": "You target a creature within a short (10 unit) distance. If your spell check beats the target's concentration, they take 10 psychic damage. A sleeping, afraid, charmed or unconscious target automatically fails and takes double damage. A creature brought to 0 resolve by this spell falls unconscious.",
   "charge": "The spell targets an additional creature.",
   "duration": "Instantaneous",
   "range": 4,

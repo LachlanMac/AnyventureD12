@@ -1,6 +1,6 @@
 import React from 'react';
 import { CreatureAttributes } from '../../types/creature';
-import { getDiceForSkill } from '../../utils/combatUtils';
+import { getDiceForSkill, getStaticDefense } from '../../utils/combatUtils';
 
 interface CreatureStatGridProps {
   attributes: CreatureAttributes;
@@ -12,6 +12,24 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
     if (attributeTalent === -1) return '-';
     return `${attributeTalent}d${getDiceForSkill(skillLevel)}`;
   };
+
+  const staticDefenses = [
+    {
+      name: 'Deflection Defense',
+      value: getStaticDefense(attributes.physique.talent, skills.deflection?.value || 0),
+      roll: renderSkillValue(attributes.physique.talent, skills.deflection?.value || 0),
+    },
+    {
+      name: 'Evasion Defense',
+      value: getStaticDefense(attributes.finesse.talent, skills.evasion?.value || 0),
+      roll: renderSkillValue(attributes.finesse.talent, skills.evasion?.value || 0),
+    },
+    {
+      name: 'Resilience Defense',
+      value: getStaticDefense(attributes.mind.talent, skills.resilience?.value || 0),
+      roll: renderSkillValue(attributes.mind.talent, skills.resilience?.value || 0),
+    },
+  ];
 
   const skillColumns = [
     {
@@ -74,6 +92,44 @@ const CreatureStatGrid: React.FC<CreatureStatGridProps> = ({ attributes, skills 
         marginBottom: '0.75rem',
       }}
     >
+      <div
+        style={{
+          display: 'grid',
+          gridTemplateColumns: 'repeat(3, minmax(0, 1fr))',
+          gap: '0.5rem',
+          marginBottom: '0.75rem',
+        }}
+      >
+        {staticDefenses.map((defense) => (
+          <div
+            key={defense.name}
+            style={{
+              backgroundColor: 'var(--color-dark-elevated)',
+              border: '1px solid var(--color-dark-border)',
+              borderRadius: '0.25rem',
+              padding: '0.5rem',
+              textAlign: 'center',
+            }}
+            title={`Calculated from ${defense.roll}`}
+          >
+            <div
+              style={{
+                color: 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                fontWeight: 'bold',
+                marginBottom: '0.25rem',
+                textTransform: 'uppercase',
+              }}
+            >
+              {defense.name}
+            </div>
+            <div style={{ color: 'var(--color-white)', fontSize: '1.25rem', fontWeight: 'bold' }}>
+              {defense.value}
+            </div>
+          </div>
+        ))}
+      </div>
+
       <div
         style={{
           display: 'grid',

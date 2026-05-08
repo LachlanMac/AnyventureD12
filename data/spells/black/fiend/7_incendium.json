@@ -1,6 +1,6 @@
 {
   "name": "Incendium",
-  "description": "You target a creature within a moderate (20 unit) distance and deal 14 heat damage to them if they fail a resilience check of 8. If the target of this spell is ignited, the flames turn into hellfire instead.",
+  "description": "You target a creature within a moderate (20 unit) distance and deal 18 heat damage to them if your spell check beats the target's resilience. If the target of this spell is ignited, the flames turn into hellfire instead.",
   "charge": "The spell targets an additional creature.",
   "duration": "Instantaneous",
   "range": 5,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 2,
-  "damage": 14,
+  "damage": 18,
   "damageType": "Heat",
   "foundry_id": "9804rc9ve2pmygi1",
   "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp"

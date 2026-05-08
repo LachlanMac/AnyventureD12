@@ -922,7 +922,17 @@ const processWeaponTables = async (content: string): Promise<string> => {
 
         const name = weapon.name;
         const damageType = attack.damage_type || 'physical';
-        const damage = `${attack.damage}/${attack.damage_extra} ${damageType}`;
+        const base = parseInt(attack.damage) || 0;
+        const growth = parseInt(attack.damage_extra) || 0;
+        const aimed = attack.aimed || false;
+        const hands = weapon.hands || 1;
+        const maxHits = hands === 2 ? 6 : 5;
+        const tiers: string[] = [];
+        for (let i = 1; i <= maxHits; i++) {
+          if (aimed && i === 1) tiers.push('—');
+          else { const effectiveHits = aimed ? i - 1 : i; tiers.push(String(base + growth * effectiveHits)); }
+        }
+        const damage = `[${tiers.join(', ')}] ${damageType}`;
         const energy = attack.energy || 0;
         const range = convertRange(attack.min_range || 1, attack.max_range || 1);
         const category = convertCategory(attack.category || '');

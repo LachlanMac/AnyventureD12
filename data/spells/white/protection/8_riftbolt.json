@@ -1,6 +1,6 @@
 {
   "name": "Riftbolt",
-  "description": "You target a creature within a moderate (20 unit) distance and deal 12 aetheric damage to them if they fail a defense check of 9. Extra-planar creatures take true damage instead.",
+  "description": "You target a creature within a moderate (20 unit) distance and deal 12 aetheric damage to them if your spell check beats the target's defense. Extra-planar creatures take true damage instead.",
   "charge": "The spell becomes a 20 unit long line, dealing damage to any creature it intersects.",
   "duration": "Instantaneous",
   "range": 5,

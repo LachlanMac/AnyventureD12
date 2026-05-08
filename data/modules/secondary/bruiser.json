@@ -36,7 +36,7 @@
     },
     {
       "name": "Action : Power Pummel",
-      "description": "You make a vicious attack with either a brawling or melee weapon that has the blunt property. If at least 3 dice hit, the target becomes dazed. If at least three dice are critical hits, the target becomes stunned.",
+      "description": "You make a vicious attack with either a brawling or melee weapon that has the blunt property. If 4 or more dice hit, the target becomes dazed. If 5 or more dice hit, the target becomes stunned.",
       "location": "4b",
       "data": "XINE=2"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Action : Curbstomp",
-      "description": "You target a creature that is prone and making a devastating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and grunts have a penalty dice while defending against this attack and are executed if any of the dice hit.",
+      "description": "You target a creature that is prone and making a devastating attack at them, using your might as your attack roll against a contested evasion or deflection check. For each dice that hit, deal 4 damage plus the physical mitigation value on your boots. Minions and grunts suffer a -1 penalty to Defense against this attack and are executed if any of the dice hit.",
       "location": "7",
       "data": "XINE=1"
     }

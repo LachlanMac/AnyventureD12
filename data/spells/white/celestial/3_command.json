@@ -1,6 +1,6 @@
 {
   "name": "Command",
-  "description": "You command a minion or grunt within a short (10 unit) distance to take an action by making a presence check against their resilience. The command becomes invalid at the start of your next turn. You can force them to fall (go prone), halt (0 movement speed), drop (unequip a piece of equipment or drop an object) or any other command that does not directly cause them to harm themselves or an ally.",
+  "description": "You command a minion or grunt within a short (10 unit) distance to take an action. If your spell check beats the target's resilience, they must obey. The command becomes invalid at the start of your next turn. You can force them to fall (go prone), halt (0 movement speed), drop (unequip a piece of equipment or drop an object) or any other command that does not directly cause them to harm themselves or an ally.",
   "charge": "This spell can be used against standard tiered creatures.",
   "duration": "Instantaneous",
   "range": 5,

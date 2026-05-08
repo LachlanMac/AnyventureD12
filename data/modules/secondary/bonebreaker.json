@@ -18,13 +18,13 @@
     },
     {
       "name": "Action: Shatter Guard",
-      "description": "Make an attack with a weapon that has the blunt property against an enemy in an attempt to batter down their defenses. Instead of dealing damage, each success forces the enemy to have a penalty dice on their deflection checks until the start of their next turn, up to a maximum of 3 penalty dice.",
+      "description": "Make an attack with a weapon that has the blunt property against an enemy in an attempt to batter down their defenses. Instead of dealing damage, each success gives the enemy a -1 penalty to Deflection until the start of their next turn, up to a maximum penalty of -3.",
       "location": "2b",
       "data": "XINE=1"
     },
     {
       "name": "Staggering Blows",
-      "description": "Gain +1 skill with might. When you score at least one critical hit, you can also displace your target by a number of units equal to how many critical hits you scored. This trait only works on large or smaller creatures.",
+      "description": "Gain +1 skill with might. When you hit a large or smaller creature with a melee attack, you can displace the target: 4 dice hit = 1 unit, 5 dice hit = 2 units, 6 dice hit = 3 units.",
       "location": "3",
       "data": "TG:SSC=1"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Brain Scrambler",
-      "description": "When you make an attack against a creature that is dazed with at least 2 critical attack dice, they must make a resilience check of 7 or they become stunned. If the target is already stunned, they fall unconscious with a failed check.",
+      "description": "When you make an attack against a creature that is dazed and 4 or more dice hit, the target becomes stunned. If 5 or more dice hit, the target falls unconscious instead.",
       "location": "7",
       "data": "TG"
     }

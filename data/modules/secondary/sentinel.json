@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Find Weakness",
-      "description": "You make a probing attack to study your opponent's defenses. Make an academics check with a single die as your attack roll. If the attack hits, you deal damage equal to your weapon's primary damage and learn one mitigation type or immunity of your choice that the target possesses.",
+      "description": "You make a probing attack to study your opponent's defenses. Make an academics check with a single die as your attack roll. If the attack hits, deal damage and learn one mitigation type or immunity of your choice that the target possesses.",
       "location": "2b",
       "data":"XINE=1"
     },

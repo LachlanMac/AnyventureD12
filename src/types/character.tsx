@@ -229,6 +229,7 @@ export interface SkillBonus {
 export interface Damage {
   damage: string;
   damage_extra: string;
+  aimed?: boolean;
   damage_type: string;
   category: 'pierce' | 'slash' | 'blunt' | 'ranged' | 'extra';
   bonus_attack?: number;

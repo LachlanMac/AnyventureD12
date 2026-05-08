@@ -34,9 +34,9 @@ When crafting ranged weapons, engineers can attempt to add infusions that enhanc
 
 | Name | Description | Ingredients |
 |------|-------------|-------------|
-| **Reinforced Frame** | Adds +1 primary damage to the weapon | None (technique only) |
+| **Reinforced Frame** | Adds +1 base damage to the weapon | None (technique only) |
 | **Precision Balance** | Adds +1 bonus die to attack rolls | Aetherium Shavings |
-| **Cobalt Components** | Adds +1 extra damage | Cobalt Ingot |
+| **Cobalt Components** | Adds +1 growth to the weapon | Cobalt Ingot |
 | **Quick Release** | Reduces energy cost by 1 (minimum 1) | Clockwork Gears |
 | **Leather Grip** | Reduces minimum range by 1 tier (minimum 0) | Bundle of Light Leather |
 | **Brass Sights** | Increases maximum range by 1 tier | Brass Fittings |

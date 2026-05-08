@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Action : Spellstrike",
-      "description": "You channel a spell and empower your weapon with magic. The next melee weapon attack you make before the start of your next turn deals extra damage equal to the required check of the spell. The additional damage type depends on the spell's school: Black (dark), Primal (elemental), Meta (psychic), White (divine), Mystic (aetheric), or Arcane (aetheric).",
+      "description": "You channel a spell and empower your weapon with magic. If the spell is successful, the next melee weapon attack you make before the start of your next turn deals additional damage equal to the required check of the spell. The additional damage type depends on the spell's school: Black (dark), Primal (elemental), Meta (psychic), White (divine), Mystic (aetheric), or Arcane (aetheric).",
       "location": "1",
       "data": "XIME=1"
     },

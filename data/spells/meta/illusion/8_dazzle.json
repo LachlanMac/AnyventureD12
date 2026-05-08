@@ -1,7 +1,7 @@
 {
   "name": "Dazzle",
-  "description": "You create an explosion of sparkling colors within a 3 unit radius of you, forcing all creatures within the area to make a concentration check of 8 or higher or become dazed.",
-  "charge": "If a creature rolls under a 5 on their concentration check to avoid becoming dazed, they instead become stunned.",
+  "description": "You create an explosion of sparkling colors within a 3 unit radius of you. All creatures in the area whose concentration is beaten by your spell check become dazed.",
+  "charge": "Creatures whose concentration is doubled by your spell check become stunned instead of dazed.",
   "duration": "Instantaneous",
   "range": 0,
   "checkToCast": 8,

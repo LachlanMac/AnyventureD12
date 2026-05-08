@@ -30,7 +30,7 @@
     },
     {
       "name": "Action : Kick Dirt",
-      "description": "While in a natural environment, you use the natural terrain to your advantage and kick particles of sand, silt, dirt at a creature within a very short (5 unit) distance. Roll a wildcraft check contested by the target's coordination. For each of your dice that exceeds their result, the target suffers a penalty dice on their next attack and defense roll.",
+      "description": "While in a natural environment, you use the natural terrain to your advantage and kick particles of sand, silt, dirt at a creature within a very short (5 unit) distance. Roll a wildcraft check contested by the target's coordination. For each of your dice that exceeds their result, the target suffers one penalty die on their next attack and a -1 penalty to their next Defense Check.",
       "location": "4a",
       "data": "XINE=0"
     },

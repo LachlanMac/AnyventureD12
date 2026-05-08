@@ -17,13 +17,13 @@ When crafting weapons or armor, fabricators can attempt to add infusions that en
 
 | Name | Description | Ingredients |
 |------|-------------|-------------|
-| Reinforced Metal | Adds +1 primary damage to the weapon | None (technique only) |
-| Cobalt Edge | Adds +1 secondary damage | Cobalt ingot |
+| Reinforced Metal | Adds +1 base damage to the weapon | None (technique only) |
+| Cobalt Edge | Adds +1 growth to the weapon | Cobalt ingot |
 | Precision Balance | Adds +1 bonus die to attack rolls | Aetherium shavings |
-| Silvered | Adds +1 primary damage and silvered property (effective against certain creatures) | Silver ingot |
-| Blackened | Adds +1 primary damage and blackened property (resists detection, dampens sound) | Obsidian dust |
-| Lead Core | Adds +1 primary damage, weapon becomes immutable (cannot be altered by magic) | Lead ingot |
-| Brimsteel | Weapon can be ignited as a free action, dealing 2 primary + 2 secondary fire damage | Brimstone essence |
+| Silvered | Adds +1 base damage and silvered property (effective against certain creatures) | Silver ingot |
+| Blackened | Adds +1 base damage and blackened property (resists detection, dampens sound) | Obsidian dust |
+| Lead Core | Adds +1 base damage, weapon becomes immutable (cannot be altered by magic) | Lead ingot |
+| Brimsteel | Weapon can be ignited as a free action, dealing 2 base + 2 growth fire damage | Brimstone essence |
 
 ### Armor Infusions
 

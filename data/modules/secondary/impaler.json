@@ -36,7 +36,7 @@
     },
     {
       "name": "Reaction: Brace",
-      "description": "When an enemy moves within your weapon's reach, you can brace a weapon with the piercing property, using their momentum against them. Make an attack with your weapon, rolling a bonus dice if the creature is larger than you or mounted. This attack also deals an extra damage for each unit the attacker moved as part of their last action or free movement.",
+      "description": "When an enemy moves within your weapon's reach, you can brace a weapon with the piercing property, using their momentum against them. Make an attack with your weapon, rolling a bonus dice if the creature is larger than you or mounted. This attack also deals 1 additional damage for each unit the attacker moved as part of their last action or free movement.",
       "location": "4b",
       "data": "ZINE=1"
     },

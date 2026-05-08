@@ -1,6 +1,6 @@
 {
   "name": "Icicles",
-  "description": "You surround yourself with a cold mist, allowing you to shape icicles at will for the next minute. You can use a subsequent action to fire an icicle at a creature within a very short (5 unit) distance, forcing them to make a defense check of 5 or take 4 points of cold damage. The mist has enough vapor to summon 3 icicles before fading.",
+  "description": "You surround yourself with a cold mist, allowing you to shape icicles at will for the next minute. You can use a subsequent action to fire an icicle at a creature within a very short (5 unit) distance, making a spell check against the target's defense. On a hit, the icicle deals 7 cold damage. The mist has enough vapor to summon 3 icicles before fading.",
   "charge": "The spell no longer has a duration, and instead lasts as long as you maintain concentration. There is no limit to the amount of icicles that can be summoned from the mist.",
   "duration": "1 minute",
   "range": 0,
@@ -12,7 +12,7 @@
   "concentration": true,
   "reaction": false,
   "energy": 2,
-  "damage": 4,
+  "damage": 7,
   "damageType": "Cold",
   "foundry_id": "9fx3yf743hv47dbs",
   "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"

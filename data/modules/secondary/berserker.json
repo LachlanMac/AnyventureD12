@@ -60,7 +60,7 @@
     },
     {
       "name": "Action : Devastating Blow",
-      "description": "You make an attack with a melee weapon, but instead of making an attack with your melee weapon skill, use a might skill check. If you are below 10 health, this attack deals extra damage equal to your primary weapon damage.",
+      "description": "You make an attack with a melee weapon, but instead of making an attack with your melee weapon skill, use a might skill check. If you are below 10 health, this attack deals 5 additional damage.",
       "location": "7",
       "data": "XINE=1"
     }

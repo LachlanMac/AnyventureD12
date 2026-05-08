@@ -1,6 +1,6 @@
 {
   "name": "Tainted Breath",
-  "description": "You spew a foul poison within a very short (5 unit) cone that deals 8 toxic damage to all creatures within the area that fail a endurance check of 8. A creature who is bleeding automatically fails this check.",
+  "description": "You spew a foul poison within a very short (5 unit) cone that deals 8 toxic damage to all creatures in the area who fail an endurance check against your spell check. A creature who is bleeding automatically fails this check.",
   "charge": "The breath lingers until the end of your next turn, forcing anyone within who ends their turn within the area to make the endurance check again, or take damage.",
   "duration": "Instantaneous",
   "range": 3,

@@ -7,6 +7,7 @@ import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import PurchaseItemModal from '../components/character/view/PurchaseItemModal';
 import AddItemModal from '../components/character/view/AddItemModal';
+import { getDamageChart } from '../utils/combatUtils';
 
 // Extended Item type that matches backend API response
 interface APIItem extends Item {
@@ -583,7 +584,7 @@ const ItemBrowser: React.FC = () => {
                       <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <strong>Primary:</strong>
                         <span style={{ color: 'var(--color-old-gold)', fontWeight: 'bold' }}>
-                          [{item.primary.damage}/{item.primary.damage_extra}]
+                          [{getDamageChart(parseInt(item.primary.damage)||0, parseInt(item.primary.damage_extra)||0, item.primary.aimed || false, item.hands || 1)}]
                         </span>
                         <span style={{ textTransform: 'capitalize' }}>{item.primary.damage_type}</span>
                         {item.primary.category && item.primary.category !== 'extra' && (
@@ -624,7 +625,7 @@ const ItemBrowser: React.FC = () => {
                       <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                         <strong>Secondary:</strong>
                         <span style={{ color: 'var(--color-old-gold)', fontWeight: 'bold' }}>
-                          [{item.secondary.damage}/{item.secondary.damage_extra}]
+                          [{getDamageChart(parseInt(item.secondary.damage)||0, parseInt(item.secondary.damage_extra)||0, item.secondary.aimed || false, item.hands || 1)}]
                         </span>
                         <span style={{ textTransform: 'capitalize' }}>{item.secondary.damage_type}</span>
                         {item.secondary.category && item.secondary.category !== 'extra' && (
@@ -658,15 +659,10 @@ const ItemBrowser: React.FC = () => {
                         <strong>Category:</strong> {item.weapon_data.category}
                       </div>
                       <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                        <strong>Primary Damage:</strong> {item.weapon_data.primary.damage}{' '}
+                        <strong>Primary Damage:</strong>{' '}
+                        [{getDamageChart(parseInt(item.weapon_data.primary.damage)||0, parseInt(item.weapon_data.primary.damage_extra)||0, item.weapon_data.primary.aimed || false, item.hands || 1)}]{' '}
                         {item.weapon_data.primary.damage_type} ({item.weapon_data.primary.category})
                       </div>
-                      {item.weapon_data.primary.damage_extra !== '0' && (
-                        <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
-                          <strong>Extra Damage:</strong> {item.weapon_data.primary.damage_extra} per
-                          extra hit
-                        </div>
-                      )}
                       {(item.weapon_data.primary.min_range > 0 ||
                         item.weapon_data.primary.max_range > 0) && (
                         <div style={{ color: 'var(--color-cloud)', marginBottom: '0.5rem' }}>
