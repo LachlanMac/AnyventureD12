@@ -206,6 +206,7 @@ const DevCreatureDesigner: React.FC = () => {
     subcategory: '',
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
+    shieldLevel: 0,
     languages: [] as string[],
     loot: [] as string[],
     foundry_portrait: '',
@@ -383,6 +384,7 @@ const DevCreatureDesigner: React.FC = () => {
         subcategory: jsonData.subcategory || '',
         size: jsonData.size || 'medium',
         challenge_rating: jsonData.challenge_rating || 1,
+        shieldLevel: jsonData.shieldLevel || 0,
         languages: jsonData.languages || [],
         loot: jsonData.loot || [],
         foundry_portrait: jsonData.foundry_portrait || '',
@@ -543,6 +545,7 @@ const DevCreatureDesigner: React.FC = () => {
       loot: creatureData.loot,
       languages: creatureData.languages,
       challenge_rating: creatureData.challenge_rating,
+      shieldLevel: creatureData.shieldLevel,
       spellNames: normalSpellNames.length > 0 ? normalSpellNames : undefined,
       source: 'Official',
       isHomebrew: false,
@@ -602,6 +605,7 @@ const DevCreatureDesigner: React.FC = () => {
       loot: creatureData.loot,
       languages: creatureData.languages,
       challenge_rating: creatureData.challenge_rating,
+      shieldLevel: creatureData.shieldLevel,
       spellNames: dlNormalSpells.length > 0 ? dlNormalSpells : undefined,
       source: 'Official',
       isHomebrew: false,
@@ -720,6 +724,7 @@ const DevCreatureDesigner: React.FC = () => {
           subcategory: jsonData.subcategory || '',
           size: jsonData.size || 'medium',
           challenge_rating: jsonData.challenge_rating || 1,
+          shieldLevel: jsonData.shieldLevel || 0,
           languages: jsonData.languages || [],
           loot: jsonData.loot || [],
           foundry_portrait: jsonData.foundry_portrait || '',
@@ -833,6 +838,7 @@ const DevCreatureDesigner: React.FC = () => {
         subcategory: '',
         size: 'medium',
         challenge_rating: 1,
+        shieldLevel: 0,
         languages: [],
         loot: [],
         foundry_portrait: '',
@@ -1126,6 +1132,19 @@ const DevCreatureDesigner: React.FC = () => {
                   onChange={(e) => setCreatureData({ ...creatureData, challenge_rating: parseInt(e.target.value) })}
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                 />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Shield Level</label>
+                <select
+                  value={creatureData.shieldLevel}
+                  onChange={(e) => setCreatureData({ ...creatureData, shieldLevel: parseInt(e.target.value) })}
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                >
+                  <option value={0}>None</option>
+                  <option value={1}>Light</option>
+                  <option value={2}>Heavy</option>
+                </select>
               </div>
             </div>
 

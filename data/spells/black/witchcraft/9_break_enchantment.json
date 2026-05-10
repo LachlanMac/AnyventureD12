@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "animeqw6d5m0gaku",
-  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"
+  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp",
+  "targetCheck": null,
+  "delivery": null
 }

@@ -15,5 +15,7 @@
   "damage": 18,
   "damageType": "Heat",
   "foundry_id": "9804rc9ve2pmygi1",
-  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp"
+  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

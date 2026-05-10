@@ -15,5 +15,7 @@
   "damage": 18,
   "damageType": "Cold",
   "foundry_id": "eleabszero12icpr",
-  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+  "targetCheck": "resilience",
+  "delivery": "area"
 }

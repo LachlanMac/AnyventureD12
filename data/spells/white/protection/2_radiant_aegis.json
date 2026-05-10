@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "radiaegis2l5mpq7",
-  "foundry_icon": "icons/magic/holy/shield-barrier-glowing-gold.webp"
+  "foundry_icon": "icons/magic/holy/shield-barrier-glowing-gold.webp",
+  "targetCheck": null,
+  "delivery": null
 }

@@ -15,5 +15,7 @@
   "damage": 5,
   "damageType": "Dark",
   "foundry_id": "2kd4wezi4bjikz3g",
-  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"
+  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

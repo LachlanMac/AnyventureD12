@@ -15,5 +15,7 @@
   "damage": 14,
   "damageType": "Dark",
   "foundry_id": "j7tsnmjmyysuw2od",
-  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp"
+  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

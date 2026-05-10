@@ -30,7 +30,7 @@
     },
     {
       "name": "Action : Running Toss",
-      "description": "You move up to 3 units, then make a throwing attack. This attack rolls with a bonus die.",
+      "description": "You move up to 3 units, then make a throwing attack. If you move at least 2 units towards your target, this attack rolls with a bonus die.",
       "location": "4a",
       "data": "XINE=1"
     },

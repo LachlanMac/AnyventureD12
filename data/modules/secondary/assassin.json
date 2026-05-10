@@ -12,7 +12,7 @@
     },
     {
       "name": "Action : Phantom Throw",
-      "description": "You make a throwing attack while hidden. If you have cover, you can roll a stealth check ",
+      "description": "You make a throwing attack while hidden. If you have any cover, you can remake your stealth check to see if you remain hidden.",
       "location": "2a",
       "data": "XINE=1"
     },
@@ -60,7 +60,7 @@
     },
     {
       "name": "Master Assassin",
-      "description": "You have achieved legendary status as a dealer of death. Gain +1 skill with complex ranged weapons and +1 skill with throwing weapons.",
+      "description": "You have achieved legendary status as a dealer of death. Gain +1 skill with complex ranged weapons and +1 skill with throwing weapons. Additionally, your assassinate action instantly kills a champion tier creature on 4 successful dice.",
       "location": "7",
       "data": "TG:WS6=1:WS2=1"
     }

@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "at2h1vclj0urvsr1",
-  "foundry_icon": "icons/magic/control/energy-stream-link-spiral-white.webp"
+  "foundry_icon": "icons/magic/control/energy-stream-link-spiral-white.webp",
+  "targetCheck": null,
+  "delivery": null
 }

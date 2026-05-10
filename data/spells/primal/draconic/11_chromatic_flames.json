@@ -15,5 +15,7 @@
   "damage": 12,
   "damageType": "Variable",
   "foundry_id": "1m6tsf3kd98tkiqh",
-  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"
+  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

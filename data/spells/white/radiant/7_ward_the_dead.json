@@ -15,5 +15,7 @@
   "damage": 15,
   "damageType": "Divine",
   "foundry_id": "knmm85o0kzmmulxh",
-  "foundry_icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp"
+  "foundry_icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+  "targetCheck": null,
+  "delivery": null
 }

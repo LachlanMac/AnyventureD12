@@ -15,5 +15,7 @@
   "damage": 4,
   "damageType": "Psychic",
   "foundry_id": "v6o0kat63vfehqtg",
-  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+  "targetCheck": "logic",
+  "delivery": "direct"
 }

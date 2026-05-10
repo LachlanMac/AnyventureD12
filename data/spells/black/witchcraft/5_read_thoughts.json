@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "xazmaoyn6ed750vz",
-  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"
+  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp",
+  "targetCheck": "concentration",
+  "delivery": "direct"
 }

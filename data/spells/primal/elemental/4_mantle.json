@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "f91h2q09smlqvmdh",
-  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+  "targetCheck": null,
+  "delivery": null
 }

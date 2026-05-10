@@ -15,5 +15,7 @@
   "damage": 3,
   "damageType": "Aetheric",
   "foundry_id": "woi2vk9fxmpizlnb",
-  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"
+  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

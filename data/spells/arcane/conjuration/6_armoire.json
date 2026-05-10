@@ -5,7 +5,9 @@
   "duration": "1 minute",
   "range": 1,
   "checkToCast": 6,
-  "components": ["Lead Ingot"],
+  "components": [
+    "Lead Ingot"
+  ],
   "ritualDuration": "1 hour",
   "concentration": false,
   "reaction": false,
@@ -13,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "arcArmoire5L8D3F",
-  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp"
+  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp",
+  "targetCheck": null,
+  "delivery": null
 }

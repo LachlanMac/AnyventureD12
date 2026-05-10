@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "p807bfj8s0vqvmue",
-  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-eye.webp"
+  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+  "targetCheck": null,
+  "delivery": null
 }

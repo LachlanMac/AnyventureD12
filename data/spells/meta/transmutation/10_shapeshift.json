@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "su0143u9wxb9nq59",
-  "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
+  "foundry_icon": "icons/magic/time/arrows-circling-green.webp",
+  "targetCheck": null,
+  "delivery": null
 }

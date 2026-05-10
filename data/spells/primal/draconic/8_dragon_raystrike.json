@@ -15,5 +15,7 @@
   "damage": 15,
   "damageType": "Aetheric",
   "foundry_id": "a08ep9t6ukrumaaa",
-  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"
+  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

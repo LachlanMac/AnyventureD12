@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "tttx06y66cn0v4er",
-  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"
+  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp",
+  "targetCheck": null,
+  "delivery": null
 }

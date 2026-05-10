@@ -15,5 +15,7 @@
   "damage": 14,
   "damageType": "Physical",
   "foundry_id": "akruax6h2zzapjy0",
-  "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
+  "foundry_icon": "icons/magic/time/arrows-circling-green.webp",
+  "targetCheck": "endurance",
+  "delivery": "direct"
 }

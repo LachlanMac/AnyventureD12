@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "sbl26ya7ddbjcowl",
-  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+  "targetCheck": "concentration",
+  "delivery": "area"
 }

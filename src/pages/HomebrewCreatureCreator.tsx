@@ -148,6 +148,7 @@ const HomebrewCreatureCreator: React.FC = () => {
     subcategory: '',
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
+    shieldLevel: 0,
     languages: [] as string[],
     loot: [] as string[],
     status: 'private' as 'draft' | 'private' | 'published',
@@ -300,6 +301,7 @@ const HomebrewCreatureCreator: React.FC = () => {
         subcategory: creature.subcategory || '',
         size: creature.size,
         challenge_rating: creature.challenge_rating,
+        shieldLevel: creature.shieldLevel || 0,
         languages: creature.languages || [],
         loot: creature.loot || [],
         status: creature.status || 'draft',
@@ -747,6 +749,41 @@ const HomebrewCreatureCreator: React.FC = () => {
                       color: 'var(--color-white)',
                     }}
                   />
+                </div>
+
+                <div>
+                  <label
+                    style={{
+                      display: 'block',
+                      fontSize: '0.875rem',
+                      fontWeight: 500,
+                      marginBottom: '0.5rem',
+                      color: 'var(--color-cloud)',
+                    }}
+                  >
+                    Shield Level
+                  </label>
+                  <select
+                    value={creatureData.shieldLevel}
+                    onChange={(e) =>
+                      setCreatureData((prev) => ({
+                        ...prev,
+                        shieldLevel: parseInt(e.target.value),
+                      }))
+                    }
+                    style={{
+                      width: '100%',
+                      padding: '0.75rem',
+                      backgroundColor: 'var(--color-dark-surface)',
+                      border: '1px solid var(--color-dark-border)',
+                      borderRadius: '0.375rem',
+                      color: 'var(--color-white)',
+                    }}
+                  >
+                    <option value={0}>None</option>
+                    <option value={1}>Light</option>
+                    <option value={2}>Heavy</option>
+                  </select>
                 </div>
               </div>
 

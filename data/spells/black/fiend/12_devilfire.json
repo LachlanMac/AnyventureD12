@@ -15,5 +15,7 @@
   "damage": 20,
   "damageType": "Dark",
   "foundry_id": "fienddevilfire12",
-  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp"
+  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

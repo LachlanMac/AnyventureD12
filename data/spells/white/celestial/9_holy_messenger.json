@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "evkw1en7kugjzgho",
-  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp"
+  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "area"
 }

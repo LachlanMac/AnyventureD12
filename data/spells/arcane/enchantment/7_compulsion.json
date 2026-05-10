@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "arcCompuls7k2mxx",
-  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp"
+  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-swirl.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

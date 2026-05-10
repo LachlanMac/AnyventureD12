@@ -15,5 +15,7 @@
   "damage": 15,
   "damageType": "True",
   "foundry_id": "transdemateria12",
-  "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
+  "foundry_icon": "icons/magic/time/arrows-circling-green.webp",
+  "targetCheck": "endurance",
+  "delivery": "direct"
 }

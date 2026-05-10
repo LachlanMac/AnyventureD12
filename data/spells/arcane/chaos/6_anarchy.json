@@ -15,5 +15,7 @@
   "damage": 8,
   "damageType": "Psychic",
   "foundry_id": "",
-  "foundry_icon": "icons/magic/symbols/rune-sigil-horned-white-purple.webp"
+  "foundry_icon": "icons/magic/symbols/rune-sigil-horned-white-purple.webp",
+  "targetCheck": "resilience",
+  "delivery": "area"
 }

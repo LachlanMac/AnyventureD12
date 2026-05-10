@@ -15,5 +15,7 @@
   "damage": 3,
   "damageType": "True",
   "foundry_id": "necsiphon12drain",
-  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
+  "targetCheck": "endurance",
+  "delivery": "direct"
 }

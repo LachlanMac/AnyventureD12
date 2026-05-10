@@ -15,5 +15,7 @@
   "damage": 10,
   "damageType": "Physical",
   "foundry_id": "kj3ak9ph6kavklox",
-  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
+  "targetCheck": "endurance",
+  "delivery": "direct"
 }

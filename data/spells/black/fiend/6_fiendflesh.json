@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "irodta7rxavf6gm3",
-  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp"
+  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
+  "targetCheck": null,
+  "delivery": null
 }

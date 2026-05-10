@@ -15,5 +15,7 @@
   "damage": 14,
   "damageType": "Cold",
   "foundry_id": "f7cd3otd4s2z4g7l",
-  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp"
+  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "direct"
 }

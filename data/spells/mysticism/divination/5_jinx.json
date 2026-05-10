@@ -15,5 +15,7 @@
   "damage": 4,
   "damageType": "Psychic",
   "foundry_id": "voisjaxn5jcvm3c6",
-  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-eye.webp"
+  "foundry_icon": "icons/magic/control/hypnosis-mesmerism-eye.webp",
+  "targetCheck": null,
+  "delivery": null
 }

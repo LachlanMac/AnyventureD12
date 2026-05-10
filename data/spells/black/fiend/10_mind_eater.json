@@ -15,5 +15,7 @@
   "damage": 10,
   "damageType": "Psychic",
   "foundry_id": "crnsvpcp6dkjgxmn",
-  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp"
+  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
+  "targetCheck": "concentration",
+  "delivery": "direct"
 }

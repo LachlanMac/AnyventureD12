@@ -15,5 +15,7 @@
   "damage": 8,
   "damageType": "aetheric",
   "foundry_id": "a7iqwwrxr9o2nwq6",
-  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp"
+  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

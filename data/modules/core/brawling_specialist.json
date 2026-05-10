@@ -18,7 +18,7 @@
     },
     {
       "name": "Action : Flurry",
-      "description": "You make a brawling attack, but treat each dice as its own separate attack that is mitigated separately. Each attack deals only the base damage. If all attacks hit, even if they do no damage, the enemy becomes dazed.",
+      "description": "You make a brawling attack, but treat each die as its own separate attack that is mitigated separately. Each hit deals damage as if it were the only success. If all dice hit, even if they deal no damage, the enemy becomes dazed.",
       "location": "2b",
       "data": "XINE=1"
     },

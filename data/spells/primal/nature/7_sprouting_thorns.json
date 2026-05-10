@@ -15,5 +15,7 @@
   "damage": 3,
   "damageType": "Physical",
   "foundry_id": "m3zryclu5muuwczz",
-  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp"
+  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp",
+  "targetCheck": null,
+  "delivery": null
 }

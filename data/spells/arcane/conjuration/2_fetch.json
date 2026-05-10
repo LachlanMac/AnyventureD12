@@ -5,7 +5,9 @@
   "duration": "Instantaneous",
   "range": 4,
   "checkToCast": 2,
-  "components": ["Lodestone"],
+  "components": [
+    "Lodestone"
+  ],
   "ritualDuration": "1 hour",
   "concentration": false,
   "reaction": false,
@@ -13,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "arcFetch01C9B7DE",
-  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp"
+  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp",
+  "targetCheck": null,
+  "delivery": null
 }

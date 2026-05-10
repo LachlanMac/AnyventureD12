@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "bimsb0rnc78jyay2",
-  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+  "targetCheck": null,
+  "delivery": null
 }

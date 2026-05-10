@@ -468,6 +468,8 @@ const convertToFoundryFormat = (data, type) => {
         energy: data.energy,
         damage: data.damage,
         damageType: data.damageType || "",
+        targetCheck: data.targetCheck || null,
+        delivery: data.delivery || null,
         fizzled: false,
         foundry_icon: data.foundry_icon || ""
       };
@@ -720,6 +722,7 @@ const convertToFoundryFormat = (data, type) => {
       baseFoundryDoc.system = {
         // Creature-specific fields
         creatureTier: data.tier || "standard",
+        shieldLevel: data.shieldLevel || 0,
         challengeRating: data.challenge_rating || 1,
         modules: [],
         actions: [], // Keep empty - actions are now items

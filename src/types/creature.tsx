@@ -184,6 +184,7 @@ export interface Creature {
   loot: string[];
   languages: string[];
   challenge_rating: number;
+  shieldLevel?: number;
   isHomebrew: boolean;
   source: string;
   magicSkills?: CreatureMagicSkills;

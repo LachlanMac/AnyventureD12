@@ -15,5 +15,7 @@
   "damage": 6,
   "damageType": "Heat",
   "foundry_id": "9eahu2nfedzxptcv",
-  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+  "targetCheck": "defense",
+  "delivery": "direct"
 }

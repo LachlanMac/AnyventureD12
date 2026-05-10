@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "uc1do4gwaqx88zc8",
-  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp"
+  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

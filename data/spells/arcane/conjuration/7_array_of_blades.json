@@ -5,7 +5,9 @@
   "duration": "Concentration",
   "range": 0,
   "checkToCast": 7,
-  "components": ["Any Bladed Weapon"],
+  "components": [
+    "Any Bladed Weapon"
+  ],
   "ritualDuration": "1 hour",
   "concentration": true,
   "reaction": false,
@@ -13,5 +15,7 @@
   "damage": 8,
   "damageType": "Aetheric",
   "foundry_id": "arcBlades6H2N5TY",
-  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp"
+  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp",
+  "targetCheck": "defense",
+  "delivery": "area"
 }

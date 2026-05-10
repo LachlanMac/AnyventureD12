@@ -15,5 +15,7 @@
   "damage": 10,
   "damageType": "Heat",
   "foundry_id": "6k4u5bi2fuad85qn",
-  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp"
+  "foundry_icon": "icons/creatures/claws/claw-hooked-purple.webp",
+  "targetCheck": "resilience",
+  "delivery": "area"
 }

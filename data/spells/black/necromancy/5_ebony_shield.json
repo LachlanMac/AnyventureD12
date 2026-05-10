@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "wsebadlm7tw6f5ks",
-  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
+  "targetCheck": null,
+  "delivery": null
 }

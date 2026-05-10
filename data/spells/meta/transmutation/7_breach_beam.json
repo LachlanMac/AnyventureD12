@@ -15,5 +15,7 @@
   "damage": 12,
   "damageType": "Aetheric",
   "foundry_id": "zk8bt36a762cvtpl",
-  "foundry_icon": "icons/magic/time/arrows-circling-green.webp"
+  "foundry_icon": "icons/magic/time/arrows-circling-green.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

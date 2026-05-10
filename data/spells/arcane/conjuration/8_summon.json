@@ -5,7 +5,9 @@
   "duration": "Instantaneous",
   "range": 8,
   "checkToCast": 8,
-  "components": ["Diatessite"],
+  "components": [
+    "Diatessite"
+  ],
   "ritualDuration": "1 hour",
   "concentration": false,
   "reaction": false,
@@ -13,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "arcSummon4G7E9KD",
-  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp"
+  "foundry_icon": "icons/magic/symbols/runes-star-pentagon-orange.webp",
+  "targetCheck": null,
+  "delivery": null
 }

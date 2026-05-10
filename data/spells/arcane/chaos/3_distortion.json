@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "",
-  "foundry_icon": "icons/magic/symbols/rune-sigil-horned-white-purple.webp"
+  "foundry_icon": "icons/magic/symbols/rune-sigil-horned-white-purple.webp",
+  "targetCheck": null,
+  "delivery": null
 }

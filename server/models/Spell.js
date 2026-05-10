@@ -79,6 +79,16 @@ const SpellSchema = new Schema({
     required: true,
     min: 0
   },
+  targetCheck: {
+    type: String,
+    default: null,
+    enum: [null, 'defense', 'resilience', 'endurance', 'concentration', 'fitness', 'coordination', 'logic', 'might', 'senses']
+  },
+  delivery: {
+    type: String,
+    default: null,
+    enum: [null, 'projectile', 'direct', 'area']
+  },
   damageType: {
     type: String,
     required: false,

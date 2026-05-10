@@ -15,5 +15,7 @@
   "damage": 10,
   "damageType": "Psychic",
   "foundry_id": "witchspite12shtx",
-  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp"
+  "foundry_icon": "icons/magic/unholy/hand-claw-fog-green.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

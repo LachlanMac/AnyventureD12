@@ -182,6 +182,12 @@ const creatureSchema = new mongoose.Schema({
     required: true,
     enum: ['minion', 'grunt', 'standard', 'champion', 'elite', 'legend', 'mythic']
   },
+  shieldLevel: {
+    type: Number,
+    default: 0,
+    min: 0,
+    max: 2
+  },
   type: {
     type: String,
     required: true,

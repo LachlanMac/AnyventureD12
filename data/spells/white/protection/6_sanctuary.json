@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "u92z85rnt5amwqvr",
-  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp"
+  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp",
+  "targetCheck": null,
+  "delivery": null
 }

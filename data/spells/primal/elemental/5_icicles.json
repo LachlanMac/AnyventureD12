@@ -15,5 +15,7 @@
   "damage": 7,
   "damageType": "Cold",
   "foundry_id": "9fx3yf743hv47dbs",
-  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

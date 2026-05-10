@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "04mmyycva8ogudp5",
-  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp"
+  "foundry_icon": "icons/magic/nature/tree-spirit-green.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

@@ -15,5 +15,7 @@
   "damage": 3,
   "damageType": "Physical",
   "foundry_id": "rnrlrw4da8tnntej",
-  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp"
+  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp",
+  "targetCheck": "fitness",
+  "delivery": "projectile"
 }

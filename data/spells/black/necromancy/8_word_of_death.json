@@ -15,5 +15,7 @@
   "damage": 15,
   "damageType": "Dark",
   "foundry_id": "gakwaubebvjezvkj",
-  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

@@ -15,5 +15,7 @@
   "damage": 12,
   "damageType": "Aetheric",
   "foundry_id": "mboxkh01rjncao6b",
-  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp"
+  "foundry_icon": "icons/magic/holy/barrier-shield-winged-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

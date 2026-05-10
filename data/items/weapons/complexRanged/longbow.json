@@ -17,7 +17,7 @@
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",
-    "min_range": 3,
+    "min_range": 4,
     "max_range": 7,
     "aimed": true
   },

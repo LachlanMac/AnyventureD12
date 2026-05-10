@@ -1010,8 +1010,14 @@ const processWeaponTables = async (content: string): Promise<string> => {
       wandsTable
     );
 
-    // Process Unarmed
-    const unarmedTable = generateTable(weaponsByCategory.unarmed);
+    // Process Unarmed - inject hardcoded Brawling entry
+    const brawlingEntry = {
+      name: 'Brawling (Unarmed)',
+      hands: 1,
+      primary: { damage: '3', damage_extra: '3', damage_type: 'physical', category: 'unarmed', energy: 0, min_range: 1, max_range: 1 }
+    };
+    const unarmedWithBrawling = [brawlingEntry, ...weaponsByCategory.unarmed];
+    const unarmedTable = generateTable(unarmedWithBrawling);
     processedContent = processedContent.replace(
       /<!-- UNARMED_TABLE_START -->[\s\S]*?<!-- UNARMED_TABLE_END -->/,
       unarmedTable

@@ -15,5 +15,7 @@
   "damage": 15,
   "damageType": "Heat",
   "foundry_id": "e6pnvd6bw1sedzmr",
-  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp"
+  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

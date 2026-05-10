@@ -15,5 +15,7 @@
   "damage": 8,
   "damageType": "Psychic",
   "foundry_id": "illwakenightmr12",
-  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp"
+  "foundry_icon": "icons/magic/defensive/illusion-evasion-echo-purple.webp",
+  "targetCheck": "resilience",
+  "delivery": "direct"
 }

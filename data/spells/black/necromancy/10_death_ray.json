@@ -15,5 +15,7 @@
   "damage": 15,
   "damageType": "Dark",
   "foundry_id": "8gjhp34thle84zyr",
-  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp"
+  "foundry_icon": "icons/creatures/magical/spirit-undead-ghost-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

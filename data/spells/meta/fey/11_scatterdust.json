@@ -15,5 +15,7 @@
   "damage": 6,
   "damageType": "Psychic",
   "foundry_id": "e8blskwbq1pj4j84",
-  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"
+  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+  "targetCheck": "concentration",
+  "delivery": "area"
 }

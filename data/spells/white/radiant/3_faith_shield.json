@@ -15,5 +15,7 @@
   "damage": 0,
   "damageType": null,
   "foundry_id": "pvyrrtdr7fjpmo0n",
-  "foundry_icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp"
+  "foundry_icon": "icons/magic/holy/prayer-hands-glowing-yellow.webp",
+  "targetCheck": null,
+  "delivery": null
 }

@@ -15,5 +15,7 @@
   "damage": 5,
   "damageType": "Divine",
   "foundry_id": "celeyeseraphim12",
-  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp"
+  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp",
+  "targetCheck": "defense",
+  "delivery": "projectile"
 }

@@ -15,5 +15,7 @@
   "damage": 10,
   "damageType": "Electric",
   "foundry_id": "1k8lkb6vc33yj2ve",
-  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp"
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
+  "targetCheck": "resilience",
+  "delivery": "area"
 }

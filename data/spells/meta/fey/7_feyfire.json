@@ -15,5 +15,7 @@
   "damage": 10,
   "damageType": "Heat",
   "foundry_id": "mwlv30dvislmris6",
-  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp"
+  "foundry_icon": "icons/creatures/magical/fae-fairy-winged-glowing-green.webp",
+  "targetCheck": "resilience",
+  "delivery": "projectile"
 }
