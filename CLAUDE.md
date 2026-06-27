@@ -89,7 +89,7 @@ Mind: Resilience, Concentration, Senses, Logic
 Knowledge: Wildcraft, Academics, Magic, Medicine
 Social: Expression, Presence, Insight, Persuasion
 Skills, unlike attributes have a "level" from 0->6
-0 = d4, 1 = d6, 2 = d8, 3 = d10, 4 = d12, 5 = d16, 6 = d20, 7 = d24
+0 = d6, 1 = d8, 2 = d10, 3 = d12, 4 = d16, 5 = d20, 6 = d24, 7 = d30
 There is no skill above 6, as that is mastery
 So, if a player had 4 in Fitness, and 2 talent in physique, they would roll a 2d12 to make that check.
 They would take the highest value of the 2d12. So if one dice was a 7 and the other was 3, the check would be a 7.
@@ -97,11 +97,11 @@ However, sometimes the other dice are important, so we can't discard them comple
 Examples:
 3 talent in knowledge, 3 skill in academics:  3d10 take highest
 1 talent in mind, 5 skill in senses: 1d16
-2 talent in physique, 1 skill in might: 2d4 take highest
+2 talent in physique, 1 skill in might: 2d8 take highest
 All checks can be affected by bonus or penalty dice. Bonus dice means you add more dice.
 So with our previous examples:
 1 talent in mind, 5 skill in senses, +2 bonus dice = 3d16
-2 talent in physique, 1 skill in might, +1 penalty dice = 1d4
+2 talent in physique, 1 skill in might, +1 penalty dice = 1d8
 If the dice is at 1, and there is more penalty dice, we start rolling more dice but taking the lowest.
 3 talent in knowledge, 3 skill in academics, +4 penalty dice = 3d10 take lowest
 3 talent in knowledge, 3 skill in academics, +3 penalty dice = 2d10 take lowest

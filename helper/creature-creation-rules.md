@@ -94,13 +94,13 @@ Each creature is a single JSON file named in `snake_case.json` format (e.g., `fl
 | Level | Die |
 |-------|-----|
 | -1 | Cannot use (below minimum) |
-| 0 | d4 |
-| 1 | d6 |
-| 2 | d8 |
-| 3 | d10 |
-| 4 | d12 |
-| 5 | d16 |
-| 6 | d20 |
+| 0 | d6 |
+| 1 | d8 |
+| 2 | d10 |
+| 3 | d12 |
+| 4 | d16 |
+| 5 | d20 |
+| 6 | d24 |
 
 ### Detections
 `normal`, `darksight`, `infravision`, `deadsight`, `echolocation`, `tremorsense`, `truesight`, `aethersight`
@@ -154,13 +154,13 @@ These guidelines are derived from analysis of all existing official creatures.
 | Attributes | 1-2 each | Low across the board |
 | Primary Damage | 2-3 | Minimal threat |
 | Extra Damage | 1-2 | Very low |
-| Attack Dice | 2d4 typical | Low dice, small dice |
+| Attack Dice | 2d6 typical | Low dice, small dice |
 | Actions | 1-2 | 1 basic attack + maybe 1 utility |
 | Reactions | 0 | Almost never |
 | Traits | 0-2 | Simple if any |
 | Mitigation | 0-2 per type | Usually only thematic mitigation |
 
-**Example:** Fox (HP 8, 2d4, 2/1 physical), Flesh Golem Minion (HP 10, 2d4, 3/2 physical)
+**Example:** Fox (HP 8, 2d6, 2/1 physical), Flesh Golem Minion (HP 10, 2d6, 3/2 physical)
 
 ### Grunt
 **Role:** Common enemy. Appear in groups of 2-4. Should take 2-4 hits from a typical PC.
@@ -350,20 +350,20 @@ A mythic encounter should never be "just hit it until it dies." The party should
 
 Attack dice follow this format: `NdX` where N = number of dice, X = die size.
 
-**Die size progression:** d4 < d6 < d8 < d10 < d12 < d16 < d20 < d24 < d30
+**Die size progression:** d4 < d6 < d8 < d10 < d12 < d16 < d20 < d24 < d30 < d36
 
 ### Typical Attack Dice by Tier
 | Tier | Basic Attack | Strongest Attack |
 |------|-------------|------------------|
-| Minion | 2d4 | 2d4 |
-| Grunt | 2d6 to 3d8 | 4d6 |
-| Standard | 2d8 to 3d10 | 2d12 |
-| Champion | 3d8 to 4d10 | 5d12 |
-| Elite | 3d10 to 4d12 | 4d16 |
-| Legend | 3d20 to 4d20 | 4d24 to 5d24 |
-| Mythic | 4d24 to 5d24 | 5d30 to 6d30 |
+| Minion | 2d6 | 2d6 |
+| Grunt | 2d8 to 3d10 | 4d8 |
+| Standard | 2d10 to 3d12 | 2d16 |
+| Champion | 3d10 to 4d12 | 5d16 |
+| Elite | 3d12 to 4d16 | 4d20 |
+| Legend | 3d20 to 4d24 | 4d24 to 5d30 |
+| Mythic | 4d24 to 5d30 | 5d30 to 6d36 |
 
-**IMPORTANT for Legend and Mythic:** These creatures should use dice in the d20-d30 range, NOT d10-d12. A Legend creature rolling d12s feels like a Champion — the die size should convey overwhelming power. Think of it this way: a d12 is expert-level (skill 4), a d20 is mastery (skill 6), and d24/d30 are beyond mortal capability. Legends fight with d20s. Mythics fight with d24s and d30s.
+**IMPORTANT for Legend and Mythic:** These creatures should use dice in the d20-d36 range, NOT d12-d16. A Legend creature rolling d16s feels like a Champion — the die size should convey overwhelming power. Think of it this way: a d16 is proficient (skill 4), a d24 is mastery (skill 6), and d30/d36 are beyond mortal capability. Legends fight with d24s. Mythics fight with d30s and d36s.
 
 ---
 

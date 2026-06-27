@@ -6,12 +6,6 @@
     "description": "An afraid character cannot take reactions and must roll a resilience check of 10 whenever they attempt to use an action. On a failure, the afraid character instead moves a number of units equal to their movement speed away from the source of their fear. On a success, the condition ends. Each time this check is made, it is lowered by 1."
   },
   {
-    "id": "alert",
-    "name": "Alert",
-    "category": "Mental",
-    "description": "An alert character automatically makes a senses check when another creature attempts to make a stealth check without costing an action. If they are able to use reactions, they can point out the character that is attempting to stealth revealing them to their allies. A character can choose to become Alert at any time during their turn, but maintaining this heightened awareness requires their concentration."
-  },
-  {
     "id": "broken",
     "name": "Broken",
     "category": "Mental",
@@ -107,7 +101,7 @@
     "id": "incapacitated",
     "name": "Incapacitated",
     "category": "Physical",
-    "description": "An incapacitated character cannot move, take actions or defend themselves. When making defense checks, an incapacitated creature has a value a static defense check of 2 against melee attacks and 4 against ranged attacks. This can occur from conditions such as being paralyzed, frozen, sleeping or unconscious. The duration this effect lasts is based on the spell or effect that caused it."
+    "description": "An incapacitated character cannot move, take actions or defend themselves. All attacks against an incapacitated creature are rolled against a static defense of 2. This can occur from conditions such as being paralyzed or frozen. The duration this effect lasts is based on the spell or effect that caused it."
   },
   {
     "id": "muted",
@@ -131,7 +125,7 @@
     "id": "prone",
     "name": "Prone",
     "category": "Physical",
-    "description": "A prone character is one that is on the ground in a vulnerable position. All attack and defense checks suffer a -1 penalty. A character must either use an action or their entire movement to remove this condition. Otherwise, prone characters have a walk speed of 2 units."
+    "description": "A prone character is one that is on the ground in a vulnerable position. All attack and defense checks suffer a -1 penalty. The minimum defense check against ranged attacks while prone is 4. A character must either use an action or their entire movement to remove this condition. Otherwise, prone characters have a walk speed of 2 units."
   },
   {
     "id": "stasis",
@@ -143,7 +137,7 @@
     "id": "unconscious",
     "name": "Unconscious",
     "category": "Physical",
-    "description": "An unconscious character is extremely vulnerable and takes double damage from melee attacks and also suffers the effects of the impaired condition. If recovery isn't otherwise specified, an unconscious character rolls a d12 at the end of each of their turns. On a 9 or higher, they regain consciousness."
+    "description": "An unconscious character is incapacitated and prone. They take double damage from melee attacks. If recovery isn't otherwise specified, an unconscious character rolls a d12 at the end of each of their turns. On a 9 or higher, they regain consciousness."
   },
   {
     "id": "winded",

@@ -29,7 +29,7 @@ Attributes and Skills
   Mind: Resilience, Concentration, Senses, Logic
   Knowledge: Wildcraft, Academics, Magic, Medicine
   Social: Expression, Presence, Insight, Persuasion
-- Skills have Levels 0–6 (0=d4, 1=d6, 2=d8, 3=d10, 4=d12, 5=d16, 6=d20, 7=d24).
+- Skills have Levels 0–6 (0=d6, 1=d8, 2=d10, 3=d12, 4=d16, 5=d20, 6=d24, 7=d30).
 - Attribute governs dice count (Talent); Skill governs die size (Level).
 - A check is Talent dice of the Skill’s die size; result is the highest die unless a rule says otherwise.
 
@@ -42,10 +42,10 @@ Dice System
 Upgraded/Downgraded Skills
 - Situational modifiers can upgrade/downgrade the die ladder.
   Table (Skill Level → die):
-  Level: 0  1  2  3  4   5   6
-  Base:  d4 d6 d8 d10 d12 d16 d20,d24
-  Upg.:  d6 d8 d10 d12 d16 d20,d24,d30
-  Dng.:  d2 d4 d6 d8 d10 d12 d16,d20,d24
+  Level: 0  1  2  3  4   5   6   7
+  Base:  d6 d8 d10 d12 d16 d20 d24 d30
+  Upg.:  d8 d10 d12 d16 d20 d24 d30 d36
+  Dng.:  d4 d6 d8 d10 d12 d16 d20 d24
 
 Opposed/Group Checks and Help
 - Help (same skill): helper must have equal-or-higher skill; grants +1 bonus die automatically.
@@ -100,7 +100,7 @@ Combat Structure
 
 Default Actions (examples; 0 unless noted)
 - Sprint (2 Energy): Move up to double movement in a straight line (unless modified).
-- Attack (Simple/Brawling/Throwing 0; Complex 1 Energy): Make a weapon attack.
+- Attack (Variable Energy): Make a weapon attack. Each weapon has its own energy cost (most simple weapons 0, heavier/complex weapons 1-2).
 - Jump (1 Energy): Declare units ≤ movement; roll Fitness. With running start (moved ≥2 or Sprint), must meet units; without, distance = Fitness/2 (floor).
 - Grab (1 Energy): Contested Fitness vs target’s Fitness or Coordination; holds until start of your next turn.
 - Channel (X Energy): Cast a spell (see Magic).
@@ -125,7 +125,7 @@ Attacks and Damage
   Example: Longsword with Primary 3, Extra 2. Two successes = 3 + 2 = 5 damage before mitigation.
 
 Critical Hits (weapon attacks)
-- Start at Skill Level 4 (d12). Crit on: d12=12; d16=15–16; d20=18–20, d24=20-24, d30=25+
+- Start at Skill Level 3 (d12). Crit on: d12=12; d16=15–16; d20=18–20, d24=22-24, d30=28-30, d36=34-36
 - A crit adds Primary damage once more (default one crit counted unless rule says otherwise).
 
 Mitigation (Damage & Types)
@@ -140,7 +140,6 @@ Conditions (high level)
 
 Condition Details (from wiki; no tables, concise text)
 - Afraid: Cannot take reactions; when attempting an action, roll Resilience 10. On failure, move up to movement away from source; on success, Afraid ends. Each time this check is made, its DC lowers by 1.
-- Alert: Auto Senses check vs Stealth attempts without costs; can point out revealed target as a reaction; requires Concentration to maintain.
 - Broken: Occurs at 0 Resolve. Roll with 1 penalty die on Knowledge/Social/Mind checks; auto‑fail vs Afraid/Confused/Maddened/Charmed; cannot recover Resolve until removed. Remove via Resilience 12 at end of a full rest; DC lowers by 1 per full rest.
 - Charmed: Target treats charmer as trusted; cannot take aggressive actions vs charmer. Charmer can command via contested Persuasion vs target Insight; gains a bonus die to Social checks vs target. Harmful/dangerous commands double next break‑out check.
 - Confused: On each attempted Action/Reaction, roll 1d4: 1 attack nearest; 2 do nothing; 3 move full speed in random direction; 4 act normally. Remove via Concentration 10 at end of turn; DC lowers by 1 each turn.
@@ -153,13 +152,13 @@ Condition Details (from wiki; no tables, concise text)
 - Deafened: Cannot hear; auto‑fail hearing Senses checks.
 - Ignited: Take 5 Heat damage at end of turn; damage increases by 1 each turn up to 10. Put out: Action, Coordination 6; Ally: Action, Coordination 4.
 - Impaired: Cannot move; penalty die to all Attacks and Defense. Commonly from Grab; duration depends on source.
-- Incapacitated: Cannot move, act, or defend. Static Defense: 2 melee / 4 ranged. Sources: paralysis, frozen, sleep, unconscious; duration per source.
+- Incapacitated: Cannot move, act, or defend. All attacks are rolled against a static defense of 2. Sources: paralysis, frozen; duration per source.
 - Muted: Cannot speak; cannot perform speech‑required tasks.
 - Obscured: Hidden from line of sight; when moving while Obscured, must roll Stealth to remain hidden.
 - Poisoned: Take Toxic damage at end of turn per poison. Each time, roll Endurance vs poison’s RC: success ends poison; else RC lowers by 1 for next time.
-- Prone: On ground; Attacks and Defense have a penalty die. Remove by spending an Action or entire Movement.
+- Prone: On ground; Attacks and Defense have a penalty die. Minimum defense check against ranged attacks is 4. Remove by spending an Action or entire Movement.
 - Stasis: Unconscious and do not need to eat/breathe/sleep; periodic effects paused.
-- Unconscious: Extremely vulnerable; double damage from Melee. If no other rule applies, roll d12 end of each turn; on 9+, regain consciousness.
+- Unconscious: Incapacitated and Prone. Double damage from Melee. If no other rule applies, roll d12 end of each turn; on 9+, regain consciousness.
 - Winded: Cannot regenerate Energy; remove via Rest Action.
 
 Reaching 0 Health (Lifeline)

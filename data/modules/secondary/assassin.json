@@ -42,7 +42,7 @@
     },
     {
       "name": "Action : Assassinate",
-      "description": "You attempt to instantly kill a target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a simple weapon. If the attack hits, the target dies instantly if they are minion tier. Grunts are executed on 2 successful dice hits and standard creatures on 3.",
+      "description": "You attempt to instantly kill a large or smaller target with a single, precise strike. You must be hidden and adjacent to the target. Make a weapon attack with a simple weapon. If the attack hits, the target dies instantly if they are minion tier. Grunts are executed on 2 successful dice hits and standard creatures on 3.",
       "location": "5",
       "data": "XINE=1"
     },

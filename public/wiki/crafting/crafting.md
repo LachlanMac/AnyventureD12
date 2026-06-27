@@ -28,7 +28,7 @@ Manipulating organic materials and living tissue. Biosculpters work with leather
 
 To craft an item, you make a skill check using your talent and skill in the appropriate crafting discipline:
 - **Talent** (from your attributes) determines how many dice you roll
-- **Skill** level determines what type of dice you roll (d4 through d24)
+- **Skill** level determines what type of dice you roll (d6 through d30)
 - You need at least one success meeting or exceeding the recipe's difficulty to craft the item
 
 ## Infusions

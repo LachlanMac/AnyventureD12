@@ -4,8 +4,8 @@
  * Get dice size for skill level
  */
 export function getDiceForSkill(skillLevel: number): string {
-  const diceMap = ['4', '6', '8', '10', '12', '16', '20', '24', '30'];
-  return diceMap[skillLevel] || '4';
+  const diceMap = ['6', '8', '10', '12', '16', '20', '24', '30', '36'];
+  return diceMap[skillLevel] || '6';
 }
 
 /**

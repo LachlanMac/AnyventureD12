@@ -20,8 +20,8 @@ Knowledge: Wildcraft, Academics, Magic, Medicine
 Social: Expression, Presence, Insight, Persuasion
 
 Skills, unlike attributes have a "level" from 0->6
-0 = d4, 1 = d6, 2 = d8, 3 = d10, 4 = d12, 5 = d16, 6 = d20
-There is no skill above 6, as that is mastery
+0 = d6, 1 = d8, 2 = d10, 3 = d12, 4 = d16, 5 = d20, 6 = d24, 7 = d30
+There is no skill above 6, as that is mastery (7 is grand master, only achievable through special means)
 
 So, if a player had 4 in Fitness, and 2 talent in physique, they would roll a 2d12 to make that check.
 They would take the highest value of the 2d12. So if one dice was a 7 and the other was 3, the check would be a 7.
@@ -29,12 +29,12 @@ However, sometimes the other dice are important, so we can't discard them comple
 Examples:
 3 talent in knowledge, 3 skill in academics:  3d10 take highest
 1 talent in mind, 5 skill in senses: 1d16
-2 talent in physique, 1 skill in might: 2d4 take highest
+2 talent in physique, 1 skill in might: 2d8 take highest
 
 All checks can be affected by bonus or penalty dice. Bonus dice means you add more dice.
 So with our previous examples:
 1 talent in mind, 5 skill in senses, +2 bonus dice = 3d16
-2 talent in physique, 1 skill in might, +1 penalty dice = 1d4
+2 talent in physique, 1 skill in might, +1 penalty dice = 1d8
 If the dice is at 1, and there is more penalty dice, we start rolling more dice but taking the lowest.
 3 talent in knowledge, 3 skill in academics, +4 penalty dice = 3d10 take lowest
 3 talent in knowledge, 3 skill in academics, +3 penalty dice = 2d10 take lowest
@@ -66,7 +66,7 @@ A sword deals physical damage.  If the enemy had +4 mitigation, that means any d
 If the attack roll was changed to 6,1,1 - this would mean that the player only hit "1" dice for 3 damage which means, they deal nothing to an enemy who has 3 or more mitigation to physical damage.|
 
 If the damage is over half but less than full, you take half damage. 
-Critical Hits: Critical hits start when you get a d12. On a roll of a 12, you deal extra damage. On a d16, a 15-16 crits. On a d20 a 18-19-20 crits. 
+Critical Hits: Critical hits start when you get a d12. On a roll of a 12, you deal extra damage. On a d16, a 15-16 crits. On a d20, 18-19-20 crits. On a d24, 22-24 crits. On a d30, 28-30 crits. On a d36, 34-36 crits. 
 
 
 Also, evasion either completely dodges or gets hit completely

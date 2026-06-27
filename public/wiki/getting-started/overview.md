@@ -16,7 +16,7 @@ AnyventureDX has no levels - power is obtained primarily through modules, equipm
 
 ### 3. No Modifiers
 
-The design philosophy of AnyventureDX is to eliminate modifiers - there is no <i>adding</i> values to dice to determine skill level. Instead, when a character improves in skill, the <b>tier</b> of their dice changes, using a large array of dice [d4 -> d24]. Talent determines how many dice a character rolls, representing consistency. For this reason, players will need to be strategic in what skills they target as being good at everything simply is not possible.
+The design philosophy of AnyventureDX is to eliminate modifiers - there is no <i>adding</i> values to dice to determine skill level. Instead, when a character improves in skill, the <b>tier</b> of their dice changes, using a large array of dice [d6 -> d30]. Talent determines how many dice a character rolls, representing consistency. For this reason, players will need to be strategic in what skills they target as being good at everything simply is not possible.
 
 
 ### 4. Simple Magic System

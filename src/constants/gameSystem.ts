@@ -103,19 +103,19 @@ export const CRAFTING_SKILLS = [
 // ============================================================================
 // DICE TYPES
 // ============================================================================
-export const DICE_TYPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd16', 'd20', 'd24'] as const;
+export const DICE_TYPES = ['d6', 'd8', 'd10', 'd12', 'd16', 'd20', 'd24', 'd30'] as const;
 export type DiceType = typeof DICE_TYPES[number];
 
-// Skill level to dice type mapping (0-7 -> d4-d24)
+// Skill level to dice type mapping (0-7 -> d6-d30)
 export const SKILL_LEVEL_TO_DICE: Record<number, DiceType> = {
-  0: 'd4',
-  1: 'd6',
-  2: 'd8',
-  3: 'd10',
-  4: 'd12',
-  5: 'd16',
-  6: 'd20',
-  7: 'd24',
+  0: 'd6',
+  1: 'd8',
+  2: 'd10',
+  3: 'd12',
+  4: 'd16',
+  5: 'd20',
+  6: 'd24',
+  7: 'd30',
 };
 
 // ============================================================================

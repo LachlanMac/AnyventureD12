@@ -59,10 +59,10 @@
       "data": "WS3=1:WS2=1"
     },
     {
-      "name": "Effortless Weapons",
-      "description": "Complex weapons are no more difficult to handle than simple ones for you. The amount of energy you use to attack with a complex weapon is reduced by 1, to a minimum of 0.",
+      "name": "Muscle Memory",
+      "description": "Gain +1 skill with fitness. Each turn, the first defense check or weapon attack you make that would have penalty dice is instead rolled without them.",
       "location": "7",
-      "data": "FH"
+      "data": "SSA=1:TG"
     }
   ]
 }

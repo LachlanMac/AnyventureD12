@@ -122,7 +122,7 @@ Mounting is as simple as taking the Use action while adjacent to your mount. How
 
 Willfully dismounting is as simple as using your movement instead of your mount's to move to an adjacent or more distant tile.
 
-There are several ways to be forcibly dismounted, with the most common being any move that shoves or displaces you. When you are displaced while on a mount, you are knocked off of it, take 1d4 fall damage and land prone in an adjacent tile to your mount. Additionally, if your mount is knocked prone, you are dismounted. 
+There are several ways to be forcibly dismounted, with the most common being any move that shoves or displaces you. When you are displaced while on a mount, you are knocked off of it, take 1d6 fall damage and land prone in an adjacent tile to your mount. Additionally, if your mount is knocked prone, you are dismounted. 
 
 Certain saddles can provide bonuses against being dismounted or displaced while mounted.
 

@@ -2,9 +2,9 @@
 // Utility functions for dice tier calculations
 
 // Base dice tier arrays
-export const DICE_TYPES = ['d4', 'd6', 'd8', 'd10', 'd12', 'd16', 'd20', 'd24'];
-export const DICE_TYPES_UPGRADED = ['d6', 'd8', 'd10', 'd12', 'd16', 'd20', 'd24','d30'];
-export const DICE_TYPES_DOWNGRADED = ['d2', 'd4', 'd6', 'd8', 'd10', 'd12', 'd16', 'd20'];
+export const DICE_TYPES = ['d6', 'd8', 'd10', 'd12', 'd16', 'd20', 'd24', 'd30'];
+export const DICE_TYPES_UPGRADED = ['d8', 'd10', 'd12', 'd16', 'd20', 'd24', 'd30', 'd36'];
+export const DICE_TYPES_DOWNGRADED = ['d4', 'd6', 'd8', 'd10', 'd12', 'd16', 'd20', 'd24'];
 
 /**
  * Get the modified dice tier based on upgrade/downgrade modifiers
@@ -18,13 +18,13 @@ export const getModifiedDiceType = (baseValue: number, diceTierModifier: number 
 
   if (diceTierModifier > 0) {
     // Upgraded dice tier
-    return DICE_TYPES_UPGRADED[clampedValue] || 'd30';
+    return DICE_TYPES_UPGRADED[clampedValue] || 'd36';
   } else if (diceTierModifier < 0) {
     // Downgraded dice tier
-    return DICE_TYPES_DOWNGRADED[clampedValue] || 'd2';
+    return DICE_TYPES_DOWNGRADED[clampedValue] || 'd4';
   } else {
     // Normal dice tier
-    return DICE_TYPES[clampedValue] || 'd24';
+    return DICE_TYPES[clampedValue] || 'd30';
   }
 };
 

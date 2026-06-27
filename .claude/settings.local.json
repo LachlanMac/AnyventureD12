@@ -94,7 +94,8 @@
       "Bash(do jq:*)",
       "Bash(if [ -f \"$file\" ])",
       "Bash(cat:*)",
-      "Bash(do echo \"=== $f ===\")"
+      "Bash(do echo \"=== $f ===\")",
+      "Bash(sort -t: -k2 -rn)"
     ],
     "deny": [],
     "defaultMode": "acceptEdits"

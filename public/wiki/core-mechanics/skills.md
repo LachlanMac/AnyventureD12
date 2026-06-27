@@ -49,14 +49,14 @@ A character that wants to function as a healer for their allies with medicine ta
 
 | Skill Level | Die Type | Average Roll |
 |-------------|----------|--------------|
-| 0 - Untrained| d4       | 2.5          |
-| 1 - Beginner| d6       | 3.5          |
-| 2 - Novice| d8       | 4.5          |
-| 3 - Journeyman| d10      | 5.5          |
-| 4 - Proficient| d12      | 6.5          |
-| 5 - Expert| d16      | 8.5          |
-| 6 - Master| d20      | 10.5         |
-| 7 - Grand Master| d24      | 12.5         |
+| 0 - Untrained| d6       | 3.5          |
+| 1 - Beginner| d8       | 4.5          |
+| 2 - Novice| d10      | 5.5          |
+| 3 - Journeyman| d12      | 6.5          |
+| 4 - Proficient| d16      | 8.5          |
+| 5 - Expert| d20      | 10.5         |
+| 6 - Master| d24      | 12.5         |
+| 7 - Grand Master| d30      | 15.5         |
 <br> 
 
 In most scenarios, skills are denoted by their dice type rather than a numerical value. For instance - if your character had journeyman fitness, the character sheet should show d10 instead of +3. 
@@ -169,17 +169,17 @@ Some factors can cause a skill to be upgraded or downgraded, changing the dice p
 
 | Skill Level | Downgraded | Base Die | Upgraded |
 |-------------|------------|----------|----------|
-| 0           | d2         | d4       | d6       |
-| 1           | d4         | d6       | d8       |
-| 2           | d6         | d8       | d10      |
-| 3           | d8         | d10      | d12      |
-| 4           | d10        | d12      | d16      |
-| 5           | d12        | d16      | d20      |
-| 6           | d16        | d20      | d24      |
-| 7           | d20        | d24      | d30      |
+| 0           | d4         | d6       | d8       |
+| 1           | d6         | d8       | d10      |
+| 2           | d8         | d10      | d12      |
+| 3           | d10        | d12      | d16      |
+| 4           | d12        | d16      | d20      |
+| 5           | d16        | d20      | d24      |
+| 6           | d20        | d24      | d30      |
+| 7           | d24        | d30      | d36      |
 
 <br>
 
-The most common cause for upgraded or downgraded skills are due to character size. A large creature will simply have a size advantage over a gnome if they were to arm wrestle. A large creature with 2 skill level will roll a d10 when making a might check, while a gnome with 2 skill level will roll a d6.
+The most common cause for upgraded or downgraded skills are due to character size. A large creature will simply have a size advantage over a gnome if they were to arm wrestle. A large creature with 2 skill level will roll a d12 when making a might check, while a gnome with 2 skill level will roll a d8.
 
 <br>
