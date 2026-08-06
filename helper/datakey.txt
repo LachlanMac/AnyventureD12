@@ -110,9 +110,10 @@ EX. CB1=-1 Means add 1 penalty die to Engineering checks
 5: Gylphcraft
 6: Biosculpting
 
-########## MITIGATIONS ###########
+########## MITIGATION ###########
 KEY (M)
-EX. M1=1 MITIGATION
+EX. M1=2 raises Physical mitigation by 2 (damage <= mitigation is ignored)
+Base mitigation for all damage types is 0
 ##################################
 1: Physical
 2: Heat
@@ -124,6 +125,21 @@ EX. M1=1 MITIGATION
 8: Psychic
 9: Toxic
 A: True (not implemented)
+
+########## MITIGATION LIMIT ###########
+KEY (N)
+EX. N1=-3 lowers Physical mitigation limit by 3 (damage >= limit is capped)
+Base mitigation limit for all damage types is 25
+##################################
+1: Physical
+2: Heat
+3: Cold
+4: Electric
+5: Dark
+6: Divine
+7: Aetheric
+8: Psychic
+9: Toxic
 
 ############## AUTO ##############
 KEY (A)

@@ -38,7 +38,7 @@
       "name": "Darkcraft",
       "description": "You are an experienced witch who relies on dark arts and brewing potent potions. You gain +1 skill with alchemy and +1 dark mitigation.",
       "location": "4b",
-      "data": "TG:CS3=1:M5=1"
+      "data": "TG:CS3=1:M5=1:N5=-1"
     },
     {
       "name": "Action : Hex",

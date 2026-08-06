@@ -14,7 +14,7 @@
     ]
   },
   "mitigation": {
-    "cold": 1
+    "cold": { "min": 0, "max": -1 }
   },
   "foundry_icon": "icons/equipment/head/cap-leather-brown.webp",
   "foundry_id": "shb16nx2a4uw9dd5"

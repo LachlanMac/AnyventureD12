@@ -16,7 +16,7 @@
     "recovery": 3
   },
   "resolve": {
-    "max": 20,
+    "max": 25,
     "current": 5,
     "recovery": 1
   },
@@ -126,23 +126,68 @@
     }
   },
   "magicSkills": {
-    "blackMagic": { "talent": 0, "skill": 0 },
-    "primalMagic": { "talent": 0, "skill": 0 },
-    "metaMagic": { "talent": 2, "skill": 2 },
-    "whiteMagic": { "talent": 0, "skill": 0 },
-    "mysticismMagic": { "talent": 0, "skill": 0 },
-    "arcaneMagic": { "talent": 0, "skill": 0 }
+    "blackMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "primalMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "metaMagic": {
+      "talent": 2,
+      "skill": 2
+    },
+    "whiteMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "mysticismMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "arcaneMagic": {
+      "talent": 0,
+      "skill": 0
+    }
   },
   "mitigation": {
-    "physical": 2,
-    "cold": 2,
-    "heat": 2,
-    "electric": 0,
-    "psychic": 0,
-    "dark": 2,
-    "divine": 0,
-    "aetheric": 0,
-    "toxic": 0
+    "physical": {
+      "min": 2,
+      "max": 25
+    },
+    "cold": {
+      "min": 2,
+      "max": 25
+    },
+    "heat": {
+      "min": 2,
+      "max": 25
+    },
+    "electric": {
+      "min": 0,
+      "max": 25
+    },
+    "psychic": {
+      "min": 0,
+      "max": 25
+    },
+    "dark": {
+      "min": 2,
+      "max": 25
+    },
+    "divine": {
+      "min": 0,
+      "max": 25
+    },
+    "aetheric": {
+      "min": 0,
+      "max": 25
+    },
+    "toxic": {
+      "min": 0,
+      "max": 25
+    }
   },
   "detections": {
     "normal": 5,

@@ -171,7 +171,7 @@ export interface Creature {
   movement: CreatureMovement;
   attributes: CreatureAttributes;
   skills: Record<string, { value: number; tier: number }>;
-  mitigation: Record<string, number>;
+  mitigation: Record<string, { min: number; max: number }>;
   immunities: Record<string, boolean>;
   detections: Record<string, number>;
   taming?: {

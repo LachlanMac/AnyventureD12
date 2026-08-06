@@ -56,7 +56,7 @@
       "name": "Fully Attuned",
       "description": "You gain +2 mitigation to cold, heat and electric damage. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
       "location": "6b",
-      "data": "TG:M2=2:M3=2:M4=2"
+      "data": "TG:M2=1:M3=1:M4=1"
     },
     {
       "name": "Daily Action : Elemental Cataclysm",

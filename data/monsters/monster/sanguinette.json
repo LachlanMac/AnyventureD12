@@ -126,15 +126,42 @@
     }
   },
   "mitigation": {
-    "physical": 3,
-    "cold": 2,
-    "heat": 0,
-    "electric": 0,
-    "psychic": 2,
-    "dark": 4,
-    "divine": 0,
-    "aetheric": 0,
-    "toxic": 2
+    "physical": {
+      "min": 3,
+      "max": 25
+    },
+    "cold": {
+      "min": 2,
+      "max": 25
+    },
+    "heat": {
+      "min": 0,
+      "max": 25
+    },
+    "electric": {
+      "min": 0,
+      "max": 25
+    },
+    "psychic": {
+      "min": 2,
+      "max": 25
+    },
+    "dark": {
+      "min": 4,
+      "max": 25
+    },
+    "divine": {
+      "min": 0,
+      "max": 25
+    },
+    "aetheric": {
+      "min": 0,
+      "max": 25
+    },
+    "toxic": {
+      "min": 2,
+      "max": 25
+    }
   },
   "detections": {
     "normal": 2,

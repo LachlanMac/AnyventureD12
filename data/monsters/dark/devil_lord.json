@@ -7,7 +7,7 @@
   "size": "medium",
   "foundry_portrait": "devil_lord.png",
   "health": {
-    "max": 200,
+    "max": 250,
     "current": 200
   },
   "energy": {
@@ -126,23 +126,68 @@
     }
   },
   "magicSkills": {
-    "blackMagic": { "talent": 5, "skill": 5 },
-    "primalMagic": { "talent": 0, "skill": 0 },
-    "metaMagic": { "talent": 3, "skill": 3 },
-    "whiteMagic": { "talent": 0, "skill": 0 },
-    "mysticismMagic": { "talent": 0, "skill": 0 },
-    "arcaneMagic": { "talent": 0, "skill": 0 }
+    "blackMagic": {
+      "talent": 5,
+      "skill": 5
+    },
+    "primalMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "metaMagic": {
+      "talent": 3,
+      "skill": 3
+    },
+    "whiteMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "mysticismMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "arcaneMagic": {
+      "talent": 0,
+      "skill": 0
+    }
   },
   "mitigation": {
-    "physical": 4,
-    "cold": 3,
-    "heat": 8,
-    "electric": 3,
-    "psychic": 4,
-    "dark": 6,
-    "divine": 0,
-    "aetheric": 2,
-    "toxic": 3
+    "physical": {
+      "min": 4,
+      "max": 25
+    },
+    "cold": {
+      "min": 3,
+      "max": 25
+    },
+    "heat": {
+      "min": 8,
+      "max": 25
+    },
+    "electric": {
+      "min": 3,
+      "max": 25
+    },
+    "psychic": {
+      "min": 4,
+      "max": 25
+    },
+    "dark": {
+      "min": 6,
+      "max": 25
+    },
+    "divine": {
+      "min": 0,
+      "max": 25
+    },
+    "aetheric": {
+      "min": 2,
+      "max": 25
+    },
+    "toxic": {
+      "min": 3,
+      "max": 25
+    }
   },
   "detections": {
     "normal": 5,

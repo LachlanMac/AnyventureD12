@@ -230,7 +230,7 @@ const HomebrewItemCreator: React.FC = () => {
         resources: true,
         weapon: data.type === 'weapon',
         bonuses: !!data.basic || !!data.weapon || !!data.magic || !!data.craft || !!data.attributes,
-        mitigation: !!data.mitigation && Object.values(data.mitigation).some((v: any) => v > 0),
+        mitigation: !!data.mitigation && Object.values(data.mitigation).some((v: any) => typeof v === 'object' ? ((v.min || 0) !== 0 || (v.max || 0) !== 0) : v > 0),
         detectionsImmunities:
           (!!data.detections && Object.values(data.detections).some((v: any) => v > 0)) ||
           (!!data.immunities && Object.values(data.immunities).some((v: any) => v === true)),

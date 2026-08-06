@@ -14,13 +14,13 @@
       "name": "Divine Might",
       "description": "Your faith strengthens your body against darkness. Gain +1 skill with might and +2 dark mitigation.",
       "location": "2a",
-      "data": "SSC=1:M6=1:M6=1"
+      "data": "SSC=1:M6=1:N6=-1"
     },
     {
       "name": "Mystic Resilience",
       "description": "Your mind is fortified against aetheric corruption. Gain +1 skill with resilience and +2 aetheric mitigation.",
       "location": "2b",
-      "data": "SSI=1:M7=1:M7=1"
+      "data": "SSI=1:M7=1:N7=-1"
     },
     {
       "name": "Arcane Disarmament",

@@ -211,17 +211,31 @@ const HomebrewCreatureCreator: React.FC = () => {
   };
   const [magicSkills, setMagicSkills] = useState({ ...defaultMagicSkills });
 
+  // Normalize mitigation from legacy flat numbers to { min, max } format
+  const normalizeMitigation = (mit: any) => {
+    if (!mit) return undefined;
+    const result: any = {};
+    for (const [key, value] of Object.entries(mit)) {
+      if (typeof value === 'number') {
+        result[key] = { min: value, max: 25 };
+      } else {
+        result[key] = value;
+      }
+    }
+    return result;
+  };
+
   // Defenses
   const [mitigation, setMitigation] = useState({
-    physical: 0,
-    cold: 0,
-    heat: 0,
-    electric: 0,
-    psychic: 0,
-    dark: 0,
-    divine: 0,
-    aetheric: 0,
-    toxic: 0,
+    physical: { min: 0, max: 25 },
+    cold: { min: 0, max: 25 },
+    heat: { min: 0, max: 25 },
+    electric: { min: 0, max: 25 },
+    psychic: { min: 0, max: 25 },
+    dark: { min: 0, max: 25 },
+    divine: { min: 0, max: 25 },
+    aetheric: { min: 0, max: 25 },
+    toxic: { min: 0, max: 25 },
   });
 
   const [detections, setDetections] = useState({
@@ -319,7 +333,7 @@ const HomebrewCreatureCreator: React.FC = () => {
       setAttributes(creature.attributes || attributes);
       setSkills(creature.skills || skills);
       setMagicSkills(creature.magicSkills || { ...defaultMagicSkills });
-      setMitigation(creature.mitigation || mitigation);
+      setMitigation(normalizeMitigation(creature.mitigation) || mitigation);
       setDetections(creature.detections || detections);
       setActions(creature.actions || []);
       setReactions(creature.reactions || []);
@@ -1806,10 +1820,10 @@ const HomebrewCreatureCreator: React.FC = () => {
                   marginBottom: '1rem',
                 }}
               >
-                Damage Mitigation
+                Mitigation / Limit
               </h3>
               <p style={{ color: 'var(--color-cloud)', fontSize: '0.8rem', marginBottom: '0.75rem', marginTop: '-0.5rem' }}>
-                Set to 25+ for immunity
+                Mitigation: damage at or below is ignored. Limit: damage above is capped. Set mitigation to 25+ for immunity.
               </p>
               <div
                 style={{
@@ -1819,37 +1833,65 @@ const HomebrewCreatureCreator: React.FC = () => {
                   marginBottom: '2rem',
                 }}
               >
-                {Object.entries(mitigation).map(([damageType, value]) => (
+                {Object.entries(mitigation).map(([damageType, value]: [string, any]) => (
                   <div key={damageType}>
                     <label
                       style={{
                         color: 'var(--color-white)',
                         display: 'block',
-                        marginBottom: '0.5rem',
+                        marginBottom: '0.25rem',
                         textTransform: 'capitalize',
                       }}
                     >
                       {damageType}
                     </label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={value}
-                      onChange={(e) =>
-                        setMitigation((prev) => ({
-                          ...prev,
-                          [damageType]: parseInt(e.target.value) || 0,
-                        }))
-                      }
-                      style={{
-                        width: '100%',
-                        padding: '0.5rem',
-                        backgroundColor: 'var(--color-dark-surface)',
-                        border: '1px solid var(--color-dark-border)',
-                        borderRadius: '0.375rem',
-                        color: 'var(--color-white)',
-                      }}
-                    />
+                    <div style={{ display: 'flex', gap: '0.25rem' }}>
+                      <div style={{ flex: 1 }}>
+                        <label style={{ color: 'var(--color-cloud)', fontSize: '0.7rem', display: 'block' }}>Mit.</label>
+                        <input
+                          type="number"
+                          min="0"
+                          value={typeof value === 'object' ? value.min : value}
+                          onChange={(e) =>
+                            setMitigation((prev: any) => ({
+                              ...prev,
+                              [damageType]: { ...(typeof prev[damageType] === 'object' ? prev[damageType] : { min: prev[damageType], max: 25 }), min: parseInt(e.target.value) || 0 },
+                            }))
+                          }
+                          style={{
+                            width: '100%',
+                            padding: '0.375rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                            fontSize: '0.875rem',
+                          }}
+                        />
+                      </div>
+                      <div style={{ flex: 1 }}>
+                        <label style={{ color: 'var(--color-cloud)', fontSize: '0.7rem', display: 'block' }}>Limit</label>
+                        <input
+                          type="number"
+                          value={typeof value === 'object' ? value.max : 20}
+                          onChange={(e) =>
+                            setMitigation((prev: any) => ({
+                              ...prev,
+                              [damageType]: { ...(typeof prev[damageType] === 'object' ? prev[damageType] : { min: prev[damageType], max: 25 }), max: parseInt(e.target.value) || 0 },
+                            }))
+                          }
+                          style={{
+                            width: '100%',
+                            padding: '0.375rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                            fontSize: '0.875rem',
+                          }}
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>

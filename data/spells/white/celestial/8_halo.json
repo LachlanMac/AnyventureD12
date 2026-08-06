@@ -1,6 +1,6 @@
 {
   "name": "Halo",
-  "description": "You target a creature within a very short (5 unit) distance and create a halo above their head. Any creature affected by this halo gains 5 mitigation to dark damage but suffers a -5 penalty to divine mitigation. The halo also emits a magical light within a very short (5 unit) radius. Undead or dark creatures who start their turn within the light become blinded until the end of their turn if your spell check beats their endurance.",
+  "description": "You target a creature within a very short (5 unit) distance and create a halo above their head. Any creature affected by this halo has their divine mitigation limit set to 15, but their dark mitigation limit is removed entirely. The halo also emits a magical light within a very short (5 unit) radius. Undead or dark creatures who start their turn within the light become blinded until the end of their turn if your spell check beats their endurance.",
   "charge": "Minions and grunts cannot willfully enter the light's radius if your spell check beats their resilience.",
   "duration": "Instantaneous",
   "range": 0,

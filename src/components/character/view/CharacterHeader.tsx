@@ -626,7 +626,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                           letterSpacing: '0.025em',
                         }}
                       >
-                        Mitigation
+                        Type
                       </th>
                       <th
                         style={{
@@ -639,7 +639,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                           letterSpacing: '0.025em',
                         }}
                       >
-                        Complete
+                        Mit.
                       </th>
                       <th
                         style={{
@@ -652,7 +652,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                           letterSpacing: '0.025em',
                         }}
                       >
-                        Half
+                        Limit
                       </th>
                     </tr>
                   </thead>
@@ -688,7 +688,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                               fontSize: '1rem',
                             }}
                           >
-                            {value}
+                            {typeof value === 'object' ? (value as any).min : value}
                           </td>
                           <td
                             style={{
@@ -699,7 +699,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
                               fontSize: '1rem',
                             }}
                           >
-                            {value * 3}
+                            {typeof value === 'object' ? (value as any).max : 25}
                           </td>
                         </tr>
                       ))}

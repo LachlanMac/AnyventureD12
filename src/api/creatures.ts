@@ -30,7 +30,7 @@ export interface CreateCreatureData {
   movement: CreatureMovement;
   attributes: Record<string, { talent: number }>;
   skills: Record<string, number>;
-  mitigation: Record<string, number>;
+  mitigation: Record<string, { min: number; max: number }>;
   immunities: Record<string, boolean>;
   detections: Record<string, number>;
   actions: any[];

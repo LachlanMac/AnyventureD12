@@ -2,7 +2,7 @@ import React from 'react';
 import { DAMAGE_TYPES, getMitigationFormat } from '../../utils/creatureUtils';
 
 interface MitigationGridProps {
-  mitigation: Record<string, number>;
+  mitigation: Record<string, { min: number; max: number } | number>;
 }
 
 const MitigationGrid: React.FC<MitigationGridProps> = ({ mitigation }) => {
@@ -17,7 +17,7 @@ const MitigationGrid: React.FC<MitigationGridProps> = ({ mitigation }) => {
         }}
       >
         {DAMAGE_TYPES.map((type) => {
-          const rawValue = mitigation[type] ?? 0;
+          const rawValue = mitigation[type] ?? { min: 0, max: 25 };
           const mit = getMitigationFormat(rawValue);
           return (
             <div key={type}>
@@ -73,7 +73,7 @@ const MitigationGrid: React.FC<MitigationGridProps> = ({ mitigation }) => {
                       justifyContent: 'center',
                     }}
                   >
-                    {mit.half}
+                    {mit.min}
                   </div>
                   <div
                     style={{
@@ -87,7 +87,7 @@ const MitigationGrid: React.FC<MitigationGridProps> = ({ mitigation }) => {
                       justifyContent: 'center',
                     }}
                   >
-                    {mit.full}
+                    {mit.max}
                   </div>
                 </div>
               )}

@@ -38,10 +38,11 @@
     }
   },
   "mitigation": {
-    "electric": 4
+    "electric": {
+      "min": 4,
+      "max": 0
+    }
   },
   "pain": 0,
   "stress": 0
 }
-
-

@@ -241,7 +241,23 @@ const PARSERS = [
 
       if (mitigationType) {
         if (!bonuses.mitigation) bonuses.mitigation = {};
-        bonuses.mitigation[mitigationType] = (bonuses.mitigation[mitigationType] || 0) + value;
+        if (!bonuses.mitigation[mitigationType]) bonuses.mitigation[mitigationType] = { min: 0, max: 0 };
+        bonuses.mitigation[mitigationType].min += value;
+      }
+    }
+  },
+  {
+    name: 'Mitigation Limit',
+    pattern: /^N([1-9])=(-?\d+)$/,
+    parse: (match, bonuses) => {
+      const [_, code, valueStr] = match;
+      const value = parseInt(valueStr);
+      const mitigationType = MITIGATION_MAPPINGS[code];
+
+      if (mitigationType) {
+        if (!bonuses.mitigation) bonuses.mitigation = {};
+        if (!bonuses.mitigation[mitigationType]) bonuses.mitigation[mitigationType] = { min: 0, max: 0 };
+        bonuses.mitigation[mitigationType].max += value;
       }
     }
   },
@@ -419,17 +435,27 @@ function parseConditionalEffect(match, character) {
   const parsedEffects = [];
 
   for (const effectStr of effects) {
-    // Parse mitigation effects
-    const mitigationMatch = effectStr.match(/^M([1-9A])=(\d+)$/);
+    // Parse mitigation effects (M1=2)
+    const mitigationMatch = effectStr.match(/^M([1-9A])=(-?\d+)$/);
     if (mitigationMatch) {
       const mitigationMap = {
         ...MITIGATION_MAPPINGS,
         'A': 'true'
       };
       parsedEffects.push({
-        type: 'mitigation',
+        type: 'mitigation_min',
         subtype: mitigationMap[mitigationMatch[1]],
         value: parseInt(mitigationMatch[2])
+      });
+    }
+
+    // Parse mitigation limit effects (N1=-3)
+    const ceilingMatch = effectStr.match(/^N([1-9])=(-?\d+)$/);
+    if (ceilingMatch) {
+      parsedEffects.push({
+        type: 'mitigation_max',
+        subtype: MITIGATION_MAPPINGS[ceilingMatch[1]],
+        value: parseInt(ceilingMatch[2])
       });
     }
 

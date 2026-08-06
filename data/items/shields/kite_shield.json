@@ -6,9 +6,7 @@
   "weight": 6,
   "value": 800,
   "rarity": "common",
-  "mitigation": {
-    "physical": 1
-  },
+  "mitigation": {},
   "encumbrance_penalty": 2,
   "foundry_icon": "icons/equipment/shield/kite-bronze-boss-brown.webp",
   "foundry_id": "dbzx1ym7yrcvo5d1"

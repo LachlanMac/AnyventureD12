@@ -32,13 +32,13 @@
       "name": "Hunter of Shadows",
       "description": "You've dedicated yourself to purging dark forces. Gain +2 dark mitigation and +1 aethericic mitigation.",
       "location": "4a",
-      "data": "TG:M5=2:M7=1"
+      "data": "TG:M5=1:N5=-1:M7=1"
     },
     {
       "name": "Hunter of Light",
       "description": "You have dedicated yourself to bring to justice those that corrupt the light. Gain +2 divine mitigation and +1 aethericic mitigation.",
       "location": "4b",
-      "data": "TG:M6=2:M7=1"
+      "data": "TG:M6=1:N6=-1:M7=1"
     },
     {
       "name": "Divine Mandate",

@@ -32,7 +32,7 @@
       "name": "Aetheric Absorption",
       "description": "You have learned to absorb raw aetheric energy. Gain +2 aetheric mitigation. Additionally, when you take 5 or more aetheric damage, gain 1 energy.",
       "location": "4a",
-      "data": "M7=2:TG"
+      "data": "M7=1:N7=-1:TG"
     },
     {
       "name": "Energy Siphon",

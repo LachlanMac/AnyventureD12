@@ -6,7 +6,7 @@
   "value": 200,
   "rarity": "common",
   "mitigation": {
-    "cold": 1
+    "cold": { "min": 1, "max": 0 }
   },
   "foundry_icon": "icons/equipment/head/hat-furred-brown.webp",
   "foundry_id": "eb9zvoz8370w5koe"

@@ -21,6 +21,12 @@ const SkillTalentBonusSchema = new Schema({
 }, { _id: false });
 
 
+// Define min/max mitigation structure per damage type
+const MitigationValueSchema = new Schema({
+  min: { type: Number, default: 0 },
+  max: { type: Number, default: 0 }
+}, { _id: false });
+
 // Define weapon damage structure
 const DamageSchema = new Schema({
   damage: { type: String, default: "0" },           // Base damage value
@@ -290,17 +296,17 @@ const ItemSchema = new Schema({
     complexMeleeWeapons: { type: SkillTalentBonusSchema, default: () => ({}) }
   },
   
-  // Mitigation bonuses
+  // Mitigation bonuses (min = damage floor adjustment, max = damage ceiling adjustment)
   mitigation: {
-    physical: { type: Number, default: 0 },
-    cold: { type: Number, default: 0 },
-    heat: { type: Number, default: 0 },
-    electric: { type: Number, default: 0 },
-    psychic: { type: Number, default: 0 },
-    dark: { type: Number, default: 0 },
-    divine: { type: Number, default: 0 },
-    aetheric: { type: Number, default: 0 },
-    toxic: { type: Number, default: 0 }
+    physical: { type: MitigationValueSchema, default: () => ({}) },
+    cold: { type: MitigationValueSchema, default: () => ({}) },
+    heat: { type: MitigationValueSchema, default: () => ({}) },
+    electric: { type: MitigationValueSchema, default: () => ({}) },
+    psychic: { type: MitigationValueSchema, default: () => ({}) },
+    dark: { type: MitigationValueSchema, default: () => ({}) },
+    divine: { type: MitigationValueSchema, default: () => ({}) },
+    aetheric: { type: MitigationValueSchema, default: () => ({}) },
+    toxic: { type: MitigationValueSchema, default: () => ({}) }
   },
 
   // Pain and Stress from items (can be positive or negative)

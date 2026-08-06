@@ -159,6 +159,7 @@ These guidelines are derived from analysis of all existing official creatures.
 | Reactions | 0 | Almost never |
 | Traits | 0-2 | Simple if any |
 | Mitigation | 0-2 per type | Usually only thematic mitigation |
+| Mitigation Limit | 25 (default) | Rarely modified at this tier |
 
 **Example:** Fox (HP 8, 2d6, 2/1 physical), Flesh Golem Minion (HP 10, 2d6, 3/2 physical)
 
@@ -179,6 +180,7 @@ These guidelines are derived from analysis of all existing official creatures.
 | Reactions | 0-1 | Occasionally 1 |
 | Traits | 1-2 | Defining characteristics |
 | Mitigation | 0-5 per type | Usually 1-2 types with 2-4 |
+| Mitigation Limit | 20-25 | May lower limit on 1-2 thematic types |
 
 **Examples:**
 - Wolf (HP 13, 3d8, 4/2 physical) - fast, pack fighter
@@ -203,6 +205,7 @@ These guidelines are derived from analysis of all existing official creatures.
 | Reactions | 0-1 | May have 1 |
 | Traits | 1-3 | Notable abilities |
 | Mitigation | 0-5 per type | Broader thematic coverage |
+| Mitigation Limit | 18-25 | May lower limit on 2-3 types |
 
 **Example:** Flesh Golem (HP 35, 3d10, 5/4 physical; big slam 2d12, 7/7)
 
@@ -223,6 +226,7 @@ These guidelines are derived from analysis of all existing official creatures.
 | Reactions | 0-1 | May have a signature reaction |
 | Traits | 1-3 | Defining abilities |
 | Mitigation | 0-6 per type | Multiple damage resistances |
+| Mitigation Limit | 15-25 | Tight limits on thematic types |
 
 **Examples:**
 - Hellhound (HP 40, 3d8 basic; 2d12 breath weapon for 8/4 heat; 5 actions)
@@ -246,6 +250,7 @@ These guidelines are derived from analysis of all existing official creatures.
 | Reactions | 1-2 | Signature reactions |
 | Traits | 1-3 | Powerful defining abilities |
 | Mitigation | Varies | May have conditional mitigation (traits) |
+| Mitigation Limit | 12-25 | Can have very tight limits on key types |
 
 **Example:** Queen Lumberwasp (HP 100, 4d12 mandibles 8/4; reaction spawns minions; trait halves phys damage above 80 HP)
 
@@ -390,16 +395,21 @@ For creatures, think of it as: `primary` is the base impact, `extra` is how much
 Some attacks deal two damage types (e.g., Hellhound's Flame Bite deals physical AND heat). Use `secondary_damage`, `secondary_damage_extra`, and `secondary_damage_type`. This should be reserved for Champion+ tier creatures or thematically justified abilities.
 
 ### Mitigation Context
-Remember that PCs typically have 0-5 mitigation in most types. A starting PC in leather armor might have physical mitigation of 2-3. Full plate might give 6-7. Most PCs have 0 mitigation to non-physical damage types.
+Every creature and PC has a Mitigation value (damage at or below is ignored) and a Mitigation Limit (damage above is capped) for each damage type. The default is 0 mitigation and 25 limit.
 
-The partial mitigation rule means:
-- If mitigation >= damage: 0 damage
-- If damage > mitigation but <= 2x mitigation: half damage
-- If damage > 2x mitigation: full damage
+Typical PC values:
+- Starting PC in leather armor: 2 physical mitigation, 24 limit
+- Full plate with accessories: 5 physical mitigation, 18-20 limit
+- Most PCs have 0 mitigation and 25 limit for non-physical damage types unless they invest in modules or have racial traits
 
-So an attack dealing 5 damage against 3 mitigation deals 2.5 (rounded down to 2). An attack dealing 7 damage against 3 mitigation deals full 7.
+The mitigation system is simple:
+- If mitigation >= damage: 0 damage (ignored)
+- If damage > mitigation and damage <= limit: full damage
+- If damage > limit: damage is capped to the limit
 
-**Design implication:** To reliably threaten armored PCs, basic attacks should deal 5+ damage. Anything below 4 is often fully mitigated by light armor.
+There is no partial/half damage zone. Damage either gets through fully or is ignored entirely.
+
+**Design implication:** To reliably threaten armored PCs, basic attacks should deal damage above their mitigation. An attack dealing 4 damage against a PC with 5 physical mitigation does nothing. Against high-limit PCs, massive single hits are less effective than consistent mid-range damage.
 
 ---
 
@@ -612,31 +622,31 @@ A Mythic creature with Might 6 (d20) and tier 1, under a Physique 5 attribute, r
 ## Mitigation Guidelines
 
 ### By Size
-Larger creatures tend to have higher physical mitigation (thick hide/armor), while smaller ones rely on evasion.
+Larger creatures tend to have higher physical mitigation (thick hide/armor) and lower physical limits (they can absorb big hits better), while smaller ones rely on evasion.
 
 ### By Type
-| Type | Typical Mitigations |
-|------|-------------------|
-| Beast | Minimal (0-2 cold from fur) |
-| Undead | Physical 2 (bone); immune to toxic typically |
-| Construct | Physical 2-4, broad elemental (2-5), high toxic |
-| Dark | Heat 4-6, Dark 3+, maybe Toxic |
-| Divine | Divine 4+, maybe Psychic |
-| Fey | Dark 2, Aetheric 2 |
-| Humanoid | Physical 2-4 (armor), Cold/Heat 2 (armor) |
-| Elemental | High in own element (6+), weak to opposite |
-| Monster | Varies wildly by concept |
+| Type | Typical Mitigation | Typical Limit Changes |
+|------|-------------------|----------------------|
+| Beast | Minimal (0-2 cold from fur) | Default 25 |
+| Undead | Physical 2 (bone); immune to toxic typically | Default 25 |
+| Construct | Physical 2-4, broad elemental (2-5), high toxic | Lower physical limit (18-22) |
+| Dark | Heat 4-6, Dark 3+, maybe Toxic | Lower heat/dark limits |
+| Divine | Divine 4+, maybe Psychic | Lower divine limit |
+| Fey | Dark 2, Aetheric 2 | Default 25 |
+| Humanoid | Physical 2-4 (armor), Cold/Heat 2 (armor) | Lower physical limit from armor (18-23) |
+| Elemental | High in own element (6+), weak to opposite | Raised limit on weak element (28-30) |
+| Monster | Varies wildly by concept | Varies |
 
-### Mitigation by Tier (typical total points across all types)
-| Tier | Total Mitigation Budget |
-|------|----------------------|
-| Minion | 0-6 |
-| Grunt | 0-8 |
-| Standard | 5-15 |
-| Champion | 8-20 |
-| Elite | 10-25 |
-| Legend | 15-40 |
-| Mythic | 25-60 |
+### Mitigation by Tier (typical total mitigation points across all types)
+| Tier | Total Mitigation Budget | Limit Adjustments |
+|------|----------------------|-------------------|
+| Minion | 0-6 | None (default 25) |
+| Grunt | 0-8 | 0-2 types lowered slightly |
+| Standard | 5-15 | 1-3 types lowered |
+| Champion | 8-20 | 2-4 types lowered |
+| Elite | 10-25 | Multiple types with tight limits |
+| Legend | 15-40 | Significant limit tightening |
+| Mythic | 25-60 | Very tight limits on key types |
 
 ---
 
@@ -801,15 +811,15 @@ Currently `challenge_rating` is set to `1` for all existing creatures. This fiel
     "persuasion": { "value": -1, "tier": 0 }
   },
   "mitigation": {
-    "physical": 0,
-    "cold": 0,
-    "heat": 0,
-    "electric": 0,
-    "psychic": 0,
-    "dark": 0,
-    "divine": 0,
-    "aetheric": 0,
-    "toxic": 0
+    "physical": { "min": 0, "max": 25 },
+    "cold": { "min": 0, "max": 25 },
+    "heat": { "min": 0, "max": 25 },
+    "electric": { "min": 0, "max": 25 },
+    "psychic": { "min": 0, "max": 25 },
+    "dark": { "min": 0, "max": 25 },
+    "divine": { "min": 0, "max": 25 },
+    "aetheric": { "min": 0, "max": 25 },
+    "toxic": { "min": 0, "max": 25 }
   },
   "detections": {
     "normal": 5,
@@ -892,5 +902,5 @@ Currently `challenge_rating` is set to `1` for all existing creatures. This fiel
 | Attributes | 1-4 (total 11) | 1-4 (total 11, rarely changes) |
 | Weapon Dice | 1d6 to 3d10 | 3d10 to 4d12 |
 | Weapon Damage | 3-5 primary, 2-3 extra | 5-8 primary, 3-5 extra |
-| Armor Mitigation | Physical 0-4 | Physical 3-7 |
+| Armor Mitigation | Physical 2-4, Limit 21-25 | Physical 5-8, Limit 15-20 |
 | Defense Dice | 1d4 to 3d10 | 2d8 to 4d12 |

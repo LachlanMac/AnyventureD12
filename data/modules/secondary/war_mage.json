@@ -62,7 +62,7 @@
       "name": "Armored Caster",
       "description": "You've learned to channel magic through your heavy armor, using it as a protective ward. While wearing heavy armor, gain +1 aetheric mitigation, +1 heat mitigation, +1 cold mitigation, and +1 electric mitigation.",
       "location": "7",
-      "data": "CC[M7=1,M2=1,M3=1,M9=1]"
+      "data": "CC[N7=-1,N2=-1,N3=-1,N9=-1]"
     }
   ]
 }

@@ -933,10 +933,13 @@ const ItemBrowser: React.FC = () => {
               )}
 
             {/* Mitigation */}
-            {Object.values(item.mitigation).some((val) => val > 0) && (
+            {Object.values(item.mitigation).some((val: any) => {
+              if (typeof val === 'object') return (val.min || 0) !== 0 || (val.max || 0) !== 0;
+              return val !== 0;
+            }) && (
               <div>
                 <h3 style={{ color: 'var(--color-metal-gold)', marginBottom: '0.75rem' }}>
-                  Damage Mitigation
+                  Mitigation / Limit
                 </h3>
                 <div
                   style={{
@@ -954,12 +957,17 @@ const ItemBrowser: React.FC = () => {
                     }}
                   >
                     {Object.entries(item.mitigation).map(
-                      ([type, value]) =>
-                        value > 0 && (
+                      ([type, value]: [string, any]) => {
+                        const min = typeof value === 'object' ? (value.min || 0) : value;
+                        const max = typeof value === 'object' ? (value.max || 0) : 0;
+                        if (min === 0 && max === 0) return null;
+                        return (
                           <div key={type}>
-                            <strong style={{ textTransform: 'capitalize' }}>{type}:</strong> {value}
+                            <strong style={{ textTransform: 'capitalize' }}>{type}:</strong>{' '}
+                            {min !== 0 ? `+${min} mit` : ''}{min !== 0 && max !== 0 ? ', ' : ''}{max !== 0 ? `${max} limit` : ''}
                           </div>
-                        )
+                        );
+                      }
                     )}
                   </div>
                 </div>

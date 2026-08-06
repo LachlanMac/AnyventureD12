@@ -6,7 +6,10 @@
   "value": 200,
   "rarity": "common",
   "mitigation": {
-    "cold": 2
+    "cold": {
+      "min": 1,
+      "max": -1
+    }
   },
   "foundry_icon": "icons/equipment/feet/boots-leather-furred.webp",
   "foundry_id": "8o74r8v7lmi2fucv"

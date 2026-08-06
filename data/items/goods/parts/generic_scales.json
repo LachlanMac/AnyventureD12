@@ -65,7 +65,7 @@
       "difficulty": 13,
       "type": "fabrication"
     },
-    "properties": "+1 physical mitigation",
+    "properties": "+1 physical mitigation, -1 physical mitigation limit",
     "foundry_icon": "icons/commodities/metal/plate-steel-pink.webp"
   },
   {
@@ -89,7 +89,7 @@
       "difficulty": 15,
       "type": "fabrication"
     },
-    "properties": "+1 aetheric mitigation and +1 physical mitigation. Reduces encumbrance penalty by 1.",
+    "properties": "+1 physical mitigation, -1 physical mitigation limit. +1 aetheric mitigation, -1 aetheric mitigation limit. Reduces encumbrance penalty by 1.",
     "foundry_icon": "icons/commodities/metal/plate-steel-pink.webp"
   },
   {
@@ -113,7 +113,7 @@
       "difficulty": 17,
       "type": "fabrication"
     },
-    "properties": "+3 physical mitigation",
+    "properties": "+3 physical mitigation, -2 physical mitigation limit",
     "foundry_icon": "icons/commodities/metal/plate-steel-pink.webp"
   }
 ]

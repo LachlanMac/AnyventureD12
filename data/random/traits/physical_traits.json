@@ -147,7 +147,7 @@
     {
       "name": "Unhealthy",
       "description": "Your body is a battlefield of ailments and weaknesses, sickness clinging to you like a shadow you can't escape.",
-      "data": "H1=-5,SSD=-1,M9=-1",
+      "data": "H1=-5,SSD=-1,N9=2",
       "modules": {}
     },
     {
@@ -165,7 +165,7 @@
     {
       "name": "Sickly",
       "description": "Illness finds you like a moth to flame—every plague, every fever seems drawn to your weakened constitution.",
-      "data": "A1=-1,SSD=-1,M9=-2",
+      "data": "A1=-1,SSD=-1,N9=3",
       "modules": {}
     },
     {
@@ -279,7 +279,7 @@
     {
       "name": "Pale",
       "description": "Your skin is ghostly white, lacking any color or vitality and suggesting underlying weakness to those who see you.",
-      "data": "SBD=-1,H1=-2,M2=-1",
+      "data": "SBD=-1,H1=-2,N2=1",
       "modules": {}
     },
     {
@@ -321,13 +321,13 @@
     {
       "name": "Always Hot",
       "description": "Your body runs like a furnace, making you sweat in comfortable weather and suffer in heat while thriving in cold.",
-      "data": "M3=-1,M2=2",
+      "data": "N3=2,M2=2",
       "modules": {}
     },
     {
       "name": "Always Cold",
       "description": "You shiver even in warm weather, your body seemingly unable to generate enough heat no matter how many layers you wear.",
-      "data": "M2=-1,M3=2",
+      "data": "N2=2,M3=2",
       "modules": {}
     },
     {

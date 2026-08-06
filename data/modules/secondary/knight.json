@@ -26,7 +26,7 @@
       "name": "Second Skin",
       "description": "You are well acquainted with getting the most out of your armor. When you are wearing heavy armor, gain +1 physical and +1 aetheric mitigation.",
       "location": "3",
-      "data": "CC[M1=1,M7=1]"
+      "data": "CC[N1=-1,N7=-1]"
     },
     {
       "name": "Noble",

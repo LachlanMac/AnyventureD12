@@ -6,7 +6,10 @@
   "value": 150,
   "rarity": "common",
   "mitigation": {
-    "cold": 1
+    "cold": {
+      "min": 0,
+      "max": -1
+    }
   },
   "foundry_icon": "icons/equipment/back/cloak-brown.webp",
   "foundry_id": "xwgp8f41584frxzf"

@@ -1,7 +1,7 @@
 {
   "name": "Mind Palace",
-  "description": "You grant a creature a mental fortress. For the next hour, whenever they would make a resilience check, they can choose to use 3d10 instead of their normal roll. Additionally, the maximum psychic damage they can take from a single source is reduced to 10.",
-  "charge": "The duration extends to 1 day, and the maximum psychic damage is reduced to 5 instead of 10.",
+  "description": "You grant a creature a mental fortress. For the next hour, whenever they would make a resilience check, they can choose to use 3d10 instead of their normal roll. Additionally, the target's psychic mitigation limit is set to 10.",
+  "charge": "The duration extends to 1 day, and the psychic mitigation limit is set to 5 instead of 10.",
   "duration": "1 hour",
   "range": 1,
   "checkToCast": 10,

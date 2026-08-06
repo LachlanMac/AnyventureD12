@@ -2050,7 +2050,7 @@ const ItemManager: React.FC = () => {
 
                     {/* Mitigation */}
                     <CollapsibleSection
-                      title="Damage Mitigation"
+                      title="Mitigation / Limit"
                       isOpen={sections.mitigation}
                       onToggle={() => toggleSection('mitigation')}
                     >
@@ -2071,39 +2071,73 @@ const ItemManager: React.FC = () => {
                           'divine',
                           'aetheric',
                           'toxic',
-                        ].map((type) => (
-                          <div key={type}>
-                            <label
-                              style={{
-                                color: 'var(--color-cloud)',
-                                display: 'block',
-                                marginBottom: '0.25rem',
-                                textTransform: 'capitalize',
-                              }}
-                            >
-                              {type}
-                            </label>
-                            <input
-                              type="number"
-                              value={editedItem.mitigation?.[type] || 0}
-                              onChange={(e) =>
-                                handleNestedFieldChange(
-                                  'mitigation',
-                                  type,
-                                  parseInt(e.target.value) || 0
-                                )
-                              }
-                              style={{
-                                width: '100%',
-                                padding: '0.5rem',
-                                backgroundColor: 'var(--color-dark-bg)',
-                                border: '1px solid var(--color-dark-border)',
-                                borderRadius: '0.25rem',
-                                color: 'var(--color-cloud)',
-                              }}
-                            />
-                          </div>
-                        ))}
+                        ].map((type) => {
+                          const val = editedItem.mitigation?.[type];
+                          const minVal = typeof val === 'object' ? (val?.min || 0) : (val || 0);
+                          const maxVal = typeof val === 'object' ? (val?.max || 0) : 0;
+                          return (
+                            <div key={type}>
+                              <label
+                                style={{
+                                  color: 'var(--color-cloud)',
+                                  display: 'block',
+                                  marginBottom: '0.25rem',
+                                  textTransform: 'capitalize',
+                                }}
+                              >
+                                {type}
+                              </label>
+                              <div style={{ display: 'flex', gap: '0.25rem' }}>
+                                <div style={{ flex: 1 }}>
+                                  <label style={{ color: 'var(--color-cloud)', fontSize: '0.65rem', display: 'block', opacity: 0.7 }}>Mit.</label>
+                                  <input
+                                    type="number"
+                                    value={minVal}
+                                    onChange={(e) =>
+                                      handleNestedFieldChange(
+                                        'mitigation',
+                                        type,
+                                        { min: parseInt(e.target.value) || 0, max: maxVal }
+                                      )
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.375rem',
+                                      backgroundColor: 'var(--color-dark-bg)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.875rem',
+                                    }}
+                                  />
+                                </div>
+                                <div style={{ flex: 1 }}>
+                                  <label style={{ color: 'var(--color-cloud)', fontSize: '0.65rem', display: 'block', opacity: 0.7 }}>Limit</label>
+                                  <input
+                                    type="number"
+                                    value={maxVal}
+                                    onChange={(e) =>
+                                      handleNestedFieldChange(
+                                        'mitigation',
+                                        type,
+                                        { min: minVal, max: parseInt(e.target.value) || 0 }
+                                      )
+                                    }
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.375rem',
+                                      backgroundColor: 'var(--color-dark-bg)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      color: 'var(--color-cloud)',
+                                      fontSize: '0.875rem',
+                                    }}
+                                  />
+                                </div>
+                              </div>
+                            </div>
+                          );
+                        })}
                       </div>
                     </CollapsibleSection>
 

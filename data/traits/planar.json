@@ -13,25 +13,25 @@
           "id": "infernal",
           "name": "Fire (Infernal)",
           "description": "You have been infused by magic from the Infernal Realm, also known as the Elemental Plane of Fire. You gain +1 talent with black magic and you are able to learn and channel spells from the fiend exotic school of magic. You also gain +3 heat mitigation at the expense of a -4 penalty to divine mitigation.",
-          "data": "YT1=1:M2=3:M6=-4:TG"
+          "data": "YT1=1:M2=3:N6=5:TG"
         },
         {
           "id": "abyssal",
           "name": "Water (Abyssal)",
           "description": "You have been infused by magic from the Abyssal Realm, also known as the Elemental Plane of Water. You gain +1 talent with black magic and you are able to learn and channel spells from the fiend exotic school of magic. You also gain +3 cold mitigation at the expense of a -4 penalty to divine mitigation.",
-          "data": "YT1=1:M3=3:M6=-4:TG"
+          "data": "YT1=1:M3=3:N6=5:TG"
         },
         {
           "id": "aeron",
           "name": "Sky (Aeron)",
           "description": "You have been infused by magic from the Plane of Aeron, also known as the Elemental Plane of Sky. You gain +1 talent with white magic and you are able to learn and channel spells from the celestial exotic school of magic. You also gain +3 electric mitigation at the expense of a -4 penalty to dark mitigation.",
-          "data": "YT4=1:M4=3:M5=-4:TG"
+          "data": "YT4=1:M4=3:N5=5:TG"
         },
         {
           "id": "okkor",
           "name": "Earth (Okkor)",
           "description": "You have been infused by magic from the Plane of Okkor, also known as the Elemental Plane of Earth. You gain +1 talent with white magic and you are able to learn and channel spells from the celestial exotic school of magic. You also gain +1 physical mitigation at the expense of a -4 penalty to dark mitigation.",
-          "data": "YT4=1:M1=1:M5=-4:TG"
+          "data": "YT4=1:M1=1:N5=5:TG"
         }
       ],
       "requiresChoice": true,

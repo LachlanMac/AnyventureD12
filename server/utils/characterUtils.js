@@ -73,8 +73,16 @@ export const applyModuleBonusesToCharacter = (character) => {
               });
             });
           } 
+          // Special handling for mitigation (min/max objects)
+          else if (key === 'mitigation') {
+            Object.keys(abilityBonuses[key]).forEach(subKey => {
+              if (!bonuses[key][subKey]) bonuses[key][subKey] = { min: 0, max: 0 };
+              bonuses[key][subKey].min += abilityBonuses[key][subKey].min || 0;
+              bonuses[key][subKey].max += abilityBonuses[key][subKey].max || 0;
+            });
+          }
           // Special handling for flat key-value objects like skills, skillDiceTierModifiers, attributes
-          else if (key === 'skills' || key === 'skillDiceTierModifiers' || key === 'attributes' || key === 'mitigation') {
+          else if (key === 'skills' || key === 'skillDiceTierModifiers' || key === 'attributes') {
             Object.keys(abilityBonuses[key]).forEach(subKey => {
               bonuses[key][subKey] = (bonuses[key][subKey] || 0) + abilityBonuses[key][subKey];
             });
@@ -261,11 +269,18 @@ const applyEquipmentConditionals = (character) => {
           character.skills[effect.subtype].value += effect.value;
           break;
 
-        case 'mitigation':
+        case 'mitigation_min':
           if (!character.mitigation[effect.subtype]) {
-            character.mitigation[effect.subtype] = 0;
+            character.mitigation[effect.subtype] = { min: 0, max: 25 };
           }
-          character.mitigation[effect.subtype] += effect.value;
+          character.mitigation[effect.subtype].min += effect.value;
+          break;
+
+        case 'mitigation_max':
+          if (!character.mitigation[effect.subtype]) {
+            character.mitigation[effect.subtype] = { min: 0, max: 25 };
+          }
+          character.mitigation[effect.subtype].max += effect.value;
           break;
       }
     }
@@ -344,16 +359,30 @@ const parseDataString = (dataString, bonuses, character = null) => {
 
         for (const effectStr of effects) {
           // Parse mitigation effects (M1=2, M7=1, etc.)
-          const mitigationMatch = effectStr.match(/^M([1-9A])=(\d+)$/);
+          const mitigationMatch = effectStr.match(/^M([1-9A])=(-?\d+)$/);
           if (mitigationMatch) {
             const mitigationMap = {
               '1': 'physical', '2': 'heat', '3': 'cold', '4': 'electric',
               '5': 'dark', '6': 'divine', '7': 'aetheric', '8': 'psychic', '9': 'toxic', 'A': 'true'
             };
             parsedEffects.push({
-              type: 'mitigation',
+              type: 'mitigation_min',
               subtype: mitigationMap[mitigationMatch[1]],
               value: parseInt(mitigationMatch[2])
+            });
+          }
+
+          // Parse mitigation limit effects (N1=-3, etc.)
+          const ceilingMatch = effectStr.match(/^N([1-9])=(-?\d+)$/);
+          if (ceilingMatch) {
+            const mitigationMap = {
+              '1': 'physical', '2': 'heat', '3': 'cold', '4': 'electric',
+              '5': 'dark', '6': 'divine', '7': 'aetheric', '8': 'psychic', '9': 'toxic'
+            };
+            parsedEffects.push({
+              type: 'mitigation_max',
+              subtype: mitigationMap[ceilingMatch[1]],
+              value: parseInt(ceilingMatch[2])
             });
           }
 
@@ -583,7 +612,7 @@ const parseDataString = (dataString, bonuses, character = null) => {
       continue;
     }
 
-    // MITIGATIONS (M) - matching M1=1 pattern
+    // MITIGATION (M) - matching M1=1 pattern
     // Since Magic and Mitigation both use M, we differentiate by checking if the second character is a number
     const mitigationMatch = effect.match(/^M([1-9])=(-?\d+)$/);
     if (mitigationMatch) {
@@ -605,7 +634,35 @@ const parseDataString = (dataString, bonuses, character = null) => {
       const mitigationType = mitigationMappings[code];
       if (mitigationType) {
         if (!bonuses.mitigation) bonuses.mitigation = {};
-        bonuses.mitigation[mitigationType] = (bonuses.mitigation[mitigationType] || 0) + value;
+        if (!bonuses.mitigation[mitigationType]) bonuses.mitigation[mitigationType] = { min: 0, max: 0 };
+        bonuses.mitigation[mitigationType].min += value;
+      }
+      continue;
+    }
+
+    // MITIGATION LIMIT (N) - matching N1=-3 pattern
+    const ceilingMatch = effect.match(/^N([1-9])=(-?\d+)$/);
+    if (ceilingMatch) {
+      const [_, code, valueStr] = ceilingMatch;
+      const value = parseInt(valueStr);
+
+      const mitigationMappings = {
+        '1': 'physical',
+        '2': 'heat',
+        '3': 'cold',
+        '4': 'electric',
+        '5': 'dark',
+        '6': 'divine',
+        '7': 'aetheric',
+        '8': 'psychic',
+        '9': 'toxic'
+      };
+
+      const mitigationType = mitigationMappings[code];
+      if (mitigationType) {
+        if (!bonuses.mitigation) bonuses.mitigation = {};
+        if (!bonuses.mitigation[mitigationType]) bonuses.mitigation[mitigationType] = { min: 0, max: 0 };
+        bonuses.mitigation[mitigationType].max += value;
       }
       continue;
     }
@@ -748,9 +805,17 @@ const applyBonusesToCharacter = (character, bonuses) => {
   applySkillCategoryBonuses(character.weaponSkills, bonuses.weaponSkills);
   applySkillCategoryBonuses(character.magicSkills, bonuses.magicSkills, ['value', 'talent']); // magic skills don't have diceTierModifier
 
-  // Apply mitigation bonuses
+  // Apply mitigation bonuses (min/max)
   if (!character.mitigation) character.mitigation = {};
-  applySimpleNumericBonuses(character.mitigation, bonuses.mitigation, { initializeIfMissing: true });
+  if (bonuses.mitigation) {
+    for (const [type, bonus] of Object.entries(bonuses.mitigation)) {
+      if (!character.mitigation[type]) {
+        character.mitigation[type] = { min: 0, max: 25 };
+      }
+      character.mitigation[type].min += bonus.min || 0;
+      character.mitigation[type].max += bonus.max || 0;
+    }
+  }
 
   // Apply resource bonuses
   if (bonuses.health) {
@@ -1126,9 +1191,15 @@ export const parseEquipmentEffects = (character) => {
     if (item && item.mitigation) {
       Object.entries(item.mitigation).forEach(([damageType, value]) => {
         if (!equipmentEffects.bonuses.mitigation[damageType]) {
-          equipmentEffects.bonuses.mitigation[damageType] = 0;
+          equipmentEffects.bonuses.mitigation[damageType] = { min: 0, max: 0 };
         }
-        equipmentEffects.bonuses.mitigation[damageType] += value;
+        if (typeof value === 'object' && value !== null) {
+          equipmentEffects.bonuses.mitigation[damageType].min += value.min || 0;
+          equipmentEffects.bonuses.mitigation[damageType].max += value.max || 0;
+        } else {
+          // Legacy fallback: flat number treated as floor
+          equipmentEffects.bonuses.mitigation[damageType].min += value;
+        }
       });
     }
 
@@ -1377,9 +1448,15 @@ export const parseEquipmentEffects = (character) => {
     if (item && item.mitigation) {
       Object.entries(item.mitigation).forEach(([damageType, value]) => {
         if (!equipmentEffects.bonuses.mitigation[damageType]) {
-          equipmentEffects.bonuses.mitigation[damageType] = 0;
+          equipmentEffects.bonuses.mitigation[damageType] = { min: 0, max: 0 };
         }
-        equipmentEffects.bonuses.mitigation[damageType] += value;
+        if (typeof value === 'object' && value !== null) {
+          equipmentEffects.bonuses.mitigation[damageType].min += value.min || 0;
+          equipmentEffects.bonuses.mitigation[damageType].max += value.max || 0;
+        } else {
+          // Legacy fallback: flat number treated as floor
+          equipmentEffects.bonuses.mitigation[damageType].min += value;
+        }
       });
     }
 
@@ -1849,11 +1926,20 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
   character.resources.pain.calculated = equipmentEffects.bonuses.pain || 0;
   character.resources.stress.calculated = equipmentEffects.bonuses.stress || 0;
 
-  // Apply mitigation bonuses
+  // Apply mitigation bonuses (min/max from equipment)
   if (equipmentEffects.bonuses.mitigation) {
     if (!character.mitigation) character.mitigation = {};
     Object.entries(equipmentEffects.bonuses.mitigation).forEach(([damageType, value]) => {
-      character.mitigation[damageType] = (character.mitigation[damageType] || 0) + value;
+      if (!character.mitigation[damageType]) {
+        character.mitigation[damageType] = { min: 0, max: 25 };
+      }
+      if (typeof value === 'object' && value !== null) {
+        character.mitigation[damageType].min += value.min || 0;
+        character.mitigation[damageType].max += value.max || 0;
+      } else {
+        // Legacy fallback
+        character.mitigation[damageType].min += value;
+      }
     });
   }
 

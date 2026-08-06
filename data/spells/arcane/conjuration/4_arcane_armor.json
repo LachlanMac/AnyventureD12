@@ -1,7 +1,7 @@
 {
-  "name": "Arcane Armor",
-  "description": "You summon an outer shell of arcane armor that protects you, granting you a static defense check of 2d8 while you maintain concentration.",
-  "charge": "The static check is increased to a 3d10 and you gain 2 aetheric and physical mitigation.",
+  "name": "Arcane Avoidance",
+  "description": "You summon an outer shell of arcane energy that protects you, granting you a static defense check of 2d8 while you maintain concentration.",
+  "charge": "The static check is increased to 3d10.",
   "duration": "Concentration",
   "range": 1,
   "checkToCast": 4,

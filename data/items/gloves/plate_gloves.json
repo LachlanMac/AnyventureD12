@@ -15,7 +15,10 @@
     ]
   },
   "mitigation": {
-    "physical": 2
+    "physical": {
+      "min": 0,
+      "max": -1
+    }
   },
   "encumbrance_penalty": 2,
   "foundry_icon": "icons/equipment/hand/gauntlet-armored-heavy-steel.webp"

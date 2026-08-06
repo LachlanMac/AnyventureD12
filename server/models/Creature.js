@@ -351,15 +351,15 @@ const creatureSchema = new mongoose.Schema({
 
   // Defenses
   mitigation: {
-    physical: { type: Number, min: 0, default: 0 },
-    cold: { type: Number, min: 0, default: 0 },
-    heat: { type: Number, min: 0, default: 0 },
-    electric: { type: Number, min: 0, default: 0 },
-    psychic: { type: Number, min: 0, default: 0 },
-    dark: { type: Number, min: 0, default: 0 },
-    divine: { type: Number, min: 0, default: 0 },
-    aetheric: { type: Number, min: 0, default: 0 },
-    toxic: { type: Number, min: 0, default: 0 }
+    physical: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    cold: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    heat: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    electric: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    psychic: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    dark: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    divine: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    aetheric: { min: { type: Number, default: 0 }, max: { type: Number, default: 25 } },
+    toxic: { min: { type: Number, default: 0 }, max: { type: Number, default: 20 } }
   },
 
   immunities: { type: mongoose.Schema.Types.Mixed, default: {} },

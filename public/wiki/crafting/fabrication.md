@@ -29,8 +29,8 @@ When crafting weapons or armor, fabricators can attempt to add infusions that en
 
 | Name | Description | Ingredients |
 |------|-------------|-------------|
-| Leadened Plates | Adds +1 aetheric mitigation and makes the armor immutable | Lead ingot |
-| Insulated Lining | Adds +1 cold mitigation | Bundle of heavy leather |
-| Grounded | Adds +1 electric mitigation | Bundle of copper wire |
-| Heat-Treated | Adds +1 heat mitigation | Ember dust |
+| Leadened Plates | Raises aetheric mitigation by 1 and lowers mitigation limit by 1. Makes the armor immutable | Lead ingot |
+| Insulated Lining | Raises cold mitigation by 1 and lowers mitigation limit by 1 | Bundle of heavy leather |
+| Grounded | Raises electric mitigation by 1 and lowers mitigation limit by 1 | Bundle of copper wire |
+| Heat-Treated | Raises heat mitigation by 1 and lowers mitigation limit by 1 | Ember dust |
 | Lightweight Alloy | Lowers encumbrance penalty by 2 | Aetherium shavings |

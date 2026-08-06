@@ -350,7 +350,7 @@ export interface Item {
   craft?: Record<string, SkillBonus>;
   magic?: Record<string, SkillBonus>;
   weapon?: Record<string, SkillBonus>;
-  mitigation: Record<string, number>;
+  mitigation: Record<string, { min: number; max: number }>;
   detections?: Record<string, number>;
   immunities?: Record<string, boolean>;
   effects?: ItemEffect[];

@@ -44,7 +44,7 @@
       "name": "Unshakeable Belief",
       "description": "Your beliefs are incorruptible. Gain +1 resilience and +1 mitigation to dark and divine damage.",
       "location": "5",
-      "data": "SSI=1:M5=1:M6=1"
+      "data": "SSI=1:M5=1:N6=-1:M6=1:N5=-1"
     },
     {
       "name": "Life Cult",

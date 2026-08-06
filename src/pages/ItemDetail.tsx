@@ -398,7 +398,10 @@ const ItemDetail: React.FC = () => {
             item.resolve?.max !== 0 ||
             item.resolve?.recovery !== 0 ||
             (item.movement && Object.values(item.movement).some((v: any) => v?.bonus || v?.set)) ||
-            (item.mitigation && Object.values(item.mitigation).some((v: number) => v !== 0))) && (
+            (item.mitigation && Object.values(item.mitigation).some((v: any) => {
+              if (typeof v === 'object') return (v.min || 0) !== 0 || (v.max || 0) !== 0;
+              return v !== 0;
+            }))) && (
             <Card variant="default" style={{ marginBottom: '1.5rem' }}>
               <CardHeader>
                 <h2 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Bonuses & Effects</h2>
@@ -452,13 +455,26 @@ const ItemDetail: React.FC = () => {
                         .join(' | ')}
                     </div>
                   )}
-                  {item.mitigation && Object.entries(item.mitigation).some(([, v]) => v !== 0) && (
+                  {item.mitigation && Object.entries(item.mitigation).some(([, v]: [string, any]) => {
+                    if (typeof v === 'object') return (v.min || 0) !== 0 || (v.max || 0) !== 0;
+                    return v !== 0;
+                  }) && (
                     <div style={{ color: 'var(--color-cloud)' }}>
                       <strong>Mitigation:</strong>{' '}
                       {Object.entries(item.mitigation)
-                        .filter(([, v]) => v !== 0)
-                        .map(([k, v]) => `${v > 0 ? '+' : ''}${v} ${k}`)
-                        .join(', ')}
+                        .filter(([, v]: [string, any]) => {
+                          if (typeof v === 'object') return (v.min || 0) !== 0 || (v.max || 0) !== 0;
+                          return v !== 0;
+                        })
+                        .map(([k, v]: [string, any]) => {
+                          const min = typeof v === 'object' ? (v.min || 0) : v;
+                          const max = typeof v === 'object' ? (v.max || 0) : 0;
+                          const parts = [];
+                          if (min !== 0) parts.push(`+${min} mit`);
+                          if (max !== 0) parts.push(`${max} limit`);
+                          return `${k}: ${parts.join(', ')}`;
+                        })
+                        .join(' | ')}
                     </div>
                   )}
                 </div>

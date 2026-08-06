@@ -2,7 +2,7 @@
   "id": 105,
   "name": "Outsider",
   "mtype": "personality",
-  "foundry_icon":"icons/magic/time/day-night-sunset-sunrise.webp",
+  "foundry_icon": "icons/magic/time/day-night-sunset-sunrise.webp",
   "ruleset": 1,
   "options": [
     {
@@ -57,7 +57,7 @@
       "name": "Lone Wolf",
       "description": "You can only rely on yourself. You gain +3 psychic mitigation and +3 maximum resolve, but your maximum morale is lowered by 5.",
       "location": "6b",
-      "data": "M8=3:A2=3:A8=-5"
+      "data": "M8=2:N8=-2:A2=3:A8=-5"
     },
     {
       "name": "Downtime Action : Vanish",

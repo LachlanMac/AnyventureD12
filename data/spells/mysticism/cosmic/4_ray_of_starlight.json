@@ -13,7 +13,7 @@
   "reaction": false,
   "energy": 1,
   "damage": 8,
-  "damageType": "aetheric",
+  "damageType": "Aetheric",
   "foundry_id": "a7iqwwrxr9o2nwq6",
   "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp",
   "targetCheck": "defense",

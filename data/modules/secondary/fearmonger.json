@@ -20,7 +20,7 @@
       "name": "Master of Nightmares",
       "description": "You are the master of your own dreams. Gain +2 psychic mitigation. Additionally, you cannot be affected by spells or other effects that influence your dreams.",
       "location": "2b",
-      "data": "M8=2:TG"
+      "data": "M8=1:N8=-1:TG"
     },
     {
       "name": "Sinister",
@@ -35,7 +35,7 @@
       "data": "ZIME=1"
     },
     {
-     "name": "Action : Dread Strike",
+      "name": "Action : Dread Strike",
       "description": "You make an attack with a melee weapon, but instead of using your weapon skill, make an attack roll using your black magic skill.",
       "location": "4b",
       "data": "XIME=1"

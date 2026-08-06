@@ -26,7 +26,7 @@
       "name": "Otherworldly Focus",
       "description": "Your connection to mystical forces strengthens your mental discipline. Gain +1 skill with concentration and +1 psychic mitigation.",
       "location": "3",
-      "data": "SSJ=1:M8=1:TG"
+      "data": "SSJ=1:M8=1:N8=-1:TG"
     },
     {
       "name": "Chakra Alignment",

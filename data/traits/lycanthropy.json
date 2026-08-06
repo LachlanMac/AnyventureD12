@@ -18,7 +18,7 @@
           "id": "weak_to_fire",
           "name": "Weakness to Fire",
           "description": "Your weakness is to fire, while in your lycanthrope form, you become afraid when you have the ignited condition. When in your humanoid form, you have a -2 penalty to heat mitigation.",
-          "data": "M2=-2:TG"
+          "data": "N2=5:TG"
         },
         {
           "id": "weak_to_silver",
@@ -30,7 +30,7 @@
           "id": "weak_to_water",
           "name": "Weakness to Water",
           "description": "Your weakness is to silver, while in your lycanthrope, you cannot willfully cross bodies of water and you become afraid when submerged in water. While in your humanoid form, you have a -2 penalty to cold mitigation.",
-          "data": "M3=-2:TG"
+          "data": "N3=5:TG"
         }
       ],
       "requiresChoice": true,

@@ -26,7 +26,7 @@
       "name": "Of the Elements",
       "description": "You are attuned to the elements and gain +1 mitigation to heat, cold and electric damage.",
       "location": "3",
-      "data": "M2=1:M3=1:M4=1:TG"
+      "data": "N2=-1:N3=-1:N4=-1:TG"
     },
     {
       "name": "Anchored",

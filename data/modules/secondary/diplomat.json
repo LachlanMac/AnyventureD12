@@ -14,7 +14,7 @@
       "name": "Iron Composure",
       "description": "Negotiating isn't always friendly, and you have been the target of some colorful language. You gain +2 maximum resolve and +2 psychic mitigation.",
       "location": "2a",
-      "data": "TG:A2=2:M8=2"
+      "data": "TG:A2=2:M8=1:N8=-1"
     },
     {
       "name": "Divine Patience",

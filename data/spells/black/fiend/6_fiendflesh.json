@@ -1,7 +1,7 @@
 {
   "name": "Fiendflesh",
-  "description": "Your skin takes on a sulfuric taint, granting you 5 additional mitigation to heat and dark damage while you maintain concentration on this spell.",
-  "charge": "The spell instead sets your heat and dark mitigation to 9 instead of adding to it.",
+  "description": "Your skin takes on a sulfuric taint, setting your heat and dark mitigation limit to 20 while you maintain concentration on this spell.",
+  "charge": "The heat and dark mitigation limit is set to 15 instead of 20.",
   "duration": "Concentration",
   "range": 0,
   "checkToCast": 6,

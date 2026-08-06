@@ -60,7 +60,7 @@
     "weight": 4,
     "value": 2000,
     "rarity": "rare",
-    "properties": "Standard: No benefit. Champion: Grants +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage. Elite: Grants +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage and gain a bonus die.",
+    "properties": "Standard: No benefit. Champion: +1 mitigation to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage. Elite: +1 mitigation, -1 mitigation limit to the element (electric, heat, or cold) based on the elemental type. Brawling attacks made with this arm deal elemental damage instead of physical damage and gain a bonus die.",
     "foundry_icon": "icons/commodities/biological/hand-green-red.webp"
   },
   {

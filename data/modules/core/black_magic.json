@@ -38,7 +38,7 @@
       "name": "Corrupted Soul",
       "description": "The effect of healing magic on you is reduced by half, but you gain +3 divine and +3 dark mitigation.",
       "location": "4b",
-      "data": "M6=3:M5=3:TG"
+      "data": "N5=-2:N6=-2:TG"
     },
     {
       "name": "Skilled Heretic",

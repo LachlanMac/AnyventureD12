@@ -50,7 +50,7 @@
       "mtype": "core",
       "location": "4b",
       "cost": 2,
-      "data": "CG[M2=1:M3=1:M4=1]"
+      "data": "CG[N2=-1:N3=-1:N4=-1]"
     },
     {
       "name": "Reaction : Counter Battery",

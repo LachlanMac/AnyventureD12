@@ -216,7 +216,44 @@ const EquipmentEffectsPanel: React.FC<EquipmentEffectsPanelProps> = ({ character
           equipmentEffects.bonuses.craftingSkills,
           'var(--color-cloud)'
         )}
-        {renderBonusSection('Mitigation', equipmentEffects.bonuses.mitigation, '#10b981')}
+        {/* Mitigation Bonuses (min/max) */}
+        {Object.keys(equipmentEffects.bonuses.mitigation).length > 0 && (() => {
+          const entries = Object.entries(equipmentEffects.bonuses.mitigation).filter(
+            ([_, value]: [string, any]) => {
+              if (typeof value === 'object') return (value.min || 0) !== 0 || (value.max || 0) !== 0;
+              return value !== 0;
+            }
+          );
+          if (entries.length === 0) return null;
+          return (
+            <div style={{ marginBottom: '1rem' }}>
+              <h4 style={{ color: '#10b981', fontSize: '0.875rem', fontWeight: 'bold', marginBottom: '0.5rem' }}>
+                Mitigation / Limit
+              </h4>
+              <div style={{ display: 'flex', flexWrap: 'wrap', gap: '0.5rem' }}>
+                {entries.map(([key, value]: [string, any]) => {
+                  const min = typeof value === 'object' ? (value.min || 0) : value;
+                  const max = typeof value === 'object' ? (value.max || 0) : 0;
+                  return (
+                    <span
+                      key={key}
+                      style={{
+                        backgroundColor: 'rgba(0, 0, 0, 0.3)',
+                        color: '#10b981',
+                        fontSize: '0.75rem',
+                        padding: '0.125rem 0.375rem',
+                        borderRadius: '0.25rem',
+                        fontWeight: 'bold',
+                      }}
+                    >
+                      {key}: {min !== 0 ? `+${min} mit` : ''}{min !== 0 && max !== 0 ? ', ' : ''}{max !== 0 ? `${max} limit` : ''}
+                    </span>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })()}
 
         {/* Resource Bonuses */}
         {(equipmentEffects.bonuses.health.max !== 0 ||

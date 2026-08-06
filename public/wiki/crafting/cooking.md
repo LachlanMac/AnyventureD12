@@ -41,8 +41,8 @@ Supporting ingredients provide specific benefits:
 - **Root Vegetables** (Beet/Potato/Carrot): +1 health after the next full rest
 - **Squash**: Minimum endurance check result becomes 1
 - **Beans/Legumes**: Minimum resilience check result becomes 1
-- **Peppers**: +1 cold mitigation
-- **Cucumbers**: +1 heat mitigation
+- **Peppers**: +2 cold mitigation
+- **Cucumbers**: +2 heat mitigation
 - **Leafy Greens** (Spinach/Cabbage/Lettuce): Minimum concentration check result becomes 1
 - **Cheese**: +1 morale
 
@@ -55,7 +55,7 @@ A simple meal is the easiest meal to make and can contain any combination of ing
 - **Required Cooking Check**: 2
 
 <div class="example-box">
-A chef makes a simple meal with a tier 2 cut of meat and peppers. Peppers grant +1 cold mitigation after eating them and the tier 2 meat adds +2 to all meal effects. This means the individual that ate the food gains +3 cold mitigation.  
+A chef makes a simple meal with a tier 2 cut of meat and peppers. Peppers raise the cold mitigation by 2 and the tier 2 meat adds +2 to all meal effects. This means the individual that ate the food raises their cold mitigation by +6.
 </div>
 
 ### Hearty Meal  
@@ -75,7 +75,7 @@ A fine meal requires a base and 2 additional secondary ingredients. It counts as
 - **Required Cooking Check**: 6
 
 <div class="example-box">
-A chef creates a fine meal with tier 2 mushrooms, peppers, squash, and common spices. The character gains +4 cold mitigation (1 base + 2 from mushrooms + 1 from spices) AND a minimum endurance check of 4 (1 base + 2 from mushrooms + 1 from spices).
+A chef creates a fine meal with tier 2 mushrooms, peppers, squash, and common spices. The character raises their cold mitigation by +6 (2 base + 2 from mushrooms + 2 from spices) AND gains a minimum endurance check of 4 (1 base + 2 from mushrooms + 1 from spices).
 </div>
 
 ### Hearty Fine Meal
@@ -85,7 +85,7 @@ A hearty fine meal requires a base and 2 additional secondary ingredients, and a
 - **Required Cooking Check**: 8
 
 <div class="example-box">
-A chef prepares a hearty fine meal with tier 3 meat, cucumbers, beans, oats, and exotic spices. The character gains +6 heat mitigation (1 base + 3 from meat + 2 from spices) AND a minimum resilience check of 6 (1 base + 3 from meat + 2 from spices). This counts as 2 meals.
+A chef prepares a hearty fine meal with tier 3 meat, cucumbers, beans, oats, and exotic spices. The character raises their heat mitigation by +8 (2 base + 3 from meat + 3 from spices) AND gains a minimum resilience check of 6 (1 base + 3 from meat + 2 from spices). This counts as 2 meals.
 </div>
 
 ## Meal Rules

@@ -1,7 +1,7 @@
 {
   "name": "Ebony Shield",
   "description": "You target a creature within a short (10 unit) range and protect them with a shield of necrotic energy. While you concentrate on this spell, making a successful deflection check causes the damage to be fully mitigated as if wielding a heavy shield.",
-  "charge": "The target also gains 5 mitigation against divine damage.",
+  "charge": "The target's divine mitigation limit is set to 15.",
   "duration": "Concentration",
   "range": 4,
   "checkToCast": 5,

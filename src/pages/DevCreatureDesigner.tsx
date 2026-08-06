@@ -271,17 +271,31 @@ const DevCreatureDesigner: React.FC = () => {
   };
   const [magicSkills, setMagicSkills] = useState({ ...defaultMagicSkills });
 
+  // Normalize mitigation from legacy flat numbers to { min, max } format
+  const normalizeMitigation = (mit: any) => {
+    if (!mit) return undefined;
+    const result: any = {};
+    for (const [key, value] of Object.entries(mit)) {
+      if (typeof value === 'number') {
+        result[key] = { min: value, max: 25 };
+      } else {
+        result[key] = value;
+      }
+    }
+    return result;
+  };
+
   // Defenses
   const [mitigation, setMitigation] = useState({
-    physical: 0,
-    cold: 0,
-    heat: 0,
-    electric: 0,
-    psychic: 0,
-    dark: 0,
-    divine: 0,
-    aetheric: 0,
-    toxic: 0,
+    physical: { min: 0, max: 25 },
+    cold: { min: 0, max: 25 },
+    heat: { min: 0, max: 25 },
+    electric: { min: 0, max: 25 },
+    psychic: { min: 0, max: 25 },
+    dark: { min: 0, max: 25 },
+    divine: { min: 0, max: 25 },
+    aetheric: { min: 0, max: 25 },
+    toxic: { min: 0, max: 25 },
   });
 
   const [detections, setDetections] = useState({
@@ -417,7 +431,7 @@ const DevCreatureDesigner: React.FC = () => {
       }
 
       setMagicSkills(jsonData.magicSkills || { ...defaultMagicSkills });
-      setMitigation(jsonData.mitigation || mitigation);
+      setMitigation(normalizeMitigation(jsonData.mitigation) || mitigation);
       setDetections(jsonData.detections || detections);
       setTaming(jsonData.taming || taming);
 
@@ -772,7 +786,7 @@ const DevCreatureDesigner: React.FC = () => {
         }
 
         setMagicSkills(jsonData.magicSkills || { ...defaultMagicSkills });
-        setMitigation(jsonData.mitigation || mitigation);
+        setMitigation(normalizeMitigation(jsonData.mitigation) || mitigation);
         setDetections(jsonData.detections || detections);
         setTaming(jsonData.taming || taming);
 
@@ -870,8 +884,8 @@ const DevCreatureDesigner: React.FC = () => {
       });
       setMagicSkills({ ...defaultMagicSkills });
       setMitigation({
-        physical: 0, cold: 0, heat: 0, electric: 0,
-        psychic: 0, dark: 0, divine: 0, aetheric: 0, toxic: 0,
+        physical: { min: 0, max: 25 }, cold: { min: 0, max: 25 }, heat: { min: 0, max: 25 }, electric: { min: 0, max: 25 },
+        psychic: { min: 0, max: 25 }, dark: { min: 0, max: 25 }, divine: { min: 0, max: 25 }, aetheric: { min: 0, max: 25 }, toxic: { min: 0, max: 25 },
       });
       setDetections({
         normal: 5, darksight: 0, infravision: 0, deadsight: 0,
@@ -1586,22 +1600,39 @@ const DevCreatureDesigner: React.FC = () => {
             </div>
 
             <div className="mb-6">
-              <h3 className="text-lg font-semibold mb-1">Mitigation</h3>
-              <p className="text-sm text-gray-400 mb-3">Set to 25+ for immunity</p>
+              <h3 className="text-lg font-semibold mb-1">Mitigation / Limit</h3>
+              <p className="text-sm text-gray-400 mb-3">Mitigation: damage at or below is ignored. Limit: damage above is capped. Set mitigation to 25+ for immunity.</p>
               <div className="grid grid-cols-3 md:grid-cols-5 gap-4">
-                {Object.entries(mitigation).map(([type, value]) => (
+                {Object.entries(mitigation).map(([type, value]: [string, any]) => (
                   <div key={type}>
-                    <label className="block text-sm font-medium mb-2 capitalize">{type}</label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={value}
-                      onChange={(e) => setMitigation({
-                        ...mitigation,
-                        [type]: parseInt(e.target.value)
-                      })}
-                      className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                    />
+                    <label className="block text-sm font-medium mb-1 capitalize">{type}</label>
+                    <div className="flex gap-1">
+                      <div className="flex-1">
+                        <label className="block text-xs text-gray-500">Mit.</label>
+                        <input
+                          type="number"
+                          min="0"
+                          value={typeof value === 'object' ? value.min : value}
+                          onChange={(e) => setMitigation({
+                            ...mitigation,
+                            [type]: { ...(typeof value === 'object' ? value : { min: value, max: 25 }), min: parseInt(e.target.value) || 0 }
+                          })}
+                          className="w-full p-1 bg-gray-800 border border-gray-600 rounded text-sm"
+                        />
+                      </div>
+                      <div className="flex-1">
+                        <label className="block text-xs text-gray-500">Limit</label>
+                        <input
+                          type="number"
+                          value={typeof value === 'object' ? value.max : 20}
+                          onChange={(e) => setMitigation({
+                            ...mitigation,
+                            [type]: { ...(typeof value === 'object' ? value : { min: value, max: 25 }), max: parseInt(e.target.value) || 0 }
+                          })}
+                          className="w-full p-1 bg-gray-800 border border-gray-600 rounded text-sm"
+                        />
+                      </div>
+                    </div>
                   </div>
                 ))}
               </div>

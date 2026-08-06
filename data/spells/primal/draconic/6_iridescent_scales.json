@@ -1,7 +1,7 @@
 {
   "name": "Iridescent Scales",
-  "description": "You cover your skin in dragon scales, granting you +5 mitigation to a damage type and a bonus dice on social checks while you concentrate on this spell. You choose the type of mitigation you gain when you channel this spell, choosing between electric, heat cold or toxic.",
-  "charge": "Choose a secondary mitigation to gain the +5 bonus to.",
+  "description": "You cover your skin in dragon scales, granting you +5 mitigation to a chosen damage type and a bonus die on social checks while you concentrate on this spell. You choose the type when you channel this spell, choosing between electric, heat, cold or toxic.",
+  "charge": "Choose a secondary damage type to also gain the +5 mitigation bonus to.",
   "duration": "Concentration",
   "range": 0,
   "checkToCast": 6,

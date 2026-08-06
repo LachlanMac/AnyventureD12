@@ -38,7 +38,7 @@
       "name": "Ranger",
       "description": "Your endurance allows you to range far ahead, under any conditions. Gain +1 skill with endurance and +1 mitigation to cold and heat damage.",
       "location": "4b",
-      "data": "SSD=1:M2=1:M3=1"
+      "data": "SSD=1:N2=-1:N3=-1"
     },
     {
       "name": "Pathfinder",

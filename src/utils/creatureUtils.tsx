@@ -58,13 +58,16 @@ export function getTypeIcon(type: string): string {
 }
 
 /**
- * Format mitigation values for display
+ * Format mitigation values for display (min/max system)
  */
-export function getMitigationFormat(value: number): { half: string; full: string; immune: boolean } {
-  if (value >= 25) return { half: 'IMM', full: 'IMM', immune: true };
-  if (value === 0) return { half: '0', full: '0', immune: false };
-  const half = Math.ceil(value / 3);
-  return { half: half.toString(), full: value.toString(), immune: false };
+export function getMitigationFormat(value: { min: number; max: number } | number): { min: string; max: string; immune: boolean } {
+  // Handle legacy flat number format
+  if (typeof value === 'number') {
+    if (value >= 25) return { min: 'IMM', max: 'IMM', immune: true };
+    return { min: value.toString(), max: '25', immune: false };
+  }
+  if (value.min >= 25) return { min: 'IMM', max: 'IMM', immune: true };
+  return { min: value.min.toString(), max: value.max.toString(), immune: false };
 }
 
 export const MAGIC_SCHOOLS = {

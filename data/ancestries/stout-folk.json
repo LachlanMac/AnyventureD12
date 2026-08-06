@@ -35,7 +35,7 @@
     {
       "name": "Stout-Folk Skin",
       "description": "The Stout-Folk have extremely resilient skin that offers protection from the elements and corrosive effects. Gain +1 toxic, electric, cold and heat mitigation.",
-      "data": "M9=1:M4=1:M3=1:M2=1:TA"
+      "data": "M9=2:N2=-1:N3=-1:N4=-1:TA"
     },
     {
       "name": "Reaction : Strong Chin",

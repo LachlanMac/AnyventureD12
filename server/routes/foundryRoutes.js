@@ -807,15 +807,15 @@ const convertToFoundryFormat = (data, type) => {
           fly: data.movement?.fly || 0
         },
         mitigation: {
-          physical: data.mitigation?.physical || 0,
-          heat: data.mitigation?.heat || 0,
-          cold: data.mitigation?.cold || 0,
-          electric: data.mitigation?.electric || 0,
-          dark: data.mitigation?.dark || 0,
-          divine: data.mitigation?.divine || 0,
-          aetheric: data.mitigation?.aetheric || 0,
-          psychic: data.mitigation?.psychic || 0,
-          toxic: data.mitigation?.toxic || 0
+          physical: { min: data.mitigation?.physical?.min || 0, max: data.mitigation?.physical?.max || 25 },
+          heat: { min: data.mitigation?.heat?.min || 0, max: data.mitigation?.heat?.max || 25 },
+          cold: { min: data.mitigation?.cold?.min || 0, max: data.mitigation?.cold?.max || 25 },
+          electric: { min: data.mitigation?.electric?.min || 0, max: data.mitigation?.electric?.max || 25 },
+          dark: { min: data.mitigation?.dark?.min || 0, max: data.mitigation?.dark?.max || 25 },
+          divine: { min: data.mitigation?.divine?.min || 0, max: data.mitigation?.divine?.max || 25 },
+          aetheric: { min: data.mitigation?.aetheric?.min || 0, max: data.mitigation?.aetheric?.max || 25 },
+          psychic: { min: data.mitigation?.psychic?.min || 0, max: data.mitigation?.psychic?.max || 25 },
+          toxic: { min: data.mitigation?.toxic?.min || 0, max: data.mitigation?.toxic?.max || 25 }
         },
         detection: data.detections || {
           normal: 8,

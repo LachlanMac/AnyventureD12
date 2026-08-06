@@ -18,49 +18,68 @@ Anyventure features multiple damage types, each representing different forms of 
 ## How Mitigation Works
 <div class="triangle-line"></div>
 
-Mitigation represents your ability to resist or reduce incoming damage. Each creature can have different mitigation values for each damage type based on a variety of factors.
+Every creature has two values for each damage type: **Mitigation** and **Mitigation Limit**. Together, these define a window of damage you can actually take from that type.
 
-### Full Mitigation
-If your mitigation equals or exceeds the incoming damage, you take **0 damage**.
+- **Mitigation**: Damage at or below this value is completely ignored.
+- **Mitigation Limit**: Damage above this value is capped to this value.
 
-<div class="example-box">
-A bandit with 4 physical mitigation is struck by a dagger for 3 damage. Since 3 is less than 4, the bandit takes no damage - their armor completely absorbs the blow.
-</div>
+By default, all creatures start with **0 Mitigation** and a **25 Mitigation Limit** for every damage type. This means they ignore nothing and can take up to 25 damage from a single source.
 
-### Partial Mitigation
-All characters have a partial mitigation score that is **triple** their normal mitigation. When the damage taken is less than or equal to the partial mitigation, but greater than the full mitigation, the damage is reduced by half and rounded down.
+### Mitigation (Ignoring Damage)
+If the incoming damage is equal to or less than your mitigation, you take **0 damage**.
 
 <div class="example-box">
-A flame scholar with 6 heat mitigation has a partial heat mitigation score of 18 (6 × 3) and are hit with a powerful fireball spell that deals 15 damage. Since 15 is greater than 6 but 15 is less than 18, the attack is partially mitigated and the flame scholar takes 7 heat damage (half of 15 rounded down).
+A knight in plate armor has 5 physical mitigation. A goblin stabs them with a dagger for 4 damage. Since 4 is less than 5, the knight takes no damage. Their armor completely absorbs the blow.
 </div>
 
-### No Mitigation
-If the damage exceeds your mitigation value, you take **full damage**.
+### Mitigation Limit (Capping Damage)
+If the incoming damage exceeds your mitigation limit, you only take damage equal to your limit.
 
 <div class="example-box">
-A mage with 2 Physical mitigation is struck by a greatsword for 7 damage. Since 7 is greater than 6 (2 × 3), the mage takes the full 7 damage.
+A knight in plate armor has a physical mitigation limit of 18. A giant smashes them with a club for 22 damage. Since 22 exceeds 18, the knight only takes 18 damage. The armor absorbs the worst of the impact.
 </div>
+
+### Damage Within the Window
+If the incoming damage is greater than your mitigation but less than or equal to your mitigation limit, you take the **full damage**.
+
+<div class="example-box">
+A knight has 5 physical mitigation and an 18 physical mitigation limit. They are hit by a longsword for 12 damage. Since 12 is above 5 but below 18, they take the full 12 damage.
+</div>
+
+### Immunity
+A creature with a mitigation of 25 or higher for a damage type is considered **immune** to that damage type.
 
 ## Sources of Mitigation
+<div class="triangle-line"></div>
 
+Mitigation and mitigation limits can be modified by various sources:
 
-Mitigation can come from various sources:
+- **Armor** - Body armor raises mitigation and lowers the limit for physical damage. Higher quality materials like True Steel, Aetherium, and Starsteel further improve both values.
+- **Armor Accessories** - Helmets, gloves, and boots primarily lower the mitigation limit, dampening the worst hits.
+- **Modules** - Character progression modules can raise mitigation, lower the limit, or both depending on the archetype.
+- **Ancestry** - Some ancestries have innate resistances that raise mitigation or vulnerabilities that raise the limit above 25.
+- **Traits** - Traits like Planar or Vampirism can significantly alter mitigation values.
+- **Spells & Abilities** - Temporary effects that modify mitigation or set the limit to a specific value.
+- **Crafting** - Armor infusions and meals can improve mitigation values.
 
-- **Armor** - Provides Physical mitigation
-- **Magical Items** - Can grant mitigation to specific damage types
-- **Spells & Abilities** - Temporary buffs that increase mitigation
-- **Racial Traits** - Some races have natural resistances
-- **Environmental Effects** - Certain conditions may provide mitigation
+## Vulnerabilities
+<div class="triangle-line"></div>
 
+Some creatures or characters have a mitigation limit **above 25** for certain damage types. This means they can take more damage than normal from that type.
+
+<div class="example-box">
+A Lizardfolk has a cold mitigation limit of 29 due to their Cold Blooded trait. A blizzard spell dealing 28 cold damage would deal the full 28, whereas a human with the default limit of 25 would only take 25 from the same spell.
+</div>
 
 ## Special Damage Modifications
 <div class="triangle-line"></div>
 
 ### Half Damage
 In some scenarios, due to traits, conditions or unique abilities, a character may be able to halve the damage they take.
+
 ### Double Damage
 Some creatures or conditions may cause a character to take double damage from a source, such as a plantoid that is vulnerable to fire.
 
 <div class="note-box">
-Any damage modification, such as halving or doubling, will always occur before mitigations are calculated
+Any damage modification, such as halving or doubling, always occurs before mitigation is calculated.
 </div>

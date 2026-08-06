@@ -29,7 +29,7 @@
     {
       "name": "Fractured Minds",
       "description": "The gnomish mind is complex and intricate, causing you to be especially prone to mental anguish. You suffer a -3 penalty to psychic mitigation.",
-      "data": "M8=-3:TA"
+      "data": "N8=5:TA"
     }
   ]
 }

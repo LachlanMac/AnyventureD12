@@ -6,7 +6,7 @@
   "options": [
     {
       "name": "Mystic Echoes",
-      "description": "Your connection to mystical forces deepens your understanding. Gain +1 skill with magic. When you inspect a magical item, you can determine the last time it was used and a vague nature of the type of creature who wielded it.",      
+      "description": "Your connection to mystical forces deepens your understanding. Gain +1 skill with magic. When you inspect a magical item, you can determine the last time it was used and a vague nature of the type of creature who wielded it.",
       "location": "1",
       "data": "TG:SSN=1"
     },
@@ -14,7 +14,7 @@
       "name": "Fortified Soul",
       "description": "Your soul is especially resistant to things that would damage it. Gain +2 mitigation to aethericic damage.",
       "location": "2a",
-      "data": "TG:M7=2"
+      "data": "TG:M7=1:N7=-1"
     },
     {
       "name": "Threads of Fate",
@@ -23,7 +23,7 @@
       "data": "TG:SSS=1"
     },
     {
-       "name": "Dangersense",
+      "name": "Dangersense",
       "description": "You possess an innate sense of danger that warns you of significant threats. When an elite-tier creature or higher, or a deadly trap that poses a threat to you is within a moderate (20 unit) distance, you automatically sense the presence of danger without identifying its specific source or location.",
       "location": "3",
       "data": "TG"
