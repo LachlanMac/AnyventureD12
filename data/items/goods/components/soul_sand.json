@@ -1,0 +1,22 @@
+{
+  "name": "Soul Sand",
+  "description": "A fine, dark sand that is warm to the touch and shifts restlessly when left undisturbed. The grains shimmer faintly with a deep purple hue when exposed to moonlight. Prolonged skin contact with soul sand causes a numbing sensation that fades after a few minutes.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical"
+  ],
+  "weight": 0.25,
+  "value": 1500,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 8,
+    "ingredients": [
+      "Sand",
+      "Shadow Onyx",
+      "Vial of Quicksilver"
+    ]
+  },
+  "foundry_icon": "icons/commodities/gems/powder-raw-white.webp"
+}

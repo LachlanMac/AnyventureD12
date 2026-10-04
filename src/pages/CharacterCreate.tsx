@@ -16,6 +16,9 @@ import { applyTraitEffects, removeTraitEffects, canDeselectTrait } from '../util
 
 const CharacterCreate: React.FC = () => {
   const navigate = useNavigate();
+  const [showSetup, setShowSetup] = useState<boolean>(true);
+  const [cultureEnabled, setCultureEnabled] = useState<boolean>(true);
+  const [modulePointsPreset, setModulePointsPreset] = useState<string>('15');
   const [step, setStep] = useState<number>(1);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
@@ -293,12 +296,48 @@ const CharacterCreate: React.FC = () => {
   };
 
   // Update crafting skill talent
+  // First talent point grants 2 talent (bonus for investing in crafting)
   const updateCraftingSkillTalent = (skillId: string, newTalent: number) => {
     if (newTalent < 0 || newTalent > 4) {
-      return; // Invalid value
+      return;
     }
 
     const oldTalent = character.craftingSkills[skillId]?.talent || 0;
+
+    // First point bonus: going from 0 to 1 actually sets to 2, costs 1 point
+    if (oldTalent === 0 && newTalent === 1) {
+      if (talentStarsRemaining < 1) return;
+      setCharacter((prev) => ({
+        ...prev,
+        craftingSkills: {
+          ...prev.craftingSkills,
+          [skillId]: {
+            ...(prev.craftingSkills[skillId] || { value: 0 }),
+            talent: 2,
+          },
+        },
+      }));
+      setTalentStarsRemaining((prev) => prev - 1);
+      return;
+    }
+
+    // Removing the bonus: going from 2 to 1 actually sets to 0, refunds 1 point
+    if (oldTalent === 2 && newTalent === 1) {
+      setCharacter((prev) => ({
+        ...prev,
+        craftingSkills: {
+          ...prev.craftingSkills,
+          [skillId]: {
+            ...(prev.craftingSkills[skillId] || { value: 0 }),
+            talent: 0,
+          },
+        },
+      }));
+      setTalentStarsRemaining((prev) => prev + 1);
+      return;
+    }
+
+    // Normal behavior for talent 2->3, 3->4, etc.
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {
@@ -333,7 +372,7 @@ const CharacterCreate: React.FC = () => {
           setError('Please select a race');
           return false;
         }
-        if (!character.culture) {
+        if (cultureEnabled && !character.culture) {
           setError('Please select a culture');
           return false;
         }
@@ -444,6 +483,67 @@ const CharacterCreate: React.FC = () => {
         }
       }
 
+      // Auto-assign core modules based on talent allocation
+      // Map talent investments to their associated core modules
+      const talentToModule: { check: () => boolean; moduleName: string }[] = [
+        // Weapon modules
+        { check: () => (character.weaponSkills.simpleMeleeWeapons?.talent || 0) > 1 || (character.weaponSkills.complexMeleeWeapons?.talent || 0) > 0, moduleName: 'Melee Specialist' },
+        { check: () => (character.weaponSkills.simpleRangedWeapons?.talent || 0) > 1 || (character.weaponSkills.complexRangedWeapons?.talent || 0) > 0, moduleName: 'Ranged Specialist' },
+        { check: () => (character.weaponSkills.brawling?.talent || 0) > 1, moduleName: 'Brawling Specialist' },
+        // Magic modules
+        { check: () => (character.magicSkills.black?.talent || 0) > 0, moduleName: 'Black Magic' },
+        { check: () => (character.magicSkills.primal?.talent || 0) > 0, moduleName: 'Primal Magic' },
+        { check: () => (character.magicSkills.meta?.talent || 0) > 0, moduleName: 'Metamage' },
+        { check: () => (character.magicSkills.white?.talent || 0) > 0, moduleName: 'White Magic' },
+        { check: () => (character.magicSkills.mystic?.talent || 0) > 0, moduleName: 'Mystic' },
+        { check: () => (character.magicSkills.arcane?.talent || 0) > 0, moduleName: 'Arcane Magic' },
+        // Crafting modules
+        { check: () => (character.craftingSkills.engineering?.talent || 0) > 0, moduleName: 'Engineer' },
+        { check: () => (character.craftingSkills.fabrication?.talent || 0) > 0, moduleName: 'Fabricator' },
+        { check: () => (character.craftingSkills.alchemy?.talent || 0) > 0, moduleName: 'Alchemist' },
+        { check: () => (character.craftingSkills.cooking?.talent || 0) > 0, moduleName: 'Chef' },
+        { check: () => (character.craftingSkills.glyphcraft?.talent || 0) > 0, moduleName: 'Glyphcraft' },
+        { check: () => (character.craftingSkills.biosculpting?.talent || 0) > 0, moduleName: 'Biosculptor' },
+      ];
+
+      const neededModuleNames = talentToModule
+        .filter((t) => t.check())
+        .map((t) => t.moduleName);
+
+      if (neededModuleNames.length > 0) {
+        try {
+          const coreModulesRes = await fetch('/api/modules?type=core');
+          if (coreModulesRes.ok) {
+            const coreModules = await coreModulesRes.json();
+            let remainingPoints = character.modulePoints.total - initialModules.length;
+
+            for (const moduleName of neededModuleNames) {
+              if (remainingPoints <= 0) break;
+              const mod = coreModules.find((m: any) => m.name === moduleName);
+              if (!mod) continue;
+              // Don't double-add
+              if (initialModules.some((im: any) => im.moduleId === mod._id)) continue;
+
+              const tier1Option = mod.options?.find((o: any) => o.location === '1');
+              if (tier1Option) {
+                initialModules.push({
+                  moduleId: mod._id,
+                  selectedOptions: [
+                    {
+                      location: '1',
+                      selectedAt: new Date().toISOString(),
+                    },
+                  ],
+                });
+                remainingPoints--;
+              }
+            }
+          }
+        } catch (err) {
+          console.error('Failed to auto-assign core modules:', err);
+        }
+      }
+
       // Transform the character data for the API
       const characterData = {
         name: character.name,
@@ -530,6 +630,209 @@ const CharacterCreate: React.FC = () => {
     }
   };
 
+  if (showSetup) {
+    return (
+      <div className="min-h-screen py-12">
+        <div className="container mx-auto px-4" style={{ maxWidth: '500px' }}>
+          <h1
+            style={{
+              color: 'var(--color-white)',
+              fontFamily: 'var(--font-display)',
+              fontSize: '2.5rem',
+              fontWeight: 'bold',
+              marginBottom: '2rem',
+              textAlign: 'center',
+            }}
+          >
+            Create Your Character
+          </h1>
+
+          <Card variant="default">
+            <CardHeader>
+              <h2
+                style={{
+                  color: 'var(--color-white)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.25rem',
+                  fontWeight: 'bold',
+                  textAlign: 'center',
+                }}
+              >
+                Character Setup
+              </h2>
+            </CardHeader>
+            <CardBody>
+              <p
+                style={{
+                  color: 'var(--color-cloud)',
+                  fontSize: '0.875rem',
+                  marginBottom: '1.5rem',
+                  textAlign: 'center',
+                }}
+              >
+                Configure starting resources before building your character. These defaults represent a fresh adventurer.
+              </p>
+
+              <div style={{ marginBottom: '1.25rem' }}>
+                <label
+                  style={{
+                    display: 'block',
+                    color: 'var(--color-cloud)',
+                    fontWeight: 'bold',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Starting Module Points
+                </label>
+                <select
+                  value={modulePointsPreset}
+                  onChange={(e) => {
+                    setModulePointsPreset(e.target.value);
+                    if (e.target.value !== 'custom') {
+                      updateNestedField('modulePoints', 'total', parseInt(e.target.value));
+                    }
+                  }}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: '1px solid var(--color-dark-border)',
+                    borderRadius: '0.375rem',
+                    padding: '0.5rem 0.75rem',
+                  }}
+                >
+                  <option value="5">5 - Commoner</option>
+                  <option value="15">15 - New Adventurer</option>
+                  <option value="25">25 - Seasoned Adventurer</option>
+                  <option value="35">35 - Local Hero</option>
+                  <option value="45">45 - Champion</option>
+                  <option value="custom">Custom...</option>
+                </select>
+                {modulePointsPreset === 'custom' && (
+                  <input
+                    type="number"
+                    min="1"
+                    max="100"
+                    style={{
+                      width: '100%',
+                      backgroundColor: 'var(--color-dark-elevated)',
+                      color: 'var(--color-white)',
+                      border: '1px solid var(--color-dark-border)',
+                      borderRadius: '0.375rem',
+                      padding: '0.5rem 0.75rem',
+                      marginTop: '0.5rem',
+                    }}
+                    value={character.modulePoints.total}
+                    onChange={(e) => {
+                      const value = parseInt(e.target.value) || 0;
+                      updateNestedField('modulePoints', 'total', value);
+                    }}
+                    placeholder="Enter module points..."
+                  />
+                )}
+                <p
+                  style={{
+                    fontSize: '0.8rem',
+                    color: 'var(--color-cloud)',
+                    marginTop: '0.25rem',
+                  }}
+                >
+                  How many module points you start with to spend on modules.
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '1.25rem' }}>
+                <label
+                  style={{
+                    display: 'block',
+                    color: 'var(--color-cloud)',
+                    fontWeight: 'bold',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Starting Talents
+                </label>
+                <input
+                  type="number"
+                  min="4"
+                  max="20"
+                  step="1"
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: '1px solid var(--color-dark-border)',
+                    borderRadius: '0.375rem',
+                    padding: '0.5rem 0.75rem',
+                  }}
+                  value={startingTalents}
+                  onChange={(e) => {
+                    const value = parseInt(e.target.value);
+                    handleStartingTalentsChange(value);
+                  }}
+                />
+                <p
+                  style={{
+                    fontSize: '0.8rem',
+                    color: 'var(--color-cloud)',
+                    marginTop: '0.25rem',
+                  }}
+                >
+                  Talent points for weapon, magic, and crafting skills. Default is 8.
+                </p>
+              </div>
+
+              <div style={{ marginBottom: '1.5rem' }}>
+                <label
+                  style={{
+                    display: 'block',
+                    color: 'var(--color-cloud)',
+                    fontWeight: 'bold',
+                    marginBottom: '0.25rem',
+                  }}
+                >
+                  Culture Selection
+                </label>
+                <select
+                  value={cultureEnabled ? 'enabled' : 'disabled'}
+                  onChange={(e) => setCultureEnabled(e.target.value === 'enabled')}
+                  style={{
+                    width: '100%',
+                    backgroundColor: 'var(--color-dark-elevated)',
+                    color: 'var(--color-white)',
+                    border: '1px solid var(--color-dark-border)',
+                    borderRadius: '0.375rem',
+                    padding: '0.5rem 0.75rem',
+                  }}
+                >
+                  <option value="enabled">Enabled</option>
+                  <option value="disabled">Disabled</option>
+                </select>
+                <p
+                  style={{
+                    fontSize: '0.8rem',
+                    color: 'var(--color-cloud)',
+                    marginTop: '0.25rem',
+                  }}
+                >
+                  Cultures add roleplay restrictions and benefits. Some campaigns may not use them.
+                </p>
+              </div>
+
+              <Button
+                variant="accent"
+                onClick={() => setShowSetup(false)}
+                style={{ width: '100%' }}
+              >
+                Begin Character Creation
+              </Button>
+            </CardBody>
+          </Card>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen py-12">
       <div className="container mx-auto px-4 max-w-4xl">
@@ -583,6 +886,8 @@ const CharacterCreate: React.FC = () => {
                   updateNestedField('modulePoints', 'total', points);
                 }}
                 onStartingTalentsChange={handleStartingTalentsChange}
+                hideModulePoints={true}
+                hideCulture={!cultureEnabled}
               />
             )}
 

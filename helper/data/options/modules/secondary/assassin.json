@@ -1,0 +1,71 @@
+{
+  "id": 203,
+  "name": "Assassin",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1225,
+      "name": "Skulker",
+      "description": "Gain +1 Stealth and +1 Thievery",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AS4=1:ASA=1"
+    },
+    {
+      "id": 1226,
+      "name": "Action : Deadly Poison",
+      "description": "You make an Attack with a Weapon or piece of Ammunition that is coated in Poison and roll a 1d4. If the Attack hits, instead of your Target becoming Poisoned, they take instantaneous Poison Damage as if the Poison lasted a number of rounds equal to the result of the d4.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1227,
+      "name": "Free Action : From the Shadows",
+      "description": "After making an Attack while Hidden, you roll a Stealth Check with a 1d4 Penalty and attempt to remain Hidden.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1228,
+      "name": "Quick and Silent",
+      "description": "Gain +1 Steath and +1 Movement Speed",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AS4=1:AV=1"
+    },
+    {
+      "id": 1229,
+      "name": "Stealth Specialist",
+      "description": "Gain +2 Attack when Hidden or Invisbile and your True Hit threshold is increased by 1.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1230,
+      "name": "Poisoned Blade",
+      "description": "Gain +1 Alchemy and +1 Damage to Piercing Weapons",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AC5=2:AZC=1"
+    },
+    {
+      "id": 1231,
+      "name": "Action: Assassinate",
+      "description": "You make a quick and deadly attack with a Light 1 Handed Weapon. If you are Hidden deal an additional 2d8 Damage which is doubled in the event of a True Hit. If you are not Hidden, this Attack deals an extra 1d8 Damage and is also doubled in the event of a True Hit.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

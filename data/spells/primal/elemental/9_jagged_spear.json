@@ -4,7 +4,7 @@
   "charge": "The spear executes grunts and minions.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Iron Ingot"
   ],

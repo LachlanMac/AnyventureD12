@@ -1,0 +1,15 @@
+{
+  "name": "Platinum Idol",
+  "description": "A pristine figurine crafted from pure platinum, depicting a guardian deity standing resolute with arms outstretched. The idol has an otherworldly sheen that never tarnishes and emits a faint warmth when held. Platinum idols are prized by temples and collectors alike for their beauty and rarity.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "metal",
+    "divine",
+    "precious"
+  ],
+  "weight": 0.75,
+  "value": 2000,
+  "rarity": "rare",
+  "foundry_icon": "icons/commodities/treasure/figurine-idol.webp"
+}

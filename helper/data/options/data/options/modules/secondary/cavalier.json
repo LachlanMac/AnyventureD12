@@ -1,0 +1,71 @@
+{
+  "id": 221,
+  "name": "Cavalier",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1351,
+      "name": "Free Action : As One",
+      "description": "You control your Mount with a Free Action instead of an Action, allowing it to use two actions.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1352,
+      "name": "Skilled Rider",
+      "description": "Gain +1 Animals and +1 Athletics",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AS1=1:ASF=1"
+    },
+    {
+      "id": 1353,
+      "name": "Saddle Shot",
+      "description": "While mounted, you are not penalized for using ranged weapons against targets closer than your minimum range.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1354,
+      "name": "Cavalier Stance",
+      "description": "You gain the Cavalier Stance, which you automatically assume when you Mount a friendly Creature.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "H=21"
+    },
+    {
+      "id": 1355,
+      "name": "Mount Tamer",
+      "description": "Gain +1 Animals. When you Mount a Pet for the first time after a Full Rest, it gains Temporary Health equal to your Level.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ASF=1:TG"
+    },
+    {
+      "id": 1356,
+      "name": "Reigns of Steel",
+      "description": "Gain +1 Athletics. When you or your Mount take the Defense Action, the other also gets the benefit.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AS1=1:TD"
+    },
+    {
+      "id": 1357,
+      "name": "Reaction : Mounted Maneuver",
+      "description": "In response to an Attack against you or the Creature you currently have Mounted that requires a contested Block or Dodge Check, make a Check with your Athletics Skill instead. If the Attack still hits, it is Mitigated by an amount equal to both you and your Mounts combined Mitigation to that Damage.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    }
+  ]
+}

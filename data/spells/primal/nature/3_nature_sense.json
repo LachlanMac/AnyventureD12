@@ -4,7 +4,7 @@
   "charge": "When you detect plantoids and beasts, you are also aware of what the highest tier creature is.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Pinch of Crystal Dust"
   ],

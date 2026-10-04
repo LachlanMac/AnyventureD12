@@ -4,7 +4,7 @@
   "charge": "While charmed in this way, the target does not gain a bonus against the check to release the charm when commanded to harm an ally.",
   "duration": "1 minute",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Vial of Quicksilver"
   ],

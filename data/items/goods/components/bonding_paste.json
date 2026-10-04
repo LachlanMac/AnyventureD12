@@ -1,0 +1,24 @@
+{
+  "name": "Bonding Paste",
+  "description": "An extremely strong magical adhesive that bonds almost any two surfaces together permanently. Waterproof and heat-resistant, the bond is difficult to remove without a specialized solvent. Spells that remove magic can also destroy the bond. Commonly used to repair armor in the field, seal containers, and waterproof equipment. One vial contains enough paste for a single application.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical",
+    "adventure"
+  ],
+  "weight": 0.25,
+  "value": 400,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 7,
+    "ingredients": [
+      "Rubber Sap",
+      "Pine Resin",
+      "Stabilizing Salt",
+      "Vial of Quicksilver"
+    ]
+  },
+  "foundry_icon": "icons/consumables/potions/bottle-round-corked-yellow.webp"
+}

@@ -1,0 +1,152 @@
+{
+  "id": 107,
+  "name": "Illusion Magic",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1876,
+      "name": "Beginner Illusionist",
+      "description": "You can research Beginner Level Illusion Spells and gain +1 Power.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "S61=4:FP=1"
+    },
+    {
+      "id": 1877,
+      "name": "Path of Deception",
+      "description": "Gain +1 Thievery and +1 Stealth",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASA=1"
+    },
+    {
+      "id": 1878,
+      "name": "Path of Entertainment",
+      "description": "Gain +1 Performance and +1 Persuasion",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "ASE=1:ASC=1"
+    },
+    {
+      "id": 1879,
+      "name": "Reaction : Escape Artist",
+      "description": "You move up to 2 Units without provoking Reactions. If you are Grappled, you gain a 2d4 Bonus to your Check to attempt to escape it or if you are Prone, you become upright.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1880,
+      "name": "Potent Spells",
+      "description": "Gain +1 Spell Damage",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZ4=1"
+    },
+    {
+      "id": 1881,
+      "name": "Skeptic",
+      "description": "Gain +1 Insight and +2 Psychic Mitigation",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "ASD=1:AD9=2"
+    },
+    {
+      "id": 1882,
+      "name": "Novice Illusionist",
+      "description": "You can research Novice Level Illusion Spells, gain +1 Spell Attack and +2 Power.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "S62=4:AZ2=1:FP=2"
+    },
+    {
+      "id": 1883,
+      "name": "Mind Palace",
+      "description": "You can use illusions to help calm your mind. When rolling on the Confusion Table, the Condition ends on you when you roll a 6 or higher instead of just an 8. Additionally, you gain +2 on Resistance Checks while Charmed. Finally, when you are Maddened and attack an Ally, you do not apply your Damage Bonus Modifier.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TD"
+    },
+    {
+      "id": 1884,
+      "name": "Vivid Imagination",
+      "description": "You become Immune to the Afraid Condition and gain +1 Resilience",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "AS6=1:I=1"
+    },
+    {
+      "id": 1885,
+      "name": "Journeyman Illusionist",
+      "description": "You can research Journeyman Level Illusion Spells, gain +5 Power and +2 Psychic Mitigation",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "S63=3:AD9=2:FP=5"
+    },
+    {
+      "id": 1886,
+      "name": "Sleight of Hand",
+      "description": "You can Channel Illusion Spells that require 1 Action effortlessly by using your hands to gesture instead of requiring speaking.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1887,
+      "name": "Reaction : Bend Light",
+      "description": "In response to a Ray Attack striking within 4 Units of you, roll a Spell Attack. If your roll is higher than the initial Attack, you redirect the Ray to a point within 6 Units. Otherwise, reduce the Attack roll of the Ray by 1d4.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1888,
+      "name": "Expert Illusionist",
+      "description": "You can research Expert Level Illusion Spells, gain +8 Power, +1 Spell Attack and +1 Spell Damage",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "S64=2:AZ2=1:AZ4=1:FP=8"
+    },
+    {
+      "id": 1889,
+      "name": "Free Action : Mind Wrack",
+      "description": "When you deal Psychic Damage to a Creature, you can force them to make a Resilience Check against half the Psychic Damage taken after Mitigation or give them your choice of the the Afraid or Stunned Condition.",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "Y"
+    },
+    {
+      "id": 1890,
+      "name": "Action : Will Breaker",
+      "description": "You Target a Creature within 20 Units and erode at their will, lowering any Resistance and Resilience Checks by 1d4 until the end of your next turn.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "XX3"
+    },
+    {
+      "id": 1891,
+      "name": "Master Illusionist",
+      "description": "You can research Master Level Illusion Spells, gain +10 Power, +1 Spell Attack and +1 Resistance. Additionally, you can research or learn Grand Master Illusion Spells at level 13.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "FP=6:AZ2=1:AD1=1"
+    }
+  ]
+}

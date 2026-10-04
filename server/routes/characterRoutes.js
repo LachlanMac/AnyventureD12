@@ -111,7 +111,8 @@ router.patch('/:id/wealth', protect, async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('traits.traitId');
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
 
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
@@ -151,8 +152,10 @@ router.patch('/:id/music-skills', protect, async (req, res) => {
       .populate('modules.moduleId')
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
-    
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
+
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
@@ -193,8 +196,10 @@ router.patch('/:id/language-skills', protect, async (req, res) => {
       .populate('modules.moduleId')
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
-      .populate('characterCulture.cultureId');
-    
+      .populate('characterCulture.cultureId')
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
+
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
     applyModuleBonusesToCharacter(characterWithBonuses);
@@ -234,7 +239,8 @@ router.patch('/:id/exotic-schools', protect, async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('traits.traitId');
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
 
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();
@@ -259,17 +265,18 @@ router.patch('/:id/resources', protect, async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('traits.traitId');
-    
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
+
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
     }
-    
+
     // Check if the character belongs to the user
     if (character.userId !== req.user._id.toString()) {
       return res.status(403).json({ message: 'Not authorized to update this character' });
     }
-    
+
     // Apply bonuses to get effective max values
     const characterCopy = character.toObject();
     applyModuleBonusesToCharacter(characterCopy);
@@ -282,10 +289,10 @@ router.patch('/:id/resources', protect, async (req, res) => {
 
     // Update ONLY current values (never max - max is calculated from bonuses)
     // Clamp current values to effective max
-    character.resources.health.current = Math.max(0, Math.min(resources.health.current, effectiveMaxHealth));
-    character.resources.energy.current = Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy));
-    character.resources.resolve.current = Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve));
-    character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
+    if (resources.health) character.resources.health.current = Math.max(0, Math.min(resources.health.current, effectiveMaxHealth));
+    if (resources.energy) character.resources.energy.current = Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy));
+    if (resources.resolve) character.resources.resolve.current = Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve));
+    if (resources.morale) character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
 
     // Update pain and stress custom values if provided
     if (resources.pain) {
@@ -309,7 +316,8 @@ router.patch('/:id/resources', protect, async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('traits.traitId');
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
 
     // Apply module bonuses like in getCharacter
     const characterWithBonuses = updatedCharacter.toObject();

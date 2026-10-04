@@ -4,7 +4,7 @@
   "charge": "The range of this spell becomes distant (100 units) and does not require line of sight.",
   "duration": "1 Minute",
   "range": 1,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Azurite"
   ],

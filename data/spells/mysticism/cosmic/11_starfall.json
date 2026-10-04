@@ -4,7 +4,7 @@
   "charge": "You call down two additional shards, that cannot overlap with each other or the original shard.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Aetherium Shavings"
   ],

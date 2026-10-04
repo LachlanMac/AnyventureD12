@@ -4,7 +4,7 @@
   "charge": "Your lair is enhanced with magic that allows you to know the direction of any creature that has taken something from it.",
   "duration": "Permanent",
   "range": 0,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Aetherium Shavings"
   ],

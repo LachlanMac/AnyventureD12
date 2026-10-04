@@ -4,7 +4,7 @@
   "charge": "The space becomes 5x5 units and retains everything placed inside it so when it is resummoned again, it is in the same state it was left in.",
   "duration": "8 hours",
   "range": 1,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Diatessite"
   ],

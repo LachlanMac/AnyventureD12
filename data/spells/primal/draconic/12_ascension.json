@@ -4,7 +4,7 @@
   "charge": "The spell becomes concentration and your flight speed increases to 8 units.",
   "duration": "1 minute",
   "range": 0,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Star Ruby"
   ],

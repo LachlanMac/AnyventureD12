@@ -96,7 +96,7 @@ export const createDefaultCharacter = (userId: string): Character => {
       resolve: { current: 20, max: 20 },
     },
     modulePoints: {
-      total: 10,
+      total: 15,
       spent: 0,
     },
     languages: [],

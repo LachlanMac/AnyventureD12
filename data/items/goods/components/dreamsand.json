@@ -1,0 +1,24 @@
+{
+  "name": "Dreamsand",
+  "description": "A fine, iridescent sand that shifts between soft pastel colors when disturbed. When inhaled or sprinkled over a willing creature, it induces a deep sleep filled with vivid dreams within minutes. A creature that sleeps under the effects of dreamsand for at least 4 hours gains the benefits of a full rest and recovers 1 additional resolve upon waking. Commonly traded among fey creatures and used by healers to calm agitated patients or treat those suffering from insomnia.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical",
+    "consumable"
+  ],
+  "weight": 0.1,
+  "value": 1000,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 7,
+    "ingredients": [
+      "Sand",
+      "Bundle of Golden Poppy",
+      "Bundle of Mugwort",
+      "Amethyst Dust"
+    ]
+  },
+  "foundry_icon": "icons/commodities/gems/powder-raw-white.webp"
+}

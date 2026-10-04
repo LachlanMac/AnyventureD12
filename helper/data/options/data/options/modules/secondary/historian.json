@@ -1,0 +1,71 @@
+{
+  "id": 247,
+  "name": "Historian",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1533,
+      "name": "Appraiser",
+      "description": "You can appraise and study Objects by making an Academics Check during a Full Rest. On a 13 or higher, you can reasonably deduce the approximate age of the Object and how much it is worth. If you possess an Object either in your Inventory or Storage that is at least 100 years old, you gain a 1d4 Bonus to any Academics Checks when recalling information about the group that created it, if the creators or original owners are known.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1534,
+      "name": "Linguist",
+      "description": "Gain +1 Academics and Learn a non-Magical Language",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AS9=1"
+    },
+    {
+      "id": 1535,
+      "name": "Archaeologist",
+      "description": "Gain +1 Search and +1 Wilderness",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ASG=1:ASB=1"
+    },
+    {
+      "id": 1536,
+      "name": "Free Action : Exploit Weakness",
+      "description": "If you deal Damage to a Creature as part of an Action, you can Learn its Mitigation to Damage Type(s) you did. If that Mitigation is less than your Academics Modifier, the next time your Target takes Damage of that Type before the start of your next turn they take an additional 1d8 Damage. If you possess an Object belonging to the Creatures culture, religion or nation that is at least 100 Years old, the Damage becomes 1d8 + your Academics Modifier. ",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1537,
+      "name": "Student of War",
+      "description": "Gain +1 Damage to Weapon Attacks and +1 Persuasion",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZ3=1:AZ9=2:ASC=1"
+    },
+    {
+      "id": 1538,
+      "name": "Student of Magic",
+      "description": "Gain +1 Spell Attack and Learn a Magical Language",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AS2=2"
+    },
+    {
+      "id": 1539,
+      "name": "Antiquarian",
+      "description": "Gain +1 Academics. Additionally, your Appraiser Trait grants a 1d4 Bonus to all Knowledge Checks instead of just Academics.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "AS9=1:TG"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Mattermorph",
+  "description": "You touch a champion or lower tier creature and attempt to transform them into a tiny non-magical object that you have in your possession if your spell check beats the target's endurance. While transformed, the creature is aware but cannot act, move, or communicate. The object is unnaturally durable, having 15 HP and immunity to non-magical damage. The spell lasts for 1 minute, or until the object is destroyed or the effect is dispelled. If the object is destroyed, the creature reforms and takes 10 true damage. Willing creatures can be transformed without a check.",
+  "charge": "The tier limit is removed. Your spell check is rolled against double the target's endurance, but the transformation is permanent until dispelled by magic.",
+  "duration": "1 minute",
+  "range": 1,
+  "checkToCast": 15,
+  "components": [
+    "Flux Powder"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "endurance",
+  "delivery": "direct"
+}

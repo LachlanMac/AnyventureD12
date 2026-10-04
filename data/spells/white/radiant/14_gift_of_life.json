@@ -1,0 +1,21 @@
+{
+  "name": "Gift of Life",
+  "description": "You touch a humanoid or beast that has died within the last day and attempt to restore their life. The body must be mostly intact. The target must roll a 1d12; on a 1, the creature can no longer be a target of this spell. Each previous successful resurrection increases the required roll by 1. If successful, the creature returns to life with 1 health, 0 resolve, and gains the broken condition.",
+  "charge": "The time limit extends to 7 days, and the creature returns with half their maximum health instead of 1 and does not gain the broken condition.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 16,
+  "components": [
+    "Diamond"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Chain Lightning",
+  "description": "You target a creature within moderate (20 unit) range and strike them with a devastating bolt of lightning, dealing 40 electric damage if your spell check beats the target's defense. The bolt then arcs to the nearest creature within a very short (5 unit) distance of the last target hit, dealing 5 less damage with each arc. The bolt arcs a number of times equal to the number of successes on your spell check. A creature can only be hit once by this spell.",
+  "charge": "The initial damage increases to 50 and the arc range increases to short (10 units).",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 16,
+  "components": [
+    "Storm Topaz"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 40,
+  "damageType": "Electric",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "defense",
+  "delivery": "projectile"
+}

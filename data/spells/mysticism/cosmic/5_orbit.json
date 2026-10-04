@@ -4,7 +4,7 @@
   "charge": "You summon 2 additional orbs.",
   "duration": "10 minutes",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Malachite"
   ],

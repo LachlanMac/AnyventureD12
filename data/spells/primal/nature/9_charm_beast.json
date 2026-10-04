@@ -4,7 +4,7 @@
   "charge": "If you keep the beast charmed for at least a full day, you no longer have to maintain concentration on the spell, but it still can end early by taking damage.",
   "duration": "Concentration",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Bundle of Valerian Root"
   ],

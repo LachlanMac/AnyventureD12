@@ -260,6 +260,23 @@ const CharacterSchema = new Schema({
       description: String
     }
   },
+  // Injuries
+  injuries: [{
+    injuryId: {
+      type: Schema.Types.ObjectId,
+      ref: 'Injury',
+      required: true
+    },
+    notes: {
+      type: String,
+      default: ''
+    },
+    dateAcquired: {
+      type: Date,
+      default: Date.now
+    },
+    _id: false
+  }],
   spellSlots: {
     type: Number,
     default: 10,
@@ -580,17 +597,12 @@ CharacterSchema.pre('save', function(next) {
   this.resources.resolve.max = 20;
   this.resources.morale.max = 10;
 
-  // Initialize current resources if not set (but don't cap them here - equipment may increase max)
-  if (!this.resources.health.current) {
+  // Initialize current resources on new characters
+  // Use isNew to detect first save, so 0 health on existing characters is preserved
+  if (this.isNew) {
     this.resources.health.current = this.resources.health.max;
-  }
-  if (!this.resources.energy.current) {
     this.resources.energy.current = this.resources.energy.max;
-  }
-  if (!this.resources.resolve.current) {
     this.resources.resolve.current = this.resources.resolve.max;
-  }
-  if (!this.resources.morale.current) {
     this.resources.morale.current = 0;
   }
 

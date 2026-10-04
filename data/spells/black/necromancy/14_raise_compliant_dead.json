@@ -1,0 +1,21 @@
+{
+  "name": "Raise Compliant Dead",
+  "description": "You raise a humanoid corpse into a standard-tier compliant undead by placing two jade stones in the eye sockets. Choose a Compliant Skeleton Warrior, Compliant Risen, or Compliant Ghoul based on the condition of the corpse. The undead retains any equipment the corpse was wearing. A compliant undead is not maddened and is permanently loyal to the caster. It can follow complex non-combat orders and perform tasks to the best of its ability such as guarding, patrolling, carrying, and manual labor. It cannot perform tasks that require creativity or social interaction. There is no limit to the number of compliant undead a caster can maintain.",
+  "charge": "You can raise the corpse as a champion-tier compliant undead instead (Compliant Skeleton Champion, Compliant Risen Champion, or Compliant Ghoul Champion).",
+  "duration": "Permanent",
+  "range": 1,
+  "checkToCast": 16,
+  "components": [
+    "Bone Iron Ingot"
+  ],
+  "ritualDuration": "10 minutes",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

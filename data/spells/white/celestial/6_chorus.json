@@ -4,7 +4,7 @@
   "charge": "Instead of it's usual effects, this spell can be used as an automatic accompaniment success when helping a song.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Pixie Dust"
   ],

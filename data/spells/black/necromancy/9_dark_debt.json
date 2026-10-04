@@ -4,7 +4,7 @@
   "charge": "You channel this spell in an area, affecting up to 8 allied creatures, including yourself. The health recovered upon reaching 0 health becomes 12.",
   "duration": "1 day",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Bundle of Nightshade"
   ],

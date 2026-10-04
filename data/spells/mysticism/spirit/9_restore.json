@@ -4,7 +4,7 @@
   "charge": "Remove a physical condition from the target.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Pearl"
   ],

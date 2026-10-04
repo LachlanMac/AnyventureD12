@@ -1,0 +1,21 @@
+{
+  "name": "Flame Portal",
+  "description": "You tear open a rift to the infernal plane, transporting yourself and all willing allies within a nearby (1 unit) distance to a point you can see within a moderate (20 unit) range. There must be enough unoccupied space at the destination to accommodate all transported creatures in the same formation. Upon departure and arrival, all enemies within a nearby (1 unit) distance of the rift take 10 heat damage. If you fail to channel this spell, the rift may open unpredictably, resulting in unintended and possibly dangerous effects with the infernal plane.",
+  "charge": "The pickup and damage radius increase to a very short (5 unit) distance, and the heat damage increases to 15.",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 16,
+  "components": [
+    "Fire Opal"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 10,
+  "damageType": "Heat",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": "area"
+}

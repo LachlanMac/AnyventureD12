@@ -4,7 +4,7 @@
   "charge": "You can maintain a separate memory that is recalled/overridden only when the charge effect is utilized.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "Pinch of Crystal Dust"
   ],

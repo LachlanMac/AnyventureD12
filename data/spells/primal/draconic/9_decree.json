@@ -4,7 +4,7 @@
   "charge": "Your command affects creatures within a very short (5 unit) area around you, but only targets minions and grunts.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Gold Idol"
   ],

@@ -27,7 +27,7 @@ export const CREATURE_TYPE_ICONS = {
 
 export const CREATURE_SUBCATEGORIES: Record<string, string[]> = {
   undead: ['Risen', 'Incorporeal', 'Living Dead'],
-  dark: ['Devil', 'Daemon', 'Void'],
+  dark: ['Devil', 'Daemon', 'Void', 'Luctnatus'],
   divine: ['Ardent', 'Revenant'],
 } as const;
 

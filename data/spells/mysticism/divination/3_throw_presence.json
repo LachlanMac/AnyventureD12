@@ -4,7 +4,7 @@
   "charge": "You gain a bonus dice when making senses checks involving seeing, hearing or smelling.",
   "duration": "Concentration",
   "range": 5,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Pinch of Ash"
   ],

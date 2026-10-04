@@ -260,6 +260,16 @@ const TalentsTab: React.FC<TalentsTabProps> = ({
         craftingSkills,
         onUpdateCraftingSkillTalent
       )}
+      <p
+        style={{
+          color: 'var(--color-metal-gold)',
+          fontSize: '0.8rem',
+          marginTop: '0.5rem',
+          fontStyle: 'italic',
+        }}
+      >
+        The first talent point invested in a crafting skill grants 2 talent.
+      </p>
     </div>
   );
 };

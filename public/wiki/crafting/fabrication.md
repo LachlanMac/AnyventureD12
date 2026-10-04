@@ -9,6 +9,10 @@ Fabrication allows you to craft:
 - **Throwing Weapons** - Daggers, throwing axes, javelins, and other projectiles
 - **Armor** - Protective gear from simple leather to complex plate
 
+## Material Bonuses
+
+When crafting armor, all components of the same type must be the same material to receive that material's bonuses. For example, plate armor requires 4 plates. If all 4 plates are True Steel, the armor gains the True Steel bonus. If the plates are mixed materials, no material bonus is applied.
+
 ## Infusion System
 
 When crafting weapons or armor, fabricators can attempt to add infusions that enhance the item's properties. Each infusion requires an additional success at the required check. For example, if crafting a sword has a required check of 7, adding one infusion means you need 2 successes at 7 or higher.

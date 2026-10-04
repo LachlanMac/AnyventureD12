@@ -1,7 +1,7 @@
 {
   "name": "Dheonix",
-  "description": "A dheonix is the demonic counterpart of the phoenix, often portrayed as a harbinger of the end times — a massive bird-shaped demon wreathed in dark flames. This enormous creature is notoriously difficult to kill, able to reform within the fires it creates. Its wingspan blots out the sun and its shriek heralds destruction.",
-  "tactics": "The dheonix fights primarily from the air, using its flight speed to stay out of melee range. It opens by scattering dheonix fires across the battlefield with Firebolt and Dheonix Fire, then pulses them with Dark Pulse to suppress the party. When cornered or badly damaged, it detonates with Font of Flames to reform at a dheonix fire and reset the fight. It uses Noxious Smoke to punish any creature that tries to land a decisive blow. The party must recognize that extinguishing all dheonix fires before the dheonix is killed — or immediately when it dies — is the only path to permanent victory.",
+  "description": "A dheonix is the demonic counterpart of the phoenix, often portrayed as a harbinger of the end times \u2014 a massive bird-shaped demon wreathed in dark flames. This enormous creature is notoriously difficult to kill, able to reform within the fires it creates. Its wingspan blots out the sun and its shriek heralds destruction.",
+  "tactics": "The dheonix fights primarily from the air, using its flight speed to stay out of melee range. It opens by scattering dheonix fires across the battlefield with Firebolt and Dheonix Fire, then pulses them with Dark Pulse to suppress the party. When cornered or badly damaged, it detonates with Font of Flames to reform at a dheonix fire and reset the fight. It uses Noxious Smoke to punish any creature that tries to land a decisive blow. The party must recognize that extinguishing all dheonix fires before the dheonix is killed \u2014 or immediately when it dies \u2014 is the only path to permanent victory.",
   "tier": "elite",
   "type": "dark",
   "size": "huge",
@@ -162,7 +162,7 @@
     },
     "heat": {
       "min": 8,
-      "max": 25
+      "max": 18
     },
     "electric": {
       "min": 2,

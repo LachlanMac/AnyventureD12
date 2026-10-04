@@ -4,7 +4,7 @@
   "charge": "The radius increases to short (10 units). Creatures inside suffer 2 penalty dice on all spell checks, and spells cannot cross the boundary of the field; spells channeled outside cannot enter, and spells channeled inside cannot exit.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Void Dust"
   ],

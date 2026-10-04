@@ -4,7 +4,7 @@
   "charge": "The threshold for removing effects caused by spells becomes equal to the result of your spell check when channeling the spell.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Lead Ingot"
   ],

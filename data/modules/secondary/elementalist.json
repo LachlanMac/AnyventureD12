@@ -54,7 +54,7 @@
     },
     {
       "name": "Fully Attuned",
-      "description": "You gain +2 mitigation to cold, heat and electric damage. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
+      "description": "You gain +1 heat, cold and electric mitigation. Additionally, you are immune from damage from non-magical sources of heat, cold or electric such as weather or natural phenomenon.",
       "location": "6b",
       "data": "TG:M2=1:M3=1:M4=1"
     },

@@ -1,0 +1,23 @@
+{
+  "name": "Infernal Gate",
+  "description": "You open a small rift to the infernal plane. Roll a 1d20 to determine what answers: 1-10 nothing comes through, 11-16 a standard-tier devil, 17-19 a champion-tier devil, 20 an elite-tier devil. Standard-tier devils are under your control. Champion and elite-tier devils are not under your control and act on their own will. When a summoned devil reaches 0 health, it returns to its home plane. If you know a devil by name, you can attempt to summon it directly. If the devil is willing, the spell succeeds. If it is not willing, your spell check must beat double the devil's resilience. If nothing comes through or the spell fails to channel, the rift destabilizes and this spell cannot be cast again for 1d4 days.",
+  "charge": "The formula changes to: 1-10 a standard-tier devil, 11-15 a champion-tier devil, 16+ an elite-tier devil. Champion-tier devils are also under your control.",
+  "duration": "Permanent",
+  "range": 1,
+  "checkToCast": 15,
+  "components": [
+    "Iron Idol",
+    "Fire Opal",
+    "Fire Opal"
+  ],
+  "ritualDuration": "10 minutes",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

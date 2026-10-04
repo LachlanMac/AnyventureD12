@@ -4,7 +4,7 @@
   "charge": "The damage is increased to 10 dark damage.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "an iron arrow"
   ],

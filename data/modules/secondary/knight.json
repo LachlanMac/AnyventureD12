@@ -24,7 +24,7 @@
     },
     {
       "name": "Second Skin",
-      "description": "You are well acquainted with getting the most out of your armor. When you are wearing heavy armor, gain +1 physical and +1 aetheric mitigation.",
+      "description": "You are well acquainted with getting the most out of your armor. When you are wearing heavy armor, your physical and aetheric mitigation limits are each lowered by 1.",
       "location": "3",
       "data": "CC[N1=-1,N7=-1]"
     },

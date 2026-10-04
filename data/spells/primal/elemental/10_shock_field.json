@@ -4,7 +4,7 @@
   "charge": "The damage increases to 15 electric damage. Alternatively, instead of dealing damage, you can make a spell check against the target's concentration. If your spell check beats their concentration, they become dazed. If your spell check is double their concentration, they become stunned.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Spark Dust"
   ],

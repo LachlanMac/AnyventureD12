@@ -18,7 +18,7 @@
     },
     {
       "name": "Master of Nightmares",
-      "description": "You are the master of your own dreams. Gain +2 psychic mitigation. Additionally, you cannot be affected by spells or other effects that influence your dreams.",
+      "description": "You are the master of your own dreams. Gain +1 psychic mitigation and your psychic mitigation limit is lowered by 1. Additionally, you cannot be affected by spells or other effects that influence your dreams.",
       "location": "2b",
       "data": "M8=1:N8=-1:TG"
     },

@@ -4,7 +4,7 @@
   "charge": "The spell can be cast at an object within a moderate (20 unit) distance.",
   "duration": "Concentration",
   "range": 1,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Nickel Shavings"
   ],

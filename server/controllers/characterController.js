@@ -1,4 +1,5 @@
 import Character from '../models/Character.js';
+import Ancestry from '../models/Ancestry.js';
 import Item from '../models/Item.js';
 import Trait from '../models/Trait.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
@@ -69,7 +70,8 @@ export const getCharacters = async (req, res) => {
       .populate('modules.moduleId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('traits.traitId');
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
 
     // Apply module bonuses to each character
     const charactersWithBonuses = characters.map(character => {
@@ -108,7 +110,8 @@ export const getCharacter = async (req, res) => {
       .populate('inventory.itemId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
-      .populate('traits.traitId');
+      .populate('traits.traitId')
+      .populate('injuries.injuryId');
 
 
     if (!character) {
@@ -302,8 +305,25 @@ export const createCharacter = async (req, res) => {
     };
 
     // Ensure languageSkills default is preserved if not provided
-    if (!finalCharacterData.languageSkills) {
-      finalCharacterData.languageSkills = new Map([['common', 2]]);
+    if (!finalCharacterData.languageSkills || Object.keys(finalCharacterData.languageSkills).length === 0) {
+      const defaultLanguages = { common: 2 };
+
+      // Add ancestry language at tier 3 (fluent)
+      if (finalCharacterData.ancestry?.ancestryId) {
+        try {
+          const ancestry = await Ancestry.findById(finalCharacterData.ancestry.ancestryId);
+          if (ancestry?.language) {
+            const langId = ancestry.language.toLowerCase().replace(/[- ]/g, '_');
+            if (langId !== 'common') {
+              defaultLanguages[langId] = 3;
+            }
+          }
+        } catch (err) {
+          console.error('Error looking up ancestry language:', err);
+        }
+      }
+
+      finalCharacterData.languageSkills = new Map(Object.entries(defaultLanguages));
     }
 
     // Ensure default size is set
@@ -1257,7 +1277,8 @@ export const exportCharacterToFoundry = async (req, res) => {
       .populate('equipment.offhand.itemId')
       .populate('equipment.extra1.itemId')
       .populate('equipment.extra2.itemId')
-      .populate('equipment.extra3.itemId');
+      .populate('equipment.extra3.itemId')
+      .populate('injuries.injuryId');
 
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
@@ -2307,6 +2328,38 @@ export const exportCharacterToFoundry = async (req, res) => {
           };
           foundryActor.items.push(languageItem);
         }
+      }
+    }
+
+    // Add injuries as items if they exist
+    if (character.injuries && character.injuries.length > 0) {
+      for (const charInjury of character.injuries) {
+        const injuryData = charInjury.injuryId;
+        if (!injuryData) continue;
+
+        const injuryItem = {
+          _id: injuryData.foundry_id || generateFoundryId(),
+          name: injuryData.name,
+          type: "injury",
+          img: injuryData.foundry_icon || "icons/skills/wounds/injury-pain-body-orange.webp",
+          system: {
+            description: injuryData.description || "",
+            injuryType: injuryData.type,
+            cause: charInjury.notes || "",
+            recovery_check: injuryData.recovery_dc || 0,
+            recovery_skill: injuryData.recovery_stat || "resilience",
+            pain: injuryData.pain || 0,
+            stress: injuryData.stress || 0,
+            data: injuryData.data || ""
+          },
+          flags: {
+            anyventure: {
+              originalId: injuryData._id.toString()
+            }
+          },
+          ownership: { default: 0 }
+        };
+        foundryActor.items.push(injuryItem);
       }
     }
 

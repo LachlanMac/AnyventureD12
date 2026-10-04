@@ -12,13 +12,13 @@
     },
     {
       "name": "Sacred Vessel",
-      "description": "Your body has become a conduit for energy. Gain +2 mitigation to aethericic damage. When you take 5 or more divine damage after mitigation is calculated, you gain +2 energy.",
+      "description": "Your body has become a conduit for energy. Gain +1 aetheric mitigation and your aetheric mitigation limit is lowered by 1. When you take 5 or more divine damage after mitigation is calculated, you gain +2 energy.",
       "location": "2a",
       "data": "TG:M7=1:N7=-1"
     },
     {
       "name": "Fortified from Darkness",
-      "description": "You gain +2 dark mitigation. When defending against a black magic spell, gain a bonus dice to your check against it.",
+      "description": "You gain +1 dark mitigation and your dark mitigation limit is lowered by 1. When defending against a black magic spell, gain a bonus dice to your check against it.",
       "location": "2b",
       "data": "TG:M5=1:N5=-1"
     },

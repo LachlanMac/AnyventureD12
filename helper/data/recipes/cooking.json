@@ -1,0 +1,162 @@
+[
+    {
+        "name": "Basic Meal / Snack",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "4",
+        "time": "10m",
+        "description": "You combine ingredients to create a dish that counts as two meals or two individual Snacks.",
+        "ingredients": ["2 of the following : Cup of Beans, Piece of Meat, 2 Vegetables, 2 Fruit or Cup of Rice"],
+        "cost": "< 1 GP"
+    },
+    {
+        "name": "Improved Meal / Snack",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "6",
+        "time": "20m",
+        "description": "You combine ingredients to create a dish that counts as two Meals or two individual Snacks.",
+        "ingredients": [
+            "4 of the following : Cup of Beans, Piece of Meat, 2 Vegetables, 2 Fruit or Cup of Rice",
+            "Pinch of Salt or Sugar",
+            "A Splash of Cheap Wine or Whiskey"
+        ],
+        "cost": "2 GP"
+    },
+
+    {
+        "name": "Pot of Stew",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+
+        "description": "You create a large pot of Stew meant to be shared by multiple people, equal to 10 Meals.",
+        "ingredients": [
+            "6 Vegetables or 3 Pieces of Meat",
+            "2 Cups of Beans",
+            "2 Cups of Rice or 4 Vegetables",
+            "5 Pinches of Salt",
+            "5 Pinches of Pepper"
+        ],
+        "cost": "5 GP"
+    },
+
+    {
+        "name": "Sweet Snack",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "7",
+        "time": "20m",
+
+        "description": "You create 2 sweetened snacks packed with energy, that upon consumption temporarily suppresses any effects of exhaustion for 1 hour. You can only benefit from this effect once per Full Rest.",
+        "ingredients": ["2 Pieces of Fruit", "2 Pinches of Flour", "2 Pinches of Sugar", "Drop of Honey", "Cup of Milk"],
+        "cost": "2 GP"
+    },
+    {
+        "name": "Pet Snack",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "7",
+        "time": "20m",
+
+        "description": "You create 2 snacks designed for a Beast. Any Animal Checks made towards the Beast that consumes this snack gains a +2 Bonus for the next hour.",
+        "ingredients": ["Chunk of Meat or 2 Vegetables", "2 Pinches of Flour"],
+        "cost": "2 GP"
+    },
+    {
+        "name": "Jerky",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "7",
+        "time": "1h",
+
+        "description": "You create 2 snacks packed with protein. After taking your next Breather, regain 1d4 Health. You can only benefit from this Health Bonus once per Full Rest.",
+        "ingredients": ["2 Chunks of Meat", "5 Pinches of Salt", "Splash of Cooking Oil"],
+        "cost": "1 GP"
+    },
+    {
+        "name": "Feast of the Valiant",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "7",
+        "time": "4h",
+
+        "description": "You Create a Bountiful Feast that can be shared with multiple people, equal to 20 Meals. Anyone who spends at least 1 Hour consuming at least one meal from the Feast recovers an extra 3d4 Health after their next Full Rest.",
+        "ingredients": [
+            "10 Vegetables",
+            "10 Fruit",
+            "10 Chunks of Meat or a Medium-Sized Beast",
+            "Barrel of Ale",
+            "10 Pinches of Salt and Pepper",
+            "1 Wheel of Cheese"
+        ],
+        "cost": "100 GP"
+    },
+    {
+        "name": "Fancy Meal / Snack",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "8",
+        "time": "1h",
+
+        "description": "You combine ingredients to create a dish that counts as two Meals or two individual Snacks.",
+        "ingredients": [
+            "4 of the following : Cup of Beans, Piece of Meat, 2 Vegetables, 2 Fruit or Cup of Rice",
+            "Pinch of Salt or Sugar",
+            "Pinch of Spices",
+            "A Splash of Fine Wine"
+        ],
+        "cost": "10 GP"
+    },
+    {
+        "name": "Fortifying Snack",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "8",
+        "time": "1h",
+
+        "description": "You create a 2 Fortifying Snacks that grants Cold and Fire Mitigation equal to your Cooking Modifier after 1 Hour that lasts until the end of your next Full Rest.",
+        "ingredients": ["2 Fruit or 2 Vegetables", "Cup of Rice", "Bundle of Mint", "4 Pinches of Spice", "Splash of Whiskey"],
+        "cost": "5 GP"
+    },
+
+    {
+        "name": "Banquet of Heroes",
+        "type": "Cooking",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "description": "You Create a Bountiful Feast that can be shared with multiple people, equal to 20 Meals. Anyone who spends at least 1 Hour consuming at least one meal from the Banquet gains 2d8 Temporary Health and recovers an extra 2d8 Health after their next Full Rest.",
+        "ingredients": [
+            "20 Vegetables",
+            "20 Fruit",
+            "20 Chunks of Meat or a Large-Sized Beast",
+            "1 Bottle of Fine Wine",
+            "10 Pinches of Spices",
+            "10 Pinches of Salt and Pepper",
+            "1 Wheel of Aged Cheese"
+        ],
+        "cost": "100 GP"
+    },
+    {
+        "name": "Augment Food [Egg]",
+        "type": "Cooking",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "description": "Add an Egg to an unfinished Recipe to increase the Focus Points recovered at the end of a Full Rest. Requires Cooking Augmentations.",
+        "ingredients": ["T1 Egg : +2", "T2 Egg : +4", "T3 Egg : +8"],
+        "cost": ""
+    },
+    {
+        "name": "Augment Food [Meat]",
+        "type": "Cooking",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "description": "Add Special Meat to an unfinished Recipe to increase the Health Points recovered at the end of a Full Rest. Requires Cooking Augmentations.",
+        "ingredients": ["T1 Egg : +3, T2 Egg : +6", "T3 Egg : +12"],
+        "cost": ""
+    }
+]

@@ -4,7 +4,7 @@
   "charge": "When you cast this spell charged, it opens a separate pocket that can hold a different item, allowing you to maintain two pockets at the same time.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Malachite"
   ],

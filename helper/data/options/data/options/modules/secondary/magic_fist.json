@@ -1,0 +1,71 @@
+{
+  "id": 279,
+  "name": "Magic Fist",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1750,
+      "name": "Spellfist Conduit",
+      "description": "When your conduit is installed on either Gloves or an Unarmed Weapon worn on the hand, all of your Ray, Projectile and Melee Attack Spells that target a single creature have their range reduced to adjacent targets, but use your Unarmed Attack modifier instead of your Spell Attack modifier.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TF"
+    },
+    {
+      "id": 1751,
+      "name": "Untamed Magic",
+      "description": "Gain +1 Arcanum and +1 Spell Damage",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AZ4=1:AS7=1"
+    },
+    {
+      "id": 1752,
+      "name": "Disciplined Magic",
+      "description": "Gain +1 Elemental Mitigation and +1 Damage with Unarmed Strikes",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ADA=1:AZN=1"
+    },
+    {
+      "id": 1756,
+      "name": "Free Action : Spellfist Charge",
+      "description": "When you Channel a Ray, Projectile or Melee Attack Spell using your Spellfist Conduit it becomes Charged.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1754,
+      "name": "Extended Spellfist",
+      "description": "The Range limitations on your Ray, Projectile and Melee Attack Spells from your Spellfist Conduit are removed.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TF"
+    },
+    {
+      "id": 1753,
+      "name": "Unarmed Accuracy",
+      "description": "Gain +1 Unarmed Attack",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AZM=1"
+    },
+    {
+      "id": 1756,
+      "name": "Form of the Elementals",
+      "description": "You gain the Elemental Fist Stance.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "H=23"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "charge": "The distance is increased to short (10 units) but you automatically return to your origin at the end of your next turn.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Bundle of Peppermint"
   ],

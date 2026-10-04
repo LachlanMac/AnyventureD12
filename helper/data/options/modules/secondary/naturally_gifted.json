@@ -1,0 +1,71 @@
+{
+  "id": 226,
+  "name": "Naturally Gifted",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1386,
+      "name": "Quick Learner",
+      "description": "When you gain access to a new tier of spells through a Core Module, learn 1 Spell from that tier automatically. This is retroactive for schools you already know.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1387,
+      "name": "Attuned",
+      "description": "Gain +1 Arcanum, +3 Power and +2 Power Regeneration",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AS7=1:FP=3:FR=2"
+    },
+    {
+      "id": 1388,
+      "name": "Wisened",
+      "description": "Gain +1 Academics and +1 Wilderness",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS9=1:ASB=1"
+    },
+    {
+      "id": 1389,
+      "name": "Natural Magic",
+      "description": "Gain +1 Spell Attack",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ2=1"
+    },
+    {
+      "id": 1390,
+      "name": "Reaction : Inspire",
+      "description": "When you or an Ally make a Knowledge Check, you inspire them, adding a 1d6 Bonus to their Check. This ability can only be used a number of times per day equal to your Knowledge Attribute.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1391,
+      "name": "Artisan",
+      "description": "Gain +1 to all Crafting Skills",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "ACA=1"
+    },
+    {
+      "id": 1392,
+      "name": "Superior Focus",
+      "description": "While you are Focusing on a Spell or Ballad, gain +1 to all Defensive Checks and Immunity to the Maddened and Afraid Conditions",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TD"
+    }
+  ]
+}

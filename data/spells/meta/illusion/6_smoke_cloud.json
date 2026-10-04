@@ -4,7 +4,7 @@
   "charge": "You can use your concentration to keep the smoke cloud active indefinitely.",
   "duration": "1 Round",
   "range": 3,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Coal"
   ],

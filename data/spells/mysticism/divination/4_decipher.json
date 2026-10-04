@@ -4,7 +4,7 @@
   "charge": "You can also interpret magical glyphs and predict what types of effects they may have if they are activated.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Quartz"
   ],

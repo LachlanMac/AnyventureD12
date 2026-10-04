@@ -4,7 +4,7 @@
   "charge": "The spell targets an additional creature.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Opal"
   ],

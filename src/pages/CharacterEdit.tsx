@@ -501,12 +501,18 @@ const CharacterEdit: React.FC = () => {
 
             // Seed initial selections from saved characterCulture
             const sel = charData.characterCulture || {};
-            const restriction = sel.selectedRestriction
-              ? (culture.culturalRestrictions || []).find((r: any) => r.name === (sel.selectedRestriction.name || sel.selectedRestriction)) || sel.selectedRestriction
+            let restriction = sel.selectedRestriction
+              ? (culture.culturalRestrictions || []).find((r: any) => r.name === (sel.selectedRestriction.name || sel.selectedRestriction))
               : undefined;
-            const benefit = sel.selectedBenefit
-              ? (culture.benefits || []).find((b: any) => b.name === (sel.selectedBenefit.name || sel.selectedBenefit)) || sel.selectedBenefit
+            if (!restriction && sel.selectedRestriction) {
+              restriction = { ...sel.selectedRestriction, custom: true };
+            }
+            let benefit = sel.selectedBenefit
+              ? (culture.benefits || []).find((b: any) => b.name === (sel.selectedBenefit.name || sel.selectedBenefit))
               : undefined;
+            if (!benefit && sel.selectedBenefit) {
+              benefit = { ...sel.selectedBenefit, custom: true };
+            }
             const startingItem = sel.selectedStartingItem
               ? (culture.startingItems || []).find((s: any) => s.name === (sel.selectedStartingItem.name || sel.selectedStartingItem)) || sel.selectedStartingItem
               : undefined;
@@ -748,12 +754,48 @@ const CharacterEdit: React.FC = () => {
   };
 
   // Update crafting skill talent
+  // First talent point grants 2 talent (bonus for investing in crafting)
   const updateCraftingSkillTalent = (skillId: string, newTalent: number) => {
     if (newTalent < 0 || newTalent > 4) {
       return;
     }
 
     const oldTalent = character.craftingSkills[skillId]?.talent || 0;
+
+    // First point bonus: going from 0 to 1 actually sets to 2, costs 1 point
+    if (oldTalent === 0 && newTalent === 1) {
+      if (talentStarsRemaining < 1) return;
+      setCharacter((prev) => ({
+        ...prev,
+        craftingSkills: {
+          ...prev.craftingSkills,
+          [skillId]: {
+            ...(prev.craftingSkills[skillId] || { value: 0 }),
+            talent: 2,
+          },
+        },
+      }));
+      setTalentStarsRemaining((prev) => prev - 1);
+      return;
+    }
+
+    // Removing the bonus: going from 2 to 1 actually sets to 0, refunds 1 point
+    if (oldTalent === 2 && newTalent === 1) {
+      setCharacter((prev) => ({
+        ...prev,
+        craftingSkills: {
+          ...prev.craftingSkills,
+          [skillId]: {
+            ...(prev.craftingSkills[skillId] || { value: 0 }),
+            talent: 0,
+          },
+        },
+      }));
+      setTalentStarsRemaining((prev) => prev + 1);
+      return;
+    }
+
+    // Normal behavior for talent 2->3, 3->4, etc.
     const starDifference = oldTalent - newTalent;
 
     if (talentStarsRemaining + starDifference < 0) {

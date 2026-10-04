@@ -4,7 +4,7 @@
   "charge": "The platform becomes 2 by 2 units and the fly speed is upgraded to 8 units.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Electrum Nugget"
   ],

@@ -4,7 +4,7 @@
   "charge": "If you are missing a limb or have a damaged body part, this spell provides a replacement that lasts until your next full rest.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Copper Ingot"
   ],

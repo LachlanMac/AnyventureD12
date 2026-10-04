@@ -4,7 +4,7 @@
   "charge": "The spell protects against an additional mental condition before ending.",
   "duration": "1 minute",
   "range": 1,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Citrine"
   ],

@@ -1,0 +1,71 @@
+{
+  "id": 266,
+  "name": "Loremaster",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1659,
+      "name": "Booksmarts",
+      "description": "Gain +1 Scribing. Additionally, gain +2 to Knowledge Checks when recalling historical events about Architecture, cultures and Famous Figures",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TG:AC3=1"
+    },
+    {
+      "id": 1660,
+      "name": "Versed in Magic",
+      "description": "Gain +2 Arcane Mitigation and +2 Psychic Mitigation",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ADC=2:AD9=2"
+    },
+    {
+      "id": 1661,
+      "name": "Lorekeeper",
+      "description": "Gain +1 Academics, +1 Wilderness and +1 Arcanum",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS9=1:ASB=1:AS7=1"
+    },
+    {
+      "id": 1662,
+      "name": "Student of Magic",
+      "description": "Gain +1 Spell Attack",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ2=1"
+    },
+    {
+      "id": 1663,
+      "name": "Master of Language",
+      "description": "You learn one Magical and one non-Magical Language.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1664,
+      "name": "Master of Artifacts",
+      "description": "You can attempt to Identify magical effets on an Object with an Arcanum or Academics Check of 12 and by spending 1 Hour studying it. With a 15 or higher, you recall information about any curses that may be associated with the Object.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1665,
+      "name": "Reaction : Student of Magic",
+      "description": "When forced to make a Resistance Check against a Spell or Ability, you make an Arcanum Check instead.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "charge": "You summon two additional tendrils, placing each within a moderate (20 unit) distance. You make a single arcane magic check at the start of your turn, and all tendrils attack using that result.",
   "duration": "Concentration",
   "range": 5,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Vial of Liquid Aetherium"
   ],

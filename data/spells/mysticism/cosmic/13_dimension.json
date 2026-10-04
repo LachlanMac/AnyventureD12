@@ -1,0 +1,21 @@
+{
+  "name": "Dimension",
+  "description": "You touch a small object with an interior (a locket, box, chest, bottle) and create a pocket dimension within it that lasts for 1 day. The interior space is a 10x10x10 unit room with solid ground, breathable air, and soft light. You and creatures you permit can use an action while touching the object to enter the dimension. Only one creature can exit per round, appearing in an adjacent space at the start of the next round. If the object is destroyed, the dimension collapses. Creatures inside are ejected and take 10 true damage. Objects inside are lost.",
+  "charge": "The dimension is permanent until the object is destroyed or the magic is removed. The dimension retains its contents between uses.",
+  "duration": "1 day",
+  "range": 1,
+  "checkToCast": 15,
+  "components": [
+    "Star Ruby"
+  ],
+  "ritualDuration": "10 minutes",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

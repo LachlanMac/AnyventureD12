@@ -4,7 +4,7 @@
   "charge": "The spell becomes a moderate (20 unit) line, forcing all creatures within the area to make the defense check. Instead of being knocked prone, any medium or smaller creature that is hit by the whorl is pushed an adjacent square not within the line.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Ember Dust"
   ],

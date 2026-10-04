@@ -4,7 +4,7 @@
   "charge": "You can use a subsequent action to cause the blades to expand and retract at the cost of 1 energy, forcing any nearby creatures to make the check or take damage.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Any Bladed Weapon"
   ],

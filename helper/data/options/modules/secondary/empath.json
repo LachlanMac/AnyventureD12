@@ -1,0 +1,71 @@
+{
+  "id": 225,
+  "name": "Empath",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1379,
+      "name": "Action : Telepathy",
+      "description": "You can speak into another Creatures mind that is within 10 units of you using your choice of Language. Magical Languages extend this Distance to 20 Units.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1380,
+      "name": "People Pleaser",
+      "description": "Gain +1 Persuasion and +1 Insight",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASC=1:ASD=1"
+    },
+    {
+      "id": 1381,
+      "name": "Helpful",
+      "description": "Gain +1 Academics and +1 Medicine",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS9=1:AS8=1"
+    },
+    {
+      "id": 1382,
+      "name": "Interference",
+      "description": "Gain +1 Resistance and +2 Psychic Mitigation",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AD1=1:AD9=2"
+    },
+    {
+      "id": 1383,
+      "name": "Action : Mind Aura",
+      "description": "You reach out in an area with a radius equal to your level. You can sense the minds of any Humanoid or Beast and have a vague idea of their intent such as if they are hostile, scared or friendly.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1384,
+      "name": "Reaction : Empathy",
+      "description": "When an Ally within 10 Units of you that you have Line of Sight on takes Physical or Psychic Damage, you can shield their mind with yours and split the Damage in half before applying Mitigation, with you taking one half, and your ally the other.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1385,
+      "name": "Action : Mindreader",
+      "description": "You attempt to read the mind of a Creature that speaks a Language you understand by making a Contested Insight Check against their Resistance. On a success, you can read the most immediate thoughts of the Creature. Additionally, you can elect to deal psychic damage to them equal to twice your Level. On a failure, the Creature is aware that you are attempting to read their mind and you take Psychic Damage equal to the value of their Resistance Check and you cannot use this ability again until you take a Breather.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

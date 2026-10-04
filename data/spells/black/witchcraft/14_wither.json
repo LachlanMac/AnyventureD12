@@ -1,0 +1,21 @@
+{
+  "name": "Wither",
+  "description": "You touch a creature and begin to rapidly age their body if your spell check beats the target's endurance. The spell lasts up to 4 rounds. At the start of each round, the target must make an endurance check against your original spell check. On failure, their physique, finesse, and weapon talents are each reduced by 1. The required check decreases by 2 each time. On success, the spell ends and the reductions fade. If the target fails all 4 checks, the reductions are permanent and can only be removed by a spell that can remove or cancel magic. Standard tier or lower creatures turn to dust.",
+  "charge": "Elite tier creatures or lower can also be turned to dust on 4 failures.",
+  "duration": "4 rounds",
+  "range": 1,
+  "checkToCast": 16,
+  "components": [
+    "Soul Sand"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "endurance",
+  "delivery": "direct"
+}

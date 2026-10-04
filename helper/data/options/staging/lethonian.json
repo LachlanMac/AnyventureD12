@@ -1,0 +1,65 @@
+{
+  "id": 34,
+  "name": "Lethonian [The Lawless Sea]",
+  "mtype": "racial",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1,
+      "name": "Of the Waves",
+      "description": "Beng Lethonian is being on the sea. You gain +1 Athletics and you can hold your breath for twice as long.",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 2,
+      "name": "Seawitch",
+      "description": "The Lethonions are known for employ see witches to ease the passage across the abyss. Gain +1 Spell Damage and Learn 2 Beginner and 2 Novice Spells from the Aquamancy or Aeromancy schools of magic.",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 3,
+      "name": "Acquired Immunity",
+      "description": "Living in such close quarters has made you esspecially resilient to diseases. Gain +1 Resilience. When becoming diseased or poisoned, roll a 1d4. On a 4, you do not gain the condition.",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 4,
+      "name": "Many Ports",
+      "description": "Lethonians often grow up alongside many other cultures. Gain +1 Insight and Learn one non-magical Language ",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    
+    {
+      "id": 5,
+      "name": "Sea Rat",
+      "description": "Gain +1 Thievery Knowledge and learn the Duelist Stance",
+      "location": "4a",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 6,
+      "name": "Astral Navigator",
+      "description": "Description for Option 4b",
+      "location": "4b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 7,
+      "name": "Option 5",
+      "description": "Description for Option 5",
+      "location": "5",
+      "cost": 3,
+      "data": ""
+    }
+  ]
+}

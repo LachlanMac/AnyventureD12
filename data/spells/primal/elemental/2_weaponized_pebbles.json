@@ -4,7 +4,7 @@
   "charge": "You launch 1d6 pebbles instead. The damage cannot be mitigated lower than 1 physical damage.",
   "duration": "Instantaneous",
   "range": 2,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "Iron Shavings"
   ],

@@ -4,7 +4,7 @@
   "charge": "When you roll an 8 or higher when performing a miracle, you can remove a single permanent condition as well.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Diamond"
   ],

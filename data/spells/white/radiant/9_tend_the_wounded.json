@@ -4,7 +4,7 @@
   "charge": "The spell gains a short (10 unit) range and removes the limitation of not being able to restore health beyond half the target's maximum health.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Gold Shavings"
   ],

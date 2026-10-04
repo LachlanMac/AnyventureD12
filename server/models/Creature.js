@@ -188,6 +188,15 @@ const creatureSchema = new mongoose.Schema({
     min: 0,
     max: 2
   },
+  // Unarmed attack: uses physique talent + fitness skill, damage = physique value per hit
+  canUnarmedAttack: {
+    type: Boolean,
+    default: false
+  },
+  unarmedAttackName: {
+    type: String,
+    default: 'Unarmed Strike'
+  },
   type: {
     type: String,
     required: true,
@@ -321,6 +330,34 @@ const creatureSchema = new mongoose.Schema({
     }
   },
 
+  // Weapon Skills
+  weaponSkills: {
+    brawling: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    throwing: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    simpleMeleeWeapons: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    simpleRangedWeapons: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    complexMeleeWeapons: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    },
+    complexRangedWeapons: {
+      talent: { type: Number, min: 0, max: 8, default: 0 },
+      skill: { type: Number, min: 0, max: 8, default: 0 }
+    }
+  },
+
   // Magic Skills
   magicSkills: {
     blackMagic: {
@@ -440,6 +477,22 @@ const creatureSchema = new mongoose.Schema({
   creator: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
   isHomebrew: { type: Boolean, default: false },
   
+  // Equipment - items equipped on the creature (stored by name for lookup)
+  equipment: {
+    mainhand: { type: String, default: null },
+    offhand: { type: String, default: null },
+    body: { type: String, default: null },
+    head: { type: String, default: null },
+    hand: { type: String, default: null },
+    boots: { type: String, default: null },
+    back: { type: String, default: null },
+    accessory1: { type: String, default: null },
+    accessory2: { type: String, default: null }
+  },
+
+  // Variant system - links related creatures together
+  variantOf: { type: String, default: null }, // Name of the base creature this is a variant of
+
   // Homebrew fields
   creatorName: { type: String },
   status: {

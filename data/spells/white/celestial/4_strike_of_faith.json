@@ -4,7 +4,7 @@
   "charge": "The attacker using the enchanted weapon or ammunition rolls with a bonus dice.",
   "duration": "1 minute",
   "range": 4,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Silver Nugget"
   ],

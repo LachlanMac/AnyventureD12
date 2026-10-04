@@ -1,0 +1,71 @@
+{
+  "id": 244,
+  "name": "Juggernaut",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1512,
+      "name": "Juggernaut Stance",
+      "description": "Gain the Juggernaut Fighting Stance",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "H=14"
+    },
+    {
+      "id": 1513,
+      "name": "Walking Fortress",
+      "description": "Gain +1 Elemental Mitigation and +3 Health",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ADA=1:AH=3"
+    },
+    {
+      "id": 1514,
+      "name": "Power Rush",
+      "description": "Gain +1 Initiative and +1 Strength",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ASH=1:AS2=1"
+    },
+    {
+      "id": 1515,
+      "name": "Power Strikes",
+      "description": "Gain +1 Damage with Melee Attacks",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZA=1:AZB=1:AZC=1:AZN=1"
+    },
+    {
+      "id": 1516,
+      "name": "Action : Multislash",
+      "description": "On your next Attack action this Turn, you can make 3 Attacks with a Heavy 2-Handed Weapon.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1517,
+      "name": "Action : Leaping Slash",
+      "description": "You leap 3 Units and make an Attack against the closest enemy without provoking Reactions.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1518,
+      "name": "Free Action : Brutal Strike",
+      "description": "While in the Juggernaut Fighting Stance, make a Shove Attack that can only be used to Displace. If the Shove Attack is successful, deal Physical Damage equal your Strength Modifier.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

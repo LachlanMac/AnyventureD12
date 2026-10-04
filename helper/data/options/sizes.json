@@ -1,0 +1,24 @@
+[
+    {
+        "id": 1,
+        "name": "Small Creature",
+        "description": "Small Creatures gain +1 Dodge and Stealth while having a -1 penalty to Movement Speed and Strength. They cannot wield Heavy Weapons and have a decreased carrying capacity.",
+        "code": "AD2=1:AS4=1:AV=-1:AS2=-1",
+        "avd12_id": ""
+    },
+    {
+        "id": 2,
+        "name": "Medium Creature",
+        "description": "Medium Creatures are standard size, gaining no penalties or bonuses.",
+        "code": "",
+        "avd12_id": ""
+    },
+    {
+        "id": 3,
+        "name": "Large Creature",
+        "description": "Large creatures gain a +1 Strength and Block while having a -1 penalty to Stealth, Acrobatics and Dodge.They must consume 4 Meals per day to qualify for the benefits from a Full Rest. Additionally, they take up double the space of a normal creature but have an increased carrying capacity.",
+        "code": "AD3=1:AD2=-1:AS4=-1:AS3=-1:AS2=1",
+        "avd12_id": ""
+    }
+
+]

@@ -4,7 +4,7 @@
   "charge": "You also choose a mind, physique or finesse skill check that the target must roll with a penalty dice for the duration of this spell.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Bundle of Mandrake"
   ],

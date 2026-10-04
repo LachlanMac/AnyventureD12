@@ -1,0 +1,71 @@
+{
+  "id": 260,
+  "name": "Spectral Weapon",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1617,
+      "name": "Spectral Weapon",
+      "description": "You designate a Light 1 or 2 Handed Melee Weapon as your Spectral Weapon with a 1 Hour Ritual. This weapon can be summoned and dismissed as a Free Action. If you throw this weapon, it appears in your hand after hitting or missing your target.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1618,
+      "name": "Spectral Shield",
+      "description": "Gain +4 Psychic Mitgation",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AD9=4"
+    },
+    {
+      "id": 1619,
+      "name": "Spectral Twin",
+      "description": "You can designate a second Weapon as a Spectral Weapon which behaves in the same manner. With a Free Action, you can summon one or both Spectral Weapon.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1620,
+      "name": "Ethereal Weapons",
+      "description": "Your Spectral Weapons deal an extra 1d4 Psychic Damage. This dice increases to 1d8 at level 7, and 2d6 at level 10",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1621,
+      "name": "Reaction : Spectral Parry",
+      "description": "When you are Attacked by a Melee Weapon, you can summon a brief duplicate of your Spectral Weapon to attempt to Parry the Attack. Roll a 1d6 and add that to your Block Modifier.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1622,
+      "name": "Action : Psychic Onslaught",
+      "description": "Until the end of your next turn, the Primary Damage of your Spectral Weapons are convereted to Psychic Damage.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1623,
+      "name": "Action : Phantom Rush",
+      "description": "Your Spectral Weapon appears Adjacent to a Target within 6 Units. If your Attack hits, you dash to your weapon if nothing is obstructing your path. Otherwise, you remain in your current position.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

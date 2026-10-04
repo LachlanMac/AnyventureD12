@@ -1,0 +1,71 @@
+{
+  "id": 249,
+  "name": "Investigator",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1540,
+      "name": "Investigator",
+      "description": "Gain +1 Search and +1 Insight",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "ASG=1:ASD=1"
+    },
+    {
+      "id": 1541,
+      "name": "Investigative Research",
+      "description": "At the end of a Full Rest, you choose one Knowledge Skill. Until the end of your next Full Rest, you become Good at that Skill.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1542,
+      "name": "Quick Evaluations",
+      "description": "Whenever an Initiative Check or Modifier is used, you can use your Insight Skill instead",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1543,
+      "name": "Specialist",
+      "description": "You choose a Creature Type besides a Beast or Construct. When you are on the receiving end of a True Hit from a Creature of this Type, it is downgraded 1 Tier. Additionally you gain a +2 Bonus when making Search and Insight Checks against this Creature Type. You can change this Creature Type when you Level or spend at least 1 Week of down time in a Settlement.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1544,
+      "name": "Good Cop",
+      "description": "Gain +1 Persuasion and +1 Performance",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ASC=1:ACE=1"
+    },
+    {
+      "id": 1545,
+      "name": "Bad Cop",
+      "description": "When you have dealt Damage to a Creature within the last minute, you gain a 1d4 Bonus to Insight and Persuasion Checks against them.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1546,
+      "name": "Free Action : Deduction",
+      "description": "You attempt to read a Creatures body language and predict their most likely move by rolling a Contested Insight Check against their Performance. On a success, you gain a 1d4 Bonus to any Defensive Check you make against that Creature until the start of your next turn. This ability does not work on Beasts or Constructs.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

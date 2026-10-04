@@ -1,0 +1,71 @@
+{
+  "id": 245,
+  "name": "Arcanist",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1519,
+      "name": "Free Action : Arcanist Charge",
+      "description": "You can charge Spells at the expense of your mind. Whenever you use this ability, you take Psychic Damage equal to 1d4 per Power cost of the Spell.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1520,
+      "name": "Channeler",
+      "description": "Gain +1 Arcanum and +1 Concentration",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AS7=1:AS5=1"
+    },
+    {
+      "id": 1521,
+      "name": "Reaction : Empower Ally",
+      "description": "When another Creature within 10 Units that you can see Channels a Spell, you can Charge it by spending 2 Focus Points.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1522,
+      "name": "Wizard",
+      "description": "Gain +1 Spell Attack",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ2=1"
+    },
+    {
+      "id": 1523,
+      "name": "Reaction : Prepared Spell",
+      "description": "At the start of Combat, you can Channel a Spell that takes one Action before Initiative Order starts.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1524,
+      "name": "Arcane Dueler",
+      "description": "Gain +1 Resistance and +2 Arcane Mitigation",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AD1=1:ADC=2"
+    },
+    {
+      "id": 1525,
+      "name": "Action : Mind Challenge",
+      "description": "You utilize your Focus to make a Contested Arcanum Check against a Creature with the loser of the Check becoming Dazed. While you Focus on this ability, the Target has a 1d4 Penalty to Resistance and Concentration Checks. This does not work on Creatures who are not capable of making an Arcanum Check.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

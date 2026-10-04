@@ -1,0 +1,21 @@
+{
+  "name": "Prism Prison",
+  "description": "You target a creature within a short (10 unit) distance and encase them in shimmering bands of prismatic light if your spell check beats the target's coordination. Standard tier and lower creatures are incapacitated. Champion and higher tier creatures are impaired. While imprisoned, the creature can use an action to attempt a might or coordination check against your original spell check to break free. On a failed attempt, the creature takes 5 psychic damage. The prison lasts as long as you concentrate.",
+  "charge": "Champion tier and lower creatures are incapacitated instead of impaired. Failed escape attempts deal 10 aetheric damage instead of 5 psychic.",
+  "duration": "Concentration",
+  "range": 4,
+  "checkToCast": 15,
+  "components": [
+    "Prismatic Quartz"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 3,
+  "damage": 5,
+  "damageType": "Psychic",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "coordination",
+  "delivery": "direct"
+}

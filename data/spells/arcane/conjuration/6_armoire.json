@@ -4,7 +4,7 @@
   "charge": "The armoire becomes anchored to a spot and does not vanish after 1 minute. If the armoire is summoned using the non-charged variant of this spell, it returns to this location after the minute duration passes.",
   "duration": "1 minute",
   "range": 1,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Lead Ingot"
   ],

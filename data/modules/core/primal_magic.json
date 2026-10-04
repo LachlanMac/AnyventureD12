@@ -24,7 +24,7 @@
     },
     {
       "name": "Of the Elements",
-      "description": "You are attuned to the elements and gain +1 mitigation to heat, cold and electric damage.",
+      "description": "You are attuned to the elements and your heat, cold and electric mitigation limits are each lowered by 1.",
       "location": "3",
       "data": "N2=-1:N3=-1:N4=-1:TG"
     },

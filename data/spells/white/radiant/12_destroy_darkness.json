@@ -4,7 +4,7 @@
   "charge": "The spell becomes a 5 unit radius centered on yourself, but only affecting all standard tier and lower undead or dark creatures in the area.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Moonstone"
   ],

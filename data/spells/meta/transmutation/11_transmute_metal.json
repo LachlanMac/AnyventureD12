@@ -4,7 +4,7 @@
   "charge": "This spell also works on natural materials such as dirt, stone or wood.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Vial of Quicksilver"
   ],

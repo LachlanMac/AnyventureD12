@@ -4,7 +4,7 @@
   "charge": "The spell becomes a 20 unit long line, dealing damage to any creature it intersects.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Pure Quartz"
   ],

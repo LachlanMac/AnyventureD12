@@ -16,6 +16,7 @@ import BackgroundTab from '../components/character/view/BackgroundTab';
 import SpellsTab from '../components/character/view/SpellsTab';
 import SongsTab from '../components/character/view/SongsTab';
 import InventoryTab from '../components/character/view/InventoryTab';
+import InjuriesTab from '../components/character/view/InjuriesTab';
 
 // Type for spells that come from the API
 interface CharacterSpell {
@@ -472,6 +473,16 @@ const CharacterView: React.FC = () => {
 
           {/* Actions Tab */}
           {activeTab === 'actions' && <ActionsTab character={character} />}
+
+          {/* Injuries Tab */}
+          {activeTab === 'injuries' && (
+            <InjuriesTab
+              character={character}
+              onCharacterUpdate={(updatedChar) => setCharacter(updatedChar as CharacterWithAPI)}
+              onPainStressChange={canEdit ? handlePainStressChange : undefined}
+              canEdit={canEdit}
+            />
+          )}
 
           {/* Traits Tab */}
           {character && activeTab === 'traits' && (

@@ -4,7 +4,7 @@
   "charge": "This spell can be used against standard tiered creatures.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Scroll"
   ],

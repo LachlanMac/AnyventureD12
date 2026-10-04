@@ -1,0 +1,21 @@
+{
+  "name": "Edict: Silence",
+  "description": "You speak the draconic word for silence and all sound ceases within a very short (5 unit) radius centered on you for the next minute. All creatures in the area are muted and deafened. Spells channeled within the area are rolled with a penalty die. Sound cannot enter or leave the area. Songs and ballads being performed within the area immediately end. You are immune to these effects.",
+  "charge": "The radius increases to short (10 units). Creatures within the area that are concentrating on a spell or performing a song must make a concentration check against your spell check or lose their concentration.",
+  "duration": "1 minute",
+  "range": 0,
+  "checkToCast": 15,
+  "components": [
+    "Treant Core"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": "area"
+}

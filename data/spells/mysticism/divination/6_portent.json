@@ -4,7 +4,7 @@
   "charge": "You can see potential consequences of the turn the target took within a minute. Combat situations, or scenarios with many consequences will not give a clear future.",
   "duration": "1 round",
   "range": 4,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Tarot Card"
   ],

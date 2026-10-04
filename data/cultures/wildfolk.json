@@ -12,6 +12,11 @@
       "name": "Fish out of Water",
       "description": "Large settlements and artificial environments disturb your spiritual balance. When staying in large towns, cities or heavily developed areas for more than 3 days, you lose 1 resolve per day as the separation from nature weighs on you.",
       "data": "TX"
+    },
+    {
+      "name": "Distrust of Industry",
+      "description": "Using or benefiting from engineered or clockwork devices causes you to lose 1 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Among the Stars",
       "description": "When you complete a full rest in natural settings (not in buildings or settlements), you recover an additional 1 resolve.",
+      "data": "TX"
+    },
+    {
+      "name": "Nature's Bounty",
+      "description": "Once per day, when you forage or harvest materials worth more than 5 gold in the wild, you gain 1 morale.",
       "data": "TX"
     }
   ],

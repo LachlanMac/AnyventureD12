@@ -30,7 +30,7 @@
     },
     {
       "name": "Forge Labor",
-      "description": "Working near a forge has strengthened your body and made you more tolerant of heat. Gain +1 skill with fitness and +1 heat mitigation.",
+      "description": "Working near a forge has strengthened your body and made you more tolerant of heat. Gain +1 skill with fitness and +2 heat mitigation.",
       "location": "4a",
       "data": "SSA=1:M2=2:TG"
     },

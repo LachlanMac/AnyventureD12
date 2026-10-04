@@ -1,0 +1,21 @@
+{
+  "name": "Exorcise",
+  "description": "You touch a creature. If the target is a willing ally, you remove any dark spells, curses, or possession affecting them if your spell check beats the RC of the original effect. Additionally, the target rolls with a bonus die on all checks against dark magic for the next minute, or until they succeed on one such check. If the target is a standard or lower tier undead or dark creature, it is destroyed.",
+  "charge": "Undead or dark creatures of champion tier or lower are destroyed.",
+  "duration": "1 minute",
+  "range": 1,
+  "checkToCast": 16,
+  "components": [
+    "Platinum Idol"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": "direct"
+}

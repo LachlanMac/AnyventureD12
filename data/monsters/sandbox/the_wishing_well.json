@@ -154,7 +154,7 @@
   "mitigation": {
     "physical": {
       "min": 8,
-      "max": 25
+      "max": 18
     },
     "cold": {
       "min": 4,

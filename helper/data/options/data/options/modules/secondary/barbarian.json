@@ -1,0 +1,71 @@
+{
+  "id": 243,
+  "name": "Barbarian",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1505,
+      "name": "Barbarian Armor",
+      "description": "You cannot wear Medium or Heavy Armor. Gain +1 Damage to Melee Attacks and +1 Physical Mitigation",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AZA=1:AZB=1:AZC=1:AZN=1:AD4=1"
+    },
+    {
+      "id": 1506,
+      "name": "Whole of Body",
+      "description": "Gain +1 Strength and +3 Health",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AS2=1:AH=3"
+    },
+    {
+      "id": 1507,
+      "name": "Mental Endurance",
+      "description": "Gain +1 Resilience and +2 Psychic Mitigation",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "A6=1:AD9=1"
+    },
+    {
+      "id": 1508,
+      "name": "Path of the Barbarian",
+      "description": "Become Good at Strength or Resilience",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1509,
+      "name": "Reaction : Primal Fury",
+      "description": "When you are the Target of a True Hit, downgrade it to a normal hit but gain the Maddened Condition until the end of your next turn. This Condition cannot be nullified by Spells or Traits that cause Immunity to the Maddened Condition.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1510,
+      "name": "Reaction : Retaliate",
+      "description": "After taking Damage by a Creature within your Melee Range, you can make a Melee Attack as a Reaction.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1511,
+      "name": "Action : In the Thick",
+      "description": "You gain a bonus equal to your Resilience Modifier to all Mitigations and a 1d4 Bonus to your Melee Attacks until the end of your next turn.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XX3"
+    }
+  ]
+}

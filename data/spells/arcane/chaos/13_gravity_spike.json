@@ -1,0 +1,21 @@
+{
+  "name": "Gravity Spike",
+  "description": "You release a pulse of chaotic gravitational force centered on a point within short (10 unit) range with a very short (5 unit) radius. Choose a direction. All medium and smaller creatures in the area are displaced 5 units in the chosen direction. If a creature has something they could reasonably grab to anchor themselves within range, they can make a coordination check against your spell check to avoid being displaced. If a displaced creature collides with a surface or terrain, they must make a fitness check against your spell check or take 10 physical damage. If you do not roll at least 2 successes, the direction of the pulse is random.",
+  "charge": "Large creatures are also affected.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 15,
+  "components": [
+    "Lodestone"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 10,
+  "damageType": "Physical",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "fitness",
+  "delivery": "area"
+}

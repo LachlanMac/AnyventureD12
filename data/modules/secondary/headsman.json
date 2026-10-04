@@ -30,7 +30,7 @@
     },
     {
       "name": "Executioner",
-      "description": "You are both ruthless and efficient. Gain +2 psychic mitigation. When you kill a creature that is a champion tier or higher using a weapon with the slashing property, you can choose to decapitate them. Any minions or grunts within a short (10 unit) distance must make a resilience check of 7 or higher or become afraid of you.",
+      "description": "You are both ruthless and efficient. Gain +1 psychic mitigation and your psychic mitigation limit is lowered by 1. When you kill a creature that is a champion tier or higher using a weapon with the slashing property, you can choose to decapitate them. Any minions or grunts within a short (10 unit) distance must make a resilience check of 7 or higher or become afraid of you.",
       "location": "4a",
       "data": "TG:M8=1:N8=-1"
     },

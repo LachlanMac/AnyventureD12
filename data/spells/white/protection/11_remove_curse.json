@@ -4,7 +4,7 @@
   "charge": "You can concentrate on this spell and become immune to the effects of the curse while you maintain that concentration. This protects against effects that would trigger by using, contacting or any other condition that would cause teh curse to activate.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Platinum Shavings"
   ],

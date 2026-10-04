@@ -4,7 +4,7 @@
   "charge": "All allies within a very short (5 unit) distance can share the effects of your spell.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Pinch of Bone Dust"
   ],

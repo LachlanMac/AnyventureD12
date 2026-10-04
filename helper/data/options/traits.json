@@ -1,0 +1,156 @@
+[
+    {
+        "id": 1,
+        "name": "Pact Trait : Eyes of the Patron",
+        "description": "You lose your Normal Vision, but gain Echo Location up to 20 Units and +1 Search.",
+        "code": "ASG=1",
+        "avd12_id": "pact_1"
+    },
+    {
+        "id": 2,
+        "name": "Pact Trait : Silvered Tongue",
+        "description": "You gain +1 Persuasion and your Patrons Magical Language. When you roll a 1 on a Persuasion Check, you cannot speak or Channel Spells until you complete a Full Rest.",
+        "code": "ASC=1",
+        "avd12_id": "pact_2"
+    },
+    {
+        "id": 3,
+        "name": "Pact Trait : Enamoring Melody",
+        "description": "You gain +2 Performance. When you roll a 1 on a Performance Check while playing an Instrument, Singing or attempting a Ballad, everyone who can hear you must make a Resistance Check of 10 or higher or become Maddened for 1 Minute.",
+        "code": "ASC=2",
+        "avd12_id": "pact_3"
+    },
+    {
+        "id": 4,
+        "name": "Pact Trait : Fractured Mind",
+        "description": "You gain +1 Spell Attack and +1 Spell Damage but you cannot Focus on anything.",
+        "code": "AZ2=1:AZ4=1",
+        "avd12_id": "pact_4"
+    },
+    {
+        "id": 5,
+        "name": "Pact Trait : Corrupted Vessel",
+        "description": "You gain +15 Health but are permanently Diseased and cannot recover Health. At the end of each Full Rest, recover all your Health.",
+        "code": "AH=15",
+        "avd12_id": "pact_5"
+    },
+    {
+        "id": 6,
+        "name": "Pact Trait : Sylvan ",
+        "description": "You can Speak to Animals and Plants at will, but you lose -2 Persuasion and -2 Insight.",
+        "code": "ASC=-2:ASD=-2",
+        "avd12_id": "pact_6"
+    },
+    {
+        "id": 7,
+        "name": "Pact Trait : Holy Burden",
+        "description": "You lose -5 Physical Mitigation but your Healing Spells restore an additional 5 Health.",
+        "code": "AD4=-5",
+        "avd12_id": "pact_7"
+    },
+    {
+        "id": 8,
+        "name": "Pact Trait : Wild Binding",
+        "description": "With 2 Actions, you can Transform into a Beast of Level 2 or lower. While you are in contact with Iron, take 1d4 True Damage at the start of your turn unless you have 1 or less Health.",
+        "code": "",
+        "avd12_id": "pact_8"
+    },
+    {
+        "id": 9,
+        "name": "Pact Trait : Patrons Fury",
+        "description": "When you are Critically Hit, the Attack is downgraded to a normal Hit but you become Maddened for 1d4 Turns.",
+        "code": "",
+        "avd12_id": "pact_9"
+    },
+    {
+        "id": 10,
+        "name": "Pact Trait : Patrons Magic",
+        "description": "You can only Channel Magic from your Patrons School, but you gain +2 Spell Attack and +1 Spell Damage.",
+        "code": "AZ2=2:AZ4=1",
+        "avd12_id": "pact_10"
+    },
+    {
+        "id": 11,
+        "name": "Pact Trait : Broken Will",
+        "description": "You gain +1 Attack and +1 Damage with all Weapons but lose -2 Resistance.",
+        "code": "AD1=-2:AZ1=1:AZ3=1",
+        "avd12_id": "pact_11"
+    },
+    {
+        "id": 12,
+        "name": "Pact Trait : Forbidden Knowledge",
+        "description": "You gain +1 Arcana, Academics and Medicine Knowledge but lose -1 Block and -1 Dodge",
+        "code": "AS7=1:AS9=1:AS8=1",
+        "avd12_id": "pact_12"
+    },
+    {
+        "id": 13,
+        "name": "Pact Trait : Bound Soul",
+        "description": "You cannot be resurrected, but whenever you make a Lifeline Check, the die becomes a 10.",
+        "code": "",
+        "avd12_id": "pact_13"
+    },
+    {
+        "id": 14,
+        "name": "Beastkin Trait : Landwalker",
+        "description": " Gain +1 Movement Speed and +1 Wilderness Knowledge. ",
+        "code": "AV=1:ASB=1",
+        "avd12_id": "pact_14"
+    },
+    {
+        "id": 15,
+        "name": "Beastkin Trait : Seawalker",
+        "description": "You can Breathe Underwater and gain a Swim Speed equal to your Movement Speed.",
+        "code": "",
+        "avd12_id": ""
+    },
+    {
+        "id": 16,
+        "name": "Beastkin Trait : Cloudwalker",
+        "description": "You are Good at the Search Skill.",
+        "code": "",
+        "avd12_id": ""
+    },
+    {
+        "id": 17,
+        "name": "Lycanthrope Weakness : Fire Weakness",
+        "description": "Your Lycanthropy has manifested in a fear of fire. You suffer a -4 Penalty to your Fire Mitigation. Any time you take Fire Damage, you must make a Resilience Check greater than or equal to half the Fire Damage taken or become Afraid of whatever caused the Damage. You cannot willfully move within 2 Units of an open flame while in Lycanthrope form.",
+        "code": "AD6=-4",
+        "avd12_id": ""
+    },
+    {
+        "id": 18,
+        "name": "Lycanthrope Weakness : Water Weakness",
+        "description": "Your Lycanthropy has manifested in a fear of fire. You suffer a -4 Penalty to your Cold Mitigation. Any time you take Cold Damage, you must make a Resilience Check greater than or equal to half the Cold Damage taken or become Afraid of whatever caused the Damage. You cannot willfully cross a boundry or body of water while in Lycanthrope form.",
+        "code": "AD5=-4",
+        "avd12_id": ""
+    },
+    {
+        "id": 19,
+        "name": "Lycanthrope Weakness : Silver Weakness",
+        "description": "Your Lycanthropy has manifested in an aversion to Silver. Weapons that are Silvered deal True Damage to you. Whenever you first come in contact with a Silver Object or end your turn holding a Silver Object in your Inventory, you take 1d6 True Damage. This includes Touch Spells that use Silver as a Component.",
+        "code": "",
+        "avd12_id": ""
+    },
+    {
+        "id": 20,
+        "name": "Small Creature",
+        "description": "Small Creatures gain +1 Dodge and Stealth while having a -1 penalty to Movement Speed and Strength. They cannot wield Heavy Weapons and have a decreased carrying capacity.",
+        "code": "AD2=1:AS4=1:AV=-1:AS2=-1",
+        "avd12_id": ""
+    },
+    {
+        "id": 21,
+       "name": "Medium Creature",
+        "description": "Medium Creatures are standard size, gaining no penalties or bonuses.",
+        "code": "",
+        "avd12_id": ""
+    },
+    {
+        "id": 22,
+        "name": "Large Creature",
+        "description": "Large creatures gain a +1 Strength and Block while having a -1 penalty to Stealth, Acrobatics and Dodge.They must consume 4 Meals per day to qualify for the benefits from a Full Rest. Additionally, they take up double the space of a normal creature but have an increased carrying capacity.",
+        "code": "AD3=1:AD2=-1:AS4=-1:AS3=-1:AS2=1",
+        "avd12_id": ""
+    }
+]

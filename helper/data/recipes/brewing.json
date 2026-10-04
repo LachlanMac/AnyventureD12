@@ -1,0 +1,147 @@
+[
+    {
+        "name": "Serpent Sight Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"The potion also grants immunity from poison",
+        "description": "You create a potion that causes the creature who drinks it to gain infravision for up to 1 hour.",
+        "ingredients": ["A live snake", ""],
+        "cost": ""
+    },    
+    {
+        "name": "Giant Strength Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"",
+        "description": "You create a potion that causes the creature who drinks it gain a 1d4 bonus to strength checks and a 1d4 bonus to their primary damage on melee weapons for up to 1 hour.",
+        "ingredients": ["A toe or foot from a large or bigger creature", ""],
+        "cost": ""
+    },
+    {
+        "name": "Potion of Luck",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"",
+        "description": "You create a potion that causes the creature who drinks it to gain 1 Luck Dice that lasts until the end of their next full rest. A creature cannot benefit from this potion more than once in a single day.",
+        "ingredients": ["Pinch of Pixie Dust", "Bottle of Vinegar"],
+        "cost": ""
+    },
+    {
+        "name": "Potion of Transfiguration",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"",
+        "description": "You create a a potion by using either the hair, blood or body part of a humanoid that causes the creature who drinks it to physically transform into the targeted humanoid for 1 hour. This potion fails if the creature who drinks it and the targeted humanoid are different sizes.",
+        "ingredients": ["Pinch of Pixie Dust", "Bottle of Vinegar"],
+        "cost": ""
+    },
+    {
+        "name": "Vila of Blight",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"",
+        "description": "You create a small vial which can be thrown to explode on contact, spreading blight within a 2 unit radius, dealing 2d12 dark damage and causing the diseased condition to any creature who fails a Resilience Check of 9. Plantoids take an additional 1d12 damage upon failing this check.",
+        "ingredients": ["The remains of a plantoid", ""],
+        "cost": ""
+    },
+    {
+        "name": "Dispelling Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"The potion does not deal damage and removes magical effects that are one tier higher than the catalyst used",
+        "description": "You create a potion that causes the creature who drinks it to remove any magical effects that affecting them and dealing 1d12 true damage. The level of catalyst used determines the highest level of spell that can be removed.",
+        "ingredients": ["Lead Dust", "Dark Catalyst", "Bundle of Mugwort"],
+        "cost": ""
+    },
+    {
+        "name": "Potion of the Spider",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"The climbing speed is increased to 8 units",
+        "description": "You create a potion which causes the creature who drinks it to gain a climbing speed of 6 units and the ability to climb surfaces such as cliffs, walls, and ceilings without needing.",
+        "ingredients": ["", ""],
+        "cost": ""
+    },
+    {
+        "name": "Potion of the Basilisk",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"The effect turns into a 2 unit radius instead of a cone",
+        "description": "You create a potion that causes the creature who drinks it to be able to breathe a poisonous mix in a 2 unit cone as a free action up to 3 times within the next hour. Any creature within the cone must make a resilience check of 8 or higher or take 4d6 poison damage. Any creature that is affected by the poison takes an additional 2d10 damage if they take fire damage before the end of their next turn.",
+        "ingredients": ["2 Vials of Venom", "Pouch of Sulfur", "Bottle of Pure Alcohol"],
+        "cost": ""
+    },
+    {
+        "name": "Grounding Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "description": "You create a potion that causes the creature who drinks it to gain elemental mitigation equal to your alchemy bonus modifier at the time of crafting, lasting for 1 hour.",
+        "ingredients": ["Crushed Gem worth 20gp", "Bottle of Tree Sap", "Pinch of Powdered Iron"],
+        "cost": ""
+    },
+    {
+        "name": "Polymorph Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "12",
+        "time": "1 Day",
+        "overcraft":"",
+        "description": "You create a potion, specifying a beast of a level less than your alchemy bonus modifier, which causes the creature who drinks it to transform into that creature for an hour. If the drinker of this potion reaches 0 health while transformed, they revert back with 0 health and make a lifeline check.",
+        "ingredients": ["A tongue of the specified beast", "2 Vials of Acid", "Vial of Mercury", "Pinch of Powdered Gold"],
+        "cost": ""
+    },
+    {
+        "name": "Witch-Limb Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "12",
+        "time": "1 Day",
+        "description": "You create a potion that causes the creature who drinks it to regenerate any missing limbs or digits, though the replacements are imperfect",
+        "ingredients": ["Bundle of Echinacea", "Expert Dark Catalyst", "Pinch of Obsidian Dust"],
+        "cost": ""
+    },
+    {
+        "name": "True Polymorph Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "28/2",
+        "time": "1 Day per Check",
+        "description": "You create a potion that causes the creature who drinks it to transform permanently into a humanoid, monster or creature with a level less than your alchemy bonus modifier that must be specified at the time of crafting. The only way this effect can be reversed is with a True Form potion. If this Potion is not consumed willfully, a resilience check of 6 is required to avoid the effect.",
+        "ingredients": ["A head of the specified beast or monster", "2 Pinches of Powdered Platinum", "4 Vials of Acid", "2 Vials of Mercury"],
+        "cost": ""
+    },
+    {
+        "name": "True Form Potion",
+        "type": "Witches Brewing",
+        "category": "Craft",
+        "check": "28/2",
+        "time": "1 Day per Check",
+        "description": "You create a potion that causes the creature who drinks it to revert back to their true form, reversing the effects of polymorph potions or other transmutive spells. If this Potion is not consumed willfully, a Resistance Check of 7 is required to avoid the effect.",
+        "ingredients": [
+            "2 Bundles of Mint",
+            "Bottle of Pure Alcohol",
+            "2 Bundles of Sage",
+            "2 Bundles of Incense",
+            "Pinch of Powdered Platinum"
+        ],
+        "cost": ""
+    }
+]

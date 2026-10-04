@@ -45,7 +45,7 @@ const loadCreaturesFromJson = async () => {
           creatureData.type = type;
           creatureData.isHomebrew = false;
           creatureData.source = 'Official';
-          
+
           // Handle spell references if they exist
           if (creatureData.spellNames && Array.isArray(creatureData.spellNames)) {
             const spellIds = [];

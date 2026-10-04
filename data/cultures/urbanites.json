@@ -12,6 +12,11 @@
       "name": "Code of Civility",
       "description": "You solve problems through negotiation and social maneuvering, not violence. If you or your allies use intimidation or attack someone before attempting to talk or negotiate, you lose 2 resolve.",
       "data": "TX"
+    },
+    {
+      "name": "Homesick",
+      "description": "When you leave a city or large settlement for the wilderness, you lose 2 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Cultural Sophistication",
       "description": "Living in an urban environment exposes you to all sorts of types of people, allowing you to have picked up basic parts of languages. You gain +2 language points which must be used to gain basic skill in 2 separate languages you do not know.",
+      "data": "TX"
+    },
+    {
+      "name": "Networking",
+      "description": "When you procure a contract or job in a city or large settlement, you gain 2 morale.",
       "data": "TX"
     }
   ],

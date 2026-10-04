@@ -12,6 +12,11 @@
       "name": "Temperance",
       "description": "Your faith does not allow you to partake in certain activities such as consuming mind-altering substances, gambling or lying. If you do so, you lose 1 resolve.",
       "data": "TX"
+    },
+    {
+      "name": "Sanctity of the Dead",
+      "description": "Allowing the dead to go unblessed, or participating in the desecration of a corpse (including necromancy), causes you to lose 2 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Donation",
       "description": "When you have at least 5 resolve, you can donate either money or valuable items to an institution or shrine of your faith. For each 100 gold of valuation you donate, you gain 1 resolve.",
+      "data": "TX"
+    },
+    {
+      "name": "Sacred Ground",
+      "description": "When you complete a full rest within a temple, shrine, or holy site of your faith, you gain 2 morale.",
       "data": "TX"
     }
   ],

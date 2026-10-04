@@ -1,4 +1,5 @@
 import Creature from '../models/Creature.js';
+import Item from '../models/Item.js';
 
 // Get all creatures with filtering and pagination
 const getCreatures = async (req, res) => {
@@ -15,9 +16,9 @@ const getCreatures = async (req, res) => {
       isHomebrew
     } = req.query;
 
-    // Build filter object
-    const filter = {};
-    
+    // Build filter object - exclude variants by default (they're accessible from their base creature page)
+    const filter = { $or: [{ variantOf: null }, { variantOf: { $exists: false } }] };
+
     if (type) filter.type = type;
     if (tier) filter.tier = tier;
     if (size) filter.size = size;
@@ -71,12 +72,47 @@ const getCreatureById = async (req, res) => {
   try {
     const creature = await Creature.findById(req.params.id)
       .populate('spells'); // Populate the spell references
-    
+
     if (!creature) {
       return res.status(404).json({ message: 'Creature not found' });
     }
 
-    res.json(creature);
+    // Find variants linked to this creature
+    const creatureObj = creature.toObject();
+    const creatureName = creature.name;
+    const baseCreatureName = creature.variantOf || creatureName;
+
+    // Find: other creatures that are variants of the same base, or the base itself
+    const variants = await Creature.find({
+      $and: [
+        { _id: { $ne: creature._id } },
+        { $or: [
+          { variantOf: baseCreatureName },  // Other variants of the same base
+          { name: baseCreatureName, variantOf: null },  // The base creature itself
+          { variantOf: creatureName }  // Variants of THIS creature if it's the base
+        ]}
+      ]
+    }, 'name type tier _id variantOf');
+
+    if (variants.length > 0) {
+      creatureObj.variants = variants;
+    }
+
+    // Resolve equipment item names to full item data
+    if (creatureObj.equipment) {
+      const resolvedEquipment = {};
+      for (const [slot, itemName] of Object.entries(creatureObj.equipment)) {
+        if (itemName) {
+          const item = await Item.findOne({ name: itemName });
+          if (item) {
+            resolvedEquipment[slot] = item.toObject();
+          }
+        }
+      }
+      creatureObj.resolvedEquipment = resolvedEquipment;
+    }
+
+    res.json(creatureObj);
   } catch (error) {
     console.error('Error fetching creature:', error);
     res.status(500).json({ message: 'Error fetching creature', error: error.message });

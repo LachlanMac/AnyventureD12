@@ -4,7 +4,7 @@
   "charge": "Instead of removing the memory, you can instead alter it.",
   "duration": "Concentration",
   "range": 1,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Moonstone"
   ],

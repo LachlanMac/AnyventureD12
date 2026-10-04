@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useSearchParams } from 'react-router-dom';
 import Card, { CardBody } from '../components/ui/Card';
 import { formatRange } from '../utils/rangeUtils';
 
@@ -23,16 +23,28 @@ interface Spell {
 
 const SpellCompendium: React.FC = () => {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
   const [spells, setSpells] = useState<Spell[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
-  // Filters
-  const [searchTerm, setSearchTerm] = useState('');
-  const [schoolFilter, setSchoolFilter] = useState<string>('all');
-  const [subschoolFilter, setSubschoolFilter] = useState<string>('all');
-  const [energyFilter, setEnergyFilter] = useState<string>('all');
-  const [concentrationFilter, setConcentrationFilter] = useState<string>('all');
+  // Filters - initialize from URL params so they persist on back navigation
+  const [searchTerm, setSearchTerm] = useState(searchParams.get('search') || '');
+  const [schoolFilter, setSchoolFilter] = useState<string>(searchParams.get('school') || 'all');
+  const [subschoolFilter, setSubschoolFilter] = useState<string>(searchParams.get('subschool') || 'all');
+  const [energyFilter, setEnergyFilter] = useState<string>(searchParams.get('energy') || 'all');
+  const [concentrationFilter, setConcentrationFilter] = useState<string>(searchParams.get('concentration') || 'all');
+
+  // Persist filters to URL params
+  useEffect(() => {
+    const params: Record<string, string> = {};
+    if (searchTerm) params.search = searchTerm;
+    if (schoolFilter !== 'all') params.school = schoolFilter;
+    if (subschoolFilter !== 'all') params.subschool = subschoolFilter;
+    if (energyFilter !== 'all') params.energy = energyFilter;
+    if (concentrationFilter !== 'all') params.concentration = concentrationFilter;
+    setSearchParams(params, { replace: true });
+  }, [searchTerm, schoolFilter, subschoolFilter, energyFilter, concentrationFilter]);
 
   // Sorting
   const [sortField, setSortField] = useState<string>('checkToCast');

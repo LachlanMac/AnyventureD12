@@ -4,7 +4,7 @@
   "charge": "Any silver or gold this light touches gives off a faint glow, even if it is obscured by less than an inch of material.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "Lead Shavings"
   ],

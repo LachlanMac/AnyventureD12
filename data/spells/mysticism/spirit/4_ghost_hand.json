@@ -4,7 +4,7 @@
   "charge": "The check of the hand is increased to 2d6.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Bundle of Incense"
   ],

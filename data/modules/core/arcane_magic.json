@@ -30,7 +30,7 @@
     },
     {
       "name": "Aetheric Absorption",
-      "description": "You have learned to absorb raw aetheric energy. Gain +2 aetheric mitigation. Additionally, when you take 5 or more aetheric damage, gain 1 energy.",
+      "description": "You have learned to absorb raw aetheric energy. Gain +1 aetheric mitigation and your aetheric mitigation limit is lowered by 1. Additionally, when you take 5 or more aetheric damage, gain 1 energy.",
       "location": "4a",
       "data": "M7=1:N7=-1:TG"
     },

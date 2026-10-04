@@ -1,0 +1,21 @@
+{
+  "name": "Temporal Fracture",
+  "description": "You target a creature within short (10 unit) distance and fracture their timeline if your spell check beats the target's resilience. The creature takes 1d4 true damage for each round of combat that has elapsed. The wounds appear as echoes of attacks from throughout the battle, materializing across the target's body simultaneously.",
+  "charge": "The spell affects all creatures within a very short (5 unit) radius instead of a single target.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 16,
+  "components": [
+    "Alexandrite"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": "True",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "resilience",
+  "delivery": "direct"
+}

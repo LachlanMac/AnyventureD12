@@ -1,0 +1,39 @@
+[
+    { "id": 1, "name": "Born Adventurer", "description": "You were born for adventure, the standard start for a character. This trait does not cost any module points, allowing you to specialize in other skills.", "code": "", "ruleset": 0 },
+    { "id": 4, "name": "Klaktil Integrate", "description": "Your mind has been partially absorbed by a Klaktil hive which you now serve in some capacity. Your character starts with the Klaktil Alteration Module, allowing you to strengthen your connection with your hive and develop insectoid traits.", "code": "", "ruleset": 0 },
+    {
+        "id": 5,
+        "name": "Extraplanar",
+        "description": "You have an Extraplanar influence, with ties to a different plane of existence, granting you extra powers and physical features. Your character starts with one of the Planar Modules to reflect your lineage.",
+        "code": "",
+        "ruleset": 1
+    },
+    {
+        "id": 9,
+        "name": "Lycanthrope",
+        "description": "You have been affected by Lycanthropy after being bitten and turned by another Lycanthrope. Your character starts with the Lycanthropy Alteration Module, allowing you to learn to control the beast within.",
+        "code": "",
+        "ruleset": 0
+    },
+    {
+        "id": 2,
+        "name": "Pact-Bound",
+        "description": "You have found yourself in service to a powerful entity and benefit from their power at a cost of being completely in their thrall. Your character starts with the Pact Alteration Module, allowing you to benefit from the power of your patron at the cost of your unbreakable service.",
+        "code": "",
+        "ruleset": 1
+    },
+    {
+        "id": 8,
+        "name": "Vampire",
+        "description": "You have been affected by Vampirism and are a thrall to a Vampire Lord. Your character starts with the Vampirism Alteration Module which allows you to invest in your vampiric powers at the cost of needing blood to survive.",
+        "code": "",
+        "ruleset": 0
+    },
+    {
+        "id": 10,
+        "name": "Undead",
+        "description": "Your body is held together by the curse of undeath, unable to die. Your character starts with the Undead Alteration Module which allows you to benefit from not being truly alive, at a cost.",
+        "code": "",
+        "ruleset": 0
+    }
+]

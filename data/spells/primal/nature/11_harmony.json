@@ -4,7 +4,7 @@
   "charge": "The spell affects everyone all beasts and plantoids within a short (10 unit) radius.",
   "duration": "concentration",
   "range": 4,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Moonstone"
   ],

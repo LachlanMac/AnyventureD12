@@ -1,0 +1,21 @@
+{
+  "name": "Soulbind",
+  "description": "You touch a creature and anchor their soul to the current location. If the target dies within the next 24 hours, their soul lingers at the anchored location for 1d6 days. If the target's body is brought within a very short (5 unit) distance of the soul while it still lingers, and the body is mostly intact, the soul returns to the body if the target rolls a 2 or higher on a 1d10. On a 1, the spell fails and the soul cannot be returned to the body by this spell. The creature revives with 1 health and 0 resolve. You can only have one soulbind active at a time.",
+  "charge": "The soulbind is permanent until the caster dies. The soul lingers for 1d10 days instead of 1d6.",
+  "duration": "24 hours",
+  "range": 1,
+  "checkToCast": 15,
+  "components": [
+    "Spirit Moonstone"
+  ],
+  "ritualDuration": "10 minutes",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

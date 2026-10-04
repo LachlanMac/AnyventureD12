@@ -4,7 +4,7 @@
   "charge": "You can target two additional creatures within the range of the spell.",
   "duration": "1 minute",
   "range": 5,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "1 Unit of Invisible String"
   ],

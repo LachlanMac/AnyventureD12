@@ -1,0 +1,152 @@
+{
+  "id": 130,
+  "name": "Runecarver",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 2177,
+      "name": "Beginner Runecarving",
+      "description": "Gain +2 Runecarving",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AC4=2"
+    },
+    {
+      "id": 2178,
+      "name": "Unyielding Light",
+      "description": "Your Light Rune does not expire and can be activated and deactivated indefinitely.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2179,
+      "name": "Shared Words",
+      "description": "You can teach others your Command Words for runes, allowing them to activate them.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2180,
+      "name": "Craft : Efficient Powdered Metal",
+      "description": "You Grind an Ingot to Dust in half the amount of time and create 14 Pinches instead of 10",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 2181,
+      "name": "Magical Script",
+      "description": "Gain +1 Runecarving and +1 Scribing",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "AC4=1:AC3=1"
+    },
+    {
+      "id": 2182,
+      "name": "Automatic Return",
+      "description": "Your Return Rune no longer requires a Command Word to return to you. any Object with this rune can return to you at the start of your next turn if it is more than 1 Unit away and within the Range of the Rune.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2183,
+      "name": "Runekeeper",
+      "description": "Gain +1 Runecarving and +1 Arcanum",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "AC4=1:AS7=1"
+    },
+    {
+      "id": 2184,
+      "name": "Volatile Runes",
+      "description": "Your Breaking Runes deal an extra dice of Damage, deal bonus Damage equal to your Runecarving Modifier and deal Splash Damage in a 1 Unit Radius.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2185,
+      "name": "Craft : Steady Hand",
+      "description": "You carve a Rune that has a craft time of 1 minute and instead spend 10 Minutes and double the amount of materials but add a 1d6 Bonus to your Craft Check.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 2186,
+      "name": "Attention to Detail",
+      "description": "Gain +1 Runecarving, +1 Scribing and +1 Concentration",
+      "mtype": "core",
+      "location": "7",
+      "cost": 2,
+      "data": "AC"
+    },
+    {
+      "id": 2187,
+      "name": "Action : Arcane Break",
+      "description": "You either throw an Object with a Breaking Rune on it or activate it with your command word. Instead of dealing Physical Damage, the rune deals Arcane Damage instead.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 2188,
+      "name": "Reaction : Command Word",
+      "description": "You can activate Runes that require a Command Word with a Reaction.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 2189,
+      "name": "Expert Runecarver",
+      "description": "Gain +1 Runecarving and +2 Arcane Mitigation. Your Trigger Rune can activate Journeyman and Expert Scrolls.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 3,
+      "data": "AC4=1:ADC=2:TC"
+    },
+    {
+      "id": 2190,
+      "name": "Enchanter",
+      "description": "You gain access to the Enchanting Prestige Recipes",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2191,
+      "name": "Dermaglyph Artist",
+      "description": "You gain access to the Dermaglyph Prestige Recipes",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2192,
+      "name": "Master Runecarver",
+      "description": "Gain +2 Runecarving. Your Efficient Powdered Metal skill causes you to create 20 Pinches instead of 14 and your Breaking Runes deal an extra Dice of Damage. Additionally, you can carve your Breaking Rune into a Beginner Catalyst, causing it to deal the Damage Type of the Catalyst instead of Physical.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "TC:AC4=2"
+    }
+  ]
+}

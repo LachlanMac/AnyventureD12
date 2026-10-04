@@ -4,7 +4,7 @@
   "charge": "You can cauterize a cut and stop the bleeding condition, while dealing no damage.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "flint"
   ],

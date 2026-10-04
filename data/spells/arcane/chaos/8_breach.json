@@ -4,7 +4,7 @@
   "charge": "The breach lasts for 1 minute and allows other creatures to pass through. If you do not roll at least 2 successes, the portal instead is opened to a random area within the Perdition, the plane of chaos and whatever dangers lie there.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Void Dust"
   ],

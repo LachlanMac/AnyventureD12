@@ -1,0 +1,71 @@
+{
+  "id": 215,
+  "name": "Leader",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1309,
+      "name": "Initiative Taker",
+      "description": "Gain +1 Persuasion and +1 Initiative",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "ASC=1:ASH=1"
+    },
+    {
+      "id": 1310,
+      "name": "Action : Charge Ahead",
+      "description": "All allies within 10 Units of you who are lower in the Initiatve Order gain +2 Units of Movement Speed on their next Turn. If they use the Move Action on their turn, they gain Bonus Damage on the next Weapon Attack they make equal to your Persuasion Modifier",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1311,
+      "name": "Reaction : Advise",
+      "description": "When a Contested Check is made against an Ally within 10 Units, add a 1d4 to their Check if you you can speak and they can hear you.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1312,
+      "name": "Sociable",
+      "description": "Become Good at one Social Skill",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1313,
+      "name": "Free Action : Lead the Charge",
+      "description": "After using the Move Action, grant all Allies within 10 Units that can hear you extra Movement Speed equal to your Persuasion Modifier on their next Move Action before the start of your next turn. If an Ally makes an Attack Roll after utilizing this extra Speed and is closer to you than they were at the start of their turn, they gain a 1d4 Bonus to it.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1314,
+      "name": "Action : To the Death",
+      "description": "You make a Persuasion Check and drop into Lifeline, gaining Lifeline Points equal to your Check to a maximum of 12. Allied Creature who can hear you within 8 Units are not affected by the penalties associated with Lifeline until they reach 1 Lifeline Point. This lasts until you are no longer in Lifeline or fall Unconscious. If an Enemy dies within 8 Units of an Ally, all allies within that Radius gain 1 Lifeline Point.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1315,
+      "name": "Steadfast Presence",
+      "description": "When an Allied Creature is within 8 Units of you, they gain a 1d4 Bonus to Resistance and Resilience Checks.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TD"
+    }
+  ]
+}

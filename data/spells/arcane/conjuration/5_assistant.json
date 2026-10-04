@@ -4,7 +4,7 @@
   "charge": "The assistant becomes permanent, lasting until it is destroyed and does not count against your pet limit.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Gold Idol"
   ],

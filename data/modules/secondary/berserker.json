@@ -48,7 +48,7 @@
     },
     {
       "name": "Scarred Veteran",
-      "description": "You have a reputation for being hard to take down. Gain +1 physical mitigation your pain threshold is increased by 2.",
+      "description": "You have a reputation for being hard to take down. Your physical mitigation limit is lowered by 1 and your pain threshold is increased by 2.",
       "location": "6a",
       "data": "N1=-1:AP=2"
     },

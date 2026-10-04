@@ -4,7 +4,7 @@
   "charge": "manipulate the gravity of an additional 2 creatures.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Lead Weight"
   ],

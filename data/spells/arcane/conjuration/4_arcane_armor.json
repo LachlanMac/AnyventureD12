@@ -4,7 +4,7 @@
   "charge": "The static check is increased to 3d10.",
   "duration": "Concentration",
   "range": 1,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Brass Ingot"
   ],

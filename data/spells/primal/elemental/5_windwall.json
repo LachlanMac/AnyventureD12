@@ -4,7 +4,7 @@
   "charge": "The wall of wind lasts until the start of your turn, allowing you protection against projectiles that came from the same general direction as the first.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Zephyr Dust"
   ],

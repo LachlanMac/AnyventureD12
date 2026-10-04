@@ -4,7 +4,7 @@
   "charge": "The spell grants 10 morale, instead of 6 and restores 5 resolve.",
   "duration": "Instantaneous",
   "range": 2,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Treated Scroll"
   ],

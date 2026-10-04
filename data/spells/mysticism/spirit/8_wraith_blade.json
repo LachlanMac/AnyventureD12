@@ -4,7 +4,7 @@
   "charge": "The blade is permanent unless you channel this spell again to create a new wraith blade.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Iron Ingot"
   ],

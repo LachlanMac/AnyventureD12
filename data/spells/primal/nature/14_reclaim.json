@@ -1,0 +1,21 @@
+{
+  "name": "Reclaim",
+  "description": "You touch the ground and nature begins to slowly reclaim an area within a short (10 unit) radius. Non-magical structures, walls, and metallic objects in the area slowly deteriorate and are destroyed over the next minute. Equipped items are not affected.",
+  "charge": "Constructs within the area must make a resilience check against your spell check or take 20 true damage. Inactive constructs are destroyed by this spell.",
+  "duration": "1 minute",
+  "range": 0,
+  "checkToCast": 16,
+  "components": [
+    "Concentrated Quicksilver"
+  ],
+  "ritualDuration": "1 minute",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": "area"
+}

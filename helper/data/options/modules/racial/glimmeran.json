@@ -1,0 +1,71 @@
+{
+  "id": 6,
+  "name": "Glimmeran [Guarded Ingenuity]",
+  "mtype": "racial",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1036,
+      "name": "Whimsical Engineering",
+      "description": "Gnomish cultures take great pride in their tinkering with both magic and machines. Gain +1 Arcanum and +1 Engineering",
+      "mtype": "racial",
+      "location": "1",
+      "cost": 2,
+      "data": "AS7=1:AC7=1:ALH"
+    },
+    {
+      "id": 1037,
+      "name": "Merchants",
+      "description": "Gnomish cultures are famous for their merchants and making trades. Gain +1 Persuasion and +1 Insight. Gain an Additional 1d4 Persuasion when making a deal that involves trade or procuring services for money.",
+      "mtype": "racial",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASC=1:ASD=1:TG"
+    },
+    {
+      "id": 1038,
+      "name": "Polite",
+      "description": "Gnomish cultures preach both patience and speaking quietly, always staying focused and never disturbing their elders. Gain +1 Stealth and +1 Concentration.",
+      "mtype": "racial",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS4=1:AS5=1"
+    },
+    {
+      "id": 1039,
+      "name": "Evasion Training",
+      "description": "Gnomish cultures tend to start avoidance training at a young age to resist the many dangers in their homeland. Gain +1 Dodge and +1 Initiative.",
+      "mtype": "racial",
+      "location": "3",
+      "cost": 2,
+      "data": "AD2=2:ASH=1"
+    },
+    {
+      "id": 1040,
+      "name": "Higher Education",
+      "description": "Gnomish culture values expertise in a single subject rather than broad learning. Become Good at one Knowledge Skill and the learn the Arcanascript Language.",
+      "mtype": "racial",
+      "location": "4a",
+      "cost": 2,
+      "data": "ALA"
+    },
+    {
+      "id": 1041,
+      "name": "Gnomish Ingenuity",
+      "description": "Gnomish cultures are capable and clever engineers and take great pride in their creations. Gain +1 Engineering and +1 Ammocraft. Additionally, Ranged Weapons that you produce have a +1 Damage Bonus and +2 Maximum Range.",
+      "mtype": "racial",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC:AC7=1:AC6=1"
+    },
+    {
+      "id": 1042,
+      "name": "Conduit Attunement",
+      "description": "Gnomish cultures value the bonds between a Conduit and its owner and are taught how to precicely attune to them. When you bond with a Conduit, start with a Common Bond and gain +6 Power and +6 Power Regen.",
+      "mtype": "racial",
+      "location": "5",
+      "cost": 3,
+      "data": "TG:FP=6:FR=6"
+    }
+  ]
+}

@@ -4,7 +4,7 @@
   "charge": "While your astral armor is active, you cannot fall prone or be displaced.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Iron Ingot"
   ],

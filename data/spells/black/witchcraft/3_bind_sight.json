@@ -4,7 +4,7 @@
   "charge": "You also bind your sense of smell, taste and hearing to them.",
   "duration": "Concentration",
   "range": 1,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Beast's Eyeball"
   ],

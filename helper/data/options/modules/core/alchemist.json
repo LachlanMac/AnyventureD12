@@ -1,0 +1,152 @@
+{
+  "id": 126,
+  "name": "Alchemist",
+  "mtype": "core",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 2129,
+      "name": "Beginner Alchemist",
+      "description": "Gain +2 Alchemy",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AC5=2"
+    },
+    {
+      "id": 2130,
+      "name": "Deadly Poisons",
+      "description": "Your Poison recipes gain an extra dice of damage.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2131,
+      "name": "Improved Healing Potions",
+      "description": "Your Healing Potion recipes gain an extra dice of Health restored.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2132,
+      "name": "Careful Chemist",
+      "description": "Gain +1 Alchemy, +1 Concentration and increase the Required Checks against Potions you Craft by 1.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AC5=1:AS5=1:TC"
+    },
+    {
+      "id": 2133,
+      "name": "Non-Lethal Poisons",
+      "description": "You can modify a Poison you are crafting to not deal fatal damage, and instead cause a Creature to become Unconscious for a number of hours equal to your Alchemy Bonus Modifier when they reach 0 Health.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2134,
+      "name": "Expanded Volatility",
+      "description": "Potions you craft that specify a radius have that radius increased by 1 unit",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2135,
+      "name": "Potent Potions",
+      "description": "Healing Potions you craft heal for an additional amount of Health equal to your alchemy bonus modifier at the time of crafting. Additioanlly, Poisons you craft deal additional damage equal to half your alchemy bonus modifier.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2136,
+      "name": "Free Action : Apply Poison",
+      "description": "You quickly apply a Vial of Poison to a Weapon or Piece of Ammunition.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 2137,
+      "name": "Action : Toss Potion",
+      "description": "As an action, you can toss a Potion to a friendly Creature within 6 units. They can use their Reaction to immediately consume the potion.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 2138,
+      "name": "Advanced Alchemy",
+      "description": "Gain +1 Alchemy and access to Alchemy Augmentations",
+      "mtype": "core",
+      "location": "7",
+      "cost": 2,
+      "data": "TC:AC5=1"
+    },
+    {
+      "id": 2139,
+      "name": "Efficient Mixing",
+      "description": "You Overcraft on Alchemy recipes when you roll an 11 or 12 and you produce 2 potions instead of 1.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2140,
+      "name": "Bolstering Potions",
+      "description": "Your healing Potions grant Temporary Health that lasts until the end of the next Full Rest if a Creature consumes one while at Full Health.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2141,
+      "name": "Concentrated Potions",
+      "description": "Gain +1 Alchemy. The Required Checks against Potions you Craft is increased by 2.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 3,
+      "data": "TC:AC5=1"
+    },
+    {
+      "id": 2142,
+      "name": "Taste Tester",
+      "description": "Gain an Immunity to Poison and +2 Resilience",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "I=19:AS6=2"
+    },
+    {
+      "id": 2143,
+      "name": "Free Action : Chug",
+      "description": "You can quickly consume a Potion, not counting against the amount of objects you can consume on a given turn.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "Y"
+    },
+    {
+      "id": 2144,
+      "name": "Master Alchemist",
+      "description": "Gain +2 Alchemy and an extra dice on Poisons, Healing Potions and Potions with damaging effects on your alchemy recipes.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "AC5=2:TC"
+    }
+  ]
+}

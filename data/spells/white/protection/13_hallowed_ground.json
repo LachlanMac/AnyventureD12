@@ -1,0 +1,21 @@
+{
+  "name": "Hallowed Ground",
+  "description": "You place a platinum idol on the ground and consecrate the area within a very short (5 unit) radius around it. Choose two conditions from the following: afraid, charmed, confused, maddened, ignited, blinded, or deafened. For the next hour, allies within the area are immune to the chosen conditions. Any ally currently suffering from a chosen condition is freed of it upon entering the area. All attacks and spells channeled against you or your allies within the area are rolled with a penalty die. The area is centered on the idol and does not move.",
+  "charge": "The effect is permanent as long as the idol remains in place. If the idol is touched, moved, or destroyed, the effect ends immediately and the idol is destroyed.",
+  "duration": "1 hour",
+  "range": 1,
+  "checkToCast": 15,
+  "components": [
+    "Platinum Idol"
+  ],
+  "ritualDuration": "1 minute",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

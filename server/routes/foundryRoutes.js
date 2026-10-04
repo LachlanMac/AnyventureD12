@@ -295,7 +295,7 @@ const getGenericIcon = (data, type) => {
 };
 
 // Helper function to convert web data to Foundry format
-const convertToFoundryFormat = (data, type) => {
+const convertToFoundryFormat = async (data, type) => {
   // Validate that essential fields exist
   if (!data || !data.name || data.name.trim() === '') {
     console.error(`[FoundryAPI] Item missing or empty name field:`, {
@@ -719,10 +719,55 @@ const convertToFoundryFormat = (data, type) => {
         }
       }
 
+      // Resolve equipment items and add as embedded documents
+      const equipmentSlots = {};
+      if (data.equipment) {
+        for (const [slot, itemName] of Object.entries(data.equipment)) {
+          if (itemName) {
+            const item = await Item.findOne({ name: itemName });
+            if (item) {
+              const itemData = item.toObject();
+              const seed = `${data.name}-equip-${slot}-${itemName}`;
+              const equipItem = {
+                _id: generateDeterministicFoundryId(seed),
+                name: itemData.name,
+                type: "item",
+                img: getGenericIcon(itemData, 'item'),
+                system: {
+                  description: itemData.description || "",
+                  itemType: itemData.type || "item",
+                  weapon_category: itemData.weapon_category || "",
+                  hands: itemData.hands || 1,
+                  primary: itemData.primary || {},
+                  secondary: itemData.secondary || {},
+                  mitigation: itemData.mitigation || {},
+                  encumbrance_penalty: itemData.encumbrance_penalty || 0,
+                  quantity: 1,
+                },
+                flags: { anyventure: { version: "1.0.0" } }
+              };
+              baseFoundryDoc.items.push(equipItem);
+              equipmentSlots[slot] = {
+                item: {
+                  _id: equipItem._id,
+                  name: equipItem.name,
+                  img: equipItem.img,
+                  type: equipItem.type,
+                  system: equipItem.system
+                },
+                quantity: 1
+              };
+            }
+          }
+        }
+      }
+
       baseFoundryDoc.system = {
         // Creature-specific fields
         creatureTier: data.tier || "standard",
         shieldLevel: data.shieldLevel || 0,
+        canUnarmedAttack: data.canUnarmedAttack || false,
+        ...(data.unarmedAttackName ? { unarmedAttackName: data.unarmedAttackName } : {}),
         challengeRating: data.challenge_rating || 1,
         modules: [],
         actions: [], // Keep empty - actions are now items
@@ -749,6 +794,9 @@ const convertToFoundryFormat = (data, type) => {
         },
         biography: data.tactics || "",
         spells: [], // Keep empty - spells are now items
+
+        // Equipment slots (resolved from creature equipment)
+        ...(Object.keys(equipmentSlots).length > 0 ? { equipment: equipmentSlots } : {}),
 
         // Base template fields (inherited by NPCs)
         attributes: {
@@ -955,28 +1003,28 @@ const convertToFoundryFormat = (data, type) => {
         },
         weapon: {
           brawling: {
-            value: 0,
-            talent: 1
+            value: data.weaponSkills?.brawling?.skill ?? 0,
+            talent: data.weaponSkills?.brawling?.talent ?? 0
           },
           throwing: {
-            value: 0,
-            talent: 1
+            value: data.weaponSkills?.throwing?.skill ?? 0,
+            talent: data.weaponSkills?.throwing?.talent ?? 0
           },
           simpleMeleeWeapons: {
-            value: 0,
-            talent: 1
+            value: data.weaponSkills?.simpleMeleeWeapons?.skill ?? 0,
+            talent: data.weaponSkills?.simpleMeleeWeapons?.talent ?? 0
           },
           simpleRangedWeapons: {
-            value: 0,
-            talent: 1
+            value: data.weaponSkills?.simpleRangedWeapons?.skill ?? 0,
+            talent: data.weaponSkills?.simpleRangedWeapons?.talent ?? 0
           },
           complexMeleeWeapons: {
-            value: 0,
-            talent: 0
+            value: data.weaponSkills?.complexMeleeWeapons?.skill ?? 0,
+            talent: data.weaponSkills?.complexMeleeWeapons?.talent ?? 0
           },
           complexRangedWeapons: {
-            value: 0,
-            talent: 0
+            value: data.weaponSkills?.complexRangedWeapons?.skill ?? 0,
+            talent: data.weaponSkills?.complexRangedWeapons?.talent ?? 0
           }
         },
         magic: {
@@ -1067,7 +1115,7 @@ const convertToFoundryFormat = (data, type) => {
 router.get('/modules', async (req, res) => {
   try {
     const modules = await Module.find({});
-    const foundryModules = modules.map(module => convertToFoundryFormat(module.toObject(), 'module'));
+    const foundryModules = await Promise.all(modules.map(module => convertToFoundryFormat(module.toObject(), 'module')));
 
     // Create folder structure
     const folders = [
@@ -1133,7 +1181,7 @@ router.get('/modules', async (req, res) => {
 router.get('/ancestries', async (req, res) => {
   try {
     const ancestries = await Ancestry.find({});
-    const foundryAncestries = ancestries.map(ancestry => convertToFoundryFormat(ancestry.toObject(), 'ancestry'));
+    const foundryAncestries = await Promise.all(ancestries.map(ancestry => convertToFoundryFormat(ancestry.toObject(), 'ancestry')));
 
     res.json({
       type: 'compendium-data',
@@ -1155,7 +1203,7 @@ router.get('/ancestries', async (req, res) => {
 router.get('/cultures', async (req, res) => {
   try {
     const cultures = await Culture.find({});
-    const foundryCultures = cultures.map(culture => convertToFoundryFormat(culture.toObject(), 'culture'));
+    const foundryCultures = await Promise.all(cultures.map(culture => convertToFoundryFormat(culture.toObject(), 'culture')));
 
     res.json({
       type: 'compendium-data',
@@ -1177,7 +1225,7 @@ router.get('/cultures', async (req, res) => {
 router.get('/traits', async (req, res) => {
   try {
     const traits = await Trait.find({});
-    const foundryTraits = traits.map(trait => convertToFoundryFormat(trait.toObject(), 'trait'));
+    const foundryTraits = await Promise.all(traits.map(trait => convertToFoundryFormat(trait.toObject(), 'trait')));
 
     res.json({
       type: 'compendium-data',
@@ -1204,7 +1252,7 @@ router.get('/items', async (req, res) => {
 
     for (const item of items) {
       try {
-        const foundryItem = convertToFoundryFormat(item.toObject(), 'item');
+        const foundryItem = await convertToFoundryFormat(item.toObject(), 'item');
         foundryItems.push(foundryItem);
       } catch (itemError) {
         console.error(`Error converting item ${item._id}:`, itemError.message);
@@ -1237,7 +1285,7 @@ router.get('/items', async (req, res) => {
 router.get('/spells', async (req, res) => {
   try {
     const spells = await Spell.find({});
-    const foundrySpells = spells.map(spell => convertToFoundryFormat(spell.toObject(), 'spell'));
+    const foundrySpells = await Promise.all(spells.map(spell => convertToFoundryFormat(spell.toObject(), 'spell')));
 
     res.json({
       type: 'compendium-data',
@@ -1259,7 +1307,7 @@ router.get('/spells', async (req, res) => {
 router.get('/songs', async (req, res) => {
   try {
     const songs = await Song.find({});
-    const foundrySongs = songs.map(song => convertToFoundryFormat(song.toObject(), 'song'));
+    const foundrySongs = await Promise.all(songs.map(song => convertToFoundryFormat(song.toObject(), 'song')));
 
     res.json({
       type: 'compendium-data',
@@ -1281,7 +1329,7 @@ router.get('/songs', async (req, res) => {
 router.get('/languages', async (req, res) => {
   try {
     const languages = await Language.find({});
-    const foundryLanguages = languages.map(language => convertToFoundryFormat(language.toObject(), 'language'));
+    const foundryLanguages = await Promise.all(languages.map(language => convertToFoundryFormat(language.toObject(), 'language')));
 
     res.json({
       type: 'compendium-data',
@@ -1303,7 +1351,7 @@ router.get('/languages', async (req, res) => {
 router.get('/injuries', async (req, res) => {
   try {
     const injuries = await Injury.find({});
-    const foundryInjuries = injuries.map(injury => convertToFoundryFormat(injury.toObject(), 'injury'));
+    const foundryInjuries = await Promise.all(injuries.map(injury => convertToFoundryFormat(injury.toObject(), 'injury')));
 
     res.json({
       type: 'compendium-data',
@@ -1383,7 +1431,7 @@ router.get('/training', async (req, res) => {
 router.get('/creatures', async (req, res) => {
   try {
     const creatures = await Creature.find({}).populate('spells');
-    const foundryCreatures = creatures.map(creature => convertToFoundryFormat(creature.toObject(), 'creature'));
+    const foundryCreatures = await Promise.all(creatures.map(creature => convertToFoundryFormat(creature.toObject(), 'creature')));
 
     res.json({
       type: 'compendium-data',
@@ -1411,7 +1459,7 @@ router.post('/convert-creature', async (req, res) => {
     }
 
     // Convert the creature to Foundry format
-    const foundryCreature = convertToFoundryFormat(creatureData, 'creature');
+    const foundryCreature = await convertToFoundryFormat(creatureData, 'creature');
 
     res.json(foundryCreature);
   } catch (error) {
@@ -1436,7 +1484,7 @@ router.get('/all', async (req, res) => {
       Creature.find({}).populate('spells')
     ]);
 
-    const foundryModules = modules.map(m => convertToFoundryFormat(m.toObject(), 'module'));
+    const foundryModules = await Promise.all(modules.map(m => convertToFoundryFormat(m.toObject(), 'module')));
 
     // Create folder structure for modules
     const moduleFolders = [
@@ -1508,18 +1556,33 @@ router.get('/all', async (req, res) => {
       }
     }
 
+    const [
+      foundryAncestries2, foundryCultures2, foundryTraits2, foundryItems2,
+      foundrySpells2, foundrySongs2, foundryLanguages2, foundryInjuries2, foundryCreatures2
+    ] = await Promise.all([
+      Promise.all(ancestries.map(a => convertToFoundryFormat(a.toObject(), 'ancestry'))),
+      Promise.all(cultures.map(c => convertToFoundryFormat(c.toObject(), 'culture'))),
+      Promise.all(traits.map(t => convertToFoundryFormat(t.toObject(), 'trait'))),
+      Promise.all(items.filter(i => i.name).map(i => convertToFoundryFormat(i.toObject(), 'item'))),
+      Promise.all(spells.map(s => convertToFoundryFormat(s.toObject(), 'spell'))),
+      Promise.all(songs.map(s => convertToFoundryFormat(s.toObject(), 'song'))),
+      Promise.all(languages.map(l => convertToFoundryFormat(l.toObject(), 'language'))),
+      Promise.all(injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury'))),
+      Promise.all(creatures.map(c => convertToFoundryFormat(c.toObject(), 'creature')))
+    ]);
+
     const foundryData = {
       modules: foundryModules,
-      ancestries: ancestries.map(a => convertToFoundryFormat(a.toObject(), 'ancestry')),
-      cultures: cultures.map(c => convertToFoundryFormat(c.toObject(), 'culture')),
-      traits: traits.map(t => convertToFoundryFormat(t.toObject(), 'trait')),
-      items: items.filter(i => i.name).map(i => convertToFoundryFormat(i.toObject(), 'item')),
-      spells: spells.map(s => convertToFoundryFormat(s.toObject(), 'spell')),
-      songs: songs.map(s => convertToFoundryFormat(s.toObject(), 'song')),
-      languages: languages.map(l => convertToFoundryFormat(l.toObject(), 'language')),
-      injuries: injuries.map(i => convertToFoundryFormat(i.toObject(), 'injury')),
+      ancestries: foundryAncestries2,
+      cultures: foundryCultures2,
+      traits: foundryTraits2,
+      items: foundryItems2,
+      spells: foundrySpells2,
+      songs: foundrySongs2,
+      languages: foundryLanguages2,
+      injuries: foundryInjuries2,
       training: trainingItems,
-      creatures: creatures.map(c => convertToFoundryFormat(c.toObject(), 'creature'))
+      creatures: foundryCreatures2
     };
 
     const folders = {

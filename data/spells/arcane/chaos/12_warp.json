@@ -4,7 +4,7 @@
   "charge": "The spell becomes a 2 unit radius centered on you and deals 15 aetheric damage.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Void Dust"
   ],

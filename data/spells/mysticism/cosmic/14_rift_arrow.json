@@ -1,0 +1,21 @@
+{
+  "name": "Rift Arrow",
+  "description": "You call upon the void and launch an arrow of rift energy at a creature you can see, regardless of distance. Your spell check is rolled against a single d20. If the arrow hits, the target takes 25 aetheric damage. The arrow remains lodged in the creature, preventing them from moving or being displaced. The target or an adjacent ally can use an action to remove the arrow with a might check of 10.",
+  "charge": "On hit, the target is immediately pulled into the void. They can use their action to attempt to pull the arrow out with a might check of 14. When the arrow is removed, they return to the space they were taken from. If the arrow is not removed within 1 minute, the creature is lost to the void permanently.",
+  "duration": "Instantaneous",
+  "range": 8,
+  "checkToCast": 16,
+  "components": [
+    "Void Amethyst"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 25,
+  "damageType": "Aetheric",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": "projectile"
+}

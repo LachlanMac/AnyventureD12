@@ -1,0 +1,21 @@
+{
+  "name": "Divine Guidance",
+  "description": "You make a formal petition to a divine power, seeking guidance on a matter of importance. Roll a d100. 1-50: No answer. 51-75: Vague guidance in the form of a cryptic vision, feeling, or omen. 76-90: Clear guidance in the form of a direct and understandable answer or direction. 91-100: Divine intervention in the form of direct action, a miracle, or an unmistakable sign that alters the situation in your favor. This spell can only be cast once per day.",
+  "charge": "1-50: Vague guidance. 51-85: Clear guidance. 86-100: Divine intervention.",
+  "duration": "Instantaneous",
+  "range": 0,
+  "checkToCast": 16,
+  "components": [
+    "Gold Idol"
+  ],
+  "ritualDuration": "1 minute",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

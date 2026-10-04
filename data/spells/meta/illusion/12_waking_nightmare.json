@@ -4,7 +4,7 @@
   "charge": "The target must also beat your spell check to recover from the Afraid condition instead of the normal amount.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Shadow Onyx"
   ],

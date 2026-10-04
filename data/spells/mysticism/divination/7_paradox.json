@@ -4,7 +4,7 @@
   "charge": "Choose another ally within the same range to swap places with your initial target instead of you.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Opal"
   ],

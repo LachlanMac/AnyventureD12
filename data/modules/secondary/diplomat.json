@@ -12,7 +12,7 @@
     },
     {
       "name": "Iron Composure",
-      "description": "Negotiating isn't always friendly, and you have been the target of some colorful language. You gain +2 maximum resolve and +2 psychic mitigation.",
+      "description": "Negotiating isn't always friendly, and you have been the target of some colorful language. You gain +2 maximum resolve and +1 psychic mitigation and your psychic mitigation limit is lowered by 1.",
       "location": "2a",
       "data": "TG:A2=2:M8=1:N8=-1"
     },

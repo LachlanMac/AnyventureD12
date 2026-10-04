@@ -12,6 +12,11 @@
       "name": "Idealist",
       "description": "When you witness slavery, indentured servitude, or someone being held against their will unjustly, you must attempt to help within a day or lose 1 resolve.",
       "data": "TX"
+    },
+    {
+      "name": "No Chains",
+      "description": "You or your allies holding a humanoid against their will causes you to lose 2 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Free from Influence",
       "description": "When you first acquire the charmed condition, roll a d12. On a 6 or higher, the condition ends without taking effect.",
+      "data": "TX"
+    },
+    {
+      "name": "Spirit of Defiance",
+      "description": "When you avoid an effect that would charm or madden you, you gain 2 energy. This can only happen once per day.",
       "data": "TX"
     }
   ],

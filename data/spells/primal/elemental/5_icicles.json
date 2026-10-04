@@ -4,7 +4,7 @@
   "charge": "The spell no longer has a duration, and instead lasts as long as you maintain concentration. There is no limit to the amount of icicles that can be summoned from the mist.",
   "duration": "1 minute",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Frost Dust"
   ],

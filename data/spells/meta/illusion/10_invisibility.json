@@ -4,7 +4,7 @@
   "charge": "The invisibility effect breaks only at the end of the affected creature's turn if they use an action or reaction that ends the spell.",
   "duration": "1 minute",
   "range": 3,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Vial of Quicksilver"
   ],

@@ -4,7 +4,7 @@
   "charge": "The target of this spell does not halve their evasion checks when rolling against area attacks.",
   "duration": "Concentration",
   "range": 1,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Citrine"
   ],

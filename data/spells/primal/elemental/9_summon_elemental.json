@@ -4,7 +4,7 @@
   "charge": "You summon a standard tier elemental which lasts until it reaches 0 health. The elemental cannot recover or gain health.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Diamond"
   ],

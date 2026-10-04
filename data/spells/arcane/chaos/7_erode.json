@@ -1,10 +1,10 @@
 {
   "name": "Erode",
-  "description": "You use strands of arcane energy to erode the defenses of a creature within a moderate (20 unit) distance, decreasing their mitigation to all damage types by 1 if your spell check beats the target's resilience. While you concentrate on this spell, the penalty increases by 1 at the end of your target's turn up to a maximum of -5. If you do not roll at least 2 successes, instead of concentration, the spell lasts a minute but also targets you.",
-  "charge": "The spell starts at the maximum -5 mitigation penalty.",
+  "description": "You use strands of arcane energy to erode the defenses of a creature within a moderate (20 unit) distance if your spell check beats the target's resilience. While you concentrate on this spell, the target's physical and aetheric mitigation each decrease by 1 at the start of each round, down to a minimum of 0. If you do not roll at least 2 successes, instead of concentration, the spell lasts a minute but also targets you.",
+  "charge": "The target's physical and aetheric mitigation are immediately set to 0.",
   "duration": "Concentration",
   "range": 5,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Vial of Caustic Lye"
   ],

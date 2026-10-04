@@ -20,10 +20,10 @@
   --color-metal-gold: #d7b740;
 
   /* Purple accents */
-  --color-sat-purple: rgb(85, 65, 130);
-  --color-sat-purple-faded: rgba(85, 65, 130, 0.5);
-  --color-sat-purple-faded-darker: rgba(57, 43, 92, 0.5);
-  --color-sat-purple-faded-lighter: rgba(130, 107, 185, 0.5);
+  --color-sat-purple: rgb(155, 120, 220);
+  --color-sat-purple-faded: rgba(155, 120, 220, 0.5);
+  --color-sat-purple-faded-darker: rgba(100, 75, 155, 0.5);
+  --color-sat-purple-faded-lighter: rgba(180, 150, 235, 0.5);
 
   /* Dark theme base */
   --color-dark-base: #192231; /* evening as base */

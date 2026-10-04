@@ -4,7 +4,7 @@
   "charge": "The spell deals damage to all creatures within a 1 unit radius who fail a defense check against your spell check.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Carnelian"
   ],

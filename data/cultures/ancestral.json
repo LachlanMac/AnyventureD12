@@ -13,6 +13,11 @@
       "name": "Daily Ritual",
       "description": "Your culture has a ritual that you must perform for at least 1 hour a day or you lose 2 resolve.",
       "data": "TX"
+    },
+    {
+      "name": "Respect the Hunt",
+      "description": "Killing or participating in killing a beast and not making at least some use of the corpse causes you to lose 1 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -25,6 +30,11 @@
       "name": "Ancestral Pride",
       "description": "Your pride in those who have come before you is one you wear proudly. You gain +2 maximum resolve.",
       "data": "TX:A2=2"
+    },
+    {
+      "name": "Ceremonial Smoke",
+      "description": "When you consume a euphoric substance, you gain an additional 1 morale.",
+      "data": "TX"
     }
   ],
   "startingItems": [

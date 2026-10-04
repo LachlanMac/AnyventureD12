@@ -1,0 +1,145 @@
+[
+    {
+        "name": "The Altruist",
+        "description": "The Altruist places the needs of others above their own, often at great personal cost. They thrive on acts of kindness and selflessness, drawing strength from the positive impact they have on the world. However, they struggle when their compassion is tested by difficult choices.",
+        "edges": [
+            "Remove 1d6 stress from an ally",
+            "Gain a 1d6 bonus to an insight check",
+            "Shield an ally, preventing them from gaining stress for 1d6 rounds"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when you fail to help someone in need.",
+            "major": "Gain 5 stress when someone suffers significantly due to your inaction."
+        }
+    },
+    {
+        "name": "The Pragmatist",
+        "description": "The Pragmatist focuses on results and efficiency, often disregarding ideals for the sake of practicality. They are level-headed and logical, making choices that maximize success with the least waste. Challenges arise when their lack of sentiment conflicts with others' values.",
+        "edges": [
+            "Remove a Frightened, Confused, or Maddened condition from an ally",
+            "Gain a 1d6 bonus to a persuasion roll involving logic or trade",
+            "Grant an ally a 1d6 bonus to their next roll by providing advice"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when a resource or opportunity is wasted.",
+            "major": "Gain 5 stress when a poorly executed action leads to significant harm or failure."
+        }
+    },
+    {
+        "name": "The Rebel",
+        "description": "The Rebel lives to challenge authority and fight oppression, refusing to conform to unjust systems. They inspire others to stand up for their beliefs and value personal freedom above all. Their defiance often leads to conflict, testing their resolve.",
+        "edges": [
+            "Gain a 1d6 bonus to a persuasion roll involving defiance or intimidation",
+            "Ignore penalties or restrictions for 1d6 rounds",
+            "Inspire allies to gain a 1d6 bonus to actions opposing authority"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when forced to follow orders you disagree with.",
+            "major": "Gain 5 stress when an authority figure punishes you or others due to your defiance."
+        }
+    },
+    {
+        "name": "The Protector",
+        "description": "The Protector is a guardian, committed to ensuring the safety of those under their care. They value loyalty and vigilance, willing to face any danger to shield their allies. Failure to protect others weighs heavily on their conscience.",
+        "edges": [
+            "Give an ally a 1d6 bonus to a defense roll",
+            "Take damage for an ally and reduce it by 1d6",
+            "Grant a 1d6 bonus to an ally's resistance roll"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when an ally falls into critical condition.",
+            "major": "Gain 5 stress when an ally dies while you are present."
+        }
+    },
+    {
+        "name": "The Opportunist",
+        "description": "The Opportunist seeks personal advantage in every situation, always looking for a way to get ahead. They are resourceful and cunning, often willing to take risks for potential rewards. However, their self-interest can lead to difficult moral dilemmas.",
+        "edges": [
+            "Gain a 1d6 bonus to any roll involving resourcefulness or persuasion",
+            "Exploit a distraction to gain a temporary advantage",
+            "Gain a 1d6 bonus to initiative"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when you miss an opportunity for personal gain.",
+            "major": "Gain 5 stress when a hard-earned reward is lost due to interference."
+        }
+    },
+    {
+        "name": "The Idealist",
+        "description": "The Idealist is driven by a strong moral code, striving to uphold what they believe is right, even at great personal cost. They inspire others to pursue higher standards but often struggle when the world challenges their convictions.",
+        "edges": [
+            "Gain a 1d6 bonus to inspire or rally allies",
+            "Grant a 1d6 bonus to an ally's roll by appealing to your ideals",
+            "Deal an extra 1d6 damage to an enemy opposing your beliefs"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when forced to compromise your ideals.",
+            "major": "Gain 5 stress when someone acts directly against your moral code."
+        }
+    },
+    {
+        "name": "The Schemer",
+        "description": "The Schemer is a master planner, always thinking several steps ahead and manipulating situations to their advantage. They thrive on strategy and subtlety, but unpredictable events and impulsive behavior in others can undermine their plans.",
+        "edges": [
+            "Perfect Plan: Each ally gains a 1d6 bonus to a planned action",
+            "Gain a 1d6 bonus to initiative",
+            "Gain a 1d6 bonus to deception or manipulation rolls"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when someone refuses to follow your plan.",
+            "major": "Gain 5 stress when a critical failure in your plan causes harm."
+        }
+    },
+    {
+        "name": "The Loyalist",
+        "description": "The Loyalist is deeply committed to their allies and causes, valuing trust and unity above all. They thrive in a group setting, drawing strength from their bonds. Betrayals and conflicts of loyalty create emotional turmoil for them.",
+        "edges": [
+            "Grant an ally a 1d6 bonus to their next roll",
+            "Absorb 1d6 stress from an ally",
+            "Gain a 1d6 bonus to a persuasion roll involving group cohesion"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when a disagreement threatens group unity.",
+            "major": "Gain 5 stress when someone betrays your trust."
+        }
+    },
+    {
+        "name": "The Seeker",
+        "description": "The Seeker is driven by curiosity and a thirst for knowledge, always seeking to uncover the truth and explore the unknown. They are invigorated by discovery but struggle when their pursuit of understanding is hindered.",
+        "edges": [
+            "Act as if you are good at a knowledge skill",
+            "Gain a 1d6 bonus to a knowledge check",
+            "Spend 1d6 days to automatically succeed at a knowledge check"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when you fail to uncover key information.",
+            "major": "Gain 5 stress when your incomplete knowledge leads to significant consequences."
+        }
+    },
+    {
+        "name": "The Maverick",
+        "description": "The Maverick values independence, freedom, and unpredictability. They thrive on defying expectations and operating outside societal norms. While they can be erratic, their boldness and creativity inspire others to see possibilities beyond the ordinary.",
+        "edges": [
+            "Unpredictable Advantage: Gain a 1d6 bonus to a roll by doing something unexpected",
+            "Calculated Risk: Reroll a failed check, but take 1d6 stress if the reroll also fails",
+            "Distracting Chaos: Create a diversion, forcing enemies or NPCs to focus on you for 1d6 rounds"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when forced to follow a plan or rule you disagree with.",
+            "major": "Gain 5 stress when your actions unintentionally cause harm to someone you care about."
+        }
+    },
+    {
+        "name": "The Survivalist",
+        "description": "The Survivalist is a master of endurance and adaptability, thriving in harsh conditions and overcoming adversity. They value self-reliance and resourcefulness, often taking pride in their ability to endure where others falter.",
+        "edges": [
+            "Gain a 1d6 bonus to any roll involving survival skills (foraging, navigation, crafting)",
+            "When reduced to 0 HP (or equivalent), roll a 1d6 to remain standing",
+            "Provide an ally with a 1d6 bonus to resist environmental hazards"
+        ],
+        "triggers": {
+            "minor": "Gain 1 stress when others fail to prepare for a survival challenge.",
+            "major": "Gain 5 stress when a lack of preparation leads to significant harm or loss."
+        }
+    }
+]

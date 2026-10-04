@@ -40,6 +40,7 @@ interface CharacterHeaderProps {
     encumbrance_penalty?: number;
     encumbrance_check?: number;
     sprint_check?: number;
+    injuries?: any[];
     languages?: string[];
     stances?: string[];
     portraitUrl?: string | null;
@@ -583,6 +584,7 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
           <div className="flex-1">
             <ResourceBars
               resources={character.resources}
+              injuries={character.injuries}
               onResourceChange={onResourceChange}
               onPainStressChange={onPainStressChange}
               readOnly={!onResourceChange}

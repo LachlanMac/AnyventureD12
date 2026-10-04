@@ -7,6 +7,7 @@ export type TabType =
   | 'songs'
   | 'inventory'
   | 'actions'
+  | 'injuries'
   | 'traits'
   | 'background';
 
@@ -18,12 +19,13 @@ interface TabNavigationProps {
 
 const TabNavigation: React.FC<TabNavigationProps> = ({ activeTab, setActiveTab }) => {
   const tabs: { id: TabType; label: string }[] = [
-    { id: 'info', label: 'Character Info' },
+    { id: 'info', label: 'Info' },
     { id: 'modules', label: 'Modules' },
     { id: 'spells', label: 'Spells' },
     { id: 'songs', label: 'Songs' },
     { id: 'inventory', label: 'Inventory' },
     { id: 'actions', label: 'Actions' },
+    { id: 'injuries', label: 'Injuries' },
     { id: 'traits', label: 'Traits' },
     { id: 'background', label: 'Background' },
   ];

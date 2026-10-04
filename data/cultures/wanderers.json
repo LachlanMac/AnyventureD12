@@ -12,6 +12,11 @@
       "name": "Restless Spirit",
       "description": "When you spend more than 7 days within the same settlement or camp, you lose 3 resolve and you no longer can benefit from a favorable rest until you complete a rest in a different camp or settlement.",
       "data": "TX"
+    },
+    {
+      "name": "Guest Rights",
+      "description": "Violating the hospitality of someone who has taken you in (stealing, causing harm, or betraying their trust while under their roof) causes you to lose 3 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Wandering Musicians",
       "description": "Your people use song to pass the time on the road. You automatically learn the ballad of respite and become an expert at one musical skill.",
+      "data": "TX"
+    },
+    {
+      "name": "New Horizons",
+      "description": "The first time you come upon a new landmark or settlement, you gain 1 morale. This can happen once per day.",
       "data": "TX"
     }
   ],

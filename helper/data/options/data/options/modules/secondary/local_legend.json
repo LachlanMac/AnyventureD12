@@ -1,0 +1,71 @@
+{
+  "id": 208,
+  "name": "Local Legend",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1260,
+      "name": "Just Lucky",
+      "description": "Gain 1 Luck Dice",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "L1"
+    },
+    {
+      "id": 1261,
+      "name": "Comic Relief",
+      "description": "Gain +1 Performance. When you roll a 1 on a Defense or Attack Check, the next Ally to make a Defense or Attack Check within 8 Units of you gains a 1d4 Bonus.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASC=1"
+    },
+    {
+      "id": 1262,
+      "name": "Reaction : Duck!",
+      "description": "In response to a Creature making a Melee or Projectile Attack at you, you roll an Initiative Check against the Attack instead in an attempt to redirect the Attack to a Creature that is Adjacent to you. If successful, the Adjacent Creature must make the Defense Check intead of you.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1263,
+      "name": "Scripted Fate",
+      "description": "When you use a Luck Dice, you can instead roll a 1d4. On a 2 or higher, replace the original roll with an 11. Otherwise, the roll becomes a 1.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1264,
+      "name": "Reaction : Words of Wisdom",
+      "description": "When an Allied Humanoid within 4 Units of you rolls a Skill Check, you offer up words of wisdom in the form of a motto or advice. You then make the same Check with a 1d4 Bonus that replaces the Check made by the Ally.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1265,
+      "name": "Free Action : Catch Phrase",
+      "description": "You Speak your catchphrase before making an Attack. If the Creature dies or falls Unconscious as a result of this Attack, you and everyone within 8 Units who can Hear you gains a Heroic Action.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1266,
+      "name": "Last Words",
+      "description": "In response to being in Lifeline even if you are Unconscious, you gather the strength to offer your final words to anyone within 4 Units, forcing a Death Check. When making your Death Check, you add your Performance Modifier to a maximum of 6 to the Roll.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "TG"
+    }
+  ]
+}

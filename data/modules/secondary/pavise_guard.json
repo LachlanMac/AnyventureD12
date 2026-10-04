@@ -46,7 +46,7 @@
     },
     {
       "name": "Heavy Shield Mastery",
-      "description": "You utilize bulky shields to provide exceptional protection against various forms of damage. When using a heavy shield, gain +1 heat, cold and electric mitigation.",
+      "description": "You utilize bulky shields to provide exceptional protection against various forms of damage. When using a heavy shield, your heat, cold and electric mitigation limits are each lowered by 1.",
       "mtype": "core",
       "location": "4b",
       "cost": 2,

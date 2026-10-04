@@ -42,7 +42,7 @@
     },
     {
       "name": "Rugged Conditions",
-      "description": "You are used to severe exposure to the elements. Gain +1 skill with endurance and +1 mitigation to cold and heat damage.",
+      "description": "You are used to severe exposure to the elements. Gain +1 skill with endurance and your cold and heat mitigation limits are each lowered by 1.",
       "location": "5",
       "data": "SSD=1:N2=-1:N3=-1"
     },

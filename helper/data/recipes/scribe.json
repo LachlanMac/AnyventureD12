@@ -1,0 +1,22 @@
+[
+    {
+        "name": "Research Spell",
+        "type": "Scribing",
+        "category": "Craft",
+        "check": ["Beginner : 5", "Novice : 7", "Journeyman : 9", "Expert : 11", "Master : 13"],
+        "time": "1 Day",
+        "description": "You attempt to learn a specific spell that you meet the requirements for by mixing ink with powdered metal and scribing the spell to a piece of temporary parchment, allowing you to study and learn it. The level of the spell determines the quality of powdered metal required, with beginner requiring iron, novice silver, journeyman gold, expert platinum, and master spells requiring aetherium.",
+        "ingredients": ["Powdered Metal", "Treated Parchment", "Vial of Ink"],
+        "cost": ["Beginner : 12 GP", "Novice : 15 GP", "Journeyman : 60 GP", "Expert : 110 GP", "Master : 510 GP"]
+    },
+    {
+        "name": "Scribe Spell",
+        "type": "Scribing",
+        "category": "Craft",
+        "check": ["Beginner : 8", "Novice : 10", "Journeyman : 12", "Expert : 14", "Master : 16"],
+        "time": "4 Hours",
+        "description": "You attempt to Scribe a Spell you know that does not require Components and has a Channeling Time of less than 1 Minutes. You mix ink with Powdered Metal and a Catalyst that is one tier below the targeted level of the spell to create an ink to scribe to a scroll. The level of the targeted spell determines the quality of powdered metal required, with beginner requiring iron, novice Silver, journeyman gold, expert platinum, and master spells requiring aetherium.",
+        "ingredients": ["Powdered Metal", "Catalyst", "Treated Parchment", "Vial of Ink"],
+        "cost": ["Beginner : 17 GP", "Novice : 25 GP", "Journeyman : 110 GP", "Expert : 210 GP", "Master : 1010 GP"]
+    }
+]

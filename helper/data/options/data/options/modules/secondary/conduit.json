@@ -1,0 +1,71 @@
+{
+  "id": 286,
+  "name": "Conduit",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 2254,
+      "name": "Natural Magic",
+      "description": "You cannot benefit from a conduit, but instead become your own conduit, gaining a base power and power regeneration equal to double your level.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TYN"
+    },
+    {
+      "id": 2255,
+      "name": "Free Action : Amplify",
+      "description": "After Channeling a Spell, spend an additional 1 power to charge it",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 2256,
+      "name": "Magical Instinct",
+      "description": "Gain +1 Initiative and +1 Spell Damage",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ASH=1:AZ4=1"
+    },
+    {
+      "id": 2257,
+      "name": "Focused Power",
+      "description": "Gain +1 Spell Attack",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ2=1"
+    },
+    {
+      "id": 2258,
+      "name": "Action [Daily] : Restorance",
+      "description": "Once per day, you restore power to either yourself or a conduit in an amount equal to 2d4 + your Spell Damage. The dice increases to 2d8 at level 7 and 3d10 at level 9.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XD1"
+    },
+    {
+      "id": 2259,
+      "name": "Mind for Magic",
+      "description": "Gain +1 Arcanum, +1 Resistance and +2 Psychic Mitigation",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AS7=1:AD1=1:AD9=2"
+    },
+    {
+      "id": 2260,
+      "name": "Reaction : Absorption",
+      "description": "In response to a spell being channeled against you, use resistance as your defense check. On a failure, if the spell has a damage component, reduce that by half before applying mitigations. On a success, the spell does not affect you and you gain power equal to the amount used to channel the spell.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Protection of the Grove",
+  "description": "You designate a natural area within a short (10 unit) radius as a protected grove for the next 8 hours. Hostile beasts and plantoids cannot willingly enter the grove. Beasts and plantoids already within the area when the spell is cast become non-hostile and cooperative with the caster, following simple commands. Creatures that complete a full rest within the grove gain the benefits of a favorable rest regardless of conditions. The grove must be in a natural environment (forest, jungle, grassland, cave with natural growth).",
+  "charge": "The grove becomes permanent but you can only maintain one permanent grove at a time. Creating a new permanent grove ends the previous one. The emerald becomes the heart of the grove. If it is removed or destroyed, the grove is destroyed. While within your permanent grove, you can shape trees, roots, and vegetation at will, forming natural shelters, furniture, and barriers. Beasts and plantoids within the grove obey your commands and act as guardians, alerting you to intruders.",
+  "duration": "8 hours",
+  "range": 0,
+  "checkToCast": 15,
+  "components": [
+    "Emerald"
+  ],
+  "ritualDuration": "10 minutes",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

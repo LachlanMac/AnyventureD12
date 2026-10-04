@@ -54,7 +54,7 @@
     },
     {
       "name": "Planar Bastion",
-      "description": "Constant planar warding protects your form. Gain +2 aethericic mitigation and cannot be involuntarily teleported or banished unless you are unconscious.",
+      "description": "Constant planar warding protects your form. Gain +2 aetheric mitigation and cannot be involuntarily teleported or banished unless you are unconscious.",
       "location": "6b",
       "data": "M7=2:TG"
     },

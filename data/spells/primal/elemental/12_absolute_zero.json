@@ -4,7 +4,7 @@
   "charge": "The sphere's radius increases to 3 units. Creatures whose resilience is beaten by your spell check also become frozen until the end of their next turn if your spell check is double their resilience. If they start their turn frozen while within the sphere, they do not become unfrozen at the end of their turn.",
   "duration": "Concentration",
   "range": 5,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Frost Sapphire"
   ],

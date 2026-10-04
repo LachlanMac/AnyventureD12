@@ -4,7 +4,7 @@
   "charge": "The range increases to distant (100 units).",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Diatessite"
   ],

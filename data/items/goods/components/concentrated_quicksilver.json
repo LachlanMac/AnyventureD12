@@ -1,0 +1,20 @@
+{
+  "name": "Concentrated Quicksilver",
+  "description": "A dense, heavy sphere of refined mercury that is cold to the touch and never seems to warm up. Proximity to other metals causes them to tarnish and corrode over time, so it must be stored in glass or ceramic containers. Alchemists use it for large-scale metal purification and corrosion work.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical"
+  ],
+  "weight": 1,
+  "value": 2000,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 15,
+    "ingredients": [
+      "4x Vial of Quicksilver"
+    ]
+  },
+  "foundry_icon": "icons/consumables/potions/bottle-round-corked-yellow.webp"
+}

@@ -1,5 +1,12 @@
 import React, { useState } from 'react';
 
+interface InjuryData {
+  injuryId?: {
+    pain?: number;
+    stress?: number;
+  };
+}
+
 interface ResourceBarProps {
   resources: {
     health: { current: number; max: number };
@@ -9,6 +16,7 @@ interface ResourceBarProps {
     pain?: { custom: number; calculated: number };
     stress?: { custom: number; calculated: number };
   };
+  injuries?: InjuryData[];
   onResourceChange?: (
     resource: 'health' | 'energy' | 'resolve' | 'morale',
     newCurrent: number
@@ -22,6 +30,7 @@ interface ResourceBarProps {
 
 const ResourceBars: React.FC<ResourceBarProps> = ({
   resources,
+  injuries = [],
   onResourceChange,
   onPainStressChange,
   readOnly = false,
@@ -133,7 +142,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
                 opacity: current <= 0 ? 0.5 : 1,
                 minWidth: '2rem',
               }}
-              onClick={() => handleResourceChange(resource, current - 1)}
+              onClick={() => { if (current > 0) handleResourceChange(resource, current - 1); }}
               disabled={current <= 0}
             >
               −
@@ -243,17 +252,36 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
     );
   };
 
-  // Helper function to render pain/stress meters (no max, just a value)
+  // Calculate pain from injuries + health status + override
+  const calcPain = () => {
+    const injuryPain = injuries.reduce((sum, i) => sum + (i.injuryId?.pain || 0), 0);
+    let healthPain = 0;
+    if (resources.health.max > 0) {
+      if (resources.health.current < 5) healthPain = 4;
+      else if (resources.health.current < resources.health.max / 2) healthPain = 2;
+    }
+    const override = resources.pain?.custom || 0;
+    return Math.max(0, injuryPain + healthPain + override);
+  };
+
+  // Calculate stress from injuries + resolve status + override
+  const calcStress = () => {
+    const injuryStress = injuries.reduce((sum, i) => sum + (i.injuryId?.stress || 0), 0);
+    let resolvePain = 0;
+    if (resources.resolve.max > 0) {
+      if (resources.resolve.current < 3) resolvePain = 4;
+      else if (resources.resolve.current < resources.resolve.max / 2) resolvePain = 2;
+    }
+    const override = resources.stress?.custom || 0;
+    return Math.max(0, injuryStress + resolvePain + override);
+  };
+
+  // Render read-only pain/stress meter
   const renderPainStressMeter = (
     name: string,
-    type: 'pain' | 'stress',
+    value: number,
     color: string
   ) => {
-    const data = resources[type];
-    if (!data) return null;
-
-    const totalValue = Math.max(0, (data.calculated || 0) + (data.custom || 0));
-
     return (
       <div
         style={{
@@ -267,100 +295,37 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'space-between',
+            justifyContent: 'center',
             gap: '0.5rem',
           }}
         >
-          {/* -1 button on far left */}
-          {!readOnly ? (
-            <button
-              style={{
-                backgroundColor: 'var(--color-dark-elevated)',
-                color: 'var(--color-white)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '0.25rem',
-                padding: '0.125rem 0.375rem',
-                fontSize: '0.875rem',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                minWidth: '2rem',
-              }}
-              onClick={() => {
-                if (onPainStressChange) {
-                  onPainStressChange(type, (data.custom || 0) - 1);
-                }
-              }}
-            >
-              −
-            </button>
-          ) : (
-            <div style={{ width: '2rem' }} />
-          )}
-
-          {/* Label and value in center */}
-          <div
+          <span
             style={{
-              flex: 1,
-              display: 'flex',
-              alignItems: 'center',
-              justifyContent: 'center',
-              gap: '0.5rem',
+              color: 'var(--color-cloud)',
+              fontSize: '0.875rem',
             }}
           >
+            {name}:
+          </span>
+          <span
+            style={{
+              color: value > 0 ? color : 'var(--color-white)',
+              fontSize: '1rem',
+              fontWeight: 'bold',
+            }}
+          >
+            {value}
+          </span>
+          {value > 0 && (
             <span
               style={{
-                color: 'var(--color-cloud)',
-                fontSize: '0.875rem',
+                fontSize: '0.625rem',
+                color: color,
+                fontStyle: 'italic',
               }}
             >
-              {name}:
+              {value >= 16 ? '(Critical)' : value >= 11 ? '(Severe)' : value >= 6 ? '(Moderate)' : '(Mild)'}
             </span>
-            <span
-              style={{
-                color: totalValue > 0 ? color : 'var(--color-white)',
-                fontSize: '1rem',
-                fontWeight: 'bold',
-              }}
-            >
-              {totalValue}
-            </span>
-            {/* Show breakdown tooltip if there's calculated value */}
-            {data.calculated !== 0 && (
-              <span
-                style={{
-                  fontSize: '0.625rem',
-                  color: 'var(--color-cloud)',
-                }}
-              >
-                (Calc: {data.calculated}, Custom: {data.custom || 0})
-              </span>
-            )}
-          </div>
-
-          {/* +1 button on far right */}
-          {!readOnly ? (
-            <button
-              style={{
-                backgroundColor: 'var(--color-dark-elevated)',
-                color: 'var(--color-white)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '0.25rem',
-                padding: '0.125rem 0.375rem',
-                fontSize: '0.875rem',
-                fontWeight: 'bold',
-                cursor: 'pointer',
-                minWidth: '2rem',
-              }}
-              onClick={() => {
-                if (onPainStressChange) {
-                  onPainStressChange(type, (data.custom || 0) + 1);
-                }
-              }}
-            >
-              +
-            </button>
-          ) : (
-            <div style={{ width: '2rem' }} />
           )}
         </div>
       </div>
@@ -379,13 +344,13 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
       {renderEditableResource('Health', 'health', 'var(--color-sunset)')}
 
       {/* Pain meter under Health */}
-      {resources.pain && renderPainStressMeter('Pain', 'pain', 'var(--color-sunset)')}
+      {renderPainStressMeter('Pain', calcPain(), 'var(--color-sunset)')}
 
       {/* Resolve */}
       {renderEditableResource('Resolve', 'resolve', 'var(--color-sat-purple)')}
 
       {/* Stress meter under Resolve */}
-      {resources.stress && renderPainStressMeter('Stress', 'stress', 'var(--color-sat-purple)')}
+      {renderPainStressMeter('Stress', calcStress(), 'var(--color-sat-purple)')}
 
       {/* Morale */}
       {resources.morale && renderEditableResource('Morale', 'morale', 'var(--color-forest)')}

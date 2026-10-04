@@ -4,7 +4,7 @@
   "charge": "The spell becomes an area effect with a 3 unit radius centered on a point you can see within a short (10 unit) distance. All creatures in the area whose resilience is beaten by your spell check take 15 psychic damage and 10 dark damage. Creatures whose resilience is beaten by 4 or more become stunned.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Void Amethyst"
   ],

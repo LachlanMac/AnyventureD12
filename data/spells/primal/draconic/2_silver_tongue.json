@@ -4,7 +4,7 @@
   "charge": "The persuasion checks are rolled with a 3d10 instead.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "silver nugget"
   ],

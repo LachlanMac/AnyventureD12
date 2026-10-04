@@ -4,7 +4,7 @@
   "charge": "The eye becomes invisible and only reveals itself when it makes an attack, turning invisible again at the end of your turn. The eye automatically follows you, remaining above you as you move. The divine damage increases to 6 per hit.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Moonstone"
   ],

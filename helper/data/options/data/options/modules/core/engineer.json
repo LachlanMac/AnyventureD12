@@ -1,0 +1,152 @@
+{
+  "id": 128,
+  "name": "Engineer",
+  "mtype": "core",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 2113,
+      "name": "Beginner Engineering",
+      "description": "Gain +2 Engineering",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AC7=2"
+    },
+    {
+      "id": 2114,
+      "name": "Tinkerer",
+      "description": "Gain +1 Smithing and +1 Ammocraft ",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "AC1=1:AC6=1"
+    },
+    {
+      "id": 2115,
+      "name": "Superior Tools",
+      "description": "Lock Picks, Compasses, Crowbars and Climbing Kits you craft add a 1d4 Bonus instead of +1",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2116,
+      "name": "Craft : Strong Start",
+      "description": "You can reroll your first Crafting Skill Check when attempting to create an Object that has a Cumulative Check.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 2117,
+      "name": "Action : Undermine",
+      "description": "You interact with an Object or Structure, examining it for weaknesses by making an Engineering Check. On an 11 or higher, you lower the Durability Tier by 1 for a minute. You can only attempt to Undermine a unique Object or Structure once per Day.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 2118,
+      "name": "Disarming",
+      "description": "You gain a 1d4 Bonus to disarming and defending against Traps",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 2119,
+      "name": "Novice Engineering",
+      "description": "Gain +1 Engineering and +1 Academics",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "AC7=1:AS9=1"
+    },
+    {
+      "id": 2120,
+      "name": "Locksmith",
+      "description": "You are a master Locksmith, gaining a +2 Bonus when using Lockpicks and increasing the Required Check to open any Locks you Craft by an amount equal to your Engineering Bonus Modifier.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2121,
+      "name": "Trapmaster",
+      "description": "Traps you make have the Required Checks for spotting and avoiding them increased by 2 at the time you craft them. Additionally, add an extra Dice to the Damage of your Traps.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2122,
+      "name": "Upgrades",
+      "description": "You are able to add one unique Infusion onto Weapons, Armor, Gloves or Boots after they have been Crafted, requiring an Engineering Check of 12 or higher or the materials are lost.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2123,
+      "name": "Inventor",
+      "description": "You can install Grapple, Net and Bola Launcher Infusions on hand armor. Additionally, each infusion has its Range increased by 2 Units.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2124,
+      "name": "Craft : Reverse Engineer",
+      "description": "You choose an Object that has a Crafting Recipe and attempt to deconstruct it. Roll an Engineering Check. If the Check is above a 14, you recover all the ingredients. On a success, if you recreate this Object on the same day, you gain a +3 Bonus on your first Craft Check.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 2125,
+      "name": "Free Action : Use",
+      "description": "You can interact with an object without expending an Action on your turn.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 3,
+      "data": "Y"
+    },
+    {
+      "id": 2126,
+      "name": "Precise Fabrication",
+      "description": "Ranged Weapons that you Craft gain +1 Attack and +2 Units of Maximum Range.",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2127,
+      "name": "Construct Crafting",
+      "description": "You can create Constructs of the Mechanical subtype up to a Level less than your Engineering Bonus Modifier. For each Level of the Target Construct, you must spend 1 Day and 100 Gold for parts and fabrication",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2128,
+      "name": "Master Engineer",
+      "description": "You Gain +2 Engineering and Infusions, including those from other Crafting Skills, no longer add to the Cumulative Check of an item.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "TC:AC7=2"
+    }
+  ]
+}

@@ -1,0 +1,21 @@
+{
+  "name": "Copycat",
+  "description": "While you concentrate on this spell, you exist in a state of illusory flux. You gain the following abilities: Reaction (1 energy): When targeted by a melee attack, double your defense check against the triggering attack. If you successfully avoid the attack, you become invisible until the start of your next turn. Action (1 energy): Create a copy of yourself in your space. You and the copy each immediately move up to 2 units. You cannot end your turn occupying the same space as a copy. The copy lasts until the start of your next turn. Enemies cannot deduce which is the real you. A creature can see through the copy if their senses or logic beats your original spell check.",
+  "charge": "When using the action, you create two copies instead of one. You and both copies each move up to 2 units.",
+  "duration": "Concentration",
+  "range": 0,
+  "checkToCast": 16,
+  "components": [
+    "Opal"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

@@ -12,6 +12,11 @@
       "name": "Circle of Trust",
       "description": "Survivor groups depend on absolute trust to survive. When you witness betrayal within your trusted circle - allies harming, lying to, or stealing from each other - you lose 2 resolve as the bonds that keep everyone alive are damaged.",
       "data": "TX"
+    },
+    {
+      "name": "Suspicion of Strangers",
+      "description": "You lose 1 resolve for each non-ally sharing a camp, room, or space with you during a full rest.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Provider",
       "description": "Contributing to your group's survival strengthens your sense of purpose and belonging. When you craft an item worth more than 20 gold for an ally, you gain 2 resolve.",
+      "data": "TX"
+    },
+    {
+      "name": "Shared Meal",
+      "description": "Once per day, when you eat a meal that includes something collected by you or an ally naturally, you gain 1 morale.",
       "data": "TX"
     }
   ],

@@ -71,7 +71,7 @@
     "id": "bleeding",
     "name": "Bleeding",
     "category": "Physical",
-    "description": "A bleeding character takes 1 damage at the end of their turn. After the damage is taken, they can roll an endurance check of 10 to stop the bleeding. This check is lowered by 1 each turn. If a character takes bleeding damage while at 0 health, they must make a resilience check of 10 or higher, or they fall unconscious."
+    "description": "A bleeding character takes 1 damage at the start of each round. After the damage is taken, they can roll an endurance check of 10 to stop the bleeding. This check is lowered by 1 each round. If a character takes bleeding damage while at 0 health, they must make a resilience check of 10 or higher, or they fall unconscious."
   },
   {
     "id": "blinded",
@@ -89,7 +89,7 @@
     "id": "ignited",
     "name": "Ignited",
     "category": "Physical",
-    "description": "An ignited character is on fire and takes 5 heat damage at the end of their turn. For every turn the character remains ignited, the damages increases by 1, up to a maximum of 10. Removing the ignited condition requires an action to make a coordination check of 6. An ally can put out a creature by using an action to make a coordination check of 4."
+    "description": "An ignited character is on fire and takes 5 heat damage at the start of each round. For every round the character remains ignited, the damage increases by 1, up to a maximum of 10. Removing the ignited condition requires an action to make a coordination check of 6. An ally can put out a creature by using an action to make a coordination check of 4."
   },
   {
     "id": "impaired",
@@ -119,7 +119,7 @@
     "id": "poisoned",
     "name": "Poisoned",
     "category": "Physical",
-    "description": "A poisoned character takes toxic damage at the end of their turn in the amount and type specified by the poison. When they take this toxic damage, they must roll an endurance check specified by the poison. If they succeed, the poisoned condition is removed, otherwise the required check is lowered by 1 the next time they make it."
+    "description": "A poisoned character takes toxic damage at the start of each round in the amount and type specified by the poison. When they take this damage, they must roll an endurance check specified by the poison. If they succeed, the poisoned condition is removed, otherwise the required check is lowered by 1 the next time they make it."
   },
   {
     "id": "prone",

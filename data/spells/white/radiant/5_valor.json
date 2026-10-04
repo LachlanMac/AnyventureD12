@@ -4,7 +4,7 @@
   "charge": "When the spell is triggered, the creature ignores any mental condition until the end of their next turn.",
   "duration": "1 minute",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Bundle of Lion's Mane"
   ],

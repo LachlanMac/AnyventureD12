@@ -1,0 +1,71 @@
+{
+  "id": 268,
+  "name": "Companion",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1673,
+      "name": "Action [Daily] : Designitate Companion",
+      "description": "You Choose an Ally with 10 Units and designate them as your Companion until a new one is picked using this Action again. When you or your Companion makes a Lifeline Check within 10 Units of each other, gain a 1d4 Bonus.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "XD1"
+    },
+    {
+      "id": 1674,
+      "name": "Helpful",
+      "description": "Skill Checks that you Assist your Companion on do not suffer a Negative Modifier when failing and successful use of an Assisted Check adds a +3 Bonus Modifier instead of +2.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1675,
+      "name": "Empathetic",
+      "description": "Gain +1 Insight and +1 Animals",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ASD=1:ASF=1"
+    },
+    {
+      "id": 1676,
+      "name": "Confidence in Allies",
+      "description": "Your Companion gains a 1d4 Bonus to all Resistance Checks while within 15 Units of you.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "TD"
+    },
+    {
+      "id": 1677,
+      "name": "Action : Coordinate",
+      "description": "If your Companion is within 20 Units, you move their Initiative Order to yours. This can only be used once per Engagement.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1678,
+      "name": "Free Action : Coordinated Assault",
+      "description": "Your Companion gains an extra 1d4 Attack Bonus to their next Weapon Attack.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1679,
+      "name": "Reaction : Motivate",
+      "description": "Your Companion immediately takes an Action.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    }
+  ]
+}

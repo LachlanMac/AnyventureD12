@@ -4,7 +4,7 @@
   "charge": "After teleporting, deal 7 aetheric damage to any adjacent creature whose resilience is beaten by your spell check.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Shard of Obsidian"
   ],

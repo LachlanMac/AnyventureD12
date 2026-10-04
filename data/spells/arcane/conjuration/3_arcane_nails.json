@@ -4,7 +4,7 @@
   "charge": "You summon an additional 1d4 shards. When you roll a 6 or higher for the number of shards, the target also gains the bleeding condition.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Steel Nugget"
   ],

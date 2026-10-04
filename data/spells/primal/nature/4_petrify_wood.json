@@ -4,7 +4,7 @@
   "charge": "The weapon gains a bonus attack of +1",
   "duration": "1 day",
   "range": 1,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Pine Resin"
   ],

@@ -4,7 +4,7 @@
   "charge": "This spell affects anyone within a very short (5 unit) radius.",
   "duration": "1 day",
   "range": 1,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "Pinch of Crystal Dust"
   ],

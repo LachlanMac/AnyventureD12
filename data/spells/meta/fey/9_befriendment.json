@@ -4,7 +4,7 @@
   "charge": "If this spell fails, no damage is done and the target is not aware you channeled a spell unless their magic or logic beats your spell check.",
   "duration": "1 minute",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Jar of Honey"
   ],

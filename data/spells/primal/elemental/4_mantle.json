@@ -4,7 +4,7 @@
   "charge": "You also gain +2 heat, electric and cold mitigation.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Iron Shavings"
   ],

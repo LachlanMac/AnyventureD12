@@ -4,7 +4,7 @@
   "charge": "The damage is increased to 12 psychic damage and gives the maddened condition to any creature who takes 8 or more psychic damage after mitigation.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Nullstone Dust"
   ],

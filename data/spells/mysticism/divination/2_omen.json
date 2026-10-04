@@ -4,7 +4,7 @@
   "charge": "In additional to the feeling, you can send a single word that will be clear to the receiver. The omen also transcends planes if you know the plane your target is on.",
   "duration": "Instantaneous",
   "range": 8,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Bird Feather"
   ],

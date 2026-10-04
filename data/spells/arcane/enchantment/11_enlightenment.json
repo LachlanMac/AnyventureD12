@@ -4,7 +4,7 @@
   "charge": "The effect becomes permanent.",
   "duration": "1 hour",
   "range": 1,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Aetherium Nugget"
   ],

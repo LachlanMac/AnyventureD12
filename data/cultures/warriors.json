@@ -10,7 +10,12 @@
     },
     {
       "name": "Debt of Blood",
-      "description": "When you or an ally is brought to 0 health by a creature, you make a vow of blood against the creature that did it. Until this creature is defeated or brought to justice, you lose 1 resolve every day. If you become broken as a result of this loss, the vow ends.",
+      "description": "When you or an ally is brought to 0 health by a creature, you make a vow of blood against the creature that did it. Until this creature is defeated, brought to justice, or you become broken, you lose 1 resolve every day.",
+      "data": "TX"
+    },
+    {
+      "name": "Die on Your Feet",
+      "description": "Choosing to fall unconscious at 0 health instead of spending resolve to stay up causes you to lose 5 resolve when you next wake.",
       "data": "TX"
     }
   ],
@@ -24,6 +29,11 @@
       "name": "Badge of Honor",
       "description": "You start with one cosmetic injury. For each cosmetic injury that you have obtained by rolling a lifeline check, your maximum morale is increased by 1.",
       "data": "TX:FD"
+    },
+    {
+      "name": "Worthy Opponent",
+      "description": "Once per day, when you defeat a champion-tier or higher creature where you are the only one to deal damage to it, you gain 5 morale.",
+      "data": "TX"
     }
   ],
   "startingItems": [

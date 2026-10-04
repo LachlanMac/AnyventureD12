@@ -4,7 +4,7 @@
   "charge": "The spell also prevents grants them immunity to the afraid condition for the next minute",
   "duration": "1 minute",
   "range": 0,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Copper Idol"
   ],

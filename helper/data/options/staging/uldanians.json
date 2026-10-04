@@ -1,0 +1,64 @@
+{
+  "id": 33,
+  "name": "Uldanians [Pursuit of Freedom]",
+  "mtype": "racial",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1,
+      "name": "Option 1",
+      "description": "Description for Option 1",
+      "location": "1",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 2,
+      "name": "Well-Rounded Education",
+      "description": "Description for Option 2a",
+      "location": "2a",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 3,
+      "name": "Option 2b",
+      "description": "Description for Option 2b",
+      "location": "2b",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 4,
+      "name": "Reaction : Break the Chains",
+      "description": "",
+      "location": "3",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 5,
+      "name": "Option 4a",
+      "description": "Description for Option 4a",
+      "location": "4a",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 6,
+      "name": "Option 4b",
+      "description": "Description for Option 4b",
+      "location": "4b",
+      "cost": 0,
+      "data": ""
+    },
+    {
+      "id": 7,
+      "name": "Option 5",
+      "description": "Description for Option 5",
+      "location": "5",
+      "cost": 0,
+      "data": ""
+    }
+  ]
+}

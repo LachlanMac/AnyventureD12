@@ -1,0 +1,22 @@
+{
+  "name": "Flux Powder",
+  "description": "A volatile powder that exists in a state of constant change, shifting between metallic, crystalline, and liquid states seemingly at random. It must be stored in a sealed lead container to prevent it from reacting with its surroundings. Alchemists use it to catalyze reactions that would otherwise be impossible.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical"
+  ],
+  "weight": 0.1,
+  "value": 1500,
+  "rarity": "rare",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 10,
+    "ingredients": [
+      "Aetherium Shavings",
+      "Vial of Quicksilver",
+      "5x Pinch of Crystal Dust"
+    ]
+  },
+  "foundry_icon": "icons/commodities/gems/powder-raw-white.webp"
+}

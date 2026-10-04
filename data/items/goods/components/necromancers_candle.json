@@ -1,0 +1,23 @@
+{
+  "name": "Necromancer's Candle",
+  "description": "A thick black candle made from rendered humanoid fat and bone dust that burns with a faint purple flame. When 8 or more necromancer's candles are lit within a short (10 unit) radius of a caster, that caster rolls a bonus die on all black magic spell checks. Each candle burns for 1 hour. Commonly used in dark rituals and necromantic research.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "ritual"
+  ],
+  "weight": 0.25,
+  "value": 100,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 4,
+    "ingredients": [
+      "Beeswax",
+      "Humanoid Fat",
+      "Bone Dust",
+      "Pinch of Ash"
+    ]
+  },
+  "foundry_icon": "icons/sundries/lights/candle-unlit-grey.webp"
+}

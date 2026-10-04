@@ -4,7 +4,7 @@
   "charge": "You can turn the target into a beast one tier below it's tier.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Beast's Eyeball"
   ],

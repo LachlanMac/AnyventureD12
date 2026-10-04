@@ -4,7 +4,7 @@
   "charge": "If there is an invisible or object within the radius of the light, the wisp will move to it and stop following you.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Quartz"
   ],

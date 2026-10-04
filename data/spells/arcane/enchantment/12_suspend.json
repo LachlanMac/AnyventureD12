@@ -4,7 +4,7 @@
   "charge": "The condition is permanent, but you must specify a condition in which the spell ends.",
   "duration": "1 hour",
   "range": 1,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Frost Sapphire"
   ],

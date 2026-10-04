@@ -24,7 +24,7 @@
     },
     {
       "name": "Otherworldly Focus",
-      "description": "Your connection to mystical forces strengthens your mental discipline. Gain +1 skill with concentration and +1 psychic mitigation.",
+      "description": "Your connection to mystical forces strengthens your mental discipline. Gain +1 skill with concentration and +1 psychic mitigation and your psychic mitigation limit is lowered by 1.",
       "location": "3",
       "data": "SSJ=1:M8=1:N8=-1:TG"
     },

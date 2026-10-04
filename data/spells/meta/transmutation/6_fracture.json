@@ -4,7 +4,7 @@
   "charge": "The damage is increased to 18 and the target cannot take the sprint action until the end of their next turn.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Shard of Obsidian"
   ],

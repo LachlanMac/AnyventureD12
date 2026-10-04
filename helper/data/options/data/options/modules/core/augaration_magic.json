@@ -1,0 +1,152 @@
+{
+  "id": 106,
+  "name": "Augaration Magic",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1860,
+      "name": "Beginner Auger",
+      "description": "You can research Beginner Level Auguration Spells and gain +1 Power.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "S51=4:FP=1"
+    },
+    {
+      "id": 1861,
+      "name": "All Seeing",
+      "description": "Gain +1 Insight and +1 Search",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "ASD=1:ASG=1"
+    },
+    {
+      "id": 1862,
+      "name": "Foresight",
+      "description": "Gain +1 Initiative and +1 Resilience",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "ASH=1:AS6=1"
+    },
+    {
+      "id": 1863,
+      "name": "Reaction : Rewind",
+      "description": "At any point during your turn, you can use a Reaction to revert your last Action, refunding any resources that were used and any Health that was lost.",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1864,
+      "name": "Potent Spells",
+      "description": "Gain +1 Spell Damage",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZ4=1"
+    },
+    {
+      "id": 1865,
+      "name": "Fate Avoided",
+      "description": "Any time you roll a 1 on a Skill Check, roll a d4. If the result is a 4, treat the original 1 as a 12 instead.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1866,
+      "name": "Novice Auger",
+      "description": "You can research Novice Level Auguration Spells, gain +1 Spell Attack and +2 Power.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "S52=4:AZ2=1:FP=2"
+    },
+    {
+      "id": 1867,
+      "name": "A Touch of Luck",
+      "description": "Gain 1 Luck Dice",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "L1"
+    },
+    {
+      "id": 1868,
+      "name": "Predictive Defenses",
+      "description": "Gain +1 Dodge and +1 Block",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "AD2=1:AD3=1"
+    },
+    {
+      "id": 1869,
+      "name": "Journeyman Auger",
+      "description": "You can research Journeyman Level Druidic Spells, gain +5 Power and +1 Physical Mitigation",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "S53=3:AD4=1:FP=5"
+    },
+    {
+      "id": 1870,
+      "name": "Action : Split Fate",
+      "description": "The next Auguration Spell that you Channel before the end of your next turn that targets one Creature targets an additional Creature within range but costs double the Power.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1871,
+      "name": "Visions in the Night",
+      "description": "When you complete a Full Rest with that you started with Full Health, you have dreams about possible futures and omens. When you wake, you roll a 1d12 Omen Dice which will affect your Crafting Checks and Skill Checks, with the exception of Defense and Attack Rolls. On a 1, your Checks suffer a 1d4 Penalty until the end of your next Full Rest. On a 9 or higher, they receive a 1d4 Bonus.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1872,
+      "name": "Expert Auger",
+      "description": "You can research Expert Level Auguration Spells, gain +8 Power, +1 Spell Attack and +1 Spell Damage",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "S54=2:AZ2=1:AZ4=1:FP=8"
+    },
+    {
+      "id": 1873,
+      "name": "Free Action [Daily] : Reality Surge",
+      "description": "Whenever you would take your next Action, gain 1d4 Actions instead. When you roll a 4, you gain 1 Tier of Exhaustion after the Actions end.",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "Y"
+    },
+    {
+      "id": 1874,
+      "name": "Echoes of the Past",
+      "description": "When you handle Objects, you can identify any magical properties on them just by touching them. Additionally, if you spend 1 Hour interacting with an Object you can pick up echoes that grant more information about the item such as its history, previous owners or lore associated with it.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "TG"
+    },
+    {
+      "id": 1875,
+      "name": "Master Auger",
+      "description": "You can research Master Level Auguration Spells, gain +10 Power, +1 Spell Attack and +1 Resistance. Additionally, you can research or learn Grand Master Auguration Spells at level 13.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "FP=6:AZ2=1:AD1=1"
+    }
+  ]
+}

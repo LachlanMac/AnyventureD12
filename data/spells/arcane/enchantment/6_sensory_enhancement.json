@@ -4,7 +4,7 @@
   "charge": "The effect lasts an entire day, and the target of this spell gets a bonus dice to all senses checks.",
   "duration": "1 hour",
   "range": 1,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Amethyst Dust"
   ],

@@ -4,7 +4,7 @@
   "charge": "You can target any willing humanoid on the same plane as you, but they arrive in 1d6 minutes instead of rounds.",
   "duration": "Instantaneous",
   "range": 8,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Diatessite"
   ],

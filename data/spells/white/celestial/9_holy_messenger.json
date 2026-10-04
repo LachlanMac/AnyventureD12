@@ -4,7 +4,7 @@
   "charge": "Instead of a standard tier beast, the spell instead summons 3 minion-tiered beast apparitions.",
   "duration": "1 minute",
   "range": 0,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Treated Scroll"
   ],

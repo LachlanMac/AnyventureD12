@@ -4,7 +4,7 @@
   "charge": "The breath lingers until the end of your next turn, forcing anyone within who ends their turn within the area to make the endurance check again, or take damage.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Vial of Venom"
   ],

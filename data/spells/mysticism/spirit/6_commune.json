@@ -4,7 +4,7 @@
   "charge": "You can target a spirit to banish from either the material or spectral plane, though this ends the spell. Incorporeal creatures that have stat blocks, such as spectres, ghosts and poltergeists are banished if your spell check beats their resilience.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Bundle of Sage"
   ],

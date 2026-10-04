@@ -4,7 +4,7 @@
   "charge": "The spell becomes a 3 unit radius centered on a point within a moderate (20 unit) distance. All creatures in the area take 20 dark damage and an additional 12 heat or cold damage. Creatures whose resilience beats your spell check take half damage from both damage types.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Fire Opal"
   ],

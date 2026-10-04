@@ -4,7 +4,7 @@
   "charge": "Instead of rolling a d12, the spell automatically succeeds, but the creature can never be the target of this spell again.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Ruby"
   ],

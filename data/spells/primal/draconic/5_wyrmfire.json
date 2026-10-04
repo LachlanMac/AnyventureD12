@@ -4,7 +4,7 @@
   "charge": "Creatures who take more than 4 heat damage become ignited.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Pinch of Sulfur"
   ],

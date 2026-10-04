@@ -4,7 +4,7 @@
   "charge": "Upon failing, you can decide the target it attacks as well as forcing it to move up to it's movement speed towards it as part of the same action.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Short Metal Chain"
   ],

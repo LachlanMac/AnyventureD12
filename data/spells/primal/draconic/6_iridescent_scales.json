@@ -4,7 +4,7 @@
   "charge": "Choose a secondary damage type to also gain the +5 mitigation bonus to.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Lead Nugget"
   ],

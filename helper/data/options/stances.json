@@ -1,0 +1,170 @@
+[
+    {
+        "id": 1,
+        "name": "Neutral Stance",
+        "description": "The default stance. While in this stance, you do not suffer any penalties or gain any bonuses.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 0
+    },
+    {
+        "id": 2,
+        "name": "Savage Stance",
+        "description": "Place yourself in a violent stance with little care for self preservation. While in this stance you have a -2 penalty to block and dodge checks but your true hit threshold with melee weapons is increased by 1.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 3,
+        "name": "Light Stance",
+        "description": "You place yourself in a quick-footed stance designed for speed and avoidance. While in this stance, you have a -1 penalty to all attacks with but gain +1 dodge and +1 movement Speed",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 4,
+        "name": "Defensive Stance",
+        "description": "You place yourself in a stance that favors defense over attacks. While in this stance, you have a -1 penalty to all attacks, but gain +1 to all defensive checks.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 5,
+        "name": "Precise Stance",
+        "description": "You sacrifice damage to become more accurate with your Weapons. While in this stance, gain +2 attack with weapons but your attacks can no longer true hit and deal 4 less damage.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 6,
+        "name": "Focus Stance",
+        "description": "While in this stance, you dedicate your focus to protecting your mind, gaining +3 Resistance. If your focus is broken while in this stance after taking damage, you become dazed until the end of your next turn.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 7,
+        "name": "Wide Stance",
+        "description": "While in this stance, you gain +1 unit of melee range (Maximum of 2 Units) at the cost of a -1 penalty to movement speed.",
+        "code": "2-Handed Weapons",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 8,
+        "name": "Dueling Stance",
+        "description": "While you do not have a shield or weapon in your offhand, you gain +1 block, +1 dodge and +2 damage on attacks with 1-handed weapons.",
+        "code": "1-Handed Weapons",
+        "requirements": "Acquired through Duelist Module",
+        "learnable": 1
+    },
+    {
+        "id": 10,
+        "name": "Pivot Stance",
+        "description": "You fight on the balls of your feet and do not provoke reactions by taking the move action.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 11,
+        "name": "Control Stance",
+        "description": "You are the master of controlling the field of battle. When a creature moves into your area of control, you can use the shove or grapple action against them without consuming a reaction.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 12,
+        "name": "Screen Stance",
+        "description": "You are trained to avoid projectiles. While in this stance, you have partial cover against projectiles and reduce splash damage by an amount equal to half your level.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 14,
+        "name": "Juggernaut Stance",
+        "description": "You are a close-up brawler, trading speed for pure power. While in this stance, you have a -1 Penalty to Movement Speed but gain an additional +2 damage bonus modifier to Heavy Melee Weapons. Additionally, true hits with melee weapons grant an automatic shove action with the target needing to make a contested check against half the damage dealt after mitigation.",
+        "code": "Heavy Melee Weapons",
+        "requirements": "Acquired through Juggernaut Submodule",
+        "learnable": 0
+    },
+    {
+        "id": 15,
+        "name": "Armsman Stance",
+        "description": "You are skilled with various arms, gaining a +1 bonus to damage on all weapons. Additionally, you do not suffer the dodge or block penalties of wielding heavier weaponry.",
+        "code": "Any",
+        "requirements": "Acquired through Armsman Module",
+        "learnable": 0
+    },
+    {
+        "id": 16,
+        "name": "Reactive Stance",
+        "description": "You stand ready, anticipating your opponents. While in this stance, you gain an additional reaction at the end of your turn.",
+        "code": "Any",
+        "requirements": "",
+        "learnable": 1
+    },
+    {
+        "id": 17,
+        "name": "Marksmans Focus",
+        "description": "While in this stance, you dedicate your focus to becoming more accurate with ranged weapons, gaining a +1 bonus to attacks. If your focus is broken by damage while in this stance, you become dazed until the end of your next turn.",
+        "code": "Ranged Weapons",
+        "requirements": "Acquired through Ranger Core Module",
+        "learnable": 0
+    },
+    {
+        "id": 18,
+        "name": "Flowing Strikes",
+        "description": "While in this stance, you dedicate your focus towards achieving the ultimate fighting form. When you make your first unarmed attack on your turn, make an additional unarmed attack and add the damage from both attacks before applying mitigation. If your focus is broken while in this stance, you become dazed until the end of your next turn.",
+        "code": "Unarmed",
+        "requirements": "Acquired through Striker Core Module",
+        "learnable": 0
+    },
+    {
+        "id": 19,
+        "name": "Sentinel Stance",
+        "description": "While in this stance, you dedicate your focus to using your superior knowledge to inflict damage. Your damage bonus when making an attack with a light 2-handed weapons becomes equal to your academics modifier. If your focus is broken while in this stance, you become dazed until the end of your next turn.",
+        "code": "Light 2-Handed Weapons",
+        "requirements": "Acquired through Sentinel Module",
+        "learnable": 0
+    },
+    {
+        "id": 20,
+        "name": "Dual Wield",
+        "description": "While in this stance, you can utilize an offhand weapon with proficiency. Once per turn, you can make an attack with your offhand that does not consume an action or free action.",
+        "code": "Light 1-Handed Weapons",
+        "requirements": "Acquired through Dual Wield and Slinger Modules",
+        "learnable": 0
+    },
+    {
+        "id": 21,
+        "name": "Cavalier Stance",
+        "description": "While in this stance and mounted, you gain a 1d4 bonus on attack checks with melee or ranged weapons if your mount has moved at least 6 units on the same turn. Additionally, the first melee attack that you make after your mount uses the move action grants bonus damage to the attack equal to your athletics or animals modifier if it hits.",
+        "code": "Any",
+        "requirements": "Acquired through the Cavalier Module",
+        "learnable": 0
+    },
+    {
+        "id": 22,
+        "name": "Flawless Defense",
+        "description": "While in this stance, you gain a +2 bonus to dodge, block and resistance. This stance ends if you takes damage from a non-area attack.",
+        "code": "Unarmed",
+        "requirements": "Acquired through Striker Core Module",
+        "learnable": 0
+    },
+    {
+        "id": 23,
+        "name": "Elemental Fist",
+        "description": "While first changing into this stance, pick either an elemental or physical damage type, changing the primary damage of your unarmed attacks to this type. Your unarmed attacks also count as if they were magical, blackened and silvered.",
+        "code": "Unarmed",
+        "requirements": "Acquired through Striker Core Module",
+        "learnable": 0
+    }
+]

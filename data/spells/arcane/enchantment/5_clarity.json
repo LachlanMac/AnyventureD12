@@ -4,7 +4,7 @@
   "charge": "The spell lasts for an entire day, and spells that the target channels require one less energy",
   "duration": "1 hour",
   "range": 4,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Citrine"
   ],

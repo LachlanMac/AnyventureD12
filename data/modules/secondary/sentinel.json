@@ -24,7 +24,7 @@
     },
     {
       "name": "Calm in the Storm",
-      "description": "Gain +1 psychic mitigation and +1 aethericic mitigation.",
+      "description": "Gain +1 psychic mitigation and your aetheric mitigation limit is lowered by 1.",
       "location": "3",
       "data": "M8=1:N7=-1"
     },

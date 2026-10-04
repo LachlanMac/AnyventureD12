@@ -42,7 +42,7 @@
     },
     {
       "name": "Professional Detachment",
-      "description": "Your line of work forces you to become detached, strengthening your own mind. Gain +2 psychic mitigation and +2 maximum resolve.",
+      "description": "Your line of work forces you to become detached, strengthening your own mind. Gain +1 psychic mitigation and your psychic mitigation limit is lowered by 1 and +2 maximum resolve.",
       "location": "5",
       "data": "A2=2:M8=1:N8=-1"
     },

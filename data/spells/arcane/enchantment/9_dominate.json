@@ -4,7 +4,7 @@
   "charge": "The charm lasts until the end of a full rest",
   "duration": "1 hour",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Platinum Nugget"
   ],

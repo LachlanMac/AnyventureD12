@@ -4,7 +4,7 @@
   "charge": "The ground extends to a short (10 unit) radius and your allies take no damage, but you still take half for each creature within the area who would have taken electric damage.",
   "duration": "Instantaneous",
   "range": 2,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Lead Ingot"
   ],

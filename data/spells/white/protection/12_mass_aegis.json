@@ -4,7 +4,7 @@
   "charge": "The damage reduction increases to 10.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Platinum Nugget"
   ],

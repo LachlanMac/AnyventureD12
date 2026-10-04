@@ -4,7 +4,7 @@
   "charge": "You also become aware of if the object is cursed or has any unrevealed magic beyond what you already know.",
   "duration": "Instantaneous",
   "range": 8,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Aetherium Shavings"
   ],

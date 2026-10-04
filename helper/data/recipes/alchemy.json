@@ -1,0 +1,273 @@
+[
+    {
+        "name": "Vial of Poison",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+        "overcraft":"The required check increased by 2",
+        "description": "You create a vial of weak poison that can be coated on a weapon, piece of ammunition or used to lace a drink or food. When a creature comes in contact with this poison, they must make a resilience check of 7 or they become poisoned and take 1d6 poison damage at the end of each turn.",
+        "ingredients": ["Bundle of Nightshade", "Pinch of Powdered Iron"],
+        "cost": "12 GP"
+    },
+    {
+        "name": "Vial of Slow Poison",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+        "overcraft":"The required check increased by 2",
+        "description": "You create a small vial which that can be coated on a weapon, piece of ammunition or used to lace a drink or food. When a creature comes in contact with this poison, they must make a resilience check of 7 or they become poisoned and take 1d8 poison damage at the end of each full rest.",
+        "ingredients": ["2 Bundles of Nightshade", "Pinch of Powdered Iron", "Bundle of Mint"],
+        "cost": "24 GP"
+    },
+    {
+        "name": "Smokebomb",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+        "overcraft":"The radius is increased by 1 unit",
+        "description": "You create a small vial which can be thrown, creating a 1 unit radius of smoke that lasts until the end of your next turn that also breaks line of sight. Anyone within the smoke is considered blinded.",
+        "ingredients": ["Pouch of Saltpeter", "4 Pinches of Sugars", "1 Vial"],
+        "cost": "5 GP"
+    },
+    {
+        "name": "Vial of Antidote",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+        "overcraft":"The reduced damage becomes 2d6",
+        "description": "You create a vial of antitode that helps counter toxins, reducing the amount of damage from the next poison you take by 1d6 for the next minute, ending the poison if the affected character takes no damage after calculating mitigations.",
+        "ingredients": ["Bundle of Echinacea", "2 Lumps of Charcoal"],
+        "cost": "5 GP"
+    },
+    {
+        "name": "Tranquilizer Serum",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "8",
+        "time": "1h",
+        "overcraft":"The required check increased by 2",
+        "description": "You create a vial of serum that can either be applied to a fabric and inhaled or delivered by a dart. When affected, a humanoid, monster or beast must make a resilience check of 5 or higher or gain the Sleeping condition for 1 minute. If a creature succeeds on their resilience check, if they are exposed to another tranquilizer serum within a minute, the required check is increased by 2.",
+        "ingredients": ["2 Bundle of Golden Poppy", "Bundle of Nightshade", "Vial of Distilled Valerian Root"],
+        "cost": "35 GP"
+    },
+    {
+        "name": "Sleep Potion",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+        "overcraft":"The potion is instantenous",
+        "description": "You create a potion that can be mixed with food or drink to cause the sleeping condition for 1d4 hours if a creature fails a resilience check of 7 or higher. After failing the check, the condition takes 1d10 minutes before taking effect. A creature can also consume this potion to remove a tier of exhaustion after their next full rest.",
+        "ingredients": ["Bundle of Golden Poppy", "2 Bundles of Valerian Root"],
+        "cost": "20 GP"
+    },
+    {
+        "name": "Weak Healing Potion",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "6",
+        "time": "1h",
+        "overcraft":"The potion grants temporary health equal to the amount of health restored for 1 minute",
+        "description": "You create a bitter draught that heals the creature who consumes it for 2d4 health.",
+        "ingredients": ["Vial of Flax Oil", "2 Bundles of Mandrake", "Crushed Gem worth 5 GP"],
+        "cost": "15 GP"
+    },
+    {
+        "name": "Lesser Firebomb",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "7",
+        "time": "1h",
+        "overcraft":"The radius is increased by 1 unit",
+        "description": "You create a volatile mixture of sulfur and nitrate that can be thrown as if it were a small object that causes an explosion within a 1 unit radius of where it landed requiring all creatures within the area to make a defensive check of 7, otherwise they take 2d6 fire damage.",
+        "ingredients": ["Pouch of Sulfur", "Pouch of Nitrate", "2 Lumps of Charcoal"],
+        "cost": "26 GP"
+    },
+    {
+        "name": "Potion of Restoration",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "9",
+        "time": "1h",
+        "overcraft":"The potion cures the disease instantly",
+        "description": "You create a potion that cures any disease on the creature who consumes it after their next full rest.",
+        "ingredients": ["Bottle of Pure Alcohol", "Bundle of Echinacea"],
+        "cost": "20 GP"
+    },
+    {
+        "name": "Potion of Attraction",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "9",
+        "time": "1h",
+        "overcraft":"Animal and performance checks are also increased by 2",
+        "description": "You create a potion that causes the creature who consumes it to become more confident and charismatic, gaining a +2 bonus to persuasion checks for the next hour.",
+        "ingredients": ["Bundle of Saffron", "2 Pinches of Powdered Silver", "Bottle of Whiskey"],
+        "cost": "29 GP"
+    },
+    {
+        "name": "Potion of Big Mind",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "10",
+        "time": "1h",
+        "overcraft":"There is no penalty after the effects of the potion end",
+        "description": "You create a potion that causes the creature who drinks it to gain a 1d4 bonus to knowledge checks for the next hour. However, after that time elapses, they gain a 1d4 penalty to knowledge checks until the end of their next full rest.",
+        "ingredients": ["2 Bundles of Gingko", "Pouch of Salt", "Bottle of Honey"],
+        "cost": "42 GP"
+    },
+    {
+        "name": "Vial of Sticky Goo",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "10",
+        "time": "1h",
+        "overcraft":"The radius is increased by 1 unit",
+        "description": "You create a vial that can be thrown as if it were a small object that causes an area within a 2 unit radius to be covered in a sticky substance which doubles the amount of movement required to pass through.",
+        "ingredients": ["Sack of Flour", "Pinch of Sulfur", "Pinch of Powdered Iron", "5 Bottle of Tree Sap"],
+        "cost": "23 GP"
+    },
+    {
+        "name": "Potion of Awakening",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "10",
+        "time": "4h",
+        "overcraft":"The duration becomes 1 hour",
+        "description": "You create a potion that can be fed to a creature that is unconscious or sleeping, waking them up for 1 minute. During this time, they do not suffer the penalties associated with exhaustion or lifeline.  When this potion expires, the creature immediately gains tier 3 exhaustion and falls asleep.",
+        "ingredients": ["2 Bundles of Licorice", "Bottle of Pure Alcohol"],
+        "cost": "30 GP"
+    },
+    {
+        "name": "Healing Potion",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "11",
+        "time": "4h",
+        "overcraft":"One round after using this potion, it heals an additional 2d8 health.",
+        "description": "You create a bitter draught that heals the creature who consumes it for 2d8 health.",
+        "ingredients": ["Vial of Flax Oil", "2 Bundles of Mandrake", "Pinch of Powdered Silver", "Crushed Gem worth 50 GP"],
+        "cost": "65 GP"
+    },
+    {
+        "name": "Firebomb",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "12",
+        "time": "6h",
+        "overcraft":"",
+        "description":"You create a volatile mixture of sulfur and nitrate that can be thrown as if it were a small object that causes an explosion within a 2 unit radius of where it landed requiring all creatures within the area to make a defensive check of 9, otherwise they take 2d12 fire damage.",
+        "ingredients": ["2 Pouches of Sulfur", "2 Pouches of Nitrate", "10 Lumps of Charcoal", "Pinch of Powdered Silver"],
+        "cost": "60 GP"
+    },
+    {
+        "name": "Potion of Rage",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "12",
+        "time": "1 Day",
+        "overcraft":"The damage bonus becomes 2d6",
+        "description": "You create a potion that causes the creature who drinks it to gain a 1d4 bonus to strength checks and a 1d6 bonus to the primary damage on melee attacks for the next 10 minutes. However, each time this creature takes physical damage, they must make a resilience check against half the damage or become maddened against the creature that hit them.",
+        "ingredients": ["Pinch of Powdered Iron", "Bundle of Bloodthorn"],
+        "cost": "45 GP"
+    },
+    {
+        "name": "Potion of Quick Tongue",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "12",
+        "time": "1 Day",
+        "overcraft":"There is no penalty after the effects of this potion end",
+        "description": "You create a potion that causes the creature who drinks it be able to charge spells with their free action for the next minute. However, when this potion ends, the creature becomes dazed for one hour.",
+        "ingredients": ["Bundle of Gingko", "1 Pinch of Powdered Platinum", "Bottle of Pure Alcohol"],
+        "cost": "130 GP"
+    },
+    {
+        "name": "Potion of Reflex",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "12",
+        "time": "1 Day",
+        "overcraft":"There is no penalty after the effects of this potion end",
+        "description": "You create a potion that causes the creature who drinks it to gain a 1d4 bonus to initiative and dodge checks for the next minute. After the effects wear off, the affected creature gains a tier of exhaustion.",
+        "ingredients": ["1 Bundle of Guarana", "Pinch of Powdered Gold"],
+        "cost": "70 GP"
+    },
+    {
+        "name": "Calming Potion",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "12",
+        "time": "1 Day",
+        "overcraft":"The conditions are removed immediately",
+        "description": "You create a potion that removes the Maddened or Afraid condition from a creature that is not caused by a magical effect at the end of their next turn but gains a tier of Exhaustion.",
+        "ingredients": ["2 Bundles of Golden Poppy", "1 Bundle of Licorice", "1 Bundle of Valerian Root"],
+        "cost": "140 GP"
+    },
+    {
+        "name": "Potion of Forgetting",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "28/2",
+        "time": "1 Day per Check",
+        "overcraft":"The potion removes an additional module",
+        "description": "You create a potion that causes the creature who drinks it be able to remove an eligble module and refund all the points.",
+        "ingredients": ["3 Bundle of Gingko", "2 Pinches of Powdered Gold", "Bottle of Pure Alcohol"],
+        "cost": "170 GP"
+    },
+    {
+        "name": "Greater Healing Potion",
+        "type": "Alchemy",
+        "category": "Craft",
+        "check": "28/2",
+        "time": "1 Day per Check",
+        "overcraft":"The potion gains 2d12 health",
+        "description": "You create a bitter draught that heals the creature who consumes it for 3d12 health.",
+        "ingredients": ["Vial of Flax Oil", "2 Bundles of Mandrake", "Bundle of Ginseng Root", "Crushed Gem worth 100 GP"],
+        "cost": "160 GP"
+    },
+    {
+        "name": "Augment Potion [Blood]",
+        "type": "Alchemy",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "description": "Add Blood to an unfinished Potion to increase the amount of healing a potion does.",
+        "ingredients": ["T1 Blood : +2 Healing", "T2 Blood : +6 Healing", "T3 Blood : +12 Healing"],
+        "cost": ""
+    },
+    {
+        "name": "Augment Potion [Venom]",
+        "type": "Alchemy",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "description": "Add Venom to an unfinished Vial of Poison to increase the amount of damage the poison deals or to an antidote to increase the amount of poison damage it mitigates.",
+        "ingredients": ["T1 Venom : +2 Poison Damage", "T2 Venom : +4 Poison Damage", "T3 Venom : +8 Poison Damage"],
+        "cost": ""
+    },
+    {
+        "name": "Augment Potion [Eye]",
+        "type": "Alchemy",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "description": "Add an Eye to an unfinished Potion to increase the Duration of a Potion.",
+        "ingredients": ["T1 Eye : x2", "T2 Eye : x4", "T3 Eye : x8"],
+        "cost": ""
+    },
+    {
+        "name": "Augment Potion [Fungi]",
+        "type": "Alchemy",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "description": "Add Rare Fungi to increase the Potency of a Potion, adding to the required check to avoid the effects.",
+        "ingredients": ["T1 Fungi : +1", "T2 Fungi : +2", "T3 Fungi : +4"],
+        "cost": ""
+    }
+]

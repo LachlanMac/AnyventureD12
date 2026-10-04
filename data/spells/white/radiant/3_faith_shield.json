@@ -4,7 +4,7 @@
   "charge": "The shield extends in a very short (5 unit) radius around you, offering the mitigation bonus to anyone within the area.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Iron Nugget"
   ],

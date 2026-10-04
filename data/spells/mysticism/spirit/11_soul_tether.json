@@ -4,7 +4,7 @@
   "charge": "The tether reduces the movement speed of the target by half.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Long Metal Chain"
   ],

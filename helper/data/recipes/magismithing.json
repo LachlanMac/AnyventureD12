@@ -1,0 +1,172 @@
+[
+    {
+        "name": "Mitigating Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4", "Master : +5"],
+        "time": "",
+        "requirements": "+2 smithing",
+        "description": "Infuse unfinished chest armor, gloves, boots, helmet, accessory, or necklace with a catalyst to increase mitigation against that type. The quality of the mitigation depends on the catalyst used: a beginner catalyst grants +1 mitigation, novice +2, journeyman +3, expert +5 and master +7. An item cannot be infused with more than one of the same type of catalyst.",
+        "ingredients": ["variable catalyst"]
+    },
+    {
+        "name": "Guardian Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": "+6",
+        "time": "",
+        "requirements": "+3 smithing",
+        "description": "Infuse unfinished shield with an expert arcane catalyst which nullifies true hits from melee and projectile attacks if the result of the block check is higher than the attack check.",
+        "ingredients": ["expert arcane catalyst"]
+    },
+    {
+        "name": "Vitality Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Novice : +1", "Journeyman : +2", "Expert : +3"],
+        "time": "",
+        "requirements": "+2 smithing",
+        "description": "Infuse unfinished chest armor, gloves, boots, helmet, accessory, or necklace with a healing catalyst to increase maximum health. The amount of health gained depends on the catalyst used: a novice catalyst grants +1 maximum health, journeyman +2, and expert +3.",
+        "ingredients": ["healing catalyst"]
+    },
+    {
+        "name": "Haste Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Novice : +2", "Expert : +4", "Master : +6"],
+        "time": "",
+        "requirements": "+3 smithing",
+        "description": "Infuse unfinished boots with a novice or expert arcane catalyst to increase the wearer's movement speed by 1 unit. This is increased to 2 units with an expert and 3 units with a master catalyst.",
+        "ingredients": ["arcane catalyst"]
+    },
+    {
+        "name": "Quickening Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Novice : +2", "Expert : +4", "Master : +6"],
+        "time": "",
+        "requirements": "+3 smithing",
+        "description": "Infuse unfinished boots with a novice or expert arcane catalyst to increase the wearer's initiative skill by 1. This is increased to +2 initiative with an expert and +3 with a master catalyst.",
+        "ingredients": ["arcane catalyst"]
+    },
+    {
+        "name": "Anti-Magic Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Novice : +2", "Expert : +4"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished chest armor, gloves, boots, helmet, accessory, or necklace with a novice or expert arcane catalyst to increase resistance. A novice catalyst increases resistance by +1 and an expert by +2. A creature can only benefit from one anti-magic infusion at a time.",
+        "ingredients": ["arcane catalyst"]
+    },
+    {
+        "name": "Power Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4","Master : +5"],
+        "time": "",
+        "requirements": "+2 smithing",
+        "description": "Infuse unfinished chest armor, gloves, boots, helmet, accessory, or necklace with any catalyst type to increase total power and power regeneration. The amount of power and regeneration depends on the catalyst used: a beginner catalyst grants +1 power and regeneration, novice +2, journeyman +3, expert +6 and master +8.",
+        "ingredients": ["variable catalyst"]
+    },
+    {
+        "name": "Smiting Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4", "Master : +5"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished melee weapon with an enchantment using a divine catalyst which causes the weapon to glow with radiant energy when dark or undead creatures are within 2 units. When the weapon is glowing, it deals an extra 1d6 divine damage. The radius increases to 4 units with a novice catalyst, 6 with journeyman, 10 with expert, and 16 with a master catalyst. The damage increases to 1d10 with a novice, 3d4 with journeyman, and 2d8 with expert, and 2d12 with a master catalyst.",
+        "ingredients": ["divine catalyst"]
+    },
+    {
+        "name": "Siphoning Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4", "Master : +5"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished melee weapon with an enchantment using a dark catalyst which causes the wielder to deal 1d4 health as true damage from a target when scoring a true hit while healing for the same amount. This effect does not work on constructs or undead. The damage increases to 1d8 with a novice, 1d12 with journeyman, 3d4 with expert, and 2d8 with a master catalyst.",
+        "ingredients": ["dark catalyst"]
+    },
+    {
+        "name": "Mindspike Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +4", "Expert : +6"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished melee weapon with an enchantment using a psychic catalyst which causes the wielder to deal 1d4 psychic damage to a target on a hit. The damage increases to 1d6 with a novice, 2d4 with journeyman, 2d6 with expert, and 2d8 with a master catalyst. On a true hit, the weapon also causes the target to become dazed if they fail a concentration check against the total psychic damage taken from the attack.",
+        "ingredients": ["psychic catalyst"]
+    },
+    {
+        "name": "Vinespike Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4", "Master : +5"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished chest armor, gloves, shield, or boots with a druidic catalyst that causes spikes to sprout from the armor when hit with a melee attack that does not involve a weapon, dealing 1 physical damage. The damage increases to 1d4 with a novice, 1d6 with journeyman, 1d8 with expert, and 1d10 with a master catalyst. The physical damage is added to other effects of the same or similar type before calculating migigations.",
+        "ingredients": ["druidic catalyst"]
+    },
+    {
+        "name": "Magical Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4", "Master : +5"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished gloves, boots, weapon, or shield with the magical property by using an arcane catalyst and adding 1d4 arcane damage to unarmed strikes or melee attacks with that piece of equipment.",
+        "ingredients": ["arcane catalyst"]
+    },
+    {
+        "name": "Repelling Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Journeyman : +2", "Expert : +4", "Master : +6"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished chest armor or shield by using an arcane catalyst that forces small creatures who botch a melee attack against the wearer backwards by 1 unit. The distance repelled is improved to 2 units for expert and 3 units for a master catalyst. An expert catalyst increases the creature size to medium while a master increases the size to large.",
+        "ingredients": ["arcane catalyst"]
+    },
+    {
+        "name": "Shadowcast Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": ["Novice : +1", "Journeyman : +2", "Expert : +3", "Master : +4"],
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished chest armor with a dark catalyst to add a bonus to stealth checks. The quality of the bonus depends on the catalyst used : a novice catalyst grants +1 stealth, journeyman +2, expert +3, and master +4. An item cannot be infused with more than one of the same type of catalyst.",
+        "ingredients": ["dark catalyst"]
+    },
+    {
+        "name": "Elemental Purification Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": "+6",
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished equipment with a master elemental [fire, cold, lightning] catalyst that converts damage received of that type to arcane damage. An item cannot be infused with more than one of the same type of catalyst.",
+        "ingredients": ["master elemental catalyst"]
+    },
+    {
+        "name": "Blessed Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": "+6",
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished melee weapon, gloves or boots with a master divine catalyst causing the primary damage to be converted to divine damage.",
+        "ingredients": ["master divine catalyst"]
+    },
+    {
+        "name": "Cursed Infusion",
+        "type": "Magismithing",
+        "category": "infusion",
+        "check": "+6",
+        "time": "",
+        "requirements": "+4 smithing",
+        "description": "Infuse unfinished melee weapon, gloves or boots with a master dark catalyst causing the primary damage to be converted to dark damage.",
+        "ingredients": ["master elemental catalyst"]
+    }
+]

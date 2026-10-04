@@ -4,7 +4,7 @@
   "charge": "You can transform up to 3 willing allies within a short (10 unit) distance alongside yourself, but the spell requires concentration.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Spirit Moonstone"
   ],

@@ -4,7 +4,7 @@
   "charge": "The affected target rolls an additional penalty dice.",
   "duration": "1 Round",
   "range": 4,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Bundle of Mandrake"
   ],

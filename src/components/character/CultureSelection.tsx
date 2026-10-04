@@ -390,12 +390,20 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                                 Choose Cultural Restriction:
                               </label>
                               <select
-                                value={cultureSelections.restriction?.name || ''}
+                                value={
+                                  cultureSelections.restriction?.custom
+                                    ? '__custom__'
+                                    : cultureSelections.restriction?.name || ''
+                                }
                                 onChange={(e) => {
-                                  const selectedRestriction = culture.culturalRestrictions?.find(
-                                    (r: any) => r.name === e.target.value
-                                  );
-                                  handleRestrictionSelect(selectedRestriction);
+                                  if (e.target.value === '__custom__') {
+                                    handleRestrictionSelect({ name: '', description: '', custom: true });
+                                  } else {
+                                    const selectedRestriction = culture.culturalRestrictions?.find(
+                                      (r: any) => r.name === e.target.value
+                                    );
+                                    handleRestrictionSelect(selectedRestriction);
+                                  }
                                 }}
                                 style={{
                                   width: '100%',
@@ -415,8 +423,56 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                                     </option>
                                   )
                                 )}
+                                <option value="__custom__">Custom...</option>
                               </select>
-                              {cultureSelections.restriction && (
+                              {cultureSelections.restriction?.custom && (
+                                <div style={{ marginTop: '0.5rem', display: 'grid', gap: '0.5rem' }}>
+                                  <input
+                                    type="text"
+                                    placeholder="Restriction name"
+                                    value={cultureSelections.restriction?.name || ''}
+                                    onChange={(e) => {
+                                      handleRestrictionSelect({
+                                        ...cultureSelections.restriction,
+                                        name: e.target.value,
+                                        custom: true,
+                                      });
+                                    }}
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.375rem',
+                                      backgroundColor: 'var(--color-dark-elevated)',
+                                      color: 'var(--color-white)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      fontSize: '0.875rem',
+                                    }}
+                                  />
+                                  <textarea
+                                    placeholder="Describe what triggers resolve loss..."
+                                    value={cultureSelections.restriction?.description || ''}
+                                    onChange={(e) => {
+                                      handleRestrictionSelect({
+                                        ...cultureSelections.restriction,
+                                        description: e.target.value,
+                                        custom: true,
+                                      });
+                                    }}
+                                    rows={3}
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.375rem',
+                                      backgroundColor: 'var(--color-dark-elevated)',
+                                      color: 'var(--color-white)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      fontSize: '0.875rem',
+                                      resize: 'vertical',
+                                    }}
+                                  />
+                                </div>
+                              )}
+                              {cultureSelections.restriction && !cultureSelections.restriction.custom && (
                                 <div
                                   style={{
                                     marginTop: '0.5rem',
@@ -461,12 +517,20 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                                 Choose Cultural Benefit:
                               </label>
                               <select
-                                value={cultureSelections.benefit?.name || ''}
+                                value={
+                                  cultureSelections.benefit?.custom
+                                    ? '__custom__'
+                                    : cultureSelections.benefit?.name || ''
+                                }
                                 onChange={(e) => {
-                                  const selectedBenefit = culture.benefits?.find(
-                                    (b: any) => b.name === e.target.value
-                                  );
-                                  handleBenefitSelect(selectedBenefit);
+                                  if (e.target.value === '__custom__') {
+                                    handleBenefitSelect({ name: '', description: '', custom: true });
+                                  } else {
+                                    const selectedBenefit = culture.benefits?.find(
+                                      (b: any) => b.name === e.target.value
+                                    );
+                                    handleBenefitSelect(selectedBenefit);
+                                  }
                                 }}
                                 style={{
                                   width: '100%',
@@ -484,8 +548,56 @@ const CultureSelection: React.FC<CultureSelectionProps> = ({
                                     {benefit.name}
                                   </option>
                                 ))}
+                                <option value="__custom__">Custom...</option>
                               </select>
-                              {cultureSelections.benefit && (
+                              {cultureSelections.benefit?.custom && (
+                                <div style={{ marginTop: '0.5rem', display: 'grid', gap: '0.5rem' }}>
+                                  <input
+                                    type="text"
+                                    placeholder="Benefit name"
+                                    value={cultureSelections.benefit?.name || ''}
+                                    onChange={(e) => {
+                                      handleBenefitSelect({
+                                        ...cultureSelections.benefit,
+                                        name: e.target.value,
+                                        custom: true,
+                                      });
+                                    }}
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.375rem',
+                                      backgroundColor: 'var(--color-dark-elevated)',
+                                      color: 'var(--color-white)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      fontSize: '0.875rem',
+                                    }}
+                                  />
+                                  <textarea
+                                    placeholder="Describe what triggers morale or resolve gain..."
+                                    value={cultureSelections.benefit?.description || ''}
+                                    onChange={(e) => {
+                                      handleBenefitSelect({
+                                        ...cultureSelections.benefit,
+                                        description: e.target.value,
+                                        custom: true,
+                                      });
+                                    }}
+                                    rows={3}
+                                    style={{
+                                      width: '100%',
+                                      padding: '0.375rem',
+                                      backgroundColor: 'var(--color-dark-elevated)',
+                                      color: 'var(--color-white)',
+                                      border: '1px solid var(--color-dark-border)',
+                                      borderRadius: '0.25rem',
+                                      fontSize: '0.875rem',
+                                      resize: 'vertical',
+                                    }}
+                                  />
+                                </div>
+                              )}
+                              {cultureSelections.benefit && !cultureSelections.benefit.custom && (
                                 <div
                                   style={{
                                     marginTop: '0.5rem',

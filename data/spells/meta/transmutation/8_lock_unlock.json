@@ -4,7 +4,7 @@
   "charge": "The thievery check becomes a 14 when unlocking or locking an object.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Brass Fittings"
   ],

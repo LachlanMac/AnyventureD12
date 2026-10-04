@@ -4,7 +4,7 @@
   "charge": "A creature dropped to 0 health as a result of this spell dies instantly.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Onyx"
   ],

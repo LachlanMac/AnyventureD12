@@ -42,14 +42,15 @@ Modules can provide:
 
 ## Module Points Guidelines
 Characters increase in power by acquiring module points rather than levels. Each optional within a module (and purchasing the module, which grants the first option) costs a single option.
-All characters start with a number  of module points to help define their archetypes before a game begins. The default number of modules that a character starts with is <b>10</b>. However, for more advanced starts you can refer to the following chart:
+All characters start with a number of module points to help define their archetypes before a game begins. The default number of modules that a character starts with is <b>15</b>. However, for more advanced starts you can refer to the following chart:
 
 | Module Points | Campaign Start | Description |
 |---------------|----------------|-------------|
-| **4** | Commoner Start | Characters are ordinary people just beginning their journey. Limited combat ability and few specialized skills. |
-| **10** | Adventurer Start | Standard starting power level. Characters have basic competency in their chosen fields and some combat experience. |
-| **20** | Local Hero Start | Experienced characters with established reputations. Competent in multiple areas with notable specialized abilities. |
-| **30** | Champion Start | Veteran heroes with significant power and influence. Masters of their chosen paths with legendary capabilities. |
+| **5** | Commoner | Characters are ordinary people just beginning their journey. Limited combat ability and few specialized skills. |
+| **15** | New Adventurer | Standard starting power level. Characters have basic competency in their chosen fields and some combat experience. |
+| **25** | Seasoned Adventurer | Experienced characters with a few adventures under their belt. Competent in multiple areas with some specialized abilities. |
+| **35** | Local Hero | Well-known characters with established reputations. Skilled in their chosen paths with notable capabilities. |
+| **45** | Champion | Veteran heroes with significant power and influence. Masters of their chosen paths with legendary capabilities. |
 
 <div class="triangle-line"></div>
 

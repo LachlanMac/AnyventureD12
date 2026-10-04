@@ -1,0 +1,152 @@
+{
+  "id": 109,
+  "name": "Slasher",
+  "mtype": "core",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1908,
+      "name": "Beginner Slasher",
+      "description": "Gain +1 Attack and +1 Damage with Slashing Weapons. Gain a Fighting Stance.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AZ6=1:AZA=1"
+    },
+    {
+      "id": 1909,
+      "name": "Reaction : Flank",
+      "description": "When an Allied Creature makes a Melee Attack against a target within your Melee Range, you can make an Attack against that same target with a 1d4 Bonus.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1910,
+      "name": "Increased Damage",
+      "description": "Gain +1 Damage with Slashing Weapons",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZA=1"
+    },
+    {
+      "id": 1911,
+      "name": "Novice Slasher",
+      "description": "Gain +1 Attack with Slashing Weapons and Learn a Fighting Stance from the Stance Table",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "H=Z:AZ6=1"
+    },
+    {
+      "id": 1912,
+      "name": "Action : Sweeping Slash",
+      "description": "Make a normal Attack with a Slashing Weapon against 2 Creatures within your Melee Range.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 1913,
+      "name": "Reaction : Riposte",
+      "description": "When you Dodge or Block an Attack, you can make an Attack against that Creature if they are within Melee Range of you",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1914,
+      "name": "Journeyman Slasher",
+      "description": "Gain +1 Attack with Slashing Weapons and gain access to the Attack of Opportunity Reaction",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "AZ6=1:AZT=0"
+    },
+    {
+      "id": 1915,
+      "name": "Powerful Blows",
+      "description": "Gain +1 Damage with Slashing Weapons, Piercing and Crushing Weapons and +1 Damage with Unarmed Strikes",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "AZ6=1:AZ7=1:AZ8=1:AZN=1"
+    },
+    {
+      "id": 1916,
+      "name": "Free Action : Quick Attack",
+      "description": "If you have not used an Attack Action or Special Action on this turn, you can make a fast Attack with a Light Slashing Weapon",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1917,
+      "name": "Expert Slasher",
+      "description": "Gain Critical Hits and +1 Attack with Slashing Weapons",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "AZE:AZ6=1"
+    },
+    {
+      "id": 1918,
+      "name": "Parrying Blade",
+      "description": "Gain +1 Block",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "AD3=1"
+    },
+    {
+      "id": 1919,
+      "name": "Free Action : Glory Kill",
+      "description": "Gain an extra action when your Slashing Weapon brings a Creature to 0 Health",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1920,
+      "name": "Master Slasher",
+      "description": "Gain Brutal Critical Hits with Slashing Weapons and Gain +1 Attack and Damage with Slashing Weapons",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "AZJ:AZ6=1:AZA=1"
+    },
+    {
+      "id": 1921,
+      "name": "Free Action : Amputation",
+      "description": "When you score a Brutal Critical Hit, you can target a Leg or Arm with a Called Shot before rolling your Damage.",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "Y"
+    },
+    {
+      "id": 1922,
+      "name": "Action : Powerslash",
+      "description": "You move up to 2 Units and then make a Melee Attack with a Slashing Weapon, increasing your True Hit threshold by 1. If your Attack is a True Hit, all Physical Damage from the Attack becomes True Damage.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "XX3"
+    },
+    {
+      "id": 1923,
+      "name": "Grandmaster Slasher",
+      "description": "Your Damage Die for Slashing Weapons are upgraded (1-Handed Light: 2d6, 1-Handed Heavy: 2d8, 2-Handed Light: 3d6, 2-Handed Heavy: 3d8)",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "AZW"
+    }
+  ]
+}

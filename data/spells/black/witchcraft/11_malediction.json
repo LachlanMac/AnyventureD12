@@ -4,7 +4,7 @@
   "charge": "Rather than needing to encounter the target, you need only know of their existence. Additionally, the requirement for needing blood or hair is removed to benefit from the increased damage.",
   "duration": "3 days",
   "range": 8,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Voodoo Doll"
   ],

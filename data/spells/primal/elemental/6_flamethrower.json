@@ -4,7 +4,7 @@
   "charge": "Instead of taking damage, creatures that fail this check become ignited instead.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Ember Dust"
   ],

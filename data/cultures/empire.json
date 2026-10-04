@@ -12,6 +12,11 @@
       "name": "Absolute Loyalty",
       "description": "Your word is your bond, especially to your sovereign or state. Breaking sworn oaths, abandoning official duties, or betraying your allegiance to your nation/ruler causes you to lose 3 resolve. Renouncing your loyalist oath causes you to become broken if you do not roll an 11 or higher on a resilience check.",
       "data": "TX"
+    },
+    {
+      "name": "Imperial Law",
+      "description": "Knowingly breaking the laws of your empire while within its borders or territories causes you to lose 1 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Service to State",
       "description": "When you complete a major objective that advances your culture and you bring proof to a superior in your culture or faction, you gain 3 resolve and 3 morale. ",
+      "data": "TX"
+    },
+    {
+      "name": "Arm of the Law",
+      "description": "When you bring a criminal to justice within your empire's jurisdiction, whether through capture, defeat, or turning them in to authorities, you gain 2 morale.",
       "data": "TX"
     }
   ],

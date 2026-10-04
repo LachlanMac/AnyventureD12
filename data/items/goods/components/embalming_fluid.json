@@ -1,0 +1,23 @@
+{
+  "name": "Embalming Fluid",
+  "description": "A pungent solution that preserves organic tissue indefinitely when properly administered. When applied to a corpse within 1 hour of death, the body does not decay and remains viable for resurrection magic regardless of time passed. Requires a medicine check of 6 to properly administer.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "alchemical"
+  ],
+  "weight": 0.5,
+  "value": 500,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 8,
+    "ingredients": [
+      "Vial of Alchemist's Spirits",
+      "Vial of Ammonia",
+      "Bundle of Rosemary",
+      "Stabilizing Salt"
+    ]
+  },
+  "foundry_icon": "icons/consumables/potions/bottle-metal-yellow-gray.webp"
+}

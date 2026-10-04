@@ -1,0 +1,1202 @@
+[
+  {
+    "id": 1000,
+    "name": "Volatile Diet",
+    "description": "You have survived on a diet most would consider exotic. You gain +1 Resilience and cannot become Poisoned or Diseased from consuming a substance.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 1,
+    "data": "ALJ:TA"
+  },
+  {
+    "id": 1001,
+    "name": "The Bonds of Truth",
+    "description": "The Dragonkind are known for honorbound honesty and can easily pick out a lie. Gain +2 Insight, but telling a lie or breaking a promise causes you to take 1d12 Psychic Damage.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 1,
+    "data": "ASD=2:TG"
+  },
+  {
+    "id": 1002,
+    "name": "Considerate Diplomats",
+    "description": "The Dragonkind are used to treating with others and learning the tongues of other cultures. Gain +1 Persuasion and Learn a non-Magical Language.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 1,
+    "data": "TG:ASC=1"
+  },
+  {
+    "id": 1003,
+    "name": "Culture of Magic",
+    "description": "The Dragonkind study the Arcane at a young age. Gain +1 Spell Damage and +1 Arcanum.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 1,
+    "data": "AZ4=1:AS7=1"
+  },
+  {
+    "id": 1004,
+    "name": "Trophy Hunters",
+    "description": "The Dragonkind protect their homelands, slaying beasts and taking trophies. You can adorn Armor and Weapons by applying permanent Augments to them after they are Crafted without requiring a Check.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 1,
+    "data": "TC"
+  },
+  {
+    "id": 1005,
+    "name": "Draconic Magic",
+    "description": "Dragonkind celebrate the magic gifted to them by their ancient ancestors. Learn 3 Beginner and 3 Novice Draconic Spells",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 1,
+    "data": ""
+  },
+  {
+    "id": 1006,
+    "name": "Blessing of the Great Wyrm",
+    "description": "Those who have spent time with the Dragonkind gain an ancient blessing. Gain +2 Elemental Mitigation and +2 Arcane Mitigation.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 1,
+    "data": "ADA=1:ADC=2"
+  },
+
+  {
+    "id": 1009,
+    "name": "Trained Hunters",
+    "description": "Lizardmen are brought up from a young age hunting in harsh conditions and require keen senses and skills. Gain +1 Wilderness and +1 Search.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 3,
+    "data": "ALE:ASG=1:ASB=1"
+  },
+  {
+    "id": 1010,
+    "name": "Meat on a Stick",
+    "description": "Cooking is an essential part of Lizardman culture, gaining +1 Cooking. When you Craft a Basic Meal using 2 Meat, you produce an Improved Meal instead of a Basic one.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 3,
+    "data": "AC1=1:TC"
+  },
+  {
+    "id": 1011,
+    "name": "Steppe Brawlers",
+    "description": "The Lizardmen hunt massive Creatures at a distance with long spears and ranged weapons. Gain +1 Damage with Piercing and Ranged Weapons.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 3,
+    "data": "AZC=1:AZ9=1"
+  },
+  {
+    "id": 1012,
+    "name": "Grand Migrations",
+    "description": "The Lizardmen are migratory and are well equipped to deal with the wilderness. You gain +2 Fire and Cold Mitigation and get credit for a Favorable Rest when sleeping outside.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 3,
+    "data": "TG:AD5=2:AD6=2"
+  },
+  {
+    "id": 1013,
+    "name": "Free Action : Savage Fighting",
+    "description": "When you miss with a Melee Attack, you make a quick and brutal Unarmed Attack against the same Target with a 1d4 Attack Penalty but an additional 2d6 damage.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 3,
+    "data": "Y"
+  },
+  {
+    "id": 1014,
+    "name": "Stalking",
+    "description": "The Lizardmen are trained at an early age to move both quickly and quietly to set up ambushes. Gain +1 Initiative, +1 Stealth and +1 Movement Speed.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 3,
+    "data": "AV=1:ASH=1:AS4=1"
+  },
+  {
+    "id": 1015,
+    "name": "Vsthrii Honor Scout",
+    "description": "The highest honor in the Lizardmen culture is being appointed an Honor Scout after proving yourself in the great hunt. Gain +1 Search, +1 Athletics, and +1 Attack with Ranged Weapons.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 3,
+    "data": "AZ5=1:ASG=1:AS1=1"
+  },
+  {
+    "id": 1018,
+    "name": "Isolationist",
+    "description": "The Orycotal culture is one of both suspicion and superstition. Gain +1 Initiative and +1 Insight",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 4,
+    "data": "ASH=1:ASD=1:AL6"
+  },
+  {
+    "id": 1019,
+    "name": "Encouraged Curiousity",
+    "description": "The Orycotal are taught that the most curious are often the most rewarded. You gain +1 Search and become Good at either the Search or Initiative Skill",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 4,
+    "data": "ASG=1"
+  },
+  {
+    "id": 1020,
+    "name": "Craft : Improved Accessory",
+    "description": "The Orycotal appreciate the beauty and power of accessories like rings. When you Craft an Accessory, it has an extra Infusion Slot.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 4,
+    "data": "O"
+  },
+  {
+    "id": 1021,
+    "name": "Reaction : Trained against Darkness",
+    "description": "In response to taking Dark Damage, reduce the amount by double your Level. If all the Dark Damage was Mitigated, gain Temporary Health equal to your Level until the end of your next turn.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 4,
+    "data": "ZX2"
+  },
+  {
+    "id": 1022,
+    "name": "Emnity of the Fey",
+    "description": "Certain factions within the Orycotal culture have an extreme distrust of the Fey and prepare to face them at every turn. Gain +1 Resistance and +2 Psychic Mitigation.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 4,
+    "data": "AD1=1:AD9=2"
+  },
+  {
+    "id": 1023,
+    "name": "Ally of the Fey",
+    "description": "Certain factions within  the Orycotal culture have allied themselves with the Fey. You Learn 3 Beginner and 3 Novice Fey Magic Spells.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 4,
+    "data": ""
+  },
+  {
+    "id": 1024,
+    "name": "Culture of Tranquility",
+    "description": "The Orycotal are taught not to act in anger. Through learning and practice, you have become Immune to the Maddened Condition.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 4,
+    "data": "I=16"
+  },
+  {
+    "id": 1027,
+    "name": "One Purpose",
+    "description": "Orcish culture is one of loyalty and perserverance to a greater cause. Gain +1 Resilience and +1 Initiative.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 5,
+    "data": "AS6=1:ASH=1:AL3"
+  },
+  {
+    "id": 1028,
+    "name": "Faithless",
+    "description": "The Orcish cultures have long since given up worshipping the Gods and insulate themselves from the temptations they offer. Gain +3 Dark and +3 Divine Mitigation.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 5,
+    "data": "AD7=3:AD8=3"
+  },
+  {
+    "id": 1029,
+    "name": "The Old Ways",
+    "description": "The Orcish culture still has small remnants of those who have dedicated themselves to shamanism. Gain 3 Beginner and 3 Novice Druidic Spells.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 5,
+    "data": ""
+  },
+  {
+    "id": 1030,
+    "name": "Body and Mind",
+    "description": "Orcish culture values a diverse eduction so that all who share in their lifestyle can find the correct path. Gain +1 Athletics and +1 Academics.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 5,
+    "data": "AS1=1:AS9=1"
+  },
+  {
+    "id": 1031,
+    "name": "Trained by the Thok-Ro",
+    "description": "You have training with the Thok-Ro Warriors. Gain +1 Block with Shields and +1 Damage with Slashing Weapons.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 5,
+    "data": "W5D3=1:AZA=1"
+  },
+  {
+    "id": 1032,
+    "name": "Craft : Refining",
+    "description": "The Orcish culture cherishes perfection and perfect metalwork. Once per executing a Recipe that requires an Ingot and before you attempt your Crafting Check, your next Check counts as an Overcraft on a Dice Roll of 9 or higher.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 5,
+    "data": "O"
+  },
+  {
+    "id": 1033,
+    "name": "Orcish Industry",
+    "description": "The Orcish culture believes in cross-trained artisans to secure their future. Gain +1 Smithing, +1 Ammocraft, +1 Alchemy and +1 Engineering.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 5,
+    "data": "AC1=1:AC6=1:AC5=1:AC7=1"
+  },
+  {
+    "id": 1036,
+    "name": "Whimsical Engineering",
+    "description": "Gnomish cultures take great pride in their tinkering with both magic and machines. Gain +1 Arcanum and +1 Engineering",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 6,
+    "data": "AS7=1:AC7=1:ALH"
+  },
+  {
+    "id": 1037,
+    "name": "Merchants",
+    "description": "Gnomish cultures are famous for their merchants and making trades. Gain +1 Persuasion and +1 Insight. Gain an Additional 1d4 Persuasion when making a deal that involves trade or procuring services for money.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 6,
+    "data": "ASC=1:ASD=1:TG"
+  },
+  {
+    "id": 1038,
+    "name": "Polite",
+    "description": "Gnomish cultures preach both patience and speaking quietly, always staying focused and never disturbing their elders. Gain +1 Stealth and +1 Concentration.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 6,
+    "data": "AS4=1:AS5=1"
+  },
+  {
+    "id": 1039,
+    "name": "Evasion Training",
+    "description": "Gnomish cultures tend to start avoidance training at a young age to resist the many dangers in their homeland. Gain +1 Dodge and +1 Initiative.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 6,
+    "data": "AD2=2:ASH=1"
+  },
+  {
+    "id": 1040,
+    "name": "Higher Education",
+    "description": "Gnomish culture values expertise in a single subject rather than broad learning. Become Good at one Knowledge Skill and the learn the Arcanascript Language.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 6,
+    "data": "ALA"
+  },
+  {
+    "id": 1041,
+    "name": "Gnomish Ingenuity",
+    "description": "Gnomish cultures are capable and clever engineers and take great pride in their creations. Gain +1 Engineering and +1 Ammocraft. Additionally, Ranged Weapons that you produce have a +1 Damage Bonus and +2 Maximum Range.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 6,
+    "data": "TC:AC7=1:AC6=1"
+  },
+  {
+    "id": 1042,
+    "name": "Conduit Attunement",
+    "description": "Gnomish cultures value the bonds between a Conduit and its owner and are taught how to precicely attune to them. When you bond with a Conduit, start with a Common Bond and gain +6 Power and +6 Power Regen.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 6,
+    "data": "TG:FP=6:FR=6"
+  },
+  {
+    "id": 1045,
+    "name": "Heritage of Will",
+    "description": "Humans have a willful culture, and become endurant and resistant to magic. Gain +1 Resistance and +1 Resilience ",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 7,
+    "data": "AS6=1:AD1=1:AL8"
+  },
+  {
+    "id": 1046,
+    "name": "Pride in Diversity",
+    "description": "Humans have many sub-cultures and intermingle with other ancestries and culture groups. Gain +1 Persuasion and learn a non-Magical Language.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 7,
+    "data": "ASC=1"
+  },
+  {
+    "id": 1047,
+    "name": "Paladin Orders",
+    "description": "Human cultures are impacted heavily by faith, often bordering on fanaticism. Learn 2 Beginner and 2 Novice Divine Spells and gain +1 Damage with Slashing Weapons.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 7,
+    "data": "AZA=1"
+  },
+  {
+    "id": 1048,
+    "name": "Adaptive",
+    "description": "Human culture demands adaptation to thrive. Gain +1 Elemental Mitigation, +1 Arcane Mitigation and +1 Psychic Mitigation",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 7,
+    "data": "ADA=1:ADC=1:AD9=1"
+  },
+  {
+    "id": 1049,
+    "name": "Folk Hero",
+    "description": "Human cultures place heroes on pedestals so that others seek to replicate their glory. Gain +1 Block to all shields and +1 Physical Mitigation",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 7,
+    "data": "W5D3=1:AD4=1"
+  },
+  {
+    "id": 1050,
+    "name": "Corrupted by Temptation",
+    "description": "Zealotry is always a danger within Human culture, and can lead to dangerous beliefs. Learn 3 Beginner and 3 Novice Fiend Spell and gain +2 Divine Mitigation.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 7,
+    "data": "AD8=2"
+  },
+  {
+    "id": 1051,
+    "name": "Free Action : Glorykill",
+    "description": "Whenever you land a killing blow on a Creature your Level or higher, you can grant an allied player a Heroic Action",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 7,
+    "data": "Y"
+  },
+  {
+    "id": 1054,
+    "name": "Giant Heritage",
+    "description": "Living within the Half Giant culture requires toughness as the weak do not survive. Gain +2 Health and +1 Damage on Melee Attacks.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 8,
+    "data": "AH=2:ALF:AZA=1:AZB=1:AZC=1:AZN=1"
+  },
+  {
+    "id": 1055,
+    "name": "Born of Winter",
+    "description": "The Half Giant culture thrives in the coldest regions. Gain +4 Cold Mitigation. Additionally, when you Craft any piece of Light Armor, it gains +1 Cold Mitigation.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 8,
+    "data": "AD5=4:TC"
+  },
+  {
+    "id": 1056,
+    "name": "Fearless",
+    "description": "The Half Giant culture do not accept weakness within their clans. Gain Immunity to the Afraid Condition",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 8,
+    "data": "I=1"
+  },
+  {
+    "id": 1057,
+    "name": "Free Action : Body over Mind",
+    "description": "Until the end of your next turn, you ignore the effects of the Wounded, Exhausted, Poisoned and Bleeding Conditions.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 8,
+    "data": "Y"
+  },
+  {
+    "id": 1058,
+    "name": "Beast Alliances",
+    "description": "Half Giant cultures rely on domesticating Beasts to survive in their harsh climates. Gain +1 Animals and you can tame Beasts that are 2 Levels over your Taming Threshold.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 8,
+    "data": "TG:ASF=1"
+  },
+  {
+    "id": 1059,
+    "name": "Honor in Grit",
+    "description": "The Half Giant cultures value grit above all. Gain +1 Strength and +1 Resilience.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 8,
+    "data": "AS2=1:AS6=1"
+  },
+  {
+    "id": 1060,
+    "name": "Nomads",
+    "description": "Individuals within the Half Giant culture spend their lives migrating across vast plains of frost. Gain +1 Wilderness, +1 Movement Speed and +1 Athletics.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 8,
+    "data": "ASB=1:AS1=1:AV=1"
+  },
+  {
+    "id": 1063,
+    "name": "Culture of Festivals",
+    "description": "The Goblin culture is happy to celebrate even minor occassions. Gain +1 Persuasion and Gain +1 Performance",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 9,
+    "data": "ASE=1:ASC=1:AL4"
+  },
+  {
+    "id": 1064,
+    "name": "Studier of Artifacts",
+    "description": "You gain +1 Academics and +1 Runecarving. You gain a 1d4 Bonus to Checks when attempting to deduce the origin of an Object or Structure.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 9,
+    "data": "AS9=1:AC4=1:TG"
+  },
+  {
+    "id": 1065,
+    "name": "Magical Builders",
+    "description": "The masons and architects in the Goblin culture build and design with magic. Learn 3 Beginner and 3 Novice Transmutation Spells.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 9,
+    "data": ""
+  },
+  {
+    "id": 1066,
+    "name": "Appreciation for the Arts",
+    "description": "The Goblin culture is enamored by beauty. You can spend a minute admiring either an artifact, a piece of art or architecture to borrow inspiration. The object in question must be at least 100 years old, valued over 100 gold and something that has not been the target of this ability in the past. If you are successfully inspired, you gain a 1d4 Bonus to Performance Checks for the rest of the day and a 1d4 Bonus to your next Craft Check. If the 1d4 on the Craft Check results in a 4, add 1 Overcraft to the Object.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 9,
+    "data": "TC"
+  },
+  {
+    "id": 1067,
+    "name": "Meritocracy",
+    "description": "Those who excel in crafting beautiful objects are the ones who advance within the Goblin society. Gain +1 to all Crafting Skills.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 9,
+    "data": "ACA=1"
+  },
+  {
+    "id": 1068,
+    "name": "Those Who Covet",
+    "description": "With a culture defined by such beautiful and expensive art, there are those who make ends meet by taking. Gain +1 Stealth and +1 Thievery",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 9,
+    "data": "ASA=1:AS4:1"
+  },
+  {
+    "id": 1069,
+    "name": "Trained in Magic",
+    "description": "The elite of Goblin society are trained in powerful magic. Gain +1 Spell Attack and +1 Spell Damage.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 9,
+    "data": "AZ2=1:AZ4=1"
+  },
+  {
+    "id": 1072,
+    "name": "Elven Striders",
+    "description": "Elven culture requires quick feet and decision making to survive their harsh homeland. Gain +1 Movement Speed and +1 Initiative.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 10,
+    "data": "AV=1:ASH=1:AL2"
+  },
+  {
+    "id": 1073,
+    "name": "Action : Bladedancing",
+    "description": "As part of the Elven culture, you have perfected the Bladedancer form. Make an Attack with a Slashing Weapon and gain a 1d4 Bonus to Dodge Checks until the start of your next turn.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 10,
+    "data": "XX3"
+  },
+  {
+    "id": 1074,
+    "name": "Naturopathy",
+    "description": "Living in the wilderness has caused a more homegrown focus on healing. Gain +1 Alchemy and +1 Medicine.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 10,
+    "data": "AS8=1:AC5=1"
+  },
+  {
+    "id": 1075,
+    "name": "Astral Navigators",
+    "description": "The Elven culture are trained to move with the guidance of celestial bodies and cannot get lost while under the stars. Gain +1 Search and +1 Wilderness.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 10,
+    "data": "ASG=1:ASB=1"
+  },
+  {
+    "id": 1076,
+    "name": "Gift from the Stars",
+    "description": "Those who grow up within the Elven culture are exposed to the magic of the stars. You Learn 3 Beginner and 3 Novice Level Cosmic Spells and gain +2 Arcane Mitigation.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 10,
+    "data": "ADC=2"
+  },
+  {
+    "id": 1077,
+    "name": "Efficient Archery",
+    "description": "The Elven culture teaches bowmanship at a young age. Gain +1 Attack and +1 Damage with Ranged Weapons. Additionally, Basic Ammunition you make gains 1 Infusion Slot.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 10,
+    "data": "AZ5=1:AZ9=1:TC"
+  },
+  {
+    "id": 1078,
+    "name": "Elven Woads",
+    "description": "Cumbersome armor is rare within Elven Society and most fight with little in the way of protection, often opting to show painted skin. Gain +2 Dodge while not wearing armor.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 10,
+    "data": "W0D2=2"
+  },
+  {
+    "id": 1081,
+    "name": "Wraps of the Arah-Ka",
+    "description": "The Arah-Ka wear leather wraps that protect them from the harsh desert. Gain +1 Physical Mitigation when wearing Light Armor.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 11,
+    "data": "W1D4=1:ALI"
+  },
+  {
+    "id": 1082,
+    "name": "Path of the Sunscholar",
+    "description": "The sunscholars dedicate themselves to the flame and finding the knowledge within. Learn 2 Beginner and Novice Pyromancy Spells and gain +1 Academics",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 11,
+    "data": "AS9=1"
+  },
+  {
+    "id": 1083,
+    "name": "Path of the Sundancer",
+    "description": "The sundancers achieve ultimate form to attain knowledge. Gain +1 Acrobatics and +1 Athletics",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 11,
+    "data": "AS3=1:AS1=1"
+  },
+  {
+    "id": 1084,
+    "name": "The Harsh Desert",
+    "description": "The Arah-Ka society functions best during the warm days in the desert, but they have learned to endure the long, cold nights. Gain +3 Cold Mitigation and +1 Resilience.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 11,
+    "data": "AD5=3:AS6=1"
+  },
+  {
+    "id": 1085,
+    "name": "Bloodless Weaponry",
+    "description": "The Arah-ka society train with weapons that do not scar skin as to not desecrate themselves. Gain +1 Attack and Damage on Bludgeoning Weapons and Unarmed Attacks.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 11,
+    "data": "AZN=1:AZM=1:AZ7=1:AZB=1"
+  },
+  {
+    "id": 1086,
+    "name": "Legacy of Knowledge",
+    "description": "Many within the Arah-Ka culture dedicate themselves to continued learning and spellcraft. Gain +1 Scribing and become Good at one Knowledge Skill.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 11,
+    "data": "AC3=1"
+  },
+  {
+    "id": 1087,
+    "name": "Action : Ritual Dagger",
+    "description": "You perform the ultimate offense in the Arah-Ka culture and make an Attack with a Light 1-Handed Piercing Weapon made of glass, causing the Target to gain the Bleeding Condition. Add an additional 1d10 Damage to any Physical Damage you do while the Target has the Bleeding Condition on it.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 11,
+    "data": "XX3"
+  },
+
+  {
+    "id": 1090,
+    "name": "Foolishly Brave",
+    "description": "The Kobold culture is built upon banding together and being fearless in the face of certain death. While there are 2 or more Allies within 6 Units, you are Immune to being Afraid.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 12,
+    "data": "ALJ:TD"
+  },
+  {
+    "id": 1091,
+    "name": "Natural Throwing Arm",
+    "description": "Often short of weaponry to support such a large population, it is commonplace in the Kobold culture to perfect accurate throwing to deter predators. Small Objects that you throw and Throwing Ammunition deal an additional 2 Damage and are upgraded to Critical Hits on a True Hit.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 12,
+    "data": "T9"
+  },
+  {
+    "id": 1092,
+    "name": "Good with Traps",
+    "description": "The Kobold culture typically employs traps to protect their property and hard-won treasure. Gain +1 Thievery and +1 Engineering",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 12,
+    "data": "ASA=1:AC7=1"
+  },
+  {
+    "id": 1093,
+    "name": "Action : Skitterstrike",
+    "description": "You move up to Half your Movement Speed. For every Creature you come within 1 Unit of, you can make an Attack with a Light or Unarmed Weapon.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 12,
+    "data": "XX3"
+  },
+  {
+    "id": 1094,
+    "name": "The Draconic Legacy",
+    "description": "The kobold culture was shaped by the dragons of old, and some knowledge of that magic still remains. Gain 3 Beginner and 3 Novice Draconic Spells.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 12,
+    "data": ""
+  },
+  {
+    "id": 1095,
+    "name": "Cavedwellers",
+    "description": "Kobold societies are built underground, and those who dwell within learn to listen for subtle sounds to detect enemies. You gain +1 Search and Tremorsense up to 6 Units.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 12,
+    "data": "TG:ASG=1:DT"
+  },
+  {
+    "id": 1096,
+    "name": "Free Action : Reckless Abandon",
+    "description": "You dedicate yourself to all out aggression against a Creature that is two sizes or more larger than you. Until the start of your next turn, you gain a 1d4 Bonus to Attacks against this Creature but suffer a 1d4 Penalty to all Defense Checks against them.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 12,
+    "data": "Y"
+  },
+
+  {
+    "id": 1099,
+    "name": "The Eternal Hunt",
+    "description": "The Gnollish culture is built upon the concept of the great, unending hunt. Gain +1 Wilderness and +1 Resilience ",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 14,
+    "data": "ASB=1:AS6=1:ALP"
+  },
+  {
+    "id": 1100,
+    "name": "Never Complacent",
+    "description": "Gnolls are trained to keep tabs on their surroundings, as well as sleep lightly. You always have the Alerted Condition without requiring your Focus, even when Unconscious or Sleeping.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 14,
+    "data": "TG"
+  },
+  {
+    "id": 1101,
+    "name": "Oracle Guidance",
+    "description": "The Gnollish culture is guided by mysterious oracles, and interpreting signs is an important facet of life. Gain +1 Insight and 1 Luck Dice.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 14,
+    "data": "L1:ASD=1"
+  },
+  {
+    "id": 1102,
+    "name": "Trained Hunters",
+    "description": "Becoming a hunter is something nearly all are expected do within Gnollish society as a right of passage. Gain +1 Stealth, +1 Initiative and +1 Insight.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 14,
+    "data": "AS4=1:ASH=1:ASD=1"
+  },
+  {
+    "id": 1103,
+    "name": "Path of the Shaman",
+    "description": "Many within the Gnollish culture rely on shamanism for healing. Gain +1 Alchemy, +1 Medicine, and Learn 2 Beginner and 2 Novice Druidic Spells.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 14,
+    "data": "AS8=1:AC5=1"
+  },
+  {
+    "id": 1104,
+    "name": "Pack Fighter",
+    "description": "The Gnollish culture is based on moving in large packs and hunting together. Once per turn, you can add a 1d4 Bonus to an Attack Roll when at least 2 Allies are within 4 Units of you.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 14,
+    "data": "TO"
+  },
+  {
+    "id": 1105,
+    "name": "Action [Daily] : Mark of the Hunt",
+    "description": "You Mark a target you can see within 30 Units lasting until the end of a Full Rest. You gain +2 Movement Speed towards your target and deal an extra 1d10 Damage whenever you deal Physical Damage to them.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 14,
+    "data": "XD1"
+  },
+
+  {
+    "id": 1108,
+    "name": "Unrelenting",
+    "description": "The Minotaur culture is one where things change slowly, if at all, giving them a reputation of legendary stubborness. Gain +1 Resilience and +1 Strength",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 15,
+    "data": "ALQ:A62=1:AS2=1"
+  },
+  {
+    "id": 1109,
+    "name": "Reaction : Blood Fury",
+    "description": "In response to being the Target of a True Hit that deals Physical Damage, you enter a Blood Fury until you make your next Melee Attack. If the Attack hits, it is automatically upgraded to a True Hit. Until you make that Attack, you automatically fail all Defense Checks.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 15,
+    "data": "ZX2"
+  },
+  {
+    "id": 1110,
+    "name": "The Dark Heresy",
+    "description": "The Minotaur culture have a long and storied history with Entities of the dark. Learn 3 Beginner and 3 Novice Fiend Spells.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 15,
+    "data": ""
+  },
+  {
+    "id": 1111,
+    "name": "Bond with Death",
+    "description": "The Minotaur culture does not fear death and is trained to endure under the harshest of conditions. You act normally within Lifeline until reaching 2 Lifeline Points. Additionally, you cannot be Frightened and do not suffer the effects of Exhaustion while in Lifeline.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 15,
+    "data": "TG"
+  },
+  {
+    "id": 1112,
+    "name": "Hard Headed",
+    "description": "The Minotaur culture settles many disputes by bashing heads together and clashing skulls. You can no longer unwillingly become Unconscious.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 15,
+    "data": "TD"
+  },
+  {
+    "id": 1113,
+    "name": "Legacy of Axes",
+    "description": "The axe is the weapon of the Minotaur people and they honor that legacy. Gain +1 Attack and +1 Damage with Slashing Weapons",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 15,
+    "data": "AZ6=1:AZA=1"
+  },
+  {
+    "id": 1114,
+    "name": "Brutal Fighter",
+    "description": "You gain Critical Hits with all Melee and Ranged Weapons",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 15,
+    "data": "AZE:AZF:AZG:AZH:TA"
+  },
+
+  {
+    "id": 1117,
+    "name": "Bounty of the Land",
+    "description": "The Stout-Folk are a culture that works the soil, from farmers to miners. Gain +1 Wilderness, +1 Smithing and +1 Cooking.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 16,
+    "data": "ASB=1:AC2=1:AC1=1:ALU"
+  },
+  {
+    "id": 1118,
+    "name": "Action : Throwing Arm",
+    "description": "You make a Throwing Attack with a +2 Bonus to Attack and double the Range you can normally throw that object or weapon. Additionally, a True Hit on this Attack is upgraded to a Critical Hit",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 16,
+    "data": "XX3"
+  },
+  {
+    "id": 1119,
+    "name": "Tavern Legends",
+    "description": "The Stout-Folk culture is renowned for their prowess in the tavern. Gain +1 Resilience. When you complete a Favorable Full Rest after a day where you have consumed alcohol, gain a Luck Dice.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 16,
+    "data": "TG:AS6=1"
+  },
+  {
+    "id": 1120,
+    "name": "Truefooted",
+    "description": "The Stout-Folk culture does not place much stock in footwear and have grown comfortable barefoot, growing protective calluses. Gain +1 Acrobatics, +1 Stealth and +1 Physical Mitigation.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 16,
+    "data": "AS3=1:AS4=1:AD4=1"
+  },
+  {
+    "id": 1121,
+    "name": "Heavy Metal",
+    "description": "The Stout-Folk are renowned for their complex metalwork, resulting in impressive hammers and plate armor. Gain an Infusion Slot when crafting Bludgeoning Weapons and Heavy Armor. Additionally, gain +1 Damage with Bludgeoning Weapons.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 16,
+    "data": "TC:AZB=1"
+  },
+  {
+    "id": 1122,
+    "name": "Action : Giantsbane",
+    "description": "You make an Attack with a Weapon against a Creature one or more sizes larger than you and deal an extra 1d10 Primary Damage for each Size difference.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 16,
+    "data": "XX3"
+  },
+  {
+    "id": 1123,
+    "name": "Legacy of Armor",
+    "description": "The Stout-Folk are renowned for utilizing heavier armors for protection. Gain +1 Block, Resistance and Dodge while wearing Medium or Heavy Armor.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 16,
+    "data": "W2D2=1:W2D3=1:W2D1=1"
+  },
+ 
+  {
+    "id": 1126,
+    "name": "Raised in Water",
+    "description": "The Tidewalker culture is at home in the water. Your Swim Speed becomes equal to your Movement Speed and you gain +1 Athletics.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 17,
+    "data": "TA:ALR:T6"
+  },
+  {
+    "id": 1127,
+    "name": "Friend of the Sea",
+    "description": "You You gain +1 Animals and +1 Persuasion. You can communicate basic concepts to Aquatic Beasts and the Level limit determined by your Taming Formula is increased by 2 for Aquatic Beasts.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 17,
+    "data": "ASF=1:ASC=1:TG"
+  },
+  {
+    "id": 1128,
+    "name": "Underwater Weapons",
+    "description": "The Tidewalker Heritage involves weapons that work efficiently under water. Gain +1 Attack on Piercing Weapons",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 17,
+    "data": "AZ8=1"
+  },
+  {
+    "id": 1129,
+    "name": "Hazards of the Sea",
+    "description": "Your body is acclimated to the harsh conditions of the deep waters. Gain +3 Cold Mitigation and +3 Fire Mitigation",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 17,
+    "data": "AD5=3:AD6=3"
+  },
+  {
+    "id": 1130,
+    "name": "Songs of the Deep",
+    "description": "Stories and messages are passed through song and you have learned to both sing and interpret them. Gain +1 Performance, +1 Search and +2 Range on all Ballads.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 17,
+    "data": "ASE=1:ASG=1:FB=2"
+  },
+  {
+    "id": 1131,
+    "name": "Underwater Diplomat",
+    "description": "The Tidwalker culture invovles many different types of Creatures and sharing a common language is important for communication. Learn the Tidal Magical Language and gain +1 Persuasion",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 17,
+    "data": "ALM:ASC=1"
+  },
+  {
+    "id": 1132,
+    "name": "Water Shaper",
+    "description": "You Gain +1 Spell Attack and you can Research Beginner and Journeyman Spells from the Aquamancy School of Magic. You can Research Journeyman Aquamancy Spells at Level 7, Expert at 9 and Master at 11. Additionally, while submerged in water, your Aquamancy Spells are automatically Charged.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 17,
+    "data": "AZ2=1"
+  },
+
+  {
+    "id": 1144,
+    "name": "Trained Assistants",
+    "description": "The origin of the Gloxy involves being assistants, and that has carried into their culture. Gain +1 Scribing and +1 Arcanum",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 19,
+    "data": "AS7=1:AC3=1:ALZ"
+  },
+  {
+    "id": 1145,
+    "name": "Protection Magic",
+    "description": "The Gloxy culture heavily favors Abjuratation Magic which was used to protect their former Vethi masters. Learn 2 Beginner and Novice Abjuration Spells and gain +1 Spell Damage.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 19,
+    "data": "AZ4=1"
+  },
+  {
+    "id": 1146,
+    "name": "A Desire to Help",
+    "description": "The Gloxy culture believes in helping those with less experience. When you make an Assisted Check with a Skill that has a Bonus Modifier equal to or higher than the Bonus Modifier of the Skill you are Assisting, add a 1d4 to their check instead of rolling an Assisted Check.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 19,
+    "data": "TG"
+  },
+  {
+    "id": 1147,
+    "name": "Always Free",
+    "description": "The Gloxy cherish freedom and are particularly suspicious when they feel as if their liberty is threatened. Gain +1 Insight and +1 Resistance.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 19,
+    "data": "AD1=1:ASD=1"
+  },
+  {
+    "id": 1148,
+    "name": "Holistic Medicine",
+    "description": "The Gloxy culture values an all-around approach to healing, requiring good food, medicine and alchemical concoctions. Gain +1 Alchemy, +1 Medicine and +1 Cooking.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 19,
+    "data": "AD8=1:AC2=1:AC5=1"
+  },
+  {
+    "id": 1149,
+    "name": "Skilled Linguists",
+    "description": "The Gloxy culture prides itself on learning new Languages and accurately reproducing the dialects. Gain +1 Performance and learn 2 non-Magical Languages.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 19,
+    "data": "ASE=1"
+  },
+  {
+    "id": 1150,
+    "name": "Manipulators of Magic",
+    "description": "You cannot fail an Essence Burn and can additionally perform an Essence Burn on a Conduit that is not bound to you. Additionally, when you Bond with a Conduit, you get credit for a Bond that is one tier higher.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 19,
+    "data": "TG"
+  },
+  {
+    "id": 1153,
+    "name": "Enlighteners",
+    "description": "The Vethi culture shares a special relationship with all living things and find their purpose in the wilds. Gain +1 Animals and +1 Wilderness.",
+    "mtype": "racial",
+    "location": "1",
+    "cost": 2,
+    "module_id": 20,
+    "data": "ASB=1:ASF=1:ALZ"
+  },
+  {
+    "id": 1154,
+    "name": "Rune Masters",
+    "description": "Many of those within the Vethi culture are taught at a young age to runecarve. Gain +1 Runecarving and learn 1 Magical Language.",
+    "mtype": "racial",
+    "location": "2a",
+    "cost": 2,
+    "module_id": 20,
+    "data": "AC4=1"
+  },
+  {
+    "id": 1155,
+    "name": "Burden of the Ancestors",
+    "description": "Many within the Vethi culture are taught focus and inward dialog so that they do not repeat the crimes of those who came before. You gain +1 Concentration and +1 Insight.",
+    "mtype": "racial",
+    "location": "2b",
+    "cost": 2,
+    "module_id": 20,
+    "data": "AS5=1:ASD=1"
+  },
+  {
+    "id": 1156,
+    "name": "Reaction [Daily] : Antimagic",
+    "description": "In response to a Spell being Channeled within a number of Units equal to your Level, lower the Spell Attack by 1d8. If the Spell does not require a Spell Attack, the Spell fails if the result of the d8 is 6 or higher.",
+    "mtype": "racial",
+    "location": "3",
+    "cost": 2,
+    "module_id": 20,
+    "data": "ZD1"
+  },
+  {
+    "id": 1157,
+    "name": "Abstained Magic",
+    "description": "There are several groups within the Vethi culture that villify the use of Magic and train to resit its effects. You have a -1 Penalty to Spell Attack but gain +4 Arcane and +4 Psychic Mitigation.",
+    "mtype": "racial",
+    "location": "4a",
+    "cost": 2,
+    "module_id": 20,
+    "data": "AZ2=-1:ADC=4:AD9=4"
+  },
+  {
+    "id": 1158,
+    "name": "Embraced Magic",
+    "description": "There are several groups within the Vethi culture that want to reclaim the old ways. Gain +1 Spell Attack and +1 Spell Damage but suffer a -2 Penalty to Arcane and Pyschic Mitigation.",
+    "mtype": "racial",
+    "location": "4b",
+    "cost": 2,
+    "module_id": 20,
+    "data": "AZ2=1:AZ4=1:ADC=-2:AD9=-2"
+  },
+  {
+    "id": 1159,
+    "name": "Ultimate Focus",
+    "description": "Those with great promise are taught the ancient ways of the Vethi and can split their thought into multiple strands. You are able to Focus on two things at once, though Concentration Checks you make have a 1d4 Penalty when using this ability.",
+    "mtype": "racial",
+    "location": "5",
+    "cost": 3,
+    "module_id": 20,
+    "data": "TG"
+  },
+
+
+  ]
+  

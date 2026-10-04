@@ -4,7 +4,7 @@
   "charge": "The creature also becomes immutable for until the end of their next full rest.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Pearl"
   ],

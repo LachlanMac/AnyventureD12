@@ -4,7 +4,7 @@
   "charge": "Minions and grunts become frozen if they take any cold damage from one of the rays.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Frost Dust"
   ],

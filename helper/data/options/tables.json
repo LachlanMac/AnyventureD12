@@ -1,0 +1,670 @@
+[
+    {
+        "name": "Random Direction Table",
+        "dice":"1d8",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "North"
+            },
+            {
+                "dice": "2",
+                "description": "North East"
+            },
+            {
+                "dice": "3",
+                "description": "East"
+            },
+            {
+                "dice": "4",
+                "description": "South East"
+            },
+            {
+                "dice": "5",
+                "description": "South"
+            },
+            {
+                "dice": "6",
+                "description": "South West"
+            },
+            {
+                "dice": "7",
+                "description": "West"
+            },
+            {
+                "dice": "8",
+                "description": "North West"
+            }
+        ]
+    },
+    {
+        "name": "Random Plane Table",
+        "dice":"1d8",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "Infernal"
+            },
+            {
+                "dice": "2",
+                "description": "Water"
+            },
+            {
+                "dice": "3",
+                "description": "Abyss"
+            },
+            {
+                "dice": "4",
+                "description": "Void"
+            },
+            {
+                "dice": "5",
+                "description": "Earth"
+            },
+            {
+                "dice": "6",
+                "description": "Divinity"
+            },
+            {
+                "dice": "7",
+                "description": "Air"
+            },
+            {
+                "dice": "8",
+                "description": "Light"
+            },
+            {
+                "dice": "9",
+                "description": "Spectral"
+            },
+            {
+                "dice": "10",
+                "description": "Feywild"
+            }
+        ]
+    },
+    {
+        "name": "Surge Table",
+        "dice":"1d12",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "You enter stasis, gaining that condition for the next 1d4 days"
+            },
+            {
+                "dice": "2",
+                "description": "You transform into a random beast as if you were under the effects of the spell polymorph by rolling on the Random Beast Table. This effect lasts for 1 hour or until naturally reverting due to losing health."
+            },
+            {
+                "dice": "3",
+                "description": "You become muted until the end of your next full rest"
+            },
+            {
+                "dice": "4",
+                "description": "You become the target of the channeled spell"
+            },
+            {
+                "dice": "5",
+                "description": "You teleport 1d6 units in a random direction. If the spot is occupied, teleport instead to the closest unoccupied tile to that point and take 2d12 true damage."
+            },
+            {
+                "dice": "6",
+                "description": "You become dazed until the end of your next full rest and take 2d12 psychic damage if you are currently focusing on a spell"
+            },
+            {
+                "dice": "7",
+                "description": "The spell fails and you gain 1 tier of exhaustion"
+            },
+            {
+                "dice": "8",
+                "description": "You gain temporary health equal to the amount of power spent on the spell"
+            },
+            {
+                "dice": "9",
+                "description": "The spell is upraded to a true hit and any damage dealt by the spell on your current turn is converted to true damage"
+            },
+            {
+                "dice": "10",
+                "description": "The spell is converted to a radius spell with a radius of 2 centered on your original target. If the spell already has an area type of radius, line, or cone, the size of the area is increased by 1 unit, instead."
+            }
+            ,
+            {
+                "dice": "11",
+                "description": "The spell consumes double the power but is upgraded to a brutal critical. If the conduit reaches 0 as a result of this power increase, the channeler must then roll an essence burn to make up the remaining power required for the spell."
+            }
+            ,
+            {
+                "dice": "12",
+                "description": "The spell is upgraded to a brutal critical and does not consume any power"
+            }
+        ]
+    },
+    {
+        "name": "Random Beast Table",
+        "dice":"1d20",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "Chicken"
+            },
+            {
+                "dice": "2",
+                "description": "Cat"
+            },
+            {
+                "dice": "3",
+                "description": "Fox"
+            },
+            {
+                "dice": "4",
+                "description": "Hawk"
+            },
+            {
+                "dice": "5",
+                "description": "Lizard"
+            },
+            {
+                "dice": "6",
+                "description": "Owl"
+            },
+            {
+                "dice": "7",
+                "description": "Snake"
+            },
+            {
+                "dice": "8",
+                "description": "Boar"
+            },
+            {
+                "dice": "9",
+                "description": "Donkey"
+            },
+            {
+                "dice": "10",
+                "description": "Octopus"
+            },
+            {
+                "dice": "11",
+                "description": "Ram"
+            },
+            {
+                "dice": "12",
+                "description": "Wolf"
+            },
+            {
+                "dice": "13",
+                "description": "Horse"
+            },
+            {
+                "dice": "14",
+                "description": "Anaconda"
+            },
+            {
+                "dice": "15",
+                "description": "Shark"
+            },
+            {
+                "dice": "16",
+                "description": "Great Ape"
+            },
+            {
+                "dice": "17",
+                "description": "Grizzly Bear"
+            },
+            {
+                "dice": "18",
+                "description": "Lion"
+            },
+            {
+                "dice": "19",
+                "description": "Hootbeast"
+            },
+            {
+                "dice": "20",
+                "description": "Griffin"
+            }
+        ]
+    },
+    {
+        "name": "Random Damage Table",
+        "dice":"1d10",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "Physical"
+            },
+            {
+                "dice": "2",
+                "description": "Fire"
+            },
+            {
+                "dice": "3",
+                "description": "Lightning"
+            },
+            {
+                "dice": "4",
+                "description": "Cold"
+            },
+            {
+                "dice": "5",
+                "description": "Dark"
+            },
+            {
+                "dice": "6",
+                "description": "Divine"
+            },
+            {
+                "dice": "7",
+                "description": "Arcane"
+            },
+            {
+                "dice": "8",
+                "description": "Psychic"
+            }
+            ,
+            {
+                "dice": "9",
+                "description": "Poison"
+            }
+            ,
+            {
+                "dice": "10",
+                "description": "True"
+            }
+        ]
+    },
+    {
+        "name": "Entity Encounter Table",
+        "dice":"1d6",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "The next time you take damage of the type of the planar category before the end of your next full rest, that damage is doubled :  <p>Undead : Dark</p><p>Demonic : Dark</p><p>Divine : Divine</p><p>Void : Psychic</p>"
+            },
+            {
+                "dice": "2",
+                "description": "Planar Sickness : You suffer a 1d4 penalty to resistance and resilience checks until the end of your next full rest."
+            },
+            {
+                "dice": "3",
+                "description": "Beacon : All creatures within a 200 units become aware of your current location, with the type of creature depending on the category: <p>Undead : Undead</p><p>Demonic : Dark [Daemon]</p><p>Divine : Divine</p><p>Void : Dark [Void]</p>"
+            },
+            {
+                "dice": "4",
+                "description": "Planar Feedback : You take 1d6 damage for each power spent, with the damage type depending on the category: <p>Undead : Dark</p><p>Demonic : Dark</p><p>Divine : Divine</p><p>Void : Psychic</p>"
+            },
+            {
+                "dice": "5",
+                "description": "Rift : In the next 1d4 rounds, an enemy creature from the planar category of a level less than 1d20 + 4 can appear at the location the spell was channeled."
+            },
+            {
+                "dice": "6",
+                "description": "Contact : An entity from a plane of the planar category takes notice of and is able to interact with you for the next 1d6 days."
+            }
+        ]
+    },
+    {
+        "name": "Random Flora Table",
+        "dice":"1d100",
+        "entries": [
+            {
+                "dice": "1-6",
+                "description": "Fruit"
+            },
+            {
+                "dice": "7-12",
+                "description": "Vegetable"
+            },
+            {
+                "dice": "13-18",
+                "description": "Bundle of Mint"
+            },
+            {
+                "dice": "19-24",
+                "description": "Bundle of Sage"
+            },
+            {
+                "dice": "25-30",
+                "description": "Bundle of Yarrow"
+            },
+            {
+                "dice": "31-36",
+                "description": "Bundle of Rosemary"
+            },
+            {
+                "dice": "37-42",
+                "description": "Bundle of Licorice"
+            },
+            {
+                "dice": "43-48",
+                "description": "Bundle of Mugwort"
+            },
+            {
+                "dice": "49-54",
+                "description": "Bundle of Guarana"
+            },
+            {
+                "dice": "55-60",
+                "description": "Bundle of Gingko"
+            },
+            {
+                "dice": "61-66",
+                "description": "Bundle of Echinacea"
+            },
+            {
+                "dice": "67-71",
+                "description": "Bundle of Ginseng"
+            },
+            {
+                "dice": "72-76",
+                "description": "Bundle of Valerian Root"
+            },
+            {
+                "dice": "77-81",
+                "description": "Bundle of Saffron"
+            },
+            {
+                "dice": "82-86",
+                "description": "Bundle of Golden Poppy"
+            },
+            {
+                "dice": "87-89",
+                "description": "Bundle of Nightshade"
+            },
+            {
+                "dice": "90-92",
+                "description": "Bundle of Bloodthorn"
+            },
+            {
+                "dice": "93-94",
+                "description": "Bundle of Mandrake"
+            },
+            {
+                "dice": "95-96",
+                "description": "Bundle of Frostleaf"
+            },
+            {
+                "dice": "97-98",
+                "description": "Bundle of Embervine"
+            },
+            {
+                "dice": "99",
+                "description": "Bundle of Eyestalk"
+            },
+            {
+                "dice": "100",
+                "description": "Starflower"
+            }
+        ]
+    },
+    {
+        "name": "Expedition Event Table",
+        "dice":"1d6",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "Tile Event : If the terrain tile card has an event, that event is activated."
+            },
+            {
+                "dice": "2",
+                "description": "Social Event : The expedition rolls on the Social Event Table"
+            },
+            {
+                "dice": "3",
+                "description": "Health Event : The expedition rolls on the Health Event Table"
+            },
+            {
+                "dice": "4",
+                "description": "Weather & Terrain Event : The expedition rolls on the Weather & Terrain Event Table"
+            },
+            {
+                "dice": "5",
+                "description": "Encounter Event : The expedition rolls on the Encounter Event Table to determine the type of encounter, and either the Party Scaled or True Random version of the Random Encounter Table."
+            },
+            {
+                "dice": "6",
+                "description": "Discovery Event : The expedition rolls on the Discovery Event Table"
+            }
+        ]
+    },
+    {
+        "name": "Random Social Event Table",
+        "dice":"1d6",
+        "entries": [
+            {
+                "dice": "1",
+                "description": "A Caravan"
+            },
+            {
+                "dice": "2",
+                "description": "1d4 Treasure Hunters"
+            },
+            {
+                "dice": "3",
+                "description": "1d4 Bounty Hunters"
+            },
+            {
+                "dice": "4",
+                "description": "A wandering minstrel"
+            },
+            {
+                "dice": "5",
+                "description": "A lost noble who got seperated from their caravan"
+            },
+            {
+                "dice": "6",
+                "description": "Discovery Event : The expedition rolls on the Discovery Event Table"
+            }
+        ]
+    },
+    {
+        "name": "Random Encounter Type Table",
+        "dice": "1d100",
+        "entries": [
+            {
+                "dice": "1-5",
+                "description": "Protective Humanoids with the intent of driving the expedition out of their land"
+            },
+            {
+                "dice": "6-10",
+                "description": "Criminal Humanoids with the intent of robbing or capturing members of the expedition"
+            },
+            {
+                "dice": "11-15",
+                "description": "Savage Humanoids with the intent of killing the members of the expedition"
+            },
+            {
+                "dice": "16-20",
+                "description": "Cultist Humanoids from a nearby ruin or stronghold"
+            },
+            {
+                "dice": "21-25",
+                "description": "Crazed Beasts suffering some type of disease that gives them the permanent maddened condition"
+            },
+            {
+                "dice": "26-35",
+                "description": "Aggressive Beasts or Monsters intent on killing the members of the expedition"
+            },
+            {
+                "dice": "36-45",
+                "description": "Aggressive Beasts or Monsters intent on stalking the members of the expedition until they make camp, when they will sneak and attack from surprise"
+            },
+            {
+                "dice": "46-55",
+                "description": "Hungry Beasts or Monsters looking to kill and eat either members or beasts of the expedition"
+            },
+            {
+                "dice": "56-65",
+                "description": "Territorial Beasts or Monsters defending a nearby lair or nest with something valuable inside"
+            },
+            {
+                "dice": "66-70",
+                "description": "Reanimated Undead Creatures who seek humanoid flesh"
+            },
+            {
+                "dice": "71-75",
+                "description": "Angry Undead Spirits who are doomed to remain as shades until a curse is lifted"
+            },
+            {
+                "dice": "76-80",
+                "description": "Vengeful Elementals of the Land"
+            },
+            {
+                "dice": "81-85",
+                "description": "Fey Creatures bent on treating the expedition like toys and only engaging in combat when all avenues of 'fun' are expended"
+            },
+            {
+                "dice": "86-90",
+                "description": "Animated Plantoids or Earthen Elementals protesting against the expedition crossing their land"
+            },
+            {
+                "dice": "91-93",
+                "description": "Malfunctioning Clockwork Constructs from another era"
+            },
+            {
+                "dice": "94-95",
+                "description": "Maddened Constructs created by a powerful wizard"
+            },
+            {
+                "dice": "96-97",
+                "description": "Planar Encounter with either Dark or Divine Creatures"
+            },
+            {
+                "dice": "98-100",
+                "description": "A rift to another plane that is leaking corrupted versions of creatures through it. Roll on the Random Plane Table to determine which."
+            }
+        ]
+    },
+    
+    {
+        "name": "Random Encounter Table [True Random]",
+        "dice": "1d100",
+        "entries": [
+            {
+                "dice": "1-6",
+                "description": "A group of 1d4 level 0 + (difficulty score) creatures."
+            },
+            {
+                "dice": "7-12",
+                "description": "A group of 2d4 level 0 + (difficulty score) creatures."
+            },
+            {
+                "dice": "13-18",
+                "description": "A swarm of 3d6 level 1 + (difficulty score) creatures."
+            },
+            {
+                "dice": "19-24",
+                "description": "A single level 3-5 + (difficulty score) creature."
+            },
+            {
+                "dice": "25-30",
+                "description": "2 level 3-5 + (difficulty score) creatures."
+            },
+            {
+                "dice": "31-36",
+                "description": "A group of 2d4 level 2 + (difficulty score) creatures."
+            },
+            {
+                "dice": "37-42",
+                "description": "A group of 2d4 level 2 + (difficulty score) creatures led by a level 5 + (difficulty score) leader."
+            },
+            {
+                "dice": "43-48",
+                "description": "A swarm of 3d6 level 1 + (difficulty score) creatures led by a level 4 (+ difficulty score) leader."
+            },
+            {
+                "dice": "49-54",
+                "description": "A group of 2d4 level 4 + (difficulty score) creatures."
+            },
+            {
+                "dice": "55-60",
+                "description": "A group of 2d4 level 4 + (difficulty score) creatures led by a level 8 + (difficulty score) leader."
+            },
+            {
+                "dice": "61-66",
+                "description": "A swarm of 4d4 level 3 + (difficulty score) creatures."
+            },
+            {
+                "dice": "67-72",
+                "description": "A swarm of 4d4 level 3 + (difficulty score) creatures led by a level 7 (+ difficulty score) leader."
+            },
+            {
+                "dice": "73-80",
+                "description": "A single level 6-8 + (difficulty score) creature."
+            },
+            {
+                "dice": "81-86",
+                "description": "2 level 6-8 + (difficulty score) creatures."
+            },
+            {
+                "dice": "87-92",
+                "description": "A single level 8 + (2 x difficulty score) creature."
+            },
+            {
+                "dice": "93-98",
+                "description": "A single level 10 + (3 x difficulty score) creature."
+            },
+            {
+                "dice": "99-100",
+                "description": "A single level 20 + (3 x difficulty score) creature."
+            }
+        ]
+    },
+    {
+        "name": "Random Encounter Table [Party Scaled]",
+        "dice": "1d100",
+        "entries": [
+            {
+                "dice": "1-10",
+                "description": "a group of 1d4 creatures of a level equal to (party level - 1) + (difficulty score)"
+            },
+            {
+                "dice": "11-20",
+                "description": "a group of 2d4 creatures of a level equal to (party level - 2) + (difficulty score)"
+            },
+            {
+                "dice": "21-30",
+                "description": "a swarm of 3d6 creatures of a level equal to (party level - 3) + (difficulty score)"
+            },
+            {
+                "dice": "31-40",
+                "description": "A single creature of a level equal to (party level x 2) + (difficulty score)"
+            },
+            {
+                "dice": "41-50",
+                "description": "2 creatures of a level equal to (party level + 3) + (difficulty score)"
+            },
+            {
+                "dice": "51-60",
+                "description": "a group of 1d4 creatures of a level equal to (party level - 1) + (difficulty score) led by a creature of a level equal to (party level + 2) + (difficulty score)"
+            },
+            {
+                "dice": "61-70",
+                "description": "a group of 2d4 creatures of a level equal to (party level - 2) + (difficulty score) led by a creature of a level equal to (party level + 2) + (difficulty score)"
+            },
+            {
+                "dice": "71-80",
+                "description": "a swarm of 4d4 creatures of a level equal to (party level - 3) + (difficulty score) led by a creature of a level equal to (party level + 2) + (difficulty score)"
+            },
+            {
+                "dice": "81-90",
+                "description": "2 creatures of a level equal to (party level x 2) + (difficulty score)"
+            },
+            {
+                "dice": "91-98",
+                "description": "A single level creature of a level equal to (party level x 2) + (2 x difficulty score)"
+            },
+            {
+                "dice": "99-100",
+                "description": "A single level creature of a level equal to (party level x 2) + (3 x difficulty score)"
+            }
+        ]
+    }
+    
+    
+
+
+    
+
+
+]

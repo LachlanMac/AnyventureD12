@@ -1,0 +1,293 @@
+[
+    {
+        "name": "Balance Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 5", "Silver :7", "Gold : 9", "Platinum : 11"],
+        "time": "1 Minute",
+        "description": "You pair two Objects together that are less than 5 Mass by carving a rune into both. If one Object moves, the other Object moves in that same direction if it can. The mass limits are increased to 10 for Silver, 20 for Gold, and 50 for Platinum. This effect lasts for 1 Day.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Locating Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 5", "Silver :7", "Gold : 9", "Platinum : 11"],
+        "time": "1 Minute",
+        "description": "You pair two objects or structures together by carving a rune into each. The runes grow warm as they come closer and cold as they move apart. The distance these runes function at is determined by the quality of the powdered metal used with Iron being 10 Units, Silver being 50, Gold 1000 and Platinum functioning as long as you are on the same plane.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Light Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 5", "Silver :7", "Gold : 9", "Platinum : 11"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an Object and cause it to give off a dull light that can be activated and deactivated by a command word spoken by you, requiring an Action or Free Action. Once activated, the rune lasts for 1 Day. The radius of the light is 1 for Iron, 2 for Silver, 4 for Gold and 6 for Platinum.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Breaking Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 6", "Silver :8", "Gold : 10", "Platinum : 12"],
+        "time": "1 Minute",
+        "description": "This rune shatters when it is thrown at a Target or activated by using a command word spoken by you as an action or free action, dealing Physical Damage on contact. This rune will not activate if it is within 1 Unit of another rune of the same type. The damage dice are 1d6 for Iron, 1d10 for Silver, 2d8 for Gold  and 3d8 for Platinum.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Detection Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 6", "Silver : 8", "Electrum : 10", "Gold : 12", "Platinum : 14"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object that detects when Creatures of a type specified at the time of Crafting come within a certain Radius. This rune can be activated and deactivated with a Command Word. If a Creature of the specified type comes within a 2 Unit Radius, the rune makes a loud noise and breaks. The radius is increased to 4 Units for Silver, 8 for Gold, 12 for Electrum and 16 for Platinum.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Electrum 10 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Echo Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 6", "Silver :8", "Gold : 12", "Platinum : 15"],
+        "time": "1 Minute",
+        "description": "You carve a unique rune into an object that allows sound to pass through when activated with a command word. The sound received by the original rune is broadcast to all other objects that have this unique rune on them, assuming it is within a range specified by the quality of powdered metal used. The range is 3 Units for iron, 15 for silver, 100 for gold and platinum works as long as all of the runes are on the same plane.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Protection Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 8", "Silver :10", "Gold : 12", "Platinum : 14"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object that activates when the Creature who is holding it makes a Resistance Check and automatically applies a +1 Bonus to that Check before breaking. The bonus is increased to 3 for Silver, 5 for Gold and 7 for Platinum.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Trigger Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 8", "Silver :10", "Gold : 12", "Platinum : 14"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object that activates upon a certain Trigger and Target, specified by you when you carve the rune. When the rune is activated, the Spell Scroll used in this Recipe activates with the specified Target.",
+        "ingredients": ["Powdered Metal, Beginner or Novice Spell Scroll"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Sealing Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 8", "Silver :10", "Gold : 12", "Platinum : 14"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object, such as a container or door, that increases the required check of opening it by brute force or by lock picking by 1. The bonus is increased to 2 for Silver, 4 for Gold and 8 for Platinum. This rune lasts until the object is successfully opened.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Reinforcement Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 8", "Silver :10", "Gold : 12", "Platinum : 14"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object or structure that causes its Durability Tier to increase by 1 tier up to a maximum of Impervious. The duration is based on the quality of powdered metal being used with Iron being 10 minutes, Silver an hour, Gold a day and Platinum lasting a month.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Luck Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 10", "Silver :12", "Gold : 14", "Platinum : 16"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object that serves as a lucky trinket. While this object is held, the next 1 you roll on a Skill Check changes the dice to a 4 instead, ending the rune. With powdered silver, it becomes a 5, gold 7 and platinum 9. This rune does not function if it is within 2 units of another luck rune.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Pocket Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Gold : 12", "Platinum : 14"],
+        "time": "1 Minute",
+        "description": "You carve a rune into an object that is an enclosed container such as a bag, chest or box. The same rune can then be carved again on a larger container or enclosed space such as a small room or vault. While both runes are on the same plane, the opening of the smaller container serves as a portal to the larger container where only Objects can be passed. A gold rune permits a maximum space of 1 Cubic Unit for the larger pocket container and platinum rune allows up to 3 Cubic Units.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Gold 50 GP", "Platinum 100 GP"]
+    },
+    {
+        "name": "Portal Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Gold : 12", "Platinum : 14", "Aetherium : 16"],
+        "time": "1 Minute",
+        "description": "You carve a rune into a threshold such as a doorway, window or piece of material that forms an unbroken shape such as a circle or square with an opening in the middle that can be activated with a Command Word. If the rune matches the rune of a permanent portal, the portal opens when activated for the next Minute, any Creature that passes through the temporary threshold or opening is teleported to the location of the permanent rune. If you fail the check to create the rune, the portal still opens if the sister rune is valid, but anyone who passes through the boundary must roll on the Teleportation Mishaps Table. After the Minutes passes, the temporary rune is destroyed. A gold rune allows travel to a rune on the same celestial body, platinum on the same plane and aetherium allows inter-planar travel.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Gold 50 GP", "Platinum 100 GP", "Aetherium : 500 GP"]
+    },
+    {
+        "name": "Return Rune",
+        "type": "Runecarving",
+        "category": "Craft",
+        "check": ["Iron : 10", "Silver :12", "Gold : 14", "Platinum : 16"],
+        "time": "1 Minute",
+        "description": "You carve a rune into a small object 5 mass or lower that causes it to return to your hand when you speak the command word while you are within a certain distance, with the range increasing based on the quality of the powdered metal used. The range is 3 Units for iron, 15 for silver, 100 for gold, and no limit for platinum, as long as the object is still on the same plane.",
+        "ingredients": ["Powdered Metal"],
+        "cost": ["Iron : 2 GP", "Silver 5 GP", "Gold 50 GP", "Platinum 100 GP"]
+    },
+
+    {
+        "name": "Mark of Protection",
+        "type": "Runecarving",
+        "category": "Dermaglyph",
+        "check": 14,
+        "time": "1 Hour",
+        "description": "You mix powdered platinum and a crushed gem together and write permanent glyphs into a creature's skin giving +5 mitigation to a damage type based upon the gem used. A creature can only ever receive 2 dermaglyph marks, which fade if they die. [ Amber : Lightning, Garnet : Fire, Amethyst : Arcane, Pearl : Cold, Black Pearl : Dark, Topaz : Psychic, Aquamarine : Divine, Alexandrite : Physical ]",
+        "ingredients": ["Pinch of Powdered Platinum, crushed gem"],
+        "cost": ""
+    },
+    {
+        "name": "Mark of Vitality",
+        "type": "Runecarving",
+        "category": "Dermaglyph",
+        "check": 16,
+        "time": "1 Hour",
+        "description": "You mix powdered platinum and a crushed diamond together and write permanent glyphs into a creature's skin, granting them a permanent +10 increase to their Health.  A creature can only ever receive 2 dermaglyph marks, which fade if they die.",
+        "ingredients": ["Pinch of Powdered Platinum, crushed gem"],
+        "cost": ""
+    },
+    {
+        "name": "Mark of Knowledge",
+        "type": "Runecarving",
+        "category": "Dermaglyph",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You mix powdered platinum and a crushed gem together, granting a permanent increase to one of your Knowledge skills based upon the chosen gem. A creature can only ever receive 2 dermaglyph marks, which fade if they die. [ Turqouise : Medicine, Moonstone : Arcanum, Obsidian : Thievery, Lapis Lazuli : Academics, Malachite : Wilderness ]",
+        "ingredients": ["Pinch of Powdered Platinum, crushed gem"],
+        "cost": ""
+    },
+    {
+        "name": "Helm of Mental Protection",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert arcane catalyst to permanently enchant a helmet, granting the wearer Immunity to the charmed condition.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert arcane catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Boon of the Dead",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert catalyst to permanently enchant an accessory, causing the wearer to no longer need to breathe, eat or drink.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert dark catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Boon of Whispers",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert psychic catalyst to permanently enchant an accessory, granting you telepathy within a radius of 10 units.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert psychic catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Gloves of Divine Strength",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert divine catalyst to permanently enchant gloves, granting the wearer a +2 bonus to Strength.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert divine catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Boon of Naturespeak",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert psychic catalyst to permanently enchant an accessory, granting the wearer the ability to both speak to and comprehend plants and animals.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert psychic catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Fire Enchantment",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert fire catalyst to permanently enchant a melee weapon, causing it to ignite into flames and cause the Primary Damage to become Fire Damage. This effect can be activated and deactivated with a command word.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert fire catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Lightning Enchantment",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert lightning catalyst to permanently enchant a melee weapon, causing it to crackle with lightning and cause the Primary Damage to become Lightning Damage. This effect can be activated and deactivated with a command word.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert lightning catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Cold Enchantment",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 12,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert aquamancy catalyst to permanently enchant a melee weapon, causing it to crackle with lightning and cause the Primary Damage to become Cold Damage. This effect can be activated and deactivated with a command word.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert aquamancy catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Feathered Boots",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 14,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert arcane catalyst to permanently enchant boots, giving the wearer a Fly Speed of 6.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert arcane catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Cloak of Invisibility",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 14,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert psychic catalyst illusion catalyst to permanently enchant a cloak, allowing the wearer to turn invisible when speaking the command word.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert psychic catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Boon of Ultravision",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 14,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert arcane catalyst to permanently enchant an accessory, granting the wearer ultravision.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert arcane catalyst"],
+        "cost": ""
+    },
+    {
+        "name": "Contingency Enchantment",
+        "type": "Runecarving",
+        "category": "Enchanting",
+        "check": 14,
+        "time": "1 Hour",
+        "description": "You use powdered aetherium and an expert healing catalyst to enchant a piece of equipment which causes your current health to be set to 15 when you are first reduced to 0 health. This effect recharges at the end of a full rest.",
+        "ingredients": ["Pinch of Powdered Aetherium, expert healing catalyst"],
+        "cost": ""
+    }
+]

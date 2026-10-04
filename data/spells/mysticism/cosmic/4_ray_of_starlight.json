@@ -4,7 +4,7 @@
   "charge": "You shoot three rays instead, all requiring a different target.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Quartz"
   ],

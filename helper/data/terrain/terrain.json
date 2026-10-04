@@ -1,0 +1,81 @@
+[
+    {
+        "name": "Forest",
+        "class":"Forest",
+        "camp_event": "Exotic Flora: When the forager gets a maximum success, they also roll on the Random Flora Table and gain 1d4 of the result.",
+        "tile_event": "Beasts: The expedition encounters 1d4 non-hostile creatures rolled from the Random Beast Table.",
+        "terrain_score": "1",
+        "forage_score": "2",
+        "danger_score": "1",
+        "color": {"r": 60, "g": 179, "b": 113}
+    },
+    {
+        "name": "Haunted Forest",
+        "camp_event": "",
+        "tile_event": "",
+        "terrain_score": "2",
+        "forage_score": "1",
+        "danger_score": "3",
+        "color": {"r": 64, "g": 64, "b": 64}
+    },
+    {
+        "name": "Desert",
+        "class":"Desert",
+        "camp_event": "",
+        "tile_event": "Sandstorm: The expedition suffers a sandstorm",
+        "terrain_score": "3",
+        "forage_score": "0",
+        "danger_score": "1",
+        "color": {"r": 237, "g": 201, "b": 175}
+    },
+    {
+        "name": "Mountain",
+        "class": "Mountain",
+        "camp_event": "",
+        "tile_event": "",
+        "terrain_score": "2",
+        "forage_score": "1",
+        "danger_score": "2",
+        "color": {"r": 139, "g": 137, "b": 137}
+    },
+    {
+        "name": "Steep Mountain",
+        "class": "Mountain",
+        "camp_event": "",
+        "tile_event": "",
+        "terrain_score": "3",
+        "forage_score": "1",
+        "danger_score": "2",
+        "color": {"r": 139, "g": 137, "b": 137}
+    },
+    {
+        "name": "Swamp",
+        "class": "Swamp",
+        "camp_event": "Relentless Insects: Every humanoid member of the expedition must make a resilienc check of 8 or higher, or loses 1 morale and gain 1 fatigue.",
+        "tile_event": "Stuck: A member of the expedition must make a wilderness check of 9 or higher, or the expedition loses the rest of their movement and enters the camp phase.",
+        "terrain_score": "2",
+        "forage_score": "1",
+        "danger_score": "2",
+        "color": {"r": 85, "g": 107, "b": 47}
+    },
+    {
+        "name": "Tundra",
+        "class": "Tundra",
+        "camp_event": "",
+        "tile_event": "",
+        "terrain_score": "2",
+        "forage_score": "0",
+        "danger_score": "2",
+        "color": {"r": 210, "g": 220, "b": 255}
+    },
+    {
+        "name": "Plains",
+        "class":"Plains",
+        "camp_event": "",
+        "tile_event": "",
+        "terrain_score": "1",
+        "forage_score": "2",
+        "danger_score": "1",
+        "color": {"r": 189, "g": 183, "b": 107}
+    }
+]

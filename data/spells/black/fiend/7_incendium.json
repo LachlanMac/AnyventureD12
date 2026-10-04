@@ -4,7 +4,7 @@
   "charge": "The spell targets an additional creature.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Spark Dust"
   ],

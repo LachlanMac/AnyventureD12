@@ -1,0 +1,132 @@
+[
+    {
+        "name": "Immunity to Afraid",
+        "description": "You are immune to the Afraid condition.",
+        "id": 1
+    },
+    {
+        "name": "Immunity to Bleeding",
+        "description": "You are immune to the Bleeding condition.",
+        "id": 2
+    },
+    {
+        "name": "Immunity to Blinded",
+        "description": "You are immune to the Blinded condition.",
+        "id": 3
+    },
+    {
+        "name": "Immunity to Charmed",
+        "description": "You are immune to the Charmed condition.",
+        "id": 4
+    },
+    {
+        "name": "Immunity to Confused",
+        "description": "You are immune to the Confused condition.",
+        "id": 5
+    },
+    {
+        "name": "Immunity to Dazed",
+        "description": "You are immune to the Dazed condition.",
+        "id": 6
+    },
+    {
+        "name": "Immunity to Deafened",
+        "description": "You are immune to the Deafened condition.",
+        "id": 7
+    },
+    {
+        "name": "Immunity to Diseased",
+        "description": "You are immune to the Diseased condition.",
+        "id": 8
+    },
+    {
+        "name": "Immunity to Enveloped",
+        "description": "You are immune to the Enveloped condition.",
+        "id": 9
+    },
+    {
+        "name": "Immunity to Exhausted",
+        "description": "You are immune to the Exhausted condition.",
+        "id": 10
+    },
+    {
+        "name": "Immunity to Frozen",
+        "description": "You are immune to the Frozen condition.",
+        "id": 11
+    },
+    {
+        "name": "Immunity to Grappled",
+        "description": "You are immune to the Grappled condition.",
+        "id": 12
+    },
+    {
+        "name": "Immunity to Hidden",
+        "description": "You are immune to the Hidden condition.",
+        "id": 13
+    },
+    {
+        "name": "Immunity to Ignited",
+        "description": "You are immune to the Ignited condition.",
+        "id": 14
+    },
+    {
+        "name": "Immunity to Invisible",
+        "description": "You are immune to the Invisible condition.",
+        "id": 15
+    },
+    {
+        "name": "Immunity to Maddened",
+        "description": "You are immune to the Maddened condition.",
+        "id": 16
+    },
+    {
+        "name": "Immunity to Muted",
+        "description": "You are immune to the Muted condition.",
+        "id": 17
+    },
+    {
+        "name": "Immunity to Paralyzed",
+        "description": "You are immune to the Paralyzed condition.",
+        "id": 18
+    },
+    {
+        "name": "Immunity to Poisoned",
+        "description": "You are immune to the Poisoned condition.",
+        "id": 19
+    },
+    {
+        "name": "Immunity to Prone",
+        "description": "You are immune to the Prone condition.",
+        "id": 20
+    },
+    {
+        "name": "Immunity to Sleeping",
+        "description": "You are immune to the Sleeping condition.",
+        "id": 21
+    },
+    {
+        "name": "Immunity to Stasis",
+        "description": "You are immune to the Stasis condition.",
+        "id": 22
+    },
+    {
+        "name": "Immunity to Stunned",
+        "description": "You are immune to the Stunned condition.",
+        "id": 23
+    },
+    {
+        "name": "Immunity to Trapped",
+        "description": "You are immune to the Trapped condition.",
+        "id": 24
+    },
+    {
+        "name": "Immunity to Unconscious",
+        "description": "You are immune to the Unconscious condition.",
+        "id": 25
+    },
+    {
+        "name": "Immunity to Wounded",
+        "description": "You are immune to the Wounded condition.",
+        "id": 26
+    }
+]

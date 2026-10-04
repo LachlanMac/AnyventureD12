@@ -4,7 +4,7 @@
   "charge": "The target also takes 3 psychic damage each time the confused condition causes them to lose their action.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Bundle of Mugwort"
   ],

@@ -4,7 +4,7 @@
   "charge": "You can shapeshift into any creature you've replicated before without requiring the physical contact.",
   "duration": "1 day",
   "range": 0,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Amber"
   ],

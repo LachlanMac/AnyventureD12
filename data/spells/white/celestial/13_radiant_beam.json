@@ -1,0 +1,21 @@
+{
+  "name": "Radiant Beam",
+  "description": "You unleash a beam of radiant energy in a 1-unit wide line up to short (10 unit) distance, dealing 15 heat and 15 divine damage to all creatures in the path whose defense is beaten by your spell check.",
+  "charge": "The beam only affects undead and dark creatures but deals 40 divine damage instead.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 15,
+  "components": [
+    "Platinum Shavings"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 15,
+  "damageType": "Divine",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "defense",
+  "delivery": "area"
+}

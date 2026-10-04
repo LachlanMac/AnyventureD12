@@ -1,0 +1,395 @@
+[
+    {
+        "id": 11,
+        "name": "Arah-ka",
+        "description": "The Arah-Ka reside in Arah-Aka, a desert nation aptly named Sun Blessed Sand in the common tongue, encompassing the Scarlet Dunes and the vicinity of Mount Akora, an active volcano. This inhospitable terrain demands resilience and adaptation, qualities embodied by the Arah-Ka who consider their very essence to be infused with fire. Anatomically akin to humans, they are distinguished by their spectrum of red skin tones and uniquely backward-tilted, pointed ears.",
+        "img": "img/ancestries/arah-ka.webp",
+        "portrait":"img/ancestries/portraits/arah-ka.png",
+        "homeworld":"Atlah",
+        "lifespan": "average 170 years, mature at 25",
+        "height": "",
+        "language":"Akan",
+        "size": "Medium",
+        "home": "",
+        "option_1":{
+            "name": "Raised in Flames",
+            "description": "The Arah-Ka have the fire of the sun within their blood. Gain +8 Fire Mitigation",
+            "data": "AD6=8:TA"
+          },
+        "option_2":{
+            "name": "Action : Sun-Blessed Fire",
+            "description": "You make a Melee Attack, but convert all Damage to Fire. On a True Hit, the Target also becomes Ignited.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 1,
+        "name": "Dragonkind",
+        "description": "Dragonkind are humanoids with draconic features, sharing a mix of physical traits from their draconic ancestors. These individuals are often imposing, with scaled skin, claws, and sometimes tails or horns. Dragonkind are the only humanoids to live on the surface of Kragfel - their ancestral blood seemingly keeping them safe from the mindless dragons that patrol the barren moon. Dragonkind live extremely long lives, with their youth spent in small tribes before they are encouraged to travel the other worlds when they reach adulthood.",
+        "img": "img/ancestries/dragonkind.webp",
+        "portrait":"img/ancestries/portraits/dragonkind.png",
+        "homeworld":"Kragfel",
+        "lifespan": "average 300 years, mature at 20",
+        "height": "",
+        "size": "Large",
+        "home": "",
+        "language":"Draconic",
+        "option_1":{
+            "name": "Action : Dragon Breath",
+            "description": "You spew either Fire, Cold or Lightning in a 3 Unit Cone, dealing 1d4 Damage for each Level. Roll a 1d12 plus half of your Level for the Attack Check against a Contested Resilience Check. This ability can be used three times per day.",
+            "data": "XD3"
+          },
+        "option_2":{
+            "name": "Draconic Horde",
+            "description": "Your Conduit does not contribute to the amount of Power you regenerate at the end of a Full Rest. Instead, you have a base Power Regeneration of 6 and designate an enclosed space as your Draconic Horde. For each 100 Gold in this space, you regenerate an additional 1 Power and 1 Health at the end of a Full Rest.",
+            "data": "TYD"
+          }
+    },
+    {
+        "id": 10,
+        "name": "Elf",
+        "description": "Elves are wild humanoids, distinguisable by their long, pointed ears and skin tones which range from light blue to dark green. They typically live hard, long lives in small settlements in the most dangerous of the Fonteran jungles as a result of their displacement from their wars with the Orcs. Elven blood is infused with the cosmos, creating a culture that has learned to worship the stars and their meaning.",
+        "img": "img/ancestries/elf.webp",
+        "portrait":"img/ancestries/portraits/elf.png",
+        "homeworld":"Fonteras",
+        "lifespan": "average 250 years, mature at 18",
+        "height": "",
+        "size": "Medium",
+        "home": "",
+        "language":"Elven",
+        "option_1":{
+            "name": "Born of Starlight",
+            "description": "You are Immutable and cannot be affected by Magic that alters your form, changes your size, or transmutation spells that affect the speed at which you move or act.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action [Daily] : Nebulous Eyes",
+            "description": "Your eyes glow hazy and dark with the power of the cosmos. For the next minute, you gain Truevision and a 1d4 Bonus to Resistance.",
+            "data": "XD1"
+          }
+    },
+    {
+        "id": 19,
+        "name": "Gloxy",
+        "description": "Gloxy are small, fox-like humanoids gifted with intelligence and magic as they were awakened long ago by the Vethi. They are known for their quick wits and helpful nature. Gloxy are typically named for the conditions during their birth rather than their clan name, with Snowborn accounting for a majority of surnames as most are born during the ceaseless snow on Yyeshi.",
+        "img": "img/ancestries/gloxy.webp",
+        "portrait":"img/ancestries/portraits/gloxy.png",
+        "homeworld":"Yyeshi",
+        "lifespan": "average 60 years, mature at 14",
+        "height": "",
+        "size": "Small",
+        "home": "",
+        "language":"Vethan",
+        "option_1":{
+            "name": "Enlightened Mind",
+            "description": "Gloxies were first awakened by the Vethi to be skilled assistants, but the enlightenment had some unintended consequences. Gain +1 Spell Attack, but become weak willed after receiving a compliment, suffering a -5 Penalty to their Insight for 1 minute. When in this state, Gloxies tend to be more agreeable and eager to please.",
+            "data": "TA:AZ2=1"
+          },
+        "option_2":{
+            "name": "Action : Burrow",
+            "description": "You burrow into soft ground such as loose rocks, dirt, snow or sand and move up to 3 Units. While Burrowed in this way, you have a Burrow Speed equal to your Movement Speed and do not leave any noticeable marks on your entry point. This Action can be used again to Unburrow.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 14,
+        "name": "Gnoll",
+        "description": "Gnolls are humanoid creatures with canine features, including fur and sharp teeth. They are fierce hunters, often operating in packs, which has largely shaped their society around smaller tribes rather than large settlements. Loyalty and family are core values in Gnoll societies, and their culture revolves around the Eternal Hunt - a notion that their hunger and thirst for danger and glory is never satisfied.",
+        "img": "img/ancestries/gnoll.webp",
+        "portrait":"img/ancestries/portraits/gnoll.png",
+        "homeworld":"Atlah",
+        "lifespan": "average 50 years, mature at 10",
+        "height": "",
+        "size": "Medium to Large",
+        "home": "",
+        "language":"Gnilbark",
+        "option_1":{
+            "name": "Gnoll Honor Bond",
+            "description": "You make an unbreakable bond with another Humanoid, allowing them to use your Resilience Modifier when making Resilience Checks. This bond ends upon the death of either Creature.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action : Gnoll Bite",
+            "description": "You make an Unarmed Attack by biting a Creature and tasting its blood, dealing 1d10 extra Damage on a hit. If the attack hits and the Creature has blood, you learn its Physical and Elemental Mitigations.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 6,
+        "name": "Gnome",
+        "description": "Gnomes are small humanoids known for their boundless curiosity and creativity. They remain fairly mysterious amongst the other peoples of the Viridus Nexus as they live underground and seldom leave their homes. They are natural inventors, blending magical and mechanical ingenuity to create new objects.",
+        "img": "img/ancestries/gnome.webp",
+        "portrait":"img/ancestries/portraits/gnome.png",
+        "homeworld":"Atlah",
+        "lifespan": "average 90 years, mature at 18",
+        "height": "",
+        "size": "Small",
+        "home": "",
+        "language":"Shimmerspeak",
+        "option_1":{
+            "name": "Dual Synapses",
+            "description": "Gnomes have a talent for focusing on Spells and other Complex tasks, gaining a +1 Bonus to Concentration. Additionally, Gnomes can maintain Focus when Unconscious or Sleeping.",
+            "data": "TG:AS5=1"
+          },
+        "option_2":{
+            "name": "Action [Daily] : Gnomish Touch",
+            "description": "You touch an Object and reveal any Magical Properties on it. Additionally, you can make an Academics Check to appraise the item and determine its approximate value.",
+            "data": "XD1"
+          }
+    },
+    {
+        "id": 9,
+        "name": "Goblin",
+        "description": "Goblins are small, quick-witted humanoids that have built one of the most spectaculur and advanced societies on Atlah. Goblins are typically born with a more purple hue, but turn green in their later years due to their civilization being built on the dark side of the moon where the green glow of Viridus is always directly overhead. The goblin love of creating has created a culture of meritocracy where those in power are the best crafters.",
+        "img": "img/ancestries/goblin.webp",
+        "portrait":"img/ancestries/portraits/goblin.png",
+        "homeworld":"Atlah",
+        "lifespan": "average 150 years, mature at 30",
+        "height": "",
+        "size": "Small",
+        "home": "",
+        "language":"Goblin",
+        "option_1":{
+            "name": "Quick Metabolism",
+            "description": "Goblins must eat twice as much as their Size requires, but they gain an extra Dice worth of benefits from Food, Snacks and Potions.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action : Squeeze By",
+            "description": "You take a modified version of the Move Action that allows you to pass through any Creature without provoking Reactions, as long as your Movement ends within an unoccupied space. Additionally, you can fit through tight spaces as if you were one size Smaller.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 8,
+        "name": "Half Giant",
+        "description": "Half Giants are towering humanoids with immense physical strength and endurance, which is required in the harsh, snowy wastes of Yyeshi. They are known to be unyielding and stubborn, but have a soft connection with domesticated larger beasts which are required to survive in their homeland. Half-Giants are protective of their families and lands, rarely venturing out to experience other civilizations.",
+        "homeworld":"Yyeshi",
+        "img": "img/ancestries/half-giant.webp",
+        "portrait":"img/ancestries/portraits/half-giant.png",
+        "lifespan": "average 100 years, mature at 18",
+        "height": "",
+        "size": "Large",
+        "home": "",
+        "language":"Giant",
+        "option_1":{
+            "name": "Unmovable",
+            "description": "Half Giants are a broad and solid people. You cannot be Grappled or Displaced by non-Magical means by Creatures that are Large or smaller.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action : Giant Toss",
+            "description": "Make a Shove Attack against a Creature smaller than you, throwing them 4 Units and knocking them Prone. If the Creature collides with another Creature in their path, they are treated as a Projectile with your initial Strength Check being used as the Attack Roll. If the Creatures collide, they both take Physical Damage equal to your Strength Bonus Modifier.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 7,
+        "name": "Human",
+        "description": "Humans are a diverse and adaptable species, having spread across the temperature moon of Atlah in great number. They are known for having many different types of cultures and beliefs, so much so that they often find themselves quarreling with each other.",
+        "homeworld":"Atlah",
+        "img": "img/ancestries/human.webp",
+        "portrait":"img/ancestries/portraits/human.png",
+        "lifespan": "average 75 years, mature at 18",
+        "height": "",
+        "size": "Medium",
+        "home": "",
+        "language":"Lattus",
+        "option_1":{
+            "name": "Heart of the Party",
+            "description": "Social interaction is key to thriving in the various cultures of Humanity. Become Good at one Social Skill.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action : Human Destiny",
+            "description": "You immediately enter Lifeline but gain 12 Lifeline Points. If combat ends before you die, you gain Health equal to your Level.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 12,
+        "name": "Kobold",
+        "description": "Kobolds are small, reptilian humanoids with features that blend lizard-like and canine traits. Once blessed the monumental task of rearing drakes in the Age of Dragons, kobolds have since abandoned that lineage, instead building sprawling cities throughout the tunnels of Kragfel that have yet to be mapped. Kobolds are known for their exceptionally short lives and large families, resulting in a culture that values initiative over playing it safe.",
+        "homeworld":"Kragfel",
+        "img": "img/ancestries/kobold.webp",
+        "portrait":"img/ancestries/portraits/kobold.png",
+        "lifespan": "average 30 years, mature at 5",
+        "height": "",
+        "size": "Small",
+        "home": "",
+        "language":"Draconic",
+        "option_1":{
+            "name": "Short Lived, Trained Early",
+            "description": "Kobolds are fragile creatures and start training within the first few years of their lives. Gain +1 Attack to all Attacks but suffer a -5 Health penalty.",
+            "data": "AZ1=1:AZ2=1:AH=-5:TA"
+          },
+        "option_2":{
+            "name": "Reaction : Play Dead",
+            "description": "In response to taking Damage, you fall Prone and convincingly play dead. A Creature cannot deduce that you are alive unless making a Contested Insight Check against your Performance.",
+            "data": "ZX2"
+          }
+    },
+    {
+        "id": 3,
+        "name": "Lizardfolk",
+        "homeworld":"Atlah",
+        "description": "Lizardfolk are bipedal humanoids with reptilian traits, including scaled skin, tails, and sharp teeth. They are pragmatic and resourceful, with even the color of their scales adapting to the the enviornment they find themselves in. Many embrace a survivalist mindset, using their keen senses and natural agility to thrive and seek the glory of bringing down prey that are many times larger in size than themselves.",
+        "img": "img/ancestries/lizardman.webp",
+        "portrait":"img/ancestries/portraits/lizardman.png",
+        "lifespan": "average 40 years, mature at 10",
+        "height": "",
+        "size": "Small to Large",
+        "home": "",
+        "language":"Hssshek",
+        "option_1":{
+            "name": "Reptilian Anatomy",
+            "description": "Lizardmen have strong scales that protect against basic Attacks and eyes that allow them to hunt at night. Gain +2 Physical Mitigation while not wearing armor and Infravision.",
+            "data": "W0D4=2:DI"
+          }
+          ,
+        "option_2":{
+            "name": "Action : Snapjaw",
+            "description": "You make an Unarmed Attack and bite a Creature, doubling your Damage Bonus Modifier. A Creature hit by this Attack must make a Resilience Check greater than or equal to Half the damage after Mitigations or they gain the Bleeding Condition.",
+            "data": "XX3"
+          }
+          
+    },
+    {
+        "id": 15,
+        "name": "Minotaur",
+        "description": "Minotaurs are powerful beings with bull-like heads and muscular humanoid bodies. Due to their frightening nature and inconvenient size, they rarely live outisde the underground society they have built for themselves on Kragfel. Their culture is typically divided between advancing their society or regressing into their historic service with dark entities who would have them serve another cause.",
+        "homeworld":"Kragfel",
+        "img": "img/ancestries/minotaur.webp",
+        "portrait":"img/ancestries/portraits/minotaur.png",
+        "lifespan": "average 800 years, mature at 15",
+        "height": "",
+        "size": "Large",
+        "home": "",
+        "language":"As-Bok",
+        "option_1":{
+            "name": "Action : Bullcharge",
+            "description": "If you use at least 4 Units of Movement Speed, you can make a special Shove Action, that if successful, deals Physical Damage equal to your Contested Strength Check made on the Shove Attack.",
+            "data": "XX3"
+          },
+        "option_2":{
+            "name": "Dark Blood of the Ancients",
+            "description": "The blood of the first Minotaurs courses through your veins, tainting it with dark magic that shields you from the Divine. Gain +5 Divine Mitigation.",
+            "data": "AD8=5:TA"
+          }
+    },
+    {
+        "id": 5,
+        "name": "Orc",
+        "description": "Orcs are robust humanoids with powerful builds and thick skin with unique regenerative properties. They often display prominent tusks and sharp features, but much of the aggression that used to dictate them has long since been redirected to bustling industry. Orcs are relatively peaceful and eager to trade with the rest of the Viridus Nexus, but their long feud with the Elves who share the same moon has caused them to be reserved and ready to defend themselves.",
+        "homeworld":"Fonteras",
+        "img": "img/ancestries/orc.webp",
+        "portrait":"img/ancestries/portraits/orc.png",
+        "lifespan": "average 110 years, mature at 20",
+        "height": "",
+        "size": "Medium",
+        "home": "",
+        "language":"Orcish",
+        "option_1":{
+            "name": "Orcish Regeneration",
+            "description": "When you complete a Full Rest, gain Additional Health equal to your Level and cure 1 Tier of the Wounded Condition.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action [Daily] : Resilience",
+            "description": "If you are capable of taking an Action, you can shrug off Grapples, Dazes, Confusion, Blinds, Deafens, Poisons, and being Afraid, gaining 1d4 Health for each one removed.",
+            "data": "XD1"
+          }
+    },
+    {
+        "id": 4,
+        "name": "Orycotal",
+        "description": "Orycotal are humanoid creatures with rabbit-like ears and elongated limbs, giving them exceptional mobility. They are typically a peaceful ancestry who prefer the company of their own kind. However, Orycotal are always tempted to follow their curiousity to figure out the mysteries of the world. Orycotal are sometimes mistaken for fey by outsiders, but despite a long and troubled history with the mischievous creatures of the feywild, that could not be further from the truth.",
+        "homeworld":"Atlah",
+        "img": "img/ancestries/orycotal.webp",
+        "portrait":"img/ancestries/portraits/orycotal.png",
+        "lifespan": "average 160 years, mature at 20",
+        "height": "",
+        "size": "Medium",
+        "home": "",
+        "language":"Orycotal",
+        "option_1":{
+            "name": "Bounding Steps",
+            "description": "Your Jump range becomes equal to your Athletics, even from a stationary position. Additionally, gain +1 Acrobatics and +1 Movement Speed.",
+            "data": "AV=1:AS3=1"
+          },
+        "option_2":{
+            "name": "Free Action : Quick Hop",
+            "description": "You take the Jump Action but avoid any Attacks of Opportunity. Instead of Jumping a distance, you can also elect to remove any Prone Condition.",
+            "data": "Y"
+          }
+    },
+    {
+        "id": 16,
+        "name": "Stout-Folk",
+        "homeworld":"Kragfel",
+        "description": "Stout-Folk are smaller humanoids with sturdy builds and a strong connection to their homeworld of Kragfel, which they have long been forced to live beneath the surface. They are industrious, often excelling in mining, underground farming, and crafting. Stout-Folk communities are known for their hospitality and resilience, never turning away a stranger or outsider.",
+        "img": "img/ancestries/stout-folk.webp",
+        "portrait":"img/ancestries/portraits/stout-folk.png",
+        "lifespan": "average 85 years, mature at 18",
+        "height": "",
+        "size": "Small to Medium",
+        "home": "",
+        "language":"Underspeak",
+        "option_1":{
+            "name": "Stout-Folk Skin",
+            "description": "The Stout-Folk have toughened skin that protects them against magic. Gain +1 Resistance and +3 Arcane Mitigation.",
+            "data": "TA:AD1=1:ADC=3"
+          },
+        "option_2":{
+            "name": "Reaction : Strong Chin",
+            "description": "If you take Damage that would cause you to fall Unconcious, you can use your Reaction to delay it until the end of your next turn.",
+            "data": "ZX2"
+          }
+    },
+    {
+        "id": 17,
+        "name": "Tidewalker",
+        "homeworld":"Atlah",
+        "description": "Tidewalkers are aquatic humanoids adapted to underwater life, with sharp teeth to aid their carnivorous diets and gils just above their brow ridge which allow them to breathe underwater. There are countless tribes of tidewalkers spread throughout the temperate waters of Atlah, living in unison with other creatures that dwell in the depths of the ocean. Their culture emphasizes survival and cooperation, often revolving around life in the deep seas and coastal areas.",
+        "img": "img/ancestries/tidewalker.webp",
+        "portrait":"img/ancestries/portraits/tidewalker.png",
+        "lifespan": "average 110 years, mature at 16",
+        "height": "",
+        "size": "Medium",
+        "home": "",
+        "language":"Qualatiq",
+        "option_1":{
+            "name": "Tidewalking",
+            "description": "You can breathe and speak normally while submerged in water. Additionally, your scales grant you a bonus of +1 Physical Mitigation and +2 Dark Mitigation.",
+            "data": "TA:AD4=1:AD7=2"
+          },
+        "option_2":{
+            "name": "Action : Echolocate",
+            "description": "Using sound, you can sense the presence of Creatures within 20 Units that do not have full cover until the start of your next turn.",
+            "data": "XX3"
+          }
+    },
+    {
+        "id": 20,
+        "name": "Vethi",
+        "homeworld":"Yyeshi",
+        "description": "The Vethi are tall, slender humanoids with an additional third eye that grants them unique abilities. They are notoriously bad at identifying individuals based on facial structure, and instead identify their own by the unique antlers that they grow in their adolescent years. Their culture is steeped in ancient, forbidden magic, leading to a mix of reverence and caution among their people.",
+        "img": "img/ancestries/vethi.webp",
+        "portrait":"img/ancestries/portraits/vethi.png",
+        "lifespan": "average 120 years, mature at 20",
+        "height": "",
+        "size": "Medium",
+        "home": "",
+        "language":"Vethan",
+        "option_1":{
+            "name": "Eye of the Veth",
+            "description": "You can communicate Telepathically to a Creature within 14 Units who shares a Language with you. They cannot communicate verbally, but can give a response of either affirmation, denial or indifference.",
+            "data": "TA"
+          },
+        "option_2":{
+            "name": "Action : Third Eye",
+            "description": "You unleash the power of your Third Eye towards a Target you can see within 10 Units. For the next minute, this Creature has a -2 Modifier to Resistance Checks provoked by you until the end of your next Turn. This disables your Eye of the Veth until you complete the next Full Rest.",
+            "data": "XX3"
+          }
+    }
+]

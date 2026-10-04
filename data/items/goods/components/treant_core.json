@@ -1,0 +1,14 @@
+{
+  "name": "Treant Core",
+  "description": "A dense, petrified wooden sphere found at the center of a treant's trunk. While the treant lived, the core pulsed with natural energy. In death, the core becomes perfectly still and emits no sound when struck or dropped. Prized by primal casters for its unique properties.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "natural",
+    "harvested"
+  ],
+  "weight": 3,
+  "value": 2000,
+  "rarity": "rare",
+  "foundry_icon": "icons/commodities/wood/wood-rough-brown.webp"
+}

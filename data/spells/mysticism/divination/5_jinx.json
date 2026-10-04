@@ -4,7 +4,7 @@
   "charge": "The first attack roll of the target's turn is rolled with a penalty dice.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Gold Coin"
   ],

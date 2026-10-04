@@ -4,7 +4,7 @@
   "charge": "The spell becomes a line with a width of 1 unit, affecting anyone within the area.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Vial of Quicksilver"
   ],

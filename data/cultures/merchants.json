@@ -12,6 +12,11 @@
       "name": "Merchant's Code",
       "description": "You must uphold the honor of legitimate trade and commerce. If you or your allies attack traders, steal from merchants, destroy shops, knowingly sell defective goods as quality merchandise, or otherwise harm honest business, you lose 2 resolve.",
       "data": "TX"
+    },
+    {
+      "name": "Wealth Hoarder",
+      "description": "You cannot benefit from a full rest while you have less than 100 gold on your person.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Appraiser's Eye",
       "description": "Your trained eye can spot frauds, forgeries, and counterfeits with remarkable accuracy. When examining any item for signs of deception - counterfeit coins, forged documents, fake artifacts, disguised materials, or tampered goods - you automatically detect inconsistencies that others would miss. Additionally, whenever you successfully identify a fake or forgery, you gain 2 morale.",
+      "data": "TX"
+    },
+    {
+      "name": "Fruits of Labor",
+      "description": "Once per day, when you sell an item crafted by you or your party, you gain 1 morale.",
       "data": "TX"
     }
   ],

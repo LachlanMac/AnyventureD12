@@ -4,7 +4,7 @@
   "charge": "The initial damage on the sword is increased to 12 divine damage and is more difficult to remove, requiring a might check of 10.",
   "duration": "1 minute",
   "range": 5,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Long Sword"
   ],

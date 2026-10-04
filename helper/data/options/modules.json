@@ -1,0 +1,873 @@
+[
+    {
+        "id": 100,
+        "name": "Abjuration Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 230,
+        "name": "Acolyte",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 250,
+        "name": "Acrobat",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 126,
+        "name": "Alchemist",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 132,
+        "name": "Ammocrafter",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 11,
+        "name": "Arah-Aka [Sun Blessed Sands]",
+        "mtype": "racial",
+        "description":"The culture of Arah-Aka, known as the 'Sun Blessed Sands,' is predominantly made up of the Arah-Ka people, whose lives are shaped by the Scarlet Dunes and the volcanic heat of Mount Akora. Renowned for their artistry in glassmaking, they create intricate tools and ceremonial weapons, avoiding blades in favor of bludgeoning arms to honor a tradition of sparing harm to one another. Their society thrives on solar reverence, crafting rituals and knowledge around the sun's power, which they see as both a life-giver and a trial to overcome. Communal harmony and adaptability are central to their way of life, ensuring survival in a land where endurance is key. Through their mastery of craft, magic, and resilience, the Arah-Aka embody a deep connection to the unforgiving beauty of their desert home.",
+        "ruleset": 0
+    },
+    {
+        "id": 285,
+        "name": "Arcanatech",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 245,
+        "name": "Arcanist",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 115,
+        "name": "Armored Fighting",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 252,
+        "name": "Armsman",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 203,
+        "name": "Assassin",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 233,
+        "name": "Athlete",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 106,
+        "name": "Augaration Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 243,
+        "name": "Barbarian",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 125,
+        "name": "Bard",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 273,
+        "name": "Battledancer",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 204,
+        "name": "Battlemage",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 257,
+        "name": "Beast Friend",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 207,
+        "name": "Berserker",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 276,
+        "name": "Bloodmage",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 278,
+        "name": "Bounty Hunter",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 224,
+        "name": "Brawler",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 231,
+        "name": "Bruiser",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 253,
+        "name": "Bulwark",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 221,
+        "name": "Cavalier",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 213,
+        "name": "Champion",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 127,
+        "name": "Chef",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 222,
+        "name": "Chucker",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 254,
+        "name": "Clearmind",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 210,
+        "name": "Commander",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 268,
+        "name": "Companion",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 286,
+        "name": "Conduit",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 263,
+        "name": "Control Mage",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 262,
+        "name": "Cosmic Knight",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 110,
+        "name": "Crusher",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 227,
+        "name": "Dark Cultist",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 271,
+        "name": "Demolitionist",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 256,
+        "name": "Devout",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 101,
+        "name": "Divine Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 228,
+        "name": "Dragon Slayer",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 1,
+        "name": "Draconii [Legacy of Dragons]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 102,
+        "name": "Druidic Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 264,
+        "name": "Dual Wielder",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 202,
+        "name": "Duelist",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 214,
+        "name": "Elemental Ammocraft",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 10,
+        "name": "Cosimi [Starblessed Thralls]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 225,
+        "name": "Empath",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 128,
+        "name": "Engineer",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 103,
+        "name": "Evocation Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 19,
+        "name": "Gloxan [Curious Altruist]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 14,
+        "name": "Gnash [Honorbound Pack]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 6,
+        "name": "Glimmeran [Guarded Ingenuity]",
+        "description":"gmokes party, secreticive, engineers, magical",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 9,
+        "name": "Eydori [Merit in Art]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 216,
+        "name": "Guardian",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 8,
+        "name": "Cruugbur [Bounty of the Land]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 209,
+        "name": "Headsman",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 247,
+        "name": "Historian",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 274,
+        "name": "Hordeslayer",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 7,
+        "name": "Kendarrian [Loyalty to Empire]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 206,
+        "name": "Hunter",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 107,
+        "name": "Illusion Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 235,
+        "name": "Improved Familiar",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 267,
+        "name": "Infiltrator",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 251,
+        "name": "Inquisitor",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 249,
+        "name": "Investigator",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 244,
+        "name": "Juggernaut",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 261,
+        "name": "Kinetic Mage",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 28,
+        "name": "Klaktil Integrant",
+        "mtype": "alteration",
+        "ruleset": 0
+    },
+    {
+        "id": 229,
+        "name": "Knight",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 12,
+        "name": "Ekshaan [Vermin of the Depths]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 215,
+        "name": "Leader",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 114,
+        "name": "Light Armored Fighting",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 3,
+        "name": "Vssthrii [Steppe Predators]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 208,
+        "name": "Local Legend",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 266,
+        "name": "Loremaster",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 122,
+        "name": "Lycanthropy",
+        "mtype": "alteration",
+        "ruleset": 1
+    },
+    {
+        "id": 211,
+        "name": "Mage Hunter",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 279,
+        "name": "Magic Fist",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 201,
+        "name": "Magical Savant",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 223,
+        "name": "Magismith",
+        "mtype": "secondary",
+        "ruleset": 1
+    },    
+
+    {
+        "id": 123,
+        "name": "Medic",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 212,
+        "name": "Melodic Mage",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 15,
+        "name": "Gromen [Lords of the Hedge]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 241,
+        "name": "Monk",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 205,
+        "name": "Monster Slayer",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 269,
+        "name": "Naturalist",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 226,
+        "name": "Naturally Gifted",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 104,
+        "name": "Necromantic Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 275,
+        "name": "Ninja",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 5,
+        "name": "Thok-Ro [Purposeful Industry]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 4,
+        "name": "Orycota [Curious Wanderers]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 124,
+        "name": "Pact",
+        "mtype": "alteration",
+        "ruleset": 1
+    },
+    {
+        "id": 283,
+        "name": "Painseeker",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+
+    {
+        "id": 111,
+        "name": "Piercer",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    
+    {
+        "id": 22,
+        "name": "Planar [Sky]",
+        "mtype": "planar",
+        "ruleset": 0
+    },
+    {
+        "id": 24,
+        "name": "Planar [Earth]",
+        "mtype": "planar",
+        "ruleset": 0
+    },
+    {
+        "id": 25,
+        "name": "Planar [Fey]",
+        "mtype": "planar",
+        "ruleset": 0
+    },
+    {
+        "id": 21,
+        "name": "Planar [Fire]",
+        "mtype": "planar",
+        "ruleset": 0
+    },
+    {
+        "id": 23,
+        "name": "Planar [Water]",
+        "mtype": "planar",
+        "ruleset": 0
+    },
+    {
+        "id": 112,
+        "name": "Ranger",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 280,
+        "name": "Reaver",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 130,
+        "name": "Runecarver",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 232,
+        "name": "Scoundrel",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 272,
+        "name": "Scout",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 131,
+        "name": "Scribe",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 246,
+        "name": "Sentinel",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 287,
+        "name": "Serpent",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 255,
+        "name": "Shadow",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 240,
+        "name": "Shaman",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 282,
+        "name": "Shield Magus",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 259,
+        "name": "Skirmisher",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 109,
+        "name": "Slasher",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 236,
+        "name": "Slinger",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 129,
+        "name": "Smith",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 234,
+        "name": "Sniper",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 260,
+        "name": "Spectral Weapon",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 237,
+        "name": "Spell Thief",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 242,
+        "name": "Spellshot",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 217,
+        "name": "Spellslinger",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 239,
+        "name": "Spellstriker",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 265,
+        "name": "Staffmaster",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 16,
+        "name": "Rozzindahk [Lore of the Earth]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 133,
+        "name": "Striker",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 281,
+        "name": "Summoner",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 218,
+        "name": "Thespian",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 219,
+        "name": "Thief",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 17,
+        "name": "Quellentian [Unified Oceania]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 108,
+        "name": "Transmutation Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 116,
+        "name": "Unarmored Fighting",
+        "mtype": "core",
+        "ruleset": 0
+    },
+    {
+        "id": 29,
+        "name": "Undead",
+        "mtype": "alteration",
+        "ruleset": 0
+    },
+    {
+        "id": 120,
+        "name": "Vampirism",
+        "mtype": "alteration",
+        "ruleset": 1
+    },
+    {
+        "id": 20,
+        "name": "Vethani [Nurturing Erudites]",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+
+    {
+        "id": 220,
+        "name": "Virtuoso",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+    {
+        "id": 238,
+        "name": "Volatile Magic",
+        "mtype": "secondary",
+        "ruleset": 1
+    },
+   
+    {
+        "id": 105,
+        "name": "Witchcraft Magic",
+        "mtype": "core",
+        "ruleset": 1
+    },
+    {
+        "id": 258,
+        "name": "Wrestler",
+        "mtype": "secondary",
+        "ruleset": 0
+    },
+    {
+        "id": 277,
+        "name": "Zealot",
+        "mtype": "secondary",
+        "ruleset": 1
+    }
+    ,{
+        "id": 30,
+        "name": "Atachi [Roaming Horselords]",
+        "mtype": "racial",
+        "ruleset": 0
+    }
+    ,{
+        "id": 31,
+        "name": "Vahksani [Honest Traders]", 
+        "description":"Dwarflands, traders",
+        "mtype": "racial",
+        "ruleset": 0
+    }
+    ,{
+        "id": 32,
+        "name": "Caagols [Fearless Raiders]",
+        "description":"Goblis (red ones?)",
+        "mtype": "racial",
+        "ruleset": 0
+    }
+    ,{
+        "id": 33,
+        "name": "Uldanians [Pursuit of Freedom]",
+        "description":"Free peoples",
+        "mtype": "racial",
+        "ruleset": 0
+    },
+    {
+        "id": 33,
+        "name": "Dulhein [Family Tradition]",
+        "description":"Gaelic empire people",
+        "mtype": "racial",
+        "ruleset": 0
+    } ,{
+        "id": 34,
+        "name": "Lethonian [The Lawless Sea]",
+        "description":"Pirate people",
+        "mtype": "racial",
+        "ruleset": 0
+    }
+    
+
+]

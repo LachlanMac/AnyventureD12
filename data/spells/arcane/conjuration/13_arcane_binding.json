@@ -1,0 +1,21 @@
+{
+  "name": "Arcane Binding",
+  "description": "You touch a piece of armor or shield you are wearing and bind it to yourself. The armor retains its stats but deals no encumbrance penalty while dismissed. You can summon or dismiss the armor as an action. The binding lasts until dispelled or until a new binding replaces it. If you do not roll at least 2 successes, the armor is destroyed unless it is crafted from aetherium parts.",
+  "charge": "You can bind an entire set of armor (body, head, hands, boots) in a single casting. All bound pieces are summoned or dismissed together as one action. If you already have bound armor, you can channel this spell to gain +1 morale for each piece currently bound and +3 aetheric or psychic mitigation (chosen when cast) for the next day. This bonus can only be gained once per day.",
+  "duration": "Permanent",
+  "range": 0,
+  "checkToCast": 15,
+  "components": [
+    "Aetherium Nugget"
+  ],
+  "ritualDuration": "10 minutes",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

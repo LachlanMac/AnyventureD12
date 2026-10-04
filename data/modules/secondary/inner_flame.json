@@ -60,7 +60,7 @@
     },
     {
       "name": "Flame Ascendant",
-      "description": "Your inner flame has reached its peak, transcending physical and spiritual limits. Gain +1 evasion, +1 deflection, +1 aetheric mitigation, and +1 psychic mitigation.",
+      "description": "Your inner flame has reached its peak, transcending physical and spiritual limits. Gain +1 evasion, +1 deflection, +1 aetheric mitigation, -1 aetheric mitigation limit, +1 psychic mitigation, and -1 psychic mitigation limit.",
       "location": "7",
       "data": "CB=1:CA=1:M7=1:N7=-1:M8=1:N8=-1"
     }

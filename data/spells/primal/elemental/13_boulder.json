@@ -1,0 +1,21 @@
+{
+  "name": "Boulder",
+  "description": "You conjure a massive boulder above a creature within short (10 unit) range and let it fall. If your spell check beats the target's coordination, they take 20 true damage. If this damage brings the target to 0 health, they are crushed and killed instantly.",
+  "charge": "The boulder remains on the battlefield as a 1-tile obstacle with 30 HP until destroyed.",
+  "duration": "Instantaneous",
+  "range": 4,
+  "checkToCast": 15,
+  "components": [
+    "Nickel Nugget"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 4,
+  "damage": 20,
+  "damageType": "True",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "coordination",
+  "delivery": "projectile"
+}

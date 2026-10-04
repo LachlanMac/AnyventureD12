@@ -1,0 +1,246 @@
+[
+    {
+        "name": "Repair Strip",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "7",
+        "time": "1h",
+        "description": "Create 3 Repair Strips which can be used to repair Items.",
+        "ingredients": ["Iron Ingot", "Heavy Leather Bundle"],
+        "cost": "30 GP"
+    },
+    {
+        "name": "Create Tools",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "7",
+        "time": "4h",
+        "description": "Create 10 Lockpicks, 1 Crowbar, 1 Climbing Kit, 1 Complex Lock and Key, or 1 Compass.",
+        "ingredients": ["2 Mechanical Parts", "Iron Ingot"],
+        "cost": "40 GP"
+    },
+    {
+        "name": "Craft Ultra-Light Ranged Weapon",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": ["Iron : 16", "Steel : 20", "Aetherium : 24", "Starsteel : 28"],
+        "total_checks": 2,
+        "time": "1 Day",
+        "description": "Creates an Ultra-Light Ranged Weapon using either an Iron, Steel, Aetherium or Starsteel Ingot, a Mechanical Part and a Strip of Light Leather. The quality of material allows the crafter to add Infusions with Steel allowing 1 Infusion, Aetherium 2 and Starsteel 3.",
+        "overcraft": "+1 Damage",
+        "ingredients": ["Ingot", "Strip of Light Leather", "Mechanical Part"],
+        "cost": "32 - 124 GP"
+    },
+    {
+        "name": "Craft Light Ranged Weapon",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": ["Iron : 16", "Steel : 20", "Aetherium : 24", "Starsteel : 28"],
+        "total_checks": 2,
+        "time": "1 Day",
+        "description": "Creates a Light Ranged Weapon using either an Iron, Steel, Aetherium or Starsteel Ingot, Mechanical Parts and a Strip of Heavy Leather. The quality of material allows the crafter to add Infusions with Steel allowing 1 Infusion, Aetherium 2 and Starsteel 3.",
+        "overcraft": "+1 Damage",
+        "ingredients": ["Ingot", "Strip of Heavy Leather", "2 Mechanical Parts"],
+        "cost": "32 - 124 GP"
+    },
+    {
+        "name": "Craft Heavy Ranged Weapon",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": ["Iron : 16", "Steel : 20", "Aetherium : 24", "Starsteel : 28"],
+        "total_checks": 2,
+        "time": "1 Day",
+        "description": "Creates a Heavy Ranged Weapon using either Iron, Steel, Aetherium or Starsteel Ingots, Mechanical Parts and a Strip of Heavy Leather. The quality of material allows the crafter to add Infusions with Steel allowing 1 Infusion, Aetherium 3 and Starsteel 4.",
+        "overcraft": "+1 Min/Max Range and +1 Damage",
+        "ingredients": ["2 Ingots", "Strip of Light Leather", "2 Mechanical Part"],
+        "cost": "32 - 124 GP"
+    },
+    {
+        "name": "Silencing Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+2 Engineering",
+        "description": "Infuse an unfinished ranged weapon to make reduced noise",
+        "ingredients": ["Steel Pipe, Mechanical Parts"],
+        "cost": "28 GP"
+    },
+    {
+        "name": "Net Launcher Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+4 Engineering",
+        "description": "Infuse an unfinished ranged weapon to be able to shoot a Net as a projectile.",
+        "ingredients": ["Iron Pipe, Mechanical Parts"],
+        "cost": "22 GP"
+    },
+    {
+        "name": "Grapple Launcher Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+4 Engineering",
+        "description": "Infuse an unfinished ranged weapon to be able to shoot a Grappling hook with 5 Units of Rope.",
+        "ingredients": ["Grappling Hook, 2 Mechanical Parts, 15 ft. Rope [5 Units]"],
+        "cost": "51 GP"
+    },
+    {
+        "name": "Handguard Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+2 Engineering",
+        "description": "Infuse an unfinished Light or Heavy Ranged Weapon to grant +1 Block.",
+        "ingredients": ["Steel Ingot"],
+        "cost": "30-60 GP"
+    },
+    {
+        "name": "Farshot Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+2 Engineering",
+        "description": "Infuse an unfinished ranged weapon to increase the maximum range by 2",
+        "ingredients": ["2 Mechanical Parts"],
+        "cost": "20 GP"
+    },
+    {
+        "name": "Nearshot Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+2 Engineering",
+        "description": "Infuse an unfinished ranged weapon to reduce the minimum range by 2",
+        "ingredients": ["2 Mechanical Parts"],
+        "cost": "20 GP"
+    },
+    {
+        "name": "Launcher Infusion",
+        "type": "Engineering",
+        "category": "Infusion",
+        "check": "+3",
+        "time": "",
+        "requirements": "+3 Engineering",
+        "description": "Infuse unfinished gloves, ranged weapon or arcanatech arm with an infusion that has an ammo capacity of 1 and can store a small object, a piece of throwing ammunition or a potion. As an action, the wearer can shoot the stored item as a projectile with an attack modifier equal to the engineering skill at the time of crafting up to a number of units equal to 10 + the engineering skill at the time of crafting with a damage bonus of 4.",
+        "ingredients": ["4 Mechanical Parts, Steel Ingot"],
+        "cost": "20 GP"
+    },
+    {
+        "name": "Timer",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "8",
+        "time": "1h",
+        "description": "Create a Timer that can be attached to a Potion to Activate it. The timer can be set between 1 Round to 1 Hour.",
+        "ingredients": ["2 Mechanical Parts", "Unit of String"],
+        "cost": "20 GP"
+    },
+    {
+        "name": "Door Trigger",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "8",
+        "time": "1h",
+        "description": "Creates a Trigger that can be attached to a Trap to activate it. This trap triggers when a door opens or closes.  This trap can be seen with a Search Check equal to the Engineering Skill at the time it was crafted and be disarmed with an Engineering Check equal to the Engineering Skill at the time it was crafted.",
+        "ingredients": ["Small Lead Weight", "Mechanical Part", "Unit of String"],
+        "cost": "11 GP"
+    },
+    {
+        "name": "Needle Trap",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "8",
+        "time": "1h",
+        "description": "The creature that triggers this trap must make an Initiative Check equal to the Engineering Skill at the time of crafting or they are stuck by a needle. This needle can be coated with poison or some other vial of liquid.",
+        "ingredients": ["Needle", "Mechanical Parts"],
+        "cost": "10 GP 3 SP"
+    },
+
+    {
+        "name": "Net Trap",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "10",
+        "time": "1h",
+        "description": "The creature that triggers this trap must make an Acrobatics or Athletics Check equal to the Engineering Skill at the time of crafting or they caught in the net, suffering its effects.",
+        "ingredients": ["Net", "2 Mechanical Parts", "10 Unit Rope"],
+        "cost": "30 GP"
+    },
+    {
+        "name": "Step Trigger",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "10",
+        "time": "1h",
+        "description": "Creates a Trigger that can be attached to a Trap to activate it. This trap triggers when a creature steps on a 1 Unit Square area where it is placed. This trap can be seen with a Search Check equal to the Engineering Skill at the time it was crafted and be disarmed with an Engineering Check equal to the Engineering Skill at the time it was crafted.",
+        "ingredients": ["Medium Lead Weight", "Mechanical Part", "Unit of String"],
+        "cost": "15 GP"
+    },
+    {
+        "name": "Touch Trigger",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "12",
+        "time": "1h",
+        "description": "Creates a Trigger that can be attached to a Trap to activate it. This trap triggers when a creature touches the object this trap is placed on. This trap can be seen with a Search Check equal to the Engineering Skill at the time it was crafted and be disarmed with an Engineering Check equal to the Engineering Skill at the time it was crafted.",
+        "ingredients": ["Medium Lead Weight", "2 Mechanical Parts", "Unit of String"],
+        "cost": "25 GP"
+    },
+    {
+        "name": "Potion Trap",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "12",
+        "time": "1h",
+        "description": "If a creature triggers this trap, they are subjected to the potions being activated within 1 Unit of them.",
+        "ingredients": ["Potion", "2 Mechanical Parts"],
+        "cost": "20+ GP"
+    },
+    {
+        "name": "Dart Trap",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "14",
+        "time": "1h",
+        "description": "The creature that triggers this trap has a piece of ammunition fired at them that counts as an Attack Roll equal to 5 + the Engineering Skill at the time of crafting, dealing 1d8 Damage plus the Engineering Skill.",
+        "ingredients": ["Light Ranged Weapon", "2 Mechanical Parts"],
+        "cost": "100+ GP"
+    },
+    {
+        "name": "Cave-in Trap",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "14",
+        "time": "1h",
+        "description": "The creature that triggers this trap must make an Initiative Check equal to the Engineering Skill at the time of crafting or either fall through the floor in the case of a fall trap or be struck by something above in the case of a ceiling trap.",
+        "ingredients": ["2 Mechanical Parts", "4 Iron Pipes"],
+        "cost": "68 GP"
+    },
+    {
+        "name": "Conditional Trigger",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "16",
+        "time": "6h",
+        "description": "Creates a Trigger that can be attached to a Trap to activate it. This trap triggers when a creature fulfills a specific condition specified at the time of crafting. This trap can be seen with a Search Check equal to the Engineering Skill at the time it was crafted and be disarmed with an Engineering Check equal to the Engineering Skill at the time it was crafted.",
+        "ingredients": ["4 Mechanical Parts", "Unit of String", "Small Lead Weight"],
+        "cost": "41 GP"
+    },
+    {
+        "name": " Activation Trap",
+        "type": "Engineering",
+        "category": "Craft",
+        "check": "16",
+        "time": "6h",
+        "description": "The creature that triggers this trap is subjected to an item being activated and whatever that may entail.",
+        "ingredients": ["4 Mechanical Parts"],
+        "cost": "41 GP"
+    }
+]

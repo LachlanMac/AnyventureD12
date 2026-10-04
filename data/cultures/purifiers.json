@@ -12,6 +12,11 @@
       "name": "No Comforts",
       "description": "You do not gain resolve or morale for completing a favorable rest or from consuming food or drink. However, you don't lose morale when completing an unfavorable rest.",
       "data": "TX:FA"
+    },
+    {
+      "name": "Bloodlust",
+      "description": "If you did not deal damage to a creature since your last full rest, you gain a penalty die on all social checks until you next deal damage or complete another full rest.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -24,6 +29,11 @@
       "name": "Embrace Suffering",
       "description": "When you are suffering from any physical condition, you gain a bonus dice on all endurance and resilience checks. This bonus does not occur if you have any mental conditions.",
       "data": "TX:FB"
+    },
+    {
+      "name": "Cull the Weak",
+      "description": "The first minion or thrall you personally kill each day grants you 2 morale.",
+      "data": "TX"
     }
   ],
   "startingItems": [

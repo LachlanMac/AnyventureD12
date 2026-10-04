@@ -28,6 +28,7 @@ import creatureRoutes from './routes/creatureRoutes.js';
 import songRoutes from './routes/songRoutes.js';
 import foundryRoutes from './routes/foundryRoutes.js';
 import injuryRoutes from './routes/injuryRoutes.js';
+import characterInjuryRoutes from './routes/characterInjuryRoutes.js';
 import conditionRoutes from './routes/conditionRoutes.js';
 // Import middleware
 import { getUser } from './middleware/auth.js';
@@ -151,6 +152,7 @@ app.use('/api/homebrew/creatures', homebrewCreatureRoutes);
 app.use('/api/creatures', creatureRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 app.use('/api/characters/:characterId/songs', characterSongRoutes);
+app.use('/api/characters/:characterId/injuries', characterInjuryRoutes);
 app.use('/fvtt', foundryRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {

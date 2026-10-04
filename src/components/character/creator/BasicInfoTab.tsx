@@ -18,6 +18,7 @@ interface BasicInfoTabProps {
   onStartingTalentsChange: (talents: number) => void;
   // onStartingGearChange: (tier: string, pack: string) => void; // DISABLED: Starting gear logic not implemented
   hideModulePoints?: boolean;
+  hideCulture?: boolean;
   selectedAncestry?: Ancestry | null;
   selectedCultureSelections?: {
     restriction?: any;
@@ -41,6 +42,7 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
   onStartingTalentsChange,
   // onStartingGearChange, // DISABLED: Starting gear logic not implemented
   hideModulePoints = false,
+  hideCulture = false,
   selectedAncestry,
   selectedCultureSelections,
 }) => {
@@ -96,11 +98,13 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
       />
 
       {/* Culture Selection Component */}
-      <CultureSelection
-        selectedCulture={culture}
-        onSelectCulture={onCultureChange}
-        initialSelections={selectedCultureSelections}
-      />
+      {!hideCulture && (
+        <CultureSelection
+          selectedCulture={culture}
+          onSelectCulture={onCultureChange}
+          initialSelections={selectedCultureSelections}
+        />
+      )}
 
       {/* Starting Gear Selection - DISABLED: Logic not implemented */}
       {/*
@@ -240,47 +244,49 @@ const BasicInfoTab: React.FC<BasicInfoTabProps> = ({
         </div>
       )}
 
-      <div style={{ marginBottom: '1.5rem' }}>
-        <label
-          style={{
-            display: 'block',
-            color: 'var(--color-cloud)',
-            marginBottom: '0.5rem',
-          }}
-        >
-          Starting Talents
-        </label>
-        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-          <input
-            type="number"
-            min="4"
-            max="20"
-            step="1"
+      {!hideModulePoints && (
+        <div style={{ marginBottom: '1.5rem' }}>
+          <label
             style={{
-              width: '100%',
-              backgroundColor: 'var(--color-dark-elevated)',
-              color: 'var(--color-white)',
-              border: '1px solid var(--color-dark-border)',
-              borderRadius: '0.375rem',
-              padding: '0.5rem 0.75rem',
+              display: 'block',
+              color: 'var(--color-cloud)',
+              marginBottom: '0.5rem',
             }}
-            value={startingTalents}
-            onChange={(e) => {
-              const value = parseInt(e.target.value);
-              onStartingTalentsChange(value);
+          >
+            Starting Talents
+          </label>
+          <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+            <input
+              type="number"
+              min="4"
+              max="20"
+              step="1"
+              style={{
+                width: '100%',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-white)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '0.375rem',
+                padding: '0.5rem 0.75rem',
+              }}
+              value={startingTalents}
+              onChange={(e) => {
+                const value = parseInt(e.target.value);
+                onStartingTalentsChange(value);
+              }}
+            />
+          </div>
+          <p
+            style={{
+              fontSize: '0.875rem',
+              color: 'var(--color-cloud)',
+              marginTop: '0.5rem',
             }}
-          />
+          >
+            How many Talent points you start with to distribute among weapon, magic, and crafting skills. The default is 8.
+          </p>
         </div>
-        <p
-          style={{
-            fontSize: '0.875rem',
-            color: 'var(--color-cloud)',
-            marginTop: '0.5rem',
-          }}
-        >
-          How many Talent points you start with to distribute among weapon, magic, and crafting skills. The default is 8.
-        </p>
-      </div>
+      )}
     </div>
   );
 };

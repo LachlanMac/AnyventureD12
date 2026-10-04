@@ -1,0 +1,175 @@
+{
+  "name": "Risen Champion",
+  "description": "A massive animated corpse of extraordinary durability. Risen champions are nearly impossible to put down, their rotting bulk absorbing punishment that would destroy lesser undead.",
+  "tactics": "",
+  "tier": "champion",
+  "type": "undead",
+  "subcategory": "Risen",
+  "size": "medium",
+  "foundry_portrait": "",
+  "health": {
+    "max": 55,
+    "current": 55
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 3
+  },
+  "resolve": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": 3,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": { "talent": 3 },
+    "finesse": { "talent": 1 },
+    "mind": { "talent": 1 },
+    "knowledge": { "talent": 0 },
+    "social": { "talent": 0 }
+  },
+  "skills": {
+    "fitness": { "value": 4, "tier": 0 },
+    "deflection": { "value": 0, "tier": 0 },
+    "might": { "value": 4, "tier": 0 },
+    "endurance": { "value": 5, "tier": 0 },
+    "evasion": { "value": 0, "tier": 0 },
+    "stealth": { "value": -1, "tier": 0 },
+    "coordination": { "value": -1, "tier": 0 },
+    "thievery": { "value": -1, "tier": 0 },
+    "resilience": { "value": 5, "tier": 0 },
+    "concentration": { "value": 0, "tier": 0 },
+    "senses": { "value": 1, "tier": 0 },
+    "logic": { "value": -1, "tier": 0 },
+    "wildcraft": { "value": -1, "tier": 0 },
+    "academics": { "value": -1, "tier": 0 },
+    "magic": { "value": -1, "tier": 0 },
+    "medicine": { "value": -1, "tier": 0 },
+    "expression": { "value": -1, "tier": 0 },
+    "presence": { "value": 1, "tier": 0 },
+    "insight": { "value": -1, "tier": 0 },
+    "persuasion": { "value": -1, "tier": 0 }
+  },
+  "weaponSkills": {
+    "brawling": { "talent": 4, "skill": 0 },
+    "throwing": { "talent": 0, "skill": 0 },
+    "simpleMeleeWeapons": { "talent": 0, "skill": 0 },
+    "simpleRangedWeapons": { "talent": 0, "skill": 0 },
+    "complexMeleeWeapons": { "talent": 0, "skill": 0 },
+    "complexRangedWeapons": { "talent": 0, "skill": 0 }
+  },
+  "mitigation": {
+    "physical": { "min": 4, "max": 25 },
+    "cold": { "min": 0, "max": 25 },
+    "heat": { "min": 0, "max": 25 },
+    "electric": { "min": 0, "max": 25 },
+    "psychic": { "min": 0, "max": 25 },
+    "dark": { "min": 5, "max": 25 },
+    "divine": { "min": 0, "max": 25 },
+    "aetheric": { "min": 0, "max": 25 },
+    "toxic": { "min": 25, "max": 0 }
+  },
+  "detections": {
+    "normal": 0,
+    "darksight": 3,
+    "infravision": 0,
+    "deadsight": 5,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "alert": false,
+    "broken": true,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "maddened": false,
+    "numbed": true,
+    "stunned": false,
+    "bleeding": true,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
+    "incapacitated": false,
+    "muted": false,
+    "obscured": false,
+    "poisoned": true,
+    "prone": false,
+    "stasis": false,
+    "unconscious": false,
+    "winded": false
+  },
+  "canUnarmedAttack": true,
+  "unarmedAttackName": "Slam",
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Bite",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "The risen bites an adjacent creature. If the attack deals damage, the target must make an endurance check of 9 or gain the diseased condition.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d10",
+        "damage": "5",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Grab",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "The risen grabs an adjacent creature. If the attack succeeds, the target gains the impaired condition until the start of the risen's next turn.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d12",
+        "damage": "0",
+        "damage_extra": "0",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [],
+  "traits": [
+    {
+      "name": "Undying",
+      "description": "When this creature reaches 0 health, roll a 1d4. On a 2 or higher, it regains 20 health. This trait does not activate if the killing blow dealt divine or dark damage."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 3,
+  "shieldLevel": 0,
+  "source": "Official",
+  "isHomebrew": false
+}

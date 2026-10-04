@@ -4,7 +4,7 @@
   "charge": "This spell is used as a reaction targeting a bleeding creature that instead reduces physical damage by 5 before mitigations are calculated.",
   "duration": "1 Round",
   "range": 1,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Hematite"
   ],

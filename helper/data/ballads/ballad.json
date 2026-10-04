@@ -1,0 +1,135 @@
+[
+    {
+        "id": 1,
+        "name": "Song of Defense",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain a 1d4 bonus to block and dodge checks."
+    },
+    {
+        "id": 2,
+        "name": "Marching Rhythm",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain +2 Movement Speed and can use their free action to take the move action."
+    },
+    {
+        "id": 3,
+        "name": "Courage Against the Darkness",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain dark mitigation equal to your performance modifier and immunity to the afraid condition."
+    },
+    {
+        "id": 4,
+        "name": "Calming Melody",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain immunity to the maddened condition and psychic mitigation equal to your performance modifier. If a creature is already maddened, they must make a resistance check against your contested performance check, or the condition ends."
+    },
+    {
+        "id": 5,
+        "name": "Raging Chorus",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain +1 to their true hit threshold on melee attacks and a 1d4 bonus to resilience checks."
+    },
+    {
+        "id": 6,
+        "name": "Rising Anthem",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range can reroll attack checks when the result of the dice is a 1."
+    },
+    {
+        "id": 7,
+        "name": "Invigorating Jig",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range do not suffer from the effects of exhaustion. Additionally, they do not suffer the effects of lifeline until reaching 3 Lifeline Points."
+    },
+    {
+        "id": 8,
+        "name": "Chant of Focus",
+        "magic": false,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain a 1d4 bonus to concentration and resistance checks. Additionally, spells that true hit are upgraded to critical hits."
+    },
+    {
+        "id": 101,
+        "name": "Song of Clarity",
+        "magic": true,
+        "masterpiece": false,
+        "description": "You spend 4 Power from your conduit when you first play this ballad or at the start of your turn if you are already playing this ballad, granting all other allies within your ballad range 1d4 Power and a 1d4 bonus to concentration checks. Additionally, the next spell that they channel before the start of your next turn is automatically charged."
+    },
+    {
+        "id": 102,
+        "name": "Elemental Chorus",
+        "magic": true,
+        "masterpiece": false,
+        "description": "You play an insulating song, granting all allies within your ballad range elemental mitigation equal to your performance modifier."
+    },
+    {
+        "id": 103,
+        "name": "Charming Melody",
+        "magic": true,
+        "masterpiece": false,
+        "description": "You target a beast or humanoid within your ballad range that is lower or equal level to your performance modifier and attempt to charm them by making a contested persuasion check against their resistance. The charm effect lasts until you stop this ballad or until the charm is naturally broken."
+    },
+    {
+        "id": 104,
+        "name": "Nocturne of Shadows",
+        "magic": true,
+        "masterpiece": false,
+        "description": "You play a nearly inaudible song, granting all allies within your Ballad Range a Bonus to Stealth Checks equal to your Performance Modifier."
+    },
+    {
+        "id": 105,
+        "name": "Requiem of Restoration",
+        "magic": true,
+        "masterpiece": false,
+        "description": "You spend 4 Power from your conduit when you first play this ballad or at the start of your turn if you are already playing this ballad, granting all allies within your ballad range 1d4 Health or 1 lifeline."
+    },
+    {
+        "id": 106,
+        "name": "Song of Lore",
+        "magic": true,
+        "masterpiece": false,
+        "description": "You spend 4 Power from your conduit to identify an object. Additionally, you can roll an arcanum check to magically gain information about an object or structure near you, with the quality of the information proportional to the required check."
+    },    
+    {
+        "id": 107,
+        "name": "Skydancer Rhapsody",
+        "magic": true,
+        "masterpiece": false,
+        "description": "All allies within your ballad range gain a hover speed equal to your performance modifier."
+    },
+    {
+        "id": 108,
+        "name": "Aria of Arcane Echoes",
+        "magic": true,
+        "masterpiece": false,
+        "description": "All allies within your ballad range have the primary damage on their weapons converted to arcane."
+    },
+    {
+        "id": 201,
+        "name": "Song of Inspiration",
+        "magic": false,
+        "masterpiece": true,
+        "description": "All allies within your Ballad Range gain Temporary Health equal to your performance modifier lasting until the start of your next turn."
+    },
+    {
+        "id": 202,
+        "name": "Striking Anthem",
+        "magic": false,
+        "masterpiece": true,
+        "description": "All allies within your Ballad Range deal extra damage on their weapon attacks equal to your performance modifier."
+    },
+    {
+        "id": 203,
+        "name": "Discordance",
+        "magic": false,
+        "masterpiece": true,
+        "description": "All enemies within your ballad range suffer a 1d4 penalty to resistance and spell attacks."
+    }
+]

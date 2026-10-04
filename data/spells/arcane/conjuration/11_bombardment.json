@@ -4,7 +4,7 @@
   "charge": "The radius is increased by 1 unit, and the damage is increased to 17.",
   "duration": "Instantaneous",
   "range": 8,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Aetherium Shavings"
   ],

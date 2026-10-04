@@ -4,7 +4,7 @@
   "charge": "If the damage is not mitigated at all, the target must also make a concentration check against your spell check or become stunned.",
   "duration": "Instantaneous",
   "range": 3,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Spark Dust"
   ],

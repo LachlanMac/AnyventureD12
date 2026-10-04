@@ -1,0 +1,98 @@
+[
+{ 
+    "id": 1, "name": "Born Adventurer", 
+    "description": "You were born for Adventure. Gain +4 Module Points", 
+    "code": "AP=4", 
+    "ruleset": 0 
+},
+{
+    "id": 2,
+    "name": "Pact-Bound",
+    "description": "You have found yourself in service to a powerful entity and benefit from their power at a cost of being completely in their thrall",
+    "code": "AM=124",
+    "ruleset": 1
+},
+{
+    "id": 3,
+    "name": "Mixed Ancestry",
+    "description": "You have strong blood in an additional Ancestry and have the traits of both",
+    "code": "",
+    "ruleset": 1
+},
+{ 
+    "id": 4, "name": "Durable", "description": "Gain an Additional 1 Health each time you Level", "code": "", "ruleset": 0
+},
+{
+    "id": 5,
+    "name": "Extraplanar",
+    "description": "You have an Extraplanar influence, with ties to a different plane of existence, granting you extra powers and physical features",
+    "code": "",
+    "ruleset": 1
+},
+{ "id": 6, "name": "Force Sensitive", "description": "Gain an Additional 1 Health each time you Level", "code": "", "ruleset": 3 },
+{
+    "id": 9,
+    "name": "Lycanthrope",
+    "description": "You have been affected by Lycanthropy after being bitten and turned by another Lycanthrope. On Character Creation, take a Lycanthropy Weakness Trait.",
+    "code": "",
+    "ruleset": 0
+},
+{
+    "id": 7,
+    "name": "Beastkin",
+    "description": "Choose a Beast that has a Level 0 Statblock gaining any desired cosmetic effects of that animal. On Character Creation, take the appropriate Custom Trait : Landwalker, Seawalker, or Cloudwalker. As an Action, you can Transform into this Beast, taking on their Statblock.",
+    "code": "",
+    "ruleset": 0
+},
+
+
+{
+    "id": 8,
+    "name": "Vampire",
+    "description": "You have been affected by Vampirism and are a thrall to a Vampire Lord.",
+    "code": "",
+    "ruleset": 0
+},
+{
+    "id": 14,
+    "name": "Beastkin Trait : Landwalker",
+    "description": " Gain +1 Movement Speed and +1 Wilderness Knowledge. ",
+    "code": "AV=1:ASB=1",
+    "character_id": null
+},
+{
+    "id": 15,
+    "name": "Beastkin Trait : Seawalker",
+    "description": "You can Breathe Underwater and gain a Swim Speed equal to your Movement Speed.",
+    "code": "",
+    "character_id": null
+},
+{
+    "id": 16,
+    "name": "Beastkin Trait : Cloudwalker",
+    "description": "You are Good at the Search Skill.",
+    "code": "",
+    "character_id": null
+},
+{
+    "id": 17,
+    "name": "Lycanthrope Weakness : Fire Weakness",
+    "description": "Your Lycanthropy has manifested in a fear of fire. You suffer a -4 Penalty to your Fire Mitigation. Any time you take Fire Damage, you must make a Resilience Check greater than or equal to half the Fire Damage taken or become Afraid of whatever caused the Damage. You cannot willfully move within 2 Units of an open flame while in Lycanthrope form.",
+    "code": "AD6=-4",
+    "character_id": null
+},
+{
+    "id": 18,
+    "name": "Lycanthrope Weakness : Water Weakness",
+    "description": "Your Lycanthropy has manifested in a fear of fire. You suffer a -4 Penalty to your Cold Mitigation. Any time you take Cold Damage, you must make a Resilience Check greater than or equal to half the Cold Damage taken or become Afraid of whatever caused the Damage. You cannot willfully cross a boundry or body of water while in Lycanthrope form.",
+    "code": "AD5=-4",
+    "character_id": null
+},
+{
+    "id": 19,
+    "name": "Lycanthrope Weakness : Silver Weakness",
+    "description": "Your Lycanthropy has manifested in an aversion to Silver. Weapons that are Silvered deal True Damage to you. Whenever you first come in contact with a Silver Object or end your turn holding a Silver Object in your Inventory, you take 1d6 True Damage. This includes Touch Spells that use Silver as a Component.",
+    "code": "",
+    "character_id": null
+}
+]

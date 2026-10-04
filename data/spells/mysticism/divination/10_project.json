@@ -4,7 +4,7 @@
   "charge": "Your astral form is invisible for the duration of the spell.",
   "duration": "10 minutes",
   "range": 8,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Shadow Onyx"
   ],

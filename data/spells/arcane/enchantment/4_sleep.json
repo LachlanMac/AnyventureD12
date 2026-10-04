@@ -4,7 +4,7 @@
   "charge": "A willing creature who does not elect to get up after 1 hour and completes a full rest gets credit for a favorable rest, regardless of conditions, pain or stress.",
   "duration": "1 hour",
   "range": 1,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Pixie Dust"
   ],

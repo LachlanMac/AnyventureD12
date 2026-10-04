@@ -4,7 +4,7 @@
   "charge": "Instead of dealing damage, this spell becomes an execute. If the target fails their defense check and has conditions equal to or greater than their tier threshold, they die instantly: Minion (1+ conditions), Grunt (2+ conditions), Standard (3+ conditions), Champion (4+ conditions). Elite, Legend, and Mythic creatures cannot be executed.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Vial of Quicksilver"
   ],

@@ -1,0 +1,152 @@
+{
+  "id": 132,
+  "name": "Ammocrafter",
+  "mtype": "core",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 2209,
+      "name": "Beginner Ammocrafter",
+      "description": "Gain +2 Ammocraft",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AC6=2"
+    },
+    {
+      "id": 2210,
+      "name": "Critical Success",
+      "description": "When you Overcraft, you produce double the amount of Ammunition",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2211,
+      "name": "Trajectory Analysis",
+      "description": "Gain Additional [Heavy +3 / Light +2 / Ultra Light +1] Range on Ranged Weapons",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "O3=3:O2=2:O1=1"
+    },
+    {
+      "id": 2212,
+      "name": "Ammunition Specialist",
+      "description": "Gain +1 Ammocraft and +1 Damage to Ranged Weapons",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AZ9=1:AC6=1"
+    },
+    {
+      "id": 2213,
+      "name": "Free Action : Pass Through",
+      "description": "When you shoot a piece of your Ammunition, you turn it into a Line Attack that deals full Damage to the first target hit, and half to every other target it passes through.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "AC6=1"
+    },
+    {
+      "id": 2214,
+      "name": "Volatile Ammunition",
+      "description": "Your Shrapnel and Exploding Ammunition deals an extra dice of Damage",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2215,
+      "name": "Trajectory Analysis",
+      "description": "Gain +1 Attack to Ranged Weapons",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "AZ5=1"
+    },
+    {
+      "id": 2216,
+      "name": "Packed Ammunition",
+      "description": "The Radius on Ammunition Infusions that cause Area effects is increased by 1 Unit",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2217,
+      "name": "Improved Ammunition Chamber",
+      "description": "You can apply an Ammunition Chamber Infusion to a Weapon that has already been Crafted without requiring an Infusion Slot by making an Ammocraft Check of 10 or Higher.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2218,
+      "name": "Handloader",
+      "description": "Gain +1 Ammocraft, +1 Initiative and +1 Engineering",
+      "mtype": "core",
+      "location": "7",
+      "cost": 2,
+      "data": "AC6=1:AC7=1:ASH=1"
+    },
+    {
+      "id": 2219,
+      "name": "Armor Negation",
+      "description": "Armor Piercing Ammunition created by you bypasses Physical Mitigation Completely.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2220,
+      "name": "Potion Lobber",
+      "description": "Your Delivery Ammunition does not have a Penalty to the Required Check to avoid it and the Range is extend to the Maximum Range of a Weapon.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2221,
+      "name": "Expert Ammocrafter",
+      "description": "Gain +2 Ammocraft and +1 Damage to Ranged Weapons",
+      "mtype": "core",
+      "location": "9",
+      "cost": 3,
+      "data": "AC6=2:AZ9=1"
+    },
+    {
+      "id": 2222,
+      "name": "Improved Utility",
+      "description": "When you create Ammunition with the Shrapnel, Explosive or Smokescreen Infusions, the initial Projectile now deals Damage like a normal Ranged Attack if you hit a Creature.",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2223,
+      "name": "Action : Ammosurge",
+      "description": "You prepare 4 Ammunition which are all consumed by this Action. You fire 1d4 times ignoring any Ammunition Capacity property and do not apply your Bonus Damage Modifier to any of the hits.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 2224,
+      "name": "Master Ammocrafter",
+      "description": "Gain +2 Ammocraft. Your Shrapnel and Explosive Ammo add your Ammocraft Skill at the time of Crafting to their Splash Damage. Additionally, the execution threshold on your Executioner Infusion is doubled.",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "TC:AC6=2"
+    }
+  ]
+}

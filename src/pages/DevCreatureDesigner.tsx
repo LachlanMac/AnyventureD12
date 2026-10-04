@@ -207,6 +207,9 @@ const DevCreatureDesigner: React.FC = () => {
     size: 'medium' as 'tiny' | 'small' | 'medium' | 'large' | 'huge' | 'gargantuan',
     challenge_rating: 1,
     shieldLevel: 0,
+    canUnarmedAttack: false,
+    unarmedAttackName: 'Unarmed Strike',
+    variantOf: '' as string,
     languages: [] as string[],
     loot: [] as string[],
     foundry_portrait: '',
@@ -259,6 +262,26 @@ const DevCreatureDesigner: React.FC = () => {
     insight: { value: 0, tier: 0 },
     persuasion: { value: 0, tier: 0 },
   });
+
+  // Weapon Skills
+  const defaultWeaponSkills = {
+    brawling: { talent: 0, skill: 0 },
+    throwing: { talent: 0, skill: 0 },
+    simpleMeleeWeapons: { talent: 0, skill: 0 },
+    simpleRangedWeapons: { talent: 0, skill: 0 },
+    complexMeleeWeapons: { talent: 0, skill: 0 },
+    complexRangedWeapons: { talent: 0, skill: 0 },
+  };
+  const [weaponSkills, setWeaponSkills] = useState({ ...defaultWeaponSkills });
+
+  const WEAPON_SKILL_LABELS: Record<string, string> = {
+    brawling: 'Brawling',
+    throwing: 'Throwing',
+    simpleMeleeWeapons: 'Simple Melee',
+    simpleRangedWeapons: 'Simple Ranged',
+    complexMeleeWeapons: 'Complex Melee',
+    complexRangedWeapons: 'Complex Ranged',
+  };
 
   // Magic Skills
   const defaultMagicSkills = {
@@ -344,6 +367,115 @@ const DevCreatureDesigner: React.FC = () => {
   const [monsterSearch, setMonsterSearch] = useState('');
   const [editingFile, setEditingFile] = useState<{ category: string; filename: string } | null>(null);
 
+  // Equipment
+  const [equipment, setEquipment] = useState<Record<string, any>>({
+    mainhand: null,
+    offhand: null,
+    body: null,
+    head: null,
+    hand: null,
+    boots: null,
+    back: null,
+    accessory1: null,
+    accessory2: null
+  });
+  const [showItemSearch, setShowItemSearch] = useState<string | null>(null); // which slot is being filled
+  const [itemSearchQuery, setItemSearchQuery] = useState('');
+  const [itemSearchResults, setItemSearchResults] = useState<any[]>([]);
+  const [itemSearchType, setItemSearchType] = useState('all');
+
+  const searchItems = async (query: string, typeFilter: string) => {
+    try {
+      const url = typeFilter !== 'all' ? `/api/items/type/${typeFilter}` : '/api/items';
+      const response = await fetch(url);
+      if (!response.ok) return;
+      const items = await response.json();
+      const filtered = query
+        ? items.filter((i: any) => i.name.toLowerCase().includes(query.toLowerCase()))
+        : items;
+      setItemSearchResults(filtered.slice(0, 20));
+    } catch (err) {
+      console.error('Error searching items:', err);
+    }
+  };
+
+  const equipItem = (slot: string, item: any) => {
+    setEquipment(prev => ({ ...prev, [slot]: item }));
+    setShowItemSearch(null);
+    setItemSearchQuery('');
+    setItemSearchResults([]);
+
+    // Auto-update shield level when equipping a shield to offhand
+    if (slot === 'offhand' && (item.type === 'shield' || item.shield_category)) {
+      const level = item.shield_category === 'heavy' ? 2 : 1;
+      setCreatureData(prev => ({ ...prev, shieldLevel: level }));
+    }
+  };
+
+  const unequipItem = (slot: string) => {
+    // Auto-clear shield level when unequipping offhand shield
+    if (slot === 'offhand') {
+      const item = equipment[slot];
+      if (item && (item.type === 'shield' || item.shield_category)) {
+        setCreatureData(prev => ({ ...prev, shieldLevel: 0 }));
+      }
+    }
+    setEquipment(prev => ({ ...prev, [slot]: null }));
+  };
+
+  // Generate weapon attack from equipped weapon and weapon skills
+  const getWeaponAttack = (slot: string, item: any) => {
+    if (!item || item.type !== 'weapon') return null;
+
+    const rawCategory = item.weapon_category || 'simpleMelee';
+    // Map item weapon_category to weaponSkills key (items use "complexMelee", skills use "complexMeleeWeapons")
+    const categoryMap: Record<string, string> = {
+      brawling: 'brawling',
+      throwing: 'throwing',
+      simpleMelee: 'simpleMeleeWeapons',
+      simpleRanged: 'simpleRangedWeapons',
+      complexMelee: 'complexMeleeWeapons',
+      complexRanged: 'complexRangedWeapons',
+      simpleMeleeWeapons: 'simpleMeleeWeapons',
+      simpleRangedWeapons: 'simpleRangedWeapons',
+      complexMeleeWeapons: 'complexMeleeWeapons',
+      complexRangedWeapons: 'complexRangedWeapons',
+    };
+    const category = categoryMap[rawCategory] || rawCategory;
+    const ws = weaponSkills[category as keyof typeof weaponSkills] || { talent: 0, skill: 0 };
+    const diceSize = getDiceForSkill(ws.skill);
+    const rollFormula = ws.talent > 0 ? `${ws.talent}d${diceSize}` : '1d6';
+
+    const primary = item.primary || {};
+    const dmg = primary.damage || '0';
+    const dmgExtra = primary.damage_extra || '0';
+    const dmgType = primary.damage_type || 'physical';
+    const energy = primary.energy || 0;
+    const categoryType = primary.category || 'slash';
+
+    return {
+      name: item.name,
+      cost: energy,
+      type: 'attack' as const,
+      magic: false,
+      basic: true,
+      round: false,
+      daily: false,
+      spellType: 'normal' as const,
+      description: `The ${creatureData.name} makes an attack with their ${item.name}, dealing ${dmgType} damage.`,
+      reaction: false,
+      attack: {
+        roll: rollFormula,
+        damage: dmg,
+        damage_extra: dmgExtra,
+        damage_type: dmgType,
+        category: categoryType,
+        min_range: primary.min_range || 1,
+        max_range: primary.max_range || 1
+      }
+    };
+  };
+
   useEffect(() => {
     fetchAvailableSpells();
   }, []);
@@ -399,6 +531,9 @@ const DevCreatureDesigner: React.FC = () => {
         size: jsonData.size || 'medium',
         challenge_rating: jsonData.challenge_rating || 1,
         shieldLevel: jsonData.shieldLevel || 0,
+        canUnarmedAttack: jsonData.canUnarmedAttack || false,
+        unarmedAttackName: jsonData.unarmedAttackName || 'Unarmed Strike',
+        variantOf: jsonData.variantOf || '',
         languages: jsonData.languages || [],
         loot: jsonData.loot || [],
         foundry_portrait: jsonData.foundry_portrait || '',
@@ -430,7 +565,29 @@ const DevCreatureDesigner: React.FC = () => {
         setSkills(normalizedSkills);
       }
 
+      setWeaponSkills(jsonData.weaponSkills || { ...defaultWeaponSkills });
       setMagicSkills(jsonData.magicSkills || { ...defaultMagicSkills });
+      // Resolve equipment item names to full item data
+      const loadedEquipment = { mainhand: null, offhand: null, body: null, head: null, hand: null, boots: null, back: null, accessory1: null, accessory2: null } as Record<string, any>;
+      if (jsonData.equipment) {
+        const hasNames = Object.values(jsonData.equipment).some(v => v && typeof v === 'string');
+        let allItems: any[] = [];
+        if (hasNames) {
+          try {
+            const itemRes = await fetch('/api/items');
+            if (itemRes.ok) allItems = await itemRes.json();
+          } catch (e) { /* ignore */ }
+        }
+        for (const [slot, value] of Object.entries(jsonData.equipment)) {
+          if (value && typeof value === 'string') {
+            const found = allItems.find((i: any) => i.name === value);
+            if (found) loadedEquipment[slot] = found;
+          } else if (value && typeof value === 'object') {
+            loadedEquipment[slot] = value;
+          }
+        }
+      }
+      setEquipment(loadedEquipment);
       setMitigation(normalizeMitigation(jsonData.mitigation) || mitigation);
       setDetections(jsonData.detections || detections);
       setTaming(jsonData.taming || taming);
@@ -519,11 +676,68 @@ const DevCreatureDesigner: React.FC = () => {
     return { normalSpellNames, innateSpellActions };
   };
 
+  // Build weapon attacks from equipment + unarmed
+  const buildEquipmentAttacks = () => {
+    const attacks: any[] = [];
+    for (const slot of ['mainhand', 'offhand']) {
+      const item = equipment[slot];
+      if (item && item.type === 'weapon') {
+        const attack = getWeaponAttack(slot, item);
+        if (attack) attacks.push(attack);
+      }
+    }
+
+    // Add unarmed attack if enabled
+    if (creatureData.canUnarmedAttack) {
+      const physTalent = attributes.physique?.talent || 1;
+      const fitnessSkill = skills.fitness?.value || 0;
+      const diceSize = getDiceForSkill(fitnessSkill);
+      const rollFormula = `${physTalent}d${diceSize}`;
+      const attackName = creatureData.unarmedAttackName || 'Unarmed Strike';
+
+      attacks.push({
+        name: attackName,
+        cost: 0,
+        type: 'attack' as const,
+        magic: false,
+        basic: true,
+        round: false,
+        daily: false,
+        spellType: 'normal' as const,
+        description: `The ${creatureData.name} makes a ${attackName.toLowerCase()} attack, dealing ${physTalent} physical damage per hit.`,
+        reaction: false,
+        attack: {
+          roll: rollFormula,
+          damage: String(physTalent),
+          damage_extra: String(physTalent),
+          damage_type: 'physical',
+          category: 'blunt',
+          min_range: 1,
+          max_range: 1
+        }
+      });
+    }
+
+    return attacks;
+  };
+
+  // Build equipment data for save (just item names per slot)
+  const buildEquipmentSaveData = () => {
+    const hasAny = Object.values(equipment).some(v => v !== null);
+    if (!hasAny) return null;
+    const result: Record<string, string | null> = {};
+    for (const [slot, item] of Object.entries(equipment)) {
+      result[slot] = item ? item.name : null;
+    }
+    return result;
+  };
+
   const saveMonsterFile = async () => {
     if (!editingFile) return;
 
-    // Only include magicSkills if any school has talent > 0
+    // Only include magicSkills/weaponSkills if any has talent > 0
     const hasMagicSkills = Object.values(magicSkills).some(s => s.talent > 0);
+    const hasWeaponSkills = Object.values(weaponSkills).some(s => s.talent > 0);
 
     const { normalSpellNames, innateSpellActions } = buildSpellSaveData();
 
@@ -542,6 +756,7 @@ const DevCreatureDesigner: React.FC = () => {
       movement,
       attributes,
       skills,
+      ...(hasWeaponSkills ? { weaponSkills } : {}),
       ...(hasMagicSkills ? { magicSkills } : {}),
       mitigation,
       detections: {
@@ -553,6 +768,7 @@ const DevCreatureDesigner: React.FC = () => {
         [immunity]: immunities.includes(immunity)
       }), {}),
       taming,
+      ...(buildEquipmentSaveData() ? { equipment: buildEquipmentSaveData() } : {}),
       actions: [...abilities.filter(a => !a.reaction), ...innateSpellActions],
       reactions: abilities.filter(a => a.reaction),
       traits,
@@ -560,6 +776,9 @@ const DevCreatureDesigner: React.FC = () => {
       languages: creatureData.languages,
       challenge_rating: creatureData.challenge_rating,
       shieldLevel: creatureData.shieldLevel,
+      canUnarmedAttack: creatureData.canUnarmedAttack,
+      ...(creatureData.canUnarmedAttack ? { unarmedAttackName: creatureData.unarmedAttackName || 'Unarmed Strike' } : {}),
+      ...(creatureData.variantOf ? { variantOf: creatureData.variantOf } : {}),
       spellNames: normalSpellNames.length > 0 ? normalSpellNames : undefined,
       source: 'Official',
       isHomebrew: false,
@@ -585,6 +804,7 @@ const DevCreatureDesigner: React.FC = () => {
     }
 
     const hasMagicSkillsForJSON = Object.values(magicSkills).some(s => s.talent > 0);
+    const hasWeaponSkillsForJSON = Object.values(weaponSkills).some(s => s.talent > 0);
     const { normalSpellNames: dlNormalSpells, innateSpellActions: dlInnateActions } = buildSpellSaveData();
 
     const jsonData = {
@@ -602,6 +822,7 @@ const DevCreatureDesigner: React.FC = () => {
       movement,
       attributes,
       skills,
+      ...(hasWeaponSkillsForJSON ? { weaponSkills } : {}),
       ...(hasMagicSkillsForJSON ? { magicSkills } : {}),
       mitigation,
       detections: {
@@ -613,13 +834,17 @@ const DevCreatureDesigner: React.FC = () => {
         [immunity]: immunities.includes(immunity)
       }), {}),
       taming,
-      actions: [...abilities.filter(a => !a.reaction), ...dlInnateActions],
+      ...(buildEquipmentSaveData() ? { equipment: buildEquipmentSaveData() } : {}),
+      actions: [...buildEquipmentAttacks(), ...abilities.filter(a => !a.reaction), ...dlInnateActions],
       reactions: abilities.filter(a => a.reaction),
       traits,
       loot: creatureData.loot,
       languages: creatureData.languages,
       challenge_rating: creatureData.challenge_rating,
       shieldLevel: creatureData.shieldLevel,
+      canUnarmedAttack: creatureData.canUnarmedAttack,
+      ...(creatureData.canUnarmedAttack ? { unarmedAttackName: creatureData.unarmedAttackName || 'Unarmed Strike' } : {}),
+      ...(creatureData.variantOf ? { variantOf: creatureData.variantOf } : {}),
       spellNames: dlNormalSpells.length > 0 ? dlNormalSpells : undefined,
       source: 'Official',
       isHomebrew: false,
@@ -679,7 +904,8 @@ const DevCreatureDesigner: React.FC = () => {
           [immunity]: immunities.includes(immunity)
         }), {}),
         taming,
-        actions: [...abilities.filter(a => !a.reaction), ...buildSpellSaveData().innateSpellActions],
+        ...(buildEquipmentSaveData() ? { equipment: buildEquipmentSaveData() } : {}),
+        actions: [...buildEquipmentAttacks(), ...abilities.filter(a => !a.reaction), ...buildSpellSaveData().innateSpellActions],
         reactions: abilities.filter(a => a.reaction),
         traits,
         loot: creatureData.loot,
@@ -724,7 +950,7 @@ const DevCreatureDesigner: React.FC = () => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e) => {
+    reader.onload = async (e) => {
       try {
         const jsonData = JSON.parse(e.target?.result as string);
 
@@ -739,6 +965,9 @@ const DevCreatureDesigner: React.FC = () => {
           size: jsonData.size || 'medium',
           challenge_rating: jsonData.challenge_rating || 1,
           shieldLevel: jsonData.shieldLevel || 0,
+          canUnarmedAttack: jsonData.canUnarmedAttack || false,
+          unarmedAttackName: jsonData.unarmedAttackName || 'Unarmed Strike',
+          variantOf: jsonData.variantOf || '',
           languages: jsonData.languages || [],
           loot: jsonData.loot || [],
           foundry_portrait: jsonData.foundry_portrait || '',
@@ -785,7 +1014,31 @@ const DevCreatureDesigner: React.FC = () => {
           setSkills(skills);
         }
 
+        setWeaponSkills(jsonData.weaponSkills || { ...defaultWeaponSkills });
         setMagicSkills(jsonData.magicSkills || { ...defaultMagicSkills });
+
+        // Resolve equipment item names to full item data
+        const loadedEquipment2 = { mainhand: null, offhand: null, body: null, head: null, hand: null, boots: null, back: null, accessory1: null, accessory2: null } as Record<string, any>;
+        if (jsonData.equipment) {
+          const hasNames = Object.values(jsonData.equipment).some(v => v && typeof v === 'string');
+          let allItems: any[] = [];
+          if (hasNames) {
+            try {
+              const itemRes = await fetch('/api/items');
+              if (itemRes.ok) allItems = await itemRes.json();
+            } catch (e) { /* ignore */ }
+          }
+          for (const [slot, value] of Object.entries(jsonData.equipment)) {
+            if (value && typeof value === 'string') {
+              const found = allItems.find((i: any) => i.name === value);
+              if (found) loadedEquipment2[slot] = found;
+            } else if (value && typeof value === 'object') {
+              loadedEquipment2[slot] = value;
+            }
+          }
+        }
+        setEquipment(loadedEquipment2);
+
         setMitigation(normalizeMitigation(jsonData.mitigation) || mitigation);
         setDetections(jsonData.detections || detections);
         setTaming(jsonData.taming || taming);
@@ -853,6 +1106,9 @@ const DevCreatureDesigner: React.FC = () => {
         size: 'medium',
         challenge_rating: 1,
         shieldLevel: 0,
+        canUnarmedAttack: false,
+        unarmedAttackName: 'Unarmed Strike',
+        variantOf: '',
         languages: [],
         loot: [],
         foundry_portrait: '',
@@ -882,7 +1138,9 @@ const DevCreatureDesigner: React.FC = () => {
         wildcraft: { value: 0, tier: 0 }, academics: { value: 0, tier: 0 }, magic: { value: 0, tier: 0 }, medicine: { value: 0, tier: 0 },
         expression: { value: 0, tier: 0 }, presence: { value: 0, tier: 0 }, insight: { value: 0, tier: 0 }, persuasion: { value: 0, tier: 0 },
       });
+      setWeaponSkills({ ...defaultWeaponSkills });
       setMagicSkills({ ...defaultMagicSkills });
+      setEquipment({ mainhand: null, offhand: null, body: null, head: null, hand: null, boots: null, back: null, accessory1: null, accessory2: null });
       setMitigation({
         physical: { min: 0, max: 25 }, cold: { min: 0, max: 25 }, heat: { min: 0, max: 25 }, electric: { min: 0, max: 25 },
         psychic: { min: 0, max: 25 }, dark: { min: 0, max: 25 }, divine: { min: 0, max: 25 }, aetheric: { min: 0, max: 25 }, toxic: { min: 0, max: 25 },
@@ -1004,6 +1262,19 @@ const DevCreatureDesigner: React.FC = () => {
             </Button>
           )}
 
+          {creatureData.name && (
+            <Button onClick={() => {
+              setEditingFile(null);
+              setCreatureData(prev => ({
+                ...prev,
+                name: `${prev.name} Variant`,
+                variantOf: prev.variantOf || prev.name,
+              }));
+            }} variant="secondary">
+              Clone as Variant
+            </Button>
+          )}
+
           <Button onClick={clearForm} variant="danger">
             🗑️ Clear Form
           </Button>
@@ -1014,6 +1285,18 @@ const DevCreatureDesigner: React.FC = () => {
                style={{ backgroundColor: 'rgba(200, 170, 80, 0.15)', border: '1px solid rgba(200, 170, 80, 0.3)', color: 'var(--color-old-gold)' }}>
             Editing: <strong>{editingFile.category}/{editingFile.filename}</strong>
             <button onClick={() => setEditingFile(null)} className="ml-2 text-gray-400 hover:text-white text-xs">✕ clear</button>
+          </div>
+        )}
+
+        {/* Variant Info */}
+        {creatureData.variantOf && (
+          <div className="mb-4 px-3 py-2 rounded text-sm flex items-center gap-2"
+               style={{ backgroundColor: 'rgba(130, 80, 200, 0.15)', border: '1px solid rgba(130, 80, 200, 0.3)', color: '#b794f4' }}>
+            Variant of: <strong>{creatureData.variantOf}</strong>
+            <button
+              onClick={() => setCreatureData({ ...creatureData, variantOf: '' })}
+              className="ml-2 text-gray-400 hover:text-white text-xs"
+            >✕ remove</button>
           </div>
         )}
 
@@ -1061,6 +1344,17 @@ const DevCreatureDesigner: React.FC = () => {
                   onChange={(e) => setCreatureData({ ...creatureData, foundry_portrait: e.target.value })}
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                   placeholder="image.png (just filename)"
+                />
+              </div>
+
+              <div>
+                <label className="block text-sm font-medium mb-2">Variant Of</label>
+                <input
+                  type="text"
+                  value={creatureData.variantOf}
+                  onChange={(e) => setCreatureData({ ...creatureData, variantOf: e.target.value })}
+                  className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
+                  placeholder="Base creature name (leave empty if not a variant)"
                 />
               </div>
 
@@ -1159,6 +1453,30 @@ const DevCreatureDesigner: React.FC = () => {
                   <option value={1}>Light</option>
                   <option value={2}>Heavy</option>
                 </select>
+              </div>
+
+              <div className="flex items-center gap-2 mt-2">
+                <input
+                  type="checkbox"
+                  id="canUnarmedAttack"
+                  checked={creatureData.canUnarmedAttack}
+                  onChange={(e) => setCreatureData({ ...creatureData, canUnarmedAttack: e.target.checked })}
+                  className="w-4 h-4"
+                />
+                <label htmlFor="canUnarmedAttack" className="text-sm font-medium">
+                  Unarmed attack
+                  <span className="text-xs text-gray-400 ml-1">(Physique talent + Fitness skill, damage = Physique per hit)</span>
+                </label>
+                {creatureData.canUnarmedAttack && (
+                  <input
+                    type="text"
+                    value={creatureData.unarmedAttackName}
+                    onChange={(e) => setCreatureData({ ...creatureData, unarmedAttackName: e.target.value })}
+                    className="ml-2 p-1 bg-gray-800 border border-gray-600 rounded text-sm"
+                    placeholder="Attack name"
+                    style={{ width: '180px' }}
+                  />
+                )}
               </div>
             </div>
 
@@ -1540,6 +1858,168 @@ const DevCreatureDesigner: React.FC = () => {
                     </div>
                   ))}
                 </div>
+              </div>
+            </div>
+
+            {/* Equipment */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-3">Equipment</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
+                {(['mainhand', 'offhand', 'body', 'head', 'hand', 'boots', 'back', 'accessory1', 'accessory2'] as const).map(slot => {
+                  const item = equipment[slot];
+                  const slotLabel = slot === 'accessory1' ? 'Accessory 1' : slot === 'accessory2' ? 'Accessory 2' : slot.charAt(0).toUpperCase() + slot.slice(1);
+                  return (
+                    <div key={slot} className="border border-gray-600 rounded p-2 flex items-center justify-between">
+                      <div className="flex items-center gap-2">
+                        <span className="text-xs text-gray-400 w-20">{slotLabel}</span>
+                        {item ? (
+                          <span className="text-sm text-white font-medium">
+                            {item.name}
+                            {item.type === 'weapon' && (() => {
+                              const cat = item.weapon_category || '';
+                              const ws = weaponSkills[cat as keyof typeof weaponSkills];
+                              if (ws && ws.talent > 0) {
+                                return <span className="text-yellow-400 ml-2 text-xs">{ws.talent}d{getDiceForSkill(ws.skill)}</span>;
+                              }
+                              return null;
+                            })()}
+                          </span>
+                        ) : (
+                          <span className="text-xs text-gray-500 italic">Empty</span>
+                        )}
+                      </div>
+                      <div className="flex gap-1">
+                        {item && (
+                          <button onClick={() => unequipItem(slot)} className="text-red-400 hover:text-red-300 text-xs px-1">✕</button>
+                        )}
+                        <button
+                          onClick={() => { setShowItemSearch(slot); setItemSearchQuery(''); searchItems('', 'all'); }}
+                          className="text-blue-400 hover:text-blue-300 text-xs px-1"
+                        >{item ? 'Change' : '+ Add'}</button>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+
+              {/* Generated weapon attacks preview */}
+              {buildEquipmentAttacks().length > 0 && (
+                <div className="mt-3 p-2 rounded" style={{ backgroundColor: 'rgba(200, 170, 80, 0.1)', border: '1px solid rgba(200, 170, 80, 0.2)' }}>
+                  <p className="text-xs text-yellow-400 mb-1 font-medium">Generated Weapon Attacks:</p>
+                  {buildEquipmentAttacks().map((atk, i) => (
+                    <p key={i} className="text-xs text-gray-300">
+                      <strong>{atk.name}</strong> [{atk.attack.roll}] Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} | Energy: {atk.cost}
+                    </p>
+                  ))}
+                </div>
+              )}
+            </div>
+
+            {/* Item Search Modal */}
+            {showItemSearch && (
+              <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+                <div className="bg-gray-900 border border-gray-600 rounded-lg p-4 w-full max-w-md max-h-96 overflow-y-auto">
+                  <div className="flex justify-between items-center mb-3">
+                    <h4 className="text-sm font-medium">Select item for {showItemSearch}</h4>
+                    <button onClick={() => { setShowItemSearch(null); setItemSearchResults([]); }} className="text-gray-400 hover:text-white">✕</button>
+                  </div>
+                  <div className="flex gap-2 mb-3">
+                    <input
+                      type="text"
+                      placeholder="Search items..."
+                      value={itemSearchQuery}
+                      onChange={(e) => { setItemSearchQuery(e.target.value); searchItems(e.target.value, itemSearchType); }}
+                      className="flex-1 p-2 bg-gray-800 border border-gray-600 rounded text-sm"
+                      autoFocus
+                    />
+                    <select
+                      value={itemSearchType}
+                      onChange={(e) => { setItemSearchType(e.target.value); searchItems(itemSearchQuery, e.target.value); }}
+                      className="p-2 bg-gray-800 border border-gray-600 rounded text-sm"
+                    >
+                      <option value="all">All</option>
+                      <option value="weapon">Weapons</option>
+                      <option value="body">Armor</option>
+                      <option value="headwear">Head</option>
+                      <option value="gloves">Gloves</option>
+                      <option value="boots">Boots</option>
+                      <option value="cloaks">Cloaks</option>
+                      <option value="shields">Shields</option>
+                      <option value="accessories">Accessories</option>
+                    </select>
+                  </div>
+                  <div className="space-y-1">
+                    {itemSearchResults.map((item: any) => (
+                      <button
+                        key={item._id || item.name}
+                        onClick={() => equipItem(showItemSearch, item)}
+                        className="w-full text-left p-2 hover:bg-gray-700 rounded text-sm flex justify-between items-center"
+                      >
+                        <span className="text-white">{item.name}</span>
+                        <span className="text-xs text-gray-400">{item.type}</span>
+                      </button>
+                    ))}
+                    {itemSearchResults.length === 0 && (
+                      <p className="text-xs text-gray-500 italic text-center py-2">No items found</p>
+                    )}
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {/* Weapon Skills */}
+            <div className="mb-6">
+              <h3 className="text-lg font-semibold mb-3">Weapon Skills</h3>
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                {Object.entries(WEAPON_SKILL_LABELS).map(([key, label]) => {
+                  const ws = weaponSkills[key as keyof typeof weaponSkills];
+                  const diceSize = getDiceForSkill(ws.skill);
+                  const preview = ws.talent > 0 ? `${ws.talent}d${diceSize}` : '--';
+                  return (
+                    <div key={key} className="border border-gray-600 rounded p-3">
+                      <div className="flex items-center justify-between mb-2">
+                        <label className="text-sm font-medium text-yellow-400">{label}</label>
+                        <span className="text-sm font-bold text-white">{preview}</span>
+                      </div>
+                      <div className="flex gap-2">
+                        <div className="flex-1">
+                          <label className="block text-xs text-gray-400 mb-1">Talent (dice)</label>
+                          <select
+                            value={ws.talent}
+                            onChange={(e) => setWeaponSkills({
+                              ...weaponSkills,
+                              [key]: { ...ws, talent: parseInt(e.target.value) }
+                            })}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded text-sm"
+                          >
+                            {[0,1,2,3,4,5,6,7,8].map(v => (
+                              <option key={v} value={v}>{v}</option>
+                            ))}
+                          </select>
+                        </div>
+                        <div className="flex-1">
+                          <label className="block text-xs text-gray-400 mb-1">Skill (die size)</label>
+                          <select
+                            value={ws.skill}
+                            onChange={(e) => setWeaponSkills({
+                              ...weaponSkills,
+                              [key]: { ...ws, skill: parseInt(e.target.value) }
+                            })}
+                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded text-sm"
+                          >
+                            {[
+                              { v: 0, l: 'd6' }, { v: 1, l: 'd8' }, { v: 2, l: 'd10' },
+                              { v: 3, l: 'd12' }, { v: 4, l: 'd16' }, { v: 5, l: 'd20' },
+                              { v: 6, l: 'd24' }, { v: 7, l: 'd30' }, { v: 8, l: 'd36' },
+                            ].map(({ v, l }) => (
+                              <option key={v} value={v}>{l}</option>
+                            ))}
+                          </select>
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
@@ -1946,6 +2426,41 @@ const DevCreatureDesigner: React.FC = () => {
                 <p className="text-sm text-gray-400">No spells added. Use "Add Spell from Compendium" to reference existing spells.</p>
               )}
             </div>
+
+            {/* Auto-generated weapon attacks from equipment */}
+            {buildEquipmentAttacks().length > 0 && (
+              <div className="mb-6">
+                <h3 className="text-lg font-semibold mb-3">Equipment Attacks</h3>
+                <div className="space-y-2">
+                  {buildEquipmentAttacks().map((atk, i) => (
+                    <div
+                      key={i}
+                      className="border rounded p-3"
+                      style={{
+                        backgroundColor: 'rgba(34, 197, 94, 0.08)',
+                        borderColor: 'rgba(34, 197, 94, 0.3)',
+                      }}
+                    >
+                      <div className="flex items-center justify-between mb-1">
+                        <div className="flex items-center gap-2">
+                          <span className="text-xs px-1.5 py-0.5 rounded" style={{ backgroundColor: 'rgba(34, 197, 94, 0.2)', color: '#4ade80', fontSize: '0.65rem' }}>AUTO</span>
+                          <span className="font-medium text-white">{atk.name}</span>
+                          <span className="text-yellow-400 text-sm font-bold">{atk.attack.roll}</span>
+                        </div>
+                        <span className="text-xs text-gray-400">
+                          Energy: {atk.cost}
+                        </span>
+                      </div>
+                      <div className="text-sm text-gray-300">
+                        Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} ({atk.attack.category})
+                        {atk.attack.min_range !== 1 || atk.attack.max_range !== 1 ? ` | Range: ${atk.attack.min_range}-${atk.attack.max_range}` : ''}
+                      </div>
+                      <p className="text-xs text-gray-400 mt-1 italic">{atk.description}</p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
 
             <AbilityEditor
               abilities={abilities as AbilityEntry[]}

@@ -1,0 +1,152 @@
+{
+  "id": 131,
+  "name": "Scribe",
+  "mtype": "core",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 2193,
+      "name": "Beginner Scribe",
+      "description": "Gain +2 Scribing. You can Scribe Beginner and Novice Spells to Scrolls.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "AC3=2:TC"
+    },
+    {
+      "id": 2194,
+      "name": "Mass Production",
+      "description": "Gain +1 Initiative. You can use a Piece of Paper instead of Treated Parchment when Researching and Scribing Spells, but you have a -1 Penalty to your Scribe Check.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "TC:ASH=1"
+    },
+    {
+      "id": 2195,
+      "name": "Deceiving Penmanship",
+      "description": "Gain +1 Thievery. Forgeries that you make are indistinguishable if you possess a reference to the writing you are trying to mimic.",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "TG:ASA=1"
+    },
+    {
+      "id": 2196,
+      "name": "Master of the Quill",
+      "description": "You Gain +1 Scribing, +1 Runecarving and +1 Academics",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AS9=1:AC3=1:AC4=1"
+    },
+    {
+      "id": 2197,
+      "name": "Chronicler",
+      "description": "As part of taking a Full Rest, you spend 1 Hour journaling the events of the day that you can reference accurately in the future by consulting the journal. Additionally, you can recall any writing or symbols you have read, even if it is in a Language you do not understand.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 2198,
+      "name": "Reaction : Field Research",
+      "description": "When a Creature Channels a Spell within 10 Units of you that you can See and Hear, you use your Reaction to attempt to jot down a quick note about the Spell. If you Research this Spell in the future, you gain a +2 Bonus to your Scribe Check and use a Powdered Metal of one tier less than the one required.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 2199,
+      "name": "Researcher",
+      "description": "Gain +1 Arcanum and +1 Scribing",
+      "mtype": "core",
+      "location": "5",
+      "cost": 2,
+      "data": "AC3=2:AS9=1"
+    },
+    {
+      "id": 2200,
+      "name": "Embedded Components",
+      "description": "You can Scribe Scrolls that consume Components by adding the Component as an Ingredient in your Recipe.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2201,
+      "name": "Instructions Included",
+      "description": "When others use Scrolls you Scribed, the Scrolls have a Spell Attack of 3 and a Spell Damage Bonus Modifier equal to your Scribing Skill at the time of the Check.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2202,
+      "name": "Improved Scribing",
+      "description": "Gain +1 Scribing. You can Scribe Journeyman Spells that you have access.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 2,
+      "data": "TC:AC3=1"
+    },
+    {
+      "id": 2203,
+      "name": "Action : Perfect Recital",
+      "description": "You Channel a Scroll that requires one Action but use your Scribe Bonus as both the Spell Attack and double your Scribe Bonus as the Spell Damage Bonus Modifier.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 2204,
+      "name": "Ritualistic Scribing",
+      "description": "You can Scribe Spells that have a Channel Time of more than 1 minute.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2205,
+      "name": "Expert Scribe",
+      "description": "Gain +1 Scribing. You can Scribe Expert Spells that you have access to and Use Expert Scrolls.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 3,
+      "data": "TC:AC3=1"
+    },
+    {
+      "id": 2206,
+      "name": "Taboo Magic",
+      "description": "Pick an Exotic Magic type. You can Research and Scribe Spells from that School.",
+      "mtype": "core",
+      "location": "10a",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2207,
+      "name": "Collector of Knowledge",
+      "description": "You can Research and Scribe Journeyman or lower Spells from any Traditional School of Magic.",
+      "mtype": "core",
+      "location": "10b",
+      "cost": 3,
+      "data": "TC"
+    },
+    {
+      "id": 2208,
+      "name": "Master Scribe",
+      "description": "Gain +2 Scribing. You can Scribe Master and Grand Master Spells that you have access to and use Master Scrolls. Additionally, when you fail to Scribe Check to Scribe a Spell, you can attempt the Recipe one more time by using another Treated Parchment",
+      "mtype": "core",
+      "location": "11",
+      "cost": 5,
+      "data": "AC3=2:TC"
+    }
+  ]
+}

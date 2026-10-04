@@ -4,7 +4,7 @@
   "charge": "Creatures whose concentration is doubled by your spell check become stunned instead of dazed.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Opal"
   ],

@@ -4,7 +4,7 @@
   "charge": "Any bleeding condition the target has is also removed.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "silver shavings"
   ],

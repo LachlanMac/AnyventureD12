@@ -12,7 +12,8 @@ import CreatureSpellCard from '../components/creature/CreatureSpellCard';
 import CreatureTraitCard from '../components/creature/CreatureTraitCard';
 import CreatureSidebar from '../components/creature/CreatureSidebar';
 import { useCreature } from '../hooks/useCreatures';
-import { getAllSpells } from '../utils/creatureUtils';
+import { getAllSpells, DAMAGE_TYPES } from '../utils/creatureUtils';
+import { getDiceForSkill } from '../utils/combatUtils';
 
 const CreatureDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -48,8 +49,109 @@ const CreatureDetail: React.FC = () => {
 
   const { regular: regularSpells, custom: customSpells } = getAllSpells(creature);
 
+  // Calculate effective mitigation (base + equipment)
+  const effectiveMitigation = (() => {
+    const base = JSON.parse(JSON.stringify(creature.mitigation || {}));
+    if (creature.resolvedEquipment) {
+      for (const [, item] of Object.entries(creature.resolvedEquipment) as [string, any][]) {
+        if (item?.mitigation) {
+          for (const [type, value] of Object.entries(item.mitigation) as [string, any][]) {
+            if (!base[type]) base[type] = { min: 0, max: 25 };
+            if (typeof value === 'object' && value !== null) {
+              base[type].min += value.min || 0;
+              base[type].max += value.max || 0;
+            } else if (typeof value === 'number') {
+              base[type].min += value;
+            }
+          }
+        }
+      }
+    }
+    return base;
+  })();
+
+  // Generate weapon attacks from resolved equipment
+  const equipmentAttacks = (() => {
+    const attacks: any[] = [];
+    if (creature.resolvedEquipment) {
+      const categoryMap: Record<string, string> = {
+        brawling: 'brawling', throwing: 'throwing',
+        simpleMelee: 'simpleMeleeWeapons', simpleRanged: 'simpleRangedWeapons',
+        complexMelee: 'complexMeleeWeapons', complexRanged: 'complexRangedWeapons',
+        simpleMeleeWeapons: 'simpleMeleeWeapons', simpleRangedWeapons: 'simpleRangedWeapons',
+        complexMeleeWeapons: 'complexMeleeWeapons', complexRangedWeapons: 'complexRangedWeapons',
+      };
+
+      for (const [slot, item] of Object.entries(creature.resolvedEquipment) as [string, any][]) {
+        if (!item || item.type !== 'weapon') continue;
+        const rawCat = item.weapon_category || 'simpleMelee';
+        const skillKey = categoryMap[rawCat] || rawCat;
+        const ws = creature.weaponSkills?.[skillKey] || { talent: 0, skill: 0 };
+        const diceSize = getDiceForSkill(ws.skill);
+        const rollFormula = ws.talent > 0 ? `${ws.talent}d${diceSize}` : '1d6';
+        const primary = item.primary || {};
+
+        attacks.push({
+          name: item.name,
+          cost: primary.energy || 0,
+          type: 'attack',
+          magic: false,
+          basic: true,
+          round: false,
+          daily: false,
+          spellType: 'normal',
+          description: `The ${creature.name} makes an attack with their ${item.name}, dealing ${primary.damage_type || 'physical'} damage.`,
+          reaction: false,
+          _isEquipmentAttack: true,
+          attack: {
+            roll: rollFormula,
+            damage: primary.damage || '0',
+            damage_extra: primary.damage_extra || '0',
+            damage_type: primary.damage_type || 'physical',
+            category: primary.category || 'slash',
+            min_range: primary.min_range || 1,
+            max_range: primary.max_range || 1
+          }
+        });
+      }
+    }
+
+    // Add unarmed attack if enabled
+    if (creature.canUnarmedAttack) {
+      const physTalent = creature.attributes?.physique?.talent || 1;
+      const fitnessSkill = creature.skills?.fitness?.value || 0;
+      const diceSize = getDiceForSkill(fitnessSkill);
+      const attackName = creature.unarmedAttackName || 'Unarmed Strike';
+
+      attacks.push({
+        name: attackName,
+        cost: 0,
+        type: 'attack',
+        magic: false,
+        basic: true,
+        round: false,
+        daily: false,
+        spellType: 'normal',
+        description: `The ${creature.name} makes a ${attackName.toLowerCase()} attack, dealing ${physTalent} physical damage per hit.`,
+        reaction: false,
+        _isEquipmentAttack: true,
+        attack: {
+          roll: `${physTalent}d${diceSize}`,
+          damage: String(physTalent),
+          damage_extra: String(physTalent),
+          damage_type: 'physical',
+          category: 'blunt',
+          min_range: 1,
+          max_range: 1
+        }
+      });
+    }
+
+    return attacks;
+  })();
+
   // Separate spell-type abilities from regular actions/reactions
-  const nonSpellActions = creature.actions.filter((a: any) => a.type !== 'spell');
+  const nonSpellActions = [...equipmentAttacks, ...creature.actions.filter((a: any) => a.type !== 'spell')];
   const nonSpellReactions = creature.reactions.filter((r: any) => r.type !== 'spell');
   const spellActions = creature.actions.filter((a: any) => a.type === 'spell');
   const spellReactions = creature.reactions.filter((r: any) => r.type === 'spell');
@@ -71,6 +173,45 @@ const CreatureDetail: React.FC = () => {
         </Link>
       </div>
 
+      {/* Variant Navigation */}
+      {creature.variants && creature.variants.length > 0 && (
+        <div style={{ marginBottom: '1rem', display: 'flex', gap: '0.5rem', flexWrap: 'wrap', alignItems: 'center' }}>
+          <span style={{ color: 'var(--color-cloud)', fontSize: '0.8rem', marginRight: '0.5rem' }}>Variants:</span>
+          <Link
+            to={`/bestiary/${creature._id}`}
+            style={{
+              padding: '0.375rem 0.75rem',
+              borderRadius: '0.375rem',
+              fontSize: '0.8rem',
+              fontWeight: 'bold',
+              textDecoration: 'none',
+              backgroundColor: 'rgba(130, 80, 200, 0.3)',
+              border: '1px solid rgba(130, 80, 200, 0.5)',
+              color: '#b794f4',
+            }}
+          >
+            {creature.name} {creature.variantOf ? '' : '(Base)'}
+          </Link>
+          {creature.variants.map((v: any) => (
+            <Link
+              key={v._id}
+              to={`/bestiary/${v._id}`}
+              style={{
+                padding: '0.375rem 0.75rem',
+                borderRadius: '0.375rem',
+                fontSize: '0.8rem',
+                textDecoration: 'none',
+                backgroundColor: 'rgba(130, 80, 200, 0.1)',
+                border: '1px solid rgba(130, 80, 200, 0.3)',
+                color: '#b794f4',
+              }}
+            >
+              {v.name}
+            </Link>
+          ))}
+        </div>
+      )}
+
       <div style={{ display: 'grid', gridTemplateColumns: '2fr 1fr', gap: '2rem' }}>
         {/* Main Stat Block */}
         <div style={{ display: 'flex', flexDirection: 'column', gap: '1.5rem' }}>
@@ -79,7 +220,7 @@ const CreatureDetail: React.FC = () => {
             <CardBody>
               <CreatureHeader creature={creature} />
               <CreatureStatGrid attributes={creature.attributes} skills={creature.skills} />
-              <MitigationGrid mitigation={creature.mitigation} />
+              <MitigationGrid mitigation={effectiveMitigation} />
               <CreatureCastingAbilities magicSkills={creature.magicSkills} />
             </CardBody>
           </Card>

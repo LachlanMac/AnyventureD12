@@ -1,0 +1,21 @@
+{
+  "name": "Aetherspike",
+  "description": "You target a creature within moderate (20 unit) range and drive a spike of chaotic energy through them, dealing 8 aetheric damage. For every other creature within a very short (5 unit) radius of the target, the damage increases based on their tier: minions and grunts add 1, standard creatures add 2, champion and higher add 3. If you do not roll at least 2 successes, the spike targets a random creature within range instead.",
+  "charge": "The radius for counting additional creatures increases to short (10 units).",
+  "duration": "Instantaneous",
+  "range": 5,
+  "checkToCast": 16,
+  "components": [
+    "Void Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 8,
+  "damageType": "Aetheric",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "defense",
+  "delivery": "projectile"
+}

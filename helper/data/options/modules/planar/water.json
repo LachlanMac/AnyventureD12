@@ -1,0 +1,143 @@
+{
+  "id": 23,
+  "name": "Planar [Water]",
+  "mtype": "planar",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 10001,
+      "name": "Minor Planar Magic",
+      "description": "You learn 4 Beginner Spells from the Fiend or Aquamancy schools of magic.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 10002,
+      "name": "Waterborn",
+      "description": "You gain a swim speed equal to your movement speed and the ability to breath under water.",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "T6:TG"
+    },
+    {
+      "id": 10003,
+      "name": "Abyssal Speech",
+      "description": "You gain the Abyssal Language and gain +1 Spell Damage",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZ4=1:ALM"
+    },
+    {
+      "id": 10004,
+      "name": "Defense of the Cold Depths",
+      "description": "Gain +3 Dark and +3 Cold Mitigation",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AD7=3:AD5=3"
+    },
+    {
+      "id": 10005,
+      "name": "Action [Daily] : Elemental Form",
+      "description": "You take the form of a Water Sprite, gaining it's stat block for 1 minute or until you reach 0 Health. At Level 5, this ability improves, allowing you to take the form of an Water Elementaling instead. At Level 9, you can take the form of an Water Elemental",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "XD1"
+    },
+    {
+      "id": 10006,
+      "name": "Icecraft",
+      "description": "You can spend 1 minute creating either a light melee weapon or a piece of ammunition out of an area of water greater in size than 1 cubic unit which is not consumed. This ammunition or weapon has it's primary damage converted to eiterh Dark or Cold Damage and melts at the end of your next Full Rest.",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 10007,
+      "name": "Lesser Planar Magic",
+      "description": "You learn 4 Novice Spells from the Fiend or Aquamancy schools of magic.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 3,
+      "data": ""
+    },
+    {
+      "id": 10008,
+      "name": "Action : Cold Flames",
+      "description": "You target a creature that is ignited and turn the flame cold and blue, causing the condition to deal cold damage instead. A creature must spend 2 actions to put out a cold flame as opposed to one. This ability can also be used on an open flame that fits within a 1 unit cube.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 10009,
+      "name": "Devil's Sight",
+      "description": "You gain +2 Search and Ultravision, but suffer a -4 penalty to your Divine Mitigation.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "ASG=2:DU:AD8=-4"
+    },
+    {
+      "id": 10010,
+      "name": "Planar Magic",
+      "description": "You learn 4 Journeyman Spells from the Fiend or Aquamancy schools of magic.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": ""
+    },
+    {
+      "id": 10011,
+      "name": "Reaction [Daily] : Refreshing Ice",
+      "description": "In response to taking enough Cold Damage to penetrate your Mitigation, you gain the Frozen Condition. At the start of each turn, you recover Health equal to your level. This condition ends when you reach full Health or the condition ends from taking Fire Damage.",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "ZD1"
+    },
+    {
+      "id": 10012,
+      "name": "Frozen Aura",
+      "description": "When an enemy creature starts their turn within 2 units of you, their Movement Speed is halved for the first Move Action they take. You can activate and deactivate this ability at will.",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "TD"
+    },
+    {
+      "id": 10013,
+      "name": "Greater Planar Magic",
+      "description": "You learn 4 Expert Spells from the Fiend or Aquamancy schools of magic. At level 10, learn 2 Master Spells from the Fiend or Aquamancy schools of magic. Additionally, gain +1 Spell Attack and +1 Spell Damage.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "AZ4=1:AZ2=1"
+    },
+    {
+      "id": 10014,
+      "name": "Action : Become Water",
+      "description": "You teleport to a Location within a body of or a cloud of steam that you can see within 10 nits without provoking Reactions. The area must be large enough to completely surround your form.",
+      "mtype": "core",
+      "location": "a",
+      "cost": 0,
+      "data": "XX3"
+    },
+    {
+      "id": 10015,
+      "name": "Abyssal Connection",
+      "description": "You have a connection with the Abyssal Plane, or one of it's adjacent planes, manifesting in minor or major changes to your appearance.",
+      "mtype": "core",
+      "location": "b",
+      "cost": 0,
+      "data": "TA"
+    }
+  ]
+}

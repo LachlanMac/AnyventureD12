@@ -4,7 +4,7 @@
   "charge": "You can manipulate elements within a very short (5 unit) distance instead of by touch.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Pinch of Crystal Dust"
   ],

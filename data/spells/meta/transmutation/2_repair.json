@@ -4,7 +4,7 @@
   "charge": "An object that is missing parts or pieces can be repaired if you have 80% or more of the original object. This spell will fail if the value of the missing pieces exceeds the value of the object in it's current state.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 2,
+  "checkToCast": 4,
   "components": [
     "Pine Resin"
   ],

@@ -1,0 +1,71 @@
+{
+  "id": 246,
+  "name": "Sentinel",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1526,
+      "name": "Guardian of Knowledge",
+      "description": "Gain +1 Academics and +1 Insight",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AS9=1:ASD=1"
+    },
+    {
+      "id": 1527,
+      "name": "Reaction : Interpose",
+      "description": "In response to an Enemy Creature Moving within 1 Unit of an Ally, you can move up to 4 Units towards that ally. If you end up within 1 Unit of both the ally and enemy, you can make an Attack Action against that target.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1528,
+      "name": "Reaction : Know Thine Enemy",
+      "description": "When a Creature Attacks you with a Melee Attack, you can use your Academics Skill in place of a Dodge Check",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1529,
+      "name": "Well Learned",
+      "description": "Become Good at one Knowledge Skill",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1530,
+      "name": "The Art of Defense",
+      "description": "Gain +1 Dodge and +1 Block",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AD2=1:AD3=1"
+    },
+    {
+      "id": 1531,
+      "name": "Sentinel Stance",
+      "description": "Gain the Sentinel Stance and +1 Academics.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "H=19:AS9=1"
+    },
+    {
+      "id": 1532,
+      "name": "Free Action : Feint",
+      "description": "You make a quick Attack with a Light 2-Handed Weapon meant to distract, only dealing Primary Damage equal to the Bonus Damage Modifier and causing your Target to have a 1d4 Penalty to their next Defense Check before the start of your next turn. If the next Attack is a True Hit, the Damage is increased by 1d10.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "Y"
+    }
+  ]
+}

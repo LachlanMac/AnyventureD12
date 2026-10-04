@@ -1,0 +1,183 @@
+{
+  "name": "Ghoul",
+  "description": "A deadly undead predator that leads packs of lesser ghouls. Ghouls are fast, agile, and intelligent enough to coordinate ambushes and flanking maneuvers.",
+  "tactics": "Ghouls coordinate with their pack, using lesser ghouls to flank and surround prey before moving in for the paralyzing bite.",
+  "tier": "standard",
+  "type": "undead",
+  "subcategory": "Risen",
+  "size": "medium",
+  "foundry_portrait": "",
+  "health": {
+    "max": 28,
+    "current": 28
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 3
+  },
+  "resolve": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": 7,
+    "climb": 3,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": { "talent": 2 },
+    "finesse": { "talent": 3 },
+    "mind": { "talent": 1 },
+    "knowledge": { "talent": 0 },
+    "social": { "talent": 0 }
+  },
+  "skills": {
+    "fitness": { "value": 2, "tier": 0 },
+    "deflection": { "value": 1, "tier": 0 },
+    "might": { "value": 2, "tier": 0 },
+    "endurance": { "value": 3, "tier": 0 },
+    "evasion": { "value": 3, "tier": 0 },
+    "stealth": { "value": 3, "tier": 0 },
+    "coordination": { "value": 3, "tier": 0 },
+    "thievery": { "value": 0, "tier": 0 },
+    "resilience": { "value": 2, "tier": 0 },
+    "concentration": { "value": 1, "tier": 0 },
+    "senses": { "value": 4, "tier": 0 },
+    "logic": { "value": -1, "tier": 0 },
+    "wildcraft": { "value": -1, "tier": 0 },
+    "academics": { "value": -1, "tier": 0 },
+    "magic": { "value": -1, "tier": 0 },
+    "medicine": { "value": -1, "tier": 0 },
+    "expression": { "value": -1, "tier": 0 },
+    "presence": { "value": 1, "tier": 0 },
+    "insight": { "value": 0, "tier": 0 },
+    "persuasion": { "value": -1, "tier": 0 }
+  },
+  "weaponSkills": {
+    "brawling": { "talent": 3, "skill": 1 },
+    "throwing": { "talent": 0, "skill": 0 },
+    "simpleMeleeWeapons": { "talent": 2, "skill": 1 },
+    "simpleRangedWeapons": { "talent": 0, "skill": 0 },
+    "complexMeleeWeapons": { "talent": 0, "skill": 0 },
+    "complexRangedWeapons": { "talent": 0, "skill": 0 }
+  },
+  "mitigation": {
+    "physical": { "min": 1, "max": 25 },
+    "cold": { "min": 0, "max": 25 },
+    "heat": { "min": 0, "max": 25 },
+    "electric": { "min": 0, "max": 25 },
+    "psychic": { "min": 0, "max": 25 },
+    "dark": { "min": 3, "max": 25 },
+    "divine": { "min": 0, "max": 25 },
+    "aetheric": { "min": 0, "max": 25 },
+    "toxic": { "min": 25, "max": 0 }
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 5,
+    "infravision": 0,
+    "deadsight": 0,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "alert": false,
+    "broken": true,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "maddened": false,
+    "numbed": true,
+    "stunned": false,
+    "bleeding": true,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
+    "incapacitated": false,
+    "muted": false,
+    "obscured": false,
+    "poisoned": true,
+    "prone": false,
+    "stasis": false,
+    "unconscious": false,
+    "winded": false
+  },
+  "canUnarmedAttack": true,
+  "unarmedAttackName": "Claw",
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [
+    {
+      "name": "Frenzy",
+      "cost": 1,
+      "type": "attack",
+      "magic": false,
+      "description": "The ghoul makes a frenzied claw attack against an adjacent creature. If the target is bleeding, this attack deals an additional 5 physical damage.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d10",
+        "damage": "4",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1
+      }
+    },
+    {
+      "name": "Ghoul Bite",
+      "cost": 2,
+      "type": "attack",
+      "magic": false,
+      "description": "The ghoul sinks its teeth into an adjacent creature. If at least 4 dice hit, the target is paralyzed until the end of their next turn.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d10",
+        "damage": "4",
+        "damage_extra": "3",
+        "damage_type": "physical",
+        "category": "pierce",
+        "min_range": 1,
+        "max_range": 1
+      }
+    }
+  ],
+  "reactions": [],
+  "traits": [
+    {
+      "name": "Pack Hunter",
+      "description": "When a higher-tiered ghoul is within a very short (5 unit) distance, this ghoul gains a bonus die on attack rolls."
+    },
+    {
+      "name": "Scent of Blood",
+      "description": "This ghoul gains a bonus die on attack rolls against creatures that have the bleeding condition."
+    },
+    {
+      "name": "Blood Frenzy",
+      "description": "If a creature is bleeding within a moderate (20 unit) radius, this ghoul must roll a resilience check of 8 at the start of their turn or become maddened until the end of their turn, only targeting bleeding creatures."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 2,
+  "shieldLevel": 0,
+  "source": "Official",
+  "isHomebrew": false
+}

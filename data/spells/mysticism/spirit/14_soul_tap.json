@@ -1,0 +1,21 @@
+{
+  "name": "Soul Tap",
+  "description": "You touch a creature and tap into their soul, dealing 10 true damage if your spell check beats the target's resilience. As part of the same action, you can transfer half the damage dealt as health to another creature of the same type (humanoid to humanoid, beast to beast) within a very short (5 unit) distance.",
+  "charge": "You can heal any creature regardless of the type of your target.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 16,
+  "components": [
+    "Amethyst Dust"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 3,
+  "damage": 10,
+  "damageType": "True",
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "resilience",
+  "delivery": "direct"
+}

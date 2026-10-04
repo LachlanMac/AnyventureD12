@@ -4,7 +4,7 @@
   "charge": "You increase your odds of being heard, only requiring a 3 or higher.",
   "duration": "1 round",
   "range": 0,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Brass Idol"
   ],

@@ -4,7 +4,7 @@
   "charge": "You can reincarnate the soul into a specific body of a humanoid or beast that has died within the last day, bypassing the one year minimum.",
   "duration": "Instantaneous",
   "range": 0,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Diamond"
   ],

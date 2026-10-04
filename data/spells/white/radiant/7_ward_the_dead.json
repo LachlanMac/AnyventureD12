@@ -4,7 +4,7 @@
   "charge": "The spell instead affects all creatures within 2-unit radius area centered at a point you can see within a short (10 unit) distance.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Silver Nugget"
   ],

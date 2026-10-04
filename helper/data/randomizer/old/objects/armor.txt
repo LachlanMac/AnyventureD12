@@ -1,0 +1,10 @@
+5001,Scalemail Armor,Scalemail Armor
+5002,Plate Armor,Plate Armor
+5003,Chain Armor,Chain Armor
+5004,Helmet,Helmets
+5005,Horned Helmet,Horned Helmets
+5005,Bracers,Bracers
+5006,Tiara,Tiaras
+5007,Crown,Crowns
+5008,Plate Boots,Plate Boots
+5009,Shield,Shields

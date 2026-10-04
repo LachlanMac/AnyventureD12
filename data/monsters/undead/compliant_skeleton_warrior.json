@@ -1,0 +1,252 @@
+{
+  "name": "Compliant Skeleton Warrior",
+  "description": "A formidable skeletal warrior animated by potent dark magic. Skeleton warriors retain significant combat skill and can wield complex weapons with deadly proficiency. Unlike standard undead, compliant variants retain enough intelligence to follow complex commands without requiring direct magical control.",
+  "tactics": "",
+  "tier": "standard",
+  "type": "undead",
+  "subcategory": "Risen",
+  "size": "medium",
+  "foundry_portrait": "",
+  "health": {
+    "max": 25,
+    "current": 25
+  },
+  "energy": {
+    "max": 5,
+    "current": 5,
+    "recovery": 3
+  },
+  "resolve": {
+    "max": 0,
+    "current": 0,
+    "recovery": 0
+  },
+  "movement": {
+    "walk": 5,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 2
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 2
+    },
+    "knowledge": {
+      "talent": 0
+    },
+    "social": {
+      "talent": 0
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 2,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 2,
+      "tier": 0
+    },
+    "might": {
+      "value": 2,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 3,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 2,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 1,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 2,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 4,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 2,
+      "tier": 0
+    },
+    "senses": {
+      "value": 3,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": -1,
+      "tier": 0
+    },
+    "academics": {
+      "value": -1,
+      "tier": 0
+    },
+    "magic": {
+      "value": -1,
+      "tier": 0
+    },
+    "medicine": {
+      "value": -1,
+      "tier": 0
+    },
+    "expression": {
+      "value": -1,
+      "tier": 0
+    },
+    "presence": {
+      "value": -1,
+      "tier": 0
+    },
+    "insight": {
+      "value": -1,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": -1,
+      "tier": 0
+    }
+  },
+  "weaponSkills": {
+    "brawling": {
+      "talent": 2,
+      "skill": 0
+    },
+    "throwing": {
+      "talent": 2,
+      "skill": 0
+    },
+    "simpleMeleeWeapons": {
+      "talent": 4,
+      "skill": 2
+    },
+    "simpleRangedWeapons": {
+      "talent": 4,
+      "skill": 1
+    },
+    "complexMeleeWeapons": {
+      "talent": 4,
+      "skill": 1
+    },
+    "complexRangedWeapons": {
+      "talent": 0,
+      "skill": 0
+    }
+  },
+  "mitigation": {
+    "physical": {
+      "min": 1,
+      "max": 25
+    },
+    "cold": {
+      "min": 0,
+      "max": 25
+    },
+    "heat": {
+      "min": 0,
+      "max": 25
+    },
+    "electric": {
+      "min": 0,
+      "max": 25
+    },
+    "psychic": {
+      "min": 0,
+      "max": 25
+    },
+    "dark": {
+      "min": 3,
+      "max": 25
+    },
+    "divine": {
+      "min": 0,
+      "max": 25
+    },
+    "aetheric": {
+      "min": 0,
+      "max": 25
+    },
+    "toxic": {
+      "min": 25,
+      "max": 0
+    }
+  },
+  "detections": {
+    "normal": 0,
+    "darksight": 5,
+    "infravision": 0,
+    "deadsight": 5,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "alert": false,
+    "broken": true,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "maddened": false,
+    "numbed": true,
+    "stunned": false,
+    "bleeding": true,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
+    "incapacitated": false,
+    "muted": false,
+    "obscured": false,
+    "poisoned": true,
+    "prone": false,
+    "stasis": false,
+    "unconscious": false,
+    "winded": false
+  },
+  "canUnarmedAttack": true,
+  "unarmedAttackName": "Claw",
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "actions": [],
+  "reactions": [],
+  "traits": [
+    {
+      "name": "Brittle Bones",
+      "description": "Skeletons take double damage from blunt physical damage sources."
+    },
+    {
+      "name": "Compliant",
+      "description": "This undead can follow complex commands and perform non-combat tasks without requiring the Command Undead action."
+    }
+  ],
+  "loot": [],
+  "languages": [],
+  "challenge_rating": 1,
+  "shieldLevel": 0,
+  "source": "Official",
+  "isHomebrew": false,
+  "variantOf": "Skeleton Warrior"
+}

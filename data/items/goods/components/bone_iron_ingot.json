@@ -1,0 +1,23 @@
+{
+  "name": "Bone Iron Ingot",
+  "description": "A dark, dense metal alloy forged by combining iron with ground bone and crushed onyx. The resulting ingot has a matte black finish with visible bone-white veins running through it. The forging process requires precise temperature control to prevent the bone from disintegrating before it fuses with the metal.",
+  "type": "goods",
+  "tags": [
+    "component",
+    "metal",
+    "ingot"
+  ],
+  "weight": 4,
+  "value": 1500,
+  "rarity": "rare",
+  "recipe": {
+    "type": "fabrication",
+    "difficulty": 10,
+    "ingredients": [
+      "Iron Ingot",
+      "Bone Dust",
+      "Onyx"
+    ]
+  },
+  "foundry_icon": "icons/commodities/metal/ingot-iron.webp"
+}

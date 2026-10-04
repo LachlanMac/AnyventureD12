@@ -4,7 +4,7 @@
   "charge": "the creatures are pulled 3 units instead and the collision deals 15 physical damage.",
   "duration": "Concentration",
   "range": 5,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Lodestone"
   ],

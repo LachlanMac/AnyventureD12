@@ -31,8 +31,8 @@ Choose one option from each category: restriction, benefit, and starting item.
 Determine your character's initial power level:
 
 ### Module Points
-- **Default**: 10 module points (Adventurer Start)
-- **Alternatives**: 4 (Commoner), 20 (Local Hero), 30 (Champion)
+- **Default**: 15 module points (New Adventurer)
+- **Alternatives**: 5 (Commoner), 25 (Seasoned Adventurer), 35 (Local Hero), 45 (Champion)
 - Used to purchase modules and module options
 - See [module point guidelines](/wiki/modules#module-points-guidelines) for details
 
@@ -40,6 +40,7 @@ Determine your character's initial power level:
 - **Default**: 8 talent points to distribute
 - Used to purchase weapon, magic, and crafting talents
 - Cannot exceed 4 points in any single talent category
+- **Crafting Bonus**: The first talent point invested in a crafting skill grants 2 talent instead of 1
 
 <div class="triangle-line"></div>
 

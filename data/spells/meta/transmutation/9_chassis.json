@@ -4,7 +4,7 @@
   "charge": "The target's heat, cold and electric mitigation limit is set to 15.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Hematite"
   ],

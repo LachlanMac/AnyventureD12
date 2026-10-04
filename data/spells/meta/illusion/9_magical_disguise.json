@@ -4,7 +4,7 @@
   "charge": "You can disguise the target as a creature that is up to one size larger than it.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Bundle of Saffron"
   ],

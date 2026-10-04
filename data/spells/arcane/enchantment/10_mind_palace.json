@@ -4,7 +4,7 @@
   "charge": "The duration extends to 1 day, and the psychic mitigation limit is set to 5 instead of 10.",
   "duration": "1 hour",
   "range": 1,
-  "checkToCast": 10,
+  "checkToCast": 12,
   "components": [
     "Alexandrite"
   ],

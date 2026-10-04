@@ -1,0 +1,71 @@
+{
+  "id": 213,
+  "name": "Champion",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1295,
+      "name": "Glory Shield",
+      "description": "When you kill an enemy with a Melee Weapon, you gain Temporary Health equal to the Level of the Enemy killed that lasts for 1 minute.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1296,
+      "name": "Flexible Armor",
+      "description": "Gain +2 Dodge while wearing Medium Armor or Heavy Armor",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "W2D2=2"
+    },
+    {
+      "id": 1297,
+      "name": "Champion",
+      "description": "Gain +1 Damage to Melee Attacks and +1 Athletics",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZA=1:AZB=1:AZC=1:AZN=1:AS1=1"
+    },
+    {
+      "id": 1298,
+      "name": "Free Action : Brutalize",
+      "description": "When you deal a killing blow to an Enemy, you can use your Free Action to brutally savage them. You make a Contested Performance Check against the Resilience of any Enemy within 4 Units. On a success, they become Afraid of you until the start of your next turn.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1299,
+      "name": "Shotcaller",
+      "description": "Your Called Shots do not suffer an Attack Penalty",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1300,
+      "name": "Gladiator",
+      "description": "Gain +1 Block and +1 Damage to Piercing Weapons",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AD3=1:AZC=1"
+    },
+    {
+      "id": 1301,
+      "name": "Action [Daily]: Finisher",
+      "description": "Make an Attack against a Creature which is an automatic True Hit if it lands. If the Target is Afraid, this Attack gains a 1d4 Bonus. If you use the Brutalize Free Action after making this Attack, this Action is refunded.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "XD1"
+    }
+  ]
+}

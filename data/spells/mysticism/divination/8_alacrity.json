@@ -4,7 +4,7 @@
   "charge": "Target an additional creature for this spell within range.",
   "duration": "Concentration",
   "range": 3,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Vial of Quicksilver"
   ],

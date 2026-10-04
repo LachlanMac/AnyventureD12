@@ -4,7 +4,7 @@
   "charge": "The target of this spell also gains a bonus dice to all physique checks.",
   "duration": "1 Minute",
   "range": 1,
-  "checkToCast": 3,
+  "checkToCast": 5,
   "components": [
     "Rubber Sap"
   ],

@@ -4,7 +4,7 @@
   "charge": "Their energy is instead restored to full.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 4,
+  "checkToCast": 6,
   "components": [
     "Bundle of Mint"
   ],

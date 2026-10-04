@@ -1,0 +1,21 @@
+{
+  "name": "Hex Chain",
+  "description": "You link two creatures within a short (10 unit) distance if your spell check beats both targets' resilience. This spell fails if there are not at least two valid targets. While you concentrate, whenever one linked creature takes dark damage, the other takes half of that damage as dark damage.",
+  "charge": "You link up to four creatures instead of two.",
+  "duration": "Concentration",
+  "range": 4,
+  "checkToCast": 15,
+  "components": [
+    "Bonding Paste"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "resilience",
+  "delivery": "direct"
+}

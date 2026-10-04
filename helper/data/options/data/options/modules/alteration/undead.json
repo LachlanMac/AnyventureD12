@@ -1,0 +1,143 @@
+{
+  "id": 29,
+  "name": "Undead",
+  "mtype": "alteration",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 10001,
+      "name": "Curse of Gloombarrow",
+      "description": "When you reach 0 Health, you do not enter Lifeline. Instead, you die and reanimate with full health in 1d4 days. When you complete a full rest, you lose any conditions affecting you, gain full health and you regenerate any lost body parts unless your body was completely destroyed.",
+      "mtype": "core",
+      "location": "1",
+      "cost": 2,
+      "data": "TA"
+    },
+    {
+      "id": 10002,
+      "name": "Grotesque Form",
+      "description": "Your body has become grotesque due to the curse, but more durable. You gain +8 health but suffer a -2 Penalty to your Persuasion",
+      "mtype": "core",
+      "location": "2a",
+      "cost": 2,
+      "data": "AH=8:ASC=-2"
+    },
+    {
+      "id": 10003,
+      "name": "Ancient Knowledge",
+      "description": "Learn 1 Magical Language and 1 Non-Magical Language. Additionally, gain +1 Arcanum and +1 Academics",
+      "mtype": "core",
+      "location": "2b",
+      "cost": 2,
+      "data": "AS7=1:AS9=1"
+    },
+    {
+      "id": 10004,
+      "name": "Deadskin",
+      "description": "You gain Immunity to the Wounded Condition and Gain +1 Physical and +2 Dark Mitigation",
+      "mtype": "core",
+      "location": "3",
+      "cost": 2,
+      "data": "AD4=1:AD7=2:I=26"
+    },
+    {
+      "id": 10005,
+      "name": "Action : Detatchable Parts",
+      "description": "You detatch either a hand or eyeball from your body. When the hand is detatched in this way, it takes on the Undead Hand Statblock which you control. An eye detatched in this way grants you Sight in a 4 unit radius from the location of the eyeball when it is less than 100 Units away. A body part can be reattached by using this Action again.",
+      "mtype": "core",
+      "location": "4a",
+      "cost": 2,
+      "data": "XX3"
+    },
+    {
+      "id": 10007,
+      "name": "Ghoulish Desires",
+      "description": "You can spend 1 Minute consuming a Medium or smaller Beast or Humanoid corpse, gaining Temporary Health equal to twice it's level that lasts until the end of your next full rest",
+      "mtype": "core",
+      "location": "4b",
+      "cost": 3,
+      "data": "TA"
+    },
+    {
+      "id": 10006,
+      "name": "Reaction : Undead Fortitude",
+      "description": "In response to being the target of an ability that requires you to make a Resilience or Resistance Check, gain a 1d6 Bonus to your roll. If the resulting ability deals Psychic Damage, that damage is halved before applying mitigations.",
+      "mtype": "core",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    },
+    {
+      "id": 10011,
+      "name": "Free Action : Tainted Bile",
+      "description": "You smear a Weapon with bile, tainting it for the next Attack you take before the end of your turn. When you deal Physical Damage with this Weapon, the creature must make a Resilience Check against the total damage dealt after Mitigation or they get a modified version of the Poisoned Condition which deals 2d4 Dark Damage and prevents a Creature from recovering Health while affected.",
+      "mtype": "core",
+      "location": "6a",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 10012,
+      "name": "Action [Daily] : Banshee Scream",
+      "description": "You unleash a wave of sonic energy in a 4 Unit Radius dealing 1d4 Dark Damage per Level. Humanoids and Beasts that are lower Level than you become Afraid until the end of your next turn.",
+      "mtype": "core",
+      "location": "6b",
+      "cost": 2,
+      "data": "XD1"
+    },
+    {
+      "id": 10013,
+      "name": "Eyes of the Dead",
+      "description": "You Gain +2 Search and the Undead variant of Ultravision.",
+      "mtype": "core",
+      "location": "7",
+      "cost": 3,
+      "data": "ASG=2:DU"
+    },
+    {
+      "id": 10010,
+      "name": "Supernatural Strength",
+      "description": "Gain +1 Strength, +1 Athletics and +1 Damage with Melee Attacks",
+      "mtype": "core",
+      "location": "8a",
+      "cost": 2,
+      "data": "AS1=1:AS2=1:AZA=1:AZB=1:AZC=1:AZN=1"
+    },
+    {
+      "id": 10009,
+      "name": "Necromancy",
+      "description": "Gain +1 Spell Attack and Learn 2 Beginner, Novice and Journeyman Necromancy Spells",
+      "mtype": "core",
+      "location": "8b",
+      "cost": 2,
+      "data": "AZ2=1"
+    },
+    {
+      "id": 10008,
+      "name": "Cursebreaker",
+      "description": "All Critical and Brutal Critical Hits are downgraded to normal True Hits against you. Additionally, when you die, you can attempt to make a Resilience Check of 12 or higher to remove your curse, causing you to die without reanimating, freeing your spirit and allowing you to be resurrected with magic. This removes the Undead Module.",
+      "mtype": "core",
+      "location": "9",
+      "cost": 4,
+      "data": "TA"
+    },
+    {
+      "id": 10014,
+      "name": "Reaction [Daily] : Still As Death",
+      "description": "In response to taking Damage, you fall down in a heap, indistinguishable from real death. After 1 Minute, you recover half of your maximum Health.",
+      "mtype": "core",
+      "location": "a",
+      "cost": 0,
+      "data": "ZD1"
+    },
+    {
+      "id": 10015,
+      "name": "Undead",
+      "description": "Your creature type becomes Undead, granting you Immunity to the Diseased, Poisoned, Bleeding and Exhausted Condition. You can not benefit from Consumables such as Potions, Food and Snacks or be affected by magic that restores Health.",
+      "mtype": "core",
+      "location": "b",
+      "cost": 0,
+      "data": "TA"
+    }
+  ]
+}

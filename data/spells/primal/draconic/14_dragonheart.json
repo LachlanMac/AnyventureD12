@@ -1,0 +1,21 @@
+{
+  "name": "Dragonheart",
+  "description": "You touch a humanoid or beast that has died within the last hour and channel the ancient power of the dragons to restore their life. The creature returns with 1 health, 0 resolve, and gains the broken condition. Your maximum health is permanently reduced by 1. Your life force is permanently bound to the target. If the target ever dies again, you also die.",
+  "charge": "The caster does not lose maximum health. Any missing limbs or body parts on the target are replaced with golden draconic replicas that function identically to the originals, granting the creature +1 mitigation to the caster's heritage element for each replaced part. The creature returns at half health and does not gain the broken condition. The life bond still applies.",
+  "duration": "Instantaneous",
+  "range": 1,
+  "checkToCast": 16,
+  "components": [
+    "1000 Gold"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 5,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

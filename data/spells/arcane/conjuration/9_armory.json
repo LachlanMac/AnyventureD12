@@ -4,7 +4,7 @@
   "charge": "The weapon lasts until you complete a full rest and gains a bonus dice on all attacks. If you use an aetherium ingot instead of a nugget, the weapon becomes permanent.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Aetherium Nugget"
   ],

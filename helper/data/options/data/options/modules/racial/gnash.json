@@ -1,0 +1,71 @@
+{
+  "id": 14,
+  "name": "Gnash [Honorbound Pack]",
+  "mtype": "racial",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1099,
+      "name": "The Eternal Hunt",
+      "description": "The Gnollish culture is built upon the concept of the great, unending hunt. Gain +1 Wilderness and +1 Resilience ",
+      "mtype": "racial",
+      "location": "1",
+      "cost": 2,
+      "data": "ASB=1:AS6=1:ALP"
+    },
+    {
+      "id": 1100,
+      "name": "Never Complacent",
+      "description": "Gnolls are trained to keep tabs on their surroundings, as well as sleep lightly. You always have the Alerted Condition without requiring your Focus, even when Unconscious or Sleeping.",
+      "mtype": "racial",
+      "location": "2a",
+      "cost": 2,
+      "data": "TG"
+    },
+    {
+      "id": 1101,
+      "name": "Oracle Guidance",
+      "description": "The Gnollish culture is guided by mysterious oracles, and interpreting signs is an important facet of life. Gain +1 Insight and 1 Luck Dice.",
+      "mtype": "racial",
+      "location": "2b",
+      "cost": 2,
+      "data": "L1:ASD=1"
+    },
+    {
+      "id": 1102,
+      "name": "Trained Hunters",
+      "description": "Becoming a hunter is something nearly all are expected do within Gnollish society as a right of passage. Gain +1 Stealth, +1 Initiative and +1 Insight.",
+      "mtype": "racial",
+      "location": "3",
+      "cost": 2,
+      "data": "AS4=1:ASH=1:ASD=1"
+    },
+    {
+      "id": 1103,
+      "name": "Path of the Shaman",
+      "description": "Many within the Gnollish culture rely on shamanism for healing. Gain +1 Alchemy, +1 Medicine, and Learn 2 Beginner and 2 Novice Druidic Spells.",
+      "mtype": "racial",
+      "location": "4a",
+      "cost": 2,
+      "data": "AS8=1:AC5=1"
+    },
+    {
+      "id": 1104,
+      "name": "Pack Fighter",
+      "description": "The Gnollish culture is based on moving in large packs and hunting together. Once per turn, you can add a 1d4 Bonus to an Attack Roll when at least 2 Allies are within 4 Units of you.",
+      "mtype": "racial",
+      "location": "4b",
+      "cost": 2,
+      "data": "TO"
+    },
+    {
+      "id": 1105,
+      "name": "Action [Daily] : Mark of the Hunt",
+      "description": "You Mark a target you can see within 30 Units lasting until the end of a Full Rest. You gain +2 Movement Speed towards your target and deal an extra 1d10 Damage whenever you deal Physical Damage to them.",
+      "mtype": "racial",
+      "location": "5",
+      "cost": 3,
+      "data": "XD1"
+    }
+  ]
+}

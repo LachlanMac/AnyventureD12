@@ -12,6 +12,11 @@
       "name": "Words Before Swords",
       "description": "You believe problems should be solved through intellect and discourse. Resorting to violence without first attempting negotiation, debate, or clever solutions causes you to lose 1 resolve.",
       "data": "TX"
+    },
+    {
+      "name": "Academic Elitism",
+      "description": "When you roll lower than another creature on the same knowledge check, you lose 1 resolve.",
+      "data": "TX"
     }
   ],
   "benefits": [
@@ -23,6 +28,11 @@
     {
       "name": "Awe of Discovery",
       "description": "When you contribute to discovering an artifact, ruins or other forgotten knowledge, you gain 3 morale.",
+      "data": "TX"
+    },
+    {
+      "name": "Thirst for Knowledge",
+      "description": "When you learn a new spell, song, language tier, or crafting recipe, you gain 2 morale.",
       "data": "TX"
     }
   ],

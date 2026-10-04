@@ -162,7 +162,7 @@
     },
     "heat": {
       "min": 8,
-      "max": 25
+      "max": 15
     },
     "electric": {
       "min": 3,
@@ -174,7 +174,7 @@
     },
     "dark": {
       "min": 6,
-      "max": 25
+      "max": 18
     },
     "divine": {
       "min": 0,

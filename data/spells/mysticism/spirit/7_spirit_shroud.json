@@ -4,7 +4,7 @@
   "charge": "All allies within a very short (5 unit) distance receive the benefits of this spell.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Any Cloak"
   ],

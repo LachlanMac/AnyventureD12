@@ -1,0 +1,21 @@
+{
+  "name": "Enthrall",
+  "description": "You target a creature within a short (10 unit) distance and captivate their mind with fey magic if your spell check beats the target's concentration. The target becomes stunned and is completely unaware of their surroundings for as long as you concentrate. Taking damage or being physically disturbed ends the effect. A creature can only be affected by this spell once per day.",
+  "charge": "The spell affects all creatures within a short (10 unit) radius instead of a single target.",
+  "duration": "Concentration",
+  "range": 4,
+  "checkToCast": 16,
+  "components": [
+    "Dreamsand"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": "concentration",
+  "delivery": "direct"
+}

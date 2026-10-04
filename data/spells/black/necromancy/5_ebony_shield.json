@@ -4,7 +4,7 @@
   "charge": "The target's divine mitigation limit is set to 15.",
   "duration": "Concentration",
   "range": 4,
-  "checkToCast": 5,
+  "checkToCast": 7,
   "components": [
     "Chunk of Obsidian"
   ],

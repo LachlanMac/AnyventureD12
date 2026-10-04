@@ -1,0 +1,21 @@
+{
+  "name": "Empower",
+  "description": "You touch a creature and enhance one of their skills. Choose a skill. That skill becomes 3d12 until the end of the target's next full rest. A creature can only benefit from one instance of this spell at a time.",
+  "charge": "All skills under the chosen skill's attribute become 3d16 until the end of the target's next full rest.",
+  "duration": "Until full rest",
+  "range": 1,
+  "checkToCast": 15,
+  "components": [
+    "Pearl"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": false,
+  "reaction": false,
+  "energy": 2,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

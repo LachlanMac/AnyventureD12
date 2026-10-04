@@ -4,7 +4,7 @@
   "charge": "The heat and dark mitigation limit is set to 15 instead of 20.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 6,
+  "checkToCast": 8,
   "components": [
     "Ember Dust"
   ],

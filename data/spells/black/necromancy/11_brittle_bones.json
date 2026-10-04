@@ -4,7 +4,7 @@
   "charge": "The creature also gains the incapacitated condition until the end of their next turn when the spell is triggered.",
   "duration": "1 minute",
   "range": 4,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Human Skull"
   ],

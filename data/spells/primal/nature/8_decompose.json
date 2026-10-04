@@ -4,7 +4,7 @@
   "charge": "Any creature besides yourself within a nearby (1 unit) distance of the initial target must also defend against the same spell check or take damage as well.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 8,
+  "checkToCast": 10,
   "components": [
     "Bundle of Grave Moss"
   ],

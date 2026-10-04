@@ -4,7 +4,7 @@
   "charge": "The effect becomes permanent, but requires a large cauldron.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Shadow Onyx"
   ],

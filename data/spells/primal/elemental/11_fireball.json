@@ -4,7 +4,7 @@
   "charge": "The radius is increased to 3 units.",
   "duration": "Instantaneous",
   "range": 5,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Garnet"
   ],

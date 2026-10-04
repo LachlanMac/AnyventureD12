@@ -1,0 +1,124 @@
+[
+    {
+        "name": "Ammunition",
+        "type": "Ammocraft",
+        "category": "Craft",
+        "check": ["None : 4", "Iron : 6", "Steel : 8", "Lead : 10"],
+        "total_checks": 1,
+        "time": "4 Hours",
+        "description": "Creates 20 Ultra-Light, 10 Light, or 5 Heavy Ammunition. The quality of material allows the crafter to add Infusions with Iron allowing 1 Infusion, Steel 2 and Lead 3.",
+        "overcraft": "",
+        "ingredients": ["Ammunition Components", "Ingot"],
+        "cost": ["None : 4 GP", "Iron : 24 GP", "Steel : 34 GP", "Lead : 44 GP"]
+    },
+    {
+        "type": "Delivery Ammunition",
+        "category": "Craft",
+        "check": ["None : 4", "Iron : 6", "Steel : 8", "Lead : 10"],
+        "total_checks": 1,
+        "time": "4 Hours",
+        "description": "Creates 3 Ultra-Light, 2 Light, or 1 Heavy specialized Ammunition that can contain the contents of a Potion or Vial and deliver to a Target. An Attack with this Ammunition can only be delivered up to a maximum range equal to your Ammocraft skill at the time of Crafting. If the Ammunition hits a Creature, they are considered to have consumed it but gain a +2 Bonus to any Checks to avoid the effects.",
+        "overcraft": "",
+        "ingredients": ["Iron Ingot", "2 Mechanical Parts", "Ammunition Components"],
+        "cost": "34 GP"
+    },
+    {
+        "name": "Non-Lethal Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "4h",
+        "requirements": "+2 Ammocraft",
+        "description": "Infuse unfinished Ammunition with a layer of resin, causing the projectile to do half damage. If the creature reaches 0 health from this damage, they go unconscious instead of dying.",
+        "ingredients": ["Bottle of Resin"],
+        "cost": "5 GP"
+    },
+    {
+        "name": "Silver Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+2 Ammocraft",
+        "description": "Infuse unfinished Ammunition with the Silvered Property.",
+        "ingredients": ["2 Pinches of Powdered Silver"],
+        "cost": "10 GP"
+    },
+    {
+        "name": "Blackened Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+2",
+        "time": "",
+        "requirements": "+2 Ammocraft",
+        "description": "Infuse unfinished Ammunition with the Blackened Property.",
+        "ingredients": ["2 Pinches of Obsidian Dust"],
+        "cost": "10 GP"
+    },
+    {
+        "name": "Armor Piercing Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+4",
+        "time": "4h",
+        "requirements": "+2 Ammocraft",
+        "description": "Infuse unfinished Ammunition with a hard tip to increase armor penetration, negating up to 3 Physical Mitigation.",
+        "ingredients": ["2 Small Nickel Ingots"],
+        "cost": "40 GP"
+    },
+    {
+        "name": "Smokescreen Ammunition",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+4",
+        "time": "4h",
+        "requirements": "+2 Ammocraft",
+        "description": "Infuse unfinished Ammunition with an smokescreen charge. The projectile no longer deals damage, but explodes on contact and creates a field of smoke in a 2 Unit Radius that lasts until the end of your next turn. Creatures within the smoke are considered blind if they rely on vision that requires sight.",
+        "ingredients": ["Mechanical Parts", "2 Coke", "Ammunition Components"],
+        "cost": "28 GP"
+    },
+    {
+        "name": "Explosive Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+4",
+        "time": "4h",
+        "requirements": "+4 Ammocraft",
+        "description": "Infuse unfinished Ammunition with an explosive charge. The projectile no longer deals damage, but it explodes on impact dealing 1d12 Fire Splash Damage to Creatures within 1 Unit of your Target.",
+        "ingredients": ["2 Pouches of Sulfur", "2 Pouches of Nitrate"],
+        "cost": "50 GP"
+    },
+    {
+        "name": "Shrapnel Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+4",
+        "time": "4h",
+        "requirements": "+4 Ammocraft",
+        "description": "Infuse unfinished Ammunition with an explosive charge that disperses lead sharpnel. The Projectile no longer deals damage, but it explodes on impact dealing 3d4 Physical Splash Damage to creatures within 2 Units of your target. Each creature hit must make a Resilience Check against the damage taken after Mitigation or gain the Bleeding Condition.",
+        "ingredients": ["Lead Ingot", "1 Pouch of Nitrate", "Mechanical Parts"],
+        "cost": "60 GP"
+    },
+    {
+        "name": "Executioner Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+4",
+        "time": "4h",
+        "requirements": "+4 Ammocraft",
+        "description": "Infuse unfinished Ammunition with cobalt metal, causing it to execute creatures hit if they have less health remaining than your Ammocraft skill at the time of Crafting.",
+        "ingredients": ["Small Cobalt Ingot"],
+        "cost": "100 GP"
+    },
+    {
+        "name": "Ammunition Chamber Infusion",
+        "type": "Ammocraft",
+        "category": "Infusion",
+        "check": "+4",
+        "time": "1h",
+        "requirements": "+4 Ammocraft",
+        "description": "Infuse an unfinished Ranged Weapon to add the Ammunition Capacity property, choosing how many Ammunition the weapon can fire before needing to be reloaded with a Free Action. You can choose between the following variants: [6 Ammunition Capacity/+1 Damage, 2 Ammunition Capacity/+2 Damage, 1 Ammunition Capacity/+4 Damage]",
+        "ingredients": ["2 Mechanical Parts, Iron Ingot"],
+        "cost": "40 GP"
+    }
+]

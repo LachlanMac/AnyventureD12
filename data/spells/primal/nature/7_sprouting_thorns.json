@@ -4,7 +4,7 @@
   "charge": "The thorns cannot be mitigated to 0 damage, and instead always deal at least 2 physical damage.",
   "duration": "1 minute",
   "range": 0,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Bundle of Bloodthorn"
   ],

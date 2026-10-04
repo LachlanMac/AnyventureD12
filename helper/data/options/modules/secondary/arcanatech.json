@@ -1,0 +1,71 @@
+{
+  "id": 285,
+  "name": "Arcanatech",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 2253,
+      "name": "Arcanatech",
+      "description": "Gain Access to Arcanatech Crafting. You can use Beginner and Novice Level Catalysts in your Arcanatech Recipes.",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "TD"
+    },
+    {
+      "id": 2254,
+      "name": "Craft : Acceleration Theory",
+      "description": "When you apply your first Arcanatech Infusion to a Ranged Weapon, that weapon gains a +1 to Attack and +1 to Damage.",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "O"
+    },
+    {
+      "id": 2255,
+      "name": "Compounded Magic",
+      "description": "You can add an additional Infusion to any Arcanatech Enhancements you Craft.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2256,
+      "name": "Tinkerer's Hands",
+      "description": "Gain +1 Smithing, +1 Engineering and +1 Initiative",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AC1=1:AC7=1:ASH=1"
+    },
+    {
+      "id": 2257,
+      "name": "Arcanatech Catalyst Expert",
+      "description": "Gain +1 Spell Damage. Additionally, Catalysts that you create count as 1 tier higher for the purpose of Arcanatech Recipes.",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AZ4=1:TC"
+    },
+    {
+      "id": 2258,
+      "name": "Exo-Enhancements",
+      "description": "Your Aracanatech Enhancements can be installed seamlessly on top of their organic counterparts, mitigating the need to remove body parts. Enhancements installed in this way do not cause the penalty to maximum Health.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "TC"
+    },
+    {
+      "id": 2259,
+      "name": "Improved Arcanatech",
+      "description": "Gain +1 Engineering. Additionally, you can use Journeyman Catalysts in your Arcanatech Recipes at Level 7, Expert at 9 and Master at 11.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "AC7=1"
+    }
+  ]
+}

@@ -36,7 +36,7 @@
     },
     {
       "name": "Corrupted Soul",
-      "description": "The effect of healing magic on you is reduced by half, but you gain +3 divine and +3 dark mitigation.",
+      "description": "The effect of healing magic on you is reduced by half, but your dark and divine mitigation limits are each lowered by 2.",
       "location": "4b",
       "data": "N5=-2:N6=-2:TG"
     },

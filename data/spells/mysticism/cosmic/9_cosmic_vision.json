@@ -4,7 +4,7 @@
   "charge": "Instead of using your own skill for senses checks involving vision, roll a 3d12 instead.",
   "duration": "1 hour",
   "range": 0,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Platinum Shavings"
   ],

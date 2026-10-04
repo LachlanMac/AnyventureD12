@@ -31,7 +31,8 @@
     "lint": "eslint --ext .ts,.tsx src/",
     "lint:fix": "eslint --ext .ts,.tsx src/ --fix",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
-    "cleanup-orphaned-equipment": "node server/scripts/cleanupOrphanedEquipment.js"
+    "cleanup-orphaned-equipment": "node server/scripts/cleanupOrphanedEquipment.js",
+    "delete-characters": "node server/scripts/deleteAllCharacters.js"
   },
   "dependencies": {
     "@heroicons/react": "^2.2.0",

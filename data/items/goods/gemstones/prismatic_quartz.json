@@ -1,0 +1,13 @@
+{
+  "name": "Prismatic Quartz",
+  "description": "A precisely cut quartz crystal that splits light into vibrant rainbows. The facets are cut at angles that cause the crystal to project shifting patterns of color across nearby surfaces when exposed to any light source.",
+  "type": "goods",
+  "tags": [
+    "gemstone",
+    "precious"
+  ],
+  "weight": 0.1,
+  "value": 2000,
+  "rarity": "uncommon",
+  "foundry_icon": "icons/commodities/gems/gem-faceted-diamond-white.webp"
+}

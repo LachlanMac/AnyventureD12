@@ -1,0 +1,71 @@
+{
+  "id": 277,
+  "name": "Zealot",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "id": 1736,
+      "name": "Unwavering Belief",
+      "description": "Gain +1 Insight and +1 Resilience",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "ASD=1:AS6=1"
+    },
+    {
+      "id": 1737,
+      "name": "Act with Faith",
+      "description": "Become Good at Initiative",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": ""
+    },
+    {
+      "id": 1738,
+      "name": "Zealots Gift",
+      "description": "Gain 2 Beginner and 1 Novice Spell from any Traditional or Exoctic Spell School and gain +2 Power Regeneration.",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "FR=2"
+    },
+    {
+      "id": 1739,
+      "name": "Free Action : Reward the Faithful",
+      "description": "When you get a True hit on any Attack on a Creature that is at most 2 Levels lower than you, gain Temporary Health equal to your Level that lasts until expended or the end of a Full Rest.",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "Y"
+    },
+    {
+      "id": 1740,
+      "name": "Armor of Faith",
+      "description": "Gain +2 Divine Mitigation and +2 Dark Mitigation",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 2,
+      "data": "AD7=2:AD8=2"
+    },
+    {
+      "id": 1741,
+      "name": "Guided Hand",
+      "description": "Gain +1 Spell Damage and +1 Damage to Melee Attacks",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "AZ4=1:AZA=1:AZB=1:AZC=1:AZN=1"
+    },
+    {
+      "id": 1742,
+      "name": "Reaction : Enduring Faith",
+      "description": "Whenever you are forced to make either a Concentration, Resilience or Resistance Check, add an additional 1d6 to the total. This ability can be used after the result of the roll is known.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 3,
+      "data": "ZX2"
+    }
+  ]
+}

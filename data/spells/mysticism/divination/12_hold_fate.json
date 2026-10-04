@@ -4,7 +4,7 @@
   "charge": "You roll your full mysticism check and take the highest dice instead of a single dice and can replace the check of any creature within a moderate (20 unit) distance instead of just yourself.",
   "duration": "Concentration",
   "range": 0,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Amethyst"
   ],

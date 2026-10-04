@@ -4,7 +4,7 @@
   "charge": "Creatures with any mental condition who start their turn in the area take the psychic damage, which is upgraded to 10 damage.",
   "duration": "1 minute",
   "range": 5,
-  "checkToCast": 11,
+  "checkToCast": 13,
   "components": [
     "Pixie Dust"
   ],

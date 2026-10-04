@@ -4,7 +4,7 @@
   "charge": "The base damage increases to 30 true damage.",
   "duration": "Instantaneous",
   "range": 4,
-  "checkToCast": 12,
+  "checkToCast": 14,
   "components": [
     "Void Amethyst"
   ],

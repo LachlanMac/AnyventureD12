@@ -55,7 +55,7 @@
     },
     {
       "name": "Lone Wolf",
-      "description": "You can only rely on yourself. You gain +3 psychic mitigation and +3 maximum resolve, but your maximum morale is lowered by 5.",
+      "description": "You can only rely on yourself. You gain +2 psychic mitigation and your psychic mitigation limit is lowered by 2 and +3 maximum resolve, but your maximum morale is lowered by 5.",
       "location": "6b",
       "data": "M8=2:N8=-2:A2=3:A8=-5"
     },

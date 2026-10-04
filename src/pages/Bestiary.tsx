@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import LoadingSpinner from '../components/ui/LoadingSpinner';
@@ -18,6 +18,17 @@ const Bestiary: React.FC = () => {
     search: '',
     isHomebrew: 'false',
   });
+  const [searchInput, setSearchInput] = useState('');
+  const searchTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
+  // Debounce search input
+  useEffect(() => {
+    if (searchTimerRef.current) clearTimeout(searchTimerRef.current);
+    searchTimerRef.current = setTimeout(() => {
+      setFilters(prev => ({ ...prev, search: searchInput }));
+    }, 300);
+    return () => { if (searchTimerRef.current) clearTimeout(searchTimerRef.current); };
+  }, [searchInput]);
 
   const {
     data: creaturesData,
@@ -168,8 +179,8 @@ const Bestiary: React.FC = () => {
                 </label>
                 <input
                   type="text"
-                  value={filters.search}
-                  onChange={(e) => setFilters({ ...filters, search: e.target.value })}
+                  value={searchInput}
+                  onChange={(e) => setSearchInput(e.target.value)}
                   placeholder="Search creatures..."
                   style={{
                     width: '100%',

@@ -4,7 +4,7 @@
   "charge": "Instead of looking at the target of this spell, affected creatures will be compelled to use their turn to move and touch it. If this spell targets an object, the enchantment is permanent.",
   "duration": "1 minute",
   "range": 4,
-  "checkToCast": 7,
+  "checkToCast": 9,
   "components": [
     "Gold Shavings"
   ],

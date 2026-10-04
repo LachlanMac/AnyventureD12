@@ -1,0 +1,21 @@
+{
+  "name": "Arcane Bastion",
+  "description": "You conjure a shimmering wall of aetheric energy within a very short (5 unit) radius centered on you while you maintain concentration. When a projectile or area spell targets a creature within the wall, the wall takes the damage instead. You must then make an arcane magic check against half the damage dealt or the wall shatters. Creatures you designate can pass through the wall freely. While you maintain this spell, you cannot move or take other actions.",
+  "charge": "You can move and take other actions while maintaining the wall.",
+  "duration": "Concentration",
+  "range": 0,
+  "checkToCast": 16,
+  "components": [
+    "Alexandrite"
+  ],
+  "ritualDuration": "1 hour",
+  "concentration": true,
+  "reaction": false,
+  "energy": 4,
+  "damage": 0,
+  "damageType": null,
+  "foundry_id": "",
+  "foundry_icon": "",
+  "targetCheck": null,
+  "delivery": null
+}

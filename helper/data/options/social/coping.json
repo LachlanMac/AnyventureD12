@@ -1,0 +1,65 @@
+{
+    "unhealthy":[
+        {
+            "name":"drinking",
+            "effect":""
+        },
+        {
+            "name":"gambling",
+            "effect":""
+        },
+        {
+            "name":"spending",
+            "effect":""
+        },
+        {
+            "name":"isolating",
+            "effect":""
+        },
+        {
+            "name":"breaking",
+            "effect":""
+        },
+        {
+            "name":"killing",
+            "effect":""
+        },
+        {
+            "name":"stealing",
+            "effect":""
+        },
+        {
+            "name":"drinking",
+            "effect":""
+        },
+        {
+            "name":"bingeing",
+            "effect":""
+        }
+    ],
+    "healthy":[
+        {
+            "academics": ["Reading a book", "Researching in a library", "Solving a complex problem"],
+            "acrobatics": ["Performing flips or cartwheels", "Balancing on a tightrope", "Dodging obstacles gracefully"],
+            "animals": ["Training a pet", "Riding a mount", "Meeting a new Beast"],
+            "arcanum": ["Learning a new spell", "Studying magical artifacts", "Deciphering runes or scrolls"],
+            "athletics": ["Going for a jog", "Competing athletically", "Climbing a mountain"],
+            "concentration": ["Meditating", "Solving a difficult puzzle", "Maintaining focus under pressure"],
+            "initiative": ["Reacting quickly in a tense moment", "Spotting danger before others", "Anticipating an opponent's move"],
+            "insight": ["", "", ""],
+            "medicine": ["Curing or healing someone", "Diagnosing an illness", "Preparing herbal remedies"],
+            "performance": ["Performing in public", "Pretending to be someone else", ""],
+            "persuasion": ["Negotiating a deal", "Going to a party", ""],
+            "resilience": ["Recovering from a wound", "Conquering a fear", "Staying up all night"],
+            "search": ["Looking for a hidden object", "Examining a crime scene", "Tracking footprints"],
+            "stealth": ["Sneaking past a guard", "Hiding in shadows", "Moving silently across a creaky floor"],
+            "strength": ["Lifting a heavy object", "Breaking down a door", "Pulling someone to safety"],
+            "thievery": ["Picking a lock", "Cutting a purse string", "Disabling a trap"],
+            "wilderness": ["Spending the night outdoors", "Discovering a natural landmark", "Navigating through rough terrain"]
+        }
+        
+
+
+    ]
+}
+

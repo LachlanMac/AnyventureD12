@@ -1,0 +1,74 @@
+[
+    {
+        "name": "Elemental Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +3", "Expert : +4", "Master : +5"],
+        "time": "",
+        "description": "Infuse unfinished ammunition with an elemental catalyst [fire, cold, lightning], adding additional damage based on the quality and type of the catalyst: beginner deals 1d4, novice 1d8, journeyman 2d6, expert 2d10, and master 3d8.",
+        "ingredients": ["elemental catalyst"],
+        "cost": "0 GP"
+    },
+    {
+        "name": "Shocking Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +4", "Expert : +6"],
+        "time": "",
+        "description": "Infuse unfinished ammunition with a lightning catalyst. The projectile does not deal damage but causes the stunned condition within a 1 unit radius to anyone who fails a concentration check of 4. The radius increases to 2 for novice, 3 for journeyman, and 4 for expert, and the required check increases to 6 for novice, 8 for journeyman, and 10 for expert.",
+        "ingredients": ["lightning catalyst"],
+        "cost": "0 GP"
+    },
+    {
+        "name": "Frosted Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +4", "Expert : +6"],
+        "time": "",
+        "description": "Infuse unfinished ammunition with a cold catalyst. The projectile does not deal damage but causes the ground within a 1 unit radius to become covered in ice, forcing any creature within the area to make an athletics or acrobatics check of 6 or higher, or fall prone. The radius increases to 2 for novice, 3 for journeyman, and 4 for expert, and the required check increases to 8 for novice, 10 for journeyman, and 12 for expert.",
+        "ingredients": ["cold catalyst"],
+        "cost": "0 GP"
+    },
+    {
+        "name": "Burning Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +4", "Expert : +6"],
+        "time": "",
+        "description": "Infuse unfinished ammunition with a fire catalyst. The projectile does not deal damage but causes the ignited condition to creatures within a 1 unit radius if they fail a resistance check of 4. The radius increases to 2 for novice, 3 for journeyman, and 4 for expert, and the required check increases to 6 for novice, 8 for journeyman, and 10 for expert.",
+        "ingredients": ["fire catalyst"],
+        "cost": "0 GP"
+    },
+    {
+        "name": "Shockwave Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": ["Beginner : +1", "Novice : +2", "Journeyman : +4", "Expert : +6"],
+        "time": "",
+        "description": "Infuse unfinished ammunition with a physical catalyst. The projectile does not deal damage but displaces any creature within a 1 unit radius away from the point of impact if they fail an athletics or acrobatics check of 5. The radius increases to 2 for novice, 3 for journeyman, and 4 for expert, and the required check increases to 7 for novice, 9 for journeyman, and 11 for expert.",
+        "ingredients": ["physical catalyst"],
+        "cost": "0 GP"
+    },
+    {
+        "name": "Frostfire Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": "+3",
+        "time": "1h",
+        "requirements": "+5 ammocraft",
+        "description": "Infuse an unfinished ranged weapon with an expert cold and fire catalyst to convert true hits into ray attacks that change the primary damage to cold. The affected creature must make a resilience check of 8 or become ignited.",
+        "ingredients": ["cold catalyst", "fire catalyst"],
+        "cost": "40 GP"
+    },
+    {
+        "name": "Earthshock Infusion",
+        "type": "Elemental Ammocraft",
+        "category": "infusion",
+        "check": "+3",
+        "time": "1h",
+        "requirements": "+5 ammocraft",
+        "description": "Infuse an unfinished ranged weapon with an expert physical and lightning catalyst to convert true hits to change the primary damage to lightning. A large or smaller creature affected by this is launched 1d6 units into the air.",
+        "ingredients": ["physical catalyst", "lightning catalyst"],
+        "cost": "40 GP"
+    }
+]

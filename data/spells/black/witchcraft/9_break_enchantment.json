@@ -4,7 +4,7 @@
   "charge": "Instead of rolling a magic check, the spell removes any magic that has a required check of 11 or lower to channel.",
   "duration": "Instantaneous",
   "range": 1,
-  "checkToCast": 9,
+  "checkToCast": 11,
   "components": [
     "Salt"
   ],

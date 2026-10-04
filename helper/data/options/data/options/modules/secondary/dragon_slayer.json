@@ -1,0 +1,71 @@
+{
+  "id": 228,
+  "name": "Dragon Slayer",
+  "mtype": "secondary",
+  "ruleset": 0,
+  "options": [
+    {
+      "id": 1400,
+      "name": "Bane of Dragons",
+      "description": "Gain +1 Cold Mitigation, +1 Fire Mitigation and +1 Resilience",
+      "mtype": "sub",
+      "location": "1",
+      "cost": 2,
+      "data": "AS6=1:AD5=1:AD6=1"
+    },
+    {
+      "id": 1401,
+      "name": "Toughened",
+      "description": "Gain +1 Physical Mitigation",
+      "mtype": "sub",
+      "location": "2a",
+      "cost": 2,
+      "data": "AD5=4:AD4=1"
+    },
+    {
+      "id": 1402,
+      "name": "Piercer",
+      "description": "Gain +1 Attack with Piercing Weapons",
+      "mtype": "sub",
+      "location": "2b",
+      "cost": 2,
+      "data": "AZ8=1"
+    },
+    {
+      "id": 1403,
+      "name": "Slayer",
+      "description": "Gain +1 Damage to Melee Attacks and +1 Lightning Mitigation",
+      "mtype": "sub",
+      "location": "3",
+      "cost": 2,
+      "data": "AZA=1:AZB=1:AZC=1:AZN=1:ADB=1"
+    },
+    {
+      "id": 1404,
+      "name": "Giant Slayer",
+      "description": "You gain a +2 Bonus to Block and Dodge Checks against Huge or larger Creatures",
+      "mtype": "sub",
+      "location": "4a",
+      "cost": 3,
+      "data": "TD"
+    },
+    {
+      "id": 1405,
+      "name": "Reaction : Immobile",
+      "description": "In response to being Shoved or Displaced, you catch yourself by jamming a Piercing Weapon into the ground, a Mounted Creature or other surface, preventing any Movement. This Reaction can also be used while Falling if there is a parallel wall or terrain within your Melee Reach.",
+      "mtype": "sub",
+      "location": "4b",
+      "cost": 2,
+      "data": "ZX2"
+    },
+    {
+      "id": 1406,
+      "name": "Free Action : Spear Plunge",
+      "description": "Directly after using the Jump Action, you crash into the ground making an Attack with a 2 Handed Piercing Weapon against all Creatures within your Melee Range. The Damage for this Attack is equal to 1d4 for each Unit of your Jump. If this Attack is against a Creature that is 2 Sizes larger than you, you automatically Mount it if it takes Damage after Mitgations.",
+      "mtype": "sub",
+      "location": "5",
+      "cost": 2,
+      "data": "Y"
+    }
+  ]
+}
