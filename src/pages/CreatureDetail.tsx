@@ -12,7 +12,7 @@ import CreatureSpellCard from '../components/creature/CreatureSpellCard';
 import CreatureTraitCard from '../components/creature/CreatureTraitCard';
 import CreatureSidebar from '../components/creature/CreatureSidebar';
 import { useCreature } from '../hooks/useCreatures';
-import { getAllSpells, DAMAGE_TYPES } from '../utils/creatureUtils';
+import { getAllSpells } from '../utils/creatureUtils';
 import { getDiceForSkill } from '../utils/combatUtils';
 
 const CreatureDetail: React.FC = () => {
@@ -82,7 +82,7 @@ const CreatureDetail: React.FC = () => {
         complexMeleeWeapons: 'complexMeleeWeapons', complexRangedWeapons: 'complexRangedWeapons',
       };
 
-      for (const [slot, item] of Object.entries(creature.resolvedEquipment) as [string, any][]) {
+      for (const [, item] of Object.entries(creature.resolvedEquipment) as [string, any][]) {
         if (!item || item.type !== 'weapon') continue;
         const rawCat = item.weapon_category || 'simpleMelee';
         const skillKey = categoryMap[rawCat] || rawCat;

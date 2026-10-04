@@ -424,7 +424,7 @@ const DevCreatureDesigner: React.FC = () => {
   };
 
   // Generate weapon attack from equipped weapon and weapon skills
-  const getWeaponAttack = (slot: string, item: any) => {
+  const getWeaponAttack = (_slot: string, item: any) => {
     if (!item || item.type !== 'weapon') return null;
 
     const rawCategory = item.weapon_category || 'simpleMelee';

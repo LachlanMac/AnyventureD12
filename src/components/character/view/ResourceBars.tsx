@@ -32,7 +32,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   resources,
   injuries = [],
   onResourceChange,
-  onPainStressChange,
+  onPainStressChange: _onPainStressChange,
   readOnly = false,
 }) => {
   const [editingResource, setEditingResource] = useState<string | null>(null);

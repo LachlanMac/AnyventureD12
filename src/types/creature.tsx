@@ -190,4 +190,11 @@ export interface Creature {
   magicSkills?: CreatureMagicSkills;
   spells: CreatureSpell[];
   customSpells?: CreatureCustomSpell[];
+  weaponSkills?: Record<string, { talent: number; skill: number }>;
+  canUnarmedAttack?: boolean;
+  unarmedAttackName?: string;
+  resolvedEquipment?: Record<string, any>;
+  equipment?: Record<string, any>;
+  variantOf?: string | null;
+  variants?: any[];
 }
