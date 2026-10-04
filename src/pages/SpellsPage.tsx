@@ -29,6 +29,7 @@ const SpellsPage: React.FC = () => {
   const [searchTerm, setSearchTerm] = useState<string>('');
   const [schoolFilter, setSchoolFilter] = useState<string>('all');
   const [subschoolFilter, setSubschoolFilter] = useState<string>('all');
+  const [filterUnlearnable, setFilterUnlearnable] = useState<boolean>(true);
 
   // Get all available schools and subschools for filters
   const [schools, setSchools] = useState<string[]>([]);
@@ -127,6 +128,46 @@ const SpellsPage: React.FC = () => {
     }
   };
 
+  // Map spell school names to magic skill IDs
+  const schoolToSkillId: Record<string, string> = {
+    'black': 'black',
+    'primal': 'primal',
+    'meta': 'meta',
+    'white': 'white',
+    'mysticism': 'mystic',
+    'arcane': 'arcane',
+  };
+
+  // Exotic subschools mapped to their parent school
+  const exoticSubschools: Record<string, string> = {
+    'fiend': 'black',
+    'draconic': 'primal',
+    'fey': 'meta',
+    'celestial': 'white',
+    'cosmic': 'mysticism',
+    'chaos': 'arcane',
+  };
+
+  // Dice max values by skill level
+  const diceMaxValues = [6, 8, 10, 12, 16, 20, 24, 30];
+
+  // Get max possible roll for a magic school
+  const getMaxRoll = (school: string): number => {
+    const skillId = schoolToSkillId[school];
+    if (!skillId || !character?.magicSkills) return 0;
+    const skill = character.magicSkills[skillId];
+    if (!skill || skill.talent === 0) return 0;
+    const dieMax = diceMaxValues[skill.value] || 6;
+    return dieMax;
+  };
+
+  // Check if character has any talent in a school
+  const hasTalentInSchool = (school: string): boolean => {
+    const skillId = schoolToSkillId[school];
+    if (!skillId || !character?.magicSkills) return false;
+    return (character.magicSkills[skillId]?.talent || 0) > 0;
+  };
+
   // Get filtered and sorted spells
   const getFilteredSpells = () => {
     if (!allSpells?.length) return [];
@@ -143,16 +184,34 @@ const SpellsPage: React.FC = () => {
       'chaos': 'chaos'
     };
 
-    filteredSpells = filteredSpells.filter((spell) => {
-      const subschool = spell.subschool.toLowerCase();
-      // If this is an exotic subschool
-      if (exoticSchoolMap[subschool]) {
-        // Check if character has access to it
-        return character?.exoticSchools?.[exoticSchoolMap[subschool]] === true;
-      }
-      // Not an exotic school, always show it
-      return true;
-    });
+    if (filterUnlearnable) {
+      // Filter out schools where talent = 0
+      filteredSpells = filteredSpells.filter((spell) => hasTalentInSchool(spell.school));
+
+      // Filter out exotic subschools unless enabled
+      filteredSpells = filteredSpells.filter((spell) => {
+        const subschool = spell.subschool.toLowerCase();
+        if (exoticSchoolMap[subschool]) {
+          return character?.exoticSchools?.[exoticSchoolMap[subschool]] === true;
+        }
+        return true;
+      });
+
+      // Filter out spells with RC higher than max roll
+      filteredSpells = filteredSpells.filter((spell) => {
+        const maxRoll = getMaxRoll(spell.school);
+        return spell.checkToCast <= maxRoll;
+      });
+    } else {
+      // Only filter exotic when not filtering unlearnable (existing behavior)
+      filteredSpells = filteredSpells.filter((spell) => {
+        const subschool = spell.subschool.toLowerCase();
+        if (exoticSchoolMap[subschool]) {
+          return character?.exoticSchools?.[exoticSchoolMap[subschool]] === true;
+        }
+        return true;
+      });
+    }
 
     // Apply school filter
     if (schoolFilter !== 'all') {
@@ -280,7 +339,7 @@ const SpellsPage: React.FC = () => {
             </h2>
           </CardHeader>
           <CardBody>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-4">
               {/* Search input */}
               <div>
                 <label
@@ -337,7 +396,9 @@ const SpellsPage: React.FC = () => {
                   }}
                 >
                   <option value="all">All Schools</option>
-                  {schools.map((school) => (
+                  {schools
+                    .filter((school) => !filterUnlearnable || hasTalentInSchool(school))
+                    .map((school) => (
                     <option key={school} value={school}>
                       {school.charAt(0).toUpperCase() + school.slice(1)}
                     </option>
@@ -372,11 +433,23 @@ const SpellsPage: React.FC = () => {
                   <option value="all">All Subschools</option>
                   {subschools
                     .filter(
-                      (subschool) =>
-                        schoolFilter === 'all' ||
-                        allSpells?.some(
-                          (spell) => spell.school === schoolFilter && spell.subschool === subschool
-                        )
+                      (subschool) => {
+                        // Filter by selected school
+                        const matchesSchool = schoolFilter === 'all' ||
+                          allSpells?.some(
+                            (spell) => spell.school === schoolFilter && spell.subschool === subschool
+                          );
+                        if (!matchesSchool) return false;
+                        // Filter exotic subschools when filterUnlearnable is on
+                        if (filterUnlearnable) {
+                          const sub = subschool.toLowerCase();
+                          const exoticKey = sub as keyof typeof character.exoticSchools;
+                          if (exoticSubschools[sub]) {
+                            return character?.exoticSchools?.[exoticKey] === true;
+                          }
+                        }
+                        return true;
+                      }
                     )
                     .map((subschool) => (
                       <option key={subschool} value={subschool}>
@@ -384,6 +457,27 @@ const SpellsPage: React.FC = () => {
                       </option>
                     ))}
                 </select>
+              </div>
+              {/* Filter unlearnable checkbox */}
+              <div style={{ display: 'flex', alignItems: 'end' }}>
+                <label
+                  style={{
+                    display: 'flex',
+                    alignItems: 'center',
+                    gap: '0.5rem',
+                    color: 'var(--color-cloud)',
+                    fontSize: '0.875rem',
+                    cursor: 'pointer',
+                  }}
+                >
+                  <input
+                    type="checkbox"
+                    checked={filterUnlearnable}
+                    onChange={(e) => setFilterUnlearnable(e.target.checked)}
+                    style={{ accentColor: 'var(--color-metal-gold)' }}
+                  />
+                  Filter unlearnable
+                </label>
               </div>
             </div>
           </CardBody>
