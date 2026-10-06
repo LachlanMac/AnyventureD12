@@ -6,6 +6,7 @@
   "weight": 2,
   "value": 900,
   "bonus_attack": 0,
+  "hands": 2,
   "rarity": "common",
   "primary": {
     "damage": "4",
@@ -25,7 +26,7 @@
     "damage_extra": "3",
     "damage_type": "physical",
     "category": "blunt",
-    "energy": 0,
+    "energy": 1,
     "secondary_damage": 0,
     "secondary_damage_extra": 0,
     "secondary_damage_type": "none",

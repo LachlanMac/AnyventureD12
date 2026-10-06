@@ -22,13 +22,20 @@ export const goldToValue = (gold: number): number => Math.round(gold * 10);
  * - 15 value = "1 gold, 5 silver"
  */
 export const formatGoldDisplay = (value: number): string => {
+  if (value === 0) return 'Free';
+
+  // Round up to nearest gold if value > 200 (20 gold)
+  if (value > 200) {
+    const gold = Math.ceil(value / 10);
+    return `${gold} gold`;
+  }
+
   const gold = Math.floor(value / 10);
   const silver = value % 10;
 
-  if (gold === 0 && silver === 0) return 'Free';
   if (gold === 0) return `${silver} silver`;
   if (silver === 0) return `${gold} gold`;
-  return `${gold} gold, ${silver} silver`;
+  return `${gold}g ${silver}s`;
 };
 
 /**

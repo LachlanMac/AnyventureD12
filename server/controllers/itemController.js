@@ -13,7 +13,7 @@ export const getItems = async (req, res) => {
     if (summary === 'true') {
       // Return only fields needed for list views (filtering, display, search)
       const items = await Item.find(query).select(
-        '_id name description type rarity value weight weapon_category consumable_category slot hands holdable isHomebrew'
+        '_id name description type rarity value weight weapon_category consumable_category slot hands holdable isHomebrew primary secondary mitigation encumbrance_penalty'
       ).lean();
       return res.json(items);
     }

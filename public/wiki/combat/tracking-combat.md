@@ -32,10 +32,10 @@ After rolling an initiative check, compare the result to this table to decide wh
 
 | Roll | Phase | Preparation Phase|
 |------|--------|--------|
-| < 4 | Late | No |
-| 4-7 | Middle | No | 
-| 8-10 | Early | No|
-| > 10 | Early | Yes|
+| < 6 | Late | No |
+| 6-10 | Middle | No |
+| 11-15 | Early | No|
+| 16+ | Early | Yes|
 
 <div class="note-box">
    There are certain scenarios where a player can change what phase they act in. The most common is a player deferring to a later stage after their character rolls into one of the earlier phases. This must be decided on the first round of combat immediately after the Preparation phase and cannot be reversed.

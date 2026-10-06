@@ -172,8 +172,8 @@ const ItemDetail: React.FC = () => {
       {/* Header */}
       <div style={{ marginBottom: '2rem' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '1rem', marginBottom: '1rem' }}>
-          <Button variant="ghost" onClick={() => navigate('/items')}>
-            ← Back to Items
+          <Button variant="ghost" onClick={() => navigate(-1)}>
+            ← Back
           </Button>
           <Button variant="outline" onClick={copyItemLink}>
             📋 Copy Link
