@@ -7,7 +7,7 @@
   "subcategory": "Risen",
   "size": "medium",
   "variantOf": "Skeletal Minion",
-  "foundry_portrait": "",
+  "foundry_portrait": "skeleton.png",
   "health": {
     "max": 6,
     "current": 6

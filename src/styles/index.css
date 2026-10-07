@@ -25,6 +25,18 @@
   --color-sat-purple-faded-darker: rgba(100, 75, 155, 0.5);
   --color-sat-purple-faded-lighter: rgba(180, 150, 235, 0.5);
 
+  /* Resource colors */
+  --color-health: rgb(240, 23, 23);
+  --color-resolve: rgb(155, 120, 220);
+  --color-morale: #d7b740;
+  --color-energy: rgb(99, 240, 236);
+  --color-mana: rgb(57, 0, 214);
+
+  /* Status colors */
+  --color-success: rgb(76, 175, 80);
+  --color-danger: rgb(220, 60, 60);
+  --color-forest: rgb(76, 175, 80);
+
   /* Dark theme base */
   --color-dark-base: #192231; /* evening as base */
   --color-dark-surface: #252525; /* black as surface */

@@ -239,7 +239,7 @@
       "round": false,
       "attack": {
         "roll": "4d8",
-        "damage": "9",
+        "damage": "7",
         "damage_extra": "3",
         "damage_type": "physical",
         "category": "blunt",
@@ -260,7 +260,7 @@
       "round": false,
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -282,7 +282,7 @@
       "daily": false,
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -305,7 +305,7 @@
       "daily": false,
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",

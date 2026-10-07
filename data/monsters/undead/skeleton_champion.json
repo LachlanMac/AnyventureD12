@@ -6,7 +6,7 @@
   "type": "undead",
   "subcategory": "Risen",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "skeleton_champion.png",
   "health": {
     "max": 40,
     "current": 40

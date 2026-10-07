@@ -252,7 +252,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "2d8",
-        "damage": "3",
+        "damage": "1",
         "damage_extra": "3",
         "damage_type": "physical",
         "category": "blunt",
@@ -273,7 +273,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d8",
-        "damage": "4",
+        "damage": "2",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "slash",

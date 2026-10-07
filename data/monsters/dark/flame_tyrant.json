@@ -241,7 +241,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d10",
-        "damage": "7",
+        "damage": "5",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "blunt",
@@ -265,7 +265,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "3d8",
-        "damage": "3",
+        "damage": "1",
         "damage_extra": "2",
         "damage_type": "physical",
         "category": "ranged",
@@ -289,7 +289,7 @@
       "spellType": "innate",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -310,7 +310,7 @@
       "spellType": "unique",
       "spell": {
         "roll": "3d10",
-        "damage": "5",
+        "damage": "3",
         "damage_extra": "3",
         "damage_type": "dark",
         "target_defense": "resilience",
@@ -335,7 +335,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -359,7 +359,7 @@
       "trigger": "A creature deals damage to the flame tyrant with a melee attack while the flame tyrant is ignited.",
       "spell": {
         "roll": "3d8",
-        "damage": "5",
+        "damage": "3",
         "damage_extra": "3",
         "damage_type": "heat",
         "target_defense": "evasion",

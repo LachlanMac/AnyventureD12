@@ -186,66 +186,91 @@ const CharacterHeader: React.FC<CharacterHeaderProps> = ({
             {character.name}
           </h1>
 
-          <div className="flex gap-2">
+          <div className="flex gap-2 items-center">
             {/* Visibility Toggle */}
             {onDelete && (
               <button
                 onClick={handlePublicToggle}
                 disabled={isUpdatingVisibility}
                 style={{
-                  padding: '0.375rem 0.75rem',
-                  borderRadius: '0.25rem',
-                  fontSize: '0.875rem',
-                  fontWeight: '500',
-                  border: '1px solid',
+                  position: 'relative',
+                  width: '3rem',
+                  height: '1.5rem',
+                  borderRadius: '0.75rem',
+                  border: 'none',
                   cursor: isUpdatingVisibility ? 'not-allowed' : 'pointer',
-                  transition: 'all 0.2s ease',
-                  backgroundColor: isPublic ? 'var(--color-green-600)' : 'var(--color-sunset)',
-                  borderColor: isPublic ? 'var(--color-green-600)' : 'var(--color-sunset)',
-                  color: 'white',
+                  transition: 'background-color 0.2s ease',
+                  backgroundColor: isPublic ? 'var(--color-success)' : 'var(--color-dark-border)',
                   opacity: isUpdatingVisibility ? 0.7 : 1,
+                  flexShrink: 0,
                 }}
-                title={isPublic ? 'Click to make private' : 'Click to make public'}
+                title={isPublic ? 'Public - click to make private' : 'Private - click to make public'}
               >
-                {isUpdatingVisibility ? '...' : isPublic ? 'Public' : 'Private'}
+                <div style={{
+                  position: 'absolute',
+                  top: '2px',
+                  left: isPublic ? 'calc(100% - 1.25rem - 2px)' : '2px',
+                  width: '1.25rem',
+                  height: '1.25rem',
+                  borderRadius: '50%',
+                  backgroundColor: 'white',
+                  transition: 'left 0.2s ease',
+                }} />
               </button>
             )}
+            {onDelete && (
+              <span style={{ fontSize: '0.7rem', color: 'var(--color-cloud)', whiteSpace: 'nowrap' }}>
+                {isPublic ? 'Public' : 'Private'}
+              </span>
+            )}
+
+            {/* Export Foundry */}
             <button
               onClick={handleExportToFoundry}
               style={{
-                padding: '0.375rem 0.75rem',
+                display: 'flex',
+                alignItems: 'center',
+                gap: '0.25rem',
+                padding: '0.25rem 0.5rem',
                 borderRadius: '0.25rem',
-                fontSize: '0.875rem',
-                fontWeight: '600',
-                border: '2px solid #000',
+                fontSize: '0.75rem',
+                border: '1px solid var(--color-dark-border)',
                 cursor: 'pointer',
                 transition: 'all 0.2s ease',
-                backgroundColor: '#FF6400',
-                color: '#000',
-                boxShadow: '0 2px 4px rgba(255, 100, 0, 0.3)',
+                backgroundColor: 'var(--color-dark-elevated)',
+                color: 'var(--color-cloud)',
               }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = '#FF7A1A';
-                e.currentTarget.style.boxShadow = '0 4px 8px rgba(255, 100, 0, 0.4)';
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = '#FF6400';
-                e.currentTarget.style.boxShadow = '0 2px 4px rgba(255, 100, 0, 0.3)';
-              }}
+              onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-dark-surface)'; }}
+              onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)'; }}
               title="Export to Foundry VTT"
             >
-              Export FVTT
+              <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                <polyline points="7 10 12 15 17 10"/>
+                <line x1="12" y1="15" x2="12" y2="3"/>
+              </svg>
+              FVTT
             </button>
+
+            {/* Edit */}
             <Link to={`/characters/${character._id}/edit`}>
-              <Button variant="secondary" size="sm">
+              <button
+                style={{
+                  padding: '0.25rem 0.5rem',
+                  borderRadius: '0.25rem',
+                  fontSize: '0.75rem',
+                  border: '1px solid var(--color-dark-border)',
+                  cursor: 'pointer',
+                  backgroundColor: 'var(--color-dark-elevated)',
+                  color: 'var(--color-cloud)',
+                  transition: 'all 0.2s ease',
+                }}
+                onMouseEnter={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-dark-surface)'; }}
+                onMouseLeave={(e) => { e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)'; }}
+              >
                 Edit
-              </Button>
+              </button>
             </Link>
-            {onDelete && (
-              <Button variant="outline" size="sm" onClick={onDelete}>
-                Delete
-              </Button>
-            )}
           </div>
         </div>
       </CardHeader>

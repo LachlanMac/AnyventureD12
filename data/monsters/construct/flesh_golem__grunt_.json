@@ -212,7 +212,7 @@
       "basic": true,
       "attack": {
         "roll": "2d8",
-        "damage": "4",
+        "damage": "2",
         "damage_extra": "3",
         "damage_type": "physical",
         "category": "blunt",
@@ -230,7 +230,7 @@
       "basic": false,
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -248,7 +248,7 @@
       "basic": false,
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",

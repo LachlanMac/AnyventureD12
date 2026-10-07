@@ -215,7 +215,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "2d8",
-        "damage": "4",
+        "damage": "2",
         "damage_extra": "2",
         "damage_type": "physical",
         "category": "slash",

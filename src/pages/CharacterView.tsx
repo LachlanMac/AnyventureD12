@@ -547,6 +547,38 @@ const CharacterView: React.FC = () => {
             Return to Characters
           </Link>
         </div>
+
+        {/* Delete - separated at the very bottom */}
+        {canEdit && (
+          <div style={{ textAlign: 'center', marginTop: '3rem', paddingBottom: '2rem' }}>
+            <button
+              onClick={handleDelete}
+              style={{
+                padding: '0.375rem 1rem',
+                borderRadius: '0.25rem',
+                fontSize: '0.75rem',
+                border: '1px solid var(--color-dark-border)',
+                cursor: 'pointer',
+                backgroundColor: 'transparent',
+                color: 'var(--color-cloud)',
+                opacity: 0.5,
+                transition: 'all 0.2s ease',
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-danger)';
+                e.currentTarget.style.color = 'var(--color-danger)';
+                e.currentTarget.style.opacity = '1';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'var(--color-dark-border)';
+                e.currentTarget.style.color = 'var(--color-cloud)';
+                e.currentTarget.style.opacity = '0.5';
+              }}
+            >
+              Delete Character
+            </button>
+          </div>
+        )}
       </div>
     </div>
   );

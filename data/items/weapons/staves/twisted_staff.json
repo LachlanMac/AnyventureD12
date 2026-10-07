@@ -9,8 +9,8 @@
   "hands": 2,
   "rarity": "uncommon",
   "primary": {
-    "damage": "4",
-    "damage_extra": "4",
+    "damage": "2",
+    "damage_extra": "3",
     "damage_type": "dark",
     "category": "black_magic",
     "energy": 2,
@@ -22,7 +22,7 @@
     "aimed": true
   },
   "secondary": {
-    "damage": "6",
+    "damage": "4",
     "damage_extra": "3",
     "damage_type": "physical",
     "category": "blunt",

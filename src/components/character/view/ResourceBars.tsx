@@ -41,10 +41,11 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   const renderStatBar = (value: number, max: number, color: string = 'var(--color-sat-purple)') => {
     const percentage = Math.min((value / max) * 100, 100);
     // Add transparency to the color for better text visibility
-    const colorWithAlpha = color.replace('var(--color-sunset)', 'rgba(255, 107, 107, 0.8)')
-      .replace('var(--color-sat-purple)', 'rgba(147, 112, 219, 0.8)')
-      .replace('var(--color-metal-gold)', 'rgba(255, 215, 0, 0.8)')
-      .replace('var(--color-forest)', 'rgba(76, 175, 80, 0.8)');
+    const colorWithAlpha = color.replace('var(--color-health)', 'rgba(240, 23, 23, 0.8)')
+      .replace('var(--color-resolve)', 'rgba(155, 120, 220, 0.8)')
+      .replace('var(--color-morale)', 'rgba(215, 183, 64, 0.8)')
+      .replace('var(--color-energy)', 'rgba(99, 240, 236, 0.8)')
+      .replace('var(--color-mana)', 'rgba(57, 0, 214, 0.8)');
 
     return (
       <div
@@ -256,9 +257,10 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   const calcPain = () => {
     const injuryPain = injuries.reduce((sum, i) => sum + (i.injuryId?.pain || 0), 0);
     let healthPain = 0;
-    if (resources.health.max > 0) {
-      if (resources.health.current < 5) healthPain = 4;
-      else if (resources.health.current < resources.health.max / 2) healthPain = 2;
+    const health = resources.health;
+    if (health && health.max > 0) {
+      if (health.current < 5) healthPain = 4;
+      else if (health.current < health.max / 2) healthPain = 2;
     }
     const override = resources.pain?.custom || 0;
     return Math.max(0, injuryPain + healthPain + override);
@@ -268,9 +270,10 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   const calcStress = () => {
     const injuryStress = injuries.reduce((sum, i) => sum + (i.injuryId?.stress || 0), 0);
     let resolvePain = 0;
-    if (resources.resolve.max > 0) {
-      if (resources.resolve.current < 3) resolvePain = 4;
-      else if (resources.resolve.current < resources.resolve.max / 2) resolvePain = 2;
+    const resolve = resources.resolve;
+    if (resolve && resolve.max > 0) {
+      if (resolve.current < 3) resolvePain = 4;
+      else if (resolve.current < resolve.max / 2) resolvePain = 2;
     }
     const override = resources.stress?.custom || 0;
     return Math.max(0, injuryStress + resolvePain + override);
@@ -341,22 +344,22 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
       }}
     >
       {/* Health */}
-      {renderEditableResource('Health', 'health', 'var(--color-sunset)')}
+      {renderEditableResource('Health', 'health', 'var(--color-health)')}
 
       {/* Pain meter under Health */}
-      {renderPainStressMeter('Pain', calcPain(), 'var(--color-sunset)')}
+      {renderPainStressMeter('Pain', calcPain(), 'var(--color-health)')}
 
       {/* Resolve */}
-      {renderEditableResource('Resolve', 'resolve', 'var(--color-sat-purple)')}
+      {renderEditableResource('Resolve', 'resolve', 'var(--color-resolve)')}
 
       {/* Stress meter under Resolve */}
-      {renderPainStressMeter('Stress', calcStress(), 'var(--color-sat-purple)')}
+      {renderPainStressMeter('Stress', calcStress(), 'var(--color-resolve)')}
 
       {/* Morale */}
-      {resources.morale && renderEditableResource('Morale', 'morale', 'var(--color-forest)')}
+      {resources.morale && renderEditableResource('Morale', 'morale', 'var(--color-morale)')}
 
       {/* Energy */}
-      {renderEditableResource('Energy', 'energy', 'var(--color-metal-gold)')}
+      {renderEditableResource('Energy', 'energy', 'var(--color-energy)')}
     </div>
   );
 };

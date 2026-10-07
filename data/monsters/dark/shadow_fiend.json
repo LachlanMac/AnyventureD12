@@ -241,7 +241,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "2d8",
-        "damage": "4",
+        "damage": "2",
         "damage_extra": "2",
         "damage_type": "physical",
         "category": "slash",
@@ -265,7 +265,7 @@
       "spellType": "innate",
       "spell": {
         "roll": "3d10",
-        "damage": "3",
+        "damage": "1",
         "damage_extra": "2",
         "damage_type": "psychic",
         "target_defense": "resilience",
@@ -287,7 +287,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",

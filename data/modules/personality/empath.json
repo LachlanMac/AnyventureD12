@@ -37,7 +37,7 @@
     },
     {
       "name": "Action : Read Emotions",
-      "description": "You make an insight check and attempt to read the emotions or state of a creature by making an insight check, with the quality of the information learned dependent upon the result. If the creature is not a beast or humanoid, roll with a penalty dice. The information revealed may involve desires, mood or state of mind.",
+      "description": "You make an insight check and attempt to read the emotions or state of a creature with the quality of the information learned dependent upon the result. If the creature is not a beast or humanoid, roll with a penalty dice. The information revealed may involve desires, mood or state of mind.",
       "location": "4b",
       "data": "XINE=1"
     },
@@ -61,7 +61,7 @@
     },
     {
       "name": "Downtime Action : Community Outreach",
-      "description": "You spend time embedding yourself in the community, offering help where you can by volunteering your time or services. This fulfilling work can help make local connections and restore your resolve. An insight check of an 6-9 is mildly successful and restores 2 resolve, while a 10 or higher is very successful and restores 5 resolve. On a perfect check, you restore your resolve and all the resolve of the individuals you interacted with in your outreach.",
+      "description": "You spend time embedding yourself in the community, offering help where you can by volunteering your time or services. This fulfilling work can help make local connections and restore your resolve. An insight check of an 6-9 is mildly successful and restores 2 resolve, while a 10 or higher is very successful and restores 5 resolve. On a 20 or higher, you restore your resolve and all the resolve of the individuals you interacted with in your outreach.",
       "location": "7",
       "data": "YDNE=0"
     }

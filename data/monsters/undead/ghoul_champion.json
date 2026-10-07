@@ -6,7 +6,7 @@
   "type": "undead",
   "subcategory": "Risen",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "ghoul.png",
   "health": {
     "max": 42,
     "current": 42
@@ -129,7 +129,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d12",
-        "damage": "5",
+        "damage": "3",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "slash",
@@ -150,7 +150,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d12",
-        "damage": "5",
+        "damage": "3",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "pierce",
@@ -173,7 +173,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d12",
-        "damage": "5",
+        "damage": "3",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "slash",

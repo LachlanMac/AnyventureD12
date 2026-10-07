@@ -215,7 +215,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "3d10",
-        "damage": "4",
+        "damage": "2",
         "damage_extra": "3",
         "damage_type": "physical",
         "category": "pierce",
@@ -236,7 +236,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -257,7 +257,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -280,7 +280,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",

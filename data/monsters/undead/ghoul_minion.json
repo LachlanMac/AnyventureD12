@@ -6,7 +6,7 @@
   "type": "undead",
   "subcategory": "Risen",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "ghoul.png",
   "health": {
     "max": 8,
     "current": 8

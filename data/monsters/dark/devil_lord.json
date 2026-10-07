@@ -241,7 +241,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d20",
-        "damage": "9",
+        "damage": "7",
         "damage_extra": "5",
         "damage_type": "physical",
         "category": "slash",
@@ -262,7 +262,7 @@
       "spellType": "innate",
       "attack": {
         "roll": "3d20",
-        "damage": "7",
+        "damage": "5",
         "damage_extra": "4",
         "damage_type": "heat",
         "category": "slash",
@@ -305,7 +305,7 @@
       "spellType": "unique",
       "spell": {
         "roll": "0",
-        "damage": "4",
+        "damage": "2",
         "damage_extra": "4",
         "damage_type": "psychic",
         "target_defense": "none",
@@ -414,7 +414,7 @@
       "spellType": "innate",
       "spell": {
         "roll": "3d20",
-        "damage": "6",
+        "damage": "4",
         "damage_extra": "4",
         "damage_type": "dark",
         "target_defense": "resilience",

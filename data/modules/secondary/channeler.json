@@ -1,0 +1,68 @@
+{
+  "id": 212,
+  "name": "Channeler",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Action : Aetheric Strike",
+      "description": "You channel raw magical energy through your palm, making a melee attack at adjacent range using your mysticism or arcane magic skill. For each dice that hits, deal 3 aetheric damage. This attack requires your hand to be completely uncovered and free.",
+      "location": "1",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Aetheric Resilience",
+      "description": "Your body has adapted to the flow of magical energy. Gain +1 skill with endurance. Your aetheric mitigation limit is reduced by 3.",
+      "location": "2a",
+      "data": "SSD=1:N7=-3"
+    },
+    {
+      "name": "Aetheric Conditioning",
+      "description": "Constant exposure to channeled energy has hardened your mind. Gain +1 skill with resilience and +2 aetheric mitigation.",
+      "location": "2b",
+      "data": "SSI=1:M7=2"
+    },
+    {
+      "name": "Mystical Tuning",
+      "description": "When you deal damage with an Aetheric Strike action during your turn, gain +5 mitigation to that damage type until the start of your next turn. This effect can only occur once per round.",
+      "location": "3",
+      "data": "TG"
+    },
+    {
+      "name": "Action : Ranged Aetheric Strike",
+      "description": "You project magical energy at a target within a short (10 unit) range using your mysticism or arcane magic skill. For each dice that hits, deal 3 aetheric damage. This attack requires your hand to be completely uncovered and free.",
+      "location": "4a",
+      "data": "XIME=1"
+    },
+    {
+      "name": "Reaction : Mystical Deflection",
+      "description": "In response to being targeted with a ranged attack, you can make a block check without the normal ranged penalties. If you successfully block the attack, the energy spent is refunded.",
+      "location": "4b",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Cross Discipline",
+      "description": "Your Aetheric Strike actions deal 4 damage per dice instead of 3. Additionally, gain +1 skill with deflection.",
+      "location": "5",
+      "data": "SSB=1:TG"
+    },
+    {
+      "name": "Elemental Channeling",
+      "description": "Gain +1 skill with primal magic. You can use primal magic instead of mysticism or arcane for Aetheric Strike actions and change the damage type to heat, cold, or electric.",
+      "location": "6a",
+      "data": "YS2=1:TG"
+    },
+    {
+      "name": "Arcane Attunement",
+      "description": "Gain +1 skill with mysticism magic and +1 skill with arcane magic.",
+      "location": "6b",
+      "data": "YS5=1:YS6=1"
+    },
+    {
+      "name": "Daily Action : Avatar State",
+      "description": "You enter a state of pure channeling. For the next minute, roll a bonus dice on all Aetheric Strike attacks while you maintain concentration.",
+      "location": "7",
+      "data": "XDME=3"
+    }
+  ]
+}

@@ -241,7 +241,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "4d12",
-        "damage": "6",
+        "damage": "4",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "slash",
@@ -262,7 +262,7 @@
       "spellType": "innate",
       "attack": {
         "roll": "3d10",
-        "damage": "6",
+        "damage": "4",
         "damage_extra": "3",
         "damage_type": "heat",
         "category": "ranged",
@@ -283,7 +283,7 @@
       "spellType": "unique",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -304,7 +304,7 @@
       "spellType": "unique",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -313,7 +313,7 @@
       },
       "spell": {
         "roll": "4d10",
-        "damage": "6",
+        "damage": "4",
         "damage_extra": "3",
         "damage_type": "dark",
         "target_defense": "resilience",
@@ -338,7 +338,7 @@
       "spellType": "unique",
       "attack": {
         "roll": "0",
-        "damage": "2",
+        "damage": "1",
         "damage_extra": "1",
         "damage_type": "physical",
         "category": "slash",
@@ -347,7 +347,7 @@
       },
       "spell": {
         "roll": "3d12",
-        "damage": "7",
+        "damage": "5",
         "damage_extra": "4",
         "damage_type": "heat",
         "secondary_damage": "5",

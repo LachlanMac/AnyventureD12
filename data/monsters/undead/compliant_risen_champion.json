@@ -6,7 +6,7 @@
   "type": "undead",
   "subcategory": "Risen",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "risen.png",
   "health": {
     "max": 55,
     "current": 55
@@ -244,7 +244,7 @@
       "spellType": "normal",
       "attack": {
         "roll": "3d10",
-        "damage": "5",
+        "damage": "3",
         "damage_extra": "4",
         "damage_type": "physical",
         "category": "pierce",

@@ -254,7 +254,7 @@
       "spellType": "innate",
       "attack": {
         "roll": "3d8",
-        "damage": "3",
+        "damage": "1",
         "damage_extra": "3",
         "damage_type": "cold",
         "category": "pierce",
@@ -274,7 +274,7 @@
       "daily": true,
       "spellType": "innate",
       "spell": {
-        "damage": "4",
+        "damage": "2",
         "damage_type": "psychic",
         "target_defense": "resilience",
         "defense_difficulty": 7,
@@ -297,7 +297,7 @@
       "spellType": "innate",
       "spell": {
         "roll": "3d10",
-        "damage": "3",
+        "damage": "1",
         "damage_extra": "2",
         "damage_type": "aetheric",
         "target_defense": "resilience",

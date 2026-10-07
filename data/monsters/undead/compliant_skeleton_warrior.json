@@ -6,7 +6,7 @@
   "type": "undead",
   "subcategory": "Risen",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "skeleton_warrior.png",
   "health": {
     "max": 25,
     "current": 25

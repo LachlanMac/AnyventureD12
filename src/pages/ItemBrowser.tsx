@@ -521,30 +521,30 @@ const ItemBrowser: React.FC = () => {
                 <div style={{ color: 'var(--color-cloud)', display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                   <strong>Value:</strong> {formatCurrency(item.value || 0)}
                 </div>
-                {(item.health?.max !== 0 || item.health?.recovery !== 0) && (
+                {item.health && (item.health.max !== 0 || item.health.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
                     <strong>Health:</strong>
-                    {item.health?.max !== 0 &&
+                    {item.health.max !== 0 &&
                       ` ${item.health.max > 0 ? '+' : ''}${item.health.max} max`}
-                    {item.health?.recovery !== 0 &&
+                    {item.health.recovery !== 0 &&
                       ` ${item.health.recovery > 0 ? '+' : ''}${item.health.recovery} recovery`}
                   </div>
                 )}
-                {(item.energy?.max !== 0 || item.energy?.recovery !== 0) && (
+                {item.energy && (item.energy.max !== 0 || item.energy.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
                     <strong>Energy:</strong>
-                    {item.energy?.max !== 0 &&
+                    {item.energy.max !== 0 &&
                       ` ${item.energy.max > 0 ? '+' : ''}${item.energy.max} max`}
-                    {item.energy?.recovery !== 0 &&
+                    {item.energy.recovery !== 0 &&
                       ` ${item.energy.recovery > 0 ? '+' : ''}${item.energy.recovery} recovery`}
                   </div>
                 )}
-                {(item.resolve?.max !== 0 || item.resolve?.recovery !== 0) && (
+                {item.resolve && (item.resolve.max !== 0 || item.resolve.recovery !== 0) && (
                   <div style={{ color: 'var(--color-cloud)' }}>
                     <strong>Resolve:</strong>
-                    {item.resolve?.max !== 0 &&
+                    {item.resolve.max !== 0 &&
                       ` ${item.resolve.max > 0 ? '+' : ''}${item.resolve.max} max`}
-                    {item.resolve?.recovery !== 0 &&
+                    {item.resolve.recovery !== 0 &&
                       ` ${item.resolve.recovery > 0 ? '+' : ''}${item.resolve.recovery} recovery`}
                   </div>
                 )}

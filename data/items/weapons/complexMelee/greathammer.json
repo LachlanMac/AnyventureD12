@@ -9,7 +9,7 @@
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
-    "damage": "8",
+    "damage": "6",
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "blunt",
