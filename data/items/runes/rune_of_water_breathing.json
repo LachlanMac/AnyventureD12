@@ -5,11 +5,22 @@
   "weight": 0,
   "value": 4450,
   "rarity": "rare",
-  "tags": ["rune", "enchantment", "utility", "water", "movement"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "utility",
+    "water",
+    "movement"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 12,
+    "difficulty": 14,
     "ingredients": [
       "Aquamarine",
       "Vial of Holy Water",

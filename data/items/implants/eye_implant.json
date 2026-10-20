@@ -55,7 +55,7 @@
   "immunities": {},
   "recipe": {
     "type": "biosculpting",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Fresh Eyes"
     ]

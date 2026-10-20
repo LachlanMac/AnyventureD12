@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Momentum",
   "magical": false,
-  "difficulty": 5,
+  "difficulty": 7,
   "description": "Springy accents that keep pressure after every strike",
   "effect": "+2 energy regeneration",
   "harmony_1": {

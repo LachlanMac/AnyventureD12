@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 2,
+    "difficulty": 4,
     "ingredients": [
       "Point",
       "Brass Fittings"

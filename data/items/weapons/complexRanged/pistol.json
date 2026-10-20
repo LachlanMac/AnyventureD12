@@ -62,7 +62,7 @@
   "immunities": {},
   "recipe": {
     "type": "engineering",
-    "difficulty": 9,
+    "difficulty": 11,
     "ingredients": [
       "2x Iron Ingot",
       "Handle",

@@ -14,7 +14,7 @@
     "rarity": "rare",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 12,
+      "difficulty": 14,
       "ingredients": [
         "Vial of Venom",
         "Bundle of Nightshade",
@@ -39,7 +39,7 @@
     "rarity": "rare",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 11,
+      "difficulty": 13,
       "ingredients": [
         "Bundle of Grave Moss",
         "Vial of Dried Blood",
@@ -65,7 +65,7 @@
     "rarity": "uncommon",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 7,
+      "difficulty": 9,
       "ingredients": [
         "Bundle of Mandrake",
         "Bundle of Valerian Root",
@@ -91,7 +91,7 @@
     "rarity": "uncommon",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 5,
+      "difficulty": 7,
       "ingredients": [
         "Bundle of Bloodthorn",
         "Pine Resin",

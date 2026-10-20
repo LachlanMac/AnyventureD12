@@ -17,7 +17,7 @@
         "Garnet",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables heat damage channeling in magical weapons",
@@ -41,7 +41,7 @@
         "Ruby",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -65,7 +65,7 @@
         "Aquamarine",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables cold damage channeling in magical weapons",
@@ -89,7 +89,7 @@
         "Frost Sapphire",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -113,7 +113,7 @@
         "Citrine",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables electric damage channeling in magical weapons",
@@ -137,7 +137,7 @@
         "Storm Topaz",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -161,7 +161,7 @@
         "Moonstone",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables aetheric damage channeling in magical weapons",
@@ -185,7 +185,7 @@
         "Spirit Moonstone",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -209,7 +209,7 @@
         "Shadow Onyx",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables dark damage channeling in magical weapons",
@@ -233,7 +233,7 @@
         "Black Diamond",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -257,7 +257,7 @@
         "Pearl",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables divine damage channeling in magical weapons",
@@ -281,7 +281,7 @@
         "Diamond",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -305,7 +305,7 @@
         "Amethyst",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables psychic damage channeling in magical weapons",
@@ -329,7 +329,7 @@
         "Void Amethyst",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",
@@ -353,7 +353,7 @@
         "Peridot",
         "Electrum Shavings"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "glyphcraft"
     },
     "properties": "Enables physical damage channeling in magical weapons",
@@ -377,7 +377,7 @@
         "Emerald",
         "Platinum Shavings"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "glyphcraft"
     },
     "properties": "Adds +2 base and +1 growth when installed in a glyphcraft weapon",

@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Gold Shavings"
     ]

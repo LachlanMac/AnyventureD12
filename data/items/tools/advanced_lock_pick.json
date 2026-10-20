@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "engineering",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Steel Sheet",
       "Brass Fittings",

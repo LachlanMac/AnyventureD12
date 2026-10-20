@@ -8,7 +8,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Bundle of Eyestalk",
       "Fresh Milk",

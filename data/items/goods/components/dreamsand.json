@@ -12,7 +12,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 7,
+    "difficulty": 9,
     "ingredients": [
       "Sand",
       "Bundle of Golden Poppy",

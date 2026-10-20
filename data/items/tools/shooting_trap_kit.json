@@ -7,7 +7,7 @@
   "rarity": "common",
   "recipe": {
     "type": "engineering",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Steel Sheet",
       "Bindings",

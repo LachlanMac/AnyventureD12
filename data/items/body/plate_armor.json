@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 12,
+    "difficulty": 14,
     "ingredients": [
       "4x Plates",
       "Padding"
@@ -15,7 +15,10 @@
   },
   "armor_category": "heavy",
   "mitigation": {
-    "physical": { "min": 5, "max": -2 }
+    "physical": {
+      "min": 5,
+      "max": -2
+    }
   },
   "encumbrance_penalty": 5,
   "foundry_icon": "icons/equipment/chest/breastplate-banded-steel.webp",

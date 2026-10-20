@@ -59,7 +59,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Light Head",
       "Short Shaft",

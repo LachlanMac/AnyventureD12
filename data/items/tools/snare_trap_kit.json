@@ -7,7 +7,7 @@
   "rarity": "common",
   "recipe": {
     "type": "engineering",
-    "difficulty": 7,
+    "difficulty": 9,
     "ingredients": [
       "Spool of Invisible String",
       "Bindings",

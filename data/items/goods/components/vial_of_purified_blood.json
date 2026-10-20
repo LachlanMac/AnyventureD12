@@ -12,7 +12,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 4,
+    "difficulty": 6,
     "ingredients": [
       "Vial of Blood",
       "Electrum Shavings"

@@ -5,11 +5,21 @@
   "weight": 0,
   "value": 2425,
   "rarity": "uncommon",
-  "tags": ["rune", "enchantment", "vision", "darkness"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "vision",
+    "darkness"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Onyx",
       "Bundle of Nightshade",

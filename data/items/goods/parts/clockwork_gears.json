@@ -12,7 +12,7 @@
   "rarity": "common",
   "recipe": {
     "type": "engineering",
-    "difficulty": 4,
+    "difficulty": 6,
     "ingredients": [
       "Steel Sheet",
       "Vial of Acid",

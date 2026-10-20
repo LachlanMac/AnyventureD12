@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Respite",
   "magical": false,
-  "difficulty": 4,
+  "difficulty": 6,
   "description": "A gentle lay that turns poor sleep into true rest",
   "effect": "Treat an unfavorable rest as favorable and remove its penalties",
   "harmony_1": {

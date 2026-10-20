@@ -14,7 +14,7 @@
     "rarity": "common",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 4,
+      "difficulty": 6,
       "ingredients": [
         "Bundle of Guarana"
       ]
@@ -37,7 +37,7 @@
     "rarity": "common",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 5,
+      "difficulty": 7,
       "ingredients": [
         "Bundle of Valerian Root",
         "Bundle of Mint"
@@ -61,7 +61,7 @@
     "rarity": "uncommon",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 9,
+      "difficulty": 11,
       "ingredients": [
         "Bone Dust",
         "Pinch of Crystal Dust",
@@ -87,7 +87,7 @@
     "rarity": "uncommon",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 7,
+      "difficulty": 9,
       "ingredients": [
         "Ember Dust",
         "Bundle of Embervine",
@@ -113,7 +113,7 @@
     "rarity": "rare",
     "recipe": {
       "type": "alchemy",
-      "difficulty": 11,
+      "difficulty": 13,
       "ingredients": [
         "Lead Shavings",
         "Vial of Alchemists Spirits",

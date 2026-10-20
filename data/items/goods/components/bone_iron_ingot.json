@@ -12,7 +12,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Iron Ingot",
       "Bone Dust",

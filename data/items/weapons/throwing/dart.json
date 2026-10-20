@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 1,
+    "difficulty": 3,
     "ingredients": [
       "Point",
       "Bundle of Cloth"

@@ -60,7 +60,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 3,
+    "difficulty": 5,
     "ingredients": []
   },
   "encumbrance_penalty": 1,

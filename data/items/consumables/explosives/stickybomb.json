@@ -8,7 +8,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Pine Resin",
       "Vial of Pitch",

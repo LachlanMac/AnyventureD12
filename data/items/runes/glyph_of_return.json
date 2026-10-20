@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 5,
+    "difficulty": 7,
     "ingredients": [
       "Electrum Shavings"
     ]

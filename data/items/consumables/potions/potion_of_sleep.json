@@ -8,7 +8,7 @@
   "rarity": "common",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Bundle of Golden Poppy",
       "2x Bundle of Valerian Root",

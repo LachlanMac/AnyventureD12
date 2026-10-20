@@ -11,7 +11,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Aetherium Shavings",
       "Vial of Quicksilver",

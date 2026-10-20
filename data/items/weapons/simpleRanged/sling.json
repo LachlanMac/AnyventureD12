@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 5,
+    "difficulty": 7,
     "ingredients": [
       "Cloth",
       "Handle"

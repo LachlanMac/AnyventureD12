@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "engineering",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Copper Sheet",
       "Spool of Invisible Thread",

@@ -11,7 +11,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 15,
+    "difficulty": 17,
     "ingredients": [
       "4x Vial of Quicksilver"
     ]

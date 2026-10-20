@@ -7,7 +7,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "engineering",
-    "difficulty": 9,
+    "difficulty": 11,
     "ingredients": [
       "8x Advanced Lock Picks",
       "Clockwork Gears",

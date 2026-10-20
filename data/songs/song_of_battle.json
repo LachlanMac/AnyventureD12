@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Battle",
   "magical": false,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A driving rhythm that synchronizes allies' attacks, granting them enhanced combat prowess",
   "effect": "Allies gain an additional action that can only be used to make a melee attack",
   "harmony_1": {

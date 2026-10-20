@@ -5,7 +5,7 @@
   "weapon_category": "complexRanged",
   "hands": 2,
   "weight": 2,
-  "value": 1340,
+  "value": 1470,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "engineering",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Release Mechanism",
       "Heavy Limbs",

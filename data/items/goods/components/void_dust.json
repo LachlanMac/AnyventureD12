@@ -11,7 +11,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 9,
+    "difficulty": 11,
     "yields": 4,
     "ingredients": [
       "1x Void Amethyst",

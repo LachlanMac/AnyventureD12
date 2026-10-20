@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 5,
+    "difficulty": 7,
     "ingredients": [
       "3x Bundle of Silk"
     ]

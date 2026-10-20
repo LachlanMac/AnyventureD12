@@ -77,7 +77,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Simple Blade",
       "Handle",

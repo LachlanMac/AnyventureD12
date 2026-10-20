@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Dissonance",
   "magical": false,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "Jagged tones that fray focus and unsettle the mind",
   "effect": "Characters who hear the song roll a penalty die on mind checks",
   "harmony_1": {

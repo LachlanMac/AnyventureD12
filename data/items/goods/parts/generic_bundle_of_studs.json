@@ -16,7 +16,7 @@
       "ingredients": [
         "Iron Ingot"
       ],
-      "difficulty": 2,
+      "difficulty": 4,
       "type": "fabrication"
     },
     "properties": "Standard material protection with no special effects",
@@ -39,7 +39,7 @@
       "ingredients": [
         "Steel Ingot"
       ],
-      "difficulty": 4,
+      "difficulty": 6,
       "type": "fabrication"
     },
     "properties": "Standard material protection with no special effects",
@@ -62,11 +62,11 @@
       "ingredients": [
         "True Steel Ingot"
       ],
-      "difficulty": 6,
+      "difficulty": 8,
       "type": "fabrication"
     },
     "properties": "+1 physical mitigation when crafted into armor. Adds +2 base and +1 growth to brawling attacks when crafted into boots or gloves",
-  "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
+    "foundry_icon": "icons/tools/fasteners/bolts-roundhead.webp"
   },
   {
     "name": "Bundle of Starsteel Studs",
@@ -86,7 +86,7 @@
       "ingredients": [
         "Starsteel Ingot"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "fabrication"
     },
     "properties": "+3 physical mitigation when crafted into armor. Adds +3 base and +3 growth to brawling attacks when crafted into boots or gloves",

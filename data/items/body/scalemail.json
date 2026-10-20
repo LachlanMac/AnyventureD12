@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "3x Scales",
       "Padding"
@@ -15,7 +15,10 @@
   },
   "armor_category": "heavy",
   "mitigation": {
-    "physical": { "min": 3, "max": -3 }
+    "physical": {
+      "min": 3,
+      "max": -3
+    }
   },
   "encumbrance_penalty": 4,
   "foundry_icon": "icons/equipment/chest/breastplate-metal-scaled-grey.webp",

@@ -60,7 +60,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 4,
+    "difficulty": 6,
     "ingredients": [
       "Short Shaft"
     ]

@@ -55,7 +55,7 @@
   "immunities": {},
   "recipe": {
     "type": "biosculpting",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Fresh Organ"
     ]

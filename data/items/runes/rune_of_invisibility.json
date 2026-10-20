@@ -5,11 +5,21 @@
   "weight": 0,
   "value": 9600,
   "rarity": "rare",
-  "tags": ["rune", "enchantment", "endgame", "stealth"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "endgame",
+    "stealth"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 15,
+    "difficulty": 17,
     "ingredients": [
       "Void Amethyst",
       "Void Dust",

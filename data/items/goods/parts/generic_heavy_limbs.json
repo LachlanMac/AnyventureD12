@@ -11,14 +11,14 @@
       "ash"
     ],
     "weight": 2.5,
-    "value": 150,
+    "value": 280,
     "rarity": "common",
     "recipe": {
       "ingredients": [
         "2x Ash Wood",
         "Wood Treatment Oil"
       ],
-      "difficulty": 6,
+      "difficulty": 8,
       "type": "engineering"
     },
     "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
@@ -36,17 +36,17 @@
       "yew"
     ],
     "weight": 3,
-    "value": 450,
+    "value": 850,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
         "2x Yew Wood",
         "Wood Treatment Oil"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "engineering"
     },
-        "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
+    "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +1 maximum range at the expense of adding +1 minimum range."
   },
   {
@@ -61,17 +61,17 @@
       "ironwood"
     ],
     "weight": 4,
-    "value": 1200,
+    "value": 2200,
     "rarity": "rare",
     "recipe": {
       "ingredients": [
         "2x Ironwood",
         "Wood Treatment Oil"
       ],
-      "difficulty": 10,
+      "difficulty": 12,
       "type": "engineering"
     },
-        "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
+    "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +1 maximum range and +1 base when fabricated into a ranged weapon"
   },
   {
@@ -85,16 +85,16 @@
       "truesteel"
     ],
     "weight": 4,
-    "value": 1050,
+    "value": 2000,
     "rarity": "uncommon",
     "recipe": {
       "ingredients": [
         "2x True Steel Ingots"
       ],
-      "difficulty": 10,
+      "difficulty": 12,
       "type": "fabrication"
     },
-     "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
+    "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +1 growth when fabricated into a ranged weapon"
   },
   {
@@ -109,16 +109,16 @@
       "legendary"
     ],
     "weight": 3,
-    "value": 100450,
+    "value": 200000,
     "rarity": "legendary",
     "recipe": {
       "ingredients": [
         "2x Starsteel Ingots"
       ],
-      "difficulty": 14,
+      "difficulty": 16,
       "type": "fabrication"
     },
-     "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
+    "foundry_icon": "icons/commodities/wood/kindling-stick-brown.webp",
     "properties": "Adds +2 base and +1 growth when fabricated into a ranged weapon"
   }
 ]

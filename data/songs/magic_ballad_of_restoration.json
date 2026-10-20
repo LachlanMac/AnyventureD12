@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Restoration",
   "magical": true,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A sweeping refrain that tidies, purifies, and rights what has fallen apart",
   "effect": "Purify water, clear debris, and repair simple non-magical objects if all pieces are present",
   "harmony_1": {

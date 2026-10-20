@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of the Hidden",
   "magical": true,
-  "difficulty": 8,
+  "difficulty": 10,
   "description": "A hushed weave that blurs edges and muffles sound",
   "effect": "Allies start their turn with the obscured condition",
   "harmony_1": {

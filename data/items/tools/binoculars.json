@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "engineering",
-    "difficulty": 12,
+    "difficulty": 14,
     "ingredients": [
       "2x Spyglass",
       "Clockwork Gears",

@@ -16,7 +16,7 @@
       "ingredients": [
         "Iron Ingot"
       ],
-      "difficulty": 3,
+      "difficulty": 5,
       "type": "fabrication"
     },
     "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
@@ -39,10 +39,10 @@
       "ingredients": [
         "Steel Ingot"
       ],
-      "difficulty": 5,
+      "difficulty": 7,
       "type": "fabrication"
     },
-       "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
+    "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
     "properties": "Standard material damage with no special effects"
   },
   {
@@ -62,10 +62,10 @@
       "ingredients": [
         "True Steel Ingot"
       ],
-      "difficulty": 7,
+      "difficulty": 9,
       "type": "fabrication"
     },
-       "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
+    "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
     "properties": "Adds +1 base when fabricated into an item."
   },
   {
@@ -86,10 +86,10 @@
       "ingredients": [
         "Starsteel Ingot"
       ],
-      "difficulty": 13,
+      "difficulty": 15,
       "type": "fabrication"
     },
-       "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
+    "foundry_icon": "icons/commodities/metal/ingot-steel.webp",
     "properties": "Adds +2 base and +1 growth when fabricated into an item."
   }
 ]

@@ -71,7 +71,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 7,
+    "difficulty": 9,
     "ingredients": [
       "Heavy Blade",
       "Handle",

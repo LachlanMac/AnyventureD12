@@ -11,7 +11,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Vial of Alchemist's Spirits",
       "Vial of Ammonia",

@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Plates",
       "Mail",
@@ -15,7 +15,10 @@
     ]
   },
   "mitigation": {
-    "physical": { "min": 0, "max": -1 }
+    "physical": {
+      "min": 0,
+      "max": -1
+    }
   },
   "encumbrance_penalty": 2,
   "foundry_icon": "icons/equipment/head/helm-sallet-steel.webp",

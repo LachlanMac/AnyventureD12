@@ -5,7 +5,7 @@
   "weapon_category": "complexRanged",
   "hands": 2,
   "weight": 2,
-  "value": 1260,
+  "value": 1390,
   "bonus_attack": 0,
   "rarity": "common",
   "primary": {
@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "engineering",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Heavy Limbs",
       "Bowstring"

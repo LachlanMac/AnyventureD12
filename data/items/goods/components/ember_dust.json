@@ -11,7 +11,7 @@
   "rarity": "common",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 4,
+    "difficulty": 6,
     "ingredients": [
       "2x Pinch of Sulfur",
       "2x Pinch of Phosphorus"

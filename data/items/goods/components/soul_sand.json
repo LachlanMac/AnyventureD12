@@ -11,7 +11,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Sand",
       "Shadow Onyx",

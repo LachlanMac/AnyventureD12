@@ -7,7 +7,7 @@
   "rarity": "common",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Hide",
       "Mail/Scales",

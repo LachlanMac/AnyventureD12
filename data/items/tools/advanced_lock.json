@@ -7,7 +7,7 @@
   "rarity": "common",
   "recipe": {
     "type": "engineering",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Simple Lock",
       "Clockwork Gears",

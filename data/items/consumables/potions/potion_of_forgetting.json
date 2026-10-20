@@ -8,7 +8,7 @@
   "rarity": "rare",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 10,
+    "difficulty": 12,
     "ingredients": [
       "Bundle of Mugwort",
       "Bundle of Golden Poppy",

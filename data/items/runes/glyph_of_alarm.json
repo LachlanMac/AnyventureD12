@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 3,
+    "difficulty": 5,
     "ingredients": [
       "Silver Shavings"
     ]

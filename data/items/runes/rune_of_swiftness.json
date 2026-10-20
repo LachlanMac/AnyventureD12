@@ -5,11 +5,21 @@
   "weight": 0,
   "value": 5340,
   "rarity": "rare",
-  "tags": ["rune", "enchantment", "movement", "speed"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "movement",
+    "speed"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 13,
+    "difficulty": 15,
     "ingredients": [
       "Topaz",
       "Zephyr Dust",

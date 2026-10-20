@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Inspiration",
   "magical": false,
-  "difficulty": 4,
+  "difficulty": 6,
   "description": "A hopeful refrain that lifts spirits back to center",
   "effect": "Reduce the check to recover from numbed or broken by 1",
   "harmony_1": {

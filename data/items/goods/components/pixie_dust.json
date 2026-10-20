@@ -12,7 +12,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 4,
+    "difficulty": 6,
     "ingredients": [
       "12x Bundle of Mint",
       "12x Pinch of Crystal Dust",

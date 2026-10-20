@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Lament",
   "magical": false,
-  "difficulty": 4,
+  "difficulty": 6,
   "description": "A sad ode to an ideal or individual that trades resolve for morale",
   "effect": "Exchange 2 resolve for 2 morale",
   "harmony_1": {

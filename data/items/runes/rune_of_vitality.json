@@ -5,11 +5,21 @@
   "weight": 0,
   "value": 5550,
   "rarity": "rare",
-  "tags": ["rune", "enchantment", "health", "vitality"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "health",
+    "vitality"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 12,
+    "difficulty": 14,
     "ingredients": [
       "Ruby",
       "Bundle of Ginseng",

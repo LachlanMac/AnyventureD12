@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of the Profaned",
   "magical": false,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A low chant that honors forbidden rites",
   "effect": "Allies roll a bonus die on black magic checks",
   "harmony_1": {

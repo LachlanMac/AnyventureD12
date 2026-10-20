@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Hope",
   "magical": false,
-  "difficulty": 4,
+  "difficulty": 6,
   "description": "An inspiring ballad about overcoming difficulty",
   "effect": "Restore +1 resolve",
   "harmony_1": {

@@ -5,11 +5,22 @@
   "weight": 0,
   "value": 11000,
   "rarity": "rare",
-  "tags": ["rune", "enchantment", "endgame", "vision", "detection"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "endgame",
+    "vision",
+    "detection"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 15,
+    "difficulty": 17,
     "ingredients": [
       "Spirit Moonstone",
       "Pixie Dust",

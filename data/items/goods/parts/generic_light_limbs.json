@@ -18,7 +18,7 @@
         "Ash Wood",
         "Wood Treatment Oil"
       ],
-      "difficulty": 5,
+      "difficulty": 7,
       "type": "engineering"
     },
     "foundry_icon": "icons/commodities/wood/kindling-stick-tan.webp",
@@ -43,7 +43,7 @@
         "Yew Wood",
         "Wood Treatment Oil"
       ],
-      "difficulty": 7,
+      "difficulty": 9,
       "type": "engineering"
     },
     "foundry_icon": "icons/commodities/wood/kindling-stick-tan.webp",
@@ -68,10 +68,10 @@
         "Ironwood",
         "Wood Treatment Oil"
       ],
-      "difficulty": 9,
+      "difficulty": 11,
       "type": "engineering"
     },
-"foundry_icon": "icons/commodities/wood/kindling-stick-tan.webp",
+    "foundry_icon": "icons/commodities/wood/kindling-stick-tan.webp",
     "properties": "Adds +1 maximum range and +1 base when fabricated into a ranged weapon"
   },
   {
@@ -91,7 +91,7 @@
       "ingredients": [
         "True Steel Ingots"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "fabrication"
     },
     "foundry_icon": "icons/commodities/wood/kindling-stick-tan.webp",
@@ -115,7 +115,7 @@
       "ingredients": [
         "Starsteel Ingots"
       ],
-      "difficulty": 12,
+      "difficulty": 14,
       "type": "fabrication"
     },
     "foundry_icon": "icons/commodities/wood/kindling-stick-tan.webp",

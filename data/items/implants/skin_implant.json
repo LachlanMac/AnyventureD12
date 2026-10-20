@@ -55,7 +55,7 @@
   "immunities": {},
   "recipe": {
     "type": "biosculpting",
-    "difficulty": 7,
+    "difficulty": 9,
     "ingredients": [
       "Fresh Hide"
     ]

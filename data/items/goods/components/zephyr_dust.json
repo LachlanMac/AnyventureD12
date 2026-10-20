@@ -12,7 +12,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 3,
+    "difficulty": 5,
     "ingredients": [
       "Pinch of Talc Powder",
       "Pinch of Saltpeter"

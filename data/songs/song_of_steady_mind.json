@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Steady Mind",
   "magical": false,
-  "difficulty": 4,
+  "difficulty": 6,
   "description": "A calm measure that centers thoughts and steadies aim",
   "effect": "Allies roll a bonus die on concentration checks",
   "harmony_1": {

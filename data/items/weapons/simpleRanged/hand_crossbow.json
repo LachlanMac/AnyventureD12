@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "engineering",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Release Mechanism",
       "Light Limbs",

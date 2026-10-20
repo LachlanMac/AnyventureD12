@@ -32,7 +32,7 @@
     "properties": "Fully functional leg replacement. No pain, health, or resolve penalties. No rejection checks required. Can be repaired using engineering.",
     "recipe": {
       "type": "engineering",
-      "difficulty": 8,
+      "difficulty": 10,
       "ingredients": [
         "Amethyst",
         "5x Clockwork Gears",

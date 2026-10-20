@@ -72,7 +72,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Point (affects Only Primary Piercing Attack)",
       "Heavy Head (affects Only Secondary Blunt Attack)",

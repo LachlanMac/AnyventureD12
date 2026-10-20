@@ -11,7 +11,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "alchemy",
-    "difficulty": 7,
+    "difficulty": 9,
     "yields": 3,
     "ingredients": [
       "2x Electrum Shavings",

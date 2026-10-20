@@ -16,7 +16,7 @@
       "ingredients": [
         "Bundle Of Heavy Leather Strips"
       ],
-      "difficulty": 3,
+      "difficulty": 5,
       "type": "fabrication"
     },
     "properties": "Standard material with no special effects",
@@ -39,7 +39,7 @@
       "ingredients": [
         "Truesteel Ingot"
       ],
-      "difficulty": 7,
+      "difficulty": 9,
       "type": "fabrication"
     },
     "foundry_icon": "icons/commodities/metal/chain-steel.webp",

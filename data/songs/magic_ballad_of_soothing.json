@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Soothing",
   "magical": true,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A gentle hymn that knits small wounds and eases pain",
   "effect": "Restore +1 health",
   "harmony_1": {

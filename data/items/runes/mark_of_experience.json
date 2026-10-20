@@ -1,13 +1,13 @@
 {
   "name": "Mark of Experience",
-  "description": "A permanent magical tattoo that grants the bearer trained expertise in a specific skill. When inscribed, choose one skill. The bearer's skill level is set to +2 in that skill permanently. A creature can only bear one Mark of Experience.",
+  "description": "A permanent magical tattoo that grants the bearer basic training in a specific skill. When inscribed, choose one skill. The bearer's skill level is set to +1 in that skill permanently. A creature can only bear one Mark at a time.",
   "type": "runes",
   "weight": 0,
   "value": 5000,
   "rarity": "legendary",
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 14,
+    "difficulty": 16,
     "ingredients": [
       "Diamond",
       "5x Platinum Shavings"

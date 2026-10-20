@@ -16,7 +16,7 @@
       "ingredients": [
         "4x Iron Ingots"
       ],
-      "difficulty": 8,
+      "difficulty": 10,
       "type": "fabrication"
     },
     "properties": "Balanced protection and mobility",
@@ -39,7 +39,7 @@
       "ingredients": [
         "4x Steel Ingots"
       ],
-      "difficulty": 11,
+      "difficulty": 13,
       "type": "fabrication"
     },
     "properties": "Standard protection",
@@ -62,7 +62,7 @@
       "ingredients": [
         "4x True Steel Ingots"
       ],
-      "difficulty": 13,
+      "difficulty": 15,
       "type": "fabrication"
     },
     "properties": "+1 physical mitigation, -1 physical mitigation limit",
@@ -86,7 +86,7 @@
       "ingredients": [
         "4x Aetherium Ingots"
       ],
-      "difficulty": 15,
+      "difficulty": 17,
       "type": "fabrication"
     },
     "properties": "+1 physical mitigation, -1 physical mitigation limit. +1 aetheric mitigation, -1 aetheric mitigation limit. Reduces encumbrance penalty by 1.",
@@ -110,7 +110,7 @@
       "ingredients": [
         "4x Starsteel Ingots"
       ],
-      "difficulty": 17,
+      "difficulty": 19,
       "type": "fabrication"
     },
     "properties": "+3 physical mitigation, -2 physical mitigation limit",

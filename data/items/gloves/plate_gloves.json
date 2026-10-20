@@ -7,7 +7,7 @@
   "rarity": "uncommon",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Plates",
       "Mail",

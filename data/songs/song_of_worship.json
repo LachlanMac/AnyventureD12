@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Worship",
   "magical": false,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A reverent hymn that steadies hearts and guides prayer",
   "effect": "Allies roll a bonus die on mysticism and white magic checks",
   "harmony_1": {

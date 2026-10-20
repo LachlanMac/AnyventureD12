@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Hope",
   "magical": false,
-  "difficulty": 7,
+  "difficulty": 9,
   "description": "A steadfast melody that steels the spirit and clears the mind, lifting allies beyond despair",
   "effect": "Allies double the result of their Resilience checks (rounded down)",
   "harmony_1": {

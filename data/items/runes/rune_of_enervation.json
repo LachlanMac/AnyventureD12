@@ -5,11 +5,20 @@
   "weight": 0,
   "value": 2625,
   "rarity": "uncommon",
-  "tags": ["rune", "enchantment", "energy"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "energy"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 11,
+    "difficulty": 13,
     "ingredients": [
       "Citrine",
       "Pinch of Phosphorus",

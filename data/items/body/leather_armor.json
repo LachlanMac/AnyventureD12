@@ -7,7 +7,7 @@
   "rarity": "common",
   "recipe": {
     "type": "fabrication",
-    "difficulty": 5,
+    "difficulty": 7,
     "ingredients": [
       "2x Hide",
       "Padding"
@@ -15,9 +15,18 @@
   },
   "armor_category": "light",
   "mitigation": {
-    "physical": { "min": 2, "max": -1 },
-    "heat": { "min": 1, "max": -1 },
-    "cold": { "min": 1, "max": -1 }
+    "physical": {
+      "min": 2,
+      "max": -1
+    },
+    "heat": {
+      "min": 1,
+      "max": -1
+    },
+    "cold": {
+      "min": 1,
+      "max": -1
+    }
   },
   "encumbrance_penalty": 1,
   "foundry_icon": "icons/equipment/chest/breastplate-layered-leather-studded.webp",

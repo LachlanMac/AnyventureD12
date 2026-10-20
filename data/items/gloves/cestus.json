@@ -59,7 +59,7 @@
   "immunities": {},
   "recipe": {
     "type": "fabrication",
-    "difficulty": 4,
+    "difficulty": 6,
     "ingredients": [
       "Bundle of Studs",
       "Bundle of Light Leather",

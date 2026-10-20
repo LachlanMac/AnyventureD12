@@ -61,7 +61,7 @@
   "immunities": {},
   "recipe": {
     "type": "engineering",
-    "difficulty": 5,
+    "difficulty": 7,
     "ingredients": [
       "Light Limbs",
       "Bowstring"

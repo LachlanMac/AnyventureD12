@@ -3,7 +3,7 @@
   "type": "song",
   "name": "Song of Warding",
   "magical": true,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A firm chorus that stiffens will and bars the path",
   "effect": "Minions and grunts cannot enter the song's area unless they succeed a resilience check (3); once a successful check has been made, they become immune to the effect until they complete a full rest",
   "harmony_1": {

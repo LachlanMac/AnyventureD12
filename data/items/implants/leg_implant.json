@@ -55,7 +55,7 @@
   "immunities": {},
   "recipe": {
     "type": "biosculpting",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Fresh Leg"
     ]

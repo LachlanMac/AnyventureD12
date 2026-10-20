@@ -7,7 +7,7 @@
   "rarity": "common",
   "recipe": {
     "type": "engineering",
-    "difficulty": 6,
+    "difficulty": 8,
     "ingredients": [
       "Brass Sheet",
       "Bindings",

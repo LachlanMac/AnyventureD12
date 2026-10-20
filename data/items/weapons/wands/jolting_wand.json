@@ -60,7 +60,7 @@
   "immunities": {},
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 8,
+    "difficulty": 10,
     "ingredients": [
       "Electric Core",
       "Ash Wood",

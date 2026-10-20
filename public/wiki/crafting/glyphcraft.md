@@ -31,3 +31,12 @@ When inscribing magical items, glyphcrafters can add infusions using different m
 | Focus Enhancement | Adds +1 to maximum range | Gold shavings |
 | Warding Enhancement | Adds +1 base damage, weapon becomes immutable (cannot be altered by magic) | Lead shavings |
 | Conservation Enhancement | Adds +1 base damage, reduces energy cost by 1 | Aetherium shavings |
+
+### Mark Infusions
+
+Marks are difficult to inscribe and even harder to enhance. Each infusion requires an additional success at the required check.
+
+| Name | Description | Ingredients |
+|------|-------------|-------------|
+| Dual Inscription | The bearer can have a second Mark inscribed on them. | Aetherium Ingot |
+| Deep Inscription | Mark of Experience sets the skill to +2 instead of +1. Mark of Innate Talent grants +1 talent to a second attribute. | Concentrated Quicksilver |

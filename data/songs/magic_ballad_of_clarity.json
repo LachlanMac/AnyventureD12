@@ -3,7 +3,7 @@
   "type": "ballad",
   "name": "Ballad of Clarity",
   "magical": true,
-  "difficulty": 6,
+  "difficulty": 8,
   "description": "A lucid refrain that recalls lost threads of spells",
   "effect": "Recover 1 fizzled spell",
   "harmony_1": {

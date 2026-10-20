@@ -5,11 +5,22 @@
   "weight": 0,
   "value": 10500,
   "rarity": "rare",
-  "tags": ["rune", "enchantment", "endgame", "healing", "regeneration"],
-  "enchantable_on": ["amulet", "ring", "belt", "bracer"],
+  "tags": [
+    "rune",
+    "enchantment",
+    "endgame",
+    "healing",
+    "regeneration"
+  ],
+  "enchantable_on": [
+    "amulet",
+    "ring",
+    "belt",
+    "bracer"
+  ],
   "recipe": {
     "type": "glyphcraft",
-    "difficulty": 15,
+    "difficulty": 17,
     "ingredients": [
       "Flame Emerald",
       "Bundle of Ginseng",
