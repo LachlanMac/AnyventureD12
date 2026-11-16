@@ -31,7 +31,7 @@ import injuryRoutes from './routes/injuryRoutes.js';
 import characterInjuryRoutes from './routes/characterInjuryRoutes.js';
 import conditionRoutes from './routes/conditionRoutes.js';
 // Import middleware
-import { getUser } from './middleware/auth.js';
+import { getUser, protect } from './middleware/auth.js';
 import { ogTagsMiddleware } from './middleware/ogTags.js';
 
 // Import config and utils
@@ -153,7 +153,7 @@ app.use('/api/creatures', creatureRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 app.use('/api/characters/:characterId/songs', characterSongRoutes);
 app.use('/api/characters/:characterId/injuries', characterInjuryRoutes);
-app.use('/fvtt', foundryRoutes);
+app.use('/fvtt', protect, foundryRoutes);
 // Root route for API health check
 app.get('/api', (req, res) => {
   res.json({ message: 'API is running' });

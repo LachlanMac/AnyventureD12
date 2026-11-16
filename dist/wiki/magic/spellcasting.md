@@ -17,6 +17,9 @@ The player takes their highest dice from that pool, and that becomes the value o
 A character with 3 talent and 2 skill in Primal Magic would roll <b>3d8</b> to cast elemental spells.
 </div>
 
+### Incantations
+Channeling spells requires that the caster is able to speak at least one language. Spells can be channeled without speaking, but the result of the spell check is halved. Certain abilities, traits, and languages can bypass this penalty.
+
 ### Energy Cost
 Channeling spells costs **Energy**. In order to attempt to cast a spell, a player must first spend the energy to do it.
 
