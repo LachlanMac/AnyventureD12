@@ -31,6 +31,10 @@ interface InjuriesTabProps {
       resolve?: { current: number; max: number };
       pain?: { custom: number; calculated: number };
       stress?: { custom: number; calculated: number };
+      painMitigation?: number;
+      painLimit?: number;
+      stressMitigation?: number;
+      stressLimit?: number;
     };
     injuries?: CharacterInjury[];
   };

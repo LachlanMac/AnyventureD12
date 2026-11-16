@@ -141,6 +141,10 @@ export const createDefaultCharacter = (userId: string): Character => {
     languageSkills: {},
     spells: [],
     spellSlots: 10,
+    sorcererSpells: [],
+    sorcererSpellSlots: 0,
+    thiefSpells: [],
+    thiefSpellSlots: 0,
     characterCreation: {
       attributePointsRemaining: 6,
       talentStarsRemaining: 8,
