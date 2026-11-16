@@ -149,6 +149,26 @@ const EquipmentSlotSchema = new Schema({
   }
 }, { _id: false });
 
+// Character's planned modules (for build planning)
+const PlannedModuleSchema = new Schema({
+  moduleId: {
+    type: Schema.Types.ObjectId,
+    ref: 'Module',
+    required: true
+  },
+  selectedOptions: {
+    type: Map,
+    of: String,
+    default: {}
+  },
+  progressionTier: {
+    type: Number,
+    required: true,
+    min: 1,
+    max: 4
+  }
+}, { _id: false });
+
 // Character's selected modules
 const CharacterModuleSchema = new Schema({
   moduleId: {
@@ -524,6 +544,9 @@ const CharacterSchema = new Schema({
   
   // Modules
   modules: [CharacterModuleSchema],
+
+  // Planned modules (build planning)
+  plannedModules: [PlannedModuleSchema],
   
   // Character Trait (from character creation)
   characterTrait: {

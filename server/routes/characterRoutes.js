@@ -25,6 +25,7 @@ import {
 import { protect } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
 import characterSpellRoutes from './characterSpellRoutes.js';
+import characterPlanRoutes from './characterPlanRoutes.js';
 import Character from '../models/Character.js';
 
 const router = express.Router();
@@ -32,6 +33,7 @@ const router = express.Router();
 // Mount the module routes (these need authentication)
 router.use('/:characterId/modules', protect, characterModuleRoutes);
 router.use('/:characterId/spells', protect, characterSpellRoutes);
+router.use('/:characterId/plan', characterPlanRoutes);
 
 // Routes for /api/characters
 router.route('/')

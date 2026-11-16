@@ -1,0 +1,68 @@
+{
+  "id": 313,
+  "name": "Gambler",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Quick Draw",
+      "description": "Gain +1 skill with coordination. When you act during the preparation phase, you can use your action to make an attack.",
+      "location": "1",
+      "data": "SSG=1"
+    },
+    {
+      "name": "Ricochet",
+      "description": "Gain +1 skill with throwing. When all of your dice are successful on a thrown weapon attack, the projectile ricochets into another creature within a very short (5 unit) range of the target, dealing half the damage dealt to the primary target.",
+      "location": "2a",
+      "data": "WS2=1"
+    },
+    {
+      "name": "Gambler's Instinct",
+      "description": "You have a natural talent for reading people and situations. Gain +1 skill with insight and +1 skill with thievery.",
+      "location": "2b",
+      "data": "SSS=1:SSH=1"
+    },
+    {
+      "name": "Gambler's Luck",
+      "description": "Once per day, you gain 1 luck die. After rolling any check, you can spend your luck die to reroll a single die in the pool and take either result. If you roll 3 or more 7s on an attack, spell, or defense check, you regain your luck die.",
+      "location": "3",
+      "data": "TP"
+    },
+    {
+      "name": "Lucky Streak",
+      "description": "You gain 2 additional luck dice, for a total of 3 per day. When you roll 3 or more 7s on an attack, spell, or defense check, all spent luck dice are restored.",
+      "location": "4a",
+      "data": "TP"
+    },
+    {
+      "name": "Poker Face",
+      "description": "Gain +1 skill with persuasion and +1 stress mitigation. You are immune to effects that would force you to reveal your intentions or emotions.",
+      "location": "4b",
+      "data": "SST=1:AR=1"
+    },
+    {
+      "name": "Plot Armor",
+      "description": "Whether through skill or sheer luck, you always seem to come out unscathed. Gain +1 skill with evasion and +1 skill with deflection.",
+      "location": "5",
+      "data": "SSE=1:SSB=1"
+    },
+    {
+      "name": "Action : High Roller",
+      "description": "Before making a ranged or thrown weapon attack, call evens or odds. If the majority of your dice match your call, double your damage. If equal, the attack resolves normally. Otherwise, the attack misses.",
+      "location": "6a",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Reaction : All In",
+      "description": "In response to being targeted by an attack, call evens or odds before the attacker rolls. If the majority of the attacker's dice match your call, the attack automatically misses. If equal, you make a normal defense check. Otherwise, you cannot make a defense check and all attack dice are treated as successful.",
+      "location": "6b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "House of Cards",
+      "description": "Your mind is a fortress of chaos, constantly running games and probability that make it impossible for outside forces to take hold. Gain +1 skill with resilience. While not concentrating on another effect, your checks to recover from charmed, frightened, confused, or maddened are doubled.",
+      "location": "7",
+      "data": "SSI=1"
+    }
+  ]
+}

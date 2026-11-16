@@ -48,7 +48,7 @@
     },
     {
       "name": "Daily Action : Primal Overcharge",
-      "description": "You channel a primal spell you know by using resolve instead of energy, even if the spell is fizzled. This spell channels even if you fail your spell check.",
+      "description": "You channel a primal spell you know by using resolve instead of energy, even if the spell is fizzled. Your spell check gains a bonus dice.",
       "location": "6a",
       "data": "XDME=0"
     },

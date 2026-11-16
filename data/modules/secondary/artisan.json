@@ -1,0 +1,68 @@
+{
+  "id": 312,
+  "name": "Artisan",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Vendor's Eye",
+      "description": "Gain +1 skill with senses. You can determine the true value of any object by examining it. You gain a bonus die on social checks when buying or selling goods.",
+      "location": "1",
+      "data": "SSK=1"
+    },
+    {
+      "name": "Forgery",
+      "description": "Gain +1 skill with glyphcraft. You can create convincing forgeries of documents, seals, artwork, and signatures. Make a glyphcraft check to determine the quality. Detecting your forgery requires a senses or academics check that exceeds your glyphcraft result.",
+      "location": "2a",
+      "data": "CS5=1"
+    },
+    {
+      "name": "Study Art",
+      "description": "Once per day, when you spend time studying a piece of art or crafted object worth 50 gold or more, gain 1 morale for each 100 gold of value, up to a maximum of 5. If the art originates from a specific culture, you learn about that culture's values, tactics, and customs.",
+      "location": "2b",
+      "data": "TP"
+    },
+    {
+      "name": "Downtime Action : Create Art",
+      "description": "You spend a downtime creating a work of art. Choose a tier and invest materials equal to one quarter of the art's value. You must succeed on an expression check against the RC three times across three separate downtimes to complete the piece. A failure at any stage loses all progress and materials. Completed art can be sold or traded at its full value to a reasonable buyer. Tiers: 100g (RC 5), 500g (RC 10), 1000g (RC 15), 2000g (RC 20), 5000g (RC 25).",
+      "location": "3",
+      "data": "DTNE=0"
+    },
+    {
+      "name": "Action : Shatter",
+      "description": "You target a construct or object within adjacent range and strike a structural weak point. Make a fabrication check. Deal damage equal to the result, ignoring physical mitigation.",
+      "location": "4a",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Reaction : Deflecting Flourish",
+      "description": "In response to being targeted by a melee attack while not wielding a shield, add a coordination die to your defense check.",
+      "location": "4b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Cultural Analysis",
+      "description": "Gain +1 skill with academics. When you spend a day studying a piece of art or crafted object from a specific culture, you gain a bonus die on social and knowledge checks related to that culture for one week. If you study three or more artifacts from the same culture, the bonus becomes permanent.",
+      "location": "5",
+      "data": "SSN=1"
+    },
+    {
+      "name": "Arcane Artistry",
+      "description": "Gain +1 skill with arcane magic. You can use enchantment spells you know to infuse objects that you paint or craft. You must successfully cast the spell and succeed on an expression check equal to or higher than the spell's required check. The spell activates when a condition of your choosing is met.",
+      "location": "6a",
+      "data": "YS6=1"
+    },
+    {
+      "name": "Restoration",
+      "description": "Gain +1 skill with expression and +1 skill with fabrication. You can assess a damaged or degraded object to determine its restored value and the required expression check and materials needed to restore it. Restoring an object takes a full day.",
+      "location": "6b",
+      "data": "SSQ=1:CS2=1"
+    },
+    {
+      "name": "Daily Action : Embellishment",
+      "description": "You perform your next attack or spell with extraordinary flair. Add an expression die and a coordination die to the check. If both your expression and coordination results also beat the target's defense check, double your damage.",
+      "location": "7",
+      "data": "DXNE=0"
+    }
+  ]
+}

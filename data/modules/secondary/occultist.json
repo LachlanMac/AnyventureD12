@@ -1,0 +1,68 @@
+{
+  "id": 311,
+  "name": "Occultist",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Occult Knowledge",
+      "description": "Gain +1 skill with magic knowledge. When a spell is channeled with you as the target, you can make a magic knowledge check. If the result equals or exceeds the spell's required check, you learn what the spell is, its effects, and its defense requirements before it resolves.",
+      "location": "1",
+      "data": "SSO=1"
+    },
+    {
+      "name": "Occult Awareness",
+      "description": "Your training has sharpened your ability to detect supernatural influence. Gain +1 skill with senses. You gain a bonus die on senses checks to detect the traces, presence, or disguises of dark, celestial, fey, or elemental creatures.",
+      "location": "2a",
+      "data": "SSK=1"
+    },
+    {
+      "name": "Hardened Mind",
+      "description": "Your exposure to eldritch texts and cosmic horrors has steeled your mind. Gain +2 stress mitigation and +1 skill with resilience.",
+      "location": "2b",
+      "data": "AR=2:SSI=1"
+    },
+    {
+      "name": "Action : Mindguard",
+      "description": "You concentrate on channeling your occult knowledge to protect yourself. While concentrating in this way, you can use your magic knowledge skill instead of resilience, endurance, or concentration when defending against spells and magical effects.",
+      "location": "3",
+      "data": "XINE=0"
+    },
+    {
+      "name": "Dark & Divine Warding",
+      "description": "Gain +2 dark mitigation and +2 divine mitigation. While in Mindguard, you gain a bonus die on defense checks against dark and celestial creatures.",
+      "location": "4a",
+      "data": "M5=2:M6=2"
+    },
+    {
+      "name": "Psychic & Aetheric Warding",
+      "description": "Gain +2 psychic mitigation and +2 aetheric mitigation. While in Mindguard, you gain a bonus die on defense checks against fey and elemental creatures.",
+      "location": "4b",
+      "data": "M8=2:M7=2"
+    },
+    {
+      "name": "Reaction : Occult Intervention",
+      "description": "When an ally within a very short (5 unit) distance is forced to make a defense check against a spell or magical effect, you can make a magic knowledge check in their place.",
+      "location": "5",
+      "data": "ZINE=2"
+    },
+    {
+      "name": "Unwavering Focus",
+      "description": "Your mental discipline allows you to maintain focus under supernatural duress. Gain +1 skill with concentration. Damage from dark, celestial, fey, and elemental creatures is halved when calculating concentration checks.",
+      "location": "6a",
+      "data": "SSJ=1"
+    },
+    {
+      "name": "Esoteric Research",
+      "description": "Your deep study of rare and forbidden magic enhances your understanding of exotic forces. Gain +1 skill with logic and +1 skill with glyphcraft. You gain a bonus die on spell research checks for exotic schools of magic.",
+      "location": "6b",
+      "data": "SSL=1:CS5=1"
+    },
+    {
+      "name": "Occult Reflexes",
+      "description": "Years of studying dangerous magical creatures has honed your instincts to react quickly and defend yourself. Gain +1 skill with evasion, +1 skill with deflection, and +1 skill with coordination.",
+      "location": "7",
+      "data": "SSA=1:SSB=1:SSF=1"
+    }
+  ]
+}

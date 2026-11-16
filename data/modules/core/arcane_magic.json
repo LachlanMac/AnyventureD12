@@ -12,7 +12,7 @@
     },
     {
       "name": "Action : Magical Disruption",
-      "description": "You take a modified defense action, rolling your arcane magic check as your defense. Additionally, enemies within a very short (5 unit) distance have a penalty dice on spell checks and checks made to resist spells until the start of your next turn.",
+      "description": "You take a modified defense action that allows you to use your Arcane Magic skill as your next defense check before the start of your next turn. Additionally, enemies within a very short (5 unit) distance have a penalty dice on spell checks and checks made to resist spells until the start of your next turn.",
       "location": "2a",
       "data": "XIME=1"
     },

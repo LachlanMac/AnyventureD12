@@ -17,6 +17,19 @@ interface Character {
   modules: CharacterModule[];
 }
 
+interface PlannedModule {
+  moduleId: string;
+  selectedOptions: Record<string, string>;
+  progressionTier: number;
+}
+
+const PROGRESSION_COLORS: Record<number, { bg: string; border: string; label: string; text: string }> = {
+  1: { bg: 'rgba(34, 197, 94, 0.2)', border: 'rgba(34, 197, 94, 0.6)', label: 'Starter (1-15)', text: 'rgb(34, 197, 94)' },
+  2: { bg: 'rgba(59, 130, 246, 0.2)', border: 'rgba(59, 130, 246, 0.6)', label: 'Advanced (16-25)', text: 'rgb(59, 130, 246)' },
+  3: { bg: 'rgba(168, 85, 247, 0.2)', border: 'rgba(168, 85, 247, 0.6)', label: 'Veteran (26-35)', text: 'rgb(168, 85, 247)' },
+  4: { bg: 'rgba(234, 179, 8, 0.2)', border: 'rgba(234, 179, 8, 0.6)', label: 'Elite (36-45)', text: 'rgb(234, 179, 8)' },
+};
+
 const ModulesPage: React.FC = () => {
   const { id: characterId } = useParams<{ id: string }>();
   const [searchParams] = useSearchParams();
@@ -28,6 +41,11 @@ const ModulesPage: React.FC = () => {
   const [character, setCharacter] = useState<Character | null>(null);
   const [allModules, setAllModules] = useState<Module[]>([]);
   const [selectedModule, setSelectedModule] = useState<Module | null>(null);
+
+  // Plan mode
+  const [planMode, setPlanMode] = useState<boolean>(false);
+  const [plannedModules, setPlannedModules] = useState<PlannedModule[]>([]);
+  const [planDirty, setPlanDirty] = useState<boolean>(false);
 
   // Search functionality
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -62,6 +80,23 @@ const ModulesPage: React.FC = () => {
         }
         const modulesData = await modulesResponse.json();
         setAllModules(modulesData);
+
+        // Fetch planned modules
+        try {
+          const planResponse = await fetch(`/api/characters/${characterId}/plan`);
+          if (planResponse.ok) {
+            const planData = await planResponse.json();
+            setPlannedModules(planData.map((pm: any) => ({
+              moduleId: typeof pm.moduleId === 'object' ? pm.moduleId._id : pm.moduleId,
+              selectedOptions: pm.selectedOptions instanceof Map
+                ? Object.fromEntries(pm.selectedOptions)
+                : (pm.selectedOptions || {}),
+              progressionTier: pm.progressionTier
+            })));
+          }
+        } catch (planErr) {
+          console.warn('Could not fetch plan data:', planErr);
+        }
 
         setLoading(false);
       } catch (err) {
@@ -140,6 +175,100 @@ const ModulesPage: React.FC = () => {
     // If a personality module is already selected, can't select a different one
     return !hasPersonalityModule;
   };
+
+  // Plan mode helpers
+  const getPlannedModule = (moduleId: string): PlannedModule | undefined => {
+    return plannedModules.find(pm => pm.moduleId === moduleId);
+  };
+
+  const getPlannedOptionTier = (moduleId: string, location: string): number | null => {
+    const pm = getPlannedModule(moduleId);
+    if (!pm) return null;
+    const tier = pm.selectedOptions?.[location];
+    return tier ? parseInt(tier) : null;
+  };
+
+  const handlePlanClick = (moduleId: string, location: string) => {
+    const currentUsed = getPlanPointsUsed();
+    const existing = plannedModules.find(pm => pm.moduleId === moduleId);
+    const currentTier = existing?.selectedOptions?.[location];
+    const currentNum = currentTier ? parseInt(currentTier) : 0;
+
+    // Find next tier that has budget, starting after current
+    let nextTier: number | null = null;
+    for (let t = currentNum + 1; t <= 4; t++) {
+      // When checking budget, subtract 1 if this option is currently in a tier (we're moving it)
+      const adjustedUsed = currentNum > 0 && currentNum === t ? currentUsed[t] - 1 : currentUsed[t];
+      if (adjustedUsed < TIER_BUDGETS[t]) {
+        nextTier = t;
+        break;
+      }
+    }
+
+    setPlannedModules(prev => {
+      const ex = prev.find(pm => pm.moduleId === moduleId);
+
+      if (nextTier === null) {
+        // All tiers full or past tier 4, remove from plan
+        if (!ex) return prev;
+        const newOptions = { ...ex.selectedOptions };
+        delete newOptions[location];
+        if (Object.keys(newOptions).length === 0) {
+          return prev.filter(pm => pm.moduleId !== moduleId);
+        }
+        const maxTier = Math.max(...Object.values(newOptions).map(v => parseInt(v)));
+        return prev.map(pm => pm.moduleId === moduleId
+          ? { ...pm, selectedOptions: newOptions, progressionTier: maxTier }
+          : pm
+        );
+      }
+
+      if (ex) {
+        const newOptions = { ...ex.selectedOptions, [location]: String(nextTier) };
+        const maxTier = Math.max(...Object.values(newOptions).map(v => parseInt(v)));
+        return prev.map(pm => pm.moduleId === moduleId
+          ? { ...pm, selectedOptions: newOptions, progressionTier: maxTier }
+          : pm
+        );
+      } else {
+        return [...prev, {
+          moduleId,
+          selectedOptions: { [location]: String(nextTier) },
+          progressionTier: nextTier
+        }];
+      }
+    });
+    setPlanDirty(true);
+  };
+
+  const savePlan = async () => {
+    try {
+      const response = await fetch(`/api/characters/${characterId}/plan`, {
+        method: 'PUT',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ plannedModules })
+      });
+      if (response.ok) {
+        setPlanDirty(false);
+      }
+    } catch (err) {
+      console.error('Failed to save plan:', err);
+    }
+  };
+
+  const TIER_BUDGETS: Record<number, number> = { 1: 15, 2: 10, 3: 10, 4: 10 };
+
+  const getPlanPointsUsed = () => {
+    const tiers: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0 };
+    for (const pm of plannedModules) {
+      for (const tier of Object.values(pm.selectedOptions)) {
+        const t = parseInt(tier);
+        if (tiers[t] !== undefined) tiers[t]++;
+      }
+    }
+    return tiers;
+  };
+
 
   const canSelectOption = (module: Module, location: string) => {
     // For personality modules, ALWAYS check if they're selectable (not just tier 1)
@@ -375,30 +504,82 @@ const ModulesPage: React.FC = () => {
             fontWeight: 'bold',
           }}
         >
-          Character Modules
+          {planMode ? 'Plan Modules' : 'Character Modules'}
         </h1>
 
-        <div
-          style={{
-            backgroundColor: 'var(--color-dark-elevated)',
-            padding: '0.75rem 1.5rem',
-            borderRadius: '0.5rem',
-            color: 'var(--color-metal-gold)',
-          }}
-        >
-          Module Points:{' '}
-          <span style={{ fontWeight: 'bold' }}>
-            {(character?.modulePoints?.total || 0) - (character?.modulePoints?.spent || 0)}
-          </span>{' '}
-          / {character?.modulePoints.total || 0}
+        <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+          <Button
+            variant={planMode ? 'accent' : 'secondary'}
+            onClick={() => setPlanMode(!planMode)}
+          >
+            {planMode ? '✎ Plan Mode ON' : 'Plan Mode'}
+          </Button>
+          {planMode && planDirty && (
+            <Button variant="accent" onClick={savePlan}>
+              Save Plan
+            </Button>
+          )}
+          {!planMode && (
+            <div
+              style={{
+                backgroundColor: 'var(--color-dark-elevated)',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '0.5rem',
+                color: 'var(--color-metal-gold)',
+              }}
+            >
+              Module Points:{' '}
+              <span style={{ fontWeight: 'bold' }}>
+                {(character?.modulePoints?.total || 0) - (character?.modulePoints?.spent || 0)}
+              </span>{' '}
+              / {character?.modulePoints.total || 0}
+            </div>
+          )}
         </div>
       </div>
 
-      <div style={{ marginBottom: '1.5rem' }}>
+      <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <Link to={`/characters/${characterId}?tab=modules`}>
           <Button variant="secondary">&larr; Back to Character</Button>
         </Link>
       </div>
+
+      {planMode && (() => {
+        const tiers = getPlanPointsUsed();
+        return (
+          <div style={{
+            display: 'flex', gap: '1rem', marginBottom: '1.5rem', flexWrap: 'wrap'
+          }}>
+            {[1, 2, 3, 4].map(t => {
+              const budget = TIER_BUDGETS[t];
+              const full = tiers[t] >= budget;
+              return (
+                <div key={t} style={{
+                  padding: '0.5rem 1rem',
+                  borderRadius: '0.375rem',
+                  backgroundColor: full ? PROGRESSION_COLORS[t].bg : 'var(--color-dark-elevated)',
+                  border: `2px solid ${full ? PROGRESSION_COLORS[t].border : 'var(--color-dark-border)'}`,
+                  color: full ? PROGRESSION_COLORS[t].text : 'var(--color-cloud)',
+                  fontSize: '0.875rem',
+                  fontWeight: 'bold',
+                }}>
+                  {PROGRESSION_COLORS[t].label}: {tiers[t]} / {budget}
+                </div>
+              );
+            })}
+            <div style={{
+              padding: '0.5rem 1rem',
+              borderRadius: '0.375rem',
+              backgroundColor: 'var(--color-dark-elevated)',
+              color: 'var(--color-white)',
+              fontSize: '0.875rem',
+              fontWeight: 'bold',
+            }}>
+              Total: {tiers[1] + tiers[2] + tiers[3] + tiers[4]} / {TIER_BUDGETS[1] + TIER_BUDGETS[2] + TIER_BUDGETS[3] + TIER_BUDGETS[4]}
+            </div>
+          </div>
+        );
+      })()}
 
       {/* Search and Filter Section */}
       <div style={{ marginBottom: '2rem' }}>
@@ -539,7 +720,33 @@ const ModulesPage: React.FC = () => {
                           </div>
                         </div>
 
-                        {isModuleSelected(module._id) && (
+                        {planMode && getPlannedModule(module._id) && (
+                          <div
+                            style={{
+                              display: 'flex',
+                              alignItems: 'center',
+                              gap: '0.25rem',
+                            }}
+                          >
+                            <div
+                              style={{
+                                width: '0.5rem',
+                                height: '0.5rem',
+                                borderRadius: '50%',
+                                backgroundColor: PROGRESSION_COLORS[getPlannedModule(module._id)!.progressionTier].text,
+                              }}
+                            ></div>
+                            <span
+                              style={{
+                                fontSize: '0.75rem',
+                                color: PROGRESSION_COLORS[getPlannedModule(module._id)!.progressionTier].text,
+                              }}
+                            >
+                              Planned
+                            </span>
+                          </div>
+                        )}
+                        {!planMode && isModuleSelected(module._id) && (
                           <div
                             style={{
                               display: 'flex',
@@ -633,15 +840,30 @@ const ModulesPage: React.FC = () => {
                               option.location
                             );
 
+                            // Plan mode styling
+                            const plannedTier = getPlannedOptionTier(selectedModule._id, option.location);
+                            const planColor = plannedTier ? PROGRESSION_COLORS[plannedTier] : null;
+                            const isInvested = isOptionSelected(selectedModule._id, option.location);
+
                             // For Tier 1, always make it selectable if module isn't added yet
                             // For other tiers, check prerequisites
-                            const canSelect =
+                            const canSelect = planMode ? true :
                               option.location === '1'
                                 ? true
                                 : isModuleSelected(selectedModule._id) &&
                                   canSelectOption(selectedModule, option.location);
 
-                            const hasEnoughPointsForOption = hasEnoughPoints(1);
+                            const hasEnoughPointsForOption = planMode ? true : hasEnoughPoints(1);
+
+                            // Determine card style
+                            let cardBg = isInvested
+                              ? 'var(--color-sat-purple-faded)'
+                              : 'var(--color-dark-elevated)';
+                            let cardBorder = planMode && planColor
+                              ? `3px solid ${planColor.border}`
+                              : isInvested
+                                ? '1px solid var(--color-metal-gold)'
+                                : '1px solid var(--color-dark-border)';
 
                             return (
                               <div
@@ -649,19 +871,17 @@ const ModulesPage: React.FC = () => {
                                 style={{
                                   padding: '0.75rem',
                                   borderRadius: '0.375rem',
-                                  backgroundColor: isSelected
-                                    ? 'var(--color-sat-purple-faded)'
-                                    : 'var(--color-dark-elevated)',
-                                  border: isSelected
-                                    ? '1px solid var(--color-metal-gold)'
-                                    : '1px solid var(--color-dark-border)',
+                                  backgroundColor: cardBg,
+                                  border: cardBorder,
                                   width: optionWidth,
-                                  cursor:
-                                    canSelect && (isSelected || hasEnoughPointsForOption)
+                                  cursor: planMode
+                                    ? 'pointer'
+                                    : canSelect && (isSelected || hasEnoughPointsForOption)
                                       ? 'pointer'
                                       : 'not-allowed',
-                                  opacity:
-                                    !canSelect || (!isSelected && !hasEnoughPointsForOption)
+                                  opacity: planMode
+                                    ? 1
+                                    : !canSelect || (!isSelected && !hasEnoughPointsForOption)
                                       ? 0.5
                                       : 1,
                                   position: 'relative',
@@ -671,9 +891,12 @@ const ModulesPage: React.FC = () => {
                                   minHeight: '120px',
                                 }}
                                 onClick={() => {
+                                  if (planMode) {
+                                    handlePlanClick(selectedModule._id, option.location);
+                                    return;
+                                  }
                                   if (canSelect && (isSelected || hasEnoughPointsForOption)) {
                                     if (isSelected) {
-                                      // Check if the option can be deselected before attempting to deselect it
                                       if (canDeselectOption(selectedModule._id, option.location)) {
                                         handleDeselectOption(
                                           selectedModule._id,
@@ -681,7 +904,6 @@ const ModulesPage: React.FC = () => {
                                           selectedModule.mtype
                                         );
                                       }
-                                      // If it can't be deselected, do nothing (silently ignore the click)
                                     } else {
                                       handleSelectOption(selectedModule._id, option.location);
                                     }
@@ -716,16 +938,27 @@ const ModulesPage: React.FC = () => {
                                   {/* Tier indicator */}
                                   <div
                                     style={{
-                                      color: 'var(--color-cloud)',
+                                      color: planColor ? planColor.text : 'var(--color-cloud)',
                                       fontSize: '0.75rem',
                                       width: '2rem',
                                       flexShrink: 0,
                                       textAlign: 'right',
+                                      fontWeight: planColor ? 'bold' : 'normal',
                                     }}
                                   >
                                     {option.location}
                                   </div>
                                 </div>
+                                {planMode && planColor && (
+                                  <div style={{
+                                    fontSize: '0.625rem',
+                                    fontWeight: 'bold',
+                                    color: planColor.text,
+                                    marginBottom: '0.25rem',
+                                  }}>
+                                    {planColor.label}
+                                  </div>
+                                )}
 
                                 {/* Content area - grows to fill space */}
                                 <div style={{ flex: 1, display: 'flex', flexDirection: 'column' }}>
