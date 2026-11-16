@@ -6,9 +6,9 @@
   "options": [
     {
       "name": "Innate Caster",
-      "description": "You are a natural conduit for magic, channeling spells through sheer will rather than study. Gain 2 sorcerer spell slots. Sorcerer spells can be swapped at a full rest for any spell you could potentially learn, but they cannot be charged.",
+      "description": "You are a natural conduit for magic, channeling spells through sheer will rather than study. Gain 2 sorcerer spell slots, but lose 2 spell capacity. Sorcerer spells can be swapped at a full rest for any spell you could potentially learn, but they cannot be charged.",
       "location": "1",
-      "data": "AS=2"
+      "data": "AS=2:A9=-2"
     },
     {
       "name": "Studied Sorcerer",
@@ -18,9 +18,9 @@
     },
     {
       "name": "Gifted Sorcerer",
-      "description": "Your innate magical presence is undeniable. Gain +2 sorcerer spell slots and +1 skill with presence.",
+      "description": "Your innate magical presence is undeniable. Gain +2 sorcerer spell slots, but lose 2 spell capacity. Gain +1 skill with presence.",
       "location": "2b",
-      "data": "AS=2:SSR=1"
+      "data": "AS=2:A9=-2:SSR=1"
     },
     {
       "name": "Magical Resilience",
