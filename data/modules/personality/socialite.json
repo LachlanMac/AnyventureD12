@@ -49,9 +49,9 @@
     },
     {
       "name": "Party Goer",
-      "description": "You gain 5 morale and 5 resolve your first full rest after attending a party or social event that you are invited to. During a party, you gain a bonus roll to all social checks.",
+      "description": "Gain +1 stress limit. You gain 5 morale and 5 resolve your first full rest after attending a party or social event that you are invited to. During a party, you gain a bonus roll to all social checks.",
       "location": "6a",
-      "data": "TP"
+      "data": "TP:AW=1"
     },
     {
       "name": "Everyone's Confidant",

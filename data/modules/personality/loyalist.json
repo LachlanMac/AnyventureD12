@@ -55,9 +55,9 @@
     },
     {
       "name": "No Man Left Behind",
-      "description": "When a humanoid ally within a moderate (20 unit) distance is at 0 health or unconscious, your resilience and endurance checks are rolled with 2 bonus dice. Additionally when you take the sprint action towards an ally that has 0 health, it does not take energy.",
+      "description": "Gain +1 pain mitigation. When a humanoid ally within a moderate (20 unit) distance is at 0 health or unconscious, your resilience and endurance checks are rolled with 2 bonus dice. Additionally when you take the sprint action towards an ally that has 0 health, it does not take energy.",
       "location": "6b",
-      "data": "TP"
+      "data": "TP:AP=1"
     },
     {
       "name": "Downtime Action : Strengthen Bonds",

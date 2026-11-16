@@ -25,9 +25,9 @@
     },
     {
       "name": "Logical Manipulation",
-      "description": "Your scheming nature enhances your logical thinking and planning abilities. Gain +1 skill with logic. When you start a fight or prevent one using a social skill, you gain 3 morale.",
+      "description": "Your scheming nature enhances your logical thinking and planning abilities. Gain +1 skill with logic and +1 stress limit. When you start a fight or prevent one using a social skill, you gain 3 morale.",
       "location": "3",
-      "data": "TP:SSL=1"
+      "data": "TP:SSL=1:AW=1"
     },
     {
       "name": "Action : Misdirection",

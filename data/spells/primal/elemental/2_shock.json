@@ -1,7 +1,7 @@
 {
   "name": "Shock",
-  "description": "You send a burst of electricity towards a nearby creature, dealing 4 electric damage if your spell check beats the target's resilience. If the target is wearing or wielding metal, they suffer a -1 penalty to their Defense Check.",
-  "charge": "A creature wearing or wielding metal takes an additional 4 electric damage.",
+  "description": "You send a burst of electricity towards a nearby creature, dealing 5 electric damage if your spell check beats the target's resilience. If the target is wearing or wielding metal, they suffer a -1 penalty to their Defense Check.",
+  "charge": "A creature wearing or wielding metal takes an additional 5 electric damage.",
   "duration": "Instantaneous",
   "range": 2,
   "checkToCast": 4,
@@ -12,7 +12,7 @@
   "concentration": false,
   "reaction": false,
   "energy": 1,
-  "damage": 4,
+  "damage": 5,
   "damageType": "Electric",
   "foundry_id": "hs3fllv42jwyvixt",
   "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",

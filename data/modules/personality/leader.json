@@ -25,9 +25,9 @@
     },
     {
       "name": "Commanding Presence",
-      "description": "Your leadership abilities are enhanced by your commanding presence. Gain +1 skill with presence. Whenever you spend a Wonder, roll a presence check; a result of 7 or higher removes the Woe from any ally within a short (10 unit) radius.",
+      "description": "Your leadership abilities are enhanced by your commanding presence. Gain +1 skill with presence and +1 stress mitigation. Whenever you spend a Wonder, roll a presence check; a result of 7 or higher removes the Woe from any ally within a short (10 unit) radius.",
       "location": "3",
-      "data": "TP:SSR=1"
+      "data": "TP:SSR=1:AR=1"
     },
     {
       "name": "Daily Action : To the Death",

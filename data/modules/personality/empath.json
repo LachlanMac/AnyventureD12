@@ -25,9 +25,9 @@
     },
     {
       "name": "Bearer of Burdens",
-      "description": "Your empathic nature allows you to better understand others' emotional states. Gain +1 skill with insight. At the end of a full rest, you can transfer a minor or major stress injury from an ally to yourself.",
+      "description": "Your empathic nature allows you to better understand others' emotional states. Gain +1 skill with insight and +1 stress limit. At the end of a full rest, you can transfer a minor or major stress injury from an ally to yourself.",
       "location": "3",
-      "data": "TP:SSS=1"
+      "data": "TP:SSS=1:AW=1"
     },
     {
       "name": "Daily Action : Plea",

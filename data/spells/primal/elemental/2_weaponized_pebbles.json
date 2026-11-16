@@ -1,7 +1,7 @@
 {
   "name": "Weaponized Pebbles",
   "description": "You launch a swarm of pebble-sized rocks at a target within a very short (5 unit) distance. You roll a 1d4 and fire that many pebbles. The target must defend against your spell check for each pebble. Each pebble that hits deals 2 physical damage, but is mitigated separately.",
-  "charge": "You launch 1d6 pebbles instead. The damage cannot be mitigated lower than 1 physical damage.",
+  "charge": "You launch 2d4 pebbles instead. The damage cannot be mitigated lower than 1 physical damage.",
   "duration": "Instantaneous",
   "range": 2,
   "checkToCast": 4,

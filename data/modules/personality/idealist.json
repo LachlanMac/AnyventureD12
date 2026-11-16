@@ -49,9 +49,9 @@
     },
     {
       "name": "Unshakeable Faith",
-      "description": "Your core beliefs protect your mind from outside influence. When you gain either the charmed, confused, maddened, or afraid conditions, you can instead elect to take a major stress injury in exchange for the condition being removed. This cannot be used if you are in severe stress.",
+      "description": "Your core beliefs protect your mind from outside influence. Gain +1 stress mitigation. When you gain either the charmed, confused, maddened, or afraid conditions, you can instead elect to take a major stress injury in exchange for the condition being removed. This cannot be used if you are in severe stress.",
       "location": "6a",
-      "data": "TP"
+      "data": "TP:AR=1"
     },
     {
       "name": "Martyr",

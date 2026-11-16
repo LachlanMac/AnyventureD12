@@ -25,9 +25,9 @@
     },
     {
       "name": "Persuasive Mediator",
-      "description": "Your mediation skills enhance your ability to persuade others toward compromise. Gain +1 skill with persuasion. When you diffuse a fight or conflict, you gain 2 resolve.",
+      "description": "Your mediation skills enhance your ability to persuade others toward compromise. Gain +1 skill with persuasion and +1 stress mitigation. When you diffuse a fight or conflict, you gain 2 resolve.",
       "location": "3",
-      "data": "TP:SST=1"
+      "data": "TP:SST=1:AR=1"
     },
     {
       "name": "Action : Talk Down",

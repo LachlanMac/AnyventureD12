@@ -49,9 +49,9 @@
     },
     {
       "name": "No One's Pawn",
-      "description": "When you gain the confused, charmed, or maddened condition, roll a 1d12. On an 8 or higher, the effect is removed at the start of your next turn.",
+      "description": "Gain +1 pain mitigation. When you gain the confused, charmed, or maddened condition, roll a 1d12. On an 8 or higher, the effect is removed at the start of your next turn.",
       "location": "6a",
-      "data": "TP"
+      "data": "TP:AP=1"
     },
     {
       "name": "Lone Wolf",

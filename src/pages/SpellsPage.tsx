@@ -8,6 +8,7 @@ import EmptyState from '../components/ui/EmptyState';
 import { useCharacter } from '../hooks/useCharacters';
 import { useSpells } from '../hooks/useSpells';
 import { spellApi } from '../api/spells';
+import { formatRange } from '../utils/rangeUtils';
 import type { CharacterSpell } from '../types/character';
 
 const SpellsPage: React.FC = () => {
@@ -874,7 +875,7 @@ const SpellsPage: React.FC = () => {
                           color: 'var(--color-white)',
                         }}
                       >
-                        {selectedSpell.range}
+                        {formatRange(selectedSpell.range, 'spell')}
                       </div>
                     </div>
                     <div>

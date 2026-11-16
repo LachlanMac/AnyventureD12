@@ -435,16 +435,6 @@ const SpellsTab: React.FC<SpellTabProps> = ({
           </h2>
           <p style={{ color: 'var(--color-cloud)', fontSize: '0.875rem' }}>
             {spells.length} / {spellSlots} spell slots used
-            {hasSorcererSlots && (
-              <span style={{ color: 'rgb(57, 0, 214)', marginLeft: '1rem' }}>
-                Sorcerer: {sorcererSpells.length} / {sorcererSpellSlots}
-              </span>
-            )}
-            {hasThiefSlots && (
-              <span style={{ color: 'var(--color-sunset)', marginLeft: '1rem' }}>
-                Thief: {thiefSpells.length} / {thiefSpellSlots}
-              </span>
-            )}
           </p>
         </div>
         {canEdit && (

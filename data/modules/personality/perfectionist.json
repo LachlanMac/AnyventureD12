@@ -25,9 +25,9 @@
     },
     {
       "name": "Expressive Perfectionist",
-      "description": "Your pursuit of perfection enhances your ability to express yourself artistically and creatively. Gain +1 skill with expression. Additionally, if you've seen art, architecture or a crafted item created by an individual, you can ",
+      "description": "Your pursuit of perfection enhances your ability to express yourself artistically and creatively. Gain +1 skill with expression and +1 pain limit. Additionally, if you've seen art, architecture or a crafted item created by an individual, you can ",
       "location": "3",
-      "data": "TP:SSQ=1"
+      "data": "TP:SSQ=1:AQ=1"
     },
     {
       "name": "Daily Action : Create",
