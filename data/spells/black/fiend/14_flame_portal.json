@@ -15,7 +15,7 @@
   "damage": 10,
   "damageType": "Heat",
   "foundry_id": "",
-  "foundry_icon": "",
+  "foundry_icon": "icons/creatures/unholy/demon-fanged-horned-yellow.webp",
   "targetCheck": null,
   "delivery": "area"
 }

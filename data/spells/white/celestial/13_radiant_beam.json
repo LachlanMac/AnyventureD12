@@ -15,7 +15,7 @@
   "damage": 15,
   "damageType": "Divine",
   "foundry_id": "",
-  "foundry_icon": "",
+  "foundry_icon": "icons/magic/holy/angel-winged-humanoid-blue.webp",
   "targetCheck": "defense",
   "delivery": "area"
 }

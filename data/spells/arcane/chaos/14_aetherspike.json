@@ -15,7 +15,7 @@
   "damage": 8,
   "damageType": "Aetheric",
   "foundry_id": "",
-  "foundry_icon": "",
+  "foundry_icon": "icons/magic/symbols/rune-sigil-horned-white-purple.webp",
   "targetCheck": "defense",
   "delivery": "projectile"
 }

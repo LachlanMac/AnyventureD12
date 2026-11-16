@@ -15,7 +15,7 @@
   "damage": 25,
   "damageType": "Aetheric",
   "foundry_id": "",
-  "foundry_icon": "",
+  "foundry_icon": "icons/magic/movement/trail-streak-impact-blue.webp",
   "targetCheck": null,
   "delivery": "projectile"
 }

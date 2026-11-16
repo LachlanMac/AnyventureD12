@@ -15,7 +15,7 @@
   "damage": 40,
   "damageType": "Electric",
   "foundry_id": "",
-  "foundry_icon": "",
+  "foundry_icon": "icons/magic/symbols/elements-air-earth-fire-water.webp",
   "targetCheck": "defense",
   "delivery": "projectile"
 }
