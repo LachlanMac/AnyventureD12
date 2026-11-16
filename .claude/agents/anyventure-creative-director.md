@@ -15,7 +15,7 @@ You must deeply understand and apply these fundamental mechanics:
 
 2. **Attributes & Skills**: Five attributes (Physique, Finesse, Mind, Knowledge, Social), each with four skills. Checks use talent dice at skill size, taking highest.
 
-3. **Combat Resolution**: Attack rolls vs defense rolls. Damage is fixed per weapon: base damage for first hit die, extra damage for each additional hit die. Mitigation blocks damage at threshold (with half-damage rule for values over half the mitigation).
+3. **Combat Resolution**: Attack rolls vs defense rolls. Damage is fixed per weapon: base damage for first hit die, extra damage for each additional hit die. Mitigation blocks damage at or below the threshold completely (no partial/half damage). Damage above the mitigation limit is capped.
 
 4. **Magic System**: Six magic types with subschools. Spells require complexity checks to channel. Can use rituals (1 hour) or components to reduce difficulty. Spell slots limit known spells.
 

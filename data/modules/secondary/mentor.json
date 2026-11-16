@@ -1,0 +1,68 @@
+{
+  "id": 214,
+  "name": "Mentor",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Mentorship",
+      "description": "You are a natural teacher with an instinct for bringing out the best in others. During a full rest, you can mentor an ally in a skill you have at least 2 more skill points in than them. That ally gains +1 to that skill until you mentor a different ally or a different skill.",
+      "location": "1",
+      "data": "TG"
+    },
+    {
+      "name": "Mentor's Patience",
+      "description": "Your patience and discipline make you a steady presence. Gain +1 skill with concentration and +3 maximum resolve.",
+      "location": "2a",
+      "data": "SSJ=1:A2=3"
+    },
+    {
+      "name": "Practical Knowledge",
+      "description": "Your experience in the field informs your teaching. Gain +1 skill with medicine and +1 skill with wildcraft.",
+      "location": "2b",
+      "data": "SSP=1:SSM=1"
+    },
+    {
+      "name": "Reaction : Reinforced Learning",
+      "description": "In response to a creature you are mentoring making a check in the skill you are mentoring them in within a short (10 unit) distance, add one of your insight dice to their pool.",
+      "location": "3",
+      "data": "ZINE=0"
+    },
+    {
+      "name": "Defense Instructor",
+      "description": "You are a practiced instructor in defensive techniques. Gain +1 skill with deflection and +1 skill with evasion. When you mentor deflection or evasion, you can choose two additional allies to benefit from the mentored skill.",
+      "location": "4a",
+      "data": "SSB=1:SSE=1:TG"
+    },
+    {
+      "name": "Weapons Master",
+      "description": "Your mastery of weaponry is extensive and well-rounded. Gain +1 skill with brawling, throwing, simple melee weapons, simple ranged weapons, complex melee weapons and complex ranged weapons. You can now mentor weapon skills.",
+      "location": "4b",
+      "data": "WS1=1:WS2=1:WS3=1:WS4=1:WS5=1:WS6=1:TG"
+    },
+    {
+      "name": "Action : Mentor",
+      "description": "You provide focused guidance to an ally within a short (10 unit) distance. Choose a skill you have at least 2 points in. That ally gains a bonus die on their next attack or spell check using that skill.",
+      "location": "5",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Tough Love",
+      "description": "Your demanding teaching style pushes others beyond their limits. Gain +1 skill with resilience. While you are within a very short (5 unit) distance of an ally you are mentoring, they can choose to take 1d6 psychic damage to gain a bonus die on a check in the mentored skill. Each time the ally uses this during the day, the damage die increases by one tier (d8, d10, d12, d16, d20, d24, d30). The damage resets after a full rest.",
+      "location": "6a",
+      "data": "SSI=1:TG"
+    },
+    {
+      "name": "Patient Teacher",
+      "description": "Your gentle and thorough approach allows you to guide more students at once. Gain +1 skill with insight. You can mentor one additional ally during a full rest. Your Reinforced Learning reaction can trigger once per round for each ally you are mentoring.",
+      "location": "6b",
+      "data": "SSS=1:TG"
+    },
+    {
+      "name": "Inspired Teaching",
+      "description": "Your teachings transcend ordinary instruction. During a full rest, you can spend your Wonder to grant yourself and up to 5 allies a module point.",
+      "location": "7",
+      "data": "TG"
+    }
+  ]
+}

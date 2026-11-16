@@ -11,6 +11,10 @@ export default defineConfig({
     hmr: {
       overlay: true,
     },
+    watch: {
+      usePolling: true,
+      interval: 2000,
+    },
     proxy: {
       '/api': {
         target: 'http://localhost:4000',

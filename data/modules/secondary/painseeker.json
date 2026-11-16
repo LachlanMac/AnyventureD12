@@ -1,0 +1,68 @@
+{
+  "id": 310,
+  "name": "Painseeker",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Action : Focus Pain",
+      "description": "While in pain that is not severe, you can focus your energy on channeling the pain. While concentrating in this way, you gain a bonus die on all attack checks and do not suffer the usual penalty die for being in pain.",
+      "location": "1",
+      "data": "XINE=1"
+    },
+    {
+      "name": "Buffered Agony",
+      "description": "Increase your maximum morale by 2. When you complete a full rest, gain +1 morale for every non-cosmetic physical injury.",
+      "location": "2a",
+      "data": "A8=2"
+    },
+    {
+      "name": "Tempered Cortex",
+      "description": "Gain +1 skill with resilience and +3 stress mitigation.",
+      "location": "2b",
+      "data": "SSI=1:AR=3"
+    },
+    {
+      "name": "Caustic Endurance",
+      "description": "You train your body against the worst toxins and poisons. Gain +1 skill with endurance, +2 toxic mitigation and -2 toxic mitigation limit.",
+      "location": "3",
+      "data": "SSD=1:M9=2:N9=-2"
+    },
+    {
+      "name": "Reaction : Absorb Impact",
+      "description": "In response to taking physical or elemental damage, roll an endurance check against the damage received after mitigation. If successful, reduce the damage by an amount equal to your current pain level. Using this reaction ends Focus Pain.",
+      "location": "4a",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Reaction : Revel in Pain",
+      "description": "In response to being targeted by a melee attack, you forgo your defense check and all attack dice are treated as successful. You do not make a concentration check for Focus Pain from this damage. You then make a melee attack against the attacker with bonus damage equal to your current pain level and gain morale equal to your current pain level.",
+      "location": "4b",
+      "data": "ZINE=1"
+    },
+    {
+      "name": "Embrace the Pain",
+      "description": "You have learned to welcome suffering. Your pain mitigation is reduced by 3 and your pain limit is increased by 3.",
+      "location": "5",
+      "data": "AP=-3:AQ=3"
+    },
+    {
+      "name": "Focused Agony",
+      "description": "Gain +1 skill with concentration. While using Focus Pain, the bonus die also applies to spell checks.",
+      "location": "6a",
+      "data": "SSJ=1"
+    },
+    {
+      "name": "Inured to Suffering",
+      "description": "Gain +1 skill with might. You no longer need to make concentration checks to maintain Focus Pain when you take damage.",
+      "location": "6b",
+      "data": "SSC=1"
+    },
+    {
+      "name": "Daily Action : Agonizing Scream",
+      "description": "While using Focus Pain, you release your accumulated suffering outward. Roll an endurance check against all non-allied creatures within a short (10 unit) radius. They take psychic damage equal to your current pain level. If a champion or higher tier creature is within the radius, all allies within the radius gain morale equal to your current pain level. If the creature is elite or higher, the morale gained is doubled. This ends Focus Pain.",
+      "location": "7",
+      "data": "XINE=3"
+    }
+  ]
+}

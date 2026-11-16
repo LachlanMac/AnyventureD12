@@ -6,7 +6,7 @@
     "substance": {
       "category": "depressant",
       "dependency": 1,
-      "effect": "Reduces stress by 2 for 8 hours.",
+      "effect": "Suppresses stress for 8 hours.",
       "duration": "8 hours"
     },
     "weight": 0.1,

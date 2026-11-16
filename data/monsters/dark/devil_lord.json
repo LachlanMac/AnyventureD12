@@ -153,11 +153,11 @@
   },
   "mitigation": {
     "physical": {
-      "min": 4,
+      "min": 10,
       "max": 25
     },
     "cold": {
-      "min": 3,
+      "min": 5,
       "max": 25
     },
     "heat": {
@@ -169,11 +169,11 @@
       "max": 25
     },
     "psychic": {
-      "min": 4,
+      "min": 8,
       "max": 25
     },
     "dark": {
-      "min": 6,
+      "min": 10,
       "max": 18
     },
     "divine": {
@@ -185,7 +185,7 @@
       "max": 25
     },
     "toxic": {
-      "min": 3,
+      "min": 6,
       "max": 25
     }
   },
@@ -247,7 +247,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Flame Whip",
@@ -268,7 +272,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 3
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Dire Charm",
@@ -290,7 +298,11 @@
         "defense_difficulty": 8,
         "min_range": 1,
         "max_range": 5
-      }
+      },
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Discard",
@@ -312,7 +324,11 @@
         "defense_difficulty": 0,
         "min_range": 0,
         "max_range": 0
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Call Servant",
@@ -333,7 +349,11 @@
         "category": "slash",
         "min_range": 0,
         "max_range": 0
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Metamorphosis",
@@ -354,7 +374,11 @@
         "category": "slash",
         "min_range": 0,
         "max_range": 0
-      }
+      },
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [
@@ -378,7 +402,11 @@
         "defense_difficulty": 7,
         "min_range": 1,
         "max_range": 5
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Hellshield",
@@ -399,7 +427,11 @@
         "category": "slash",
         "min_range": 0,
         "max_range": 0
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Infernal Rebuke",
@@ -421,7 +453,11 @@
         "defense_difficulty": 7,
         "min_range": 1,
         "max_range": 5
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "traits": [

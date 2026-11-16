@@ -218,7 +218,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Bite",
@@ -236,7 +240,11 @@
         "category": "pierce",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [
@@ -256,7 +264,11 @@
         "category": "blunt",
         "min_range": 2,
         "max_range": 3
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "traits": [

@@ -64,14 +64,14 @@ Alcoholic beverages restore resolve when consumed. Dependency checks use Enduran
 <!-- SUBSTANCE_ALCOHOL_TABLE_END -->
 
 ### Painkiller
-Painkillers reduce or ignore injury penalties for a duration. Dependency checks use Endurance. Weaker painkillers reduce injury penalties by 1-2 dice, while stronger opiates can completely ignore injury effects. Effects last for the specified duration after consumption.
+Painkillers suppress pain for a duration. Dependency checks use Endurance. Weaker painkillers suppress pain (you ignore the effects of the pain threshold), while stronger opiates suppress severe pain as well. Effects last for the specified duration after consumption.
 
 <!-- SUBSTANCE_PAINKILLER_TABLE_START -->
 *Substance data will be automatically populated from the game database*
 <!-- SUBSTANCE_PAINKILLER_TABLE_END -->
 
 ### Depressant
-Depressants grant the Numbed condition, preventing resolve gain or loss for the duration. Dependency checks use Resilience. Higher-tier depressants may provide additional immunities to mental conditions like Afraid or Confused. Effects last for the specified duration after consumption.
+Depressants suppress stress for a duration. Dependency checks use Resilience. Weaker depressants suppress stress (you ignore the effects of the stress threshold), while stronger depressants suppress severe stress as well. Some depressants may also grant the Numbed condition or provide immunities to mental conditions like Afraid or Confused. Effects last for the specified duration after consumption.
 
 <!-- SUBSTANCE_DEPRESSANT_TABLE_START -->
 *Substance data will be automatically populated from the game database*

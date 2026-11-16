@@ -53,6 +53,10 @@ const UserSchema = new Schema({
     type: Boolean,
     default: false
   },
+  apiKey: {
+    type: String,
+    default: null
+  },
   lastLogin: {
     type: Date,
     default: Date.now

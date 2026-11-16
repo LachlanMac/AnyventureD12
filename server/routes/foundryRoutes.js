@@ -44,14 +44,15 @@ const generateAbilityDataKey = (ability, abilityType) => {
   // TYPE: X=action, Z=reaction
   const type = abilityType === 'reaction' ? 'Z' : 'X';
 
-  // FREQUENCY/CHARGES
+  // FREQUENCY - prefer new frequency field, fall back to old booleans
   let freq;
-  if (ability.charges && ability.charges > 0) {
-    freq = ability.charges.toString();
-  } else if (ability.daily) {
+  const frequency = ability.frequency || 'action';
+  if (frequency === 'battle' || ability.daily) {
     freq = 'D';
-  } else if (ability.round) {
+  } else if (frequency === 'round' || ability.round) {
     freq = 'C';
+  } else if (frequency === 'unique') {
+    freq = 'U';
   } else {
     freq = 'I';
   }
@@ -59,7 +60,7 @@ const generateAbilityDataKey = (ability, abilityType) => {
   // MAGIC
   const magic = ability.magic ? 'M' : 'N';
 
-  // ENERGY
+  // ENERGY (kept for reference)
   const energy = ability.cost || 0;
 
   return `${type}${freq}${magic}E=${energy}`;
@@ -427,6 +428,8 @@ const convertToFoundryFormat = async (data, type) => {
         immunities: data.immunities,
         effects: data.effects,
         properties: data.properties,
+        light: data.light || null,
+        light_active: false,
         actions: (data.actions || []).map(a => ({
           name: a.name,
           description: a.description || "",
@@ -604,6 +607,10 @@ const convertToFoundryFormat = async (data, type) => {
               energy: action.cost || 0,
               daily: action.daily || false,
               round: action.round || false,
+              frequency: action.frequency || "action",
+              actionCost: action.actionCost || 1,
+              frequencyCondition: action.frequencyCondition || "",
+              trigger: action.trigger || "",
               used: false,
               anyventure_id: "",
               magic: action.magic || false,
@@ -653,6 +660,10 @@ const convertToFoundryFormat = async (data, type) => {
               energy: reaction.cost || 0,
               daily: reaction.daily || false,
               round: reaction.round || false,
+              frequency: reaction.frequency || "action",
+              actionCost: reaction.actionCost || 1,
+              frequencyCondition: reaction.frequencyCondition || "",
+              trigger: reaction.trigger || "",
               used: false,
               anyventure_id: "",
               magic: reaction.magic || false,
@@ -846,7 +857,11 @@ const convertToFoundryFormat = async (data, type) => {
             value: data.energy?.max || 5,
             max: data.energy?.max || 5,
             temp: 0
-          }
+          },
+          painMitigation: data.painMitigation || 3,
+          painLimit: data.painLimit || 10,
+          stressMitigation: data.stressMitigation || 3,
+          stressLimit: data.stressLimit || 10
         },
         movement: {
           walk: data.movement?.walk || data.movement || 5,

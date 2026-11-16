@@ -37,6 +37,14 @@ export const applyDataEffects = (character, dataString) => {
       continue;
     }
     
+    // Check for auto stats with letter codes (AS=1 for sorcerer slots, AT=1 for thief slots)
+    const autoLetterMatch = effect.match(/^A([A-Z])=(-?\d+)$/);
+    if (autoLetterMatch) {
+      const [_, code, valueStr] = autoLetterMatch;
+      handleAutoEffect(character, code, parseInt(valueStr));
+      continue;
+    }
+
     // Check for size effect (B1-B6)
     const sizeMatch = effect.match(/^B(\d)$/);
     if (sizeMatch) {
@@ -217,7 +225,30 @@ const handleAutoEffect = (character, code, value) => {
     case '9': // Spell Capacity
       if (!character.moduleBonuses.spellSlots) character.moduleBonuses.spellSlots = 0;
       character.moduleBonuses.spellSlots += value;
-      // Only track bonuses here - characterUtils.js will apply them
+      break;
+    case 'S': // Sorcerer Spell Slots
+      if (!character.moduleBonuses.sorcererSpellSlots) character.moduleBonuses.sorcererSpellSlots = 0;
+      character.moduleBonuses.sorcererSpellSlots += value;
+      break;
+    case 'T': // Thief Spell Slots
+      if (!character.moduleBonuses.thiefSpellSlots) character.moduleBonuses.thiefSpellSlots = 0;
+      character.moduleBonuses.thiefSpellSlots += value;
+      break;
+    case 'P': // Pain Mitigation
+      if (!character.moduleBonuses.painMitigation) character.moduleBonuses.painMitigation = 0;
+      character.moduleBonuses.painMitigation += value;
+      break;
+    case 'Q': // Pain Limit
+      if (!character.moduleBonuses.painLimit) character.moduleBonuses.painLimit = 0;
+      character.moduleBonuses.painLimit += value;
+      break;
+    case 'R': // Stress Mitigation
+      if (!character.moduleBonuses.stressMitigation) character.moduleBonuses.stressMitigation = 0;
+      character.moduleBonuses.stressMitigation += value;
+      break;
+    case 'W': // Stress Limit
+      if (!character.moduleBonuses.stressLimit) character.moduleBonuses.stressLimit = 0;
+      character.moduleBonuses.stressLimit += value;
       break;
   }
 };

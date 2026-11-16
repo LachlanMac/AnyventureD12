@@ -396,6 +396,12 @@ const ItemSchema = new Schema({
   source: { type: String },
   balanceNotes: { type: String },
 
+  // Light source data (only on items that emit light, null/undefined for non-light items)
+  light: {
+    type: Schema.Types.Mixed,
+    default: undefined
+  },
+
   // Metadata
   createdAt: { type: Date, default: Date.now },
   updatedAt: { type: Date, default: Date.now },

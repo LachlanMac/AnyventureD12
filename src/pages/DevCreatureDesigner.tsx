@@ -10,6 +10,10 @@ import AbilityEditor, { AbilityEntry } from '../components/shared/AbilityEditor'
 interface CreatureAbility {
   name: string;
   cost: number;
+  actionCost: number;
+  frequency: 'action' | 'round' | 'battle' | 'unique';
+  frequencyCondition: string;
+  trigger: string;
   type: 'attack' | 'spell' | 'utility' | 'movement';
   magic: boolean;
   description: string;
@@ -456,6 +460,10 @@ const DevCreatureDesigner: React.FC = () => {
     return {
       name: item.name,
       cost: energy,
+      actionCost: 1,
+      frequency: 'action' as const,
+      frequencyCondition: '',
+      trigger: '',
       type: 'attack' as const,
       magic: false,
       basic: true,
@@ -600,8 +608,8 @@ const DevCreatureDesigner: React.FC = () => {
       }
 
       // Separate innate/unique spell-type actions into knownSpells
-      const allLoadActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' }));
-      const allLoadReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }));
+      const allLoadActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal', actionCost: action.actionCost || 1, frequency: action.frequency || 'action', frequencyCondition: action.frequencyCondition || '', trigger: action.trigger || '' }));
+      const allLoadReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility', actionCost: reaction.actionCost || 1, frequency: reaction.frequency || 'action', frequencyCondition: reaction.frequencyCondition || '', trigger: reaction.trigger || '' }));
 
       const innateActions = allLoadActions.filter((a: any) => a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique'));
       const regularActions = allLoadActions.filter((a: any) => !(a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique')));
@@ -652,6 +660,10 @@ const DevCreatureDesigner: React.FC = () => {
       .map(s => ({
         name: s.name,
         cost: s.energyCost,
+        actionCost: 1,
+        frequency: 'action' as const,
+        frequencyCondition: '',
+        trigger: '',
         type: 'spell' as const,
         magic: true,
         description: s.description || '',
@@ -698,6 +710,10 @@ const DevCreatureDesigner: React.FC = () => {
       attacks.push({
         name: attackName,
         cost: 0,
+        actionCost: 1,
+        frequency: 'action' as const,
+        frequencyCondition: '',
+        trigger: '',
         type: 'attack' as const,
         magic: false,
         basic: true,
@@ -1053,8 +1069,8 @@ const DevCreatureDesigner: React.FC = () => {
 
         // Convert old format to new unified abilities format
         // Filter out spell-type actions with innate/unique spellType — those go to knownSpells
-        const allActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal' }));
-        const allReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility' }));
+        const allActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal', actionCost: action.actionCost || 1, frequency: action.frequency || 'action', frequencyCondition: action.frequencyCondition || '', trigger: action.trigger || '' }));
+        const allReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility', actionCost: reaction.actionCost || 1, frequency: reaction.frequency || 'action', frequencyCondition: reaction.frequencyCondition || '', trigger: reaction.trigger || '' }));
 
         // Separate innate/unique spell actions into knownSpells
         const innateSpellActions = allActions.filter((a: any) => a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique'));

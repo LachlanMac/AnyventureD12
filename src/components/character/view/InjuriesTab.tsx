@@ -53,20 +53,18 @@ const INJURY_TYPE_COLORS: Record<string, string> = {
   missing_part: 'var(--color-danger)',
 };
 
-function getPainThreshold(pain: number): { label: string; color: string; effects: string } {
+function getPainThreshold(pain: number, mitigation: number = 3, limit: number = 10): { label: string; color: string; effects: string } {
   if (pain <= 0) return { label: 'None', color: 'var(--color-success)', effects: 'No effect.' };
-  if (pain <= 5) return { label: 'Mild', color: 'var(--color-cloud)', effects: 'No effect.' };
-  if (pain <= 10) return { label: 'Moderate', color: 'var(--color-metal-gold)', effects: '+1 penalty die on all rolls.' };
-  if (pain <= 15) return { label: 'Severe', color: 'var(--color-sunset)', effects: '+2 penalty dice on all rolls. No favorable rest. No morale.' };
-  return { label: 'Critical', color: 'var(--color-danger)', effects: '+2 penalty dice. Endurance RC 4 each turn or fall unconscious. No favorable rest. No morale.' };
+  if (pain <= mitigation) return { label: 'None', color: 'var(--color-cloud)', effects: 'No effect.' };
+  if (pain <= limit) return { label: 'Pain', color: 'var(--color-metal-gold)', effects: '+1 penalty die on all rolls. Endurance RC 10 for favorable rest.' };
+  return { label: 'Severe Pain', color: 'var(--color-danger)', effects: '+2 penalty dice on all rolls. Endurance RC 15 for favorable rest. No morale.' };
 }
 
-function getStressThreshold(stress: number): { label: string; color: string; effects: string } {
+function getStressThreshold(stress: number, mitigation: number = 3, limit: number = 10): { label: string; color: string; effects: string } {
   if (stress <= 0) return { label: 'None', color: 'var(--color-success)', effects: 'No effect.' };
-  if (stress <= 5) return { label: 'Mild', color: 'var(--color-cloud)', effects: 'No effect.' };
-  if (stress <= 10) return { label: 'Moderate', color: 'var(--color-metal-gold)', effects: '+1 penalty die on all rolls.' };
-  if (stress <= 15) return { label: 'Severe', color: 'var(--color-sat-purple)', effects: '+2 penalty dice on all rolls. No favorable rest. No morale.' };
-  return { label: 'Critical', color: 'var(--color-danger)', effects: '+2 penalty dice. Resilience RC 4 each turn or become Broken. No favorable rest. No morale.' };
+  if (stress <= mitigation) return { label: 'None', color: 'var(--color-cloud)', effects: 'No effect.' };
+  if (stress <= limit) return { label: 'Stress', color: 'var(--color-metal-gold)', effects: '+1 penalty die on all rolls. Resilience RC 10 for favorable rest.' };
+  return { label: 'Severe Stress', color: 'var(--color-danger)', effects: '+2 penalty dice on all rolls. Resilience RC 15 for favorable rest. No morale.' };
 }
 
 const InjuriesTab: React.FC<InjuriesTabProps> = ({ character, onCharacterUpdate, onPainStressChange, canEdit = true }) => {
@@ -92,17 +90,8 @@ const InjuriesTab: React.FC<InjuriesTabProps> = ({ character, onCharacterUpdate,
   const health = character.resources?.health || { current: 0, max: 0 };
   const resolve = character.resources?.resolve || { current: 0, max: 0 };
 
-  let healthPain = 0;
-  if (health.max > 0) {
-    if (health.current < 5) healthPain = 4;
-    else if (health.current < health.max / 2) healthPain = 2;
-  }
-
-  let resolvePain = 0;
-  if (resolve.max > 0) {
-    if (resolve.current < 3) resolvePain = 4;
-    else if (resolve.current < resolve.max / 2) resolvePain = 2;
-  }
+  const healthPain = (health.max > 0 && health.current < 10) ? 5 : 0;
+  const resolvePain = (resolve.max > 0 && resolve.current < 10) ? 5 : 0;
 
   const painOverride = character.resources?.pain?.custom || 0;
   const stressOverride = character.resources?.stress?.custom || 0;
@@ -110,8 +99,13 @@ const InjuriesTab: React.FC<InjuriesTabProps> = ({ character, onCharacterUpdate,
   const totalPain = Math.max(0, injuryPain + healthPain + painOverride);
   const totalStress = Math.max(0, injuryStress + resolvePain + stressOverride);
 
-  const painThreshold = getPainThreshold(totalPain);
-  const stressThreshold = getStressThreshold(totalStress);
+  const painMit = character.resources?.painMitigation ?? 3;
+  const painLim = character.resources?.painLimit ?? 10;
+  const stressMit = character.resources?.stressMitigation ?? 3;
+  const stressLim = character.resources?.stressLimit ?? 10;
+
+  const painThreshold = getPainThreshold(totalPain, painMit, painLim);
+  const stressThreshold = getStressThreshold(totalStress, stressMit, stressLim);
 
   const handleAddInjury = async () => {
     if (!selectedInjuryId) return;

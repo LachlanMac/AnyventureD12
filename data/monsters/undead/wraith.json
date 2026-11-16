@@ -239,7 +239,11 @@
       "basic": false,
       "round": false,
       "daily": false,
-      "spellType": "normal"
+      "spellType": "normal",
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Spectral Grasp",
@@ -260,7 +264,11 @@
         "category": "pierce",
         "min_range": 0,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Wail of the Forsaken",
@@ -282,7 +290,11 @@
         "max_range": 5,
         "school": "black",
         "subschool": "necromancy"
-      }
+      },
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Drain Life",
@@ -304,7 +316,11 @@
         "defense_difficulty": 6,
         "min_range": 0,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [
@@ -318,7 +334,11 @@
       "basic": false,
       "round": false,
       "daily": false,
-      "spellType": "innate"
+      "spellType": "innate",
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "traits": [

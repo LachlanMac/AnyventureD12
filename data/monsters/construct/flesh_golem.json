@@ -218,7 +218,11 @@
         "category": "blunt",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Reconstitute",
@@ -236,7 +240,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Berserk",
@@ -254,7 +262,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Slam",
@@ -272,7 +284,11 @@
         "category": "blunt",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [],

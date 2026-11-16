@@ -48,17 +48,28 @@ const SpellsPage: React.FC = () => {
     }
   }, [allSpells]);
 
+  // Check if a spell is in a specific list
+  const isSpellInList = (spellId: string, list: CharacterSpell[]) => {
+    return list?.some((s: CharacterSpell) => {
+      if (typeof s.spellId === 'string') {
+        return s.spellId === spellId;
+      } else {
+        return s.spellId._id === spellId;
+      }
+    }) || false;
+  };
+
   // Check if a spell is already learned by the character
   const isSpellLearned = (spellId: string) => {
-    return (
-      character?.spells.some((s: CharacterSpell) => {
-        if (typeof s.spellId === 'string') {
-          return s.spellId === spellId;
-        } else {
-          return s.spellId._id === spellId;
-        }
-      }) || false
-    );
+    return isSpellInList(spellId, character?.spells || []);
+  };
+
+  const isSpellSorcerer = (spellId: string) => {
+    return isSpellInList(spellId, character?.sorcererSpells || []);
+  };
+
+  const isSpellThief = (spellId: string) => {
+    return isSpellInList(spellId, character?.thiefSpells || []);
   };
 
   // Get the character's spell data for a specific spell
@@ -77,6 +88,19 @@ const SpellsPage: React.FC = () => {
     if (!character) return false;
     return character.spells.length < character.spellSlots;
   };
+
+  const hasAvailableSorcererSlots = () => {
+    if (!character || !character.sorcererSpellSlots) return false;
+    return (character.sorcererSpells?.length || 0) < character.sorcererSpellSlots;
+  };
+
+  const hasAvailableThiefSlots = () => {
+    if (!character || !character.thiefSpellSlots) return false;
+    return (character.thiefSpells?.length || 0) < character.thiefSpellSlots;
+  };
+
+  const hasSorcererSlots = () => (character?.sorcererSpellSlots || 0) > 0;
+  const hasThiefSlots = () => (character?.thiefSpellSlots || 0) > 0;
 
   // Handle learning a new spell
   const handleLearnSpell = async (spellId: string) => {
@@ -103,6 +127,58 @@ const SpellsPage: React.FC = () => {
       refetchCharacter();
     } catch (err) {
       console.error('Error forgetting spell:', err);
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Handle adding/removing sorcerer spells
+  const handleAddSorcererSpell = async (spellId: string) => {
+    try {
+      setActionLoading(true);
+      if (isSpellSorcerer(spellId)) return;
+      await spellApi.addSorcererSpell(characterId!, spellId);
+      refetchCharacter();
+    } catch (err) {
+      console.error('Error adding sorcerer spell:', err);
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleRemoveSorcererSpell = async (spellId: string) => {
+    try {
+      setActionLoading(true);
+      await spellApi.removeSorcererSpell(characterId!, spellId);
+      refetchCharacter();
+    } catch (err) {
+      console.error('Error removing sorcerer spell:', err);
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  // Handle adding/removing thief spells
+  const handleAddThiefSpell = async (spellId: string) => {
+    try {
+      setActionLoading(true);
+      if (isSpellThief(spellId)) return;
+      await spellApi.addThiefSpell(characterId!, spellId);
+      refetchCharacter();
+    } catch (err) {
+      console.error('Error adding thief spell:', err);
+    } finally {
+      setActionLoading(false);
+    }
+  };
+
+  const handleRemoveThiefSpell = async (spellId: string) => {
+    try {
+      setActionLoading(true);
+      await spellApi.removeThiefSpell(characterId!, spellId);
+      refetchCharacter();
+    } catch (err) {
+      console.error('Error removing thief spell:', err);
     } finally {
       setActionLoading(false);
     }
@@ -303,18 +379,50 @@ const SpellsPage: React.FC = () => {
           Character Spells
         </h1>
 
-        <div
-          style={{
-            backgroundColor: 'var(--color-dark-elevated)',
-            padding: '0.75rem 1.5rem',
-            borderRadius: '0.5rem',
-            color: hasAvailableSpellSlots() ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
-          }}
-        >
-          Spell Slots:{' '}
-          <span style={{ fontWeight: 'bold' }}>
-            {character.spells.length} / {character.spellSlots}
-          </span>
+        <div style={{ display: 'flex', gap: '0.75rem', flexWrap: 'wrap' }}>
+          <div
+            style={{
+              backgroundColor: 'var(--color-dark-elevated)',
+              padding: '0.75rem 1.5rem',
+              borderRadius: '0.5rem',
+              color: hasAvailableSpellSlots() ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+            }}
+          >
+            Spell Slots:{' '}
+            <span style={{ fontWeight: 'bold' }}>
+              {character.spells.length} / {character.spellSlots}
+            </span>
+          </div>
+          {hasSorcererSlots() && (
+            <div
+              style={{
+                backgroundColor: 'var(--color-dark-elevated)',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '0.5rem',
+                color: hasAvailableSorcererSlots() ? 'rgb(57, 0, 214)' : 'var(--color-cloud)',
+              }}
+            >
+              Sorcerer Slots:{' '}
+              <span style={{ fontWeight: 'bold' }}>
+                {character.sorcererSpells?.length || 0} / {character.sorcererSpellSlots}
+              </span>
+            </div>
+          )}
+          {hasThiefSlots() && (
+            <div
+              style={{
+                backgroundColor: 'var(--color-dark-elevated)',
+                padding: '0.75rem 1.5rem',
+                borderRadius: '0.5rem',
+                color: hasAvailableThiefSlots() ? 'var(--color-sunset)' : 'var(--color-cloud)',
+              }}
+            >
+              Thief Slots:{' '}
+              <span style={{ fontWeight: 'bold' }}>
+                {character.thiefSpells?.length || 0} / {character.thiefSpellSlots}
+              </span>
+            </div>
+          )}
         </div>
       </div>
 
@@ -581,32 +689,26 @@ const SpellsPage: React.FC = () => {
                           </div>
                         </div>
 
-                        {isSpellLearned(spell._id) && (
-                          <div
-                            style={{
-                              display: 'flex',
-                              alignItems: 'center',
-                              gap: '0.25rem',
-                            }}
-                          >
-                            <div
-                              style={{
-                                width: '0.5rem',
-                                height: '0.5rem',
-                                borderRadius: '50%',
-                                backgroundColor: 'var(--color-metal-gold)',
-                              }}
-                            ></div>
-                            <span
-                              style={{
-                                fontSize: '0.75rem',
-                                color: 'var(--color-metal-gold)',
-                              }}
-                            >
-                              Learned
-                            </span>
-                          </div>
-                        )}
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-end', gap: '0.125rem' }}>
+                          {isSpellLearned(spell._id) && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                              <div style={{ width: '0.5rem', height: '0.5rem', borderRadius: '50%', backgroundColor: 'var(--color-metal-gold)' }} />
+                              <span style={{ fontSize: '0.75rem', color: 'var(--color-metal-gold)' }}>Learned</span>
+                            </div>
+                          )}
+                          {isSpellSorcerer(spell._id) && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                              <div style={{ width: '0.5rem', height: '0.5rem', borderRadius: '50%', backgroundColor: 'rgb(57, 0, 214)' }} />
+                              <span style={{ fontSize: '0.75rem', color: 'rgb(57, 0, 214)' }}>Sorcerer</span>
+                            </div>
+                          )}
+                          {isSpellThief(spell._id) && (
+                            <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
+                              <div style={{ width: '0.5rem', height: '0.5rem', borderRadius: '50%', backgroundColor: 'var(--color-sunset)' }} />
+                              <span style={{ fontSize: '0.75rem', color: 'var(--color-sunset)' }}>Thief</span>
+                            </div>
+                          )}
+                        </div>
                       </div>
                     </div>
                   ))}
@@ -975,32 +1077,109 @@ const SpellsPage: React.FC = () => {
                 <div
                   style={{
                     display: 'flex',
-                    justifyContent: 'space-between',
-                    gap: '1rem',
+                    flexDirection: 'column',
+                    gap: '0.75rem',
                   }}
                 >
-                  {isSpellLearned(selectedSpell._id) ? (
-                    <Button
-                      variant="outline"
-                      onClick={() => handleForgetSpell(selectedSpell._id)}
-                      disabled={actionLoading}
-                      style={{ flex: 1 }}
-                    >
-                      {actionLoading ? 'Processing...' : 'Forget Spell'}
-                    </Button>
-                  ) : (
-                    <Button
-                      variant="accent"
-                      onClick={() => handleLearnSpell(selectedSpell._id)}
-                      disabled={!hasAvailableSpellSlots() || actionLoading}
-                      style={{ flex: 1 }}
-                    >
-                      {actionLoading
-                        ? 'Processing...'
-                        : hasAvailableSpellSlots()
-                          ? 'Learn Spell'
-                          : 'No Spell Slots Available'}
-                    </Button>
+                  {/* Regular spell learn/forget */}
+                  <div style={{ display: 'flex', gap: '0.75rem' }}>
+                    {isSpellLearned(selectedSpell._id) ? (
+                      <Button
+                        variant="outline"
+                        onClick={() => handleForgetSpell(selectedSpell._id)}
+                        disabled={actionLoading}
+                        style={{ flex: 1 }}
+                      >
+                        {actionLoading ? 'Processing...' : 'Forget Spell'}
+                      </Button>
+                    ) : (
+                      <Button
+                        variant="accent"
+                        onClick={() => handleLearnSpell(selectedSpell._id)}
+                        disabled={!hasAvailableSpellSlots() || actionLoading}
+                        style={{ flex: 1 }}
+                      >
+                        {actionLoading
+                          ? 'Processing...'
+                          : hasAvailableSpellSlots()
+                            ? 'Learn Spell'
+                            : 'No Spell Slots Available'}
+                      </Button>
+                    )}
+                  </div>
+
+                  {/* Sorcerer spell add/remove */}
+                  {hasSorcererSlots() && (
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
+                      {isSpellSorcerer(selectedSpell._id) ? (
+                        <Button
+                          variant="outline"
+                          onClick={() => handleRemoveSorcererSpell(selectedSpell._id)}
+                          disabled={actionLoading}
+                          style={{
+                            flex: 1,
+                            borderColor: 'rgb(57, 0, 214)',
+                            color: 'rgb(57, 0, 214)',
+                          }}
+                        >
+                          {actionLoading ? 'Processing...' : 'Remove Sorcerer Spell'}
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="secondary"
+                          onClick={() => handleAddSorcererSpell(selectedSpell._id)}
+                          disabled={!hasAvailableSorcererSlots() || actionLoading}
+                          style={{
+                            flex: 1,
+                            backgroundColor: hasAvailableSorcererSlots() ? 'rgb(57, 0, 214)' : undefined,
+                            color: hasAvailableSorcererSlots() ? 'var(--color-white)' : undefined,
+                          }}
+                        >
+                          {actionLoading
+                            ? 'Processing...'
+                            : hasAvailableSorcererSlots()
+                              ? 'Add Sorcerer Spell'
+                              : 'Sorcerer Slots Full'}
+                        </Button>
+                      )}
+                    </div>
+                  )}
+
+                  {/* Thief spell add/remove */}
+                  {hasThiefSlots() && (
+                    <div style={{ display: 'flex', gap: '0.75rem' }}>
+                      {isSpellThief(selectedSpell._id) ? (
+                        <Button
+                          variant="outline"
+                          onClick={() => handleRemoveThiefSpell(selectedSpell._id)}
+                          disabled={actionLoading}
+                          style={{
+                            flex: 1,
+                            borderColor: 'var(--color-sunset)',
+                            color: 'var(--color-sunset)',
+                          }}
+                        >
+                          {actionLoading ? 'Processing...' : 'Remove Thief Spell'}
+                        </Button>
+                      ) : (
+                        <Button
+                          variant="secondary"
+                          onClick={() => handleAddThiefSpell(selectedSpell._id)}
+                          disabled={!hasAvailableThiefSlots() || actionLoading}
+                          style={{
+                            flex: 1,
+                            backgroundColor: hasAvailableThiefSlots() ? 'var(--color-sunset)' : undefined,
+                            color: hasAvailableThiefSlots() ? 'var(--color-white)' : undefined,
+                          }}
+                        >
+                          {actionLoading
+                            ? 'Processing...'
+                            : hasAvailableThiefSlots()
+                              ? 'Add Thief Spell'
+                              : 'Thief Slots Full'}
+                        </Button>
+                      )}
+                    </div>
                   )}
                 </div>
               </CardBody>

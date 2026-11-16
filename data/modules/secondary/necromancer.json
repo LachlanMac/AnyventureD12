@@ -30,7 +30,7 @@
     },
     {
       "name": "Daily Action : Death Touch",
-      "description": "You touch a creature using your black magic skill as an attack roll against a contested endurance check. For each dice that hits, deal 10 dark damage. If all dice are successful, each dice deals 15 dark damage instead. This does not affect constructs or elementals but deals double damage to humanoids and plantoids.",
+      "description": "You touch a creature using your black magic skill as an attack roll against a contested endurance check. For each dice that hits, deal 6 dark damage. If all dice are successful, each dice deals 10 dark damage instead. This does not affect constructs or elementals. After using this ability, roll 1d6 to determine how many days before it can be used again.",
       "location": "4a",
       "data": "XDME=2"
     },

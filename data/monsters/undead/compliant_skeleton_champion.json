@@ -251,7 +251,11 @@
         "category": "slash",
         "min_range": 0,
         "max_range": 0
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "traits": [

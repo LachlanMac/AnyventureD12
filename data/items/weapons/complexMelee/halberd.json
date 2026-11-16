@@ -9,7 +9,7 @@
   "rarity": "common",
   "hands": 2,
   "primary": {
-    "damage": "4",
+    "damage": "1",
     "damage_extra": "4",
     "damage_type": "physical",
     "category": "slash",

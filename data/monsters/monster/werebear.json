@@ -127,7 +127,7 @@
   },
   "mitigation": {
     "physical": {
-      "min": 5,
+      "min": 6,
       "max": 25
     },
     "cold": {
@@ -214,7 +214,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Bite",
@@ -232,7 +236,11 @@
         "category": "pierce",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Fury of the Moon",
@@ -250,7 +258,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [],

@@ -247,7 +247,11 @@
         "category": "blunt",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Bucket Toss",
@@ -268,7 +272,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Swallow ",
@@ -289,7 +297,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [],

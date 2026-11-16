@@ -83,7 +83,37 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
               {action.spellType}
             </span>
           )}
-          {action.round && (
+          {action.frequency && action.frequency !== 'action' && (
+            <span
+              style={{
+                color: action.frequency === 'battle' ? 'var(--color-sunset)' : 'var(--color-old-gold)',
+                fontSize: '0.625rem',
+                backgroundColor: action.frequency === 'battle' ? 'rgba(200, 100, 50, 0.15)' : 'rgba(200, 170, 80, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: action.frequency === 'battle' ? '1px solid rgba(200, 100, 50, 0.3)' : '1px solid rgba(200, 170, 80, 0.3)',
+                fontWeight: 'normal',
+              }}
+            >
+              {action.frequency === 'round' ? '1/Round' : action.frequency === 'battle' ? '1/Battle' : 'Unique'}
+            </span>
+          )}
+          {action.actionCost === 2 && (
+            <span
+              style={{
+                color: 'var(--color-sunset)',
+                fontSize: '0.625rem',
+                backgroundColor: 'rgba(200, 100, 50, 0.15)',
+                padding: '0.1rem 0.35rem',
+                borderRadius: '0.25rem',
+                border: '1px solid rgba(200, 100, 50, 0.3)',
+                fontWeight: 'normal',
+              }}
+            >
+              Full Turn
+            </span>
+          )}
+          {!action.frequency && action.round && (
             <span
               style={{
                 color: 'var(--color-old-gold)',
@@ -98,7 +128,7 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
               round
             </span>
           )}
-          {action.daily && (
+          {!action.frequency && action.daily && (
             <span
               style={{
                 color: 'var(--color-old-gold)',
@@ -111,21 +141,6 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
               }}
             >
               daily
-            </span>
-          )}
-          {action.charges != null && action.charges > 0 && (
-            <span
-              style={{
-                color: 'var(--color-old-gold)',
-                fontSize: '0.625rem',
-                backgroundColor: 'rgba(200, 170, 80, 0.15)',
-                padding: '0.1rem 0.35rem',
-                borderRadius: '0.25rem',
-                border: '1px solid rgba(200, 170, 80, 0.3)',
-                fontWeight: 'normal',
-              }}
-            >
-              {action.charges}/day
             </span>
           )}
         </h3>
@@ -147,6 +162,19 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
       <p style={{ color: 'var(--color-cloud)', margin: 0, lineHeight: '1.3', fontSize: '0.75rem' }}>
         {action.description}
       </p>
+
+      {action.frequencyCondition && (
+        <p style={{ color: 'var(--color-metal-gold)', margin: '0.25rem 0 0', fontSize: '0.7rem', fontStyle: 'italic' }}>
+          {action.frequencyCondition}
+        </p>
+      )}
+
+      {action.trigger && (
+        <p style={{ color: 'var(--color-cloud)', margin: '0.25rem 0 0', fontSize: '0.7rem', fontStyle: 'italic', opacity: 0.7 }}>
+          <span style={{ color: 'var(--color-sunset)', fontWeight: 'bold', fontStyle: 'normal', fontSize: '0.6rem', textTransform: 'uppercase', marginRight: '0.25rem' }}>GM</span>
+          Trigger: {action.trigger}
+        </p>
+      )}
 
       {action.type === 'attack' && action.attack && (
         <div

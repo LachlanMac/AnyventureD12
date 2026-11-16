@@ -1,6 +1,6 @@
 {
   "name": "Briarhorn",
-  "description": "Briarhorns are minotaurs captured and enslaved by the Court of Thorns, clad in bark armor that grows into their flesh and wielding massive weapons of living wood. Their bull horns have been twisted by fey magic into broad, branching antlers like those of a great elk. They serve as heavy shock troops, battering through enemy lines with raw strength and fury — whatever they were before the Court took them, they are now little more than beasts on a leash.",
+  "description": "Briarhorns are minotaurs captured and enslaved by the Court of Thorns, clad in bark armor that grows into their flesh and wielding massive weapons of living wood. Their bull horns have been twisted by fey magic into broad, branching antlers like those of a great elk. They serve as heavy shock troops, battering through enemy lines with raw strength and fury \u2014 whatever they were before the Court took them, they are now little more than beasts on a leash.",
   "tactics": "",
   "tier": "champion",
   "type": "fey",
@@ -247,7 +247,11 @@
         "max_range": 1
       },
       "daily": false,
-      "spellType": "normal"
+      "spellType": "normal",
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Indomitable",
@@ -268,7 +272,11 @@
         "max_range": 1
       },
       "daily": true,
-      "spellType": "normal"
+      "spellType": "normal",
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Horn Gore",
@@ -289,7 +297,11 @@
         "min_range": 1,
         "max_range": 1
       },
-      "spellType": "normal"
+      "spellType": "normal",
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [
@@ -321,7 +333,11 @@
         "roll": "2d8",
         "charge": "The spell affects all adjacent creatures."
       },
-      "spellType": "innate"
+      "spellType": "innate",
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "traits": [

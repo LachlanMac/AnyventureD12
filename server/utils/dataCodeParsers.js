@@ -63,8 +63,17 @@ const AUTO_STAT_MAPPINGS = {
   '1': 'health',
   '2': 'resolve',
   '3': 'energy',
+  '5': 'healthRegen',
+  '6': 'resolveRegen',
+  '7': 'energyRegen',
   '8': 'morale',
-  '9': 'spellSlots'
+  '9': 'spellSlots',
+  'P': 'painMitigation',
+  'Q': 'painLimit',
+  'R': 'stressMitigation',
+  'W': 'stressLimit',
+  'S': 'sorcererSpellSlots',
+  'T': 'thiefSpellSlots'
 };
 
 const MOVEMENT_MAPPINGS = {
@@ -263,7 +272,7 @@ const PARSERS = [
   },
   {
     name: 'Auto Stats',
-    pattern: /^A([1-9])=(-?\d+)$/,
+    pattern: /^A([1-9A-Z])=(-?\d+)$/,
     parse: (match, bonuses) => {
       const [_, code, valueStr] = match;
       const value = parseInt(valueStr);

@@ -6,13 +6,13 @@
   "options": [
     {
       "name": "Ignited Spirit",
-      "description": "You ignite the spiritual flame within. Gain +1 skill with concentration and +1 stress threshold.",
+      "description": "You ignite the spiritual flame within. Gain +1 skill with concentration and +3 stress mitigation.",
       "location": "1",
-      "data": "SSJ=1:AS=1"
+      "data": "SSJ=1:AR=3"
     },
     {
       "name": "Action : Inner Peace",
-      "description": "You enter a meditative state, requiring concentration. While concentrating on Inner Peace, you ignore the effects of moderate stress and pain. Additionally, when you fizzle a spell, roll a concentration check. If the result is equal to or higher than the spell's required check, the spell still fails to channel but is not fizzled.",
+      "description": "You enter a meditative state, requiring concentration. While concentrating on Inner Peace, you ignore the effects of pain and stress. Additionally, when you fizzle a spell, roll a concentration check. If the result is equal to or higher than the spell's required check, the spell still fails to channel but is not fizzled.",
       "location": "2a",
       "data": "XINE=0"
     },

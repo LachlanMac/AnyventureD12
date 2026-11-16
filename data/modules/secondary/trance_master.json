@@ -24,9 +24,9 @@
     },
     {
       "name": "Tranquility",
-      "description": "Gain +1 skill with concentration and your stress threshold is increased by 1.",
+      "description": "Gain +1 skill with concentration and +3 stress mitigation.",
       "location": "3",
-      "data": "AS=1:SSJ=1"
+      "data": "AR=3:SSJ=1"
     },
     {
       "name": "Apothecary",

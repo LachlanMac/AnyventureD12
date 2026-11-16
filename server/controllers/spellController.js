@@ -195,6 +195,176 @@ export const removeSpellFromCharacter = async (req, res) => {
   }
 };
 
+// @desc    Add a sorcerer spell to a character
+// @route   POST /api/characters/:characterId/spells/sorcerer/:spellId
+// @access  Private
+export const addSorcererSpell = async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.characterId)
+      .populate('modules.moduleId');
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    if (character.userId !== req.user.id) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    const spell = await Spell.findById(req.params.spellId);
+    if (!spell) {
+      return res.status(404).json({ message: 'Spell not found' });
+    }
+
+    const charWithBonuses = character.toObject();
+    charWithBonuses.sorcererSpellSlots = 0;
+    applyModuleBonusesToCharacter(charWithBonuses);
+    const effectiveSlots = charWithBonuses.sorcererSpellSlots;
+
+    if (effectiveSlots <= 0) {
+      return res.status(400).json({ message: 'No sorcerer spell slots available' });
+    }
+
+    if (character.sorcererSpells.some(s => s.spellId.toString() === spell._id.toString())) {
+      return res.status(400).json({ message: 'Spell already in sorcerer list' });
+    }
+
+    if (character.sorcererSpells.length >= effectiveSlots) {
+      return res.status(400).json({ message: 'All sorcerer spell slots are full' });
+    }
+
+    character.sorcererSpells.push({ spellId: spell._id, dateAdded: Date.now() });
+    await character.save();
+
+    const updatedCharacter = await Character.findById(character._id)
+      .populate('sorcererSpells.spellId');
+    res.json(updatedCharacter);
+  } catch (error) {
+    console.error('Error adding sorcerer spell:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Remove a sorcerer spell from a character
+// @route   DELETE /api/characters/:characterId/spells/sorcerer/:spellId
+// @access  Private
+export const removeSorcererSpell = async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.characterId);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    if (character.userId !== req.user.id) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    const spellIndex = character.sorcererSpells.findIndex(
+      s => s.spellId.toString() === req.params.spellId
+    );
+
+    if (spellIndex === -1) {
+      return res.status(400).json({ message: 'Spell not found in sorcerer list' });
+    }
+
+    character.sorcererSpells.splice(spellIndex, 1);
+    await character.save();
+
+    const updatedCharacter = await Character.findById(character._id)
+      .populate('sorcererSpells.spellId');
+    res.json(updatedCharacter);
+  } catch (error) {
+    console.error('Error removing sorcerer spell:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Add a thief spell to a character
+// @route   POST /api/characters/:characterId/spells/thief/:spellId
+// @access  Private
+export const addThiefSpell = async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.characterId)
+      .populate('modules.moduleId');
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    if (character.userId !== req.user.id) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    const spell = await Spell.findById(req.params.spellId);
+    if (!spell) {
+      return res.status(404).json({ message: 'Spell not found' });
+    }
+
+    const charWithBonuses = character.toObject();
+    charWithBonuses.thiefSpellSlots = 0;
+    applyModuleBonusesToCharacter(charWithBonuses);
+    const effectiveSlots = charWithBonuses.thiefSpellSlots;
+
+    if (effectiveSlots <= 0) {
+      return res.status(400).json({ message: 'No thief spell slots available' });
+    }
+
+    if (character.thiefSpells.some(s => s.spellId.toString() === spell._id.toString())) {
+      return res.status(400).json({ message: 'Spell already in thief list' });
+    }
+
+    if (character.thiefSpells.length >= effectiveSlots) {
+      return res.status(400).json({ message: 'All thief spell slots are full' });
+    }
+
+    character.thiefSpells.push({ spellId: spell._id, dateAdded: Date.now() });
+    await character.save();
+
+    const updatedCharacter = await Character.findById(character._id)
+      .populate('thiefSpells.spellId');
+    res.json(updatedCharacter);
+  } catch (error) {
+    console.error('Error adding thief spell:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
+// @desc    Remove a thief spell from a character
+// @route   DELETE /api/characters/:characterId/spells/thief/:spellId
+// @access  Private
+export const removeThiefSpell = async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.characterId);
+
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+
+    if (character.userId !== req.user.id) {
+      return res.status(401).json({ message: 'Not authorized' });
+    }
+
+    const spellIndex = character.thiefSpells.findIndex(
+      s => s.spellId.toString() === req.params.spellId
+    );
+
+    if (spellIndex === -1) {
+      return res.status(400).json({ message: 'Spell not found in thief list' });
+    }
+
+    character.thiefSpells.splice(spellIndex, 1);
+    await character.save();
+
+    const updatedCharacter = await Character.findById(character._id)
+      .populate('thiefSpells.spellId');
+    res.json(updatedCharacter);
+  } catch (error) {
+    console.error('Error removing thief spell:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 // @desc    Seed spells from JSON files
 // @route   POST /api/spells/seed
 // @access  Admin

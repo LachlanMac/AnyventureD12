@@ -223,4 +223,30 @@ router.post('/temp-session', async (req, res) => {
   }
 });
 
+// Get API key for current user (auto-generates if missing)
+router.get('/api-key', async (req, res) => {
+  try {
+    const token = req.cookies.token;
+    if (!token) {
+      return res.status(401).json({ message: 'Not authenticated' });
+    }
+
+    const decoded = jwt.verify(token, process.env.JWT_SECRET);
+    const user = await User.findById(decoded.id);
+    if (!user) {
+      return res.status(404).json({ message: 'User not found' });
+    }
+
+    if (!user.apiKey) {
+      user.apiKey = uuidv4();
+      await user.save();
+    }
+
+    res.status(200).json({ apiKey: user.apiKey });
+  } catch (err) {
+    console.error('API key fetch error:', err);
+    res.status(500).json({ message: 'Failed to fetch API key' });
+  }
+});
+
 export default router;

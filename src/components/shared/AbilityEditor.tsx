@@ -13,6 +13,9 @@ export interface AbilityEntry {
   daily: boolean;
   charges?: number;
   spellType: 'normal' | 'innate' | 'unique';
+  frequency?: 'action' | 'round' | 'battle' | 'unique';
+  actionCost?: number;
+  frequencyCondition?: string;
   trigger?: string;
   attack?: {
     roll: string;
@@ -127,6 +130,9 @@ const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesCha
         basic: false,
         round: false,
         daily: false,
+        frequency: 'action',
+        actionCost: 1,
+        frequencyCondition: '',
         charges: 0,
         spellType: 'normal',
         attack: {
@@ -247,20 +253,28 @@ const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesCha
                 <span className="text-sm">Basic</span>
               </label>
               <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={ability.round}
-                  onChange={(e) => updateAbility(index, 'round', e.target.checked)}
-                />
-                <span className="text-sm">1/Round</span>
+                <span className="text-sm">Freq:</span>
+                <select
+                  value={ability.frequency || 'action'}
+                  onChange={(e) => updateAbility(index, 'frequency', e.target.value)}
+                  className="p-1 bg-gray-800 border border-gray-600 rounded text-sm"
+                >
+                  <option value="action">At Will</option>
+                  <option value="round">1/Round</option>
+                  <option value="battle">1/Battle</option>
+                  <option value="unique">Unique</option>
+                </select>
               </label>
               <label className="flex items-center gap-2">
-                <input
-                  type="checkbox"
-                  checked={ability.daily}
-                  onChange={(e) => updateAbility(index, 'daily', e.target.checked)}
-                />
-                <span className="text-sm">Daily</span>
+                <span className="text-sm">Actions:</span>
+                <select
+                  value={ability.actionCost ?? 1}
+                  onChange={(e) => updateAbility(index, 'actionCost', parseInt(e.target.value))}
+                  className="p-1 bg-gray-800 border border-gray-600 rounded text-sm w-14"
+                >
+                  <option value={1}>1</option>
+                  <option value={2}>2</option>
+                </select>
               </label>
               {showCharges && (
                 <label className="flex items-center gap-2">
@@ -277,12 +291,22 @@ const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesCha
             </div>
           </div>
 
-          {ability.reaction && (
+          {(ability.reaction || ability.frequency === 'unique') && (
             <input
               type="text"
-              placeholder="Trigger (what triggers this reaction?)"
+              placeholder={ability.reaction ? 'Trigger (what triggers this reaction?)' : 'Trigger / condition (GM only, hidden from players)'}
               value={ability.trigger || ''}
               onChange={(e) => updateAbility(index, 'trigger', e.target.value)}
+              className="w-full p-2 bg-gray-800 border border-gray-600 rounded mb-4"
+            />
+          )}
+
+          {(ability.frequency === 'round' || ability.frequency === 'battle') && (
+            <input
+              type="text"
+              placeholder="Frequency condition (e.g., Recharge 4+)"
+              value={ability.frequencyCondition || ''}
+              onChange={(e) => updateAbility(index, 'frequencyCondition', e.target.value)}
               className="w-full p-2 bg-gray-800 border border-gray-600 rounded mb-4"
             />
           )}

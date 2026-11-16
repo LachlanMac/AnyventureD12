@@ -1014,7 +1014,7 @@ const processWeaponTables = async (content: string): Promise<string> => {
     const brawlingEntry = {
       name: 'Brawling (Unarmed)',
       hands: 1,
-      primary: { damage: '3', damage_extra: '3', damage_type: 'physical', category: 'unarmed', energy: 0, min_range: 1, max_range: 1 }
+      primary: { damage: '1', damage_extra: '3', damage_type: 'physical', category: 'unarmed', energy: 0, min_range: 1, max_range: 1 }
     };
     const unarmedWithBrawling = [brawlingEntry, ...weaponsByCategory.unarmed];
     const unarmedTable = generateTable(unarmedWithBrawling);

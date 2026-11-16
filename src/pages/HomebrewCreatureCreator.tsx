@@ -14,6 +14,10 @@ interface CreatureAction {
   type: 'attack' | 'spell' | 'utility' | 'movement';
   magic: boolean;
   description: string;
+  frequency?: 'action' | 'round' | 'battle' | 'unique';
+  actionCost?: number;
+  frequencyCondition?: string;
+  trigger?: string;
   attack?: {
     roll: string;
     damage: string;
@@ -58,6 +62,9 @@ interface CreatureReaction {
   cost: number;
   trigger: string;
   description: string;
+  frequency?: 'action' | 'round' | 'battle' | 'unique';
+  actionCost?: number;
+  frequencyCondition?: string;
 }
 
 interface CreatureTrait {
@@ -421,6 +428,10 @@ const HomebrewCreatureCreator: React.FC = () => {
         type: 'attack',
         magic: false,
         description: '',
+        frequency: 'action',
+        actionCost: 1,
+        frequencyCondition: '',
+        trigger: '',
       },
     ]);
   };
@@ -444,7 +455,7 @@ const HomebrewCreatureCreator: React.FC = () => {
   };
 
   const addReaction = () => {
-    setReactions([...reactions, { name: '', cost: 1, trigger: '', description: '' }]);
+    setReactions([...reactions, { name: '', cost: 1, trigger: '', description: '', frequency: 'action', actionCost: 1, frequencyCondition: '' }]);
   };
 
   const removeReaction = (index: number) => {
@@ -1999,7 +2010,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                     <div
                       style={{
                         display: 'grid',
-                        gridTemplateColumns: '2fr 1fr 1fr',
+                        gridTemplateColumns: '2fr 1fr 1fr 1fr 1fr',
                         gap: '1rem',
                         marginBottom: '1rem',
                       }}
@@ -2083,7 +2094,117 @@ const HomebrewCreatureCreator: React.FC = () => {
                           <option value="movement">Movement</option>
                         </select>
                       </div>
+                      <div>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
+                          Frequency
+                        </label>
+                        <select
+                          value={action.frequency || 'action'}
+                          onChange={(e) => updateAction(index, 'frequency', e.target.value)}
+                          style={{
+                            width: '100%',
+                            padding: '0.5rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                          }}
+                        >
+                          <option value="action">At Will</option>
+                          <option value="round">1/Round</option>
+                          <option value="battle">1/Battle</option>
+                          <option value="unique">Unique</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
+                          Actions
+                        </label>
+                        <select
+                          value={action.actionCost ?? 1}
+                          onChange={(e) => updateAction(index, 'actionCost', parseInt(e.target.value))}
+                          style={{
+                            width: '100%',
+                            padding: '0.5rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                          }}
+                        >
+                          <option value={1}>1</option>
+                          <option value={2}>2 (Full Turn)</option>
+                        </select>
+                      </div>
                     </div>
+
+                    {(action.frequency === 'round' || action.frequency === 'battle') && (
+                      <div style={{ marginBottom: '1rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
+                          Frequency Condition
+                        </label>
+                        <input
+                          type="text"
+                          value={action.frequencyCondition || ''}
+                          onChange={(e) => updateAction(index, 'frequencyCondition', e.target.value)}
+                          placeholder="e.g., Recharge 4+"
+                          style={{
+                            width: '100%',
+                            padding: '0.5rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                          }}
+                        />
+                      </div>
+                    )}
+
+                    {action.frequency === 'unique' && (
+                      <div style={{ marginBottom: '1rem' }}>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
+                          Trigger (GM only, hidden from players)
+                        </label>
+                        <input
+                          type="text"
+                          value={action.trigger || ''}
+                          onChange={(e) => updateAction(index, 'trigger', e.target.value)}
+                          placeholder="What condition activates this ability?"
+                          style={{
+                            width: '100%',
+                            padding: '0.5rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                          }}
+                        />
+                      </div>
+                    )}
 
                     <div style={{ marginBottom: '1rem' }}>
                       <label
@@ -2180,7 +2301,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                     <div
                       style={{
                         display: 'grid',
-                        gridTemplateColumns: '2fr 1fr',
+                        gridTemplateColumns: '2fr 1fr 1fr',
                         gap: '1rem',
                         marginBottom: '1rem',
                       }}
@@ -2235,6 +2356,34 @@ const HomebrewCreatureCreator: React.FC = () => {
                             color: 'var(--color-white)',
                           }}
                         />
+                      </div>
+                      <div>
+                        <label
+                          style={{
+                            color: 'var(--color-white)',
+                            display: 'block',
+                            marginBottom: '0.5rem',
+                          }}
+                        >
+                          Frequency
+                        </label>
+                        <select
+                          value={reaction.frequency || 'action'}
+                          onChange={(e) => updateReaction(index, 'frequency', e.target.value)}
+                          style={{
+                            width: '100%',
+                            padding: '0.5rem',
+                            backgroundColor: 'var(--color-dark-surface)',
+                            border: '1px solid var(--color-dark-border)',
+                            borderRadius: '0.375rem',
+                            color: 'var(--color-white)',
+                          }}
+                        >
+                          <option value="action">At Will</option>
+                          <option value="round">1/Round</option>
+                          <option value="battle">1/Battle</option>
+                          <option value="unique">Unique</option>
+                        </select>
                       </div>
                     </div>
 

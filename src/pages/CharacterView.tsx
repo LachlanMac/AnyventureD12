@@ -497,6 +497,10 @@ const CharacterView: React.FC = () => {
               characterId={character._id}
               spells={character.spells || []}
               spellSlots={character.spellSlots || 10}
+              sorcererSpells={character.sorcererSpells || []}
+              sorcererSpellSlots={character.sorcererSpellSlots || 0}
+              thiefSpells={character.thiefSpells || []}
+              thiefSpellSlots={character.thiefSpellSlots || 0}
               exoticSchools={character.exoticSchools}
               onUpdateExoticSchools={canEdit ? handleUpdateExoticSchools : undefined}
               canEdit={canEdit}

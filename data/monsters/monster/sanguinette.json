@@ -221,7 +221,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Bite",
@@ -245,7 +249,11 @@
         "secondary_damage": "3",
         "secondary_damage_extra": "2",
         "secondary_damage_type": "dark"
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Rending Claws",
@@ -266,7 +274,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Glide",
@@ -287,7 +299,11 @@
         "category": "slash",
         "min_range": 0,
         "max_range": 0
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [
@@ -310,7 +326,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 3
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "traits": [

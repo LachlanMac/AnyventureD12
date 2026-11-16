@@ -283,6 +283,21 @@ const CharacterSchema = new Schema({
     min: 0
   },
   spells: [CharacterSpellSchema],
+
+  sorcererSpellSlots: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  sorcererSpells: [CharacterSpellSchema],
+
+  thiefSpellSlots: {
+    type: Number,
+    default: 0,
+    min: 0
+  },
+  thiefSpells: [CharacterSpellSchema],
+
   songs: [CharacterSongSchema],
   
   // Inventory system
@@ -468,7 +483,11 @@ const CharacterSchema = new Schema({
     stress: {
       custom: { type: Number, default: 0 }, // Manual adjustments
       calculated: { type: Number, default: 0 } // Auto-calculated from items
-    }
+    },
+    painMitigation: { type: Number, default: 3 },
+    painLimit: { type: Number, default: 10 },
+    stressMitigation: { type: Number, default: 3 },
+    stressLimit: { type: Number, default: 10 }
   },
 
   // Module points

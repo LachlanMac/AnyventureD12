@@ -1262,6 +1262,8 @@ export const exportCharacterToFoundry = async (req, res) => {
     const character = await Character.findById(req.params.id)
       .populate('modules.moduleId')
       .populate('spells.spellId')
+      .populate('sorcererSpells.spellId')
+      .populate('thiefSpells.spellId')
       .populate('ancestry.ancestryId')
       .populate('characterCulture.cultureId')
       .populate('traits.traitId')
@@ -1635,6 +1637,14 @@ export const exportCharacterToFoundry = async (req, res) => {
           current: character.spells?.length || 0,
           max: character.spellSlots || 10
         },
+        sorcererSpellSlots: {
+          current: character.sorcererSpells?.length || 0,
+          max: character.sorcererSpellSlots || 0
+        },
+        thiefSpellSlots: {
+          current: character.thiefSpells?.length || 0,
+          max: character.thiefSpellSlots || 0
+        },
 
         immunities: [],
         vision: [],
@@ -1718,9 +1728,10 @@ export const exportCharacterToFoundry = async (req, res) => {
       }
     }
 
-    // Convert spells to items using correct template format
-    if (character.spells) {
-      for (const charSpell of character.spells) {
+    // Helper to convert a spell list to Foundry items
+    const convertSpellList = (spellList, origin) => {
+      if (!spellList) return;
+      for (const charSpell of spellList) {
         if (charSpell.spellId) {
           const spellItem = {
             _id: charSpell.spellId.foundry_id,
@@ -1743,7 +1754,8 @@ export const exportCharacterToFoundry = async (req, res) => {
               damage: charSpell.spellId.damage,
               damageType: charSpell.spellId.damageType || "",
               fizzled: false,
-              foundry_icon: charSpell.spellId.foundry_icon || ""
+              foundry_icon: charSpell.spellId.foundry_icon || "",
+              origin: origin
             },
             flags: {
               anyventure: {
@@ -1759,7 +1771,11 @@ export const exportCharacterToFoundry = async (req, res) => {
           foundryActor.items.push(spellItem);
         }
       }
-    }
+    };
+
+    convertSpellList(character.spells, 'learned');
+    convertSpellList(character.sorcererSpells, 'sorcerer');
+    convertSpellList(character.thiefSpells, 'thief');
 
     // Convert inventory items using new format
     if (character.inventory) {

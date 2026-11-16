@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
@@ -10,6 +10,17 @@ const Profile: React.FC = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [nickname, setNickname] = useState(user?.username || '');
   const [loading, setLoading] = useState(false);
+  const [apiKey, setApiKey] = useState<string | null>(null);
+  const [showApiKey, setShowApiKey] = useState(false);
+
+  useEffect(() => {
+    if (user && !user.isTemporary) {
+      fetch('/api/auth/api-key', { credentials: 'include' })
+        .then((res) => res.json())
+        .then((data) => setApiKey(data.apiKey))
+        .catch(() => {});
+    }
+  }, [user]);
 
   const handleSave = async () => {
     if (!nickname.trim()) {
@@ -238,6 +249,56 @@ const Profile: React.FC = () => {
                 </span>
               </div>
             </div>
+
+            {/* API Key */}
+            {apiKey && (
+              <div style={{ borderTop: '1px solid var(--color-dark-border)', paddingTop: '1.5rem' }}>
+                <h3
+                  style={{
+                    color: 'var(--color-white)',
+                    fontSize: '1rem',
+                    fontWeight: 'bold',
+                    marginBottom: '1rem',
+                  }}
+                >
+                  API Key
+                </h3>
+                <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                  <span
+                    style={{
+                      color: 'var(--color-white)',
+                      fontFamily: 'monospace',
+                      fontSize: '0.75rem',
+                      flex: 1,
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                    }}
+                  >
+                    {showApiKey ? apiKey : '••••••••••••••••••••••••••••••••••••'}
+                  </span>
+                  <Button
+                    variant="outline"
+                    onClick={() => setShowApiKey(!showApiKey)}
+                    style={{ whiteSpace: 'nowrap', fontSize: '0.75rem', padding: '0.25rem 0.5rem' }}
+                  >
+                    {showApiKey ? 'Hide' : 'Show'}
+                  </Button>
+                  <Button
+                    variant="outline"
+                    onClick={() => {
+                      navigator.clipboard.writeText(apiKey);
+                      showSuccess('API key copied to clipboard');
+                    }}
+                    style={{ whiteSpace: 'nowrap', fontSize: '0.75rem', padding: '0.25rem 0.5rem' }}
+                  >
+                    Copy
+                  </Button>
+                </div>
+                <p style={{ color: 'var(--color-cloud)', fontSize: '0.75rem', marginTop: '0.5rem' }}>
+                  Use this key to connect external tools like FoundryVTT to your account.
+                </p>
+              </div>
+            )}
           </div>
         </CardBody>
       </Card>

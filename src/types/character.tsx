@@ -32,6 +32,10 @@ export interface Resources {
   morale?: { current: number; max: number };
   pain?: { custom: number; calculated: number };
   stress?: { custom: number; calculated: number };
+  painMitigation?: number;
+  painLimit?: number;
+  stressMitigation?: number;
+  stressLimit?: number;
 }
 
 // Module point structure
@@ -512,6 +516,10 @@ export interface Character {
   conditionals?: Conditionals;
   spells: CharacterSpell[];
   spellSlots: number;
+  sorcererSpells: CharacterSpell[];
+  sorcererSpellSlots: number;
+  thiefSpells: CharacterSpell[];
+  thiefSpellSlots: number;
   characterCreation?: {
     attributePointsRemaining: number;
     talentStarsRemaining: number;

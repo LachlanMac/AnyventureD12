@@ -33,7 +33,9 @@ export const applyModuleBonusesToCharacter = (character) => {
     health: character.resources.health.max,
     movement: character.movement,
     initiative: character.initiative,
-    spellSlots: character.spellSlots || 10
+    spellSlots: character.spellSlots || 10,
+    sorcererSpellSlots: character.sorcererSpellSlots || 0,
+    thiefSpellSlots: character.thiefSpellSlots || 0
   };
   
   // Temporary structure to collect bonuses
@@ -50,7 +52,9 @@ export const applyModuleBonusesToCharacter = (character) => {
     movement_climb: 0, // Separate tracking for climb speed bonuses
     movement_fly: 0,   // Separate tracking for fly speed bonuses
     initiative: 0,
-    spellSlots: 0
+    spellSlots: 0,
+    sorcererSpellSlots: 0,
+    thiefSpellSlots: 0
   };
   
   // Helper function to process any ability for bonuses
@@ -834,6 +838,19 @@ const applyBonusesToCharacter = (character, bonuses) => {
     character.resources.morale.max += bonuses.morale;
   }
 
+  if (bonuses.painMitigation) {
+    character.resources.painMitigation += bonuses.painMitigation;
+  }
+  if (bonuses.painLimit) {
+    character.resources.painLimit += bonuses.painLimit;
+  }
+  if (bonuses.stressMitigation) {
+    character.resources.stressMitigation += bonuses.stressMitigation;
+  }
+  if (bonuses.stressLimit) {
+    character.resources.stressLimit += bonuses.stressLimit;
+  }
+
   // Apply walk speed bonus (K1) - this is the only way to boost base movement now
   if (bonuses.movement_walk) {
     character.movement += bonuses.movement_walk;
@@ -853,6 +870,14 @@ const applyBonusesToCharacter = (character, bonuses) => {
 
   if (bonuses.spellSlots) {
     character.spellSlots = (character.spellSlots || 10) + bonuses.spellSlots;
+  }
+
+  if (bonuses.sorcererSpellSlots) {
+    character.sorcererSpellSlots = (character.sorcererSpellSlots || 0) + bonuses.sorcererSpellSlots;
+  }
+
+  if (bonuses.thiefSpellSlots) {
+    character.thiefSpellSlots = (character.thiefSpellSlots || 0) + bonuses.thiefSpellSlots;
   }
 
   // Apply immunities and vision types
@@ -1925,6 +1950,12 @@ export const applyEquipmentEffects = (character, equipmentEffects) => {
   }
   character.resources.pain.calculated = equipmentEffects.bonuses.pain || 0;
   character.resources.stress.calculated = equipmentEffects.bonuses.stress || 0;
+
+  // Initialize pain/stress mitigation and limit defaults
+  if (character.resources.painMitigation == null) character.resources.painMitigation = 3;
+  if (character.resources.painLimit == null) character.resources.painLimit = 10;
+  if (character.resources.stressMitigation == null) character.resources.stressMitigation = 3;
+  if (character.resources.stressLimit == null) character.resources.stressLimit = 10;
 
   // Apply mitigation bonuses (min/max from equipment)
   if (equipmentEffects.bonuses.mitigation) {

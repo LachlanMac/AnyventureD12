@@ -5,6 +5,12 @@
   "weight": 1.5,
   "value": 120,
   "rarity": "common",
+  "light": {
+    "bright": 3,
+    "dim": 2,
+    "color": "#ffd680",
+    "animation": "flame"
+  },
   "foundry_icon": "icons/sundries/lights/lantern-iron-yellow.webp",
   "foundry_id": "zf8qp4uxwfaeuxhq"
 }

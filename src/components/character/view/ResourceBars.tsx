@@ -256,12 +256,8 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   // Calculate pain from injuries + health status + override
   const calcPain = () => {
     const injuryPain = injuries.reduce((sum, i) => sum + (i.injuryId?.pain || 0), 0);
-    let healthPain = 0;
     const health = resources.health;
-    if (health && health.max > 0) {
-      if (health.current < 5) healthPain = 4;
-      else if (health.current < health.max / 2) healthPain = 2;
-    }
+    const healthPain = (health && health.max > 0 && health.current < 10) ? 5 : 0;
     const override = resources.pain?.custom || 0;
     return Math.max(0, injuryPain + healthPain + override);
   };
@@ -269,67 +265,93 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   // Calculate stress from injuries + resolve status + override
   const calcStress = () => {
     const injuryStress = injuries.reduce((sum, i) => sum + (i.injuryId?.stress || 0), 0);
-    let resolvePain = 0;
     const resolve = resources.resolve;
-    if (resolve && resolve.max > 0) {
-      if (resolve.current < 3) resolvePain = 4;
-      else if (resolve.current < resolve.max / 2) resolvePain = 2;
-    }
+    const resolveStress = (resolve && resolve.max > 0 && resolve.current < 10) ? 5 : 0;
     const override = resources.stress?.custom || 0;
-    return Math.max(0, injuryStress + resolvePain + override);
+    return Math.max(0, injuryStress + resolveStress + override);
   };
 
   // Render read-only pain/stress meter
   const renderPainStressMeter = (
     name: string,
     value: number,
-    color: string
+    color: string,
+    mitigation: number,
+    limit: number
   ) => {
+    const getLabel = () => {
+      if (value <= 0) return null;
+      if (value <= mitigation) return 'None';
+      if (value <= limit) return name;
+      return `Severe ${name}`;
+    };
+    const label = getLabel();
+
     return (
       <div
         style={{
           backgroundColor: 'var(--color-dark-surface)',
           border: '1px solid var(--color-dark-border)',
           borderRadius: '0.375rem',
-          padding: '0.25rem',
+          padding: '0.25rem 0.75rem',
         }}
       >
         <div
           style={{
             display: 'flex',
             alignItems: 'center',
-            justifyContent: 'center',
+            justifyContent: 'space-between',
             gap: '0.5rem',
           }}
         >
           <span
             style={{
-              color: 'var(--color-cloud)',
-              fontSize: '0.875rem',
-            }}
-          >
-            {name}:
-          </span>
-          <span
-            style={{
-              color: value > 0 ? color : 'var(--color-white)',
-              fontSize: '1rem',
+              color: 'var(--color-iron)',
+              fontSize: '0.625rem',
               fontWeight: 'bold',
             }}
           >
-            {value}
+            MIT: {mitigation}
           </span>
-          {value > 0 && (
+          <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
             <span
               style={{
-                fontSize: '0.625rem',
-                color: color,
-                fontStyle: 'italic',
+                color: 'var(--color-cloud)',
+                fontSize: '0.875rem',
               }}
             >
-              {value >= 16 ? '(Critical)' : value >= 11 ? '(Severe)' : value >= 6 ? '(Moderate)' : '(Mild)'}
+              {name}:
             </span>
-          )}
+            <span
+              style={{
+                color: value > 0 ? color : 'var(--color-white)',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+              }}
+            >
+              {value}
+            </span>
+            {label && (
+              <span
+                style={{
+                  fontSize: '0.625rem',
+                  color: color,
+                  fontStyle: 'italic',
+                }}
+              >
+                ({label})
+              </span>
+            )}
+          </div>
+          <span
+            style={{
+              color: 'var(--color-iron)',
+              fontSize: '0.625rem',
+              fontWeight: 'bold',
+            }}
+          >
+            LIMIT: {limit}
+          </span>
         </div>
       </div>
     );
@@ -347,13 +369,13 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
       {renderEditableResource('Health', 'health', 'var(--color-health)')}
 
       {/* Pain meter under Health */}
-      {renderPainStressMeter('Pain', calcPain(), 'var(--color-health)')}
+      {renderPainStressMeter('Pain', calcPain(), 'var(--color-health)', resources.painMitigation ?? 3, resources.painLimit ?? 10)}
 
       {/* Resolve */}
       {renderEditableResource('Resolve', 'resolve', 'var(--color-resolve)')}
 
       {/* Stress meter under Resolve */}
-      {renderPainStressMeter('Stress', calcStress(), 'var(--color-resolve)')}
+      {renderPainStressMeter('Stress', calcStress(), 'var(--color-resolve)', resources.stressMitigation ?? 3, resources.stressLimit ?? 10)}
 
       {/* Morale */}
       {resources.morale && renderEditableResource('Morale', 'morale', 'var(--color-morale)')}

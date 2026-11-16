@@ -250,7 +250,11 @@
         "secondary_damage": "2",
         "secondary_damage_extra": "1",
         "secondary_damage_type": "dark"
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Siphon",
@@ -272,7 +276,11 @@
         "defense_difficulty": 6,
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Stalk",
@@ -293,7 +301,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [],

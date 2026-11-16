@@ -2,7 +2,15 @@ import mongoose from 'mongoose';
 
 const actionSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  cost: { type: Number, required: true },
+  cost: { type: Number, default: 0 },
+  actionCost: { type: Number, default: 1, enum: [1, 2] },
+  frequency: {
+    type: String,
+    default: 'action',
+    enum: ['action', 'round', 'battle', 'unique']
+  },
+  frequencyCondition: { type: String, default: '' },
+  trigger: { type: String, default: '' },
   type: {
     type: String,
     required: true,
@@ -109,7 +117,14 @@ const normalizeMovement = (movement) => {
 
 const reactionSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  cost: { type: Number, required: true },
+  cost: { type: Number, default: 0 },
+  actionCost: { type: Number, default: 1, enum: [1, 2] },
+  frequency: {
+    type: String,
+    default: 'action',
+    enum: ['action', 'round', 'battle', 'unique']
+  },
+  frequencyCondition: { type: String, default: '' },
   type: {
     type: String,
     required: true,
@@ -120,7 +135,7 @@ const reactionSchema = new mongoose.Schema({
   round: { type: Boolean, default: false },
   daily: { type: Boolean, default: false },
   spellType: { type: String, enum: ['normal', 'innate', 'unique'], default: 'normal' },
-  trigger: { type: String, required: false }, // Optional, not required
+  trigger: { type: String, required: false },
   description: { type: String, required: true },
   attack: {
     roll: String,

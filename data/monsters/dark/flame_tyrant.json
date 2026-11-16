@@ -153,7 +153,7 @@
   },
   "mitigation": {
     "physical": {
-      "min": 5,
+      "min": 8,
       "max": 20
     },
     "cold": {
@@ -161,7 +161,7 @@
       "max": 25
     },
     "heat": {
-      "min": 8,
+      "min": 12,
       "max": 18
     },
     "electric": {
@@ -173,7 +173,7 @@
       "max": 25
     },
     "dark": {
-      "min": 5,
+      "min": 8,
       "max": 25
     },
     "divine": {
@@ -250,7 +250,11 @@
         "secondary_damage": "3",
         "secondary_damage_extra": "2",
         "secondary_damage_type": "heat"
-      }
+      },
+      "frequency": "action",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Heart Piercer",
@@ -274,7 +278,11 @@
         "secondary_damage": "2",
         "secondary_damage_extra": "2",
         "secondary_damage_type": "dark"
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Ignis",
@@ -295,7 +303,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Annihilation Field",
@@ -320,7 +332,11 @@
         "school": "black",
         "subschool": "fiend",
         "checkToCast": 6
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     },
     {
       "name": "Concussive Strike",
@@ -341,7 +357,11 @@
         "category": "slash",
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
     }
   ],
   "reactions": [
@@ -366,7 +386,10 @@
         "defense_difficulty": 6,
         "min_range": 1,
         "max_range": 1
-      }
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": ""
     }
   ],
   "traits": [

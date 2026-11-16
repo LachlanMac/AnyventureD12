@@ -3,6 +3,10 @@
 export interface CreatureAction {
   name: string;
   cost: number;
+  actionCost?: number;
+  frequency?: 'action' | 'round' | 'battle' | 'unique';
+  frequencyCondition?: string;
+  trigger?: string;
   type: string;
   magic?: boolean;
   basic?: boolean;
@@ -42,6 +46,9 @@ export interface CreatureAction {
 export interface CreatureReaction {
   name: string;
   cost: number;
+  actionCost?: number;
+  frequency?: 'action' | 'round' | 'battle' | 'unique';
+  frequencyCondition?: string;
   type: 'attack' | 'spell' | 'utility' | 'movement';
   magic?: boolean;
   basic?: boolean;

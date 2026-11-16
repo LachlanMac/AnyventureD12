@@ -30,7 +30,7 @@
     },
     {
       "name": "Shadow Arsenal",
-      "description": "You can dedicate a second weapon as your shadow weapon, but it can also be a complex melee, brawling or melee weapon. Additionally, the extra psychic damage on your shadow weapons is increased to 2.",
+      "description": "You can dedicate a second weapon as your shadow weapon, but it can also be a complex melee, brawling or melee weapon. Additionally, the extra psychic damage on your shadow weapons is increased by 2.",
       "location": "4a",
       "data": "TG"
     },

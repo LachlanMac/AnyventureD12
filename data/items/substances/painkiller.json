@@ -6,7 +6,7 @@
     "substance": {
       "category": "painkiller",
       "dependency": 4,
-      "effect": "Reduces pain by 10 for 1 hour. Gain +3 resolve when consumed.",
+      "effect": "Suppresses pain and severe pain for 1 hour. Gain +3 resolve when consumed.",
       "duration": "1 hour"
     },
     "weight": 0.1,
@@ -31,7 +31,7 @@
     "substance": {
       "category": "painkiller",
       "dependency": 3,
-      "effect": "Reduces pain by 4 for 8 hours.",
+      "effect": "Suppresses pain and severe pain for 8 hours.",
       "duration": "8 hours"
     },
     "weight": 0.1,
@@ -57,7 +57,7 @@
     "substance": {
       "category": "painkiller",
       "dependency": 2,
-      "effect": "Reduces pain by 3 for 8 hours.",
+      "effect": "Suppresses pain for 8 hours.",
       "duration": "8 hours"
     },
     "weight": 0.2,
@@ -83,7 +83,7 @@
     "substance": {
       "category": "painkiller",
       "dependency": 1,
-      "effect": "Reduces pain by 2 for 24 hours. Multiple doses stack.",
+      "effect": "Suppresses pain for 24 hours.",
       "duration": "24 hours"
     },
     "weight": 0.05,

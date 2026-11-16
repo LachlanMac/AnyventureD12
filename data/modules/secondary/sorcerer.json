@@ -1,0 +1,68 @@
+{
+  "id": 213,
+  "name": "Sorcerer",
+  "mtype": "secondary",
+  "ruleset": 1,
+  "options": [
+    {
+      "name": "Innate Caster",
+      "description": "You are a natural conduit for magic, channeling spells through sheer will rather than study. Gain 2 sorcerer spell slots. Sorcerer spells can be swapped at a full rest for any spell you could potentially learn, but they cannot be charged.",
+      "location": "1",
+      "data": "AS=2"
+    },
+    {
+      "name": "Studied Sorcerer",
+      "description": "You have supplemented your natural talent with academic study. Gain +1 skill with magic knowledge and +2 spell capacity.",
+      "location": "2a",
+      "data": "SSO=1:A9=2"
+    },
+    {
+      "name": "Gifted Sorcerer",
+      "description": "Your innate magical presence is undeniable. Gain +2 sorcerer spell slots and +1 skill with presence.",
+      "location": "2b",
+      "data": "AS=2:SSR=1"
+    },
+    {
+      "name": "Magical Resilience",
+      "description": "Your natural connection to magic grants you an innate resistance to magical forces. Gain +2 aetheric mitigation, +2 dark mitigation and +2 divine mitigation.",
+      "location": "3",
+      "data": "M7=2:M6=2:M5=2"
+    },
+    {
+      "name": "Reaction : Reactive Spell",
+      "description": "In response to a creature taking an action within a very short (5 unit) distance of you, you can channel one of your sorcerer spells.",
+      "location": "4a",
+      "data": "ZIME=1"
+    },
+    {
+      "name": "Action : Sorcerous Surge",
+      "description": "When you channel a sorcerer spell, you can surge it with innate power. The spell's range is doubled, its area of effect is increased by 1 unit, and allies within the area are unaffected.",
+      "location": "4b",
+      "data": "XIME=2"
+    },
+    {
+      "name": "Sorcerous Mastery",
+      "description": "Your innate magic has reached a new threshold. Gain +3 sorcerer spell slots. Your sorcerer spells no longer fizzle on a failed spell check and do not require incantations to channel them.",
+      "location": "5",
+      "data": "AS=3:TG"
+    },
+    {
+      "name": "Arcane Affinity",
+      "description": "Your natural talent extends into the arcane. Gain +1 skill with arcane magic and +1 maximum energy.",
+      "location": "6a",
+      "data": "YS6=1:A3=1"
+    },
+    {
+      "name": "Primal Affinity",
+      "description": "Your natural talent extends into primal and metamagic forces. Gain +1 skill with primal magic and +1 skill with meta magic.",
+      "location": "6b",
+      "data": "YS2=1:YS3=1"
+    },
+    {
+      "name": "Action : Force Charge",
+      "description": "You force a charge on one of your sorcerer spells without requiring a component. The spell is removed from your sorcerer spell list after use. If you successfully channel the spell, you cannot use that spell as a sorcerer spell for 1d10 full rests. If you fail to channel the spell, you can never use it as a sorcerer spell again.",
+      "location": "7",
+      "data": "XIME=2"
+    }
+  ]
+}

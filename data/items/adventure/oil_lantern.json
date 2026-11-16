@@ -2,9 +2,16 @@
   "name": "Oil Lantern",
   "description": "A metal lantern that burns oil to provide bright light within a 5 unit radius.",
   "type": "adventure",
+  "holdable": true,
   "weight": 2,
   "value": 80,
   "rarity": "common",
+  "light": {
+    "bright": 5,
+    "dim": 3,
+    "color": "#ffd680",
+    "animation": "flame"
+  },
   "foundry_icon": "icons/sundries/lights/lantern-iron-lit-yellow.webp",
   "foundry_id": "0oh7mrmnv4i3yhuq"
 }

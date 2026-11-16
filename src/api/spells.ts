@@ -83,6 +83,20 @@ export const spellsApi = {
   forgetSpell: (characterId: string, spellId: string) =>
     apiClient.delete(`/characters/${characterId}/spells/${spellId}`),
 
+  // Sorcerer spell management
+  addSorcererSpell: (characterId: string, spellId: string) =>
+    apiClient.post(`/characters/${characterId}/spells/sorcerer/${spellId}`, {}),
+
+  removeSorcererSpell: (characterId: string, spellId: string) =>
+    apiClient.delete(`/characters/${characterId}/spells/sorcerer/${spellId}`),
+
+  // Thief spell management
+  addThiefSpell: (characterId: string, spellId: string) =>
+    apiClient.post(`/characters/${characterId}/spells/thief/${spellId}`, {}),
+
+  removeThiefSpell: (characterId: string, spellId: string) =>
+    apiClient.delete(`/characters/${characterId}/spells/thief/${spellId}`),
+
   // Homebrew spells
   homebrew: {
     // Get all homebrew spells
