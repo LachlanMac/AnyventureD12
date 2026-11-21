@@ -1,59 +1,58 @@
 import mongoose from 'mongoose';
 const { Schema } = mongoose;
 
+// Progression stages a template option can be picked at.
+// 1 = Starter (15 pts), 2 = Advanced (25), 3 = Veteran (35), 4 = Elite (45)
+export const TEMPLATE_STAGES = [1, 2, 3, 4];
+
 const TemplateModuleSchema = new Schema({
-  moduleId: { type: Number, required: true },
+  // Resolved from moduleName by the seeder. Null if the module could not be found.
+  moduleId: { type: Schema.Types.ObjectId, ref: 'Module', default: null },
   moduleName: { type: String, required: true },
-  selectedOptions: { type: Map, of: String, default: {} },
-  progressionTier: { type: Number, required: true, min: 1, max: 4 }
+  // location ("1", "2a", "3", ...) -> stage the option is picked at (1-4)
+  selectedOptions: { type: Map, of: Number, default: {} }
 }, { _id: false });
+
+const TemplateSpellSchema = new Schema({
+  // Resolved from spellName by the seeder. Null if the spell could not be found.
+  spellId: { type: Schema.Types.ObjectId, ref: 'Spell', default: null },
+  spellName: { type: String, required: true }
+}, { _id: false });
+
+const talentBlock =(keys, defaults = {}) =>
+  Object.fromEntries(keys.map(k => [k, { type: Number, default: defaults[k] ?? 0 }]));
 
 const TemplateSchema = new Schema({
   name: { type: String, required: true, unique: true },
   description: { type: String, default: '' },
+  // Short "how to play this" text shown on the detail page
+  playstyle: { type: String, default: '' },
   category: {
     type: String,
     enum: ['martial', 'magic', 'hybrid', 'support', 'utility'],
     default: 'martial'
   },
-  tier: {
-    type: String,
-    enum: ['starter', 'advanced', 'veteran', 'elite'],
-    default: 'starter'
-  },
-  modulePoints: { type: Number, default: 15 },
   modules: [TemplateModuleSchema],
-  attributes: {
-    physique: { type: Number, default: 1 },
-    finesse: { type: Number, default: 1 },
-    mind: { type: Number, default: 1 },
-    knowledge: { type: Number, default: 1 },
-    social: { type: Number, default: 1 }
-  },
-  weaponTalents: {
-    unarmed: { type: Number, default: 0 },
-    throwing: { type: Number, default: 0 },
-    simpleMelee: { type: Number, default: 0 },
-    simpleRanged: { type: Number, default: 0 },
-    complexMelee: { type: Number, default: 0 },
-    complexRanged: { type: Number, default: 0 }
-  },
-  magicTalents: {
-    black: { type: Number, default: 0 },
-    primal: { type: Number, default: 0 },
-    metamagic: { type: Number, default: 0 },
-    white: { type: Number, default: 0 },
-    mysticism: { type: Number, default: 0 },
-    arcane: { type: Number, default: 0 }
-  },
-  craftingTalents: {
-    engineering: { type: Number, default: 0 },
-    fabrication: { type: Number, default: 0 },
-    alchemy: { type: Number, default: 0 },
-    cooking: { type: Number, default: 0 },
-    glyphcraft: { type: Number, default: 0 },
-    biosculpting: { type: Number, default: 0 }
-  },
+  // Spells have no stage; the preview compares them to the slots available at each stage
+  spells: [TemplateSpellSchema],
+  sorcererSpells: [TemplateSpellSchema],
+  thiefSpells: [TemplateSpellSchema],
+  // Extra Training picks in order: the 1st unlocks at stage 1 (15 pts), 2nd at stage 2, ...
+  // (one per 10 module points). `data` is resolved from the Extra Training trait by the seeder.
+  extraTraining: [new Schema({
+    name: { type: String, required: true },
+    data: { type: String, default: null }
+  }, { _id: false })],
+  attributes: talentBlock(['physique', 'finesse', 'mind', 'knowledge', 'social'], {
+    physique: 1, finesse: 1, mind: 1, knowledge: 1, social: 1
+  }),
+  // Keys match Character.weaponSkills / magicSkills / craftingSkills so they copy straight across
+  weaponTalents: talentBlock(
+    ['brawling', 'throwing', 'simpleRangedWeapons', 'complexRangedWeapons', 'simpleMeleeWeapons', 'complexMeleeWeapons'],
+    { brawling: 1, throwing: 1, simpleRangedWeapons: 1, simpleMeleeWeapons: 1 }
+  ),
+  magicTalents: talentBlock(['black', 'primal', 'meta', 'white', 'mystic', 'arcane']),
+  craftingTalents: talentBlock(['engineering', 'fabrication', 'alchemy', 'cooking', 'glyphcraft', 'biosculpting']),
   source: {
     type: String,
     enum: ['official', 'community'],

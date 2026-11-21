@@ -6,6 +6,7 @@ interface User {
   username: string;
   isTemporary?: boolean;
   tempSessionId?: string;
+  isAdmin?: boolean;
 }
 
 interface AuthContextType {

@@ -379,6 +379,25 @@ const PARSERS = [
 // MAIN PARSING FUNCTION
 // ============================================================================
 
+// Split a data string on ':' and ',' that are not inside [...] brackets
+function splitTopLevel(dataString) {
+  const parts = [];
+  let depth = 0;
+  let current = '';
+  for (const ch of dataString) {
+    if (ch === '[') depth++;
+    else if (ch === ']') depth = Math.max(0, depth - 1);
+    if ((ch === ':' || ch === ',') && depth === 0) {
+      parts.push(current);
+      current = '';
+    } else {
+      current += ch;
+    }
+  }
+  parts.push(current);
+  return parts;
+}
+
 export function parseDataString(dataString, bonuses = {}, character = null) {
   if (!dataString) return bonuses;
 
@@ -387,8 +406,9 @@ export function parseDataString(dataString, bonuses = {}, character = null) {
     character.conditionals = {};
   }
 
-  // Split by colon or comma for multiple effects (support both formats)
-  const effects = dataString.split(/[:,]/);
+  // Split by colon or comma for multiple effects (support both formats),
+  // but not inside brackets so CC[N1=-1,N7=-1] stays one conditional effect
+  const effects = splitTopLevel(dataString);
 
   for (const effect of effects) {
     if (!effect.trim()) continue;

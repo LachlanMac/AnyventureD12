@@ -21,6 +21,8 @@ interface SpellTabProps {
   };
   onUpdateExoticSchools?: (schools: any) => void;
   canEdit?: boolean;
+  // Hide the Exotic School Access toggles (e.g. on template pages)
+  showExoticSchools?: boolean;
 }
 
 interface Spell {
@@ -67,7 +69,8 @@ const SpellsTab: React.FC<SpellTabProps> = ({
     chaos: false
   },
   onUpdateExoticSchools,
-  canEdit = true
+  canEdit = true,
+  showExoticSchools = true,
 }) => {
   const [enhancedSpells, setEnhancedSpells] = useState<CharacterSpell[]>([]);
   const [enhancedSorcererSpells, setEnhancedSorcererSpells] = useState<CharacterSpell[]>([]);
@@ -540,6 +543,7 @@ const SpellsTab: React.FC<SpellTabProps> = ({
       )}
 
       {/* Exotic Schools Configuration */}
+      {showExoticSchools && (
       <div style={{ marginTop: '2rem' }}>
         <Card variant="default">
           <CardHeader>
@@ -834,6 +838,7 @@ const SpellsTab: React.FC<SpellTabProps> = ({
           </CardBody>
         </Card>
       </div>
+      )}
     </div>
   );
 };

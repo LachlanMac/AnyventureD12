@@ -12,8 +12,7 @@ export default defineConfig({
       overlay: true,
     },
     watch: {
-      usePolling: true,
-      interval: 2000,
+      usePolling: false,
     },
     proxy: {
       '/api': {

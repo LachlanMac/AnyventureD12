@@ -1,5 +1,4 @@
 {
-  "id": 105,
   "name": "Elementalist",
   "mtype": "secondary",
   "ruleset": 1,
@@ -20,7 +19,7 @@
       "name": "Reaction : Lightning Rod",
       "description": "In response to you or an ally(s) within a very short (5 unit) distance being attacked by an ability that deals electric damage, you can choose to absorb all of the electrical energy instead of resisting it. Your electric mitigation becomes 0 when calculating the damage, but your energy is completely restored if you take at least 5 electric damage. If the attack is over an area, you take double the electric damage instead and gain an additional action on your next turn.",
       "location": "2b",
-      "data": "ZMNE=0"
+      "data": "ZIME=0"
     },
     {
       "name": "Planar Specialization",

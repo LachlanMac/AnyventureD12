@@ -65,6 +65,17 @@ const CharacterEdit: React.FC = () => {
         }
         const charData = await charResponse.json();
 
+        // The GET response has module/ancestry/trait bonuses applied (e.g. a tier 7 +1 talent,
+        // a personality tier 5 +1 Social). This page saves these fields back, so it must work
+        // from the stored values or those bonuses get baked in and counted twice.
+        if (charData.baseValues) {
+          charData.attributes = charData.baseValues.attributes;
+          charData.skills = charData.baseValues.skills;
+          charData.weaponSkills = charData.baseValues.weaponSkills;
+          charData.magicSkills = charData.baseValues.magicSkills;
+          charData.craftingSkills = charData.baseValues.craftingSkills;
+        }
+
         // MIGRATION: Initialize baseTalent for old characters that don't have it
         // This fixes characters created before baseTalent tracking was added
         let needsMigration = false;

@@ -4,6 +4,8 @@ import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
 import { Module, CharacterModule } from '../types/character';
 import { getOptionEnergyCost, getEnergyDisplay, parseActionData } from '../utils/actionParser';
+import { useAuth } from '../context/AuthContext';
+import ExportTemplateModal from '../components/templates/ExportTemplateModal';
 
 // Type definitions
 
@@ -46,6 +48,8 @@ const ModulesPage: React.FC = () => {
   const [planMode, setPlanMode] = useState<boolean>(false);
   const [plannedModules, setPlannedModules] = useState<PlannedModule[]>([]);
   const [planDirty, setPlanDirty] = useState<boolean>(false);
+  const [showExport, setShowExport] = useState<boolean>(false);
+  const { user } = useAuth();
 
   // Search functionality
   const [searchTerm, setSearchTerm] = useState<string>('');
@@ -194,9 +198,15 @@ const ModulesPage: React.FC = () => {
     const currentTier = existing?.selectedOptions?.[location];
     const currentNum = currentTier ? parseInt(currentTier) : 0;
 
-    // Find next tier that has budget, starting after current
+    // Find next tier that has budget, starting after current.
+    // Free options (social module tier 1) don't need budget.
+    const isFree = isFreePlanOption(moduleId, location);
     let nextTier: number | null = null;
     for (let t = currentNum + 1; t <= 4; t++) {
+      if (isFree) {
+        nextTier = t;
+        break;
+      }
       // When checking budget, subtract 1 if this option is currently in a tier (we're moving it)
       const adjustedUsed = currentNum > 0 && currentNum === t ? currentUsed[t] - 1 : currentUsed[t];
       if (adjustedUsed < TIER_BUDGETS[t]) {
@@ -258,10 +268,16 @@ const ModulesPage: React.FC = () => {
 
   const TIER_BUDGETS: Record<number, number> = { 1: 15, 2: 10, 3: 10, 4: 10 };
 
+  // Every planned option costs 1 point, except the social (personality) module's tier 1,
+  // which is auto-granted at character creation. Matches the template export check.
+  const isFreePlanOption = (moduleId: string, location: string) =>
+    location === '1' && allModules.find((m) => m._id === moduleId)?.mtype === 'personality';
+
   const getPlanPointsUsed = () => {
     const tiers: Record<number, number> = { 1: 0, 2: 0, 3: 0, 4: 0 };
     for (const pm of plannedModules) {
-      for (const tier of Object.values(pm.selectedOptions)) {
+      for (const [location, tier] of Object.entries(pm.selectedOptions)) {
+        if (isFreePlanOption(pm.moduleId, location)) continue;
         const t = parseInt(tier);
         if (tiers[t] !== undefined) tiers[t]++;
       }
@@ -519,6 +535,18 @@ const ModulesPage: React.FC = () => {
               Save Plan
             </Button>
           )}
+          {user?.isAdmin && (
+            <Button
+              variant="secondary"
+              onClick={async () => {
+                // Export reads the saved plan, so save pending changes first
+                if (planDirty) await savePlan();
+                setShowExport(true);
+              }}
+            >
+              Export as Template
+            </Button>
+          )}
           {!planMode && (
             <div
               style={{
@@ -537,6 +565,14 @@ const ModulesPage: React.FC = () => {
           )}
         </div>
       </div>
+
+      {showExport && character && (
+        <ExportTemplateModal
+          characterId={character._id}
+          characterName={character.name}
+          onClose={() => setShowExport(false)}
+        />
+      )}
 
       <div style={{ marginBottom: '1.5rem', display: 'flex', alignItems: 'center', gap: '1rem' }}>
         <Link to={`/characters/${characterId}?tab=modules`}>

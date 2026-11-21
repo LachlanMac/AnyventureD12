@@ -136,6 +136,17 @@ export const getCharacter = async (req, res) => {
     // Create a copy of the character
     const characterWithBonuses = character.toObject();
 
+    // Stored values BEFORE module/ancestry/trait bonuses. Anything that edits and saves
+    // these fields (CharacterEdit) must start from baseValues, otherwise the bonuses
+    // get written into the stored character and are applied twice on the next read.
+    characterWithBonuses.baseValues = JSON.parse(JSON.stringify({
+      attributes: characterWithBonuses.attributes,
+      skills: characterWithBonuses.skills,
+      weaponSkills: characterWithBonuses.weaponSkills,
+      magicSkills: characterWithBonuses.magicSkills,
+      craftingSkills: characterWithBonuses.craftingSkills
+    }));
+
     // Reset all skill/weapon/magic/crafting values to 0 to recalculate fresh
     // This fixes characters that had bonuses baked in from the old double-application bug
     Object.keys(characterWithBonuses.skills || {}).forEach(skill => {

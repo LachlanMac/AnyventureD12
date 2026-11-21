@@ -31,6 +31,7 @@ import SongCompendium from './pages/SongCompendium';
 import ConditionsCompendium from './pages/ConditionsCompendium';
 import RecipeCompendium from './pages/RecipeCompendium';
 import TemplateBrowser from './pages/TemplateBrowser';
+import TemplateDetail from './pages/TemplateDetail';
 import ItemDetail from './pages/ItemDetail';
 import SpellDetail from './pages/SpellDetail';
 import SongDetail from './pages/SongDetail';
@@ -176,6 +177,14 @@ const App: React.FC = () => {
                   element={
                     <MainLayout>
                       <TemplateBrowser />
+                    </MainLayout>
+                  }
+                />
+                <Route
+                  path="/templates/:id"
+                  element={
+                    <MainLayout>
+                      <TemplateDetail />
                     </MainLayout>
                   }
                 />

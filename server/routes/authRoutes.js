@@ -58,7 +58,10 @@ router.get('/me', async (req, res) => {
     
     // Verify token
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    
+
+    // isAdmin isn't in the token, so read it from the database (lets the UI show admin tools)
+    const dbUser = await User.findById(decoded.id).select('isAdmin').lean();
+
     // Return user info
     res.status(200).json({
       authenticated: true,
@@ -66,7 +69,8 @@ router.get('/me', async (req, res) => {
         id: decoded.id,
         discordId: decoded.discordId || null,
         username: decoded.username,
-        isTemporary: decoded.isTemporary || false
+        isTemporary: decoded.isTemporary || false,
+        isAdmin: !!dbUser?.isAdmin
       }
     });
   } catch (err) {
