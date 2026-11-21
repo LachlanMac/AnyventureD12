@@ -48,7 +48,7 @@
     },
     {
       "name": "Unwavering Focus",
-      "description": "Your mental discipline allows you to maintain focus under supernatural duress. Gain +1 skill with concentration. Damage from dark, celestial, fey, and elemental creatures is halved when calculating concentration checks.",
+      "description": "Your mental discipline allows you to maintain focus under supernatural duress. Gain +1 skill with concentration. Damage from dark, celestial, fey, and elemental creatures is halved when calculating checks to maintain concentration.",
       "location": "6a",
       "data": "SSJ=1"
     },

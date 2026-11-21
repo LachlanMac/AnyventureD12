@@ -30,6 +30,7 @@ import foundryRoutes from './routes/foundryRoutes.js';
 import injuryRoutes from './routes/injuryRoutes.js';
 import characterInjuryRoutes from './routes/characterInjuryRoutes.js';
 import conditionRoutes from './routes/conditionRoutes.js';
+import templateRoutes from './routes/templateRoutes.js';
 // Import middleware
 import { getUser, protect } from './middleware/auth.js';
 import { ogTagsMiddleware } from './middleware/ogTags.js';
@@ -46,6 +47,7 @@ import { initializeTraits } from './utils/traitSeeder.js';
 import { initializeInjuries } from './utils/injurySeeder.js';
 import { seedConditions } from './utils/conditionSeeder.js';
 import { loadCreaturesFromJson } from './utils/creatureSeeder.js';
+import { initializeTemplates } from './utils/templateSeeder.js';
 // ES Module fix for __dirname
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -125,6 +127,8 @@ const connectDB = async () => {
     await seedConditions();
     console.log('Initializing creatures...');
     await loadCreaturesFromJson();
+    console.log('Initializing templates...');
+    await initializeTemplates();
   } catch (error) {
     console.error(`Error connecting to MongoDB: ${error.message}`);
     process.exit(1);
@@ -150,6 +154,7 @@ app.use('/api/homebrew', homebrewRoutes);
 app.use('/api/homebrew', homebrewSpellRoutes);
 app.use('/api/homebrew/creatures', homebrewCreatureRoutes);
 app.use('/api/creatures', creatureRoutes);
+app.use('/api/templates', templateRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 app.use('/api/characters/:characterId/songs', characterSongRoutes);
 app.use('/api/characters/:characterId/injuries', characterInjuryRoutes);

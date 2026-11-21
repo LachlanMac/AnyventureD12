@@ -1,12 +1,34 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
+
+const COMPENDIUM_LINKS = [
+  { to: '/modules', label: 'Modules' },
+  { to: '/spells', label: 'Spells' },
+  { to: '/items', label: 'Items' },
+  { to: '/songs', label: 'Songs' },
+  { to: '/recipes', label: 'Recipes' },
+  { to: '/conditions', label: 'Conditions' },
+  { to: '/templates', label: 'Templates' },
+];
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [userMenuOpen, setUserMenuOpen] = useState(false);
+  const [compendiumOpen, setCompendiumOpen] = useState(false);
+  const compendiumRef = useRef<HTMLDivElement>(null);
   const location = useLocation();
   const { isAuthenticated, user, loading, login, logout } = useAuth();
+
+  useEffect(() => {
+    const handleClickOutside = (e: MouseEvent) => {
+      if (compendiumRef.current && !compendiumRef.current.contains(e.target as Node)) {
+        setCompendiumOpen(false);
+      }
+    };
+    document.addEventListener('mousedown', handleClickOutside);
+    return () => document.removeEventListener('mousedown', handleClickOutside);
+  }, []);
 
   // Check if a link is active
   const isActive = (path: string) => {
@@ -65,9 +87,102 @@ const Navbar: React.FC = () => {
             <NavLink to="/campaigns" isActive={isActive('/campaigns')}>
               Campaigns
             </NavLink>
-            <NavLink to="/modules" isActive={isActive('/modules')}>
-              Modules
-            </NavLink>
+            <div ref={compendiumRef} className="relative">
+              <button
+                onClick={() => setCompendiumOpen(!compendiumOpen)}
+                style={{
+                  fontWeight: 500,
+                  transition: 'color 0.2s ease',
+                  color: COMPENDIUM_LINKS.some(l => location.pathname === l.to)
+                    ? 'var(--color-metal-gold)'
+                    : 'var(--color-white)',
+                  textShadow: COMPENDIUM_LINKS.some(l => location.pathname === l.to)
+                    ? '0 0 8px rgba(215, 183, 64, 0.5)'
+                    : 'none',
+                  background: 'none',
+                  border: 'none',
+                  cursor: 'pointer',
+                  display: 'flex',
+                  alignItems: 'center',
+                  gap: '0.25rem',
+                  fontSize: 'inherit',
+                  fontFamily: 'inherit',
+                  padding: 0,
+                }}
+                onMouseOver={(e) => {
+                  if (!COMPENDIUM_LINKS.some(l => location.pathname === l.to)) {
+                    e.currentTarget.style.color = 'var(--color-old-gold)';
+                  }
+                }}
+                onMouseOut={(e) => {
+                  if (!COMPENDIUM_LINKS.some(l => location.pathname === l.to)) {
+                    e.currentTarget.style.color = 'var(--color-white)';
+                  }
+                }}
+              >
+                Compendium
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  width="12"
+                  height="12"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  style={{
+                    transform: compendiumOpen ? 'rotate(180deg)' : 'rotate(0deg)',
+                    transition: 'transform 0.2s ease',
+                  }}
+                >
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                </svg>
+              </button>
+
+              {compendiumOpen && (
+                <div
+                  style={{
+                    position: 'absolute',
+                    left: '50%',
+                    transform: 'translateX(-50%)',
+                    top: '2rem',
+                    minWidth: '10rem',
+                    backgroundColor: 'var(--color-dark-surface)',
+                    borderRadius: '0.375rem',
+                    overflow: 'hidden',
+                    boxShadow: 'var(--shadow-app)',
+                    border: '1px solid var(--color-dark-border)',
+                    zIndex: 50,
+                  }}
+                >
+                  {COMPENDIUM_LINKS.map((link) => (
+                    <Link
+                      key={link.to}
+                      to={link.to}
+                      onClick={() => setCompendiumOpen(false)}
+                      style={{
+                        display: 'block',
+                        padding: '0.5rem 1rem',
+                        color: location.pathname === link.to ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+                        textDecoration: 'none',
+                        transition: 'background-color 0.2s, color 0.2s',
+                        fontWeight: location.pathname === link.to ? 600 : 400,
+                      }}
+                      onMouseOver={(e) => {
+                        e.currentTarget.style.backgroundColor = 'var(--color-dark-elevated)';
+                        e.currentTarget.style.color = 'var(--color-white)';
+                      }}
+                      onMouseOut={(e) => {
+                        e.currentTarget.style.backgroundColor = 'transparent';
+                        e.currentTarget.style.color = location.pathname === link.to
+                          ? 'var(--color-metal-gold)'
+                          : 'var(--color-cloud)';
+                      }}
+                    >
+                      {link.label}
+                    </Link>
+                  ))}
+                </div>
+              )}
+            </div>
             <NavLink to="/bestiary" isActive={isActive('/bestiary')}>
               Bestiary
             </NavLink>
@@ -293,13 +408,29 @@ const Navbar: React.FC = () => {
               Campaigns
             </MobileNavLink>
 
-            <MobileNavLink
-              to="/modules"
-              isActive={isActive('/modules')}
-              onClick={() => setIsOpen(false)}
+            <div
+              style={{
+                padding: '0.25rem 0.75rem',
+                color: 'var(--color-cloud)',
+                fontSize: '0.75rem',
+                fontWeight: 600,
+                textTransform: 'uppercase',
+                letterSpacing: '0.05em',
+                marginTop: '0.5rem',
+              }}
             >
-              Modules
-            </MobileNavLink>
+              Compendium
+            </div>
+            {COMPENDIUM_LINKS.map((link) => (
+              <MobileNavLink
+                key={link.to}
+                to={link.to}
+                isActive={isActive(link.to)}
+                onClick={() => setIsOpen(false)}
+              >
+                {link.label}
+              </MobileNavLink>
+            ))}
 
             <MobileNavLink
               to="/bestiary"

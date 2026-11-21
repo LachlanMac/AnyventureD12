@@ -1,0 +1,52 @@
+{
+  "name": "Swordsman",
+  "description": "A disciplined melee fighter focused on complex weapons and defensive fundamentals. Good for players who want a straightforward martial character.",
+  "category": "martial",
+  "tier": "starter",
+  "modulePoints": 15,
+  "modules": [
+    {
+      "moduleId": 101,
+      "moduleName": "Soldier",
+      "selectedOptions": {},
+      "progressionTier": 1
+    },
+    {
+      "moduleId": 102,
+      "moduleName": "Sentinel",
+      "selectedOptions": {},
+      "progressionTier": 2
+    }
+  ],
+  "attributes": {
+    "physique": 3,
+    "finesse": 2,
+    "mind": 2,
+    "knowledge": 1,
+    "social": 1
+  },
+  "weaponTalents": {
+    "unarmed": 1,
+    "throwing": 1,
+    "simpleMelee": 1,
+    "simpleRanged": 1,
+    "complexMelee": 2,
+    "complexRanged": 0
+  },
+  "magicTalents": {
+    "black": 0,
+    "primal": 0,
+    "metamagic": 0,
+    "white": 0,
+    "mysticism": 0,
+    "arcane": 0
+  },
+  "craftingTalents": {
+    "engineering": 0,
+    "fabrication": 0,
+    "alchemy": 0,
+    "cooking": 0,
+    "glyphcraft": 0,
+    "biosculpting": 0
+  }
+}
