@@ -1,0 +1,10 @@
+{
+  "name": "Comfortable Bedroll",
+  "description": "A thick, well-padded bedroll with a wool blanket and pillow. When you complete 8 hours of uninterrupted sleep that would otherwise be an unfavorable rest, add +20 to the rest roll.",
+  "type": "adventure",
+  "weight": 6,
+  "value": 500,
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/bedroll-tan.webp",
+  "foundry_id": "kywizrq73kkf8h7o"
+}

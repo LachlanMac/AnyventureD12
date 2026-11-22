@@ -1,0 +1,10 @@
+{
+  "name": "Flint and Steel",
+  "description": "A striker and a piece of flint for lighting campfires, torches and lanterns.",
+  "type": "adventure",
+  "weight": 0.5,
+  "value": 30,
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/fire-lighter-blue.webp",
+  "foundry_id": "hacv5i59qw3q9vnu"
+}

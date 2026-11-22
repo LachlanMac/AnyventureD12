@@ -1,6 +1,6 @@
 {
   "name": "Tent",
-  "description": "A basic canvas shelter that sleeps two people",
+  "description": "A basic canvas shelter that sleeps two people. When those sleeping in it complete 8 hours of uninterrupted sleep that would otherwise be an unfavorable rest, add +20 to the rest roll.",
   "type": "adventure",
   "weight": 10,
   "value": 200,

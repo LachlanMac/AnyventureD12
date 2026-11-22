@@ -1,0 +1,10 @@
+{
+  "name": "Luxurious Bedroll",
+  "description": "A plush bedroll with a stuffed mattress, fur lining and silk pillows. When you complete 8 hours of uninterrupted sleep that would otherwise be an unfavorable rest, add +40 to the rest roll.",
+  "type": "adventure",
+  "weight": 10,
+  "value": 2000,
+  "rarity": "uncommon",
+  "foundry_icon": "icons/sundries/survival/bedroll-blue-red.webp",
+  "foundry_id": "hh21h5x88qiz4r4s"
+}

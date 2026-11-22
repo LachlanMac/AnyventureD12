@@ -1,0 +1,10 @@
+{
+  "name": "Bedroll",
+  "description": "A simple rolled blanket and padding for sleeping on the ground. Keeps you off the dirt, but it is no bed.",
+  "type": "adventure",
+  "weight": 4,
+  "value": 100,
+  "rarity": "common",
+  "foundry_icon": "icons/sundries/survival/bedroll-worn-brown.webp",
+  "foundry_id": "ucfncjiawfm3nqga"
+}

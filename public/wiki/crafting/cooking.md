@@ -55,7 +55,7 @@ A simple meal is the easiest meal to make and can contain any combination of ing
 - **Required Cooking Check**: 4
 
 <div class="example-box">
-A chef makes a simple meal with a tier 2 cut of meat and peppers. Peppers raise the cold mitigation by 2 and the tier 2 meat adds +2 to all meal effects. This means the individual that ate the food raises their cold mitigation by +6.
+A chef makes a simple meal with a tier 2 cut of meat and peppers. Peppers raise the cold mitigation by 2 and the tier 2 meat adds +2 to all meal effects. This means the individual that ate the food raises their cold mitigation by +4. Simple meals cannot use spices, so there is no spice bonus.
 </div>
 
 ### Hearty Meal  

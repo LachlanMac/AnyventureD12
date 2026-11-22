@@ -1,6 +1,6 @@
 {
   "name": "Luxurious Tent",
-  "description": "A spacious silk tent with room dividers that comfortably sleeps four",
+  "description": "A spacious silk tent with room dividers that comfortably sleeps four. When those sleeping in it complete 8 hours of uninterrupted sleep that would otherwise be an unfavorable rest, add +40 to the rest roll.",
   "type": "adventure",
   "weight": 20,
   "value": 800,
