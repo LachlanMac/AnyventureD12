@@ -26,6 +26,9 @@ export interface CreatureAction {
     category: string;
     min_range: number;
     max_range: number;
+    hands?: number;
+    aimed?: boolean;
+    ammo_capacity?: number;
   };
   spell?: {
     roll: string;
@@ -69,6 +72,9 @@ export interface CreatureReaction {
     category: 'pierce' | 'slash' | 'blunt' | 'ranged';
     min_range: number;
     max_range: number;
+    hands?: number;
+    aimed?: boolean;
+    ammo_capacity?: number;
   };
   spell?: {
     roll: string;

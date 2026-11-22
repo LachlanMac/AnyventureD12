@@ -3,13 +3,13 @@
     {
       "name": "Giant",
       "description": "You tower over others of your kind, your exceptional size granting you raw power but making you an easier target to hit.",
-      "data": "A1=2,SBC=1,SBE=-1,K1=-1",
+      "data": "SSC=2,SBC=1,SBE=-1,K1=-1",
       "modules": {}
     },
     {
       "name": "Small",
       "description": "Your diminutive frame allows you to slip through tight spaces and dodge with ease, though your reach and physical presence suffer for it.",
-      "data": "A1=-1,SSE=1,SSF=1,SBR=-1,K1=-1",
+      "data": "SSC=-1,SSE=1,SSF=1,SBR=-1,K1=-1",
       "modules": {}
     },
     {
@@ -21,20 +21,23 @@
     {
       "name": "Scarred",
       "description": "Your body is a tapestry of battle scars and old wounds—each one a story of survival that hardened your mind but marked you forever.",
-      "data": "SSI=1,SBR=-1",
-      "modules": {}
+      "data": "AP=1,SBR=-1",
+      "modules": {},
+      "injuries": ["scar"]
     },
     {
       "name": "Missing Eye",
       "description": "The empty socket where your eye once was serves as a constant reminder of your loss, making depth perception a daily challenge.",
       "data": "SBK=-2,SSG=-1",
-      "modules": {}
+      "modules": {},
+      "injuries": ["missing_eye"]
     },
     {
       "name": "Missing Hand",
       "description": "You've learned to adapt to life with one hand, but two-handed tasks and delicate work remain frustratingly difficult.",
-      "data": "SBG=-2,SBH=-2,SBC=-1",
-      "modules": {}
+      "data": "SBG=-1,SBH=-1,SBC=-1",
+      "modules": {},
+      "injuries": ["missing_hand"]
     },
     {
       "name": "Blind",
@@ -51,13 +54,13 @@
     {
       "name": "Muscular",
       "description": "Years of training or natural gifts have sculpted your body into a powerful instrument, every movement radiating strength.",
-      "data": "A1=2,SSC=1,SBF=-1",
+      "data": "SSC=2,SSA=1,SBF=-1",
       "modules": {}
     },
     {
       "name": "Gaunt",
       "description": "Your skeletal frame makes you appear frail and sickly, though hunger has taught you to move quietly and endure hardship.",
-      "data": "A1=-1,SSD=-1,SSF=1,H1=-2",
+      "data": "SSC=-1,SSD=-1,SSF=1,A1=-2",
       "modules": {}
     },
     {
@@ -75,13 +78,13 @@
     {
       "name": "Chronic Pain",
       "description": "Pain is your constant companion, draining your mental reserves but teaching you to push through suffering that would break lesser souls.",
-      "data": "SSI=2,SBD=-1,R1=-3",
+      "data": "SSI=1,AP=-2,AQ=2,A2=-3",
       "modules": {}
     },
     {
       "name": "Quick Reflexes",
       "description": "Your body responds to danger before your mind even registers it, muscles twitching into action with lightning speed.",
-      "data": "A2=2,SSE=1",
+      "data": "SSE=2,SSG=1",
       "modules": {}
     },
     {
@@ -93,19 +96,19 @@
     {
       "name": "Ambidextrous",
       "description": "Both hands work with equal grace and precision, giving you an edge in tasks that leave others fumbling.",
-      "data": "SSG=1,SSH=1",
-      "modules": {}
+      "data": "SSH=1",
+      "modules": {"dual_wielder": 1}
     },
     {
       "name": "Frail",
       "description": "Your body seems made of glass—delicate, fragile, and prone to breaking under stresses others shrug off.",
-      "data": "A1=-2,H1=-5,SSD=-1",
+      "data": "SSD=-2,A1=-5,AP=-1",
       "modules": {}
     },
     {
       "name": "Hardy",
       "description": "You possess an iron constitution that shrugs off illness and injury, your body bouncing back from punishment that would hospitalize others.",
-      "data": "A1=2,SSD=2,M9=1",
+      "data": "SSD=2,AP=1,M9=1",
       "modules": {}
     },
     {
@@ -118,7 +121,8 @@
       "name": "Disfigured",
       "description": "Burns, scars, or birth defects have left your appearance twisted and unsettling, though pain has made you perceptive to the suffering of others.",
       "data": "SBR=-2,SSI=2,SBT=-1",
-      "modules": {}
+      "modules": {},
+      "injuries": ["scar"]
     },
     {
       "name": "Short",
@@ -136,18 +140,19 @@
       "name": "One Eyed",
       "description": "You lost one eye but kept the other, learning to compensate for the loss of depth perception through hard-earned experience.",
       "data": "SBK=-1,SSG=-1",
-      "modules": {}
+      "modules": {},
+      "injuries": ["missing_eye"]
     },
     {
       "name": "Healthy",
       "description": "Vitality flows through you like a spring river—you rarely fall ill and wounds heal faster than they have any right to.",
-      "data": "H1=5,SSD=1",
+      "data": "A1=5,SSD=1",
       "modules": {}
     },
     {
       "name": "Unhealthy",
       "description": "Your body is a battlefield of ailments and weaknesses, sickness clinging to you like a shadow you can't escape.",
-      "data": "H1=-5,SSD=-1,N9=2",
+      "data": "A1=-5,SSD=-1,N9=2",
       "modules": {}
     },
     {
@@ -165,49 +170,49 @@
     {
       "name": "Sickly",
       "description": "Illness finds you like a moth to flame—every plague, every fever seems drawn to your weakened constitution.",
-      "data": "A1=-1,SSD=-1,N9=3",
+      "data": "SSD=-1,AQ=-2,N9=3",
       "modules": {}
     },
     {
       "name": "Strong",
       "description": "Raw strength courses through your muscles, making feats of power that challenge others feel effortless to you.",
-      "data": "A1=1,SSC=1",
+      "data": "SSC=2",
       "modules": {}
     },
     {
       "name": "Dumb Brute",
       "description": "You're built like an ox and about as clever—your massive frame and brute strength compensate for your lack of wit and charm.",
-      "data": "A1=2,A4=-2,A5=-1,SSC=1",
+      "data": "SSC=2,SSA=1,SSN=-2,SSL=-1",
       "modules": {}
     },
     {
       "name": "Runt",
       "description": "You're the smallest and weakest of your family, a fact that's been hammered into you through years of being overshadowed.",
-      "data": "A1=-1,H1=-3,SSF=1",
+      "data": "SSC=-1,A1=-3,SSF=1",
       "modules": {}
     },
     {
       "name": "Wimp",
       "description": "You've always been the target of bullies and intimidation, your meek demeanor inviting abuse but also teaching you when to run.",
-      "data": "SBI=-1,SSE=1,R1=-2",
+      "data": "SSE=1,AP=-1,A2=-2",
       "modules": {}
     },
     {
       "name": "Tough as Nails",
       "description": "Pain washes over you like water off stone—you've weathered so much that one more bruise hardly matters.",
-      "data": "SSI=2,SSD=1,H1=3",
+      "data": "SSD=1,A1=3,AP=2",
       "modules": {}
     },
     {
       "name": "Attractive",
       "description": "You turn heads wherever you go, your natural beauty opening doors and winning favor with minimal effort.",
-      "data": "A5=1,SSR=1",
+      "data": "SST=1,SSR=1",
       "modules": {}
     },
     {
       "name": "Unattractive",
       "description": "Your features are harsh and uninviting, making social interactions awkward as people avert their eyes.",
-      "data": "A5=-1,SBR=-1",
+      "data": "SST=-1,SBR=-1",
       "modules": {}
     },
     {
@@ -255,7 +260,7 @@
     {
       "name": "Hunch Back",
       "description": "Your spine curves unnaturally, forcing you into a permanent stoop that makes movement painful and speed difficult.",
-      "data": "A2=-1,SSA=-2,K1=-2,M1=1",
+      "data": "SSA=-1,K1=-1,AQ=-2,M1=1",
       "modules": {}
     },
     {
@@ -273,20 +278,21 @@
     {
       "name": "Thick",
       "description": "You're built wide and solid—stocky rather than tall—giving you stability but making quick movements awkward.",
-      "data": "A2=-1,SBE=-1,SSB=1,M1=1",
+      "data": "SBE=-1,SSB=1,M1=1",
       "modules": {}
     },
     {
       "name": "Pale",
       "description": "Your skin is ghostly white, lacking any color or vitality and suggesting underlying weakness to those who see you.",
-      "data": "SBD=-1,H1=-2,N2=1",
+      "data": "SBD=-1,A1=-2,N2=1",
       "modules": {}
     },
     {
       "name": "Maimed",
       "description": "A brutal old wound left permanent damage—the kind that aches on cold days and never fully heals.",
-      "data": "H1=-4,SSD=-1",
-      "modules": {}
+      "data": "A1=-4",
+      "modules": {},
+      "injuries": ["physical_severe"]
     },
     {
       "name": "Bent Nose",
@@ -333,32 +339,97 @@
     {
       "name": "Decrepit",
       "description": "Age, injury, or illness has left you a withered husk, your body barely functional and threatening to fail at any moment.",
-      "data": "A1=-2,A2=-2,A3=-2,H1=-8,K1=-3,SSD=-2",
+      "data": "SSA=-2,SSD=-2,A1=-8,K1=-2,AQ=-3",
       "modules": {}
     },
     {
       "name": "Beautiful",
       "description": "You possess striking beauty that captivates those around you, your appearance opening doors and turning heads effortlessly.",
-      "data": "A5=2,SSR=1",
+      "data": "SST=2,SSR=1",
       "modules": {}
     },
     {
       "name": "One Legged",
       "description": "You've learned to move with a peg leg or crutch, but running and complex movements remain severely compromised.",
-      "data": "A2=-2,K1=-4,SBA=-2,SBE=-2",
-      "modules": {}
+      "data": "K1=-3,SSA=-2,SBE=-1",
+      "modules": {},
+      "injuries": ["missing_leg"]
     },
     {
       "name": "One Armed",
       "description": "You've adapted to life with a single arm, though tasks requiring two hands remain frustratingly out of reach.",
-      "data": "A1=-1,SBC=-2,SBG=-2,SBH=-1",
-      "modules": {}
+      "data": "SSC=-1,SBC=-1,SBG=-1,SBH=-1",
+      "modules": {},
+      "injuries": ["missing_arm"]
     },
     {
       "name": "Arthritic",
       "description": "Your joints ache with inflammation and stiffness, making every movement a reminder of your body's deterioration.",
-      "data": "H1=-2,SBA=-1,SBG=-1,K1=-1",
+      "data": "AP=-1,SBG=-1,K1=-1",
       "modules": {}
+    },
+    {
+      "name": "Missing Fingers",
+      "description": "You lost several fingers to a blade, a trap, or frostbite, and your grip has never been the same.",
+      "data": "SBH=-1,SBG=-1",
+      "modules": {},
+      "injuries": ["missing_fingers"]
+    },
+    {
+      "name": "Missing Foot",
+      "description": "One foot is gone, replaced by a wooden peg or a wrapped stump. You get around, but never quickly.",
+      "data": "K1=-2,SBA=-1",
+      "modules": {},
+      "injuries": ["missing_foot"]
+    },
+    {
+      "name": "Tongueless",
+      "description": "Your tongue was cut out or lost, leaving your speech thick and hard to understand. You have learned to say a lot with a look.",
+      "data": "SBQ=-2,SBT=-1,SSS=1",
+      "modules": {},
+      "injuries": ["missing_tongue"]
+    },
+    {
+      "name": "Missing Appendage",
+      "description": "You lost a natural part of yourself, such as a horn, tail, ear, or wing, and your balance or senses have suffered for it.",
+      "data": "SBG=-1",
+      "modules": {},
+      "injuries": ["missing_appendage"]
+    },
+    {
+      "name": "Burn Scars",
+      "description": "Old burns from fire, acid, or a forge accident have left your skin tight, discolored, and impossible to forget.",
+      "data": "",
+      "modules": {},
+      "injuries": ["burn"]
+    },
+    {
+      "name": "Branded",
+      "description": "A brand marks you as property, a criminal, or a member of some group. Those who recognize it treat you accordingly.",
+      "data": "SBT=-1",
+      "modules": {},
+      "injuries": ["brand_mark"]
+    },
+    {
+      "name": "Bite Scars",
+      "description": "Something sank its teeth into you once, and the ragged ring of scars it left behind is unmistakable.",
+      "data": "",
+      "modules": {},
+      "injuries": ["bite_mark"]
+    },
+    {
+      "name": "Claw Scars",
+      "description": "Parallel scars from claws rake across your body, a reminder of the day something wild nearly had you.",
+      "data": "",
+      "modules": {},
+      "injuries": ["scratch_marks"]
+    },
+    {
+      "name": "Old Bruises",
+      "description": "Your skin is mottled with deep bruising that never fully healed, the mark of a hard life or a harder beating.",
+      "data": "",
+      "modules": {},
+      "injuries": ["bruising"]
     }
   ]
 }

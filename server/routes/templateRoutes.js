@@ -1,11 +1,11 @@
 import express from 'express';
 import Template from '../models/Template.js';
-import Character from '../models/Character.js';
 import Module from '../models/Module.js';
 import Spell from '../models/Spell.js';
 import { applyModuleBonusesToCharacter, extractTraitsFromModules } from '../utils/characterUtils.js';
 import { parseDataString } from '../utils/dataCodeParsers.js';
 import { STAGE_POINTS, moduleCost } from '../utils/templateExport.js';
+import { createPreviewCharacter } from '../utils/previewCharacter.js';
 
 const router = express.Router();
 
@@ -23,14 +23,6 @@ const maxMagicRoll = (skill) => {
   const v = Math.max(0, Math.min(skill.value ?? 0, 7));
   const mod = skill.diceTierModifier ?? 0;
   return (mod > 0 ? DIE_FACES_UP : mod < 0 ? DIE_FACES_DOWN : DIE_FACES)[v];
-};
-
-const ATTRIBUTE_SKILLS = {
-  physique: ['fitness', 'deflection', 'might', 'endurance'],
-  finesse: ['evasion', 'stealth', 'coordination', 'thievery'],
-  mind: ['resilience', 'concentration', 'senses', 'logic'],
-  knowledge: ['wildcraft', 'academics', 'magic', 'medicine'],
-  social: ['expression', 'presence', 'insight', 'persuasion']
 };
 
 // Highest stage any option in the template is picked at
@@ -51,46 +43,13 @@ const buildPreviewCharacter = async (template, stage) => {
   const moduleDocs = await Module.find({ _id: { $in: moduleIds } }).lean();
   const moduleById = new Map(moduleDocs.map(m => [m._id.toString(), m]));
 
-  const weaponSkills = {};
-  for (const [key, talent] of Object.entries(template.weaponTalents.toObject())) {
-    weaponSkills[key] = { value: 0, talent, diceTierModifier: 0 };
-  }
-  const magicSkills = {};
-  for (const [key, talent] of Object.entries(template.magicTalents.toObject())) {
-    magicSkills[key] = { value: 0, talent, diceTierModifier: 0 };
-  }
-  const craftingSkills = {};
-  for (const [key, talent] of Object.entries(template.craftingTalents.toObject())) {
-    craftingSkills[key] = { value: 0, talent, diceTierModifier: 0 };
-  }
-
-  const attributes = template.attributes.toObject();
-
-  // Mongoose fills in every other Character default (resources, movement, skills, etc.)
-  const doc = new Character({
-    userId: 'template-preview',
+  const character = createPreviewCharacter({
     name: template.name,
-    attributes,
-    weaponSkills,
-    magicSkills,
-    craftingSkills
+    attributes: template.attributes.toObject(),
+    weaponTalents: template.weaponTalents.toObject(),
+    magicTalents: template.magicTalents.toObject(),
+    craftingTalents: template.craftingTalents.toObject()
   });
-  const character = doc.toObject();
-
-  // Same base values getCharacter resets to before applying bonuses
-  character.resources.health.max = 20;
-  character.resources.resolve.max = 20;
-  character.resources.morale.max = 10;
-  character.resources.energy.max = 5;
-  character.movement = 5;
-  character.initiative = 0;
-  character.spellSlots = 10;
-
-  for (const [attr, skills] of Object.entries(ATTRIBUTE_SKILLS)) {
-    for (const skill of skills) {
-      character.skills[skill].talent = attributes[attr];
-    }
-  }
 
   // Modules with only the options picked at or before this stage, in tier order
   const modules = [];

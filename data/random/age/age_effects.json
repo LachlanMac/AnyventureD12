@@ -3,6 +3,7 @@
     "young": {
       "name": "Young",
       "weight": 20,
+      "socialChance": 40,
       "percentageRange": { "min": 0, "max": 30 },
       "description": "You are in the prime of youth, full of energy and vigor but lacking experience.",
       "guaranteedData": [
@@ -24,6 +25,7 @@
     "adult": {
       "name": "Adult",
       "weight": 50,
+      "socialChance": 60,
       "percentageRange": { "min": 30, "max": 70 },
       "description": "You are in your prime years, balanced in body and mind.",
       "guaranteedData": [],
@@ -43,6 +45,7 @@
     "middleAge": {
       "name": "Middle-Aged",
       "weight": 20,
+      "socialChance": 75,
       "percentageRange": { "min": 70, "max": 90 },
       "description": "Experience has tempered your vigor. What you've lost in physicality, you've gained in wisdom.",
       "guaranteedData": [
@@ -64,6 +67,7 @@
     "elder": {
       "name": "Elder",
       "weight": 10,
+      "socialChance": 90,
       "percentageRange": { "min": 90, "max": 115 },
       "description": "You have lived a long life and bear the wisdom of years, though your body shows the wear of time.",
       "guaranteedData": [

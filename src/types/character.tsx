@@ -59,7 +59,7 @@ export interface Action {
   type: 'Action' | 'Reaction' | 'Daily Action' | 'Daily Reaction' | 'Free Action';
   energyCost?: number;
   source: string;
-  sourceType: 'ancestry' | 'culture' | 'module' | 'item';
+  sourceType: 'ancestry' | 'culture' | 'module' | 'item' | 'trait';
   data?: string;
 }
 

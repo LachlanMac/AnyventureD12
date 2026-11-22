@@ -13,7 +13,7 @@ import CreatureTraitCard from '../components/creature/CreatureTraitCard';
 import CreatureSidebar from '../components/creature/CreatureSidebar';
 import { useCreature } from '../hooks/useCreatures';
 import { getAllSpells } from '../utils/creatureUtils';
-import { getDiceForSkill } from '../utils/combatUtils';
+import { buildBrawlingAttack, getDiceForSkill, hasBrawlingAttack } from '../utils/combatUtils';
 
 const CreatureDetail: React.FC = () => {
   const { id } = useParams<{ id: string }>();
@@ -110,7 +110,10 @@ const CreatureDetail: React.FC = () => {
             damage_type: primary.damage_type || 'physical',
             category: primary.category || 'slash',
             min_range: primary.min_range || 1,
-            max_range: primary.max_range || 1
+            max_range: primary.max_range || 1,
+            hands: item.hands || 1,
+            aimed: !!primary.aimed,
+            ammo_capacity: primary.ammo_capacity || 0
           }
         });
       }
@@ -147,11 +150,23 @@ const CreatureDetail: React.FC = () => {
       });
     }
 
+    // Brawling skill points give the basic brawling attack (wiki weapons page numbers)
+    if (hasBrawlingAttack(creature.canUnarmedAttack, creature.weaponSkills?.brawling)) {
+      attacks.push({ ...buildBrawlingAttack(creature.name, creature.weaponSkills?.brawling), _isEquipmentAttack: true });
+    }
+
     return attacks;
   })();
 
   // Separate spell-type abilities from regular actions/reactions
-  const nonSpellActions = [...equipmentAttacks, ...creature.actions.filter((a: any) => a.type !== 'spell')];
+  // Saved creatures also store their weapon attacks in actions; the live one from equipment wins
+  const equipmentAttackNames = new Set(equipmentAttacks.map((a: any) => a.name.toLowerCase()));
+  const nonSpellActions = [
+    ...equipmentAttacks,
+    ...creature.actions.filter(
+      (a: any) => a.type !== 'spell' && !(a.type === 'attack' && equipmentAttackNames.has(a.name?.toLowerCase()))
+    )
+  ];
   const nonSpellReactions = creature.reactions.filter((r: any) => r.type !== 'spell');
   const spellActions = creature.actions.filter((a: any) => a.type === 'spell');
   const spellReactions = creature.reactions.filter((r: any) => r.type === 'spell');

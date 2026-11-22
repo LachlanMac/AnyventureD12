@@ -204,6 +204,29 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
       });
     }
 
+    // Parse from character traits (Vampirism, Lycanthropy, ...). Stored as
+    // { traitId: <populated trait>, selectedOptions }; options with action data are actions.
+    type TraitRef = {
+      traitId?: { name?: string; options?: { name: string; description: string; data?: string }[] } | string;
+    };
+    ((character.traits || []) as unknown as TraitRef[]).forEach((characterTrait) => {
+      const traitData = characterTrait.traitId;
+      if (!traitData || typeof traitData === 'string') return;
+      traitData.options?.forEach((option) => {
+        if (option.data && isActionOrReaction(option.data)) {
+          allActions.push({
+            name: extractActionName(option.name),
+            description: option.description,
+            type: getActionType(option.data, option.name),
+            energyCost: getEnergyCost(option.data, option.name),
+            source: traitData.name || 'Unknown Trait',
+            sourceType: 'trait',
+            data: option.data,
+          });
+        }
+      });
+    });
+
     // Parse from modules
     character.modules?.forEach((module) => {
       if (module.moduleId && typeof module.moduleId !== 'string') {

@@ -31,6 +31,7 @@ import injuryRoutes from './routes/injuryRoutes.js';
 import characterInjuryRoutes from './routes/characterInjuryRoutes.js';
 import conditionRoutes from './routes/conditionRoutes.js';
 import templateRoutes from './routes/templateRoutes.js';
+import randomRoutes from './routes/randomRoutes.js';
 // Import middleware
 import { getUser, protect } from './middleware/auth.js';
 import { ogTagsMiddleware } from './middleware/ogTags.js';
@@ -155,6 +156,7 @@ app.use('/api/homebrew', homebrewSpellRoutes);
 app.use('/api/homebrew/creatures', homebrewCreatureRoutes);
 app.use('/api/creatures', creatureRoutes);
 app.use('/api/templates', templateRoutes);
+app.use('/api/random', randomRoutes);
 app.use('/api/characters/:characterId/spells', characterSpellRoutes);
 app.use('/api/characters/:characterId/songs', characterSongRoutes);
 app.use('/api/characters/:characterId/injuries', characterInjuryRoutes);

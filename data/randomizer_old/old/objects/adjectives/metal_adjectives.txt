@@ -1,0 +1,10 @@
+Rusted
+Golden
+Silver
+Iron
+Battleworn
+Bronze
+Dented
+Warped
+Old
+Shiny

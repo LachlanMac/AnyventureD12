@@ -1,0 +1,16 @@
+2001,Bow,Bows
+2002,Short Sword,Short Swords
+2003,Long Sword,Long Swords
+2004,Great Sword,Great Swords
+2003,Axe,Axes
+2004,Spear,Spears
+2005,Pike,Pikes
+2006,Dagger,Daggers
+2007,Flail,Flails
+2008,Mace,Maces
+2009,Great Hammer,Great Hammers
+2010,Javelin,Javelins
+2011,Bronze Knuckles,Bronze Knucles
+2012,Quarter Staff,Quarter Staves
+2013,Club,Clubs
+2014,Rapier,Rapiers

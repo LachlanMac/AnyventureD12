@@ -10,7 +10,7 @@ const getRandomElement = (array) => {
 };
 
 // Helper function for weighted random selection
-const getWeightedRandom = (items, weightKey) => {
+export const getWeightedRandom = (items, weightKey) => {
   const totalWeight = items.reduce((sum, item) => sum + item[weightKey], 0);
   let random = Math.random() * totalWeight;
 
@@ -72,7 +72,7 @@ export const generateRandomName = async (ancestry) => {
 };
 
 // Generate random quirks with topics
-const generateRandomQuirks = (attempts = 3, chancePerAttempt = 0.3) => {
+export const generateRandomQuirks = (attempts = 3, chancePerAttempt = 0.3) => {
   const quirksData = loadJsonData('data/random/topics/quirks.json');
   const topicsData = loadJsonData('data/random/topics/topics.json');
   const animalsData = loadJsonData('data/random/topics/animals.json');
@@ -454,7 +454,7 @@ const getRandomTraits = (traitsArray, count) => {
 };
 
 // Helper function to select compatible personality traits
-const getCompatiblePersonalityTraits = (traitsArray, count) => {
+export const getCompatiblePersonalityTraits = (traitsArray, count) => {
   const selected = [];
   const maxAttempts = 1000; // Prevent infinite loops
   let attempts = 0;
@@ -593,7 +593,7 @@ const generateAncestryOptions = (ancestry) => {
 };
 
 // Generate physical characteristics with trait modifiers
-const generatePhysicalCharacteristics = (ancestry, physicalTraits, ancestryOptions) => {
+export const generatePhysicalCharacteristics = (ancestry, physicalTraits, ancestryOptions) => {
   // Parse ancestry height range (format: "150-190")
   const heightRange = ancestry.height || "150-190";
   let [minHeight, maxHeight] = heightRange.split('-').map(Number);

@@ -3,7 +3,7 @@
     {
       "positive": "Brave",
       "description": "You face danger without flinching, your courage bolstering your mental resilience against fear and intimidation.",
-      "data": "SSI=1",
+      "data": "SSI=1,AR=1",
       "modules": {},
       "incompatible": [
         "Cowardly",
@@ -163,7 +163,7 @@
     {
       "negative": "Paranoid",
       "description": "You see threats everywhere and trust almost no one, your constant vigilance heightening your senses but making you seem less approachable.",
-      "data": "SSK=1,SBR=-1",
+      "data": "SSK=1,AR=-1",
       "modules": {},
       "incompatible": [
         "Trusting",
@@ -234,7 +234,7 @@
     {
       "positive": "Smart",
       "description": "You are exceptionally clever with a superior intellect that allows you to solve complex problems and absorb knowledge faster than most.",
-      "data": "A4=1",
+      "data": "SSL=1,SSN=1",
       "modules": {},
       "incompatible": [
         "Simple",
@@ -246,7 +246,7 @@
     {
       "positive": "Charismatic",
       "description": "You possess natural charm and magnetism that draws people to you, making you exceptionally skilled in all social interactions.",
-      "data": "A5=1",
+      "data": "SST=1,SSR=1",
       "modules": {},
       "incompatible": [
         "Bashful",
@@ -303,7 +303,7 @@
     {
       "positive": "Calm",
       "description": "You are composed and focused, slow to anger, your mental discipline allowing you to maintain concentration even in chaos.",
-      "data": "SSJ=1",
+      "data": "SSJ=1,AR=1",
       "modules": {},
       "incompatible": [
         "Impulsive",
@@ -467,7 +467,7 @@
     {
       "negative": "Sociopath",
       "description": "You struggle to form genuine emotional connections and understand social norms, your antisocial tendencies severely limiting your social capabilities.",
-      "data": "A5=-1",
+      "data": "SSS=-2,AR=2",
       "modules": {},
       "incompatible": [
         "Charismatic",
@@ -491,7 +491,7 @@
     {
       "positive": "Nimble",
       "description": "You are quick and agile, able to move with exceptional grace and dexterity that sets you apart.",
-      "data": "A2=1",
+      "data": "SSE=1,SSG=1",
       "modules": {},
       "incompatible": [
         "Slothful",
@@ -523,7 +523,7 @@
     {
       "negative": "Simple",
       "description": "You lack depth in both intellect and social understanding, your limited cognitive abilities making the world a confusing place.",
-      "data": "A4=-1,A5=-1",
+      "data": "SSN=-2,SSL=-1",
       "modules": {},
       "incompatible": [
         "Smart",
@@ -535,7 +535,7 @@
     {
       "negative": "Daft",
       "description": "You struggle with basic comprehension and reasoning, your mental limitations making complex concepts difficult to grasp.",
-      "data": "A4=-1",
+      "data": "SSL=-2",
       "modules": {},
       "incompatible": [
         "Smart",
@@ -570,7 +570,7 @@
     {
       "positive": "Alluring",
       "description": "You possess a magnetic charm and captivating presence that naturally draws others to you, making you exceptionally socially adept.",
-      "data": "A5=1",
+      "data": "SST=2",
       "modules": {},
       "incompatible": [
         "Bashful",
@@ -592,7 +592,7 @@
     {
       "neutral": "Gloomy",
       "description": "You dwell on dark and morbid topics, bringing them up at inappropriate times and casting a shadow over otherwise pleasant moments.",
-      "data": "",
+      "data": "AR=-1",
       "modules": {},
       "incompatible": [
         "Happy",
@@ -785,7 +785,7 @@
     {
       "negative": "Illiterate",
       "description": "You cannot read or write, your lack of education severely limiting both your knowledge and academic abilities.",
-      "data": "A4=-1,SSN=-1",
+      "data": "SSN=-2",
       "modules": {},
       "incompatible": [
         "Smart",
@@ -797,7 +797,7 @@
     {
       "positive": "Bookworm",
       "description": "You can always be found with your nose in a book, your voracious reading habit expanding your knowledge significantly.",
-      "data": "A4=1",
+      "data": "SSN=2",
       "modules": {},
       "incompatible": [
         "Illiterate"
@@ -840,7 +840,7 @@
     {
       "positive": "Mentally Fit",
       "description": "You can endure tremendous psychological turmoil without breaking, your mental fortitude far exceeding that of ordinary people.",
-      "data": "A3=1",
+      "data": "AR=2,AW=2",
       "modules": {},
       "incompatible": [
         "Unstable",
@@ -851,7 +851,7 @@
     {
       "neutral": "Nervous",
       "description": "You feel anxious and on edge in many different situations, struggling to find calm even when there's no clear threat, your anxiety diminishing your concentration.",
-      "data": "SSJ=-1",
+      "data": "SSJ=-1,AR=-1",
       "modules": {},
       "incompatible": [
         "Calm",
@@ -873,7 +873,7 @@
     {
       "negative": "Neurotic",
       "description": "You are plagued by excessive worry and anxiety, your unstable mental state weakening your psychological resilience.",
-      "data": "SSI=-1",
+      "data": "SSI=-1,AW=-2",
       "modules": {},
       "incompatible": [
         "Calm",
@@ -884,7 +884,7 @@
     {
       "neutral": "Optimist",
       "description": "You maintain a positive attitude despite circumstances, always believing that things will work out for the best.",
-      "data": "",
+      "data": "AR=1",
       "modules": {},
       "incompatible": [
         "Pessimist",
@@ -895,7 +895,7 @@
     {
       "neutral": "Pessimist",
       "description": "You always expect the worst possible outcome, preparing for disaster even when success seems likely.",
-      "data": "",
+      "data": "SSL=1,AR=-1",
       "modules": {},
       "incompatible": [
         "Optimistic",
@@ -906,7 +906,7 @@
     {
       "negative": "Depressed",
       "description": "You suffer from persistent melancholy and rarely find the motivation to engage with life or pursue activities, your sadness draining your mental energy.",
-      "data": "SSI=-1,SBJ=-1",
+      "data": "SBJ=-1,AW=-2",
       "modules": {},
       "incompatible": [
         "Happy",
@@ -918,7 +918,7 @@
     {
       "neutral": "Happy",
       "description": "You are genuinely content and cheerful, finding joy in everyday experiences and radiating positivity.",
-      "data": "",
+      "data": "AR=1",
       "modules": {},
       "incompatible": [
         "Depressed",
@@ -930,7 +930,7 @@
     {
       "neutral": "Introvert",
       "description": "You prefer solitude and small groups over large social gatherings, your reserved nature limiting your social capabilities.",
-      "data": "A5=-1",
+      "data": "SSR=-1,SSJ=1",
       "modules": {},
       "incompatible": [
         "Extrovert",
@@ -941,7 +941,7 @@
     {
       "neutral": "Extrovert",
       "description": "You thrive in social situations and gain energy from being around others, your outgoing nature enhancing your social abilities.",
-      "data": "A5=1",
+      "data": "SSR=1,SSQ=1",
       "modules": {},
       "incompatible": [
         "Introvert",
@@ -1006,7 +1006,7 @@
     {
       "positive": "Perfect Memory",
       "description": "You can recall events from years ago with flawless accuracy, your exceptional memory enhancing both your knowledge and concentration.",
-      "data": "A4=1,SSJ=1",
+      "data": "SSN=1,SSJ=1",
       "modules": {},
       "incompatible": [
         "Forgetful",
@@ -1028,7 +1028,7 @@
     {
       "negative": "Substance Abuser",
       "description": "You are addicted to harmful substances that damage both your mental faculties and your body's ability to think clearly.",
-      "data": "A3=-1,A4=-1",
+      "data": "SSJ=-2,AP=1",
       "modules": {},
       "incompatible": [
         "Clean",
@@ -1051,7 +1051,7 @@
     {
       "positive": "Laid Back",
       "description": "You are an overall chill individual who doesn't sweat the small stuff, though your relaxed attitude sometimes undermines your resilience.",
-      "data": "SSI=-1",
+      "data": "SSJ=-1,AR=1",
       "modules": {},
       "incompatible": [
         "Ambitious",
@@ -1117,7 +1117,7 @@
     {
       "positive": "Genius",
       "description": "You are one of the smartest people around, your exceptional intellect and mental capabilities setting you far above the average person.",
-      "data": "A4=2",
+      "data": "SSL=2,SSN=1",
       "modules": {},
       "incompatible": [
         "Simple",
@@ -1149,7 +1149,7 @@
     {
       "neutral": "Hypochondriac",
       "description": "You constantly worry something is wrong with your health and overreact to minor symptoms, your medical knowledge enhanced by obsessive self-diagnosis.",
-      "data": "SSP=1",
+      "data": "SSP=1,AR=-1",
       "modules": {},
       "incompatible": [
         "Healthy",
@@ -1159,7 +1159,7 @@
     {
       "neutral": "Anxious",
       "description": "You feel constantly on edge and worried, your pervasive anxiety weakening your mental resilience.",
-      "data": "SSI=-1",
+      "data": "SSI=-1,AR=-1",
       "modules": {},
       "incompatible": [
         "Calm",
@@ -1170,7 +1170,7 @@
     {
       "negative": "Insane",
       "description": "You act completely irrationally and have lost touch with reality, your fractured mind diminishing your cognitive abilities.",
-      "data": "A4=-1",
+      "data": "SSL=-2,AR=2",
       "modules": {},
       "incompatible": [
         "Rational",
@@ -1181,7 +1181,7 @@
     {
       "negative": "Unstable",
       "description": "You are prone to mental breaks and emotional collapse, your fragile mental state making it difficult to cope with stress.",
-      "data": "SSI=-1,SSJ=-1",
+      "data": "SSI=-1,AW=-2",
       "modules": {},
       "incompatible": [
         "Calm",
@@ -1203,7 +1203,7 @@
     {
       "positive": "Old Soul",
       "description": "You possess wisdom and insight far beyond your years, your mature perspective enhancing both your mental strength and knowledge.",
-      "data": "A3=1,A4=1",
+      "data": "SSS=1,SSI=1",
       "modules": {},
       "incompatible": [
         "Youthful",
@@ -1224,7 +1224,7 @@
     {
       "negative": "Emotionally Cold",
       "description": "You maintain emotional distance from others, your inability to connect limiting your social capabilities.",
-      "data": "A5=-1",
+      "data": "SSS=-1,SST=-1,AR=1",
       "modules": {},
       "incompatible": [
         "Compassionate",
@@ -1236,7 +1236,7 @@
     {
       "negative": "Bashful",
       "description": "You are painfully shy and timid in social situations, your reserved nature severely limiting your social abilities.",
-      "data": "A5=-1",
+      "data": "SSR=-2",
       "modules": {},
       "incompatible": [
         "Charismatic",
@@ -1362,7 +1362,7 @@
     {
       "neutral": "Stoic",
       "description": "You remain emotionally unmoved by events, maintaining composure through your strengthened mental resilience.",
-      "data": "SSI=1",
+      "data": "SSI=1,AR=2",
       "modules": {},
       "incompatible": [
         "Emotional",
@@ -1384,7 +1384,7 @@
     {
       "positive": "Quick Learner",
       "description": "You absorb new information and pick up skills with exceptional speed, your enhanced learning capacity setting you apart.",
-      "data": "A4=1",
+      "data": "SSN=X",
       "modules": {},
       "incompatible": [
         "Slow Learner",
@@ -1428,7 +1428,7 @@
     {
       "negative": "Guilt Complex",
       "description": "You constantly feel guilty about everything, your excessive self-blame undermining your resilience and mental clarity.",
-      "data": "SSI=-1",
+      "data": "SSI=-1,AR=-1",
       "modules": {},
       "incompatible": [
         "Shameless",
@@ -1460,7 +1460,7 @@
     {
       "negative": "Gluttonous",
       "description": "You frequently overindulge in food and pleasures, your lack of self-control leaving you less agile and fit than you could be.",
-      "data": "A2=-1",
+      "data": "SSE=-1,SSF=-1",
       "modules": {},
       "incompatible": [
         "Temperate",
@@ -1492,7 +1492,7 @@
     {
       "positive": "Relaxed",
       "description": "You are exceptionally chill and easygoing, your calm demeanor enhancing your endurance.",
-      "data": "SSD=1",
+      "data": "SSD=1,AR=1",
       "modules": {},
       "incompatible": [
         "Anxious",
@@ -1899,7 +1899,7 @@
     {
       "neutral": "Blessed",
       "description": "The gods themselves have granted you their favor, strengthening your mental fortitude with divine protection.",
-      "data": "A3=1",
+      "data": "SSI=1,M6=2",
       "modules": {},
       "incompatible": [
         "Cursed",
@@ -2064,7 +2064,7 @@
     {
       "neutral": "Hearty",
       "description": "You are filled with mirth and vigor, your robust constitution granting you enhanced endurance and additional health.",
-      "data": "SSD=1,H1=5",
+      "data": "SSD=1,A1=5",
       "modules": {},
       "incompatible": [
         "Depressed",
@@ -2075,7 +2075,7 @@
     {
       "neutral": "Masochist",
       "description": "You derive satisfaction from pain and cannot seem to get enough of it, seeking out experiences that would repel others, your tolerance for pain increasing your endurance.",
-      "data": "SSD=1",
+      "data": "SSD=1,AP=2",
       "modules": {},
       "incompatible": [
         "Protective of self",
@@ -2102,6 +2102,22 @@
         "Selfish",
         "Stingy"
       ]
+    },
+    {
+      "negative": "Traumatized",
+      "description": "Something terrible happened to you, and it still surfaces at the worst moments: a sound, a smell, a face in the crowd.",
+      "data": "",
+      "modules": {},
+      "incompatible": [],
+      "injuries": ["mental_minor"]
+    },
+    {
+      "negative": "Haunted",
+      "description": "You carry a horror you cannot put down. Nightmares, flashbacks, and dread follow you wherever you go.",
+      "data": "SSK=1",
+      "modules": {},
+      "incompatible": ["Happy", "Carefree"],
+      "injuries": ["mental_major"]
     }
   ]
 }

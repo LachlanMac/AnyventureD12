@@ -1,0 +1,13 @@
+{
+  "description": "Rare game traits (data/traits) a random commoner can roll. 'chance' is the percent chance of getting one at all; 'weights' sets how likely each trait is when one is rolled. Traits with choices get a random choice.",
+  "chance": 5,
+  "weights": {
+    "Musically Gifted": 4,
+    "Fey Touched": 2,
+    "Awakened": 2,
+    "Planar": 2,
+    "Lycanthropy": 2,
+    "Vampirism": 1,
+    "Living Dead": 1
+  }
+}

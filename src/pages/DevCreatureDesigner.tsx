@@ -4,7 +4,7 @@ import { useToast } from '../context/ToastContext';
 import Button from '../components/ui/Button';
 import Card, { CardBody } from '../components/ui/Card';
 import { CREATURE_SUBCATEGORIES, MAGIC_SCHOOLS } from '../utils/creatureUtils';
-import { getDiceForSkill } from '../utils/combatUtils';
+import { buildBrawlingAttack, getDiceForSkill, hasBrawlingAttack } from '../utils/combatUtils';
 import AbilityEditor, { AbilityEntry } from '../components/shared/AbilityEditor';
 
 interface CreatureAbility {
@@ -479,7 +479,10 @@ const DevCreatureDesigner: React.FC = () => {
         damage_type: dmgType,
         category: categoryType,
         min_range: primary.min_range || 1,
-        max_range: primary.max_range || 1
+        max_range: primary.max_range || 1,
+        hands: item.hands || 1,
+        aimed: !!primary.aimed,
+        ammo_capacity: primary.ammo_capacity || 0
       }
     };
   };
@@ -608,7 +611,14 @@ const DevCreatureDesigner: React.FC = () => {
       }
 
       // Separate innate/unique spell-type actions into knownSpells
-      const allLoadActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal', actionCost: action.actionCost || 1, frequency: action.frequency || 'action', frequencyCondition: action.frequencyCondition || '', trigger: action.trigger || '' }));
+      // Weapon/unarmed/brawling attacks are rebuilt on save, so don't load the saved copies as abilities
+      const equippedNames = new Set(
+        Object.values(jsonData.equipment || {}).filter(Boolean).map((n: any) => String(n).toLowerCase())
+      );
+      if (jsonData.canUnarmedAttack) equippedNames.add(String(jsonData.unarmedAttackName || 'Unarmed Strike').toLowerCase());
+      if (hasBrawlingAttack(jsonData.canUnarmedAttack, jsonData.weaponSkills?.brawling)) equippedNames.add('brawling');
+      const isEquipmentAttack = (a: any) => a.type === 'attack' && equippedNames.has(String(a.name).toLowerCase());
+      const allLoadActions = (jsonData.actions || []).filter((a: any) => !isEquipmentAttack(a)).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal', actionCost: action.actionCost || 1, frequency: action.frequency || 'action', frequencyCondition: action.frequencyCondition || '', trigger: action.trigger || '' }));
       const allLoadReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility', actionCost: reaction.actionCost || 1, frequency: reaction.frequency || 'action', frequencyCondition: reaction.frequencyCondition || '', trigger: reaction.trigger || '' }));
 
       const innateActions = allLoadActions.filter((a: any) => a.type === 'spell' && (a.spellType === 'innate' || a.spellType === 'unique'));
@@ -732,6 +742,11 @@ const DevCreatureDesigner: React.FC = () => {
           max_range: 1
         }
       });
+    }
+
+    // Brawling skill points give the basic brawling attack (wiki weapons page numbers)
+    if (hasBrawlingAttack(creatureData.canUnarmedAttack, weaponSkills.brawling)) {
+      attacks.push(buildBrawlingAttack(creatureData.name, weaponSkills.brawling));
     }
 
     return attacks;
@@ -1069,7 +1084,14 @@ const DevCreatureDesigner: React.FC = () => {
 
         // Convert old format to new unified abilities format
         // Filter out spell-type actions with innate/unique spellType — those go to knownSpells
-        const allActions = (jsonData.actions || []).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal', actionCost: action.actionCost || 1, frequency: action.frequency || 'action', frequencyCondition: action.frequencyCondition || '', trigger: action.trigger || '' }));
+        // Weapon/unarmed/brawling attacks are rebuilt on save, so don't load the saved copies as abilities
+        const equippedNames = new Set(
+          Object.values(jsonData.equipment || {}).filter(Boolean).map((n: any) => String(n).toLowerCase())
+        );
+        if (jsonData.canUnarmedAttack) equippedNames.add(String(jsonData.unarmedAttackName || 'Unarmed Strike').toLowerCase());
+        if (hasBrawlingAttack(jsonData.canUnarmedAttack, jsonData.weaponSkills?.brawling)) equippedNames.add('brawling');
+        const isEquipmentAttack = (a: any) => a.type === 'attack' && equippedNames.has(String(a.name).toLowerCase());
+        const allActions = (jsonData.actions || []).filter((a: any) => !isEquipmentAttack(a)).map((action: any) => ({ ...action, reaction: false, basic: action.basic || false, round: action.round || false, daily: action.daily || false, spellType: action.spellType || 'normal', actionCost: action.actionCost || 1, frequency: action.frequency || 'action', frequencyCondition: action.frequencyCondition || '', trigger: action.trigger || '' }));
         const allReactions = (jsonData.reactions || []).map((reaction: any) => ({ ...reaction, reaction: true, basic: reaction.basic || false, round: reaction.round || false, daily: reaction.daily || false, spellType: reaction.spellType || 'normal', type: reaction.type || 'utility', actionCost: reaction.actionCost || 1, frequency: reaction.frequency || 'action', frequencyCondition: reaction.frequencyCondition || '', trigger: reaction.trigger || '' }));
 
         // Separate innate/unique spell actions into knownSpells
@@ -1481,7 +1503,7 @@ const DevCreatureDesigner: React.FC = () => {
                 />
                 <label htmlFor="canUnarmedAttack" className="text-sm font-medium">
                   Unarmed attack
-                  <span className="text-xs text-gray-400 ml-1">(Physique talent + Fitness skill, damage = Physique per hit)</span>
+                  <span className="text-xs text-gray-400 ml-1">(natural claws/slams: Physique talent + Fitness skill, damage = Physique per hit. Without this, brawling skill points give a Brawling attack)</span>
                 </label>
                 {creatureData.canUnarmedAttack && (
                   <input
@@ -1924,7 +1946,7 @@ const DevCreatureDesigner: React.FC = () => {
                   <p className="text-xs text-yellow-400 mb-1 font-medium">Generated Weapon Attacks:</p>
                   {buildEquipmentAttacks().map((atk, i) => (
                     <p key={i} className="text-xs text-gray-300">
-                      <strong>{atk.name}</strong> [{atk.attack.roll}] Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} | Energy: {atk.cost}
+                      <strong>{atk.name}</strong> [{atk.attack.roll}] Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} | Energy: {atk.cost}{atk.attack.hands === 2 ? ' | Two-Handed' : ''}{atk.attack.aimed ? ' | Aimed' : ''}{(atk.attack.ammo_capacity ?? 0) > 0 ? ` | Reload (${atk.attack.ammo_capacity})` : ''}
                     </p>
                   ))}
                 </div>
@@ -2470,6 +2492,9 @@ const DevCreatureDesigner: React.FC = () => {
                       <div className="text-sm text-gray-300">
                         Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} ({atk.attack.category})
                         {atk.attack.min_range !== 1 || atk.attack.max_range !== 1 ? ` | Range: ${atk.attack.min_range}-${atk.attack.max_range}` : ''}
+                        {atk.attack.hands === 2 ? ' | Two-Handed' : ''}
+                        {atk.attack.aimed ? ' | Aimed' : ''}
+                        {(atk.attack.ammo_capacity ?? 0) > 0 ? ` | Reload (${atk.attack.ammo_capacity})` : ''}
                       </div>
                       <p className="text-xs text-gray-400 mt-1 italic">{atk.description}</p>
                     </div>

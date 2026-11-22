@@ -170,7 +170,9 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
             {formatDamage(
               reaction.attack.damage,
               reaction.attack.damage_extra,
-              reaction.attack.damage_type
+              reaction.attack.damage_type,
+              reaction.attack.aimed,
+              reaction.attack.hands
             )}
           </span>
           {reaction.attack.secondary_damage && (
@@ -178,13 +180,21 @@ const CreatureReactionCard: React.FC<CreatureReactionCardProps> = ({ reaction, c
               {formatSecondaryDamage(
                 reaction.attack.secondary_damage,
                 reaction.attack.secondary_damage_extra,
-                reaction.attack.secondary_damage_type
+                reaction.attack.secondary_damage_type,
+                reaction.attack.aimed,
+                reaction.attack.hands
               )}
             </span>
           )}
           {hasRange(reaction.attack.min_range, reaction.attack.max_range) && (
             <span style={statPillStyle}>
               <strong>Range:</strong> {formatRangeSpan(reaction.attack.min_range, reaction.attack.max_range, 'weapon')}
+            </span>
+          )}
+          {(reaction.attack.ammo_capacity ?? 0) > 0 && (
+            <span style={statPillStyle}>
+              <strong>Reload:</strong> after {reaction.attack.ammo_capacity} shot
+              {reaction.attack.ammo_capacity === 1 ? '' : 's'}
             </span>
           )}
         </div>

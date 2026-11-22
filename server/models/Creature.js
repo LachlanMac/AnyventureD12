@@ -41,7 +41,10 @@ const actionSchema = new mongoose.Schema({
       enum: ['pierce', 'slash', 'blunt', 'ranged']
     },
     min_range: Number,
-    max_range: Number
+    max_range: Number,
+    hands: Number, // 2 = two-handed weapon (damage chart goes to 6 hits)
+    aimed: Boolean, // aimed weapons deal nothing on a single hit
+    ammo_capacity: Number // > 0 = must reload after this many shots
   },
   spell: {
     roll: String, // e.g., "3d10", "2d8+1"
@@ -156,7 +159,10 @@ const reactionSchema = new mongoose.Schema({
       enum: ['pierce', 'slash', 'blunt', 'ranged']
     },
     min_range: Number,
-    max_range: Number
+    max_range: Number,
+    hands: Number, // 2 = two-handed weapon (damage chart goes to 6 hits)
+    aimed: Boolean, // aimed weapons deal nothing on a single hit
+    ammo_capacity: Number // > 0 = must reload after this many shots
   },
   spell: {
     roll: String,

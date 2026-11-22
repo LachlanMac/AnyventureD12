@@ -5,148 +5,1324 @@
       "description": "You served in an army or militia, trained in combat and military tactics. War shaped you into what you are today.",
       "data": "SSC=1,SSB=1",
       "modules": {
-        "melee_specialist": 2
-      }
+        "melee_specialist": [3, 7]
+      },
+      "wealth": 10,
+      "items": []
     },
     {
       "name": "Merchant",
       "description": "You bought and sold goods, traveling trade routes and negotiating deals. Coin and commerce were your trade.",
       "data": "SST=1,SSS=1",
-      "modules": {}
+      "modules": {"artisan": [1, 5]},
+      "wealth": 30,
+      "items": []
     },
     {
       "name": "Sailor",
       "description": "You worked on ships, whether as crew, navigator, or captain. The sea was your workplace and sometimes your battlefield.",
       "data": "SSG=1,SSA=1",
       "modules": {
-        "athlete": 1
-      }
+        "athlete": [1, 5]
+      },
+      "wealth": 4,
+      "items": []
     },
     {
       "name": "Farmer",
       "description": "You worked the land, growing crops or raising livestock. Your life was dictated by seasons and weather.",
       "data": "SSA=1,SSD=1",
-      "modules": {}
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 8,
+      "items": [
+        "Pitchfork"
+      ]
     },
     {
       "name": "Criminal",
       "description": "You made your living outside the law—as a thief, smuggler, or con artist. The shadows were your domain.",
       "data": "SSH=1,SSF=1",
       "modules": {
-        "thief": 2
-      }
+        "thief": [3, 7]
+      },
+      "wealth": 8,
+      "items": []
     },
     {
       "name": "Entertainer",
       "description": "You performed for crowds—as a musician, actor, dancer, or storyteller. You lived to bring joy or provoke emotion.",
       "data": "SSQ=1,SSR=1",
       "modules": {
-        "skald": 1
-      }
+        "skald": [1, 5]
+      },
+      "wealth": 8,
+      "items": []
     },
     {
       "name": "Scholar",
       "description": "You dedicated yourself to study and research, whether in a university, library, or on your own. Knowledge was your pursuit.",
       "data": "SSN=1,SSL=1",
       "modules": {
-        "historian": 1
-      }
+        "historian": [1, 5]
+      },
+      "wealth": 12,
+      "items": []
     },
     {
       "name": "Priest",
       "description": "You served a deity or faith, ministering to the faithful and performing sacred rites. Your life was one of devotion.",
       "data": "SSI=1,SSR=1",
       "modules": {
-        "acolyte": 2
-      }
+        "acolyte": [3, 7]
+      },
+      "wealth": 5,
+      "items": [
+        "Vial of Holy Water"
+      ]
     },
     {
       "name": "Artisan",
       "description": "You crafted goods with your hands—whether as a blacksmith, carpenter, weaver, or other tradesperson. Your skill was your living.",
       "data": "SSG=1",
       "modules": {
-        "fabricator": 1
-      }
+        "fabricator": [1, 5]
+      },
+      "wealth": 15,
+      "items": []
     },
     {
       "name": "Hunter",
       "description": "You tracked and killed game for food and pelts, living off the land. The wilderness was your hunting ground.",
       "data": "SSK=1,SSM=1",
       "modules": {
-        "hunter": 2
-      }
+        "hunter": [3, 7]
+      },
+      "wealth": 12,
+      "items": [
+        "Hunting Bow",
+        "Longbow"
+      ]
     },
     {
       "name": "Guard",
       "description": "You protected people or places—as a city guard, bodyguard, or caravan escort. Your job was to stand watch and keep others safe.",
       "data": "SSB=1,SSK=1",
       "modules": {
-        "armsman": 2
-      }
+        "armsman": [3, 7]
+      },
+      "wealth": 8,
+      "items": [
+        "Chainmail Armor",
+        "Guardsman Spear"
+      ]
     },
     {
       "name": "Miner",
       "description": "You worked underground, extracting ore and gems from the earth. The darkness and danger of the mines tested you daily.",
       "data": "SSC=1,SSD=1",
-      "modules": {}
+      "modules": {"bruiser": [1, 5]},
+      "wealth": 8,
+      "items": []
     },
     {
       "name": "Herbalist",
       "description": "You gathered and prepared plants for medicine and potions. Your knowledge of nature's remedies was sought after.",
       "data": "SSP=1,SSM=1",
       "modules": {
-        "alchemist": 1
-      }
+        "alchemist": [1, 5]
+      },
+      "wealth": 10,
+      "items": []
     },
     {
       "name": "Scribe",
       "description": "You copied documents, kept records, or wrote letters for others. Your skill with words and writing was valuable.",
       "data": "SSN=1",
-      "modules": {}
+      "modules": {"lore_master": [1, 5]},
+      "wealth": 14,
+      "items": []
     },
     {
       "name": "Gambler",
       "description": "You made your living through games of chance and skill, taking risks for reward. Lady Luck was your patron.",
       "data": "SSS=1,SST=1",
-      "modules": {}
+      "modules": {"gambler": [1, 5]},
+      "wealth": 12,
+      "items": []
     },
     {
       "name": "Guide",
       "description": "You led others through dangerous or unfamiliar territory, using your knowledge of the land to keep them safe.",
       "data": "SSK=1,SSM=1",
       "modules": {
-        "scout": 1
-      }
+        "scout": [1, 5]
+      },
+      "wealth": 8,
+      "items": []
     },
     {
       "name": "Gladiator",
       "description": "You fought for sport and spectacle in arenas, your life a constant battle for survival and glory.",
       "data": "SSC=1,SSE=1",
       "modules": {
-        "gladiator": 2
-      }
+        "gladiator": [3, 7]
+      },
+      "wealth": 20,
+      "items": [
+        "Gladius",
+        "Pulgius"
+      ]
     },
     {
       "name": "Spy",
       "description": "You gathered information and secrets for those who paid you, working in the shadows to uncover what others wished to hide.",
       "data": "SSF=1,SSS=1",
       "modules": {
-        "spy": 2
-      }
+        "spy": [3, 7]
+      },
+      "wealth": 10,
+      "items": []
     },
     {
       "name": "Wanderer",
       "description": "You had no fixed occupation, drifting from place to place and taking odd jobs. Freedom was more important than stability.",
       "data": "SSA=1,SSK=1",
-      "modules": {}
+      "modules": {"scout": [1, 5]},
+      "wealth": 2,
+      "items": []
     },
     {
       "name": "Noble",
       "description": "You were born or elevated to nobility, your occupation one of politics, management of estates, or military command.",
       "data": "SSR=1,SST=1",
       "modules": {
-        "diplomat": 1
-      }
+        "diplomat": [1, 5]
+      },
+      "wealth": 60,
+      "items": []
+    },
+    {
+      "name": "Armorsmith",
+      "description": "You hammered plate, riveted mail, and stitched padding into armor that kept soldiers alive. Every dent you repaired told a story.",
+      "data": "SSC=1,SSD=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 40,
+      "items": []
+    },
+    {
+      "name": "Weaponsmith",
+      "description": "You forged blades, axeheads, and spear tips at a hot forge. You know a good weapon by its weight and balance.",
+      "data": "SSC=1,SSG=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 40,
+      "items": []
+    },
+    {
+      "name": "Toolsmith",
+      "description": "You made and mended the hammers, saws, and plowshares that everyone else depended on. Practical work, done well.",
+      "data": "SSC=1,SSL=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 30,
+      "items": []
+    },
+    {
+      "name": "Barber",
+      "description": "You cut hair, trimmed beards, and pulled the occasional tooth. Your chair was where the town came to talk.",
+      "data": "SSG=1,SSS=1",
+      "modules": {"medic": [1, 5]},
+      "wealth": 5,
+      "items": []
+    },
+    {
+      "name": "Cook",
+      "description": "You worked a kitchen, feeding crowds with whatever ingredients you could get. Long hours over a hot fire made you tough.",
+      "data": "SSD=1,SSK=1",
+      "modules": {
+        "chef": [1, 5]
+      },
+      "wealth": 5,
+      "items": []
+    },
+    {
+      "name": "Forager",
+      "description": "You wandered fields and forests gathering mushrooms, roots, and berries. You know what is safe to eat and what will kill you.",
+      "data": "SSM=X,SSK=1",
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 3,
+      "items": []
+    },
+    {
+      "name": "Gravedigger",
+      "description": "You dug graves and buried the dead, rain or shine. Few things in this world can unsettle you anymore.",
+      "data": "SSC=1,SSI=1",
+      "modules": {"bruiser": [1, 5]},
+      "wealth": 5,
+      "items": []
+    },
+    {
+      "name": "Composter",
+      "description": "You hauled and tended the refuse heaps that fed the fields. It was filthy work, but you learned how the soil lives.",
+      "data": "SSM=1,SSD=1",
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 5,
+      "items": []
+    },
+    {
+      "name": "Acrobat",
+      "description": "You tumbled, balanced, and flipped for coin, trusting your body to land every time. Gravity is more of a suggestion to you.",
+      "data": "SSG=X,SSA=1",
+      "modules": {
+        "acrobat": [1, 5]
+      },
+      "wealth": 12,
+      "items": []
+    },
+    {
+      "name": "Apothecary",
+      "description": "You mixed tinctures, salves, and powders behind a shop counter. Healers and the sick alike came to you for remedies.",
+      "data": "SSP=1,SSN=1",
+      "modules": {
+        "alchemist": [1, 5]
+      },
+      "wealth": 15,
+      "items": []
+    },
+    {
+      "name": "Architect",
+      "description": "You drew up plans for houses, halls, and bridges, then watched them rise. You see structure and weakness in everything.",
+      "data": "SSN=1,SSL=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 25,
+      "items": []
+    },
+    {
+      "name": "Artist",
+      "description": "You sketched, sculpted, and painted, chasing beauty wherever you found it. Patrons were fickle, but your eye never was.",
+      "data": "SSQ=1,SSK=1",
+      "modules": {
+        "artisan": [1, 5]
+      },
+      "wealth": 7,
+      "items": []
+    },
+    {
+      "name": "Astrologer",
+      "description": "You charted the stars and planets and read meaning in their movements. Some called it science, others called it nonsense.",
+      "data": "SSN=1,SSO=1",
+      "modules": {"oracle": [1, 5]},
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Bowyer",
+      "description": "You shaped staves and strung bows for hunters and soldiers. You can judge a bow by the sound of its string.",
+      "data": "SSG=1,SSK=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 15,
+      "items": [
+        "Well made Handbow",
+        "Well made Lightbow"
+      ]
+    },
+    {
+      "name": "Brewer",
+      "description": "You malted grain and tended vats of ale and beer. Your work kept taverns full and spirits high.",
+      "data": "SSD=1,SSS=1",
+      "modules": {
+        "alchemist": [1, 5]
+      },
+      "wealth": 8,
+      "items": []
+    },
+    {
+      "name": "Brick Layer",
+      "description": "You laid brick and mortar, course by course, building walls meant to last generations. Your back remembers every one.",
+      "data": "SSC=1,SSD=1",
+      "modules": {"engineer": [1, 5]},
+      "wealth": 6,
+      "items": []
+    },
+    {
+      "name": "Candlemaker",
+      "description": "You rendered tallow and poured wax into candles that lit homes and temples alike. Patient, careful work.",
+      "data": "SSG=1,SSJ=1",
+      "modules": {"alchemist": [1, 5]},
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Carpenter",
+      "description": "You cut, joined, and raised timber into homes, furniture, and barns. A steady hand and a sharp saw were your living.",
+      "data": "SSC=1,SSG=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 10,
+      "items": []
+    },
+    {
+      "name": "Cartographer",
+      "description": "You surveyed roads and coastlines and drew them onto maps. You always know which way is north.",
+      "data": "SSM=1,SSN=1",
+      "modules": {"lore_master": [1, 5]},
+      "wealth": 8,
+      "items": [
+        "Regional Map"
+      ]
+    },
+    {
+      "name": "Tailor",
+      "description": "You cut, stitched, and mended clothing for anyone who could pay. A good fit was your pride.",
+      "data": "SSG=1,SSS=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 14,
+      "items": []
+    },
+    {
+      "name": "Diplomat",
+      "description": "You negotiated treaties and soothed tempers between rival powers. Words were your weapons, and you wielded them carefully.",
+      "data": "SST=X,SSS=1",
+      "modules": {
+        "diplomat": [1, 5]
+      },
+      "wealth": 16,
+      "items": []
+    },
+    {
+      "name": "Dyer",
+      "description": "You boiled roots, bark, and minerals into dyes and soaked cloth in vibrant color. Your hands were never quite clean.",
+      "data": "SSM=1,SSK=1",
+      "modules": {"alchemist": [1, 5]},
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Engineer",
+      "description": "You designed and maintained machines, mills, and siege works. Gears and levers make more sense to you than people.",
+      "data": "SSL=1,SSN=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 20,
+      "items": []
+    },
+    {
+      "name": "Engraver",
+      "description": "You carved fine lines into metal, wood, and stone, from signet rings to grave markers. Precision is second nature.",
+      "data": "SSG=1,SSJ=1",
+      "modules": {
+        "glyphcraft": [1, 5]
+      },
+      "wealth": 15,
+      "items": []
+    },
+    {
+      "name": "Fisherman",
+      "description": "You cast nets and lines from boats and riverbanks, braving cold water for each day's catch. Patience fed your family.",
+      "data": "SSM=1,SSJ=1",
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 8,
+      "items": []
+    },
+    {
+      "name": "Lumberjack",
+      "description": "You felled trees and hauled logs from dawn to dusk. Swinging an axe all day built a powerful frame.",
+      "data": "SSC=1,SSA=1",
+      "modules": {"bruiser": [1, 5]},
+      "wealth": 8,
+      "items": [
+        "Woodaxe"
+      ]
+    },
+    {
+      "name": "Glass Blower",
+      "description": "You shaped molten glass into bottles, windows, and delicate ornaments. Heat and timing were everything.",
+      "data": "SSD=1,SSG=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 17,
+      "items": []
+    },
+    {
+      "name": "Street Merchant",
+      "description": "You hawked wares from a cart or blanket on the roadside, shouting over the crowd. Every sale was a small victory.",
+      "data": "SST=1,SSQ=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 25,
+      "items": []
+    },
+    {
+      "name": "Shop Merchant",
+      "description": "You ran a shop, keeping stock, ledgers, and customers in order. You know the worth of most things at a glance.",
+      "data": "SST=1,SSL=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 35,
+      "items": []
+    },
+    {
+      "name": "Herald",
+      "description": "You carried proclamations and announced arrivals for those in power. Your voice carried the weight of authority.",
+      "data": "SSQ=1,SSR=1",
+      "modules": {"diplomat": [1, 5]},
+      "wealth": 7,
+      "items": []
+    },
+    {
+      "name": "Innkeeper",
+      "description": "You ran an inn, pouring drinks, cooking meals, and keeping the peace among travelers. You have heard every story twice.",
+      "data": "SST=1,SSS=1",
+      "modules": {
+        "chef": [1, 5]
+      },
+      "wealth": 20,
+      "items": []
+    },
+    {
+      "name": "Interpreter",
+      "description": "You translated between people who could not understand one another. You learned to hear what was meant, not just what was said.",
+      "data": "SSS=1,SSN=1",
+      "modules": {"diplomat": [1, 5]},
+      "wealth": 15,
+      "items": []
+    },
+    {
+      "name": "Jester",
+      "description": "You entertained a noble court with jokes, juggling, and barbed mockery. Making the powerful laugh is a dangerous art.",
+      "data": "SSQ=X,SSG=1",
+      "modules": {
+        "thespian": [1, 5]
+      },
+      "wealth": 5,
+      "items": [
+        "Jester's Hat"
+      ]
+    },
+    {
+      "name": "Jeweler",
+      "description": "You set stones and worked precious metals into rings, brooches, and crowns. Your clients were wealthy and demanding.",
+      "data": "SSG=1,SSK=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 60,
+      "items": []
+    },
+    {
+      "name": "Leatherworker",
+      "description": "You tanned hides and cut, stitched, and tooled leather into armor, saddles, and boots. The smell never quite left you.",
+      "data": "SSG=1,SSD=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 15,
+      "items": [
+        "Leather Armor"
+      ]
+    },
+    {
+      "name": "Locksmith",
+      "description": "You built, repaired, and opened locks for anyone who needed it. You know every lock has a weakness.",
+      "data": "SSH=1,SSG=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 10,
+      "items": []
+    },
+    {
+      "name": "Messenger",
+      "description": "You ran letters and parcels across towns and countryside, often at a dead sprint. Speed and stamina were your trade.",
+      "data": "SSA=1,SSD=1",
+      "modules": {"athlete": [1, 5]},
+      "wealth": 6,
+      "items": []
+    },
+    {
+      "name": "Minstrel",
+      "description": "You traveled from town to town singing songs, telling stories, and reciting poetry for your supper.",
+      "data": "SSQ=X,SST=1",
+      "modules": {
+        "skald": [1, 5]
+      },
+      "wealth": 15,
+      "items": [
+        "Lute",
+        "Book of Ballads"
+      ]
+    },
+    {
+      "name": "Moneylender",
+      "description": "You loaned coin at interest and made sure it came back. You learned to read desperation and dishonesty.",
+      "data": "SSR=1,SSL=1",
+      "modules": {"investigator": [1, 5]},
+      "wealth": 30,
+      "items": []
+    },
+    {
+      "name": "Navigator",
+      "description": "You guided ships across open water by stars, charts, and instinct. Getting lost was never an option.",
+      "data": "SSK=1,SSN=1",
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 8,
+      "items": []
+    },
+    {
+      "name": "Painter",
+      "description": "You painted portraits, murals, and landscapes for patrons and passersby. You notice colors and details others miss.",
+      "data": "SSQ=1,SSG=1",
+      "modules": {
+        "artisan": [1, 5]
+      },
+      "wealth": 6,
+      "items": [
+        "Paint Brush"
+      ]
+    },
+    {
+      "name": "Physician",
+      "description": "You studied the body and treated illness and injury. Many owe their lives to your skill.",
+      "data": "SSP=X,SSN=1",
+      "modules": {
+        "medic": [1, 5]
+      },
+      "wealth": 15,
+      "items": []
+    },
+    {
+      "name": "Playwright",
+      "description": "You wrote plays for the stage, putting words in the mouths of kings and fools alike.",
+      "data": "SSQ=1,SSN=1",
+      "modules": {"thespian": [1, 5]},
+      "wealth": 5,
+      "items": [
+        "An Unfinished Play"
+      ]
+    },
+    {
+      "name": "Potter",
+      "description": "You threw clay on the wheel and fired it into bowls, jugs, and pots. A steady hand and a calm mind served you well.",
+      "data": "SSG=1,SSJ=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Waiter",
+      "description": "You served food and drink in taverns and dining halls, balancing trays and tempers. You are good at reading a room.",
+      "data": "SSG=1,SST=1",
+      "modules": {},
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Servant",
+      "description": "You kept a household running, cleaning, fetching, and staying out of sight. You saw much and said little.",
+      "data": "SSD=1,SSS=1",
+      "modules": {},
+      "wealth": 1,
+      "items": []
+    },
+    {
+      "name": "Dishwasher",
+      "description": "You scrubbed pots and plates in a hot, crowded kitchen for meager pay. Hard work never scared you.",
+      "data": "SSD=1,SSI=1",
+      "modules": {},
+      "wealth": 1,
+      "items": []
+    },
+    {
+      "name": "Dentist",
+      "description": "You examined, cleaned, and pulled teeth, often to the screams of your patients. Steady hands were a must.",
+      "data": "SSP=1,SSG=1",
+      "modules": {"medic": [1, 5]},
+      "wealth": 12,
+      "items": []
+    },
+    {
+      "name": "Shipwright",
+      "description": "You built and repaired hulls, masts, and rigging. A ship you built is a ship that floats.",
+      "data": "SSC=1,SSL=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 6,
+      "items": []
+    },
+    {
+      "name": "Shoe Maker",
+      "description": "You cut leather and stitched boots and shoes that carried people across the world.",
+      "data": "SSG=1,SSK=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 8,
+      "items": []
+    },
+    {
+      "name": "Stone Carver",
+      "description": "You worked chisel and mallet against stone, shaping statues, gargoyles, and masonry. Your patience is carved deep.",
+      "data": "SSC=1,SSJ=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 4,
+      "items": [
+        "Chisel"
+      ]
+    },
+    {
+      "name": "Weaver",
+      "description": "You worked the loom, turning thread into cloth day after day. The rhythm of the shuttle steadied your mind.",
+      "data": "SSG=1,SSJ=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Oracle",
+      "description": "You glimpsed the future in visions and omens. People sought your words, though they rarely liked what they heard.",
+      "data": "SSS=1,SSO=1",
+      "modules": {
+        "oracle": [1, 5]
+      },
+      "wealth": 4,
+      "items": [
+        "Crystal Ball"
+      ]
+    },
+    {
+      "name": "Teacher",
+      "description": "You taught children their letters and numbers at a local school. Patience and clarity were your greatest tools.",
+      "data": "SSN=1,SSQ=1",
+      "modules": {
+        "mentor": [1, 5]
+      },
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Student",
+      "description": "You were still learning and had no paying work yet. Your head is full of books and big ideas.",
+      "data": "SSN=1",
+      "modules": {"historian": [1, 5]},
+      "wealth": 1,
+      "items": []
+    },
+    {
+      "name": "Librarian",
+      "description": "You cataloged, preserved, and lent out books and scrolls. Quiet hours among the stacks taught you focus.",
+      "data": "SSN=1,SSJ=1",
+      "modules": {"historian": [1, 5]},
+      "wealth": 4,
+      "items": [
+        "Pile of Books"
+      ]
+    },
+    {
+      "name": "Recruit",
+      "description": "You had only just joined the local militia, with rusty gear and basic drills behind you. Your real training is still ahead.",
+      "data": "SSD=1,SSB=1",
+      "modules": {"armsman": [1, 5]},
+      "wealth": 2,
+      "items": [
+        "Rusted Chain Armor",
+        "Light Crossbow",
+        "Cudgel"
+      ]
+    },
+    {
+      "name": "Squire",
+      "description": "You served a knight, tending their arms, armor, and horse in hopes of earning knighthood yourself one day.",
+      "data": "SSB=1,SSD=1",
+      "modules": {
+        "knight": [1, 5]
+      },
+      "wealth": 1,
+      "items": [
+        "Short Sword"
+      ]
+    },
+    {
+      "name": "Mercenary",
+      "description": "You sold your sword to whoever paid best. Loyalty was a contract, and you always collected.",
+      "data": "SSC=1,SSE=1",
+      "modules": {
+        "melee_specialist": [1, 5]
+      },
+      "wealth": 20,
+      "items": [
+        "Heavy Club"
+      ]
+    },
+    {
+      "name": "Thief",
+      "description": "You lived by stealing what you could and selling what you stole. Quick fingers kept you fed.",
+      "data": "SSH=X,SSF=1",
+      "modules": {
+        "thief": [1, 5]
+      },
+      "wealth": 6,
+      "items": []
+    },
+    {
+      "name": "Scoundrel",
+      "description": "You hustled, cheated, and swindled your way through life. Rules were for people with honest options.",
+      "data": "SST=1,SSH=1",
+      "modules": {"thief": [1, 5]},
+      "wealth": 10,
+      "items": []
+    },
+    {
+      "name": "Conman",
+      "description": "You preyed on the generosity and greed of others with practiced lies. Every mark was a performance.",
+      "data": "SST=1,SSQ=1",
+      "modules": {
+        "gambler": [1, 5]
+      },
+      "wealth": 14,
+      "items": [
+        "Loaded Dice"
+      ]
+    },
+    {
+      "name": "Enforcer",
+      "description": "You were paid to break up riots, collect debts, and make problems go away. Intimidation was your job.",
+      "data": "SSC=1,SSR=1",
+      "modules": {
+        "bruiser": [1, 5]
+      },
+      "wealth": 10,
+      "items": []
+    },
+    {
+      "name": "Crime Boss",
+      "description": "You ran your own criminal syndicate, managing thugs, bribes, and rivals. Power came from fear and favors.",
+      "data": "SSR=1,SSS=1",
+      "modules": {"investigator": [1, 5]},
+      "wealth": 80,
+      "items": []
+    },
+    {
+      "name": "Athlete",
+      "description": "You competed in races, wrestling, and games for prize money. Your body was your livelihood.",
+      "data": "SSA=1,SSD=1",
+      "modules": {
+        "athlete": [1, 5]
+      },
+      "wealth": 5,
+      "items": []
+    },
+    {
+      "name": "Farmhand",
+      "description": "You worked someone else's land, hauling, planting, and tending animals for room and board.",
+      "data": "SSA=1,SSM=1",
+      "modules": {"athlete": [1, 5]},
+      "wealth": 2,
+      "items": [
+        "Pitchfork"
+      ]
+    },
+    {
+      "name": "Fletcher",
+      "description": "You fletched and fitted arrows by the hundred. Straight shafts and true feathers were your pride.",
+      "data": "SSG=1,SSJ=1",
+      "modules": {
+        "fabricator": [1, 5]
+      },
+      "wealth": 4,
+      "items": [
+        "Light Arrows"
+      ]
+    },
+    {
+      "name": "Butcher",
+      "description": "You slaughtered animals and carved them into cuts for market. You know exactly where everything is inside a body.",
+      "data": "SSC=1,SSP=1",
+      "modules": {"headsman": [1, 5]},
+      "wealth": 4,
+      "items": [
+        "Butcher Knife"
+      ]
+    },
+    {
+      "name": "Courtesan",
+      "description": "You entertained wealthy clients with wit, charm, and company. Secrets were often whispered in your presence.",
+      "data": "SSS=1,SSQ=1",
+      "modules": {"counselor": [1, 5]},
+      "wealth": 30,
+      "items": [
+        "A Fancy Dress"
+      ]
+    },
+    {
+      "name": "Beggar",
+      "description": "You spent your days on the street begging for coins. You learned who would give and who would not.",
+      "data": "SSS=1,SSD=1",
+      "modules": {},
+      "wealth": 0,
+      "items": [
+        "A Wooden Bowl"
+      ]
+    },
+    {
+      "name": "Tramp",
+      "description": "You drifted from place to place, picking up small jobs and sleeping wherever you could. You can survive on very little.",
+      "data": "SSD=1,SSM=1",
+      "modules": {},
+      "wealth": 2,
+      "items": []
+    },
+    {
+      "name": "Caravan Merchant",
+      "description": "You traveled with caravans from city to city, buying low and selling high. The road was your home.",
+      "data": "SST=1,SSD=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 7,
+      "items": []
+    },
+    {
+      "name": "Tamer",
+      "description": "You tamed and trained animals, from hounds to horses to stranger beasts. Creatures trust you.",
+      "data": "SSM=1,SSR=1",
+      "modules": {"hunter": [1, 5]},
+      "wealth": 5,
+      "items": []
+    },
+    {
+      "name": "Veterinarian",
+      "description": "You treated sick and injured animals, from farm livestock to prized warhorses.",
+      "data": "SSM=X,SSP=1",
+      "modules": {"medic": [1, 5]},
+      "wealth": 16,
+      "items": []
+    },
+    {
+      "name": "Actor",
+      "description": "You performed on the stage, becoming whoever the script demanded. Pretending is second nature.",
+      "data": "SSQ=X,SSS=1",
+      "modules": {
+        "thespian": [1, 5]
+      },
+      "wealth": 9,
+      "items": [
+        "A Script"
+      ]
+    },
+    {
+      "name": "Virtuoso",
+      "description": "You mastered your instruments and played for the finest audiences. Music is how you speak.",
+      "data": "SSQ=X,SSJ=1",
+      "modules": {
+        "skald": [1, 5]
+      },
+      "wealth": 15,
+      "items": [
+        "Lyre",
+        "Flute",
+        "Harp"
+      ]
+    },
+    {
+      "name": "Fortune Teller",
+      "description": "You read palms, cards, and tea leaves for curious customers. Whether you truly saw anything is your secret.",
+      "data": "SSS=1,SSO=1",
+      "modules": {"oracle": [1, 5]},
+      "wealth": 10,
+      "items": [
+        "Tarot Cards",
+        "Crystal Ball",
+        "Bundle of Tea Leaves"
+      ]
+    },
+    {
+      "name": "Builder",
+      "description": "You hauled stone, swung hammers, and raised walls on construction sites. Heavy lifting was your trade.",
+      "data": "SSC=1,SSD=1",
+      "modules": {"engineer": [1, 5]},
+      "wealth": 5,
+      "items": [
+        "Sledgehammer"
+      ]
+    },
+    {
+      "name": "Stable Master",
+      "description": "You ran a stable, caring for horses and managing the hands who worked it. Riders trusted you with their mounts.",
+      "data": "SSM=1,SST=1",
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 16,
+      "items": []
+    },
+    {
+      "name": "Stable Helper",
+      "description": "You mucked stalls, hauled feed, and groomed horses at a local stable. Animals were easier company than people.",
+      "data": "SSM=1,SSA=1",
+      "modules": {"athlete": [1, 5]},
+      "wealth": 3,
+      "items": []
+    },
+    {
+      "name": "Poet",
+      "description": "You wrote and recited verse, capturing feeling in carefully chosen words.",
+      "data": "SSQ=1,SSS=1",
+      "modules": {"thespian": [1, 5]},
+      "wealth": 4,
+      "items": [
+        "Book of Poems"
+      ]
+    },
+    {
+      "name": "Captain",
+      "description": "You commanded a ship and its crew, making hard calls in storm and battle. Your word was law aboard.",
+      "data": "SSR=1,SSK=1",
+      "modules": {"scout": [1, 5]},
+      "wealth": 24,
+      "items": [
+        "Scimitar"
+      ]
+    },
+    {
+      "name": "Notary",
+      "description": "You witnessed and sealed official documents, contracts, and wills. Details matter to you.",
+      "data": "SSL=1,SSK=1",
+      "modules": {"lore_master": [1, 5]},
+      "wealth": 11,
+      "items": []
+    },
+    {
+      "name": "Author",
+      "description": "You wrote stories and novels, spending long nights chasing the perfect sentence.",
+      "data": "SSQ=1,SSJ=1",
+      "modules": {"lore_master": [1, 5]},
+      "wealth": 12,
+      "items": [
+        "Unfinished Novel"
+      ]
+    },
+    {
+      "name": "Vigilante",
+      "description": "You took justice into your own hands, hunting criminals the law would not touch.",
+      "data": "SSF=1,SSC=1",
+      "modules": {
+        "skirmisher": [1, 5]
+      },
+      "wealth": 15,
+      "items": []
+    },
+    {
+      "name": "Toy Maker",
+      "description": "You crafted toys and clever little contraptions for children. Your workshop was full of springs and gears.",
+      "data": "SSG=1,SSL=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 6,
+      "items": [
+        "Prototype Toy"
+      ]
+    },
+    {
+      "name": "Physician's Assistant",
+      "description": "You helped a physician at a local clinic, fetching supplies, holding patients steady, and dressing wounds.",
+      "data": "SSP=1,SSD=1",
+      "modules": {"medic": [1, 5]},
+      "wealth": 4,
+      "items": []
+    },
+    {
+      "name": "Cheese Maker",
+      "description": "You curdled, pressed, and aged cheese, waiting months for each wheel to mature.",
+      "data": "SSJ=1,SSM=1",
+      "modules": {
+        "chef": [1, 5]
+      },
+      "wealth": 4,
+      "items": [
+        "Wheel of Cheese"
+      ]
+    },
+    {
+      "name": "Wine Maker",
+      "description": "You tended vineyards and fermented grapes into wine. You can taste the year a bottle was made.",
+      "data": "SSM=1,SSS=1",
+      "modules": {
+        "alchemist": [1, 5]
+      },
+      "wealth": 6,
+      "items": []
+    },
+    {
+      "name": "Fruit Picker",
+      "description": "You climbed trees and picked orchards bare each harvest season for a few coins a basket.",
+      "data": "SSA=1,SSG=1",
+      "modules": {"athlete": [1, 5]},
+      "wealth": 2,
+      "items": []
+    },
+    {
+      "name": "Steward",
+      "description": "You managed an estate for its lord, overseeing staff, stores, and accounts.",
+      "data": "SSL=1,SST=1",
+      "modules": {"mentor": [1, 5]},
+      "wealth": 42,
+      "items": []
+    },
+    {
+      "name": "Accountant",
+      "description": "You managed other people's money and balanced their books. Numbers do not lie, but people do.",
+      "data": "SSL=1,SSJ=1",
+      "modules": {"investigator": [1, 5]},
+      "wealth": 16,
+      "items": [
+        "Balancing Book"
+      ]
+    },
+    {
+      "name": "Banker",
+      "description": "You worked in a bank, handling loans, deposits, and the fortunes of the wealthy.",
+      "data": "SSL=1,SSS=1",
+      "modules": {"investigator": [1, 5]},
+      "wealth": 80,
+      "items": []
+    },
+    {
+      "name": "Trainer",
+      "description": "You trained others in the art of combat, drilling recruits until the basics became instinct.",
+      "data": "SSB=1,SSR=1",
+      "modules": {
+        "mentor": [1, 5]
+      },
+      "wealth": 10,
+      "items": []
+    },
+    {
+      "name": "Breeder",
+      "description": "You bred animals for strength, speed, or temperament. You understand bloodlines better than most nobles.",
+      "data": "SSM=X,SSS=1",
+      "modules": {"naturalist": [1, 5]},
+      "wealth": 9,
+      "items": []
+    },
+    {
+      "name": "Assassin",
+      "description": "You killed silently and disappeared before the body was found. Few knew your face and fewer lived to describe it.",
+      "data": "SSF=1,SSE=1",
+      "modules": {
+        "assassin": [1, 5]
+      },
+      "wealth": 35,
+      "items": [
+        "Assassin Knife"
+      ]
+    },
+    {
+      "name": "Historian",
+      "description": "You studied the events of the past and the people who shaped them. History repeats, and you are watching.",
+      "data": "SSN=X,SSL=1",
+      "modules": {
+        "historian": [1, 5]
+      },
+      "wealth": 8,
+      "items": [
+        "History Book"
+      ]
+    },
+    {
+      "name": "Justicar",
+      "description": "You brought the church's justice to those who wronged it, sword in hand and faith in your heart.",
+      "data": "SSB=1,SSI=1,WT5=1",
+      "modules": {
+        "inquisitor": [1, 5]
+      },
+      "wealth": 28,
+      "items": [
+        "Justicar Greatsword"
+      ]
+    },
+    {
+      "name": "Hitman",
+      "description": "You were paid to kill, and you did not ask why. One contract at a time.",
+      "data": "SSF=1,SSK=1",
+      "modules": {
+        "assassin": [1, 5]
+      },
+      "wealth": 16,
+      "items": []
+    },
+    {
+      "name": "Trader",
+      "description": "You brokered deals and moved goods between buyers and sellers, always taking your cut.",
+      "data": "SST=1,SSR=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 25,
+      "items": []
+    },
+    {
+      "name": "Monster Hunter",
+      "description": "You hunted the beasts and horrors that preyed on common folk. Every scar is a trophy.",
+      "data": "SSK=1,SSM=1,WT5=1",
+      "modules": {
+        "monster_slayer": [1, 5]
+      },
+      "wealth": 36,
+      "items": [
+        "Oversized Lance",
+        "Crossbow"
+      ]
+    },
+    {
+      "name": "Circus Performer",
+      "description": "You performed in a traveling circus, dazzling crowds with tricks, stunts, and spectacle.",
+      "data": "SSG=1,SSQ=1",
+      "modules": {
+        "acrobat": [1, 5]
+      },
+      "wealth": 12,
+      "items": [
+        "Hula Hoop"
+      ]
+    },
+    {
+      "name": "Handy Man",
+      "description": "You fixed whatever was broken, from leaky roofs to squeaky hinges. Odd jobs paid the bills.",
+      "data": "SSG=1,SSD=1",
+      "modules": {
+        "engineer": [1, 5]
+      },
+      "wealth": 10,
+      "items": []
+    },
+    {
+      "name": "Tattoo Artist",
+      "description": "You inked designs into skin with needle and pigment. Every client carries a piece of your work.",
+      "data": "SSG=1,SSP=1",
+      "modules": {"artisan": [1, 5]},
+      "wealth": 12,
+      "items": []
+    },
+    {
+      "name": "Fence",
+      "description": "You bought stolen goods and sold them on, no questions asked. You know what everything is worth and who wants it.",
+      "data": "SSH=1,SSS=1",
+      "modules": {
+        "artisan": [1, 5]
+      },
+      "wealth": 22,
+      "items": []
+    },
+    {
+      "name": "Pirate",
+      "description": "You sailed under a black flag, raiding ships and coastal towns for plunder.",
+      "data": "SSH=1,SSG=1,WT5=1",
+      "modules": {
+        "duelist": [1, 5]
+      },
+      "wealth": 6,
+      "items": [
+        "Rapier"
+      ]
+    },
+    {
+      "name": "Poacher",
+      "description": "You illegally hunted valuable game on lands that were not yours. You learned to stay quiet and unseen.",
+      "data": "SSF=1,SSM=1",
+      "modules": {
+        "hunter": [1, 5]
+      },
+      "wealth": 12,
+      "items": [
+        "Composite Bow"
+      ]
+    },
+    {
+      "name": "Theologian",
+      "description": "You studied scripture, doctrine, and the nature of the divine. Your faith is built on knowledge.",
+      "data": "SSN=X,SSI=1",
+      "modules": {"devout": [1, 5]},
+      "wealth": 10,
+      "items": [
+        "Holy Text"
+      ]
+    },
+    {
+      "name": "Bodyguard",
+      "description": "You were hired to protect someone important, standing between them and any threat.",
+      "data": "SSB=1,SSR=1",
+      "modules": {
+        "sentinel": [1, 5]
+      },
+      "wealth": 15,
+      "items": []
+    },
+    {
+      "name": "Royal Guard",
+      "description": "You guarded a member of the royal family, sworn to give your life for theirs.",
+      "data": "SSB=1,SSI=1,WT5=1",
+      "modules": {
+        "bulwark": [1, 5]
+      },
+      "wealth": 30,
+      "items": [
+        "Royal Arming Sword",
+        "Heavy Kite Shield"
+      ]
+    },
+    {
+      "name": "Inquisitor",
+      "description": "You hunted the enemies of the church, rooting out heresy and the dark things that hide among the faithful.",
+      "data": "SSS=X,SSI=1",
+      "modules": {
+        "inquisitor": [1, 5]
+      },
+      "wealth": 18,
+      "items": []
+    },
+    {
+      "name": "Investigator",
+      "description": "You were hired to solve mysteries, following clues others overlooked until the truth came out.",
+      "data": "SSS=X,SSL=1",
+      "modules": {
+        "investigator": [1, 5]
+      },
+      "wealth": 18,
+      "items": []
+    },
+    {
+      "name": "Monk",
+      "description": "You lived in a monastery, devoting yourself to discipline, meditation, and simple labor.",
+      "data": "SSJ=1,SSI=1",
+      "modules": {
+        "monk": [1, 5]
+      },
+      "wealth": 18,
+      "items": [
+        "Monk Robe",
+        "Bo Staff"
+      ]
+    },
+    {
+      "name": "Knight",
+      "description": "You were anointed as a knight and swore a vow to your order. Honor and duty define you.",
+      "data": "SSB=1,SSR=1,WT5=1",
+      "modules": {
+        "knight": [3, 7]
+      },
+      "wealth": 18,
+      "items": [
+        "Longsword"
+      ]
     }
   ]
 }

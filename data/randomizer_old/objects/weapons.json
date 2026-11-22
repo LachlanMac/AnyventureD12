@@ -1,0 +1,79 @@
+[
+    { "id": 0, "name": "Battle Axe", "plural": "Battle Axes", "type": "1hs" },
+    { "id": 1, "name": "Claymore", "plural": "Claymores", "type": "1hs" },
+    { "id": 2, "name": "War Sword", "plural": "War Swords", "type": "1hs" },
+    { "id": 3, "name": "Short Sword", "plural": "Short Swords", "type": "1ls" },
+    { "id": 4, "name": "Rapier", "plural": "Rapiers", "type": "1lp" },
+    { "id": 5, "name": "Scimitar", "plural": "Scimitars", "type": "1ls" },
+    { "id": 6, "name": "Great Axe", "plural": "Great Axes", "type": "2hs" },
+    { "id": 7, "name": "Zweihander", "plural": "Zweihanders", "type": "2hs" },
+    { "id": 8, "name": "Halberd", "plural": "Halberds", "type": "2hs" },
+    { "id": 9, "name": "Long Sword", "plural": "Long Swords", "type": "2ls" },
+    { "id": 10, "name": "Katana", "plural": "Katanas", "type": "2ls" },
+    { "id": 11, "name": "Saber", "plural": "Sabers", "type": "2ls" },
+    { "id": 12, "name": "Mace", "plural": "Maces", "type": "1hc" },
+    { "id": 13, "name": "War Hammer", "plural": "War Hammers", "type": "1hc" },
+    { "id": 14, "name": "Morning Star", "plural": "Morning Stars", "type": "1hc" },
+    { "id": 15, "name": "Hammer", "plural": "Hammers", "type": "1lc" },
+    { "id": 16, "name": "Club", "plural": "Clubs", "type": "1lc" },
+    { "id": 17, "name": "Flail", "plural": "Flails", "type": "1lc" },
+    { "id": 18, "name": "Spear", "plural": "Spears", "type": "1hp" },
+    { "id": 19, "name": "Javelin", "plural": "Javelins", "type": "1hp" },
+    { "id": 20, "name": "Trident", "plural": "Tridents", "type": "1hp" },
+    { "id": 21, "name": "Dagger", "plural": "Daggers", "type": "1lp" },
+    { "id": 22, "name": "Stiletto", "plural": "Stilettos", "type": "1lp" },
+    { "id": 23, "name": "Throwing Knife", "plural": "Throwing Knives", "type": "1lp" },
+    { "id": 24, "name": "Lance", "plural": "Lances", "type": "2hp" },
+    { "id": 25, "name": "Pike", "plural": "Pikes", "type": "2hp" },
+    { "id": 26, "name": "Partisan", "plural": "Partisans", "type": "2hp" },
+    { "id": 27, "name": "Rapier", "plural": "Rapiers", "type": "2lp" },
+    { "id": 28, "name": "Epee", "plural": "Epees", "type": "2lp" },
+    { "id": 29, "name": "Foil", "plural": "Foils", "type": "2lp" },
+    { "id": 30, "name": "Brass Knuckles", "plural": "Brass Knuckles", "type": "1lu" },
+    { "id": 31, "name": "Cestus", "plural": "Cesti", "type": "1lu" },
+    { "id": 32, "name": "Katar", "plural": "Katari", "type": "1lu" },
+    { "id": 33, "name": "Blowgun", "plural": "Blowguns", "type": "ulr" },
+    { "id": 34, "name": "Sling", "plural": "Slings", "type": "ulr" },
+    { "id": 35, "name": "Dart", "plural": "Darts", "type": "ulr" },
+    { "id": 36, "name": "Short Bow", "plural": "Short Bows", "type": "lr" },
+    { "id": 37, "name": "Light Crossbow", "plural": "Crossbows", "type": "lr" },
+    { "id": 38, "name": "Recurve Bow", "plural": "Recurve Bows", "type": "lr" },
+    { "id": 39, "name": "Longbow", "plural": "Longbows", "type": "hr" },
+    { "id": 41, "name": "Arbalest", "plural": "Arbalests", "type": "hr" },
+    {
+        "id": 42,
+        "name": "Throwing Axe",
+        "plural": "Throwing Axes",
+        "type": "t"
+    },
+    {
+        "id": 43,
+        "name": "Throwing Dagger",
+        "plural": "Throwing Daggers",
+        "type": "t"
+    },
+    {
+        "id": 44,
+        "name": "Throwing Star",
+        "plural": "Throwing Stars",
+        "type": "t"
+    },
+    {
+        "id": 45,
+        "name": "Wand",
+        "plural": "Wands",
+        "type": "m"
+    },
+    {
+        "id": 46,
+        "name": "Staff",
+        "plural": "Stave",
+        "type": "m"
+    },
+    {
+        "id": 47,
+        "name": "Conduit Ring",
+        "plural": "Conduit Rings",
+        "type": "m"
+    }
+]
