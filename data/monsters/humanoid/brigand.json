@@ -5,7 +5,7 @@
   "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "brigand.png",
   "health": {
     "max": 20,
     "current": 20

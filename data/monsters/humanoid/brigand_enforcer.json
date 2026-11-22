@@ -5,7 +5,7 @@
   "tier": "grunt",
   "type": "humanoid",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "brigand_enforcer.png",
   "health": {
     "max": 25,
     "current": 20

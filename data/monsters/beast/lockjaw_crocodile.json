@@ -5,7 +5,7 @@
   "tier": "standard",
   "type": "beast",
   "size": "medium",
-  "foundry_portrait": "",
+  "foundry_portrait": "lockjaw_crocodile.png",
   "health": {
     "max": 24,
     "current": 15

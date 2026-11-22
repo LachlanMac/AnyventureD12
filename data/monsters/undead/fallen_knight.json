@@ -5,7 +5,7 @@
   "tier": "standard",
   "type": "undead",
   "size": "medium",
-  "foundry_portrait": "undead_knight.png",
+  "foundry_portrait": "fallen_knight.png",
   "health": {
     "max": 40,
     "current": 30
