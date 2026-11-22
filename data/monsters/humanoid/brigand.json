@@ -309,16 +309,7 @@
       "actionCost": 1,
       "frequencyCondition": "",
       "charges": 0,
-      "spellType": "normal",
-      "attack": {
-        "roll": "0",
-        "damage": "2",
-        "damage_extra": "1",
-        "damage_type": "physical",
-        "category": "slash",
-        "min_range": 1,
-        "max_range": 1
-      }
+      "spellType": "normal"
     }
   ],
   "reactions": [],

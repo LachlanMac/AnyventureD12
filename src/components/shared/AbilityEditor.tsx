@@ -116,6 +116,16 @@ const damageTypes = [
   'physical', 'heat', 'cold', 'electric', 'dark', 'divine', 'aetheric', 'psychic', 'toxic',
 ];
 
+const DEFAULT_ATTACK = {
+  roll: '0',
+  damage: '2',
+  damage_extra: '1',
+  damage_type: 'physical',
+  category: 'slash',
+  min_range: 1,
+  max_range: 1,
+};
+
 const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesChange, showCharges = false }) => {
   const addAbility = () => {
     onAbilitiesChange([
@@ -135,17 +145,22 @@ const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesCha
         frequencyCondition: '',
         charges: 0,
         spellType: 'normal',
-        attack: {
-          roll: '0',
-          damage: '2',
-          damage_extra: '1',
-          damage_type: 'physical',
-          category: 'slash',
-          min_range: 1,
-          max_range: 1,
-        },
       },
     ]);
+  };
+
+  // Changing type adds default attack data for attacks and drops it for everything else,
+  // so utility/movement/spell abilities don't carry a stray attack block
+  const changeType = (index: number, type: string) => {
+    const updated = [...abilities];
+    const ability = { ...updated[index], type } as any;
+    if (type === 'attack') {
+      ability.attack = ability.attack || { ...DEFAULT_ATTACK };
+    } else {
+      delete ability.attack;
+    }
+    updated[index] = ability;
+    onAbilitiesChange(updated);
   };
 
   const removeAbility = (index: number) => {
@@ -208,7 +223,7 @@ const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesCha
             />
             <select
               value={ability.type}
-              onChange={(e) => updateAbility(index, 'type', e.target.value)}
+              onChange={(e) => changeType(index, e.target.value)}
               className="p-2 bg-gray-800 border border-gray-600 rounded"
             >
               <option value="attack">Attack</option>

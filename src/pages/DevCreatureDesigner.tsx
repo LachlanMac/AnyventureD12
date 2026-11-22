@@ -6,6 +6,7 @@ import Card, { CardBody } from '../components/ui/Card';
 import { CREATURE_SUBCATEGORIES, MAGIC_SCHOOLS } from '../utils/creatureUtils';
 import { buildBrawlingAttack, getDiceForSkill, hasBrawlingAttack } from '../utils/combatUtils';
 import AbilityEditor, { AbilityEntry } from '../components/shared/AbilityEditor';
+import { stripUnusedAbilityData } from '../utils/abilityUtils';
 
 interface CreatureAbility {
   name: string;
@@ -800,8 +801,8 @@ const DevCreatureDesigner: React.FC = () => {
       }), {}),
       taming,
       ...(buildEquipmentSaveData() ? { equipment: buildEquipmentSaveData() } : {}),
-      actions: [...abilities.filter(a => !a.reaction), ...innateSpellActions],
-      reactions: abilities.filter(a => a.reaction),
+      actions: [...abilities.map(stripUnusedAbilityData).filter(a => !a.reaction), ...innateSpellActions],
+      reactions: abilities.map(stripUnusedAbilityData).filter(a => a.reaction),
       traits,
       loot: creatureData.loot,
       languages: creatureData.languages,
@@ -866,8 +867,8 @@ const DevCreatureDesigner: React.FC = () => {
       }), {}),
       taming,
       ...(buildEquipmentSaveData() ? { equipment: buildEquipmentSaveData() } : {}),
-      actions: [...buildEquipmentAttacks(), ...abilities.filter(a => !a.reaction), ...dlInnateActions],
-      reactions: abilities.filter(a => a.reaction),
+      actions: [...buildEquipmentAttacks(), ...abilities.map(stripUnusedAbilityData).filter(a => !a.reaction), ...dlInnateActions],
+      reactions: abilities.map(stripUnusedAbilityData).filter(a => a.reaction),
       traits,
       loot: creatureData.loot,
       languages: creatureData.languages,
@@ -936,8 +937,8 @@ const DevCreatureDesigner: React.FC = () => {
         }), {}),
         taming,
         ...(buildEquipmentSaveData() ? { equipment: buildEquipmentSaveData() } : {}),
-        actions: [...buildEquipmentAttacks(), ...abilities.filter(a => !a.reaction), ...buildSpellSaveData().innateSpellActions],
-        reactions: abilities.filter(a => a.reaction),
+        actions: [...buildEquipmentAttacks(), ...abilities.map(stripUnusedAbilityData).filter(a => !a.reaction), ...buildSpellSaveData().innateSpellActions],
+        reactions: abilities.map(stripUnusedAbilityData).filter(a => a.reaction),
         traits,
         loot: creatureData.loot,
         languages: creatureData.languages,
