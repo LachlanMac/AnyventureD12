@@ -344,7 +344,7 @@
       "cost": 0,
       "type": "movement",
       "magic": false,
-      "description": "When an enemy misses the brigand cutpurse with a melee attack, the cutpurse slips away up to 2 units. It gains 2 bonus dice on evasion checks against any attacks of opportunity provoked by this movement.",
+      "description": "The cutpurse slips away up to 2 units and gains 2 bonus dice on evasion checks against any attacks of opportunity provoked by this movement.",
       "reaction": true,
       "basic": false,
       "round": false,
