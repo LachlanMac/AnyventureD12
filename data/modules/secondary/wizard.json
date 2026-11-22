@@ -13,7 +13,7 @@
       "name": "Theoretical Mastery",
       "description": "Your mind processes magical formulae with machine-like precision. Gain +1 skill with logic. You can continue a ritual that you prematurely ended as long as you restart within 6 hours of ending it without a penalty.",
       "location": "2a",
-      "data": "TG:SSJ=1"
+      "data": "TG:SSL=1"
     },
     {
       "name": "Scribe",
@@ -31,7 +31,7 @@
       "name": "Researcher",
       "description": "Your spell research is unparalleled. Gain +1 skill with magic. Once per day, when researching a spell, you do not suffer the penalty for not knowing it.",
       "location": "4a",
-      "data": "TG:SSN=1"
+      "data": "TG:SSO=1"
     },
     {
       "name": "Structured Mind",

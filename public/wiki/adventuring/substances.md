@@ -27,7 +27,7 @@ Each category has a dependency tier from 0 (no dependency) to 3 (severe dependen
 | 0 | Roll normally |
 | 1 | +1 penalty die |
 | 2 | +2 penalty dice |
-| 3 | +3 penalty dice (roll multiple dice, take lowest) |
+| 3 | +3 penalty dice (if this takes the pool below 1 die, roll 2 dice and take the lowest) |
 
 ### Gaining Dependency
 
@@ -40,7 +40,7 @@ If you succeed, nothing happens and you avoid becoming more dependent. If you fa
 If you used multiple substances from the same category before resting, add each additional substance's dependency modifier to the threshold. This represents building tolerance as you consume more.
 
 <div class="example-box">
-Gareth drinks a shot of strong liquor (dependency modifier +2) around the campfire. When he takes his rest, he must make an Endurance check against a threshold of 3 (1 + 2). He currently has tier 1 alcohol dependency, giving him +1 penalty die on the check. He rolls 2d8 (his normal pool) with +1 penalty die and gets a 4, beating the threshold. He avoids increasing his dependency this time.
+Gareth drinks a shot of strong liquor (dependency modifier +2) around the campfire. When he takes his rest, he must make an Endurance check against a threshold of 3 (1 + 2). He currently has tier 1 alcohol dependency, giving him +1 penalty die on the check. His normal pool is 2d8, and the penalty die reduces it to 1d8. He rolls a 4, beating the threshold. He avoids increasing his dependency this time.
 </div>
 
 ### Reducing Dependency
@@ -50,7 +50,7 @@ If you have any dependency in a category and go through a full day and rest with
 If you succeed, reduce your dependency tier by 1. If you fail, you lose resolve equal to your current dependency tier as you struggle with the absence of the substance.
 
 <div class="example-box">
-Lyra has tier 3 painkiller dependency from using Crimson Tears regularly. She decides she needs to kick the habit and goes a full day without taking any painkillers, then completes a rest. She must make an Endurance check against a threshold of 8, but her tier 3 dependency gives her +3 penalty dice. She rolls 1d10 (her normal pool) with +3 penalty dice and gets a 5, failing the check. She loses 3 resolve as she suffers through the pain without relief. Her dependency tier remains at 3.
+Lyra has tier 3 painkiller dependency from using Crimson Tears regularly. She decides she needs to kick the habit and goes a full day without taking any painkillers, then completes a rest. She must make an Endurance check against a threshold of 8, but her tier 3 dependency gives her +3 penalty dice. Her normal pool is 1d10, so the penalty dice would take her below 1 die. Instead she rolls 2d10 and takes the lowest, getting a 5 and failing the check. She loses 3 resolve as she suffers through the pain without relief. Her dependency tier remains at 3.
 </div>
 
 ## Substance Categories

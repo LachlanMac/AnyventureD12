@@ -7,7 +7,7 @@
       "name": "Harmonic Theory",
       "description": "You understand the magical resonance within music. Gain +1 skill with magic knowledge. When you attempt to learn a new spell, roll an expression check; the highest dice is added to your spell check pool.",
       "location": "1",
-      "data": "TG:SSN=1"
+      "data": "TG:SSO=1"
     },
     {
       "name": "Melodic Memory",

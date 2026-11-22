@@ -23,7 +23,7 @@
     },
     {
       "name": "Dark Blood of the Ancients",
-      "description": "The blood of the first Minotaurs courses through your veins, tainting it with black magic that makes you more vulnerable to celestials. You suffer a -3 penalty to your divine mitigation.",
+      "description": "The blood of the first Minotaurs courses through your veins, tainting it with black magic that makes you more vulnerable to celestials. Your divine mitigation limit is raised by 5, so powerful divine attacks hit you harder than most.",
       "data": "N6=5:TA"
     },
     {

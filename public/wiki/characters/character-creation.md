@@ -103,10 +103,11 @@ Choose your combat proficiencies:
 ### Magic Skill Talents
 Select your magical affinities:
 - **Black Magic**: Necromancy, Witchcraft, Fiend
-- **Primal Magic**: Elemental, Nature, Cosmic
+- **Primal Magic**: Elemental, Nature, Draconic
 - **Metamagic**: Transmutation, Illusion, Fey
-- **White Magic**: Protection, Radiant, Draconic
-- **Mysticism**: Spirit, Divination, Astral
+- **White Magic**: Protection, Radiant, Celestial
+- **Mysticism**: Spirit, Divination, Cosmic
+- **Arcane Magic**: Conjuration, Enchantment, Chaos
 
 ### Crafting Skill Talents
 Choose your creation abilities:

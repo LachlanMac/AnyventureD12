@@ -43,7 +43,7 @@
       "name": "Master Sporekeeper",
       "description": "Your mastery of sporecraft and how they interact with biology is unmatched. Gain +1 skill with biosculpting and +1 skill with wildcraft. Your spore clouds last 1 additional round and have an extra 1 unit of radius.",
       "location": "5",
-      "data": "CS6=1:TC"
+      "data": "CS6=1:SSM=1:TC"
     },
     {
       "name": "Necrofungus",

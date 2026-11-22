@@ -61,7 +61,7 @@
       "name": "Occult Reflexes",
       "description": "Years of studying dangerous magical creatures has honed your instincts to react quickly and defend yourself. Gain +1 skill with evasion, +1 skill with deflection, and +1 skill with coordination.",
       "location": "7",
-      "data": "SSA=1:SSB=1:SSF=1"
+      "data": "SSE=1:SSB=1:SSG=1"
     }
   ]
 }

@@ -23,7 +23,7 @@ Heavy pieces of equipment have an *Encumbrance Penalty* on them which adds up to
 
 ### Sprint Action
 
-Characters can use the **Sprint** action to move up to double any of their movement speeds. For example, a character with a climb speed of 3 wants to scurry up a mountain - they can expend an energy to do so. However, sprinting requires making an encumbrance check equal to *double* the encumbrance penalty. 
+Characters can use the **Sprint** action to move up to double any of their movement speeds. For example, a character with a climb speed of 3 wants to scurry up a mountain - they can use the Sprint action (2 energy) to do so. However, sprinting requires making an encumbrance check equal to *double* the encumbrance penalty. 
 
 For more details about the Sprint action and other combat actions, see [Actions & Reactions](/wiki/actions-reactions).
 
@@ -72,8 +72,8 @@ Some terrain may slow movement or require additional effort to traverse, such as
 ### Conditions
 
 Certain conditions can affect movement:
-- **Prone**: Movement is halved while prone
-- **Impaired**: Cannot move or take reactions (includes being grappled, tangled, or hobbled)
+- **Prone**: Walk speed is 2 units. Standing up costs an action or your entire movement
+- **Impaired**: Cannot move, and suffers 1 penalty die on attack and defense checks (includes being grabbed, tangled, or hobbled)
 - **Incapacitated**: Cannot move at all
 
 For complete details on all conditions and their effects, see [Conditions](/wiki/conditions).

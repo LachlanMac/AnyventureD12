@@ -7,7 +7,7 @@
       "name": "Mystic Echoes",
       "description": "Your connection to mystical forces deepens your understanding. Gain +1 skill with magic. When you inspect a magical item, you can determine the last time it was used and a vague nature of the type of creature who wielded it.",
       "location": "1",
-      "data": "TG:SSN=1"
+      "data": "TG:SSO=1"
     },
     {
       "name": "Fortified Soul",

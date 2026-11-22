@@ -496,6 +496,10 @@ const CharacterSchema = new Schema({
       current: { type: Number, default: 0 },
       max: { type: Number, default: 0 }
     },
+    mana: {
+      current: { type: Number, default: 0 },
+      max: { type: Number, default: 0 } // calculated from AM codes
+    },
     pain: {
       custom: { type: Number, default: 0 }, // Manual adjustments
       calculated: { type: Number, default: 0 } // Auto-calculated from items

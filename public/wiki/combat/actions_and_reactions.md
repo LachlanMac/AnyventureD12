@@ -50,10 +50,10 @@ The character makes an attack with a simple weapon or brawling attack against a 
 The character attempts to cover their eyes to either protect against a vision based attack or protect their eyes. This gives them the blinded condition until the start of their next turn.
 
 ### Cover Ears - 0 Energy
-The character attempts to cover their eyes to either protect against a sound based attack. This gives them the deafened condition until the start of their next turn.
+The character attempts to cover their ears to protect against a sound based attack. This gives them the deafened condition until the start of their next turn.
 
 ### Fall Prone - 0 Energy
-The character falls to the ground, willfully giving them the prone condition. If this reaction is used in response to a ranged attack, the character must make a coordination check higher than the attack roll to benefit from the prone ranged defense bonus.
+The character falls to the ground, willfully giving them the prone condition. If this reaction is used in response to a ranged attack, the character must make a coordination check that meets or beats the attack roll to benefit from prone's minimum defense of 4 against ranged attacks.
 
 
 <div class="triangle-line"></div>
@@ -66,7 +66,7 @@ Some tasks are so trivial that they do not count as an action. A character can o
 
 - Pressing a button
 - Opening a door
-- Peaking around a corner
+- Peeking around a corner
 - Switching to a different weapon
 - Attempting to gain information by making a skill check
 

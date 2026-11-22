@@ -9,7 +9,7 @@
     "id": "broken",
     "name": "Broken",
     "category": "Mental",
-    "description": "The broken condition happens when a character reaches 0 resolve. While broken, a character suffers a -1 penalty on knowledge, social and mind checks and automatically fail checks against the afraid, confused, maddened or charmed conditions. They also cannot recover resolve until the condition is removed. In order to lose the broken condition, a character must make a resilience check of 12 at the end of a full rest. For each full rest taken, this check is lowered by 1."
+    "description": "The broken condition happens when a character reaches 0 resolve. While broken, a character suffers 1 penalty die on knowledge, social and mind checks and automatically fail checks against the afraid, confused, maddened or charmed conditions. They also cannot recover resolve until the condition is removed. In order to lose the broken condition, a character must make a resilience check of 12 at the end of a full rest. For each full rest taken, this check is lowered by 1."
   },
   {
     "id": "charmed",
@@ -37,7 +37,7 @@
     "id": "dazed",
     "name": "Dazed",
     "category": "Mental",
-    "description": "A dazed character loses their concentration and cannot concentrate on anything new until the condition is removed. When you are dazed, the first defense check you make has a -1 penalty. This condition is short-lived, and automatically ends at the end of your next turn."
+    "description": "A dazed character loses their concentration and cannot concentrate on anything new until the condition is removed. When you are dazed, the first defense check you make has 1 penalty die. This condition is short-lived, and automatically ends at the end of your next turn."
   },
   {
     "id": "maddened",
@@ -59,7 +59,7 @@
     "id": "numbed",
     "name": "Numbed",
     "category": "Mental",
-    "description": "A numbed character cannot gain any resolve and they cannot benefit from morale. They are not affected by stress. Attempts to recover from the maddened, afraid or confused conditions require a check of 4 to break, but does not get lower each time the character attempts to make it. A numbed character suffers a -1 penalty to all mind checks and cannot use resolve to stay conscious when reaching 0 health. In order to lose the numbed condition, a character must make a resilience check of 10 at the end of a full rest. For each full rest taken, this check is lowered by 1."
+    "description": "A numbed character cannot gain any resolve and they cannot benefit from morale. They are not affected by stress. Attempts to recover from the maddened, afraid or confused conditions require a check of 4 to break, but does not get lower each time the character attempts to make it. A numbed character suffers 1 penalty die to all mind checks and cannot use resolve to stay conscious when reaching 0 health. In order to lose the numbed condition, a character must make a resilience check of 10 at the end of a full rest. For each full rest taken, this check is lowered by 1."
   },
   {
     "id": "stunned",
@@ -77,7 +77,7 @@
     "id": "blinded",
     "name": "Blinded",
     "category": "Physical",
-    "description": "A blinded character cannot see and suffers a -1 penalty to all attacks and defense checks. Additionally, they fail all senses checks relating to vision. The duration this effect lasts is based on the spell or effect that caused it."
+    "description": "A blinded character cannot see and suffers 1 penalty die to all attacks and defense checks. Additionally, they fail all senses checks relating to vision. The duration this effect lasts is based on the spell or effect that caused it."
   },
   {
     "id": "deafened",
@@ -95,7 +95,7 @@
     "id": "impaired",
     "name": "Impaired",
     "category": "Physical",
-    "description": "An impaired character cannot move and suffers a -1 penalty to all attack and defense checks. The duration this effect lasts is based on the spell or effect that caused it. The most common cause of the impaired condition is when one character grabs another."
+    "description": "An impaired character cannot move and suffers 1 penalty die to all attack and defense checks. The duration this effect lasts is based on the spell or effect that caused it. The most common cause of the impaired condition is when one character grabs another."
   },
   {
     "id": "incapacitated",
@@ -125,7 +125,7 @@
     "id": "prone",
     "name": "Prone",
     "category": "Physical",
-    "description": "A prone character is one that is on the ground in a vulnerable position. All attack and defense checks suffer a -1 penalty. The minimum defense check against ranged attacks while prone is 4. A character must either use an action or their entire movement to remove this condition. Otherwise, prone characters have a walk speed of 2 units."
+    "description": "A prone character is one that is on the ground in a vulnerable position. All attack and defense checks suffer 1 penalty die. The minimum defense check against ranged attacks while prone is 4. A character must either use an action or their entire movement to remove this condition. Otherwise, prone characters have a walk speed of 2 units."
   },
   {
     "id": "stasis",
@@ -137,7 +137,7 @@
     "id": "unconscious",
     "name": "Unconscious",
     "category": "Physical",
-    "description": "An unconscious character is incapacitated and prone. They take double damage from melee attacks. If recovery isn't otherwise specified, an unconscious character rolls a d12 at the end of each of their turns. On a 9 or higher, they regain consciousness."
+    "description": "An unconscious character is incapacitated and prone. They take double damage from melee attacks. A character knocked unconscious at 0 health regains consciousness after 1 hour if they have been healed to at least 10 health, and otherwise stays unconscious. Other causes of unconsciousness state their own duration."
   },
   {
     "id": "winded",

@@ -13,6 +13,7 @@ interface ResourceBarProps {
     energy: { current: number; max: number };
     resolve: { current: number; max: number };
     morale?: { current: number; max: number };
+    mana?: { current: number; max: number };
     pain?: { custom: number; calculated: number };
     stress?: { custom: number; calculated: number };
     painMitigation?: number;
@@ -22,7 +23,7 @@ interface ResourceBarProps {
   };
   injuries?: InjuryData[];
   onResourceChange?: (
-    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    resource: 'health' | 'energy' | 'resolve' | 'morale' | 'mana',
     newCurrent: number
   ) => void;
   onPainStressChange?: (
@@ -78,7 +79,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
 
   // Helper function to handle resource changes
   const handleResourceChange = (
-    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    resource: 'health' | 'energy' | 'resolve' | 'morale' | 'mana',
     newValue: number
   ) => {
     const resourceData = resources[resource];
@@ -95,7 +96,7 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
   // Helper function to render editable resource
   const renderEditableResource = (
     name: string,
-    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    resource: 'health' | 'energy' | 'resolve' | 'morale' | 'mana',
     color: string
   ) => {
     const resourceData = resources[resource];
@@ -386,6 +387,9 @@ const ResourceBars: React.FC<ResourceBarProps> = ({
 
       {/* Energy */}
       {renderEditableResource('Energy', 'energy', 'var(--color-energy)')}
+
+      {/* Mana: only characters with mana from modules (AM codes) */}
+      {(resources.mana?.max ?? 0) > 0 && renderEditableResource('Mana', 'mana', 'var(--color-mana)')}
     </div>
   );
 };

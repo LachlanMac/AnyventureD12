@@ -37,7 +37,7 @@
       "name": "Transmuter",
       "description": "Gain +1 skill with magic. You can spend an hour transmuting any amount of shards, nuggets or ingots as long as the resulting metal is equal to or less than the value of the input.",
       "location": "4b",
-      "data": "TG:SSN=1"
+      "data": "TG:SSO=1"
     },
     {
       "name": "Daily Action : Splinter Metal",

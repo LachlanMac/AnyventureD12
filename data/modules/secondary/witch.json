@@ -31,7 +31,7 @@
       "name": "Dark Contracts",
       "description": "You are experienced in listening to the plights of others so that you may use your magic to aid them for a cost. Gain +1 skill with persuasion. When you enter into a contract with a humanoid that willfully breaks an agreement you have come to, they become permanently affected by your Hex action. Once per day, you can channel a spell as a ritual with the creature as your target, as long as they are on the same plane as you.",
       "location": "4a",
-      "data": "TG:SSS=1:SST=1"
+      "data": "TG:SST=1"
     },
     {
       "name": "Darkcraft",

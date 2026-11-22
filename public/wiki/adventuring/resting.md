@@ -2,6 +2,8 @@
 
 Resting allows characters to recover health and resolve between adventures. There are two types of rest based on the conditions and duration.
 
+Whenever a rule refers to a **full rest**, it means completing either kind of rest, favorable or unfavorable. It only has to be finished, not taken in good conditions.
+
 ## Favorable Rest
 
 A favorable rest requires **8 hours of uninterrupted sleep** in comfortable, safe conditions. If a character wakes up during this period, the rest is no longer considered favorable.

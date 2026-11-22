@@ -25,7 +25,7 @@
       "name": "Downtime Action : Create Art",
       "description": "You spend a downtime creating a work of art. Choose a tier and invest materials equal to one quarter of the art's value. You must succeed on an expression check against the RC three times across three separate downtimes to complete the piece. A failure at any stage loses all progress and materials. Completed art can be sold or traded at its full value to a reasonable buyer. Tiers: 100g (RC 5), 500g (RC 10), 1000g (RC 15), 2000g (RC 20), 5000g (RC 25).",
       "location": "3",
-      "data": "DTNE=0"
+      "data": "YDNE=0"
     },
     {
       "name": "Action : Shatter",
@@ -61,7 +61,7 @@
       "name": "Daily Action : Embellishment",
       "description": "You perform your next attack or spell with extraordinary flair. Add an expression die and a coordination die to the check. If both your expression and coordination results also beat the target's defense check, double your damage.",
       "location": "7",
-      "data": "DXNE=0"
+      "data": "XDNE=0"
     }
   ]
 }

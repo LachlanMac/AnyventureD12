@@ -372,190 +372,58 @@ const SkillsTab: React.FC<SkillsTabProps> = ({ character }) => {
           </h2>
         </CardHeader>
         <CardBody>
+          {/* Skill level sets the die; talent sets how many dice you roll */}
           <table style={{ width: '100%', borderCollapse: 'collapse' }}>
             <thead>
               <tr>
-                <th
-                  style={{
-                    textAlign: 'left',
-                    padding: '0.5rem',
-                    color: 'var(--color-cloud)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  Dice Value
-                </th>
-                <th
-                  style={{
-                    textAlign: 'left',
-                    padding: '0.5rem',
-                    color: 'var(--color-cloud)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  Die Type
-                </th>
-                <th
-                  style={{
-                    textAlign: 'left',
-                    padding: '0.5rem',
-                    color: 'var(--color-cloud)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  Talent Stars
-                </th>
+                {['Skill Level', 'Die', 'Rank'].map((h) => (
+                  <th
+                    key={h}
+                    style={{
+                      textAlign: 'left',
+                      padding: '0.5rem',
+                      color: 'var(--color-cloud)',
+                      borderBottom: '1px solid var(--color-dark-border)',
+                    }}
+                  >
+                    {h}
+                  </th>
+                ))}
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  1
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  1d4
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  Number of dice to roll
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  2
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  1d6
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  Based on attribute or talent stars
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  3
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  1d8
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  Maximum of 3 stars
-                </td>
-              </tr>
-              <tr>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  4
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  1d10
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                ></td>
-              </tr>
-              <tr>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  5
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                >
-                  1d12
-                </td>
-                <td
-                  style={{
-                    padding: '0.5rem',
-                    color: 'var(--color-white)',
-                    borderBottom: '1px solid var(--color-dark-border)',
-                  }}
-                ></td>
-              </tr>
-              <tr>
-                <td style={{ padding: '0.5rem', color: 'var(--color-white)' }}>6</td>
-                <td style={{ padding: '0.5rem', color: 'var(--color-white)' }}>1d20</td>
-                <td style={{ padding: '0.5rem', color: 'var(--color-white)' }}></td>
-              </tr>
+              {[
+                ['0', 'd6', 'Untrained'],
+                ['1', 'd8', 'Beginner'],
+                ['2', 'd10', 'Novice'],
+                ['3', 'd12', 'Journeyman'],
+                ['4', 'd16', 'Proficient'],
+                ['5', 'd20', 'Expert'],
+                ['6', 'd24', 'Master'],
+                ['7', 'd30', 'Grand Master'],
+              ].map(([level, die, rank]) => (
+                <tr key={level}>
+                  {[level, die, rank].map((cell, i) => (
+                    <td
+                      key={i}
+                      style={{
+                        padding: '0.5rem',
+                        color: 'var(--color-white)',
+                        borderBottom: '1px solid var(--color-dark-border)',
+                      }}
+                    >
+                      {cell}
+                    </td>
+                  ))}
+                </tr>
+              ))}
             </tbody>
           </table>
+          <p style={{ color: 'var(--color-cloud)', fontSize: '0.85rem', marginTop: '0.75rem' }}>
+            Talent (0 to 4 at creation) is how many dice you roll; take the highest. Bonus dice add
+            to the pool and penalty dice remove from it. If penalties would leave you with less than
+            one die, roll 2 dice and take the lowest.
+          </p>
         </CardBody>
       </Card>
     </div>

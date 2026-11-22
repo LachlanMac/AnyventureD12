@@ -1503,16 +1503,15 @@ const HomebrewCreatureCreator: React.FC = () => {
                         }}
                       >
                         <option value={-1}>None</option>
-                        <option value={-2}>d2</option>
-                        <option value={0}>d4</option>
-                        <option value={1}>d6</option>
-                        <option value={2}>d8</option>
-                        <option value={3}>d10</option>
-                        <option value={4}>d12</option>
-                        <option value={5}>d16</option>
-                        <option value={6}>d20</option>
-                        <option value={7}>d24</option>
-                        <option value={8}>d30</option>
+                        <option value={-2}>d4</option>
+                        <option value={0}>d6</option>
+                        <option value={1}>d8</option>
+                        <option value={2}>d10</option>
+                        <option value={3}>d12</option>
+                        <option value={4}>d16</option>
+                        <option value={5}>d20</option>
+                        <option value={6}>d24</option>
+                        <option value={7}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1553,16 +1552,15 @@ const HomebrewCreatureCreator: React.FC = () => {
                         }}
                       >
                         <option value={-1}>None</option>
-                        <option value={-2}>d2</option>
-                        <option value={0}>d4</option>
-                        <option value={1}>d6</option>
-                        <option value={2}>d8</option>
-                        <option value={3}>d10</option>
-                        <option value={4}>d12</option>
-                        <option value={5}>d16</option>
-                        <option value={6}>d20</option>
-                        <option value={7}>d24</option>
-                        <option value={8}>d30</option>
+                        <option value={-2}>d4</option>
+                        <option value={0}>d6</option>
+                        <option value={1}>d8</option>
+                        <option value={2}>d10</option>
+                        <option value={3}>d12</option>
+                        <option value={4}>d16</option>
+                        <option value={5}>d20</option>
+                        <option value={6}>d24</option>
+                        <option value={7}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1603,16 +1601,15 @@ const HomebrewCreatureCreator: React.FC = () => {
                         }}
                       >
                         <option value={-1}>None</option>
-                        <option value={-2}>d2</option>
-                        <option value={0}>d4</option>
-                        <option value={1}>d6</option>
-                        <option value={2}>d8</option>
-                        <option value={3}>d10</option>
-                        <option value={4}>d12</option>
-                        <option value={5}>d16</option>
-                        <option value={6}>d20</option>
-                        <option value={7}>d24</option>
-                        <option value={8}>d30</option>
+                        <option value={-2}>d4</option>
+                        <option value={0}>d6</option>
+                        <option value={1}>d8</option>
+                        <option value={2}>d10</option>
+                        <option value={3}>d12</option>
+                        <option value={4}>d16</option>
+                        <option value={5}>d20</option>
+                        <option value={6}>d24</option>
+                        <option value={7}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1653,16 +1650,15 @@ const HomebrewCreatureCreator: React.FC = () => {
                         }}
                       >
                         <option value={-1}>None</option>
-                        <option value={-2}>d2</option>
-                        <option value={0}>d4</option>
-                        <option value={1}>d6</option>
-                        <option value={2}>d8</option>
-                        <option value={3}>d10</option>
-                        <option value={4}>d12</option>
-                        <option value={5}>d16</option>
-                        <option value={6}>d20</option>
-                        <option value={7}>d24</option>
-                        <option value={8}>d30</option>
+                        <option value={-2}>d4</option>
+                        <option value={0}>d6</option>
+                        <option value={1}>d8</option>
+                        <option value={2}>d10</option>
+                        <option value={3}>d12</option>
+                        <option value={4}>d16</option>
+                        <option value={5}>d20</option>
+                        <option value={6}>d24</option>
+                        <option value={7}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1703,16 +1699,15 @@ const HomebrewCreatureCreator: React.FC = () => {
                         }}
                       >
                         <option value={-1}>None</option>
-                        <option value={-2}>d2</option>
-                        <option value={0}>d4</option>
-                        <option value={1}>d6</option>
-                        <option value={2}>d8</option>
-                        <option value={3}>d10</option>
-                        <option value={4}>d12</option>
-                        <option value={5}>d16</option>
-                        <option value={6}>d20</option>
-                        <option value={7}>d24</option>
-                        <option value={8}>d30</option>
+                        <option value={-2}>d4</option>
+                        <option value={0}>d6</option>
+                        <option value={1}>d8</option>
+                        <option value={2}>d10</option>
+                        <option value={3}>d12</option>
+                        <option value={4}>d16</option>
+                        <option value={5}>d20</option>
+                        <option value={6}>d24</option>
+                        <option value={7}>d30</option>
                       </select>
                     </div>
                   ))}
@@ -1799,9 +1794,9 @@ const HomebrewCreatureCreator: React.FC = () => {
                             }}
                           >
                             {[
-                              { v: 0, l: 'd4' }, { v: 1, l: 'd6' }, { v: 2, l: 'd8' },
-                              { v: 3, l: 'd10' }, { v: 4, l: 'd12' }, { v: 5, l: 'd16' },
-                              { v: 6, l: 'd20' }, { v: 7, l: 'd24' }, { v: 8, l: 'd30' },
+                              { v: 0, l: 'd6' }, { v: 1, l: 'd8' }, { v: 2, l: 'd10' },
+                              { v: 3, l: 'd12' }, { v: 4, l: 'd16' }, { v: 5, l: 'd20' },
+                              { v: 6, l: 'd24' }, { v: 7, l: 'd30' },
                             ].map(({ v, l }) => (
                               <option key={v} value={v}>{l}</option>
                             ))}

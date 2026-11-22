@@ -4,12 +4,13 @@
 ## Primary Schools
 <div class="triangle-line"></div>
 
-There are 5 spell schools in AnyventureD12, each requiring their own skill to channel spells from.
+There are 6 spell schools in AnyventureDX, each requiring their own skill to channel spells from.
 - **Black Magic**: Magic most associated with, death, curses and demonic.
 - **Meta Magic**: Magic that inflicts change
 - **Primal Magic**: Magic that exists in nature
 - **White Magic**: Magic most associated with the heavens and celestials
 - **Mysticism Magic**: Magic that is associated with the spirit world
+- **Arcane Magic**: Raw magic shaped by study, summoning and the will
 
 ## Subschools
 <div class="triangle-line"></div>
@@ -54,8 +55,17 @@ Each magic school has 3 subschools; 2 regular and 1 exotic.
 ### Mysticism
 
 **Subschools:**
-- **Spirit**: spritual mending and energy manipulation
+- **Spirit**: Spiritual mending and energy manipulation
 - **Divination**: Foresight, detection, and knowledge gathering
 
 **Exotic Spellschool:**
 - **Cosmic**: Star magic and gravity manipulation from the astral plane
+
+### Arcane Magic
+
+**Subschools:**
+- **Conjuration**: Summoning creatures, objects and forces
+- **Enchantment**: Influencing minds, memories and senses
+
+**Exotic Spellschool:**
+- **Chaos**: Wild, unstable aetheric magic that warps force and reality

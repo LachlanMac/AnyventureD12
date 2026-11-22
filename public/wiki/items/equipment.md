@@ -61,11 +61,11 @@ Weapons also have categories which determines what types of actions they can ben
 Some weapons can have more than one category, with different damage and energy costs.
 
 <div class="example-box">
-    A glaive is a versatile complex weapon that has both a slashing and blunt category. The slashing category is much more effective, as that is the main mechanism in which the weapon deals damage. It can hit creatures at a longer range than most melee weapons and has a damage chart of [10, 14, 18, 22, 26, 30]. A glaive can also be used to bludgeon someone with the other end in the same way someone would swing a staff. This secondary attack has a lower damage chart of [8, 12, 16, 20, 24, 28], but it allows the user to use special actions that require a blunt weapon.
+    A glaive is a versatile complex weapon that has both a slashing and blunt category. The slashing category is its main attack. It can hit creatures at a longer range than most melee weapons, costs 1 energy and has a damage chart of [5, 9, 13, 17, 21, 25]. A glaive can also be used to bludgeon someone with the other end in the same way someone would swing a staff. This secondary attack costs no energy, has a damage chart of [6, 10, 14, 18, 22, 26], and allows the user to use special actions that require a blunt weapon.
 </div>
 
 <div class="example-box">
-    A flame staff is an item that has a unique magic property on it. Primarily, it allows the wielder to use their primal magic skill to make a ranged attack that deals heat damage with a damage chart of [—, 8, 12, 16, 20, 24]. This attack has the aimed property, meaning the first die does not count. The secondary property allows it to be used just like a normal staff by making a simple melee attack that requires no energy, is of the blunt category, with a damage chart of [9, 12, 15, 18, 21, 24].
+    A flame staff is an item that has a unique magic property on it. Primarily, it allows the wielder to use their primal magic skill to make a ranged attack that deals heat damage with a damage chart of [—, 5, 8, 11, 14, 17]. This attack has the aimed property, meaning the first die does not count. The secondary property allows it to be used just like a normal staff by making a simple melee attack that costs 1 energy, is of the blunt category, with a damage chart of [7, 10, 13, 16, 19, 22].
 </div>
 
 <div class="triangle-line"></div>
@@ -80,7 +80,7 @@ Normally, when being attacked by a ranged weapon, a character that uses the defl
 With a light shield, this penalty is removed and the shield user uses the value of their deflection check against range attacks that target a single creature.
 
 <div class="example-box">
-A fighter with a long sword and no shield is attacked by an archer using a warbow (base 4, growth 4, aimed). The archer rolls 4d8 and gets 8, 5, 4 and 3. The fighter makes a deflection check of 2d10 and rolls an 8 as their highest value. Because they are defending against a ranged attack, the 8 becomes a 4. In effect, the 8, 5 and 4 all hit for 3 dice. Looking at the warbow's damage chart [—, 8, 12, 16, 20, 24], 3 dice = 12 damage.
+A fighter with a long sword and no shield is attacked by an archer using a warbow (base 1, growth 4, aimed). The archer rolls 4d8 and gets 8, 5, 4 and 3. The fighter makes a deflection check of 2d10 and rolls an 8 as their highest value. Because they are defending against a ranged attack, the 8 becomes a 4. In effect, the 8, 5 and 4 all hit for 3 dice. Looking at the warbow's damage chart [—, 5, 9, 13, 17, 21], 3 dice = 9 damage.
 </div>
 
 <div class="example-box">
@@ -91,7 +91,7 @@ Consider the previous example where the fighter has a light shield; instead of b
 Heavy shields have the same bonus as light shields against ranged attacks, but the effect also extends to area attacks. Heavy shields are very effective for defense, but are often cumbersome to wield in battle.
 
 <div class="example-box">
-An enemy demolitionist throws a fire bomb at the party which requires a defense check of 6 to avoid. The fighter with the light shield in the following example still must halve their defense check against the area attack. Even though they roll a 10, that check is halved to a 5. If the fighter was using a heavy shield, they completely avoid the attack because their 10 beats the 6.
+An enemy demolitionist throws a fire bomb at the party which requires a defense check of 6 to avoid. The fighter with the light shield in the previous example still must halve their defense check against the area attack. Even though they roll a 10, that check is halved to a 5. If the fighter was using a heavy shield, they completely avoid the attack because their 10 beats the 6.
 </div>
 
 <div class="triangle-line"></div>

@@ -6,12 +6,12 @@
 
 In AnyventureDX, all distances are measured in units. A unit can be visualized as roughly a yard, meter or 3 feet.
 
-When ranges are listed, for instance how far a ranged weapon can shoot or large of an area a spell affects, they fall within one of the description categories. These categores are below:
+When ranges are listed, for instance how far a ranged weapon can shoot or large of an area a spell affects, they fall within one of the description categories. These categories are below:
 
 
 | Distance | Units|
 |------|--------|
-| Adjacent  | 0 | bordering a tile, within range to touch |
+| Adjacent  | 0 (bordering a tile, within range to touch) |
 | Nearby    | 1 | 
 | Very Short| 2-5 |
 | Short     | 6-10 | 
@@ -30,7 +30,7 @@ Ranged and throwing weapons have optimal distances they are effective at. All ra
 A character is only allowed to make a ranged attack up to one distance greater than their optimal range, but there is no limit on the minimum they can make.
 
 <div class="example-box">
-  A character has 3 talent and 4 skill with simple ranged weapons, so they normally roll a 3d12 for their attacks. A crossbow is most effective at <b>short</b> to <b>moderate</b> range which would give it an effective range of 6-20 units. If the character wielding the crossbow wants to shoot a target a creature within a <b>very short</b> distance (2-5 units away) or even an <b>adjacent</b> creature, they would roll with 2 penalty dice, bringing their attack roll to a 1d12. Likewise, a target at a <b>distant range</b> (20-40 units) would also give them the same penalty. However, because <b>remote</b> is two levels higher than their maximum range, they cannot attempt an attack.
+  A character has 3 talent and 4 skill with simple ranged weapons, so they normally roll a 3d16 for their attacks. A crossbow is most effective at <b>nearby</b> to <b>short</b> range, giving it an effective range of 1-10 units. If the character wants to shoot an <b>adjacent</b> creature, they would roll with 2 penalty dice, bringing their attack roll to a 1d16. Likewise, a target at <b>moderate</b> range (11-20 units) is one level past their maximum range and gives them the same penalty. However, a target at <b>far</b> range (21-40 units) is two levels past their maximum range, so they cannot attempt an attack.
 </div>
 
 <div class="triangle-line"></div>

@@ -25,17 +25,17 @@ When all participants have taken their turns, the round is over and the next beg
 ### Initiative
 
 At the start of combat, player characters and significant enemies roll an initiative check to determine what phase they act in. Minions and grunts do not roll initiative and always act in the late phase. 
-An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiate is decide the order the characters act in.
+An initiative check is made by making either a concentration or coordination check and using that value. The purpose of initiative is to decide the order the characters act in.
 After rolling an initiative check, compare the result to this table to decide where the characters act.
 
 <br>
 
 | Roll | Phase | Preparation Phase|
 |------|--------|--------|
-| < 6 | Late | No |
-| 6-10 | Middle | No |
-| 11-15 | Early | No|
-| 16+ | Early | Yes|
+| < 5 | Late | No |
+| 5-9 | Middle | No |
+| 10-14 | Early | No|
+| 15+ | Early | Yes|
 
 <div class="note-box">
    There are certain scenarios where a player can change what phase they act in. The most common is a player deferring to a later stage after their character rolls into one of the earlier phases. This must be decided on the first round of combat immediately after the Preparation phase and cannot be reversed.
@@ -71,7 +71,7 @@ A turn includes:
 </div>
 
 ### Actions
-Actions represent the primary ways characters interact with the world during combat, from attacking enemies to channeling spells. Each character can perform 2 actions per round, limited by their available Energy, with most actions requiring skill checks to determine success. Default actions like Rest, Sprint, and Attack are available to all characters, while modules unlock specialized actions that define a character's unique combat style.
+Actions represent the primary ways characters interact with the world during combat, from attacking enemies to channeling spells. Each character can perform 2 actions per round, limited by their available [Energy](/wiki/resources) (5 maximum by default, full at the start of combat, and 3 regained at the start of each of their turns), with most actions requiring skill checks to determine success. Default actions like Rest, Sprint, and Attack are available to all characters, while modules unlock specialized actions that define a character's unique combat style.
 
 For detailed information about movement mechanics, see [Movement](/wiki/movement).
 

@@ -58,6 +58,17 @@ export const protect = async (req, res, next) => {
   }
 };
 
+// Only whitelisted users (their apiKey is in data/api_whitelist.json) may change core game data.
+// Works for Foundry (x-api-key header) and for a whitelisted user's browser session alike.
+const checkWhitelisted = (req, res, next) => {
+  const key = req.user?.apiKey;
+  if (!key || !apiWhitelist.includes(key)) {
+    return res.status(403).json({ message: 'Not authorized to change core game data' });
+  }
+  next();
+};
+export const requireWhitelisted = [protect, checkWhitelisted];
+
 // Middleware to add user to request if authenticated
 export const getUser = async (req, res, next) => {
   try {

@@ -172,7 +172,7 @@ const CharacterView: React.FC = () => {
   };
 
   const handleResourceChange = async (
-    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    resource: 'health' | 'energy' | 'resolve' | 'morale' | 'mana',
     newCurrent: number
   ) => {
     if (!character) return;

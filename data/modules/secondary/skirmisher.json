@@ -43,7 +43,7 @@
       "name": "Fleet Footwork",
       "description": "Gain +1 skill with coordination. Your minimum optimal range with throwing weapons and simple ranged weapons is reduced by 1 step, letting you attack effectively at one range closer without penalties.",
       "location": "5",
-      "data": "SSG=1:AE=1"
+      "data": "SSG=1:AA=-1:AE=-1"
     },
     {
       "name": "Ranged Mastery",

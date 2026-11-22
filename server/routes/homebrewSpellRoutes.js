@@ -13,7 +13,7 @@ import {
   approveHomebrewSpell,
   rejectHomebrewSpell
 } from '../controllers/homebrewSpellController.js';
-import { protect, requirePermanentUser } from '../middleware/auth.js';
+import { requirePermanentUser, requireWhitelisted } from '../middleware/auth.js';
 
 const router = express.Router();
 
@@ -31,7 +31,7 @@ router.post('/spells/:id/report', requirePermanentUser, reportHomebrewSpell);
 router.post('/spells/:id/fork', requirePermanentUser, forkHomebrewSpell);
 
 // Admin routes (TODO: Add admin middleware)
-router.post('/admin/spells/:id/approve', protect, approveHomebrewSpell);
-router.post('/admin/spells/:id/reject', protect, rejectHomebrewSpell);
+router.post('/admin/spells/:id/approve', requireWhitelisted, approveHomebrewSpell);
+router.post('/admin/spells/:id/reject', requireWhitelisted, rejectHomebrewSpell);
 
 export default router;

@@ -2103,9 +2103,9 @@ const DevCreatureDesigner: React.FC = () => {
                             className="w-full p-2 bg-gray-800 border border-gray-600 rounded text-sm"
                           >
                             {[
-                              { v: 0, l: 'd4' }, { v: 1, l: 'd6' }, { v: 2, l: 'd8' },
-                              { v: 3, l: 'd10' }, { v: 4, l: 'd12' }, { v: 5, l: 'd16' },
-                              { v: 6, l: 'd20' }, { v: 7, l: 'd24' }, { v: 8, l: 'd30' },
+                              { v: 0, l: 'd6' }, { v: 1, l: 'd8' }, { v: 2, l: 'd10' },
+                              { v: 3, l: 'd12' }, { v: 4, l: 'd16' }, { v: 5, l: 'd20' },
+                              { v: 6, l: 'd24' }, { v: 7, l: 'd30' },
                             ].map(({ v, l }) => (
                               <option key={v} value={v}>{l}</option>
                             ))}

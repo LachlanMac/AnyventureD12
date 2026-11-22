@@ -2,7 +2,7 @@ import express from 'express';
 import fs from 'fs';
 import path from 'path';
 import { fileURLToPath } from 'url';
-import { protect } from '../middleware/auth.js';
+import { protect, requireWhitelisted } from '../middleware/auth.js';
 import {
   getCreatures,
   getCreatureById,
@@ -72,7 +72,7 @@ router.get('/files/:category/:filename', (req, res) => {
   }
 });
 
-router.put('/files/:category/:filename', protect, (req, res) => {
+router.put('/files/:category/:filename', requireWhitelisted, (req, res) => {
   const { category, filename } = req.params;
   const safeCategory = path.basename(category);
   const safeFilename = path.basename(filename);

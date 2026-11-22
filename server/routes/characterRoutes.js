@@ -22,7 +22,7 @@ import {
   generateRandomCharacter,
   generateAIBiography
 } from '../controllers/characterController.js';
-import { protect } from '../middleware/auth.js';
+import { protect, requireWhitelisted } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
 import characterSpellRoutes from './characterSpellRoutes.js';
 import characterPlanRoutes from './characterPlanRoutes.js';
@@ -288,6 +288,7 @@ router.patch('/:id/resources', protect, async (req, res) => {
     const effectiveMaxEnergy = characterCopy.resources.energy.max;
     const effectiveMaxResolve = characterCopy.resources.resolve.max;
     const effectiveMaxMorale = characterCopy.resources.morale.max;
+    const effectiveMaxMana = characterCopy.resources.mana?.max || 0;
 
     // Update ONLY current values (never max - max is calculated from bonuses)
     // Clamp current values to effective max
@@ -295,6 +296,10 @@ router.patch('/:id/resources', protect, async (req, res) => {
     if (resources.energy) character.resources.energy.current = Math.max(0, Math.min(resources.energy.current, effectiveMaxEnergy));
     if (resources.resolve) character.resources.resolve.current = Math.max(0, Math.min(resources.resolve.current, effectiveMaxResolve));
     if (resources.morale) character.resources.morale.current = Math.max(0, Math.min(resources.morale.current, effectiveMaxMorale));
+    if (resources.mana) {
+      if (!character.resources.mana) character.resources.mana = { current: 0, max: 0 };
+      character.resources.mana.current = Math.max(0, Math.min(resources.mana.current, effectiveMaxMana));
+    }
 
     // Update pain and stress custom values if provided
     if (resources.pain) {
@@ -367,8 +372,8 @@ router.put('/:id/culture-selections', protect, updateCultureSelections);
 // FoundryVTT export route
 router.get('/:id/export-foundry', exportCharacterToFoundry);
 
-// Debug route for foundry export (no auth for testing)
-router.get('/:id/debug-foundry', async (req, res) => {
+// Debug route for foundry export (whitelisted users only)
+router.get('/:id/debug-foundry', requireWhitelisted, async (req, res) => {
   try {
     const character = await Character.findById(req.params.id)
       .populate('ancestry.ancestryId')

@@ -54,7 +54,7 @@
     },
     {
       "name": "Martyr",
-      "description": "When you are at 0 health, and take damage that forces you to make a lifeline check, instead of rolling a d8, you can elect to roll a d4 and compare the result to the Lifeline Table. When you do this, all allies within a short (10 unit) distance immediately gain a wonder.",
+      "description": "When you are at 0 health, and take damage that forces you to make a lifeline check, instead of rolling a d10, you can elect to roll a d6 and compare the result to the Lifeline Table. When you do this, all allies within a short (10 unit) distance immediately gain a wonder.",
       "location": "6b",
       "data": "TP"
     },

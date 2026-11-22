@@ -12,7 +12,7 @@ import {
   updateItem,
   deleteItem
 } from '../controllers/itemController.js';
-import { protect } from '../middleware/auth.js';
+import { requireWhitelisted } from '../middleware/auth.js';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -83,7 +83,7 @@ router.get('/files/*', (req, res) => {
   }
 });
 
-router.put('/files/*', protect, (req, res) => {
+router.put('/files/*', requireWhitelisted, (req, res) => {
   const segments = req.params[0].split('/').map(s => path.basename(s));
   const filePath = path.join(magicItemsDir, ...segments);
   if (!filePath.startsWith(magicItemsDir)) {
@@ -132,8 +132,9 @@ router.get('/weapons/:category', getWeaponsByCategoryRoute);
 router.get('/:id', getItem);
 
 // Admin routes - protected (removed admin middleware for now)
-router.post('/', protect, createItem);
-router.put('/:id', protect, updateItem);
-router.delete('/:id', protect, deleteItem);
+// Canonical items: whitelisted users only (homebrew items have their own routes)
+router.post('/', requireWhitelisted, createItem);
+router.put('/:id', requireWhitelisted, updateItem);
+router.delete('/:id', requireWhitelisted, deleteItem);
 
 export default router;

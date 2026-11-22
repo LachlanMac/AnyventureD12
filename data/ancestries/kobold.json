@@ -28,7 +28,7 @@
     },
     {
       "name": "Fragile",
-      "description": "Kobolds are naturally fragile creatures. You suffer a -5 penalty to your maximum health and a -1 penalty to your physical mitigation.",
+      "description": "Kobolds are naturally fragile creatures. You suffer a -5 penalty to your maximum health, and your physical mitigation limit is raised by 5, so heavy blows hit you harder than most.",
       "data": "A1=-5:N1=5:TA"
     }
   ]

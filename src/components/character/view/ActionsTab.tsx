@@ -4,7 +4,7 @@ import { Action, Character, Ancestry, Culture } from '../../../types/character';
 import { CreatureAction, CreatureReaction } from '../../../types/creature';
 import CreatureActionCard from '../../creature/CreatureActionCard';
 import CreatureReactionCard from '../../creature/CreatureReactionCard';
-import { getDamageChart } from '../../../utils/combatUtils';
+import { getDamageChart, getDiceForSkill } from '../../../utils/combatUtils';
 
 interface ActionsTabProps {
   character: Character;
@@ -432,19 +432,8 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
     const bonusAttack = attack.bonus_attack || weapon.bonus_attack || 0;
     const totalDice = talent + bonusAttack;
 
-    // Dice tier map
-    const diceTierMap: Record<number, string> = {
-      0: 'd4',
-      1: 'd6',
-      2: 'd8',
-      3: 'd10',
-      4: 'd12',
-      5: 'd16',
-      6: 'd20',
-      7: 'd24',
-    };
-
-    const diceType = diceTierMap[skillValue] || 'd4';
+    // Skill 0 = d6 ... 7 = d30 (shared table)
+    const diceType = `d${getDiceForSkill(Math.min(7, Math.max(0, skillValue)))}`;
     const diceFormula = totalDice > 0 ? `${totalDice}${diceType}` : '0';
 
     // Calculate range display
@@ -475,7 +464,33 @@ const ActionsTab: React.FC<ActionsTabProps> = ({ character }) => {
       return `${minText} - ${maxText}`;
     };
 
-    const rangeText = getRangeText(attack.min_range || 1, attack.max_range || 1);
+    // Module range bonuses (AA-AF), applied the same way as Foundry's _calculateModifiedRanges
+    const getModifiedRange = (baseMin: number, baseMax: number) => {
+      const mods = character.weaponModifications || {};
+      const category = weapon.weapon_category;
+      let rangeType: 'simple' | 'complex' | 'throwing' | null = null;
+      if (category === 'simpleRanged') rangeType = 'simple';
+      else if (category === 'complexRanged') rangeType = 'complex';
+      else if (category === 'throwing') rangeType = 'throwing';
+      else if (attack.category === 'ranged') rangeType = 'complex'; // e.g. gunblades
+      let min = baseMin;
+      let max = baseMax;
+      if (rangeType === 'simple') {
+        min += mods.simpleRangedMinRange || 0;
+        max += mods.simpleRangedMaxRange || 0;
+      } else if (rangeType === 'complex') {
+        min += mods.complexRangedMinRange || 0;
+        max += mods.complexRangedMaxRange || 0;
+      } else if (rangeType === 'throwing') {
+        min += mods.throwingMinRange || 0;
+        max += mods.throwingMaxRange || 0;
+      }
+      min = Math.max(1, min);
+      max = Math.min(8, Math.max(min, max));
+      return { min, max };
+    };
+    const modifiedRange = getModifiedRange(attack.min_range || 1, attack.max_range || 1);
+    const rangeText = getRangeText(modifiedRange.min, modifiedRange.max);
 
     const handsText = weapon.hands === 2 ? '2-handed' : '1-handed';
 

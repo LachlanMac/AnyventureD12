@@ -60,32 +60,39 @@ dotenv.config();
 const app = express();
 
 // Middleware
-// Configure CORS to allow both React frontend and FoundryVTT
-const allowedOrigins = [
-  process.env.FRONTEND_URL || 'http://localhost:5174',
-  'http://localhost:30000', // FoundryVTT default port
-  'http://localhost:5174'   // React dev server
-];
+// CORS: cookie-authenticated routes only accept the site's own origins (add more with
+// CORS_ORIGINS=comma,separated in .env). Foundry runs on any host/port and authenticates with
+// an x-api-key header, never cookies, so /fvtt accepts any origin without credentials.
+const allowedOrigins = new Set(
+  [
+    process.env.FRONTEND_URL,
+    'http://localhost:5173',
+    'http://localhost:5174',
+    'http://localhost:4000',
+    'http://localhost:30000', // FoundryVTT default port
+    ...(process.env.CORS_ORIGINS || '').split(',')
+  ]
+    .map(o => (o || '').trim().replace(/\/+$/, ''))
+    .filter(Boolean)
+);
 
-app.use(cors({
-  origin: function(origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl requests)
-    if (!origin) return callback(null, true);
-
-    if (allowedOrigins.indexOf(origin) !== -1) {
-      callback(null, true);
-    } else {
-      callback(null, true); // For development, allow all origins. Change to callback(new Error('Not allowed by CORS')) for production
-    }
-  },
-  credentials: true  // Allow cookies to be sent
+app.use(cors((req, callback) => {
+  const origin = req.header('Origin');
+  if (req.path.startsWith('/fvtt')) {
+    return callback(null, { origin: true, credentials: false });
+  }
+  // No Origin header = same-origin, curl, or server-to-server; let it through
+  if (!origin || allowedOrigins.has(origin)) {
+    return callback(null, { origin: true, credentials: true });
+  }
+  callback(null, { origin: false });
 }));
 app.use(express.json());
 app.use(cookieParser());
 
 // Session setup
 app.use(session({
-  secret: process.env.SESSION_SECRET || 'keyboard cat',
+  secret: process.env.SESSION_SECRET || process.env.JWT_SECRET,
   resave: false,
   saveUninitialized: false,
   cookie: {

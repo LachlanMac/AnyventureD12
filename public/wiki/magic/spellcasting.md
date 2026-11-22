@@ -6,15 +6,15 @@ Magic in Anyventure follows a talent and skill-based system similar to weapons a
 ## Casting Mechanics
 <div class="triangle-line"></div>
 
-If a player knows the spell, they attempt to channel it by rolling a **spell check**. This is the same as a normal skill check, but using one of the 5 magical skills that represent the [Schools of Magic](/wiki/magic-types).
+If a player knows the spell, they attempt to channel it by rolling a **spell check**. This is the same as a normal skill check, but using one of the 6 magical skills that represent the [Schools of Magic](/wiki/magic-types).
 As with other skill checks, the player rolls a number of dice equal to their talents, and the dice type is equal to their skill.
 
 <br>
 
-The player takes their highest dice from that pool, and that becomes the value of the spell check. **All spells have a required check to channel**. If the spell check is greater than the required check, the spell is cast.
+The player takes their highest dice from that pool, and that becomes the value of the spell check. **All spells have a required check to channel**. If the spell check meets or beats the required check, the spell is cast.
 
 <div class="example-box">
-A character with 3 talent and 2 skill in Primal Magic would roll <b>3d8</b> to cast elemental spells.
+A character with 3 talent and 2 skill in Primal Magic would roll <b>3d10</b> to cast elemental spells.
 </div>
 
 ### Incantations
@@ -72,21 +72,21 @@ Assisting in rituals makes channeling spells possible that would normally be imp
 <br>
 
 <div class="example-box">
-  A Lich Lord wants to raise an army of the dead to bring destruction to the world. This spell requires a check of 22; an impossible feat alone, because although his skill check for channeling a necromancy spell is 4d20, his maximum possible score is only 20. To aid in his success, the Lich gathers his ten strongest generals. They may not excel at necromancy as he does, but they can still contribute with their serviceable black magic checks (3d16). For each check of 11 or higher, they add +1 to the Lich Lord’s final total. Each general has about a two-thirds chance of succeeding and a one-third chance of hindering the ritual. The Lich Lord rolls a 19, so he needs at least three more successes than failures, which is going to be a close call!
+  A Lich Lord wants to raise an army of the dead to bring destruction to the world. This spell requires a check of 22; an impossible feat alone, because although his skill check for channeling a necromancy spell is 4d20, his maximum possible score is only 20. To aid in his success, the Lich gathers his ten strongest generals. They may not excel at necromancy as he does, but they can still contribute with their serviceable black magic checks (3d16). For each check of 11 or higher, they add +1 to the Lich Lord’s final total. Each general has about a three-quarters chance of succeeding and a one-quarter chance of hindering the ritual. The Lich Lord rolls a 19, so he needs at least three more successes than failures, which is going to be a close call!
 </div>
 
 
 ## Managing Spells
 <div class="triangle-line"></div>
 
-When a character wants to channel a spell, they must <i>know</i> the spell. By default, a character can only know 10 different spells. This number is known as a character's **spell capacity** and can be increased through modules. If a character wants to acquire a new spell, but they do not have the spell capacity, they can simply forget the spell as if they never knew it.
+When a character wants to channel a spell, they must <i>know</i> the spell. By default, a character can know up to 10 different spells. This is their **known spells** limit, and it can be increased through modules. These are not spell slots: a known spell can be channeled any number of times as long as the character has the energy. If a character wants to learn a new spell but is already at their known spells limit, they can simply forget a spell as if they never knew it.
 
 ### Learning New Spells
 
 Learning spells is relatively easy and not that different from channeling a spell normally. In order to learn a new spell, the character must complete the spell's ritual but with a required check that is +2 higher than the spell usually requires. This naturally restricts spells based on the channeler's skill. Naturally, this only applies to the normal <b>subschools</b>. Unless a player has a module or trait that specifically allows them to learn spells from an <b>exotic school</b>, they cannot learn from it.
 
 <div class="example-box">
-If a character has a +3 skill in black magic with 2 talents, their maximum possible roll is an 8. This ensures, that without help from an outside source, the character could never learn a spell with a required check higher than 8.
+If a character has a +3 skill in black magic with 2 talents, they roll 2d12 and their maximum possible roll is a 12. Because learning requires a check 2 higher than the spell normally requires, without help from an outside source the character could never learn a spell with a required check higher than 10.
 </div>
 
 <br>
@@ -99,7 +99,7 @@ There are some caveats to learning spells in this way:
 - As with normal rituals, you can also have friends help using the rules in **assisting rituals**.
 
 <div class="note-box">
-  For creating a character, it would be a shame to make an archetype that relies heavily on spells but start with none known. For this reason, it is recommended that a GM allow a player to select 5 spells that have a required check 2 less than their maximum magic skill for that school. So, if a character had +1 in one of the magic skills, the maximum they could roll is a 6. This would mean they could learn spells from a normal subschool under that school that has a required check of 4 or lower to start the game with. 
+  For creating a character, it would be a shame to make an archetype that relies heavily on spells but start with none known. For this reason, it is recommended that a GM allow a player to select 5 spells that have a required check 2 less than their maximum magic skill for that school. So, if a character had +1 in one of the magic skills, they roll a d8 and the maximum they could roll is an 8. This would mean they could learn spells from a normal subschool under that school that has a required check of 6 or lower to start the game with. 
 </div>
 
 

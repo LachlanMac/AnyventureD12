@@ -16,7 +16,8 @@ interface StatsSource {
   };
   mitigation?: Record<string, { min: number; max: number }>;
   immunities?: string[];
-  vision?: string[];
+  // From V codes: { type, range } where range is a range step (5 = Moderate)
+  vision?: (string | { type: string; range: number })[];
   // Pain/stress from injuries are added on top of the health/resolve rules
   injuries?: { injuryId?: { pain?: number; stress?: number } }[];
 }
@@ -29,6 +30,19 @@ interface CharacterStatsPanelProps {
 
 // Resources, movement and mitigation laid out like the character sheet header,
 // shown at full resources (read-only)
+// Range steps used by V codes (datakey SENSES)
+const RANGE_STEPS: Record<number, string> = {
+  1: 'adjacent',
+  2: 'nearby',
+  3: 'very short',
+  4: 'short',
+  5: 'moderate',
+  6: 'far',
+  7: 'very far',
+  8: 'distant',
+  9: 'unlimited',
+};
+
 const CharacterStatsPanel: React.FC<CharacterStatsPanelProps> = ({ character, style }) => {
   const stats = character as StatsSource;
   const full = (key: string) => {
@@ -48,7 +62,9 @@ const CharacterStatsPanel: React.FC<CharacterStatsPanelProps> = ({ character, st
   };
   const senses = [
     ...(stats.immunities || []).map((i) => `Immune to ${i}`),
-    ...(stats.vision || []).map((v) => `${v} vision`),
+    ...(stats.vision || []).map((v) =>
+      typeof v === 'string' ? `${v} vision` : `${v.type} (${RANGE_STEPS[v.range] ?? v.range})`
+    ),
   ];
 
   return (

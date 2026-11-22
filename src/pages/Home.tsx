@@ -109,7 +109,7 @@ const Home: React.FC = () => {
           />
           <FeatureCard
             title="Talent / Skill Progression"
-            description="Talents determine how many dice you roll. Skills determine what tier of dice you roll (from d4 to d24)."
+            description="Talents determine how many dice you roll. Skills determine what tier of dice you roll (from d6 to d30)."
             icon="🎲"
             color="var(--color-stormy)"
           />

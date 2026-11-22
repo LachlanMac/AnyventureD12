@@ -86,13 +86,15 @@ export const applyModuleBonusesToCharacter = (character) => {
             });
           }
           // Special handling for flat key-value objects like skills, skillDiceTierModifiers, attributes
-          else if (key === 'skills' || key === 'skillDiceTierModifiers' || key === 'attributes') {
+          else if (key === 'skills' || key === 'skillDiceTierModifiers' || key === 'attributes' || key === 'weaponModifications') {
             Object.keys(abilityBonuses[key]).forEach(subKey => {
               bonuses[key][subKey] = (bonuses[key][subKey] || 0) + abilityBonuses[key][subKey];
             });
           } else {
             Object.assign(bonuses[key], abilityBonuses[key]);
           }
+        } else if (key === 'dualWieldTier') {
+          bonuses[key] = Math.max(bonuses[key] || 0, abilityBonuses[key]); // highest tier wins
         } else {
           bonuses[key] = (bonuses[key] || 0) + abilityBonuses[key];
         }
@@ -807,7 +809,7 @@ const applyBonusesToCharacter = (character, bonuses) => {
   // Apply skill category bonuses (crafting, weapon, magic skills)
   applySkillCategoryBonuses(character.craftingSkills, bonuses.craftingSkills);
   applySkillCategoryBonuses(character.weaponSkills, bonuses.weaponSkills);
-  applySkillCategoryBonuses(character.magicSkills, bonuses.magicSkills, ['value', 'talent']); // magic skills don't have diceTierModifier
+  applySkillCategoryBonuses(character.magicSkills, bonuses.magicSkills, ['value', 'talent', 'diceTierModifier']);
 
   // Apply mitigation bonuses (min/max)
   if (!character.mitigation) character.mitigation = {};
@@ -837,6 +839,11 @@ const applyBonusesToCharacter = (character, bonuses) => {
   if (bonuses.morale) {
     character.resources.morale.max += bonuses.morale;
   }
+
+  // Mana: base 0, only AM codes grant it (set, not added, so re-applying bonuses is safe)
+  const manaMax = Math.max(0, bonuses.mana || 0);
+  const manaCurrent = character.resources.mana?.current ?? manaMax;
+  character.resources.mana = { current: Math.min(Math.max(0, manaCurrent), manaMax), max: manaMax };
 
   if (bonuses.painMitigation) {
     character.resources.painMitigation += bonuses.painMitigation;
@@ -879,6 +886,15 @@ const applyBonusesToCharacter = (character, bonuses) => {
   if (bonuses.thiefSpellSlots) {
     character.thiefSpellSlots = (character.thiefSpellSlots || 0) + bonuses.thiefSpellSlots;
   }
+
+  // Weapon range modifiers in range steps (AA-AF), applied to weapon ranges on the sheet like Foundry
+  character.weaponModifications = {
+    simpleRangedMinRange: 0, simpleRangedMaxRange: 0,
+    complexRangedMinRange: 0, complexRangedMaxRange: 0,
+    throwingMinRange: 0, throwingMaxRange: 0,
+    ...(bonuses.weaponModifications || {})
+  };
+  character.dualWieldTier = bonuses.dualWieldTier || 0;
 
   // Apply immunities and vision types
   if (!character.immunities) character.immunities = [];

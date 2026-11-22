@@ -44,7 +44,7 @@ A character can choose to either make an evasion check or a deflection check, bu
 
 NPCs use static values for Deflection, Evasion, and Resilience unless a rule specifically says they roll. These static defenses are listed in the NPC's stat block.
 
-Bonuses and penalties apply to the final defense check value whether the check is rolled or static. A +2 bonus to Deflection increases a rolled Deflection check by 2 or increases an NPC's static Deflection by 2. A -1 penalty to Evasion lowers either result by 1.
+Bonus and penalty dice work differently against a static defense, because there are no dice to add or remove. When a defense is rolled, bonus and penalty dice change the pool as normal. When a defense is static, **each bonus die adds 1 to it and each penalty die subtracts 1 from it**. For example, a prone NPC (1 penalty die) with a static Evasion of 6 defends at 5, and an NPC in severe pain (2 penalty dice) with a static Deflection of 7 defends at 5.
 
 <div class="note-box">
 Some attacks may call for a specfic check other than a defense check. When a character is asked to make a defense check, they make either an evasion or deflection check and apply the rules. If an attack calls for a different type of check, it will be specified in the description.
@@ -61,14 +61,14 @@ To calculate the chart manually, add the weapon's **base** and **growth** togeth
 - **Base**: The weapon's inherent power. A heavier or more powerful weapon has a higher base. Increasing a weapon's base raises the entire damage chart.
 - **Growth**: How much the weapon rewards additional hits. A weapon with high growth scales steeply with skill investment. Increasing a weapon's growth makes each additional hit more impactful.
 
-For example, a longsword has a base of 5 and a growth of 4. The first hit deals 9 (5 + 4), the second hit deals 13 (9 + 4), and so on, giving a damage chart of [9, 13, 17, 21, 25]. Crafting enhancements and special materials can increase a weapon's base or growth.
+For example, a longsword has a base of 1 and a growth of 4. The first hit deals 5 (1 + 4), the second hit deals 9 (5 + 4), and so on, giving a damage chart of [5, 9, 13, 17, 21]. Two-handed weapons have a sixth entry on their chart. Crafting enhancements and special materials can increase a weapon's base or growth.
 
 <div class="example-box">
-A monk is wielding a quarterstaff (base 6, growth 3) and makes an attack against a goblin. They have 2 talents in simple weapons and +3 skill, rolling 2d10. The goblin has a static defense of 3. The monk rolls a 6 and an 8. Both beat 3, so that's 2 hits.
+A monk is wielding a quarterstaff (base 1, growth 3, two-handed) and makes an attack against a goblin. They have 2 talents in simple weapons and +3 skill, rolling 2d12. The goblin has a static defense of 3. The monk rolls a 6 and an 8. Both beat 3, so that's 2 hits.
 
-Looking at the quarterstaff's damage chart: [9, 12, 15, 18, 21, 24]
+Looking at the quarterstaff's damage chart: [4, 7, 10, 13, 16, 19]
 
-2 hits = **12 damage**.
+2 hits = **7 damage**.
 </div>
 
 ### Aimed Weapons
@@ -78,15 +78,15 @@ Some weapons, including bows, slings, firearms, and magic staves/wands, have the
 For aimed weapons, the first hit on the damage chart is skipped. Your spell check or attack still needs to succeed, but the first successful die is used for aiming rather than damage.
 
 <div class="example-box">
-An archer fires a shortbow (base 4, growth 3, aimed) with 3 talents in simple ranged and +2 skill, rolling 3d8. The target has a static defense of 4. The archer rolls a 7, 5 and 2.
+An archer fires a short bow (base 1, growth 3, aimed, two-handed) with 3 talents in simple ranged and +2 skill, rolling 3d10. The target has a static defense of 4. The archer rolls a 7, 5 and 2.
 
-Two dice beat the defense (7 and 5), but because the shortbow is aimed, the first die doesn't count. That leaves 1 effective hit.
+Two dice beat the defense (7 and 5), but because the short bow is aimed, the first die doesn't count. That leaves 1 effective hit.
 
-Shortbow damage chart: [—, 7, 10, 13, 16, 19]
+Short bow damage chart: [—, 4, 7, 10, 13, 16]
 
-2 dice hitting = **7 damage**.
+2 dice hitting = **4 damage**.
 
-Compare this to a crossbow (base 6, growth 2, no aimed). At 2 hits, the crossbow does **10 damage** with no aiming penalty. The tradeoff: crossbows require reloading.
+Compare this to a crossbow (base 3, growth 2, not aimed). Its chart is [5, 7, 9, 11, 13, 15], so at 2 hits the crossbow does **7 damage** with no aiming penalty. The tradeoff: crossbows require reloading.
 </div>
 
 Anytime damage is calculated, the target of the attack can mitigate some or all of the damage. This is covered in the [Mitigation](/wiki/damage-mitigation) section.

@@ -21,7 +21,7 @@ The design philosophy of AnyventureDX is to eliminate modifiers - there is no <i
 
 ### 4. Simple Magic System
 
-If they have energy, a character can channel a spell they know by rolling a spell check of the school that the spell belongs to. The spell either goes off, or it doesn't. There are no spell slots, but if a character fails to channel a spell, they cannot use it again until they rest.
+If they have energy, a character can channel a spell they know by rolling a spell check of the school that the spell belongs to. The spell either goes off, or it doesn't. There are no spell slots; a character can know a limited number of spells and channel any of them while they have energy. If a character fails to channel a spell, they cannot use it again until they complete a full rest.
 
 
 ### 5. Energy Based, Reactive Combat
@@ -31,12 +31,12 @@ A character gets 2 actions and movement on each turn, but they are limited what 
 
 ### 6. One Roll Combat Resolution
 
-Instead of rolling to attack and then rolling damage separately, AnyventureDX uses a 'one roll' resolution system with the attacker rolling an attack check against the defender's defense check. Player characters usually roll defense checks, while NPCs usually use static defense checks. The more attack dice that beat the defense check, the more damage the attack does. All weapons have a damage chart based on their base and growth values. For example, a longsword (base 5, growth 4) has a damage chart of [9, 13, 17, 21, 25]. If three dice beat the defense check, the attack deals 17 damage. Just count the hits and read the chart.
+Instead of rolling to attack and then rolling damage separately, AnyventureDX uses a 'one roll' resolution system with the attacker rolling an attack check against the defender's defense check. Player characters usually roll defense checks, while NPCs usually use static defense checks. The more attack dice that beat the defense check, the more damage the attack does. All weapons have a damage chart based on their base and growth values. For example, a longsword (base 1, growth 4) has a damage chart of [5, 9, 13, 17, 21]. If three dice beat the defense check, the attack deals 13 damage. Just count the hits and read the chart.
 
 
 ### 7. Simple Bonus/Penalty System
 
-When a character has bonuses or penalties due to circumstances or skills, you simply add or remove dice to your pool. Bonuses makes skills more consistent and raises the amount of damage a character can do while penalties negatively affect averages. Accumulating several penalties eventually can cause a character to roll multiple dice but take the lowest!
+When a character has bonuses or penalties due to circumstances or skills, you simply add or remove dice to your pool. Bonuses makes skills more consistent and raises the amount of damage a character can do while penalties negatively affect averages. Accumulating enough penalties to take a pool below 1 die causes a character to roll 2 dice and take the lowest!
 
 ### 8. Resources
 

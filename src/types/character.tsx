@@ -30,6 +30,7 @@ export interface Resources {
   energy: { current: number; max: number };
   resolve: { current: number; max: number };
   morale?: { current: number; max: number };
+  mana?: { current: number; max: number };
   pain?: { custom: number; calculated: number };
   stress?: { custom: number; calculated: number };
   painMitigation?: number;
@@ -507,6 +508,15 @@ export interface Character {
   actions: Action[];
   modules: CharacterModule[];
   traits: Trait[];
+  // Range steps added by module codes AA-AF (server-computed, same as Foundry)
+  weaponModifications?: {
+    simpleRangedMinRange?: number;
+    simpleRangedMaxRange?: number;
+    complexRangedMinRange?: number;
+    complexRangedMaxRange?: number;
+    throwingMinRange?: number;
+    throwingMaxRange?: number;
+  };
   characterTrait?: string; // ID of selected character creation trait
   level: number;
   experience: number;

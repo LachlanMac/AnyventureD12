@@ -60,7 +60,7 @@ interface CharacterHeaderProps {
   };
   onDelete?: () => void;
   onResourceChange?: (
-    resource: 'health' | 'energy' | 'resolve' | 'morale',
+    resource: 'health' | 'energy' | 'resolve' | 'morale' | 'mana',
     newCurrent: number
   ) => void;
   onPainStressChange?: (

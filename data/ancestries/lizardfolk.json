@@ -41,7 +41,7 @@
     {
       "name": "Reptilian Anatomy",
       "description": "Lizardfolk have several benefits. You have infravision up to a moderate (20 units) distance and regenerate any missing limbs if you complete a full rest at your maximum health.",
-      "data": "V2=20:TA"
+      "data": "V3=5:TA"
     },
     {
       "name": "Action : Snapjaw",
@@ -50,7 +50,7 @@
     },
     {
       "name": "Cold Blooded",
-      "description": "Lizardfolk cannot regulate their temperature as effectively as warm-blooded creatures. You suffer a -4 penalty to your cold mitigation.",
+      "description": "Lizardfolk cannot regulate their temperature as effectively as warm-blooded creatures. Your scales shrug off mild heat and cold, granting +2 heat and cold mitigation, but extreme temperatures hit you hard: your heat and cold mitigation limits are raised by 4.",
       "data": "M3=2:M2=2:N3=4:N2=4:TA"
     }
   ]

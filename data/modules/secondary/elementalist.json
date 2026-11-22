@@ -7,7 +7,7 @@
       "name": "Primal Attunement",
       "description": "Your deep communion with primal forces has opened new pathways of understanding. Gain +1 skill with magic knowledge and +1 spell capacity.",
       "location": "1",
-      "data": "SSN=1:A9=1"
+      "data": "SSO=1:A9=1"
     },
     {
       "name": "Action : Shaped Elements",

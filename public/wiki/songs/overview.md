@@ -9,13 +9,13 @@ Musical talents allow a character to perform music by making an expression check
 By default, characters do not have any talents in any musical category. There are 5 types of musical skill are Vocal, Percussion, Wind, Strings and Brass. Because musical talents rely on expression checks, the talents in the individual musical skills instead enhance that check.
 
 ### No Talent
-The character has no idea how to use the magical talent, but can force their way through if their expression skill is high enough. Without talent, any expression check while using the talent is rolled with a penalty dice.
+The character has no idea how to use the musical talent, but can force their way through if their expression skill is high enough. Without talent, any expression check while using the talent is rolled with a penalty dice.
 
 ### Novice (1 Talent)
-The character has enough experience to not mess it up and carry a pleasant tune to most ears. They do not roll with a bonus or penalty when making an expression check using their musical talent. To become a beginner in a talent, a character is expected to dedicate over 100 hours to learning their craft.
+The character has enough experience to not mess it up and carry a pleasant tune to most ears. They do not roll with a bonus or penalty when making an expression check using their musical talent. To become a novice in a talent, a character is expected to dedicate over 100 hours to learning their craft.
 
 ### Expert (2 Talents)
-Experts have dedicated enough time to their magical talent where they are consistently good. They gain a bonus dice when making expression checks using their musical talent. To become a novice in a musical talent, a character is expected to dedicate over 1000 hours to learning their craft. Most campaigns would not be expected to have this much downtime in a campaign, so becoming an expert will usually only be available at character creation or by advanced module selection.
+Experts have dedicated enough time to their musical talent where they are consistently good. They gain a bonus dice when making expression checks using their musical talent. To become an expert in a musical talent, a character is expected to dedicate over 1000 hours to learning their craft. Most campaigns would not be expected to have this much downtime in a campaign, so becoming an expert will usually only be available at character creation or by advanced module selection.
 
 ### Master (3 Talents)
 Masters have perfected their craft and gain 2 bonus dice when making expression checks using their musical talent. This type of talent is accumulated over several years and often decades and only attainable through special circumstances.
@@ -38,7 +38,7 @@ A character can only benefit from receiving a unique song/ballad once per day. T
 </div>
 
 <div class="example-box">
-    It is the battle-skald's turn and they want to perform the <b>Song of Battle</b> which grants all allies who hear it a free weapon attack that does not count against their turn limit. The skald has 2 talents and 4 skill in the expression skill, so by default they would roll a 2d12 with a required check of 6 on the song they want to play. They are also an expert vocalist and want to sing the song so they can dedicate their hands to swinging their swords. This means they roll with a bonus dice for a 3d12, and as expected, they succeed as their highest dice rolled was a 10, and all allies within 10 units gain the effects of the song on their turn. Because they are only using their voice, they only need to dedicate their concentration. If the skald has not lost their concentration before their next turn, they must make the check again, or the song ends. If the skald does lose concentration, the benefits end immediately.  
+    It is the battle-skald's turn and they want to perform the <b>Song of Battle</b> which grants all allies who hear it a free weapon attack that does not count against their turn limit. The skald has 2 talents and 4 skill in the expression skill, so by default they would roll a 2d16 with a required check of 6 on the song they want to play. They are also an expert vocalist and want to sing the song so they can dedicate their hands to swinging their swords. This means they roll with a bonus dice for a 3d16, and as expected, they succeed as their highest dice rolled was a 10, and all allies within 10 units gain the effects of the song on their turn. Because they are only using their voice, they only need to dedicate their concentration. If the skald has not lost their concentration before their next turn, they must make the check again, or the song ends. If the skald does lose concentration, the benefits end immediately.  
 </div>
 
 

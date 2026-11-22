@@ -49,13 +49,13 @@
       "name": "Master of Staves",
       "description": "Gain +1 skill with simple melee weapons and +1 deflection while not wearing armor.",
       "location": "6a",
-      "data": "WS3=1:CA=1"
+      "data": "WS3=1:CA[SSB=1]"
     },
     {
       "name": "Master of Fists",
       "description": "Gain +1 skill with brawling attacks and +1 evasion while not wearing armor.",
       "location": "6b",
-      "data": "WS1=1:CB=1"
+      "data": "WS1=1:CA[SSE=1]"
     },
     {
       "name": "Daily Action : Cleansing Focus",

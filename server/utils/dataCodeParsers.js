@@ -68,12 +68,23 @@ const AUTO_STAT_MAPPINGS = {
   '7': 'energyRegen',
   '8': 'morale',
   '9': 'spellSlots',
+  'M': 'mana', // AM=n: max mana (base 0), same as Foundry's manaPoints
   'P': 'painMitigation',
   'Q': 'painLimit',
   'R': 'stressMitigation',
   'W': 'stressLimit',
   'S': 'sorcererSpellSlots',
   'T': 'thiefSpellSlots'
+};
+
+// Range modifiers in range steps (A codes), matching Foundry's weaponModifications keys
+const WEAPON_RANGE_MAPPINGS = {
+  'A': 'simpleRangedMinRange',
+  'B': 'simpleRangedMaxRange',
+  'C': 'complexRangedMinRange',
+  'D': 'complexRangedMaxRange',
+  'E': 'throwingMinRange',
+  'F': 'throwingMaxRange'
 };
 
 const MOVEMENT_MAPPINGS = {
@@ -190,10 +201,10 @@ const PARSERS = [
   },
   {
     name: 'Magic',
-    pattern: /^Y([STB])([1-6])=(-?\d+)$/,
+    pattern: /^Y([STB])([1-6])=(-?\d+|[XY])$/,
     parse: (match, bonuses) => {
       const [_, type, code, valueStr] = match;
-      const value = parseInt(valueStr);
+      const value = isNaN(parseInt(valueStr)) ? valueStr : parseInt(valueStr);
       const magicName = MAGIC_MAPPINGS[code];
 
       if (magicName) {
@@ -201,7 +212,11 @@ const PARSERS = [
         if (!bonuses.magicSkills[magicName]) bonuses.magicSkills[magicName] = {};
 
         if (type === 'S') {
-          bonuses.magicSkills[magicName].value = (bonuses.magicSkills[magicName].value || 0) + value;
+          if (value === 'X' || value === 'Y') {
+            bonuses.magicSkills[magicName].diceTierModifier = (bonuses.magicSkills[magicName].diceTierModifier || 0) + (value === 'X' ? 1 : -1);
+          } else {
+            bonuses.magicSkills[magicName].value = (bonuses.magicSkills[magicName].value || 0) + value;
+          }
         } else if (type === 'T') {
           bonuses.magicSkills[magicName].talent = (bonuses.magicSkills[magicName].talent || 0) + value;
         } else if (type === 'B') {
@@ -280,6 +295,14 @@ const PARSERS = [
 
       if (statType) {
         bonuses[statType] = (bonuses[statType] || 0) + value;
+      } else if (WEAPON_RANGE_MAPPINGS[code]) {
+        // Weapon range modifiers (AA-AF), measured in range steps like Foundry's weaponModifications
+        if (!bonuses.weaponModifications) bonuses.weaponModifications = {};
+        const key = WEAPON_RANGE_MAPPINGS[code];
+        bonuses.weaponModifications[key] = (bonuses.weaponModifications[key] || 0) + value;
+      } else if (code === 'Z') {
+        // Dual wield tier (AZ=1 / AZ=2): highest tier wins
+        bonuses.dualWieldTier = Math.max(bonuses.dualWieldTier || 0, value);
       }
     }
   },
@@ -336,7 +359,7 @@ const PARSERS = [
   },
   {
     name: 'Immunities',
-    pattern: /^I([A-Z])$/,
+    pattern: /^I([A-Z])(?:=1)?$/,
     parse: (match, bonuses) => {
       const immunityMap = {
         'A': 'afraid', 'B': 'bleeding', 'C': 'blinded', 'D': 'charmed', 'E': 'confused',
@@ -460,7 +483,7 @@ function parseConditionalEffect(match, character) {
 
   if (!conditionName) return;
 
-  const effects = effectsString.split(',').map(e => e.trim());
+  const effects = effectsString.split(/[,:]/).map(e => e.trim());
   const parsedEffects = [];
 
   for (const effectStr of effects) {

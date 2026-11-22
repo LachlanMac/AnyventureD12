@@ -37,7 +37,7 @@ There are 20 total base skills in AnyventureDX. Each skill falls under their par
 
 ## Skill Progression
 <div class="triangle-line"></div>
-A character's skill can range from 0 to 6 for a total of 7 levels, with each level using a different dice for checks. Skills improve by investing module points into modules.
+A character's skill can range from 0 to 7 for a total of 8 levels, with each level using a different dice for checks. Skills improve by investing module points into modules.
 
 <br> 
 
@@ -59,7 +59,7 @@ A character that wants to function as a healer for their allies with medicine ta
 | 7 - Grand Master| d30      | 15.5         |
 <br> 
 
-In most scenarios, skills are denoted by their dice type rather than a numerical value. For instance - if your character had journeyman fitness, the character sheet should show d10 instead of +3. 
+In most scenarios, skills are denoted by their dice type rather than a numerical value. For instance - if your character had journeyman fitness, the character sheet should show d12 instead of +3. 
 
 ## Skill Checks
 <div class="triangle-line"></div>
