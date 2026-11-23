@@ -10,11 +10,6 @@
     "max": 20,
     "current": 20
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 15,
     "current": 15,
@@ -241,7 +236,6 @@
   "actions": [
     {
       "name": "Crossbow",
-      "cost": 0,
       "actionCost": 1,
       "frequency": "action",
       "frequencyCondition": "",
@@ -269,7 +263,6 @@
     },
     {
       "name": "Falchion",
-      "cost": 1,
       "actionCost": 1,
       "frequency": "action",
       "frequencyCondition": "",
@@ -297,7 +290,6 @@
     },
     {
       "name": "Rough Up",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The brigand roughs up an adjacent creature, distracting them by forcing the target to make a concentration check higher than an 8. On a failure, the next attack against that target before the target's turn gains a bonus die.",

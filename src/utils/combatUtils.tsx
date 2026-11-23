@@ -25,7 +25,6 @@ export function buildBrawlingAttack(
   const skill = brawling?.skill ?? 0;
   return {
     name: BRAWLING_ATTACK_NAME,
-    cost: 0,
     actionCost: 1,
     frequency: 'action' as const,
     frequencyCondition: '',

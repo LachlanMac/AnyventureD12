@@ -1,6 +1,6 @@
 {
   "name": "Bodkin Ammunition",
-  "description": "Specialized ammunition with a steel head that is shaped specifically to pierce armor. While this ammunition can still be completely mitigated, the damage done is not halved by being inside the resisted threshold.",
+  "description": "Specialized ammunition with a steel head that is shaped specifically to pierce armor. When calculating mitigation for damage from this ammunition, the target's physical mitigation is lowered by 2.",
   "type": "ammunition",
   "weight": 0.1,
   "value": 20,

@@ -10,7 +10,6 @@ import { getDiceForSkill } from '../utils/combatUtils';
 
 interface CreatureAction {
   name: string;
-  cost: number;
   type: 'attack' | 'spell' | 'utility' | 'movement';
   magic: boolean;
   description: string;
@@ -59,7 +58,6 @@ interface CreatureAction {
 
 interface CreatureReaction {
   name: string;
-  cost: number;
   trigger: string;
   description: string;
   frequency?: 'action' | 'round' | 'battle' | 'unique';
@@ -105,14 +103,12 @@ const normalizeMovement = (
 
 type ResourceState = {
   health: { max: number; current: number };
-  energy: { max: number; current: number; recovery: number };
   resolve: { max: number; current: number; recovery: number };
   movement: CreatureMovement;
 };
 
 const defaultResourceState: ResourceState = {
   health: { max: 15, current: 15 },
-  energy: { max: 5, current: 5, recovery: 2 },
   resolve: { max: 10, current: 10, recovery: 1 },
   movement: { ...defaultCreatureMovement },
 };
@@ -168,7 +164,6 @@ const HomebrewCreatureCreator: React.FC = () => {
   const [resources, setResources] = useState<ResourceState>(
     {
       health: { ...defaultResourceState.health },
-      energy: { ...defaultResourceState.energy },
       resolve: { ...defaultResourceState.resolve },
       movement: { ...defaultCreatureMovement },
     }
@@ -307,7 +302,6 @@ const HomebrewCreatureCreator: React.FC = () => {
 
       const resolvedResources: ResourceState = {
         health: creature.health ? { ...creature.health } : { ...defaultResourceState.health },
-        energy: creature.energy ? { ...creature.energy } : { ...defaultResourceState.energy },
         resolve: creature.resolve ? { ...creature.resolve } : { ...defaultResourceState.resolve },
         movement: normalizeMovement(creature.movement || creature.resources?.movement),
       };
@@ -333,7 +327,6 @@ const HomebrewCreatureCreator: React.FC = () => {
 
       setResources({
         health: { ...resolvedResources.health },
-        energy: { ...resolvedResources.energy },
         resolve: { ...resolvedResources.resolve },
         movement: { ...resolvedResources.movement },
       });
@@ -379,7 +372,6 @@ const HomebrewCreatureCreator: React.FC = () => {
       const submitData = {
         ...creatureData,
         health: resources.health,
-        energy: resources.energy,
         resolve: resources.resolve,
         movement: { ...resources.movement },
         attributes,
@@ -424,7 +416,6 @@ const HomebrewCreatureCreator: React.FC = () => {
       ...actions,
       {
         name: '',
-        cost: 0,
         type: 'attack',
         magic: false,
         description: '',
@@ -455,7 +446,7 @@ const HomebrewCreatureCreator: React.FC = () => {
   };
 
   const addReaction = () => {
-    setReactions([...reactions, { name: '', cost: 1, trigger: '', description: '', frequency: 'action', actionCost: 1, frequencyCondition: '' }]);
+    setReactions([...reactions, { name: '', trigger: '', description: '', frequency: 'action', actionCost: 1, frequencyCondition: '' }]);
   };
 
   const removeReaction = (index: number) => {
@@ -549,7 +540,6 @@ const HomebrewCreatureCreator: React.FC = () => {
       ...customSpells,
       {
         name: '',
-        energy_cost: 1,
         roll: '',
         damage: '',
         damage_extra: '',
@@ -1061,40 +1051,6 @@ const HomebrewCreatureCreator: React.FC = () => {
                   />
                 </div>
 
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-white)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Max Energy
-                  </label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={resources.energy.max}
-                    onChange={(e) =>
-                      setResources((prev) => ({
-                        ...prev,
-                        energy: {
-                          ...prev.energy,
-                          max: parseInt(e.target.value) || 1,
-                          current: parseInt(e.target.value) || 1,
-                        },
-                      }))
-                    }
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem',
-                      backgroundColor: 'var(--color-dark-surface)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                      color: 'var(--color-white)',
-                    }}
-                  />
-                </div>
 
                 <div>
                   <label
@@ -1301,39 +1257,6 @@ const HomebrewCreatureCreator: React.FC = () => {
               </div>
 
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '1rem' }}>
-                <div>
-                  <label
-                    style={{
-                      color: 'var(--color-white)',
-                      display: 'block',
-                      marginBottom: '0.5rem',
-                    }}
-                  >
-                    Energy Recovery
-                  </label>
-                  <input
-                    type="number"
-                    min="0"
-                    value={resources.energy.recovery}
-                    onChange={(e) =>
-                      setResources((prev) => ({
-                        ...prev,
-                        energy: {
-                          ...prev.energy,
-                          recovery: parseInt(e.target.value) || 0,
-                        },
-                      }))
-                    }
-                    style={{
-                      width: '100%',
-                      padding: '0.75rem',
-                      backgroundColor: 'var(--color-dark-surface)',
-                      border: '1px solid var(--color-dark-border)',
-                      borderRadius: '0.375rem',
-                      color: 'var(--color-white)',
-                    }}
-                  />
-                </div>
 
                 <div>
                   <label
@@ -2042,33 +1965,6 @@ const HomebrewCreatureCreator: React.FC = () => {
                             marginBottom: '0.5rem',
                           }}
                         >
-                          Energy Cost
-                        </label>
-                        <input
-                          type="number"
-                          min="0"
-                          value={action.cost}
-                          onChange={(e) =>
-                            updateAction(index, 'cost', parseInt(e.target.value) || 0)
-                          }
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-surface)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                            color: 'var(--color-white)',
-                          }}
-                        />
-                      </div>
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-white)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
                           Type
                         </label>
                         <select
@@ -2315,33 +2211,6 @@ const HomebrewCreatureCreator: React.FC = () => {
                           type="text"
                           value={reaction.name}
                           onChange={(e) => updateReaction(index, 'name', e.target.value)}
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-surface)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                            color: 'var(--color-white)',
-                          }}
-                        />
-                      </div>
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-white)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Energy Cost
-                        </label>
-                        <input
-                          type="number"
-                          min="0"
-                          value={reaction.cost}
-                          onChange={(e) =>
-                            updateReaction(index, 'cost', parseInt(e.target.value) || 0)
-                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',
@@ -2710,7 +2579,7 @@ const HomebrewCreatureCreator: React.FC = () => {
                       {getFilteredSpells().map((spell) => (
                         <option key={spell._id} value={spell._id}>
                           {spell.name} ({spell.subschool || spell.school}) - RC:
-                          {spell.cast_rc || 'N/A'} - {spell.energy_cost}⚡
+                          {spell.cast_rc || 'N/A'}
                         </option>
                       ))}
                     </select>
@@ -2831,33 +2700,6 @@ const HomebrewCreatureCreator: React.FC = () => {
                           type="text"
                           value={spell.name}
                           onChange={(e) => updateCustomSpell(index, 'name', e.target.value)}
-                          style={{
-                            width: '100%',
-                            padding: '0.5rem',
-                            backgroundColor: 'var(--color-dark-surface)',
-                            border: '1px solid var(--color-dark-border)',
-                            borderRadius: '0.375rem',
-                            color: 'var(--color-white)',
-                          }}
-                        />
-                      </div>
-                      <div>
-                        <label
-                          style={{
-                            color: 'var(--color-white)',
-                            display: 'block',
-                            marginBottom: '0.5rem',
-                          }}
-                        >
-                          Energy Cost
-                        </label>
-                        <input
-                          type="number"
-                          min="0"
-                          value={spell.energy_cost}
-                          onChange={(e) =>
-                            updateCustomSpell(index, 'energy_cost', parseInt(e.target.value) || 0)
-                          }
                           style={{
                             width: '100%',
                             padding: '0.5rem',

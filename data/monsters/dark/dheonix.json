@@ -10,11 +10,6 @@
     "max": 110,
     "current": 110
   },
-  "energy": {
-    "max": 8,
-    "current": 8,
-    "recovery": 5
-  },
   "resolve": {
     "max": 45,
     "current": 35,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Talon Rake",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The dheonix swoops past a creature, raking them with its massive talons for physical damage. The dheonix does not provoke reactions to creatures who take damage from this attack.",
@@ -255,7 +249,6 @@
     },
     {
       "name": "Firebolt",
-      "cost": 2,
       "type": "attack",
       "magic": true,
       "description": "The dheonix hurls a projectile of dark flame at a creature, dealing heat damage. Any flammable surface struck by this attack ignites.",
@@ -280,7 +273,6 @@
     },
     {
       "name": "Dheonix Fire",
-      "cost": 1,
       "type": "utility",
       "magic": true,
       "description": "The dheonix targets a flame within moderate (20 unit) range and converts it to dheonix fire. This fire burns with a purple fire, absorbing all light around it and dealing 5 dark damage to anyone who starts their turn within a nearby (1 unit) radius. Dheonix fire cannot be extinguished by non-magical means and burns while the dheonix is alive.",
@@ -305,7 +297,6 @@
     },
     {
       "name": "Dark Pulse",
-      "cost": 3,
       "type": "utility",
       "magic": true,
       "description": "The dheonix targets itself or a dheonix fire within moderate (20 unit) range, causing it to pulse with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take 8 dark damage.",
@@ -343,7 +334,6 @@
     },
     {
       "name": "Font of Flames",
-      "cost": 5,
       "type": "utility",
       "magic": true,
       "description": "The dheonix detonates itself in a catastrophic explosion of fire and dark energy, striking all creatures within a short (10 unit) radius. The dheonix is destroyed by this action. All flames created or hit by the explosion are automatically converted to dheonix fires.",

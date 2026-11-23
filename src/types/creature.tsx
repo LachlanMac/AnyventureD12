@@ -2,7 +2,7 @@
 
 export interface CreatureAction {
   name: string;
-  cost: number;
+  cost?: number; // energy cost; only set for player/item abilities shown with these cards
   actionCost?: number;
   frequency?: 'action' | 'round' | 'battle' | 'unique';
   frequencyCondition?: string;
@@ -48,7 +48,7 @@ export interface CreatureAction {
 
 export interface CreatureReaction {
   name: string;
-  cost: number;
+  cost?: number; // energy cost; only set for player/item abilities shown with these cards
   actionCost?: number;
   frequency?: 'action' | 'round' | 'battle' | 'unique';
   frequencyCondition?: string;
@@ -118,7 +118,6 @@ export interface CreatureSpell {
 export interface CreatureCustomSpell {
   name: string;
   description: string;
-  energy_cost: number;
   roll?: string;
   damage?: string;
   damage_extra?: string;
@@ -170,11 +169,6 @@ export interface Creature {
   health: {
     max: number;
     current: number;
-  };
-  energy: {
-    max: number;
-    current: number;
-    recovery: number;
   };
   resolve: {
     max: number;

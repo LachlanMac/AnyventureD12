@@ -11,11 +11,6 @@
     "max": 16,
     "current": 16
   },
-  "energy": {
-    "max": 3,
-    "current": 3,
-    "recovery": 2
-  },
   "resolve": {
     "max": 0,
     "current": 0,
@@ -233,7 +228,6 @@
   "actions": [
     {
       "name": "Frenzy",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The ghoul makes a frenzied claw attack against an adjacent creature. If the target is bleeding, this attack deals an additional 3 physical damage.",
@@ -258,7 +252,6 @@
     },
     {
       "name": "Ghoul Bite",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The ghoul sinks its teeth into an adjacent creature. If at least 4 dice hit, the target is paralyzed until the end of their next turn.",

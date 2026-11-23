@@ -160,7 +160,7 @@ const ItemSchema = new Schema({
   },
   consumable_category: {
       type: String,
-      enum: ["poisons", "elixirs", "potions", "explosives"],
+      enum: ["poisons", "elixirs", "potions", "explosives", "oils"],
   },
   implant_data: {
     implant_type: {

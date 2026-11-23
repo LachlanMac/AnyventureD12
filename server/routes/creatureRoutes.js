@@ -91,6 +91,18 @@ router.put('/files/:category/:filename', requireWhitelisted, (req, res) => {
 });
 
 // Public routes
+// Common creature traits (Undead, Brittle Bones, ...) for the designer's "add common trait" picker.
+// Read fresh each time so edits to the file show up without a restart.
+router.get('/common-traits', (req, res) => {
+  try {
+    const filePath = path.resolve(__dirname, '../../data/monster_traits/common_traits.json');
+    res.json(JSON.parse(fs.readFileSync(filePath, 'utf8')));
+  } catch (error) {
+    console.error('Error reading common traits:', error);
+    res.status(500).json({ message: 'Failed to load common traits' });
+  }
+});
+
 router.get('/', getCreatures);
 router.get('/stats', getCreatureStats);
 router.get('/type/:type', getCreaturesByType);

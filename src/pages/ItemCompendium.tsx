@@ -131,7 +131,7 @@ const ItemCompendium: React.FC = () => {
     complexMelee: 'Complex Melee', complexRanged: 'Complex Ranged',
     brawling: 'Brawling', throwing: 'Throwing',
   };
-  const consumableCategories = ['all', 'poisons', 'elixirs', 'potions', 'explosives'];
+  const consumableCategories = ['all', 'poisons', 'elixirs', 'potions', 'explosives', 'oils'];
 
   const typeCounts: Record<string, number> = {};
   items.forEach((item) => { typeCounts[item.type] = (typeCounts[item.type] || 0) + 1; });

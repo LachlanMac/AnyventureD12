@@ -125,21 +125,6 @@ const HomebrewCreatureBrowser: React.FC = () => {
     }
   };
 
-  const getTypeIcon = (type: string) => {
-    const icons = {
-      fiend: '👹',
-      undead: '💀',
-      divine: '✨',
-      monster: '🐲',
-      humanoid: '👤',
-      construct: '🤖',
-      plantoid: '🌿',
-      fey: '🧚',
-      elemental: '🔥',
-    };
-    return icons[type as keyof typeof icons] || '❓';
-  };
-
   const getTierColor = (tier: string) => {
     const colors = {
       minion: 'var(--color-cloud)',
@@ -448,7 +433,6 @@ const HomebrewCreatureBrowser: React.FC = () => {
                     }}
                   >
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.75rem' }}>
-                      <span style={{ fontSize: '1.5rem' }}>{getTypeIcon(creature.type)}</span>
                       <div>
                         <h3
                           style={{

@@ -12,11 +12,6 @@
     "max": 6,
     "current": 6
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 0,
     "current": 0,
@@ -236,7 +231,7 @@
   "traits": [
     {
       "name": "Brittle Bones",
-      "description": "Skeletons take double damage from blunt physical damage sources."
+      "description": "Skeletons cannot mitigate physical damage from blunt weapons."
     },
     {
       "name": "Compliant",

@@ -11,11 +11,6 @@
     "max": 22,
     "current": 22
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 0,
     "current": 0,
@@ -233,7 +228,6 @@
   "actions": [
     {
       "name": "Bite",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The risen bites an adjacent creature. If the attack deals damage, the target must make an endurance check of 7 or gain the diseased condition.",

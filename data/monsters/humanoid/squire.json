@@ -10,11 +10,6 @@
     "max": 18,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 5,
-    "recovery": 0
-  },
   "resolve": {
     "max": 10,
     "current": 5,
@@ -200,7 +195,6 @@
   "actions": [
     {
       "name": "Short Sword",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The squire makes a quick slash with their weapon, dealing physical damage.",
@@ -222,7 +216,6 @@
     },
     {
       "name": "Practiced Defense",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "While next to their sworn knight, the squire takes the defense action and gains an additional +1 bonus to defense on top of the usual benefit.",
@@ -244,7 +237,6 @@
     },
     {
       "name": "Change Equipment",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The square helps an adjacent ally change a piece of their equipment, either removing, adding or exchanging an item from their inventory or equipment slots.",
@@ -268,7 +260,6 @@
   "reactions": [
     {
       "name": "Call for Aid",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "In response to being attacked, the squire calls for aid from their sworn knight. If the knight has enough movement speed to make it to their squire, they immediately move to an adjacent tile.",

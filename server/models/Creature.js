@@ -2,7 +2,6 @@ import mongoose from 'mongoose';
 
 const actionSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  cost: { type: Number, default: 0 },
   actionCost: { type: Number, default: 1, enum: [1, 2] },
   frequency: {
     type: String,
@@ -120,7 +119,6 @@ const normalizeMovement = (movement) => {
 
 const reactionSchema = new mongoose.Schema({
   name: { type: String, required: true },
-  cost: { type: Number, default: 0 },
   actionCost: { type: Number, default: 1, enum: [1, 2] },
   frequency: {
     type: String,
@@ -235,11 +233,6 @@ const creatureSchema = new mongoose.Schema({
   health: {
     max: { type: Number, required: true },
     current: { type: Number, required: true }
-  },
-  energy: {
-    max: { type: Number, required: true },
-    current: { type: Number, required: true },
-    recovery: { type: Number, default: 2 }
   },
   resolve: {
     max: { type: Number, required: true },
@@ -462,7 +455,6 @@ const creatureSchema = new mongoose.Schema({
   // Custom spells defined inline for homebrew creatures
   customSpells: [{
     name: { type: String, required: true },
-    energy_cost: { type: Number, min: 0, default: 1 },
     roll: { type: String },
     damage: { type: String },
     damage_extra: { type: String },

@@ -58,6 +58,8 @@ interface AbilityEditorProps {
   abilities: AbilityEntry[];
   onAbilitiesChange: (abilities: AbilityEntry[]) => void;
   showCharges?: boolean;
+  // Creatures don't use energy, so the creature designer hides the cost field
+  showEnergyCost?: boolean;
 }
 
 const subschoolMap: Record<string, { value: string; label: string }[]> = {
@@ -126,7 +128,7 @@ const DEFAULT_ATTACK = {
   max_range: 1,
 };
 
-const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesChange, showCharges = false }) => {
+const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesChange, showCharges = false, showEnergyCost = true }) => {
   const addAbility = () => {
     onAbilitiesChange([
       ...abilities,
@@ -213,14 +215,16 @@ const AbilityEditor: React.FC<AbilityEditorProps> = ({ abilities, onAbilitiesCha
               onChange={(e) => updateAbility(index, 'name', e.target.value)}
               className="p-2 bg-gray-800 border border-gray-600 rounded"
             />
-            <input
-              type="number"
-              placeholder="Energy cost"
-              min="0"
-              value={ability.cost}
-              onChange={(e) => updateAbility(index, 'cost', parseInt(e.target.value))}
-              className="p-2 bg-gray-800 border border-gray-600 rounded"
-            />
+            {showEnergyCost && (
+              <input
+                type="number"
+                placeholder="Energy cost"
+                min="0"
+                value={ability.cost}
+                onChange={(e) => updateAbility(index, 'cost', parseInt(e.target.value))}
+                className="p-2 bg-gray-800 border border-gray-600 rounded"
+              />
+            )}
             <select
               value={ability.type}
               onChange={(e) => changeType(index, e.target.value)}

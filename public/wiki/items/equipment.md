@@ -46,6 +46,15 @@ Generally, complex weapons are more versatile than simple weapons and can deal m
 
 For a full list of weapons with detailed statistics, damage values, and special properties, see the [Weapons](/wiki/weapons) page.
 
+### Silvered Weapons
+A silvered weapon or piece of ammunition has silver worked into its striking surface. Normal weapons pass straight through incorporeal creatures such as ghosts and wraiths, dealing no physical damage. **Physical damage from a silvered weapon or silvered ammunition harms incorporeal creatures normally.** Some creatures, such as vampires, are also especially vulnerable to silver.
+
+There are two ways to get a silvered weapon:
+- **Fabrication**: add the Silvered infusion when forging a weapon. It is permanent.
+- **Silver Oil**: an alchemical coating that makes a weapon count as silvered for its next 3 attacks, or makes 3 pieces of ammunition silvered.
+
+Weapons that deal non-physical damage, such as flame staves and Brimsteel weapons, do not need silver to harm incorporeal creatures.
+
 ### Weapon Categories
 Weapons also have categories which determines what types of actions they can benefit from. 
 

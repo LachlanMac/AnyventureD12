@@ -68,7 +68,6 @@ interface CreatureTrait {
 
 interface KnownSpell {
   name: string;
-  energyCost: number;
   spellType: 'normal' | 'innate' | 'unique';
   school?: string;
   subschool?: string;
@@ -223,7 +222,6 @@ const DevCreatureDesigner: React.FC = () => {
   // Resources
   const [resources, setResources] = useState({
     health: { max: 15, current: 15 },
-    energy: { max: 5, current: 5, recovery: 2 },
     resolve: { max: 5, current: 5, recovery: 1 },
   });
 
@@ -359,6 +357,14 @@ const DevCreatureDesigner: React.FC = () => {
   // Abilities
   const [abilities, setAbilities] = useState<CreatureAbility[]>([]);
   const [traits, setTraits] = useState<CreatureTrait[]>([]);
+  const [commonTraits, setCommonTraits] = useState<CreatureTrait[]>([]);
+
+  useEffect(() => {
+    fetch('/api/creatures/common-traits')
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => setCommonTraits(Array.isArray(data) ? data : []))
+      .catch(() => setCommonTraits([]));
+  }, []);
   const [knownSpells, setKnownSpells] = useState<KnownSpell[]>([]);
   const [availableSpells, setAvailableSpells] = useState<any[]>([]);
   const [showSpellSelector, setShowSpellSelector] = useState(false);
@@ -455,12 +461,10 @@ const DevCreatureDesigner: React.FC = () => {
     const dmg = primary.damage || '0';
     const dmgExtra = primary.damage_extra || '0';
     const dmgType = primary.damage_type || 'physical';
-    const energy = primary.energy || 0;
     const categoryType = primary.category || 'slash';
 
     return {
       name: item.name,
-      cost: energy,
       actionCost: 1,
       frequency: 'action' as const,
       frequencyCondition: '',
@@ -491,16 +495,6 @@ const DevCreatureDesigner: React.FC = () => {
   useEffect(() => {
     fetchAvailableSpells();
   }, []);
-
-  // Set energy to 0 when tier is minion or grunt
-  useEffect(() => {
-    if (creatureData.tier === 'minion' || creatureData.tier === 'grunt') {
-      setResources(prev => ({
-        ...prev,
-        energy: { max: 0, current: 0, recovery: 0 }
-      }));
-    }
-  }, [creatureData.tier]);
 
   const fetchAvailableSpells = async () => {
     try {
@@ -551,9 +545,8 @@ const DevCreatureDesigner: React.FC = () => {
         foundry_portrait: jsonData.foundry_portrait || '',
       });
 
-      setResources(jsonData.health && jsonData.energy && jsonData.resolve ? {
+      setResources(jsonData.health && jsonData.resolve ? {
         health: jsonData.health,
-        energy: jsonData.energy,
         resolve: jsonData.resolve,
       } : resources);
 
@@ -630,11 +623,10 @@ const DevCreatureDesigner: React.FC = () => {
 
       // Build knownSpells from spellNames (normal) + innate spell actions
       const normalSpells: KnownSpell[] = (jsonData.spellNames || []).map((name: string) => ({
-        name, energyCost: 1, spellType: 'normal' as const,
+        name, spellType: 'normal' as const,
       }));
       const innateSpells: KnownSpell[] = innateActions.map((a: any) => ({
         name: a.name,
-        energyCost: a.cost || 1,
         spellType: a.spellType as 'innate' | 'unique',
         school: a.spell?.school || '',
         subschool: a.spell?.subschool || '',
@@ -670,7 +662,6 @@ const DevCreatureDesigner: React.FC = () => {
       .filter(s => s.spellType !== 'normal')
       .map(s => ({
         name: s.name,
-        cost: s.energyCost,
         actionCost: 1,
         frequency: 'action' as const,
         frequencyCondition: '',
@@ -783,7 +774,6 @@ const DevCreatureDesigner: React.FC = () => {
       size: creatureData.size,
       foundry_portrait: creatureData.foundry_portrait || '',
       health: resources.health,
-      energy: resources.energy,
       resolve: resources.resolve,
       movement,
       attributes,
@@ -849,7 +839,6 @@ const DevCreatureDesigner: React.FC = () => {
       size: creatureData.size,
       foundry_portrait: creatureData.foundry_portrait || '',
       health: resources.health,
-      energy: resources.energy,
       resolve: resources.resolve,
       movement,
       attributes,
@@ -920,7 +909,6 @@ const DevCreatureDesigner: React.FC = () => {
         size: creatureData.size,
         foundry_portrait: creatureData.foundry_portrait || '',
         health: resources.health,
-        energy: resources.energy,
         resolve: resources.resolve,
         movement,
         attributes,
@@ -1005,9 +993,8 @@ const DevCreatureDesigner: React.FC = () => {
           foundry_portrait: jsonData.foundry_portrait || '',
         });
 
-        setResources(jsonData.health && jsonData.energy && jsonData.resolve ? {
+        setResources(jsonData.health && jsonData.resolve ? {
           health: jsonData.health,
-          energy: jsonData.energy,
           resolve: jsonData.resolve,
         } : resources);
 
@@ -1105,11 +1092,10 @@ const DevCreatureDesigner: React.FC = () => {
 
         // Build knownSpells from spellNames (normal) + innate spell actions
         const normalSpells: KnownSpell[] = (jsonData.spellNames || []).map((name: string) => ({
-          name, energyCost: 1, spellType: 'normal' as const,
+          name, spellType: 'normal' as const,
         }));
         const innateSpells: KnownSpell[] = innateSpellActions.map((a: any) => ({
           name: a.name,
-          energyCost: a.cost || 1,
           spellType: a.spellType as 'innate' | 'unique',
           school: a.spell?.school || '',
           subschool: a.spell?.subschool || '',
@@ -1154,7 +1140,6 @@ const DevCreatureDesigner: React.FC = () => {
       });
       setResources({
         health: { max: 15, current: 15 },
-        energy: { max: 5, current: 5, recovery: 2 },
         resolve: { max: 5, current: 5, recovery: 1 },
       });
       setMovement({
@@ -1205,7 +1190,6 @@ const DevCreatureDesigner: React.FC = () => {
     if (spell.name && !knownSpells.some(s => s.name === spell.name)) {
       setKnownSpells([...knownSpells, {
         name: spell.name,
-        energyCost: spell.energy || 1,
         spellType: 'normal',
         school: spell.school || '',
         subschool: spell.subschool || '',
@@ -1241,6 +1225,13 @@ const DevCreatureDesigner: React.FC = () => {
         description: '',
       },
     ]);
+  };
+
+  // Copy a common trait in as a normal, editable trait
+  const addCommonTrait = (name: string) => {
+    const common = commonTraits.find((t) => t.name === name);
+    if (!common) return;
+    setTraits([...traits, { name: common.name, description: common.description }]);
   };
 
   const removeTrait = (index: number) => {
@@ -1562,39 +1553,6 @@ const DevCreatureDesigner: React.FC = () => {
                   className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
                 />
               </div>
-
-              {/* Hide energy fields for minions and grunt */}
-              {creatureData.tier !== 'minion' && creatureData.tier !== 'grunt' && (
-                <>
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Energy (Max)</label>
-                    <input
-                      type="number"
-                      min="1"
-                      value={resources.energy.max}
-                      onChange={(e) => setResources({
-                        ...resources,
-                        energy: { ...resources.energy, max: parseInt(e.target.value) }
-                      })}
-                      className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                    />
-                  </div>
-
-                  <div>
-                    <label className="block text-sm font-medium mb-2">Energy Regeneration</label>
-                    <input
-                      type="number"
-                      min="0"
-                      value={resources.energy.recovery}
-                      onChange={(e) => setResources({
-                        ...resources,
-                        energy: { ...resources.energy, recovery: parseInt(e.target.value) }
-                      })}
-                      className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                    />
-                  </div>
-                </>
-              )}
 
               <div>
                 <label className="block text-sm font-medium mb-2">Resolve (Max)</label>
@@ -1947,7 +1905,7 @@ const DevCreatureDesigner: React.FC = () => {
                   <p className="text-xs text-yellow-400 mb-1 font-medium">Generated Weapon Attacks:</p>
                   {buildEquipmentAttacks().map((atk, i) => (
                     <p key={i} className="text-xs text-gray-300">
-                      <strong>{atk.name}</strong> [{atk.attack.roll}] Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} | Energy: {atk.cost}{atk.attack.hands === 2 ? ' | Two-Handed' : ''}{atk.attack.aimed ? ' | Aimed' : ''}{(atk.attack.ammo_capacity ?? 0) > 0 ? ` | Reload (${atk.attack.ammo_capacity})` : ''}
+                      <strong>{atk.name}</strong> [{atk.attack.roll}] Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type}{atk.attack.hands === 2 ? ' | Two-Handed' : ''}{atk.attack.aimed ? ' | Aimed' : ''}{(atk.attack.ammo_capacity ?? 0) > 0 ? ` | Reload (${atk.attack.ammo_capacity})` : ''}
                     </p>
                   ))}
                 </div>
@@ -2279,21 +2237,11 @@ const DevCreatureDesigner: React.FC = () => {
                 <div className="space-y-3">
                   {knownSpells.map((spell, index) => (
                     <div key={index} className="border border-gray-600 rounded p-4">
-                      {/* Top row: Name, Energy Cost, Type, Remove */}
+                      {/* Top row: Name, Type, Remove */}
                       <div className="grid grid-cols-1 md:grid-cols-4 gap-4 items-center">
                         <div>
                           <label className="block text-xs font-medium mb-1 text-gray-400">Spell Name</label>
                           <span className="text-purple-300 font-medium">{spell.name}</span>
-                        </div>
-                        <div>
-                          <label className="block text-xs font-medium mb-1 text-gray-400">Energy Cost</label>
-                          <input
-                            type="number"
-                            min="0"
-                            value={spell.energyCost}
-                            onChange={(e) => updateKnownSpell(index, 'energyCost', parseInt(e.target.value) || 0)}
-                            className="w-full p-2 bg-gray-800 border border-gray-600 rounded"
-                          />
                         </div>
                         <div>
                           <label className="block text-xs font-medium mb-1 text-gray-400">Type</label>
@@ -2486,9 +2434,6 @@ const DevCreatureDesigner: React.FC = () => {
                           <span className="font-medium text-white">{atk.name}</span>
                           <span className="text-yellow-400 text-sm font-bold">{atk.attack.roll}</span>
                         </div>
-                        <span className="text-xs text-gray-400">
-                          Energy: {atk.cost}
-                        </span>
                       </div>
                       <div className="text-sm text-gray-300">
                         Base {atk.attack.damage} + Growth {atk.attack.damage_extra} {atk.attack.damage_type} ({atk.attack.category})
@@ -2507,6 +2452,7 @@ const DevCreatureDesigner: React.FC = () => {
             <AbilityEditor
               abilities={abilities as AbilityEntry[]}
               onAbilitiesChange={(updated) => setAbilities(updated as CreatureAbility[])}
+              showEnergyCost={false}
             />
 
           </CardBody>
@@ -2522,7 +2468,28 @@ const DevCreatureDesigner: React.FC = () => {
             <div className="mb-6">
               <div className="flex justify-between items-center mb-3">
                 <h3 className="text-lg font-semibold">Traits</h3>
-                <Button onClick={addTrait}>Add Trait</Button>
+                <div className="flex gap-2 items-center">
+                  {commonTraits.length > 0 && (
+                    <select
+                      value=""
+                      onChange={(e) => addCommonTrait(e.target.value)}
+                      className="px-3 py-2 rounded"
+                      style={{
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        color: 'var(--color-white)',
+                        border: '1px solid var(--color-dark-border)',
+                      }}
+                    >
+                      <option value="">Add Common Trait...</option>
+                      {commonTraits.map((t) => (
+                        <option key={t.name} value={t.name} disabled={traits.some((x) => x.name === t.name)}>
+                          {t.name}
+                        </option>
+                      ))}
+                    </select>
+                  )}
+                  <Button onClick={addTrait}>Add Trait</Button>
+                </div>
               </div>
 
               {traits.map((trait, index) => (
@@ -2658,7 +2625,7 @@ const DevCreatureDesigner: React.FC = () => {
                         <div>
                           <h4 className="font-semibold text-lg">{spell.name}</h4>
                           <p className="text-sm text-gray-400">
-                            {spell.school} • {spell.subschool} • Energy: {spell.energy}
+                            {spell.school} • {spell.subschool}
                           </p>
                         </div>
                         <Button

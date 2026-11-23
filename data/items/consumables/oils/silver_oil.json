@@ -1,0 +1,19 @@
+{
+  "name": "Silver Oil",
+  "description": "A shimmering oil thick with powdered silver and quicksilver. As an action, coat a weapon or 3 pieces of ammunition. A coated weapon counts as silvered for its next 3 attacks, and coated ammunition counts as silvered when fired.",
+  "type": "consumable",
+  "consumable_category": "oils",
+  "weight": 0.1,
+  "value": 250,
+  "rarity": "uncommon",
+  "recipe": {
+    "type": "alchemy",
+    "difficulty": 6,
+    "ingredients": [
+      "5x Silver Shavings",
+      "Vial of Quicksilver"
+    ]
+  },
+  "foundry_icon": "icons/consumables/potions/bottle-round-corked-blue.webp",
+  "foundry_id": "sst6u9uc326eahof"
+}

@@ -10,11 +10,6 @@
     "max": 30,
     "current": 30
   },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
-  },
   "resolve": {
     "max": 15,
     "current": 15,
@@ -241,7 +236,6 @@
   "actions": [
     {
       "name": "Engage",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The knight moves up to two units towards a creature and slams their shield against them dealing a small amount of blunt damage. If any damage is dealt after mitigation, the target becomes dazed.",
@@ -266,7 +260,6 @@
     },
     {
       "name": "Honorable Kill",
-      "cost": 2,
       "type": "utility",
       "magic": false,
       "description": "The knight makes an attack against a humanoid with their weapon with a bonus dice in an attempt to finish their opponent. If the opponent is at or brought to 0 health by the damage of this attack, they must also roll an endurance check of 6 or higher or they are killed.",
@@ -291,7 +284,6 @@
     },
     {
       "name": "Honorable Challenge",
-      "cost": 1,
       "type": "utility",
       "magic": false,
       "description": "The knight calls out a creature that they share a language with within a short (10 unit) range, demanding they face the knight in combat. The target must make an insight check of 6 or higher or suffer a penalty to all attack checks against any other creature besides the knight until the end of their next turn.",
@@ -318,7 +310,6 @@
   "reactions": [
     {
       "name": "Riposte",
-      "cost": 1,
       "type": "utility",
       "magic": false,
       "description": "In response to being attacked by a melee weapon, the knight gains a +2 bonus to Deflection against the triggering attack. If the attacker deals no damage after mitigation is calculated, the knight can optionally use their Long Sword ability against the attacker.",

@@ -10,11 +10,6 @@
     "max": 90,
     "current": 90
   },
-  "energy": {
-    "max": 6,
-    "current": 7,
-    "recovery": 4
-  },
   "resolve": {
     "max": 40,
     "current": 30,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Infernal Flail",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The flame tyrant swings its massive flail at a creature within nearby (2 unit) range, dealing physical and heat damage.",
@@ -258,7 +252,6 @@
     },
     {
       "name": "Heart Piercer",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The flame tyrant hurls an infernal dagger at a creature within short (10 unit) range, dealing physical and dark damage. The dagger remains lodged in the target unless removed with a might check of 8 or higher as an action. At the end of each of the target's turns while the dagger is lodged, they take 3 dark damage, plus 1 for each successive round.",
@@ -286,7 +279,6 @@
     },
     {
       "name": "Ignis",
-      "cost": 2,
       "type": "utility",
       "magic": true,
       "description": "The flame tyrant ignites itself with hellfire, gaining the ignited condition. This hellfire can only be doused by magical means. If there is an open flame within short (10 unit) range, the flame tyrant can instead teleport to that location, converting that flame to hellfire. While ignited, the flame tyrant loses the benefits of Cloak of Shadows but gains the benefits of Wreathed in Flame.",
@@ -311,7 +303,6 @@
     },
     {
       "name": "Annihilation Field",
-      "cost": 3,
       "type": "spell",
       "magic": true,
       "description": "The flame tyrant pulses with dark energy in a very short (5 unit) radius. All creatures in the area must make a resilience check of 7 or higher or take dark damage. Any creature that takes damage after mitigation becomes marked until the end of their next turn. While marked, the first time that creature takes physical damage within the last minute, they take an additional 4 dark damage.",
@@ -340,7 +331,6 @@
     },
     {
       "name": "Concussive Strike",
-      "cost": 1,
       "type": "utility",
       "magic": false,
       "description": "The flame tyrant aims for the creature's head on its next Infernal Flail attack. The next Infernal Flail attack this turn suffers a penalty die but if any physical damage is dealt after mitigation, the target becomes stunned until the end of their next turn.",
@@ -367,7 +357,6 @@
   "reactions": [
     {
       "name": "Hellfire Rebuke",
-      "cost": 2,
       "type": "spell",
       "magic": true,
       "description": "Trigger: A creature deals damage to the flame tyrant with a melee attack while the flame tyrant is ignited. The flame tyrant's hellfire lashes out at the attacker, dealing heat damage.",

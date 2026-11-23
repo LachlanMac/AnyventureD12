@@ -10,11 +10,6 @@
     "max": 250,
     "current": 15
   },
-  "energy": {
-    "max": 6,
-    "current": 5,
-    "recovery": 4
-  },
   "resolve": {
     "max": 0,
     "current": 5,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Bucket Slam",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "",
@@ -255,7 +249,6 @@
     },
     {
       "name": "Bucket Toss",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The wishing well swings a bucket on a rope at a target within a short (10 unit) distance, dealing physical damage. ",
@@ -280,7 +273,6 @@
     },
     {
       "name": "Swallow ",
-      "cost": 3,
       "type": "utility",
       "magic": false,
       "description": "The wishing well makes a modified grab check, swallowing an adjacent creature, teleporting them into a demi-plane. ",

@@ -13,7 +13,7 @@ const conditionSchema = new mongoose.Schema({
   category: {
     type: String,
     required: true,
-    enum: ['Mental', 'Physical']
+    enum: ['Mental', 'Physical', 'Special']
   },
   description: {
     type: String,

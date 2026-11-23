@@ -13,18 +13,6 @@ export const CREATURE_TIERS = {
   mythic: '#ff6b35',
 } as const;
 
-export const CREATURE_TYPE_ICONS = {
-  fiend: '👹',
-  undead: '💀',
-  divine: '✨',
-  monster: '🐲',
-  humanoid: '👤',
-  construct: '🤖',
-  plantoid: '🌿',
-  fey: '🧚',
-  elemental: '🔥',
-} as const;
-
 export const CREATURE_SUBCATEGORIES: Record<string, string[]> = {
   undead: ['Risen', 'Incorporeal', 'Living Dead'],
   dark: ['Devil', 'Daemon', 'Void', 'Luctnatus'],
@@ -48,13 +36,6 @@ export const DAMAGE_TYPES = [
  */
 export function getTierColor(tier: string): string {
   return CREATURE_TIERS[tier as keyof typeof CREATURE_TIERS] || 'var(--color-cloud)';
-}
-
-/**
- * Get icon for creature type
- */
-export function getTypeIcon(type: string): string {
-  return CREATURE_TYPE_ICONS[type as keyof typeof CREATURE_TYPE_ICONS] || '❓';
 }
 
 /**

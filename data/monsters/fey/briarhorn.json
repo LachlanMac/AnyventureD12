@@ -1,6 +1,6 @@
 {
   "name": "Briarhorn",
-  "description": "Briarhorns are minotaurs captured and enslaved by the Court of Thorns, clad in bark armor that grows into their flesh and wielding massive weapons of living wood. Their bull horns have been twisted by fey magic into broad, branching antlers like those of a great elk. They serve as heavy shock troops, battering through enemy lines with raw strength and fury \u2014 whatever they were before the Court took them, they are now little more than beasts on a leash.",
+  "description": "Briarhorns are minotaurs captured and enslaved by the Court of Thorns, clad in bark armor that grows into their flesh and wielding massive weapons of living wood. Their bull horns have been twisted by fey magic into broad, branching antlers like those of a great elk. They serve as heavy shock troops, battering through enemy lines with raw strength and fury — whatever they were before the Court took them, they are now little more than beasts on a leash.",
   "tactics": "",
   "tier": "champion",
   "type": "fey",
@@ -9,11 +9,6 @@
   "health": {
     "max": 50,
     "current": 15
-  },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
   },
   "resolve": {
     "max": 25,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Gorewood Weapon",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The briarhorn makes an attack with it's large, wooden weapon striking a target for physical damage.",
@@ -255,7 +249,6 @@
     },
     {
       "name": "Indomitable",
-      "cost": 3,
       "type": "utility",
       "magic": false,
       "description": "The briarhorn chooses one condition that it is currently affected by and removes it and gains 10 temporary health. While under the effect of these temporary health, the briarhorn gains a bonus dice to all mind checks.",
@@ -280,7 +273,6 @@
     },
     {
       "name": "Horn Gore",
-      "cost": 2,
       "type": "movement",
       "magic": false,
       "description": "The briarhorn moves up to 3 units and gores a large or smaller target, making a modified shove attack. On a successful shove, the briarhorn deals 3 physical damage for each unit traveled.",
@@ -307,7 +299,6 @@
   "reactions": [
     {
       "name": "Blood of the Sap",
-      "cost": 1,
       "type": "spell",
       "magic": false,
       "description": "In response to taking damage from a melee attack from an adjacent tile, the briarhorn spews it's sap-like blood on the attacker, which lasts until the end of the attacker's next turn. While covered in sap in this way, melee attacks made by the attacker have a penalty dice and their encumbrance penalty is doubled. ",

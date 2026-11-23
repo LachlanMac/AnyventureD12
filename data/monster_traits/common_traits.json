@@ -1,0 +1,26 @@
+[
+  {
+    "name": "Undead",
+    "description": "This creature has no resolve and cannot be affected by resolve-targeting effects. It does not need to breathe, eat, or sleep."
+  },
+  {
+    "name": "Compliant",
+    "description": "This undead can follow complex commands and perform non-combat tasks without requiring the Command Undead action."
+  },
+  {
+    "name": "Brittle Bones",
+    "description": "Skeletons cannot mitigate physical damage from blunt weapons."
+  },
+  {
+    "name": "Incorporeal",
+    "description": "This creature is permanently incorporeal."
+  },
+  {
+    "name": "Immutable",
+    "description": "This creature is permanently immutable."
+  },
+  {
+    "name": "Undying",
+    "description": "When this creature reaches 0 health, roll a 1d4. On a 2 or higher, it regains 20 health. This trait does not activate if the killing blow dealt divine or dark damage."
+  }
+]

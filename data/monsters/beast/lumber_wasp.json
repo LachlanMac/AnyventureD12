@@ -10,11 +10,6 @@
     "max": 16,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 5,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Splinter Shot",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The lumber wasp fires several projectiles at a creature within a very short (5 unit) distance. each dice is mitigated separately.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Lumber-Rot Sting",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The lumber wasp impales a character with it's stinger. If this attack deals any damage after calculating mitigation, the affected character becomes poisoned and gains 3 pain, but the check is made at the end of each full rest instead of round. The starting endurance check is 8, and deals 6 toxic damage upon a failure. The lumber wasp dies after using this ability.",

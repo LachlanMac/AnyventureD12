@@ -334,6 +334,7 @@ export interface Item {
     | 'elixirs'
     | 'potions'
     | 'explosives'
+    | 'oils'
     | 'intoxicants'
     | 'snack'
     | 'meal';

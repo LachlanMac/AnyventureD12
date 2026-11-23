@@ -144,7 +144,7 @@ const CreatureActionCard: React.FC<CreatureActionCardProps> = ({ action, creatur
             </span>
           )}
         </h3>
-        {creatureTier !== 'minion' && creatureTier !== 'grunt' && (
+        {creatureTier !== 'minion' && creatureTier !== 'grunt' && typeof action.cost === 'number' && (
           <span
             style={{
               color: 'var(--color-old-gold)',

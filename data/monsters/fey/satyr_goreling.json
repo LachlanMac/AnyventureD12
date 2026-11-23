@@ -10,11 +10,6 @@
     "max": 22,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 10,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Thorned Club",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The satyr goreling makes an attack with a wooden club that is barbed in thorns. If this attack deals 8 or more damage after mitigation, the target gains the bleeding condition.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Ram",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "Immediately after using their movement, the satyr goreling takes the shove action but deals 4 physical damage. If the satyr goreling moved 5 or more units in a straight line, this damage is increased to 6.",
@@ -248,7 +241,6 @@
     },
     {
       "name": "Shield Wall",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The satyr goreling lifts their bark shield, taking a specialized version of the defend action. Any adjacent satyrs also gain the benefits of this defend action.",
@@ -272,7 +264,6 @@
   "reactions": [
     {
       "name": "Sure-Hooved",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "In response to making a check against being displaced or moved against their will, the satyr goreling adds a 1d20 their dice pool. If the displacement is secondary to taking damage or doesn't require a check, the satyr goreling cannot be displaced by the ability.",

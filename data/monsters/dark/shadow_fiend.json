@@ -10,11 +10,6 @@
     "max": 30,
     "current": 30
   },
-  "energy": {
-    "max": 4,
-    "current": 4,
-    "recovery": 3
-  },
   "resolve": {
     "max": 0,
     "current": 0,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Dark Claw",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The shadow fiend rakes a creature with its claws, dealing physical and dark damage. If the target has the afraid condition, this attack deals an additional 2 dark damage that bypasses mitigation.",
@@ -258,7 +252,6 @@
     },
     {
       "name": "Siphon",
-      "cost": 2,
       "type": "spell",
       "magic": true,
       "description": "The shadow fiend latches onto a creature and drains its life force, dealing psychic damage that bypasses mitigation. The shadow fiend heals for the total damage dealt. A creature that has the afraid condition suffers a -1 penalty to Resilience against this ability.",
@@ -284,7 +277,6 @@
     },
     {
       "name": "Stalk",
-      "cost": 1,
       "type": "movement",
       "magic": false,
       "description": "The shadow fiend moves up to 3 units directly toward a creature that has the afraid condition. This movement does not provoke attacks of opportunity.",

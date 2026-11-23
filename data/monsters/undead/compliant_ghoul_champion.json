@@ -11,11 +11,6 @@
     "max": 42,
     "current": 42
   },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
-  },
   "resolve": {
     "max": 0,
     "current": 0,
@@ -233,7 +228,6 @@
   "actions": [
     {
       "name": "Frenzy",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The ghoul makes a frenzied claw attack against an adjacent creature. If the target is bleeding, this attack deals an additional 7 physical damage.",
@@ -258,7 +252,6 @@
     },
     {
       "name": "Ghoul Bite",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The ghoul sinks its teeth into an adjacent creature. If at least 4 dice hit, the target is paralyzed until the end of their next turn.",
@@ -285,7 +278,6 @@
   "reactions": [
     {
       "name": "Pounce",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "In response to a creature moving within a very short (5 unit) distance, the ghoul champion can move up to 3 units towards that creature and make a claw attack.",

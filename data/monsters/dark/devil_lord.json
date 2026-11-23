@@ -10,11 +10,6 @@
     "max": 250,
     "current": 200
   },
-  "energy": {
-    "max": 10,
-    "current": 10,
-    "recovery": 8
-  },
   "resolve": {
     "max": 50,
     "current": 50,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Demon Claws",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The devil lord rakes a creature with its claws, dealing devastating physical damage.",
@@ -255,7 +249,6 @@
     },
     {
       "name": "Flame Whip",
-      "cost": 2,
       "type": "attack",
       "magic": true,
       "description": "The devil lord lashes a creature with a whip of infernal flame, dealing heat damage. If all attacking dice exceed the target's defense, the target is muted until the end of their next turn.",
@@ -280,7 +273,6 @@
     },
     {
       "name": "Dire Charm",
-      "cost": 3,
       "type": "spell",
       "magic": true,
       "description": "The devil lord attempts to charm a creature within moderate (20 unit) range. The target must make a resilience check of 8 or higher or become charmed for up to one minute. While charmed, the target cannot take hostile actions against the devil lord and must obey simple commands. The devil lord must maintain concentration to sustain this effect. Creatures immune to the charmed condition are unaffected.",
@@ -306,7 +298,6 @@
     },
     {
       "name": "Discard",
-      "cost": 1,
       "type": "spell",
       "magic": true,
       "description": "The devil lord ends its Dire Charm on a creature, shattering the target's mind. The target takes psychic damage that bypasses all defenses. For each full round the creature was charmed, the damage increases by 2.",
@@ -332,7 +323,6 @@
     },
     {
       "name": "Call Servant",
-      "cost": 3,
       "type": "utility",
       "magic": true,
       "description": "The devil lord summons a dark creature of standard tier or lower, which appears in an unoccupied space within a short (10 unit) distance. The servant acts on the devil lord's initiative and persists until destroyed or until the devil lord is destroyed. The devil lord can maintain up to two servants at once.",
@@ -357,7 +347,6 @@
     },
     {
       "name": "Metamorphosis",
-      "cost": 0,
       "type": "utility",
       "magic": true,
       "description": "The devil lord transforms into its true demonic form. While transformed, the devil lord's size becomes large, it gains 50 temporary health, its Demon Claws damage increases to 12/7, and its Flame Aura radius increases to 5 units. This form lasts until the temporary health is depleted, at which point the devil lord reverts to its original form with the health it had before transforming.",
@@ -384,7 +373,6 @@
   "reactions": [
     {
       "name": "Binding Word",
-      "cost": 2,
       "type": "spell",
       "magic": true,
       "description": "Trigger: A creature within moderate (20 unit) range takes movement. The devil lord speaks a word in the infernal tongue. The target must make a resilience check of 7 or higher or have their movement speed become 0 until the start of their next turn.",
@@ -410,7 +398,6 @@
     },
     {
       "name": "Hellshield",
-      "cost": 2,
       "type": "utility",
       "magic": true,
       "description": "Trigger: The devil lord is targeted by a melee or ranged attack. The devil lord conjures a shield of infernal flame, gaining a +2 bonus to Deflection against the triggering attack. The shield persists until the start of the devil lord's next turn, granting a +2 bonus to Deflection. If an attacker's melee attack is fully mitigated while the shield is active, that attacker takes 4 heat damage.",
@@ -435,7 +422,6 @@
     },
     {
       "name": "Infernal Rebuke",
-      "cost": 2,
       "type": "spell",
       "magic": true,
       "description": "Trigger: The devil lord takes damage from a spell. When the devil lord takes damage from a spell, it retaliates with a blast of dark energy at the caster. The target must make a resilience check of 7 or higher or take dark damage and lose concentration on any active spell.",

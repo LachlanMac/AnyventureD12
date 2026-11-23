@@ -10,11 +10,6 @@
     "max": 18,
     "current": 18
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 10,
     "current": 10,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Sword Strike",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The guard delivers a direct slash or thrust with their one-handed sword.",
@@ -229,7 +223,6 @@
     },
     {
       "name": "Apprehend",
-      "cost": 0,
       "type": "movement",
       "magic": false,
       "description": "The guard singles out a creature they can see within a short (10 unit) distance and moves up to 3 units directly toward them. If the guard ends this movement adjacent to the target, they can attempt to take the grapple action.",
@@ -254,7 +247,6 @@
     },
     {
       "name": "Spot",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The guard scans the area, making a Senses check to detect any hidden or Obscured creatures within a very short (5 unit) radius. Any hidden creature within this radius must make a contested stealth check against the guard's senses to remain hidden.",
@@ -279,7 +271,6 @@
     },
     {
       "name": "Raise Shield",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The guard takes a modified defend action, bracing behind their light shield. If an adjacent melee attack deals no damage after mitigation while the guard is defending this way, they immediately make a counter-attack with their Sword Strike action with a bonus die.",

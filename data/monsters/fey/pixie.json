@@ -10,11 +10,6 @@
     "max": 8,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 12,
     "current": 5,
@@ -230,7 +225,6 @@
   "actions": [
     {
       "name": "Tease",
-      "cost": 0,
       "type": "utility",
       "magic": true,
       "description": "The pixie teases a creature within a very short (5 unit) distance, dealing 5 psychic damage if the target fails a resilience check of 4. If a creature is brought to 0 resolve by this attack, their resolve instead becomes 1 and the pixie can choose to either charm, confuse or madden the creature. If the pixie knows the creature's true name, the resilience check becomes an 8 instead.",
@@ -256,7 +250,6 @@
     },
     {
       "name": "Poof",
-      "cost": 0,
       "type": "utility",
       "magic": true,
       "description": "The pixie becomes invisible and immediately teleports up a very short (5 units) distance away.",

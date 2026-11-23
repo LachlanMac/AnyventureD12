@@ -10,11 +10,6 @@
     "max": 18,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 0,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Flesh Strike",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The flesh golem strikes with a meaty limb, dealing physical damage.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Reconstitute",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The flesh golem attempts to repair it's body, regaining 1d6 health.",
@@ -248,7 +241,6 @@
     },
     {
       "name": "Berserk",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The flesh golem becomes berserk, becoming maddened. It can no longer use it's reconstitute ability, but it gains a bonus dice on it's Flesh Strike attack.",

@@ -10,11 +10,6 @@
     "max": 40,
     "current": 15
   },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
-  },
   "resolve": {
     "max": 25,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Claw Swipe",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The hellhounds swipes with it's claws, dealing physical damage.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Flame Bite",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The hellhound bites a creature with it's fiery mouth, dealing physical and fire damage.",
@@ -251,7 +244,6 @@
     },
     {
       "name": "Expel Flames",
-      "cost": 5,
       "type": "attack",
       "magic": false,
       "description": "The hellhound shoots scorching fire from it's mouth in a very short (5 unit cone) dealing fire damage to all creatures within the area. The hellhound must make an endurance check after using this ability, or they become winded.",
@@ -273,10 +265,9 @@
     },
     {
       "name": "Infernal Dash",
-      "cost": 2,
       "type": "utility",
       "magic": false,
-      "description": "The hellhound takes a modified version of the Sprint action where it turns into pure flame and becomes incorporeal. Any creature the hellhound passes through must make a resilience check of 5 or take 6 heat damage.",
+      "description": "The hellhound takes a modified version of the Sprint action where it turns into pure flame and gains the incorporeal condition until the movement ends. Any creature the hellhound passes through must make a resilience check of 5 or take 6 heat damage.",
       "reaction": false,
       "basic": false,
       "attack": {
@@ -295,7 +286,6 @@
     },
     {
       "name": "Consume Soul",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "While adjacent to a humanoid or beast that has died within the last minute, the hellhound consumes their soul and gains 10 health and 10 resolve. The dead creature cannot be resurrected or returned to life unless until the hellhound is killed, at which point the soul is released.",

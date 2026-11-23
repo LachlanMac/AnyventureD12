@@ -10,11 +10,6 @@
     "max": 48,
     "current": 48
   },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
-  },
   "resolve": {
     "max": 25,
     "current": 12,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Claw",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The sanguinette rakes a target with its elongated claws. If any damage is dealt after mitigation, the target gains the bleeding condition.",
@@ -229,7 +223,6 @@
     },
     {
       "name": "Bite",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The sanguinette sinks its fangs into a creature, dealing physical and dark damage. The sanguinette heals for the amount of dark damage dealt after mitigation. This attack gains 2 bonus dice when the target is grappled. ",
@@ -257,7 +250,6 @@
     },
     {
       "name": "Rending Claws",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The sanguinette makes two separate Claw attacks against a creature that has the bleeding condition. This attack cannot be used if the sanguinette has someone held using the grab action.",
@@ -282,7 +274,6 @@
     },
     {
       "name": "Glide",
-      "cost": 1,
       "type": "movement",
       "magic": false,
       "description": "The sanguinette jumps and glides up to 4 units in a single direction. If the sanguinette moves 3 or more units with this action, they can also make a grab check against the target.",
@@ -309,7 +300,6 @@
   "reactions": [
     {
       "name": "Lunge",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The sanguinette lunges at the creature that has taken movement within a very short (5 unit) distance, dealing physical damage and preventing any further movement on that turn. If the sanguinette was hidden when it triggered this reaction and the target is medium size or smaller, the sanguinette also makes a grab check.",

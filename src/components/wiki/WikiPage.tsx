@@ -644,6 +644,7 @@ const processConditionData = async (content: string): Promise<string> => {
     // Group conditions by category
     const mentalConditions = conditions.filter((c: any) => c.category === 'Mental');
     const physicalConditions = conditions.filter((c: any) => c.category === 'Physical');
+    const specialConditions = conditions.filter((c: any) => c.category === 'Special');
 
     // Generate condition sections
     let conditionContent = '';
@@ -696,6 +697,19 @@ ${condition.description}
     // Physical Conditions
     if (physicalConditions.length > 0) {
       for (const condition of physicalConditions) {
+        conditionContent += renderCondition(condition);
+      }
+    }
+
+    // Special Conditions: states of being, mostly from creatures and powerful magic
+    if (specialConditions.length > 0) {
+      conditionContent += `## Special Conditions
+<div class="triangle-line"></div>
+
+Special conditions describe unusual states of being, such as having no physical body or being turned to stone. They mostly come from creature traits and powerful magic rather than ordinary combat.
+
+`;
+      for (const condition of specialConditions) {
         conditionContent += renderCondition(condition);
       }
     }

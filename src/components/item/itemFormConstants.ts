@@ -66,6 +66,7 @@ export const consumableCategories = [
   { value: 'elixirs', label: 'Elixirs' },
   { value: 'potions', label: 'Potions' },
   { value: 'explosives', label: 'Explosives' },
+  { value: 'oils', label: 'Oils' },
 ];
 
 export const shieldCategories = [

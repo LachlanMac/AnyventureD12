@@ -9,7 +9,7 @@ interface CreatureSpellCardProps {
 
 const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom = false }) => {
   const isRegularSpell = !isCustom && 'school' in spell;
-  const isCustomSpell = isCustom && 'energy_cost' in spell;
+  const isCustomSpell = isCustom;
 
   return (
     <div
@@ -67,20 +67,6 @@ const CreatureSpellCard: React.FC<CreatureSpellCardProps> = ({ spell, isCustom =
               {(spell as CreatureSpell).school} • {(spell as CreatureSpell).subschool}
             </span>
           )}
-          <span
-            style={{
-              color: 'var(--color-old-gold)',
-              fontSize: '0.75rem',
-              backgroundColor: 'var(--color-dark-surface)',
-              padding: '0.125rem 0.375rem',
-              borderRadius: '0.25rem',
-            }}
-          >
-            {isRegularSpell
-              ? (spell as CreatureSpell).energy
-              : (spell as CreatureCustomSpell).energy_cost}{' '}
-            Energy
-          </span>
         </div>
       </div>
 

@@ -93,7 +93,6 @@ const CreatureDetail: React.FC = () => {
 
         attacks.push({
           name: item.name,
-          cost: primary.energy || 0,
           type: 'attack',
           magic: false,
           basic: true,
@@ -128,7 +127,6 @@ const CreatureDetail: React.FC = () => {
 
       attacks.push({
         name: attackName,
-        cost: 0,
         type: 'attack',
         magic: false,
         basic: true,

@@ -24,7 +24,7 @@ When crafting weapons or armor, fabricators can attempt to add infusions that en
 | Reinforced Metal | Adds +1 base damage to the weapon | None (technique only) |
 | Cobalt Edge | Adds +1 growth to the weapon | Cobalt ingot |
 | Precision Balance | Adds +1 bonus die to attack rolls | Aetherium shavings |
-| Silvered | Adds +1 base damage and silvered property (effective against certain creatures) | Silver ingot |
+| Silvered | Adds +1 base damage and the silvered property (harms incorporeal creatures and creatures weak to silver) | Silver ingot |
 | Blackened | Adds +1 base damage and blackened property (resists detection, dampens sound) | Obsidian dust |
 | Lead Core | Adds +1 base damage, weapon becomes immutable (cannot be altered by magic) | Lead ingot |
 | Brimsteel | Weapon can be ignited as a free action, dealing 2 base + 2 growth fire damage | Brimstone essence |

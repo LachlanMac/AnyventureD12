@@ -10,11 +10,6 @@
     "max": 40,
     "current": 15
   },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 3
-  },
   "resolve": {
     "max": 25,
     "current": 5,
@@ -200,7 +195,6 @@
   "actions": [
     {
       "name": "Claws",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The werebear slashes out with it's sharp claws, dealing physical damage.",
@@ -222,7 +216,6 @@
     },
     {
       "name": "Bite",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": " The wearbear uses it's powerful jaw to bite, dealing physical damage. If a medium or smaller creature takes 15 or more damage from this attack after calculating mitigation, they must roll on the 'missing part' injury table.",
@@ -244,7 +237,6 @@
     },
     {
       "name": "Fury of the Moon",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The werebear enters a primal fury, gaining 15 morale. For the next minute, it takes double damage from all attacks but gains a bonus dice on it's attacks. This ability can only be used once per transformation.",

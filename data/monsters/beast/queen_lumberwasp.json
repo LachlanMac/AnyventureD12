@@ -10,11 +10,6 @@
     "max": 100,
     "current": 15
   },
-  "energy": {
-    "max": 7,
-    "current": 5,
-    "recovery": 7
-  },
   "resolve": {
     "max": 40,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Tarsal Claw",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The queen lumberwasp strikes with it's tarsal claw, dealing physical damage.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Tibial Spear",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "The queen lumberwasp strikes a nearby creature with her long, spear-like tibia.  A creature who takes 10 or more damage from this attack gains the bleeding condition.",
@@ -248,7 +241,6 @@
     },
     {
       "name": "Mandibles",
-      "cost": 2,
       "type": "attack",
       "magic": false,
       "description": "The queen lumberwasp snaps her mandibles, dealing a large amount of physical damage. A creature who reaches 0 health as part of this damage gains a severe physical injury if they fail an endurance check of 5.",
@@ -270,7 +262,6 @@
     },
     {
       "name": "Regurgitated Pulp",
-      "cost": 2,
       "type": "utility",
       "magic": false,
       "description": "The queen lumberwasp spits up a large mass of saw-dust pulp at a creature within a very short (5 unit) distance, causing them to become impaired until the end of their next turn if they fail a fitness check of 6. ",
@@ -294,7 +285,6 @@
   "reactions": [
     {
       "name": "Abdomen Explosion",
-      "cost": 3,
       "type": "utility",
       "magic": false,
       "description": "While under 20 health, the queen lumber wasp's abdomen explodes, releasing 2d4 lumberwasps. The queen lumberwasp also takes 4d8 true damage.",

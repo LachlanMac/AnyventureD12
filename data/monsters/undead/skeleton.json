@@ -10,11 +10,6 @@
     "max": 18,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 0,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Rusty Blade",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The skeleton slashes with a rusted sword dealing physical damage.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Boney Claws",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The skeleton rakes with their boney fingers dealing physical damage.",
@@ -250,8 +243,8 @@
   "reactions": [],
   "traits": [
     {
-      "name": "Fragile",
-      "description": "Skeletons cannot mitigate physical damage that is caused by a blunt weapon."
+      "name": "Brittle Bones",
+      "description": "Skeletons cannot mitigate physical damage from blunt weapons."
     }
   ],
   "loot": [],

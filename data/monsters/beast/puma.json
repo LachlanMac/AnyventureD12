@@ -10,11 +10,6 @@
     "max": 17,
     "current": 15
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 10,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Claw",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The puma swipes their claws at a creature dealing physical damage.",
@@ -226,7 +220,6 @@
     },
     {
       "name": "Bite",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The puma bites a creature, dealing physical damage. If the target is prone and takes damage from this attack, they must roll an endurance check against the total damage dealt after mitigation, or gain the bleeding condition.",
@@ -250,7 +243,6 @@
   "reactions": [
     {
       "name": "Pounce",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "In response to a creature moving within a very short (5 unit) distance of the puma, it pounces on them dealing damage. Medium or smaller creatures that take damage from this attack and fail a fitness or coordination check of 4 also fall prone. This attack is rolled with a bonus dice when the puma is hidden.",

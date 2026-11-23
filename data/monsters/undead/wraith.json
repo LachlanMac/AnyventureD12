@@ -11,11 +11,6 @@
     "max": 28,
     "current": 28
   },
-  "energy": {
-    "max": 12,
-    "current": 12,
-    "recovery": 0
-  },
   "resolve": {
     "max": 0,
     "current": 0,
@@ -231,7 +226,6 @@
   "actions": [
     {
       "name": "Manifest",
-      "cost": 1,
       "type": "utility",
       "magic": false,
       "description": "While in their incorporeal form, the wraith forces itself into partial material existence and enters their manifested form. At the end of each turn manifested, the wraith must makes a resilience check of 4 or higher or immediately enter their incorporeal form. ",
@@ -247,7 +241,6 @@
     },
     {
       "name": "Spectral Grasp",
-      "cost": 1,
       "type": "attack",
       "magic": false,
       "description": "While in their manifested form, the wraith rakes a spectral hand through a creature, dealing cold damage.",
@@ -272,7 +265,6 @@
     },
     {
       "name": "Wail of the Forsaken",
-      "cost": 3,
       "type": "utility",
       "magic": false,
       "description": "While in their manifested form, the wraith releases a shriek of pure despair. All creatures within a very short (5 unit) radius that can hear the wraith take 8 psychic damage and must make a resilience check of 7 or gain the afraid condition.",
@@ -298,10 +290,9 @@
     },
     {
       "name": "Drain Life",
-      "cost": 2,
       "type": "utility",
       "magic": false,
-      "description": "While in their manifested form, the wraith tears at a creature's life force, dealing 6 aetheric damage if the target fails a resilience check of 5. If this attack deals damage after mitigations are calculated, the wraith gains 3 energy, increased to 5 if the target has the afraid condition.",
+      "description": "While in their manifested form, the wraith tears at a creature's life force, dealing 6 aetheric damage if the target fails a resilience check of 5. If this attack deals damage after mitigations are calculated, the wraith regains 3 health, increased to 5 if the target has the afraid condition.",
       "reaction": false,
       "basic": false,
       "round": true,
@@ -326,7 +317,6 @@
   "reactions": [
     {
       "name": "Phase Step",
-      "cost": 1,
       "type": "utility",
       "magic": false,
       "description": "When targeted by an attack while manifested, the wraith partially shifts into the spectral plane, gaining a +4 bonus to defense against that attack. After the attack resolves, the wraith reverts to incorporeal and may move up to 5 units, passing through solid objects. This movement does not provoke reactions.",
@@ -344,7 +334,7 @@
   "traits": [
     {
       "name": "Spectral Nature",
-      "description": "The wraith exists between the material world and the spectral plane. It is always in one of two states: Incorporeal or Manifested.\n\nIncorporeal (default): The wraith has the obscured condition and cannot be detected without aethersight or truesight. It cannot be targeted by attacks or spells, cannot deal damage, and cannot interact with physical objects. It can move freely through solid objects and terrain, and its movement does not provoke reactions. The wraith does not regenerate energy.\n\nManifested: The wraith has anchored itself to the material plane. It loses the obscured condition and can be perceived and targeted normally. It can use all of its actions. Physical damage dealt to the wraith while manifested is halved before applying mitigation.\n\nWhile incorporeal, the wraith is immune to all damage except divine damage and damage from silvered weapons. If reduced to 0 health while incorporeal, the wraith is permanently destroyed."
+      "description": "The wraith exists between the material world and the spectral plane. It is always in one of two states: Incorporeal or Manifested.\n\nIncorporeal (default): The wraith has the incorporeal and obscured conditions, and can only be detected with aethersight or truesight. It cannot deal damage while incorporeal.\n\nManifested: The wraith anchors itself to the material plane and loses the incorporeal and obscured conditions. It can be perceived and targeted normally, takes damage from any source, and can use all of its actions.\n\nIf the wraith is reduced to 0 health, it is permanently destroyed."
     },
     {
       "name": "Undead",

@@ -10,11 +10,6 @@
     "max": 24,
     "current": 15
   },
-  "energy": {
-    "max": 5,
-    "current": 5,
-    "recovery": 2
-  },
   "resolve": {
     "max": 13,
     "current": 5,
@@ -204,7 +199,6 @@
   "actions": [
     {
       "name": "Snap",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The lockjaw crocodile bites a target dealing physical damage.",
@@ -229,7 +223,6 @@
     },
     {
       "name": "Lunge",
-      "cost": 2,
       "type": "utility",
       "magic": false,
       "description": "The lockjaw crocodile launches itself and lunges at a target within a very short (5 unit) radius and makes a grab attack.",
@@ -254,7 +247,6 @@
     },
     {
       "name": "Death Roll",
-      "cost": 2,
       "type": "utility",
       "magic": false,
       "description": "The lockjaw attempts to roll a medium or smaller creature it currently has grabbed by making a might check as an attack roll against the target's fitness or might. On a success, the target takes 15 physical damage. If a creature takes 5 or more damage from this attack, they gain a major physical injury.",
@@ -281,7 +273,6 @@
   "reactions": [
     {
       "name": "Ambush",
-      "cost": 1,
       "type": "utility",
       "magic": false,
       "description": "If the lockjaw crocodile is currently hidden and a creature is within a very short (5 unit) distance of it, it ambushes it's prey. As part of the same reaction, the crocodile lunges with a bonus dice and then immediately uses the death roll action if the grab was successful.",

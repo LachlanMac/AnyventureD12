@@ -10,11 +10,6 @@
     "max": 20,
     "current": 20
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 15,
     "current": 15,
@@ -241,7 +236,6 @@
   "actions": [
     {
       "name": "Dagger",
-      "cost": 0,
       "actionCost": 1,
       "frequency": "action",
       "frequencyCondition": "",
@@ -269,7 +263,6 @@
     },
     {
       "name": "Throwing Knife",
-      "cost": 0,
       "actionCost": 1,
       "frequency": "action",
       "frequencyCondition": "",
@@ -297,7 +290,6 @@
     },
     {
       "name": "Knife Trick",
-      "cost": 0,
       "type": "utility",
       "magic": false,
       "description": "The brigand cutpurse makes a throwing attack against a creature that is within a nearby radius, then moves to an adjacent space and makes a melee attack.",
@@ -313,7 +305,6 @@
     },
     {
       "name": "Backstab",
-      "cost": 0,
       "type": "attack",
       "magic": false,
       "description": "The brigand cutpurse looks for an opening by making a contested coordination check against its target. If the target loses the contest, the cutpurse makes a penetrating strike at it.",
@@ -341,7 +332,6 @@
   "reactions": [
     {
       "name": "Slip Away",
-      "cost": 0,
       "type": "movement",
       "magic": false,
       "description": "The cutpurse slips away up to 2 units and gains 2 bonus dice on evasion checks against any attacks of opportunity provoked by this movement.",

@@ -11,11 +11,6 @@
     "max": 8,
     "current": 8
   },
-  "energy": {
-    "max": 0,
-    "current": 0,
-    "recovery": 0
-  },
   "resolve": {
     "max": 0,
     "current": 0,
