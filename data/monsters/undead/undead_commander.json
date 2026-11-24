@@ -1,0 +1,389 @@
+{
+  "name": "Undead Commander",
+  "description": "An Undead Commander is an officer whose will to lead outlasted death. It rises in its old armor and marshals lesser undead into battle with the same discipline it held in life.",
+  "tactics": "",
+  "tier": "elite",
+  "type": "undead",
+  "size": "medium",
+  "foundry_portrait": "undead_commander.png",
+  "health": {
+    "max": 70,
+    "current": 30
+  },
+  "resolve": {
+    "max": 0,
+    "current": 15,
+    "recovery": 1
+  },
+  "movement": {
+    "walk": 6,
+    "climb": 0,
+    "swim": 0,
+    "fly": 0
+  },
+  "attributes": {
+    "physique": {
+      "talent": 3
+    },
+    "finesse": {
+      "talent": 2
+    },
+    "mind": {
+      "talent": 3
+    },
+    "knowledge": {
+      "talent": 1
+    },
+    "social": {
+      "talent": 1
+    }
+  },
+  "skills": {
+    "fitness": {
+      "value": 3,
+      "tier": 0
+    },
+    "deflection": {
+      "value": 2,
+      "tier": 0
+    },
+    "might": {
+      "value": 4,
+      "tier": 0
+    },
+    "endurance": {
+      "value": 5,
+      "tier": 0
+    },
+    "evasion": {
+      "value": 1,
+      "tier": 0
+    },
+    "stealth": {
+      "value": 0,
+      "tier": 0
+    },
+    "coordination": {
+      "value": 3,
+      "tier": 0
+    },
+    "thievery": {
+      "value": 0,
+      "tier": 0
+    },
+    "resilience": {
+      "value": 3,
+      "tier": 0
+    },
+    "concentration": {
+      "value": 2,
+      "tier": 0
+    },
+    "senses": {
+      "value": 2,
+      "tier": 0
+    },
+    "logic": {
+      "value": 0,
+      "tier": 0
+    },
+    "wildcraft": {
+      "value": -1,
+      "tier": 0
+    },
+    "academics": {
+      "value": -1,
+      "tier": 0
+    },
+    "magic": {
+      "value": -1,
+      "tier": 0
+    },
+    "medicine": {
+      "value": -1,
+      "tier": 0
+    },
+    "expression": {
+      "value": -1,
+      "tier": 0
+    },
+    "presence": {
+      "value": 3,
+      "tier": 0
+    },
+    "insight": {
+      "value": 0,
+      "tier": 0
+    },
+    "persuasion": {
+      "value": -1,
+      "tier": 0
+    }
+  },
+  "weaponSkills": {
+    "brawling": {
+      "talent": 0,
+      "skill": 0
+    },
+    "throwing": {
+      "talent": 0,
+      "skill": 0
+    },
+    "simpleMeleeWeapons": {
+      "talent": 3,
+      "skill": 2
+    },
+    "simpleRangedWeapons": {
+      "talent": 2,
+      "skill": 1
+    },
+    "complexMeleeWeapons": {
+      "talent": 4,
+      "skill": 3
+    },
+    "complexRangedWeapons": {
+      "talent": 0,
+      "skill": 0
+    }
+  },
+  "magicSkills": {
+    "blackMagic": {
+      "talent": 3,
+      "skill": 3
+    },
+    "primalMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "metaMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "whiteMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "mysticismMagic": {
+      "talent": 0,
+      "skill": 0
+    },
+    "arcaneMagic": {
+      "talent": 0,
+      "skill": 0
+    }
+  },
+  "mitigation": {
+    "physical": {
+      "min": 4,
+      "max": 18
+    },
+    "cold": {
+      "min": 4,
+      "max": 25
+    },
+    "heat": {
+      "min": 4,
+      "max": 25
+    },
+    "electric": {
+      "min": 4,
+      "max": 25
+    },
+    "psychic": {
+      "min": 0,
+      "max": 25
+    },
+    "dark": {
+      "min": 5,
+      "max": 25
+    },
+    "divine": {
+      "min": 0,
+      "max": 25
+    },
+    "aetheric": {
+      "min": 0,
+      "max": 25
+    },
+    "toxic": {
+      "min": 0,
+      "max": 25
+    }
+  },
+  "detections": {
+    "normal": 5,
+    "darksight": 0,
+    "infravision": 0,
+    "deadsight": 5,
+    "echolocation": 0,
+    "tremorsense": 0,
+    "truesight": 0,
+    "aethersight": 0
+  },
+  "immunities": {
+    "afraid": false,
+    "alert": false,
+    "broken": false,
+    "charmed": false,
+    "confused": false,
+    "dazed": false,
+    "maddened": false,
+    "numbed": false,
+    "stunned": false,
+    "bleeding": true,
+    "blinded": false,
+    "deafened": false,
+    "ignited": false,
+    "impaired": false,
+    "incapacitated": false,
+    "muted": false,
+    "obscured": false,
+    "poisoned": true,
+    "prone": false,
+    "stasis": false,
+    "unconscious": false,
+    "winded": true
+  },
+  "taming": {
+    "tame_check": -1,
+    "commands": "basic"
+  },
+  "equipment": {
+    "mainhand": "Longsword",
+    "offhand": null,
+    "body": "Plate Armor",
+    "head": null,
+    "hand": null,
+    "boots": null,
+    "back": null,
+    "accessory1": null,
+    "accessory2": null
+  },
+  "actions": [
+    {
+      "name": "Longsword",
+      "actionCost": 1,
+      "frequency": "action",
+      "frequencyCondition": "",
+      "trigger": "",
+      "type": "attack",
+      "magic": false,
+      "basic": true,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "description": "The Undead Commander makes an attack with their Longsword, dealing physical damage.",
+      "reaction": false,
+      "attack": {
+        "roll": "4d12",
+        "damage": "1",
+        "damage_extra": "4",
+        "damage_type": "physical",
+        "category": "slash",
+        "min_range": 1,
+        "max_range": 1,
+        "hands": 1,
+        "aimed": false,
+        "ammo_capacity": 0
+      }
+    },
+    {
+      "name": "Engage",
+      "type": "attack",
+      "magic": false,
+      "description": "The undead commander moves up to two units towards a creature and slams into them with its armored shoulder, dealing a small amount of blunt damage. If any damage is dealt after mitigation, the target becomes dazed. If all attack dice are a success, the target becomes stunned instead.",
+      "reaction": false,
+      "basic": false,
+      "round": true,
+      "daily": false,
+      "spellType": "normal",
+      "attack": {
+        "roll": "3d8",
+        "damage": "1",
+        "damage_extra": "2",
+        "damage_type": "physical",
+        "category": "blunt",
+        "min_range": 1,
+        "max_range": 1
+      },
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
+    },
+    {
+      "name": "Dread Pulse",
+      "type": "utility",
+      "magic": true,
+      "description": "The undead commander unleashes a wave of fear through its Aura of Dread, forcing every enemy within the aura to make a resilience check of 5 or higher or take 8 psychic damage. A creature that takes any psychic damage this way has 1 penalty die on all attack and spell checks until the end of its next turn.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": true,
+      "spellType": "normal",
+      "frequency": "battle",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
+    },
+    {
+      "name": "Command Undead Troop",
+      "type": "utility",
+      "magic": false,
+      "description": "The undead commander orders one of its undead allies within a short (10 unit) distance to take the attack action with a basic attack. This attack gains a bonus die.",
+      "reaction": false,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "charges": 0,
+      "spellType": "normal"
+    }
+  ],
+  "reactions": [
+    {
+      "name": "Riposte",
+      "type": "utility",
+      "magic": false,
+      "description": "In response to being attacked by a melee weapon, the undead commander gains a +2 bonus to Deflection against the triggering attack. If the attacker deals no damage after mitigation is calculated, the undead commander can optionally use its Longsword ability against the attacker.",
+      "reaction": true,
+      "basic": false,
+      "round": false,
+      "daily": false,
+      "spellType": "normal",
+      "frequency": "round",
+      "actionCost": 1,
+      "frequencyCondition": "",
+      "trigger": ""
+    }
+  ],
+  "traits": [
+    {
+      "name": "Necromancer",
+      "description": "Any corpses raised by the Undead Commander are automatically under its control and are not subject to the maddened condition."
+    },
+    {
+      "name": "Aura of Dread",
+      "description": "The Undead Commander has a magical aura of dread that surrounds it in a very short (5 unit) distance. When a creature ends its turn within the aura, it takes 2 dark damage."
+    },
+    {
+      "name": "Undead",
+      "description": "This creature has no resolve and cannot be affected by resolve-targeting effects. It does not need to breathe, eat, or sleep."
+    }
+  ],
+  "loot": [],
+  "languages": [
+    "Common"
+  ],
+  "challenge_rating": 1,
+  "shieldLevel": 2,
+  "canUnarmedAttack": false,
+  "spellNames": [
+    "Fear",
+    "Walking Corpse"
+  ],
+  "source": "Official",
+  "isHomebrew": false
+}
