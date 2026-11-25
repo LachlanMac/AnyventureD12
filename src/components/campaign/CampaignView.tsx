@@ -173,109 +173,85 @@ const CampaignView: React.FC = () => {
     (slot) => slot.character?.userId === user?.id
   )?.character;
 
-  const getThemeColor = () => {
-    return 'linear-gradient(to right, rgba(215, 183, 64, 0.5), rgba(215, 183, 64, 0.1))';
-  };
-
   return (
     <div>
-      {/* Campaign Header */}
+      {/* Campaign Header: picture with name and description, then one info bar */}
       <div
         className="rounded-lg mb-6 overflow-hidden"
-        style={{
-          background: getThemeColor(),
-          backgroundImage: campaign.picture
-            ? `url(/uploads/campaigns/${campaign.picture})`
-            : undefined,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          backgroundBlendMode: campaign.picture ? 'overlay' : undefined,
-        }}
+        style={{ border: '1px solid var(--color-dark-border)' }}
       >
-        <div className="p-8">
-          <div className="flex justify-between items-start mb-4">
-            <div>
-              <h1
-                className="text-4xl font-bold text-white mb-2"
-                style={{ fontFamily: 'var(--font-display)' }}
-              >
-                {campaign.name}
-              </h1>
-              <p className="text-lg text-gray-200 mb-4">{campaign.description}</p>
-            </div>
-            {isOwner && (
-              <div className="flex gap-2">
-                <Button
-                  variant="secondary"
-                  onClick={() => setShowEditor(true)}
-                  leftIcon={
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"
-                      />
-                    </svg>
-                  }
-                >
-                  Edit Campaign
-                </Button>
-                <Button
-                  variant="secondary"
-                  onClick={() => setShowDeleteConfirm(true)}
-                  leftIcon={
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"
-                      />
-                    </svg>
-                  }
-                  style={{
-                    backgroundColor: 'rgba(239, 68, 68, 0.1)',
-                    borderColor: 'rgba(239, 68, 68, 0.5)',
-                    color: '#ef4444',
-                  }}
-                >
-                  Delete Campaign
-                </Button>
-              </div>
-            )}
-          </div>
-
-          <div className="flex flex-wrap gap-2 mb-4">
-            <span
+        <div
+          style={{
+            backgroundColor: 'var(--color-dark-surface)',
+            backgroundImage: campaign.picture
+              ? `linear-gradient(to bottom, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.65)), url(/uploads/campaigns/${campaign.picture})`
+              : 'linear-gradient(to right, rgba(215, 183, 64, 0.5), rgba(215, 183, 64, 0.1))',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            minHeight: campaign.picture ? '220px' : undefined,
+            display: 'flex',
+            alignItems: 'flex-end',
+          }}
+        >
+          <div className="p-8">
+            <h1
+              className="text-4xl font-bold text-white mb-2"
               style={{
-                color: 'var(--color-metal-gold)',
-                fontSize: '0.75rem',
-                backgroundColor: 'rgba(215, 183, 64, 0.2)',
-                padding: '0.25rem 0.75rem',
-                borderRadius: '0.25rem',
-                border: '1px solid rgba(215, 183, 64, 0.3)',
+                fontFamily: 'var(--font-display)',
+                textShadow: '0 2px 6px rgba(0, 0, 0, 0.7)',
               }}
             >
-              Players: {campaign.playerSlots.filter((slot) => slot.character).length}/
-              {campaign.playerSlots.length}
-            </span>
+              {campaign.name}
+            </h1>
+            {campaign.description && (
+              <p
+                className="text-lg text-gray-200"
+                style={{ textShadow: '0 1px 4px rgba(0, 0, 0, 0.7)' }}
+              >
+                {campaign.description}
+              </p>
+            )}
           </div>
+        </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-white">
-            <div>
-              <span className="text-gray-300 text-sm">Game Master</span>
-              <p className="font-semibold">{campaign.owner.username}</p>
+        {/* Info bar */}
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '1.5rem',
+            flexWrap: 'wrap',
+            padding: '0.625rem 1.25rem',
+            backgroundColor: 'var(--color-dark-elevated)',
+            borderTop: '1px solid var(--color-dark-border)',
+            fontSize: '0.9rem',
+          }}
+        >
+          {[
+            ['Game Master', campaign.owner.username],
+            [
+              'Players',
+              `${campaign.playerSlots.filter((slot) => slot.character).length}/${campaign.playerSlots.length}`,
+            ],
+            ['Starting Talents', campaign.startingTalents],
+            ['Starting Module Points', campaign.startingModulePoints],
+          ].map(([label, value]) => (
+            <span key={label as string} style={{ whiteSpace: 'nowrap' }}>
+              <span style={{ color: 'var(--color-cloud)' }}>{label}:</span>{' '}
+              <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>{value}</span>
+            </span>
+          ))}
+
+          {isOwner && (
+            <div style={{ display: 'flex', gap: '0.5rem', marginLeft: 'auto' }}>
+              <Button variant="secondary" size="sm" onClick={() => setShowEditor(true)}>
+                Edit
+              </Button>
+              <Button variant="danger" size="sm" onClick={() => setShowDeleteConfirm(true)}>
+                Delete
+              </Button>
             </div>
-            <div>
-              <span className="text-gray-300 text-sm">Starting Talents</span>
-              <p className="font-semibold">{campaign.startingTalents}</p>
-            </div>
-            <div>
-              <span className="text-gray-300 text-sm">Starting Module Points</span>
-              <p className="font-semibold">{campaign.startingModulePoints}</p>
-            </div>
-          </div>
+          )}
         </div>
       </div>
 
