@@ -78,8 +78,8 @@ const allowedOrigins = new Set(
 
 app.use(cors((req, callback) => {
   const origin = req.header('Origin');
-  // Foundry fetches sync data and downloads creature portraits from any origin
-  if (req.path.startsWith('/fvtt') || req.path.startsWith('/assets/monsters')) {
+  // Foundry fetches sync data and downloads creature and character portraits from any origin
+  if (req.path.startsWith('/fvtt') || req.path.startsWith('/assets/monsters') || req.path.startsWith('/uploads/portraits')) {
     return callback(null, { origin: true, credentials: false });
   }
   // No Origin header = same-origin, curl, or server-to-server; let it through
