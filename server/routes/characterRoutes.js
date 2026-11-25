@@ -23,6 +23,8 @@ import {
   generateAIBiography
 } from '../controllers/characterController.js';
 import { protect, requireWhitelisted, getUser } from '../middleware/auth.js';
+import { getCharacterCampaignItems } from '../controllers/campaignItemController.js';
+import { getCharacterCampaigns } from '../controllers/campaignStorageController.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
 import characterSpellRoutes from './characterSpellRoutes.js';
 import characterPlanRoutes from './characterPlanRoutes.js';
@@ -60,6 +62,12 @@ router.route('/:id/inventory')
 
 router.route('/:id/purchase-item')
   .post(protect, purchaseItem);
+
+// Custom items from the campaigns this character is in
+router.get('/:id/campaign-items', protect, getCharacterCampaignItems);
+
+// Campaigns this character is in (for campaign storage)
+router.get('/:id/campaigns', protect, getCharacterCampaigns);
 
 router.route('/:id/inventory/:itemId')
   .delete(protect, removeItemFromInventory);

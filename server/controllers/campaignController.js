@@ -154,8 +154,8 @@ const createCampaign = async (req, res) => {
       name,
       description,
       owner: userId,
-      startingTalents: startingTalents || 6,
-      startingModulePoints: startingModulePoints || 10
+      startingTalents: startingTalents || 8,
+      startingModulePoints: startingModulePoints || 15
     });
 
     // Create player slots
@@ -259,10 +259,17 @@ const generateInviteLink = async (req, res) => {
     await campaign.save();
 
     // Generate the frontend URL for the invite link
-    const frontendHost = req.get('host').includes(':4000') 
-      ? req.get('host').replace(':4000', ':5174')
-      : req.get('host');
-    const inviteLink = `https://${frontendHost}/campaigns/join/${token}`;
+    // Prefer the configured frontend URL; otherwise guess from the request
+    // (local dev servers are plain http, so never force https on localhost)
+    let frontendBase = (process.env.FRONTEND_URL || '').trim().replace(/\/+$/, '');
+    if (!frontendBase) {
+      const frontendHost = req.get('host').includes(':4000')
+        ? req.get('host').replace(':4000', ':5174')
+        : req.get('host');
+      const isLocal = /^(localhost|127\.0\.0\.1)(:|$)/.test(frontendHost);
+      frontendBase = `${isLocal ? 'http' : 'https'}://${frontendHost}`;
+    }
+    const inviteLink = `${frontendBase}/campaigns/join/${token}`;
     
     res.json({ 
       inviteLink,
@@ -427,6 +434,63 @@ const leaveCampaign = async (req, res) => {
   }
 };
 
+// GM puts one of their own characters straight into an empty slot (no invite needed)
+const addOwnCharacterToSlot = async (req, res) => {
+  try {
+    const { id } = req.params;
+    const slotIndex = Number(req.params.slotIndex);
+    const { characterId } = req.body || {};
+    const userId = req.user._id;
+
+    if (!mongoose.Types.ObjectId.isValid(characterId)) {
+      return res.status(400).json({ message: 'Invalid character ID format' });
+    }
+
+    const campaign = await Campaign.findById(id);
+    if (!campaign) {
+      return res.status(404).json({ message: 'Campaign not found' });
+    }
+    if (campaign.owner.toString() !== userId.toString()) {
+      return res.status(403).json({ message: 'Only the campaign owner can add characters directly' });
+    }
+
+    const slot = campaign.playerSlots[slotIndex];
+    if (!slot) {
+      return res.status(400).json({ message: 'Invalid slot' });
+    }
+    if (slot.character) {
+      return res.status(400).json({ message: 'Slot is already occupied' });
+    }
+
+    const character = await Character.findOne({ _id: characterId, userId: userId.toString() }).select('_id');
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found or not yours' });
+    }
+
+    const alreadyInCampaign = campaign.playerSlots.some(
+      s => s.character && s.character.toString() === characterId.toString()
+    );
+    if (alreadyInCampaign) {
+      return res.status(400).json({ message: 'Character is already in this campaign' });
+    }
+
+    slot.character = character._id;
+    slot.isOpen = false;
+    slot.inviteToken = undefined;
+    await campaign.save();
+
+    await campaign.populate([
+      { path: 'owner', select: 'username' },
+      { path: 'playerSlots.character', select: '_id name portraitUrl userId level' }
+    ]);
+    const campaignWithPlayers = await populateCharacterPlayers(campaign);
+    res.json(campaignWithPlayers);
+  } catch (error) {
+    console.error('Error adding own character to slot:', error);
+    res.status(500).json({ message: 'Error adding character', error: error.message });
+  }
+};
+
 // Close/open player slot
 const toggleSlot = async (req, res) => {
   try {
@@ -523,6 +587,7 @@ export {
   kickPlayer,
   leaveCampaign,
   toggleSlot,
+  addOwnCharacterToSlot,
   deleteCampaign
 };
 

@@ -1,4 +1,11 @@
 import React, { useState } from 'react';
+import ModulePointsSelect from './ModulePointsSelect';
+import {
+  DEFAULT_MODULE_POINTS,
+  DEFAULT_STARTING_TALENTS,
+  MAX_STARTING_TALENTS,
+  MIN_STARTING_TALENTS,
+} from '../../constants/modulePoints';
 import Button from '../ui/Button';
 import CampaignPictureUploader from './CampaignPictureUploader';
 
@@ -16,8 +23,8 @@ const CampaignCreator: React.FC<CampaignCreatorProps> = ({
   const [formData, setFormData] = useState({
     name: '',
     description: '',
-    startingTalents: 6,
-    startingModulePoints: 0,
+    startingTalents: DEFAULT_STARTING_TALENTS,
+    startingModulePoints: DEFAULT_MODULE_POINTS,
     playerSlotsCount: 4,
   });
   const [picture, setPicture] = useState<File | null>(null);
@@ -73,8 +80,8 @@ const CampaignCreator: React.FC<CampaignCreatorProps> = ({
       setFormData({
         name: '',
         description: '',
-        startingTalents: 6,
-        startingModulePoints: 0,
+        startingTalents: DEFAULT_STARTING_TALENTS,
+        startingModulePoints: DEFAULT_MODULE_POINTS,
         playerSlotsCount: 4,
       });
       setPicture(null);
@@ -160,8 +167,8 @@ const CampaignCreator: React.FC<CampaignCreatorProps> = ({
                 </label>
                 <input
                   type="number"
-                  min="0"
-                  max="20"
+                  min={MIN_STARTING_TALENTS}
+                  max={MAX_STARTING_TALENTS}
                   value={formData.startingTalents}
                   onChange={(e) => handleInputChange('startingTalents', parseInt(e.target.value))}
                   className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
@@ -172,14 +179,9 @@ const CampaignCreator: React.FC<CampaignCreatorProps> = ({
                 <label className="block text-sm font-medium text-gray-300 mb-2">
                   Starting Module Points
                 </label>
-                <input
-                  type="number"
-                  min="0"
-                  max="100"
+                <ModulePointsSelect
                   value={formData.startingModulePoints}
-                  onChange={(e) =>
-                    handleInputChange('startingModulePoints', parseInt(e.target.value))
-                  }
+                  onChange={(value) => handleInputChange('startingModulePoints', value)}
                   className="w-full px-3 py-2 border border-gray-600 rounded-md bg-gray-800 text-white focus:outline-none focus:ring-2 focus:ring-blue-500"
                 />
               </div>

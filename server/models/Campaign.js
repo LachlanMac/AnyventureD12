@@ -18,6 +18,42 @@ const playerSlotSchema = new mongoose.Schema({
   }
 }, { timestamps: true });
 
+// One stack in a campaign storage. Same shape as a character inventory entry,
+// so items move between storage and inventories without conversion.
+const storageEntrySchema = new mongoose.Schema({
+  itemId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Item',
+    default: null
+  },
+  itemData: {
+    type: mongoose.Schema.Types.Mixed,
+    default: null
+  },
+  isCustomized: {
+    type: Boolean,
+    default: false
+  },
+  quantity: {
+    type: Number,
+    default: 1,
+    min: 0
+  }
+});
+
+const storageSchema = new mongoose.Schema({
+  items: [storageEntrySchema],
+  gold: { type: Number, default: 0, min: 0 },
+  silver: { type: Number, default: 0, min: 0 }
+}, { _id: false });
+
+const storageLogSchema = new mongoose.Schema({
+  at: { type: Date, default: Date.now },
+  text: { type: String, required: true },
+  // 'party': everyone in the campaign sees it. 'gm': only the GM.
+  visibility: { type: String, enum: ['party', 'gm'], default: 'party' }
+}, { _id: false });
+
 const campaignSchema = new mongoose.Schema({
   name: {
     type: String,
@@ -41,20 +77,29 @@ const campaignSchema = new mongoose.Schema({
     required: true,
     min: 0,
     max: 20,
-    default: 6
+    default: 8
   },
   startingModulePoints: {
     type: Number,
     required: true,
     min: 0,
     max: 100,
-    default: 10
+    default: 15
   },
   picture: {
     type: String,
     default: null
   },
   playerSlots: [playerSlotSchema],
+  // GM's private stash (loot being prepared) and the storage the party shares
+  gmStorage: { type: storageSchema, default: () => ({}) },
+  partyStorage: { type: storageSchema, default: () => ({}) },
+  storageLog: [storageLogSchema],
+  // GM's homebrew items that any character in the campaign can pick
+  customItems: [{
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'Item'
+  }],
   isActive: {
     type: Boolean,
     default: true

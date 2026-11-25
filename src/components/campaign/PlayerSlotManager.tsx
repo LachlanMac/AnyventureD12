@@ -44,6 +44,54 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({
   const [loading, setLoading] = useState<{ [key: string]: boolean }>({});
   const [inviteLinks, setInviteLinks] = useState<{ [key: number]: string }>({});
   const [showInviteLink, setShowInviteLink] = useState<{ [key: number]: boolean }>({});
+  // GM adding one of their own characters to a slot (no invite needed)
+  const [addingToSlot, setAddingToSlot] = useState<number | null>(null);
+  const [myCharacters, setMyCharacters] = useState<{ _id: string; name: string }[] | null>(null);
+  const [addingCharacterId, setAddingCharacterId] = useState<string | null>(null);
+
+  const openAddOwnCharacter = async (slotIndex: number) => {
+    setAddingToSlot(slotIndex);
+    if (myCharacters) return;
+    try {
+      const response = await fetch('/api/characters', { credentials: 'include' });
+      if (!response.ok) throw new Error('Failed to load your characters');
+      const data = await response.json();
+      setMyCharacters(
+        (Array.isArray(data) ? data : []).map((c: { _id: string; name: string }) => ({
+          _id: c._id,
+          name: c.name,
+        }))
+      );
+    } catch (error) {
+      showError(error instanceof Error ? error.message : 'Failed to load your characters');
+      setAddingToSlot(null);
+    }
+  };
+
+  const handleAddOwnCharacter = async (characterId: string) => {
+    if (addingToSlot === null) return;
+    setAddingCharacterId(characterId);
+    try {
+      const response = await fetch(
+        `/api/campaigns/${campaign._id}/slots/${addingToSlot}/character`,
+        {
+          method: 'POST',
+          credentials: 'include',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ characterId }),
+        }
+      );
+      const body = await response.json().catch(() => ({}));
+      if (!response.ok) throw new Error(body.message || 'Failed to add character');
+      showSuccess('Character added to the campaign');
+      setAddingToSlot(null);
+      onSlotUpdated();
+    } catch (error) {
+      showError(error instanceof Error ? error.message : 'Failed to add character');
+    } finally {
+      setAddingCharacterId(null);
+    }
+  };
 
   const handleGenerateInvite = async (slotIndex: number) => {
     if (!isOwner) return;
@@ -335,6 +383,13 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({
                       <Button
                         variant="secondary"
                         size="sm"
+                        onClick={() => openAddOwnCharacter(index)}
+                      >
+                        Add My Character
+                      </Button>
+                      <Button
+                        variant="secondary"
+                        size="sm"
                         onClick={() => handleToggleSlot(index, false)}
                         disabled={loading[`toggle-${index}`]}
                       >
@@ -404,6 +459,106 @@ const PlayerSlotManager: React.FC<PlayerSlotManagerProps> = ({
           )}
         </div>
       ))}
+
+      {/* GM: pick one of your own characters for a slot */}
+      {addingToSlot !== null && (
+        <div
+          style={{
+            position: 'fixed',
+            inset: 0,
+            backgroundColor: 'rgba(0, 0, 0, 0.75)',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center',
+            zIndex: 1000,
+          }}
+          onClick={(e) => {
+            if (e.target === e.currentTarget) setAddingToSlot(null);
+          }}
+        >
+          <div
+            style={{
+              backgroundColor: 'var(--color-dark-surface)',
+              border: '1px solid var(--color-dark-border)',
+              borderRadius: '0.5rem',
+              padding: '1.5rem',
+              width: '90%',
+              maxWidth: '480px',
+              maxHeight: '80vh',
+              display: 'flex',
+              flexDirection: 'column',
+              gap: '1rem',
+            }}
+          >
+            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <h3
+                style={{
+                  color: 'var(--color-white)',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: '1.25rem',
+                  fontWeight: 'bold',
+                  margin: 0,
+                }}
+              >
+                Add My Character
+              </h3>
+              <Button variant="secondary" size="sm" onClick={() => setAddingToSlot(null)}>
+                Close
+              </Button>
+            </div>
+
+            <div
+              style={{ overflowY: 'auto', display: 'flex', flexDirection: 'column', gap: '0.5rem' }}
+            >
+              {myCharacters === null ? (
+                <div className="flex justify-center" style={{ padding: '2rem' }}>
+                  <div className="loading-spinner"></div>
+                </div>
+              ) : myCharacters.filter(
+                  (c) => !campaign.playerSlots.some((slot) => slot.character?._id === c._id)
+                ).length === 0 ? (
+                <div
+                  style={{ color: 'var(--color-cloud)', textAlign: 'center', padding: '2rem 1rem' }}
+                >
+                  You have no characters that aren't already in this campaign.
+                </div>
+              ) : (
+                myCharacters
+                  .filter(
+                    (c) => !campaign.playerSlots.some((slot) => slot.character?._id === c._id)
+                  )
+                  .map((c) => (
+                    <div
+                      key={c._id}
+                      style={{
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'space-between',
+                        gap: '1rem',
+                        padding: '0.75rem 1rem',
+                        backgroundColor: 'var(--color-dark-elevated)',
+                        border: '1px solid var(--color-dark-border)',
+                        borderRadius: '0.375rem',
+                      }}
+                    >
+                      <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                        {c.name}
+                      </span>
+                      <Button
+                        variant="accent"
+                        size="sm"
+                        onClick={() => handleAddOwnCharacter(c._id)}
+                        disabled={addingCharacterId !== null}
+                      >
+                        {addingCharacterId === c._id ? 'Adding...' : 'Add'}
+                      </Button>
+                    </div>
+                  ))
+              )}
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };

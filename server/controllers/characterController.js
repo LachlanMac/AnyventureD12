@@ -4,6 +4,7 @@ import Item from '../models/Item.js';
 import Trait from '../models/Trait.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
 import Campaign from '../models/Campaign.js';
+import { canAddItemToCharacter } from './campaignItemController.js';
 import { isWhitelistedUser } from '../middleware/auth.js';
 import { generateRandomCharacterData } from '../utils/randomCharacterGenerator.js';
 import { generateFoundryId } from '../utils/foundryIdGenerator.js';
@@ -494,6 +495,14 @@ export const addItemToInventory = async (req, res) => {
       return res.status(404).json({ message: 'Character not found' });
     }
 
+    const item = await Item.findById(itemId).select('isHomebrew status creatorId');
+    if (!item) {
+      return res.status(404).json({ message: 'Item not found' });
+    }
+    if (!(await canAddItemToCharacter(req.user, character._id, item))) {
+      return res.status(403).json({ message: 'This item is not available to this character' });
+    }
+
     const result = await character.addItem(itemId, quantity);
 
     if (result.success) {
@@ -523,6 +532,9 @@ export const purchaseItem = async (req, res) => {
     const item = await Item.findById(itemId);
     if (!item) {
       return res.status(404).json({ message: 'Item not found' });
+    }
+    if (!(await canAddItemToCharacter(req.user, character._id, item))) {
+      return res.status(403).json({ message: 'This item is not available to this character' });
     }
 
     // Calculate total cost (value is in silver per item)

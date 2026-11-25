@@ -1,10 +1,12 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Character, Item, CharacterItem } from '../../../types/character';
 import Button from '../../ui/Button';
 import ItemEditModal from './ItemEditModal';
 import CurrencyModal from './CurrencyModal';
 import { useToast } from '../../../context/ToastContext';
+import CharacterStorageView from '../../campaign/storage/CharacterStorageView';
+import { StorageActionDialog } from '../../campaign/storage/storageShared';
 
 interface InventoryTabProps {
   character: Character;
@@ -27,6 +29,8 @@ interface InventoryItemProps {
   canEquip: boolean;
   showError: (message: string) => void;
   canEditItem?: boolean;
+  /** Set when the character is in a campaign: moves the item to party storage */
+  onStore?: (index: number) => void;
 }
 
 // Helper function to get item data from hybrid inventory item
@@ -55,6 +59,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   canEquip,
   showError,
   canEditItem = true,
+  onStore,
 }) => {
   const getAvailableSlots = (): string[] => {
     // Equipment types that have dedicated slots
@@ -78,7 +83,13 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       potentialSlots = equipmentTypeToSlotMap[item.type];
     } else {
       // For non-equipment items, check if they're holdable
-      const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+      const isNonEquipment = [
+        'trade_good',
+        'consumable',
+        'tool',
+        'instrument',
+        'adventure',
+      ].includes(item.type);
       if (isNonEquipment && item.holdable) {
         potentialSlots = ['mainhand', 'offhand', 'extra1', 'extra2', 'extra3'];
       } else {
@@ -93,7 +104,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     let mainhandItem: Item | null = null;
     if (mainhandSlot?.itemId) {
       // Find the equipped item in inventory to check its hands requirement
-      const equippedInvItem = character.inventory?.find(invItem => {
+      const equippedInvItem = character.inventory?.find((invItem) => {
         const invItemData = getItemFromInventory(invItem);
         return invItemData?._id === mainhandSlot.itemId;
       });
@@ -103,7 +114,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
     const isTwoHandedEquipped = mainhandItem?.hands === 2;
 
     // Filter to only show truly available slots
-    return potentialSlots.filter(slotName => {
+    return potentialSlots.filter((slotName) => {
       const slot = character.equipment?.[slotName as keyof typeof character.equipment];
 
       // Slot must be empty
@@ -127,8 +138,8 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
 
       // Complex weapons in extra slots require WEAPON_COLLECTOR trait
       if (item.type === 'weapon' && ['extra1', 'extra2', 'extra3'].includes(slotName)) {
-        const isComplexWeapon = item.weapon_category === 'complexMelee' ||
-                               item.weapon_category === 'complexRanged';
+        const isComplexWeapon =
+          item.weapon_category === 'complexMelee' || item.weapon_category === 'complexRanged';
 
         if (isComplexWeapon && !character.conditionals?.flags?.WEAPON_COLLECTOR) {
           return false;
@@ -142,7 +153,13 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       }
 
       // Holdable items cannot be equipped in offhand when a two-handed weapon is equipped
-      const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+      const isNonEquipment = [
+        'trade_good',
+        'consumable',
+        'tool',
+        'instrument',
+        'adventure',
+      ].includes(item.type);
       if (isNonEquipment && item.holdable && slotName === 'offhand' && isTwoHandedEquipped) {
         return false;
       }
@@ -167,7 +184,7 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
       extra2: 'Extra 2',
       extra3: 'Extra 3',
       accessory1: 'Accessory 1',
-      accessory2: 'Accessory 2'
+      accessory2: 'Accessory 2',
     };
     return slotDisplayMap[slotName] || slotName;
   };
@@ -272,11 +289,14 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
         <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
           <span style={{ color: 'var(--color-cloud)', fontWeight: 'bold' }}>
             {item.name}
-            {isEquipped && equippedSlot && ['weapon', 'shield', 'accessory'].includes(item.type) && (
-              <span style={{ color: 'var(--color-metal-gold)', fontSize: '0.8em' }}>
-                {' '}[{getSlotDisplayName(equippedSlot)}]
-              </span>
-            )}
+            {isEquipped &&
+              equippedSlot &&
+              ['weapon', 'shield', 'accessory'].includes(item.type) && (
+                <span style={{ color: 'var(--color-metal-gold)', fontSize: '0.8em' }}>
+                  {' '}
+                  [{getSlotDisplayName(equippedSlot)}]
+                </span>
+              )}
           </span>
           {inventoryItem.quantity > 1 && (
             <span style={{ color: 'var(--color-metal-gold)', fontWeight: 'bold' }}>
@@ -406,6 +426,23 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
             >
               Edit
             </button>
+            {onStore && !isEquipped && (
+              <button
+                onClick={() => onStore(inventoryIndex)}
+                title="Move to party storage"
+                style={{
+                  backgroundColor: 'var(--color-stormy)',
+                  color: 'white',
+                  border: 'none',
+                  borderRadius: '4px',
+                  padding: '0.25rem 0.5rem',
+                  cursor: 'pointer',
+                  fontSize: '0.75rem',
+                }}
+              >
+                Store
+              </button>
+            )}
             <button
               onClick={() => onRemove(inventoryIndex)}
               style={{
@@ -514,9 +551,39 @@ const InventoryItem: React.FC<InventoryItemProps> = ({
   );
 };
 
-const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdate, canEdit = true }) => {
+// Store an inventory item in party storage. Reuses the storage dialog; with several
+// campaigns, the character dropdown doubles as the campaign picker.
+const StoreItemDialog: React.FC<{
+  itemName: string;
+  maxQuantity: number;
+  campaigns: { _id: string; name: string }[];
+  onConfirm: (quantity: number, campaignId: string) => Promise<void>;
+  onClose: () => void;
+}> = ({ itemName, maxQuantity, campaigns, onConfirm, onClose }) => (
+  <StorageActionDialog
+    title={`Store ${itemName}`}
+    description={
+      campaigns.length === 1
+        ? `Move to the party storage for ${campaigns[0].name}.`
+        : 'Choose which campaign’s party storage to use.'
+    }
+    confirmLabel="Store"
+    mode="item"
+    maxQuantity={maxQuantity}
+    characters={campaigns.length > 1 ? campaigns : undefined}
+    characterLabel="Campaign"
+    onConfirm={(r) => onConfirm(r.quantity, r.characterId || campaigns[0]._id)}
+    onClose={onClose}
+  />
+);
+
+const InventoryTab: React.FC<InventoryTabProps> = ({
+  character,
+  onCharacterUpdate,
+  canEdit = true,
+}) => {
   const navigate = useNavigate();
-  const { showError } = useToast();
+  const { showError, showSuccess } = useToast();
   const [filter, setFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [equippedFilter, setEquippedFilter] = useState('all');
@@ -525,6 +592,57 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   );
   const [showCurrencyModal, setShowCurrencyModal] = useState(false);
 
+  // Campaign storage: only when this character is in a campaign
+  const [campaigns, setCampaigns] = useState<{ _id: string; name: string }[]>([]);
+  const [view, setView] = useState<'inventory' | 'storage'>('inventory');
+  const [storageCampaignId, setStorageCampaignId] = useState('');
+  const [storeIndex, setStoreIndex] = useState<number | null>(null);
+
+  useEffect(() => {
+    if (!canEdit) return;
+    let cancelled = false;
+    fetch(`/api/characters/${character._id}/campaigns`, { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => {
+        if (cancelled || !Array.isArray(data)) return;
+        setCampaigns(data);
+        setStorageCampaignId((current) => current || data[0]?._id || '');
+      })
+      .catch(() => {});
+    return () => {
+      cancelled = true;
+    };
+  }, [character._id, canEdit]);
+
+  const inCampaign = canEdit && campaigns.length > 0;
+
+  // Reload the character after items or money move to or from storage
+  const refreshCharacter = async () => {
+    try {
+      const response = await fetch(`/api/characters/${character._id}`, { credentials: 'include' });
+      if (response.ok) onCharacterUpdate(JSON.parse(JSON.stringify(await response.json())));
+    } catch (error) {
+      console.error('Error refreshing character:', error);
+    }
+  };
+
+  const handleStoreItem = async (quantity: number, campaignId: string) => {
+    if (storeIndex === null) return;
+    const response = await fetch(`/api/campaigns/${campaignId}/storage/party/deposit`, {
+      method: 'POST',
+      credentials: 'include',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ characterId: character._id, inventoryIndex: storeIndex, quantity }),
+    });
+    const body = await response.json().catch(() => ({}));
+    if (!response.ok) {
+      showError(body.message || 'Failed to store item');
+      return;
+    }
+    showSuccess('Moved to party storage');
+    setStoreIndex(null);
+    await refreshCharacter();
+  };
 
   const handleAddItem = () => {
     navigate(`/character/${character._id}/items`);
@@ -575,7 +693,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
         console.log('[EQUIP] Skills with dice tier modifiers:', {
           fitness: updatedCharacter.skills.fitness,
           deflection: updatedCharacter.skills.deflection,
-          might: updatedCharacter.skills.might
+          might: updatedCharacter.skills.might,
         });
         // Force React to detect the state change by creating a new reference
         onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
@@ -599,7 +717,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
         console.log('[UNEQUIP] Skills with dice tier modifiers:', {
           fitness: updatedCharacter.skills.fitness,
           deflection: updatedCharacter.skills.deflection,
-          might: updatedCharacter.skills.might
+          might: updatedCharacter.skills.might,
         });
         // Force React to detect the state change by creating a new reference
         onCharacterUpdate(JSON.parse(JSON.stringify(updatedCharacter)));
@@ -719,7 +837,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
   const isItemEquipped = (item: Item): { equipped: boolean; slot?: string } => {
     // Check for implants - they use the equipped flag on inventory item
     if (item.type === 'implant') {
-      const inventoryIndex = character.inventory?.findIndex(invItem => {
+      const inventoryIndex = character.inventory?.findIndex((invItem) => {
         const invItemData = getItemFromInventory(invItem);
         return invItemData?._id === item._id;
       });
@@ -736,8 +854,18 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
 
     // Check all equipment slots including new structure
     const allSlots = [
-      'hand', 'boots', 'body', 'head', 'back', 'accessory1', 'accessory2',
-      'mainhand', 'offhand', 'extra1', 'extra2', 'extra3'
+      'hand',
+      'boots',
+      'body',
+      'head',
+      'back',
+      'accessory1',
+      'accessory2',
+      'mainhand',
+      'offhand',
+      'extra1',
+      'extra2',
+      'extra3',
     ];
 
     for (const slotName of allSlots) {
@@ -761,7 +889,7 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
       'shield',
       'accessory',
       'ammunition',
-      'implant'
+      'implant',
     ];
 
     // Check standard equipment types
@@ -770,7 +898,9 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     }
 
     // Check if it's a holdable non-equipment item
-    const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(item.type);
+    const isNonEquipment = ['trade_good', 'consumable', 'tool', 'instrument', 'adventure'].includes(
+      item.type
+    );
     if (isNonEquipment && item.holdable) {
       return true;
     }
@@ -813,235 +943,330 @@ const InventoryTab: React.FC<InventoryTabProps> = ({ character, onCharacterUpdat
     return itemA.name.localeCompare(itemB.name);
   });
 
+  const storeEntry = storeIndex !== null ? character.inventory?.[storeIndex] : null;
+  const storeItem = getItemFromInventory(storeEntry || undefined);
+
   return (
     <div style={{ padding: '1rem' }}>
-      {/* Single column layout - just inventory */}
-      <div>
-        {/* Inventory Section */}
-        <div>
+      {/* Inventory / Storage toggle (only for characters in a campaign) */}
+      {inCampaign && (
+        <div
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: '0.75rem',
+            marginBottom: '1rem',
+            flexWrap: 'wrap',
+          }}
+        >
           <div
             style={{
               display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
-              marginBottom: '1rem',
+              borderRadius: '0.375rem',
+              overflow: 'hidden',
+              border: '1px solid var(--color-dark-border)',
             }}
           >
-            <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
-              <h3 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Inventory</h3>
-              <div
+            {(['inventory', 'storage'] as const).map((mode) => (
+              <button
+                key={mode}
+                onClick={() => setView(mode)}
                 style={{
-                  color:
-                    getCurrentInventoryWeight() > getMaxCarryWeight()
-                      ? 'var(--color-white)'
-                      : 'var(--color-cloud)',
-                  fontSize: '0.9rem',
-                  padding: '0.25rem 0.75rem',
+                  padding: '0.5rem 1rem',
                   backgroundColor:
-                    getCurrentInventoryWeight() > getMaxCarryWeight()
-                      ? 'rgba(152, 94, 109, 0.3)'
-                      : 'var(--color-dark-elevated)',
-                  borderRadius: '6px',
-                  border:
-                    getCurrentInventoryWeight() > getMaxCarryWeight()
-                      ? '1px solid var(--color-sunset)'
-                      : '1px solid var(--color-dark-border)',
-                  fontWeight: getCurrentInventoryWeight() > getMaxCarryWeight() ? 'bold' : 'normal',
-                }}
-                title="Carry weight excludes equipped items"
-              >
-                {getCurrentInventoryWeight().toFixed(1)} / {getMaxCarryWeight()} Bulk Units
-                {getCurrentInventoryWeight() > getMaxCarryWeight() && (
-                  <span style={{ color: 'var(--color-sunset)', marginLeft: '0.5rem' }}>
-                    (Overloaded!)
-                  </span>
-                )}
-              </div>
-              <div
-                style={{
-                  fontSize: '0.75rem',
-                  color: 'var(--color-cloud)',
-                  opacity: 0.7,
+                    view === mode ? 'var(--color-metal-gold)' : 'var(--color-dark-elevated)',
+                  color: view === mode ? 'var(--color-white)' : 'var(--color-cloud)',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontWeight: view === mode ? 'bold' : 'normal',
                 }}
               >
-                *Equipped items excluded
-              </div>
-            </div>
-            {canEdit && (
-              <Button variant="accent" onClick={handleAddItem}>
-                Add Item
-              </Button>
-            )}
+                {mode === 'inventory' ? 'Inventory' : 'Storage'}
+              </button>
+            ))}
           </div>
+          {view === 'storage' && campaigns.length > 1 && (
+            <select
+              value={storageCampaignId}
+              onChange={(e) => setStorageCampaignId(e.target.value)}
+              style={{
+                padding: '0.5rem 0.75rem',
+                backgroundColor: 'var(--color-dark-elevated)',
+                border: '1px solid var(--color-dark-border)',
+                borderRadius: '0.375rem',
+                color: 'var(--color-white)',
+              }}
+            >
+              {campaigns.map((c) => (
+                <option key={c._id} value={c._id}>
+                  {c.name}
+                </option>
+              ))}
+            </select>
+          )}
+          {view === 'storage' && campaigns.length === 1 && (
+            <span style={{ color: 'var(--color-cloud)' }}>{campaigns[0].name}</span>
+          )}
+        </div>
+      )}
 
-          {/* Wealth Display */}
-          <div style={{
-            marginBottom: '1rem',
-            padding: '0.75rem',
-            backgroundColor: 'var(--color-dark-elevated)',
-            borderRadius: '6px',
-            border: '1px solid var(--color-dark-border)'
-          }}>
-            <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-              <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
-                <h4 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Wealth</h4>
-                <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{
-                      color: '#FFD700',
-                      fontWeight: 'bold',
-                      fontSize: '1rem'
-                    }}>
-                      ⚜
+      {inCampaign && view === 'storage' && storageCampaignId && character._id ? (
+        <CharacterStorageView
+          campaignId={storageCampaignId}
+          characterId={character._id}
+          characterGold={character.wealth?.gold || 0}
+          characterSilver={character.wealth?.silver || 0}
+          onCharacterChanged={refreshCharacter}
+        />
+      ) : (
+        <div>
+          {/* Inventory Section */}
+          <div>
+            <div
+              style={{
+                display: 'flex',
+                justifyContent: 'space-between',
+                alignItems: 'center',
+                marginBottom: '1rem',
+              }}
+            >
+              <div style={{ display: 'flex', alignItems: 'center', gap: '1rem' }}>
+                <h3 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Inventory</h3>
+                <div
+                  style={{
+                    color:
+                      getCurrentInventoryWeight() > getMaxCarryWeight()
+                        ? 'var(--color-white)'
+                        : 'var(--color-cloud)',
+                    fontSize: '0.9rem',
+                    padding: '0.25rem 0.75rem',
+                    backgroundColor:
+                      getCurrentInventoryWeight() > getMaxCarryWeight()
+                        ? 'rgba(152, 94, 109, 0.3)'
+                        : 'var(--color-dark-elevated)',
+                    borderRadius: '6px',
+                    border:
+                      getCurrentInventoryWeight() > getMaxCarryWeight()
+                        ? '1px solid var(--color-sunset)'
+                        : '1px solid var(--color-dark-border)',
+                    fontWeight:
+                      getCurrentInventoryWeight() > getMaxCarryWeight() ? 'bold' : 'normal',
+                  }}
+                  title="Carry weight excludes equipped items"
+                >
+                  {getCurrentInventoryWeight().toFixed(1)} / {getMaxCarryWeight()} Bulk Units
+                  {getCurrentInventoryWeight() > getMaxCarryWeight() && (
+                    <span style={{ color: 'var(--color-sunset)', marginLeft: '0.5rem' }}>
+                      (Overloaded!)
                     </span>
-                    <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
-                      {character.wealth?.gold || 0} Gold
-                    </span>
-                  </div>
-                  <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
-                    <span style={{
-                      color: '#C0C0C0',
-                      fontWeight: 'bold',
-                      fontSize: '1rem'
-                    }}>
-                      ◉
-                    </span>
-                    <span style={{ color: 'var(--color-cloud)' }}>
-                      {character.wealth?.silver || 0} Silver
-                    </span>
-                  </div>
+                  )}
+                </div>
+                <div
+                  style={{
+                    fontSize: '0.75rem',
+                    color: 'var(--color-cloud)',
+                    opacity: 0.7,
+                  }}
+                >
+                  *Equipped items excluded
                 </div>
               </div>
               {canEdit && (
-                <button
-                  onClick={() => setShowCurrencyModal(true)}
-                  style={{
-                    padding: '0.4rem 0.8rem',
-                    backgroundColor: 'var(--color-old-gold)',
-                    color: 'var(--color-dark-bg)',
-                    border: 'none',
-                    borderRadius: '4px',
-                    cursor: 'pointer',
-                    fontWeight: 'bold',
-                    fontSize: '0.85rem',
-                  }}
-                >
-                  Manage Currency
-                </button>
+                <Button variant="accent" onClick={handleAddItem}>
+                  Add Item
+                </Button>
+              )}
+            </div>
+
+            {/* Wealth Display */}
+            <div
+              style={{
+                marginBottom: '1rem',
+                padding: '0.75rem',
+                backgroundColor: 'var(--color-dark-elevated)',
+                borderRadius: '6px',
+                border: '1px solid var(--color-dark-border)',
+              }}
+            >
+              <div
+                style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: '1.5rem' }}>
+                  <h4 style={{ color: 'var(--color-metal-gold)', margin: 0 }}>Wealth</h4>
+                  <div style={{ display: 'flex', gap: '1rem', alignItems: 'center' }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span
+                        style={{
+                          color: '#FFD700',
+                          fontWeight: 'bold',
+                          fontSize: '1rem',
+                        }}
+                      >
+                        ⚜
+                      </span>
+                      <span style={{ color: 'var(--color-white)', fontWeight: 'bold' }}>
+                        {character.wealth?.gold || 0} Gold
+                      </span>
+                    </div>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
+                      <span
+                        style={{
+                          color: '#C0C0C0',
+                          fontWeight: 'bold',
+                          fontSize: '1rem',
+                        }}
+                      >
+                        ◉
+                      </span>
+                      <span style={{ color: 'var(--color-cloud)' }}>
+                        {character.wealth?.silver || 0} Silver
+                      </span>
+                    </div>
+                  </div>
+                </div>
+                {canEdit && (
+                  <button
+                    onClick={() => setShowCurrencyModal(true)}
+                    style={{
+                      padding: '0.4rem 0.8rem',
+                      backgroundColor: 'var(--color-old-gold)',
+                      color: 'var(--color-dark-bg)',
+                      border: 'none',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontWeight: 'bold',
+                      fontSize: '0.85rem',
+                    }}
+                  >
+                    Manage Currency
+                  </button>
+                )}
+              </div>
+            </div>
+
+            {/* Filters */}
+            <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
+              <input
+                type="text"
+                placeholder="Search items..."
+                value={filter}
+                onChange={(e) => setFilter(e.target.value)}
+                style={{
+                  flex: 1,
+                  padding: '0.5rem',
+                  backgroundColor: 'var(--color-dark-bg)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '6px',
+                  color: 'var(--color-cloud)',
+                }}
+              />
+              <select
+                value={typeFilter}
+                onChange={(e) => setTypeFilter(e.target.value)}
+                style={{
+                  padding: '0.5rem',
+                  backgroundColor: 'var(--color-dark-bg)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '6px',
+                  color: 'var(--color-cloud)',
+                }}
+              >
+                <option value="all">All Types</option>
+                <option value="weapon">Weapons</option>
+                <option value="boots">Boots</option>
+                <option value="body">Body</option>
+                <option value="gloves">Gloves</option>
+                <option value="headwear">Headwear</option>
+                <option value="cloak">Cloaks</option>
+                <option value="accessory">Accessories</option>
+                <option value="shield">Shields</option>
+                <option value="goods">Goods</option>
+                <option value="adventure">Adventure</option>
+                <option value="consumable">Consumables</option>
+                <option value="tool">Tools</option>
+                <option value="instrument">Instruments</option>
+                <option value="ammunition">Ammunition</option>
+                <option value="implant">Implants</option>
+              </select>
+              <select
+                value={equippedFilter}
+                onChange={(e) => setEquippedFilter(e.target.value)}
+                style={{
+                  padding: '0.5rem',
+                  backgroundColor: 'var(--color-dark-bg)',
+                  border: '1px solid var(--color-dark-border)',
+                  borderRadius: '6px',
+                  color: 'var(--color-cloud)',
+                }}
+              >
+                <option value="all">All Items</option>
+                <option value="equipped">Equipped</option>
+                <option value="unequipped">Unequipped</option>
+              </select>
+            </div>
+
+            {/* Inventory Items */}
+            <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
+              {sortedInventory.length === 0 ? (
+                <div style={{ color: 'var(--color-muted)', textAlign: 'center', padding: '2rem' }}>
+                  No items in inventory. Click "Add Item" to browse items.
+                </div>
+              ) : (
+                sortedInventory.map((invItem, _sortedIndex) => {
+                  const item = getItemFromInventory(invItem);
+                  if (!item) return null;
+
+                  // Find the original index in the character's inventory
+                  const originalIndex =
+                    character.inventory?.findIndex(
+                      (originalInvItem) => originalInvItem === invItem
+                    ) ?? -1;
+
+                  if (originalIndex === -1) {
+                    console.warn('Could not find original index for inventory item');
+                    return null;
+                  }
+
+                  const equipmentStatus = isItemEquipped(item);
+                  const canEquip = canItemBeEquipped(item);
+
+                  return (
+                    <InventoryItem
+                      key={`${originalIndex}-${item._id}`}
+                      item={item}
+                      inventoryItem={invItem}
+                      inventoryIndex={originalIndex}
+                      character={character}
+                      onRemove={handleRemoveItem}
+                      onEquip={handleEquipItem}
+                      onUnequip={handleUnequipItem}
+                      onEdit={handleEditItem}
+                      onQuantityChange={handleQuantityChange}
+                      isEquipped={equipmentStatus.equipped}
+                      equippedSlot={equipmentStatus.slot}
+                      canEquip={canEquip}
+                      showError={showError}
+                      canEditItem={canEdit}
+                      onStore={inCampaign ? setStoreIndex : undefined}
+                    />
+                  );
+                })
               )}
             </div>
           </div>
-
-          {/* Filters */}
-          <div style={{ display: 'flex', gap: '1rem', marginBottom: '1rem' }}>
-            <input
-              type="text"
-              placeholder="Search items..."
-              value={filter}
-              onChange={(e) => setFilter(e.target.value)}
-              style={{
-                flex: 1,
-                padding: '0.5rem',
-                backgroundColor: 'var(--color-dark-bg)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '6px',
-                color: 'var(--color-cloud)',
-              }}
-            />
-            <select
-              value={typeFilter}
-              onChange={(e) => setTypeFilter(e.target.value)}
-              style={{
-                padding: '0.5rem',
-                backgroundColor: 'var(--color-dark-bg)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '6px',
-                color: 'var(--color-cloud)',
-              }}
-            >
-              <option value="all">All Types</option>
-              <option value="weapon">Weapons</option>
-              <option value="boots">Boots</option>
-              <option value="body">Body</option>
-              <option value="gloves">Gloves</option>
-              <option value="headwear">Headwear</option>
-              <option value="cloak">Cloaks</option>
-              <option value="accessory">Accessories</option>
-              <option value="shield">Shields</option>
-              <option value="goods">Goods</option>
-              <option value="adventure">Adventure</option>
-              <option value="consumable">Consumables</option>
-              <option value="tool">Tools</option>
-              <option value="instrument">Instruments</option>
-              <option value="ammunition">Ammunition</option>
-              <option value="implant">Implants</option>
-            </select>
-            <select
-              value={equippedFilter}
-              onChange={(e) => setEquippedFilter(e.target.value)}
-              style={{
-                padding: '0.5rem',
-                backgroundColor: 'var(--color-dark-bg)',
-                border: '1px solid var(--color-dark-border)',
-                borderRadius: '6px',
-                color: 'var(--color-cloud)',
-              }}
-            >
-              <option value="all">All Items</option>
-              <option value="equipped">Equipped</option>
-              <option value="unequipped">Unequipped</option>
-            </select>
-          </div>
-
-          {/* Inventory Items */}
-          <div style={{ maxHeight: '600px', overflowY: 'auto' }}>
-            {sortedInventory.length === 0 ? (
-              <div style={{ color: 'var(--color-muted)', textAlign: 'center', padding: '2rem' }}>
-                No items in inventory. Click "Add Item" to browse items.
-              </div>
-            ) : (
-              sortedInventory.map((invItem, _sortedIndex) => {
-                const item = getItemFromInventory(invItem);
-                if (!item) return null;
-
-                // Find the original index in the character's inventory
-                const originalIndex =
-                  character.inventory?.findIndex(
-                    (originalInvItem) => originalInvItem === invItem
-                  ) ?? -1;
-
-                if (originalIndex === -1) {
-                  console.warn('Could not find original index for inventory item');
-                  return null;
-                }
-
-                const equipmentStatus = isItemEquipped(item);
-                const canEquip = canItemBeEquipped(item);
-
-                return (
-                  <InventoryItem
-                    key={`${originalIndex}-${item._id}`}
-                    item={item}
-                    inventoryItem={invItem}
-                    inventoryIndex={originalIndex}
-                    character={character}
-                    onRemove={handleRemoveItem}
-                    onEquip={handleEquipItem}
-                    onUnequip={handleUnequipItem}
-                    onEdit={handleEditItem}
-                    onQuantityChange={handleQuantityChange}
-                    isEquipped={equipmentStatus.equipped}
-                    equippedSlot={equipmentStatus.slot}
-                    canEquip={canEquip}
-                    showError={showError}
-                    canEditItem={canEdit}
-                  />
-                );
-              })
-            )}
-          </div>
         </div>
-      </div>
+      )}
+
+      {/* Store item in party storage */}
+      {storeIndex !== null && storeEntry && storeItem && (
+        <StoreItemDialog
+          itemName={storeItem.name}
+          maxQuantity={storeEntry.quantity || 1}
+          campaigns={campaigns}
+          onConfirm={handleStoreItem}
+          onClose={() => setStoreIndex(null)}
+        />
+      )}
 
       {/* Edit Item Modal */}
       {editingItem && (

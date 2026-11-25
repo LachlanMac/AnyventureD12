@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { MODULE_POINT_PRESETS } from '../constants/modulePoints';
 import { useNavigate, Link } from 'react-router-dom';
 import Button from '../components/ui/Button';
 import Card, { CardHeader, CardBody } from '../components/ui/Card';
@@ -701,11 +702,11 @@ const CharacterCreate: React.FC = () => {
                     padding: '0.5rem 0.75rem',
                   }}
                 >
-                  <option value="5">5 - Commoner</option>
-                  <option value="15">15 - New Adventurer</option>
-                  <option value="25">25 - Seasoned Adventurer</option>
-                  <option value="35">35 - Local Hero</option>
-                  <option value="45">45 - Champion</option>
+                  {MODULE_POINT_PRESETS.map((preset) => (
+                    <option key={preset.value} value={preset.value}>
+                      {preset.value} - {preset.label}
+                    </option>
+                  ))}
                   <option value="custom">Custom...</option>
                 </select>
                 {modulePointsPreset === 'custom' && (

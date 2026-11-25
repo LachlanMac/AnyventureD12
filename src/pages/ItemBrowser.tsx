@@ -92,12 +92,15 @@ const ItemBrowser: React.FC = () => {
   const [itemToPurchase, setItemToPurchase] = useState<APIItem | null>(null);
   const [showAddItemModal, setShowAddItemModal] = useState(false);
   const [itemToAdd, setItemToAdd] = useState<APIItem | null>(null);
-  const [sourceFilter, setSourceFilter] = useState<'core' | 'homebrew' | 'mine'>('core');
+  const [sourceFilter, setSourceFilter] = useState<'core' | 'homebrew' | 'mine' | 'campaign'>('core');
+  // Custom items from the campaigns this character is in (null until loaded)
+  const [campaignItemCount, setCampaignItemCount] = useState<number | null>(null);
   const [loadingDetail, setLoadingDetail] = useState(false);
 
   const selectItem = async (item: APIItem) => {
-    // If we already have the full data (e.g. homebrew with all fields), use it directly
-    if (item.primary || item.health || item.mitigation) {
+    // If we already have the full data (e.g. homebrew with all fields), use it directly.
+    // Campaign items always arrive complete (and may be unpublished, so can't be refetched).
+    if ((item as any).campaignName || item.primary || item.health || item.mitigation) {
       setSelectedItem(item);
       return;
     }
@@ -171,6 +174,13 @@ const ItemBrowser: React.FC = () => {
           if (!res.ok) throw new Error('Failed to fetch homebrew items');
           const data = await res.json();
           itemsData = (data.items || data).map((item: any) => ({ ...item, isHomebrew: true }));
+        } else if (sourceFilter === 'campaign' && characterId) {
+          const res = await fetch(`/api/characters/${characterId}/campaign-items`, {
+            credentials: 'include',
+          });
+          if (!res.ok) throw new Error('Failed to fetch campaign items');
+          const data = await res.json();
+          itemsData = data.map((item: any) => ({ ...item, isHomebrew: true }));
         } else if (sourceFilter === 'mine') {
           const res = await fetch('/api/homebrew/items?status=mine&limit=500', {
             credentials: 'include',
@@ -202,6 +212,15 @@ const ItemBrowser: React.FC = () => {
 
     fetchData();
   }, [characterId, sourceFilter]);
+
+  // Only offer the Campaign source when this character's campaigns have custom items
+  useEffect(() => {
+    if (!characterId) return;
+    fetch(`/api/characters/${characterId}/campaign-items`, { credentials: 'include' })
+      .then((res) => (res.ok ? res.json() : []))
+      .then((data) => setCampaignItemCount(Array.isArray(data) ? data.length : 0))
+      .catch(() => setCampaignItemCount(0));
+  }, [characterId]);
 
   const handleAddItemClick = (item: APIItem) => {
     setItemToAdd(item);
@@ -1195,6 +1214,9 @@ const ItemBrowser: React.FC = () => {
                 ...(user
                   ? [{ key: 'mine' as const, label: 'My Items', color: 'var(--color-stormy)' }]
                   : []),
+                ...(characterId && campaignItemCount
+                  ? [{ key: 'campaign' as const, label: 'Campaign', color: 'var(--color-sunset)' }]
+                  : []),
               ]
             ).map(({ key, label, color }) => (
               <button
@@ -1411,17 +1433,22 @@ const ItemBrowser: React.FC = () => {
                             </div>
                             {(item as any).isHomebrew && (
                               <span
+                                title={(item as any).campaignName ? `From the campaign ${(item as any).campaignName}` : undefined}
                                 style={{
                                   fontSize: '0.6rem',
                                   fontWeight: 'bold',
                                   color: 'var(--color-white)',
-                                  backgroundColor: 'var(--color-sat-purple)',
+                                  backgroundColor: (item as any).campaignName
+                                    ? 'var(--color-sunset)'
+                                    : 'var(--color-sat-purple)',
                                   padding: '0.1rem 0.375rem',
                                   borderRadius: '9999px',
                                   letterSpacing: '0.05em',
                                 }}
                               >
-                                HOMEBREW
+                                {(item as any).campaignName
+                                  ? String((item as any).campaignName).toUpperCase()
+                                  : 'HOMEBREW'}
                               </span>
                             )}
                           </div>

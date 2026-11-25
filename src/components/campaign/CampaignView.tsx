@@ -3,8 +3,22 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';
 import { useToast } from '../../context/ToastContext';
 import Button from '../ui/Button';
+import EmptyState from '../ui/EmptyState';
 import PlayerSlotManager from './PlayerSlotManager';
 import CampaignEditor from './CampaignEditor';
+import CampaignItemsTab from './CampaignItemsTab';
+import CampaignStorageTab from './storage/CampaignStorageTab';
+
+type CampaignTab = 'players' | 'items' | 'spells' | 'storage';
+
+// gmOnly tabs are the GM's management views. Players reach storage from their
+// character's Inventory tab, and campaign items from their item browser.
+const CAMPAIGN_TABS: { id: CampaignTab; label: string; gmOnly?: boolean }[] = [
+  { id: 'players', label: 'Players' },
+  { id: 'items', label: 'Items', gmOnly: true },
+  { id: 'spells', label: 'Spells', gmOnly: true },
+  { id: 'storage', label: 'Storage', gmOnly: true },
+];
 
 interface Campaign {
   _id: string;
@@ -46,6 +60,7 @@ const CampaignView: React.FC = () => {
   const [showEditor, setShowEditor] = useState(false);
   const [showDeleteConfirm, setShowDeleteConfirm] = useState(false);
   const [deleting, setDeleting] = useState(false);
+  const [activeTab, setActiveTab] = useState<CampaignTab>('players');
 
   const fetchCampaign = async () => {
     try {
@@ -290,26 +305,65 @@ const CampaignView: React.FC = () => {
         )}
       </div>
 
-      {/* Player Slots Management */}
+      {/* Campaign Tabs */}
       <div
-        className="rounded-lg p-6"
+        className="rounded-lg"
         style={{
           backgroundColor: 'var(--color-dark-surface)',
           border: '1px solid var(--color-dark-border)',
         }}
       >
-        <h2
-          className="text-2xl font-bold text-white mb-6"
-          style={{ fontFamily: 'var(--font-display)' }}
+        <div
+          style={{
+            display: 'flex',
+            borderBottom: '1px solid var(--color-dark-border)',
+            overflowX: 'auto',
+          }}
         >
-          Player Slots
-        </h2>
+          {CAMPAIGN_TABS.filter((tab) => isOwner || !tab.gmOnly).map((tab) => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              style={{
+                padding: '0.75rem 1.5rem',
+                color: activeTab === tab.id ? 'var(--color-metal-gold)' : 'var(--color-cloud)',
+                fontWeight: activeTab === tab.id ? 'bold' : 'normal',
+                borderTop: 'none',
+                borderLeft: 'none',
+                borderRight: 'none',
+                borderBottom: activeTab === tab.id ? '2px solid var(--color-metal-gold)' : 'none',
+                backgroundColor: 'transparent',
+                cursor: 'pointer',
+              }}
+            >
+              {tab.label}
+            </button>
+          ))}
+        </div>
 
-        <PlayerSlotManager
-          campaign={campaign}
-          isOwner={isOwner}
-          onSlotUpdated={handleSlotUpdated}
-        />
+        <div className="p-6">
+          {activeTab === 'players' && (
+            <PlayerSlotManager
+              campaign={campaign}
+              isOwner={isOwner}
+              onSlotUpdated={handleSlotUpdated}
+            />
+          )}
+
+          {isOwner && activeTab === 'items' && (
+            <CampaignItemsTab campaignId={campaign._id} isOwner={isOwner} />
+          )}
+
+          {isOwner && activeTab === 'spells' && (
+            <EmptyState
+              size="sm"
+              title="No campaign spells yet"
+              description="Custom spells you add here can be learned by any character in this campaign."
+            />
+          )}
+
+          {isOwner && activeTab === 'storage' && <CampaignStorageTab campaignId={campaign._id} />}
+        </div>
       </div>
 
       {/* Campaign Editor Modal */}
