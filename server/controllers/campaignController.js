@@ -45,7 +45,7 @@ const populateCharacterPlayers = async (campaign) => {
 // Configure multer for campaign picture uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
-    const uploadPath = path.join(__dirname, '../uploads/campaigns');
+    const uploadPath = path.join(__dirname, '../../uploads/campaigns');
     if (!fs.existsSync(uploadPath)) {
       fs.mkdirSync(uploadPath, { recursive: true });
     }
@@ -205,7 +205,7 @@ const updateCampaign = async (req, res) => {
     if (req.file) {
       // Delete old picture if it exists
       if (campaign.picture) {
-        const oldPicturePath = path.join(__dirname, '../uploads/campaigns', campaign.picture);
+        const oldPicturePath = path.join(__dirname, '../../uploads/campaigns', campaign.picture);
         if (fs.existsSync(oldPicturePath)) {
           fs.unlinkSync(oldPicturePath);
         }
@@ -555,7 +555,7 @@ const deleteCampaign = async (req, res) => {
 
     // Delete campaign picture if it exists
     if (campaign.picture) {
-      const picturePath = path.join(__dirname, '../uploads/campaigns', campaign.picture);
+      const picturePath = path.join(__dirname, '../../uploads/campaigns', campaign.picture);
       if (fs.existsSync(picturePath)) {
         try {
           fs.unlinkSync(picturePath);

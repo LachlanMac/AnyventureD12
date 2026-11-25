@@ -178,6 +178,7 @@ const CampaignPictureUploader: React.FC<CampaignPictureUploaderProps> = ({
         {/* Remove button */}
         {preview && (
           <button
+            type="button"
             onClick={handleRemovePicture}
             style={{
               position: 'absolute',
@@ -215,11 +216,11 @@ const CampaignPictureUploader: React.FC<CampaignPictureUploaderProps> = ({
       {/* Button to trigger file selection */}
       <div style={{ marginTop: '0.5rem', textAlign: 'center' }}>
         <div style={{ display: 'flex', gap: '0.5rem', justifyContent: 'center' }}>
-          <Button variant="secondary" size="sm" onClick={handleUploadClick}>
+          <Button type="button" variant="secondary" size="sm" onClick={handleUploadClick}>
             {preview ? 'Change Picture' : 'Upload Picture'}
           </Button>
           {preview && (
-            <Button variant="secondary" size="sm" onClick={handleRemovePicture}>
+            <Button type="button" variant="secondary" size="sm" onClick={handleRemovePicture}>
               Remove
             </Button>
           )}
