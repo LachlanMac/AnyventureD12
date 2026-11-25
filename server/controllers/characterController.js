@@ -3,6 +3,8 @@ import Ancestry from '../models/Ancestry.js';
 import Item from '../models/Item.js';
 import Trait from '../models/Trait.js';
 import { applyModuleBonusesToCharacter,extractTraitsFromModules } from '../utils/characterUtils.js';
+import Campaign from '../models/Campaign.js';
+import { isWhitelistedUser } from '../middleware/auth.js';
 import { generateRandomCharacterData } from '../utils/randomCharacterGenerator.js';
 import { generateFoundryId } from '../utils/foundryIdGenerator.js';
 import { v4 as uuidv4 } from 'uuid';
@@ -1267,6 +1269,70 @@ export const updateCultureSelections = async (req, res) => {
 // @desc    Export character to FoundryVTT JSON format
 // @route   GET /api/characters/:id/export-foundry
 // @access  Private
+/**
+ * Who may pull a character into Foundry: its owner, the GM of a campaign it's in,
+ * a whitelisted (admin) user, or anyone if the character is public.
+ */
+const canExportCharacter = async (user, character) => {
+  if (character.public) return true;
+  if (!user) return false;
+  if (character.userId && character.userId.toString() === user._id.toString()) return true;
+  if (isWhitelistedUser(user)) return true;
+  return !!(await Campaign.exists({ owner: user._id, 'playerSlots.character': character._id }));
+};
+
+/**
+ * Who may change a character from Foundry: its owner, the GM of a campaign it's in,
+ * or a whitelisted (admin) user. Public characters are read-only to everyone else.
+ */
+const canEditCharacterFromFoundry = async (user, character) => {
+  if (!user) return false;
+  if (character.userId && character.userId.toString() === user._id.toString()) return true;
+  if (isWhitelistedUser(user)) return true;
+  return !!(await Campaign.exists({ owner: user._id, 'playerSlots.character': character._id }));
+};
+
+const SYNCABLE_RESOURCES = ['health', 'resolve', 'morale', 'energy', 'mana'];
+
+/**
+ * Save current resource values sent from Foundry (Send Resources to Website).
+ * Body: { health, resolve, morale, energy, mana } as numbers; any may be left out.
+ * Only the current values change; maximums stay calculated by the website.
+ */
+export const syncCharacterResourcesFromFoundry = async (req, res) => {
+  try {
+    const character = await Character.findById(req.params.id).select('userId resources name');
+    if (!character) {
+      return res.status(404).json({ message: 'Character not found' });
+    }
+    if (!(await canEditCharacterFromFoundry(req.user, character))) {
+      return res.status(403).json({ message: 'Not authorized to update this character' });
+    }
+
+    const update = {};
+    for (const key of SYNCABLE_RESOURCES) {
+      if (req.body?.[key] === undefined) continue;
+      const value = Number(req.body[key]);
+      if (!Number.isFinite(value)) {
+        return res.status(400).json({ message: `Invalid value for ${key}` });
+      }
+      update[`resources.${key}.current`] = Math.max(0, Math.round(value));
+    }
+    if (Object.keys(update).length === 0) {
+      return res.status(400).json({ message: 'No resource values sent' });
+    }
+
+    await Character.updateOne({ _id: character._id }, { $set: update });
+
+    const saved = {};
+    for (const [path, value] of Object.entries(update)) saved[path.split('.')[1]] = value;
+    res.json({ message: `Resources saved for ${character.name}`, resources: saved });
+  } catch (error) {
+    console.error('Error syncing resources from Foundry:', error);
+    res.status(500).json({ message: error.message });
+  }
+};
+
 export const exportCharacterToFoundry = async (req, res) => {
   console.log('🔥 EXPORT CALLED - Character ID:', req.params.id);
   try {
@@ -1295,6 +1361,10 @@ export const exportCharacterToFoundry = async (req, res) => {
 
     if (!character) {
       return res.status(404).json({ message: 'Character not found' });
+    }
+
+    if (!(await canExportCharacter(req.user, character))) {
+      return res.status(403).json({ message: 'Not authorized to export this character' });
     }
 
     // Apply bonuses to get computed values
@@ -1643,6 +1713,12 @@ export const exportCharacterToFoundry = async (req, res) => {
           available: (character.modulePoints?.total || 0) - (character.modulePoints?.spent || 0)
         },
 
+        // Money
+        wealth: {
+          gold: character.wealth?.gold || 0,
+          silver: character.wealth?.silver || 0
+        },
+
         // Spell slots
         spellSlots: {
           current: character.spells?.length || 0,
@@ -1679,6 +1755,7 @@ export const exportCharacterToFoundry = async (req, res) => {
       flags: {
         anyventure: {
           originalId: character._id.toString(),
+          webCharacter: true,
           exportedAt: new Date().toISOString()
         }
       },

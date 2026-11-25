@@ -69,6 +69,8 @@ const checkWhitelisted = (req, res, next) => {
 };
 export const requireWhitelisted = [protect, checkWhitelisted];
 
+export const isWhitelistedUser = (user) => !!user?.apiKey && apiWhitelist.includes(user.apiKey);
+
 // Middleware to add user to request if authenticated
 export const getUser = async (req, res, next) => {
   try {

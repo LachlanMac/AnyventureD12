@@ -22,7 +22,7 @@ import {
   generateRandomCharacter,
   generateAIBiography
 } from '../controllers/characterController.js';
-import { protect, requireWhitelisted } from '../middleware/auth.js';
+import { protect, requireWhitelisted, getUser } from '../middleware/auth.js';
 import characterModuleRoutes from './characterModuleRoutes.js';
 import characterSpellRoutes from './characterSpellRoutes.js';
 import characterPlanRoutes from './characterPlanRoutes.js';
@@ -370,7 +370,7 @@ router.patch('/:id/public', protect, async (req, res) => {
 router.put('/:id/culture-selections', protect, updateCultureSelections);
 
 // FoundryVTT export route
-router.get('/:id/export-foundry', exportCharacterToFoundry);
+router.get('/:id/export-foundry', getUser, exportCharacterToFoundry);
 
 // Debug route for foundry export (whitelisted users only)
 router.get('/:id/debug-foundry', requireWhitelisted, async (req, res) => {

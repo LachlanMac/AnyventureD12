@@ -13,6 +13,7 @@ import Language from '../models/Language.js';
 import Injury from '../models/Injury.js';
 import Creature from '../models/Creature.js';
 import { generateFoundryId } from '../utils/foundryIdGenerator.js';
+import { exportCharacterToFoundry, syncCharacterResourcesFromFoundry } from '../controllers/characterController.js';
 
 // Helper function to generate a deterministic 16-character alphanumeric ID from a seed
 const generateDeterministicFoundryId = (seed) => {
@@ -1441,6 +1442,14 @@ router.get('/training', async (req, res) => {
     res.status(500).json({ error: 'Failed to fetch training items' });
   }
 });
+
+// Pull a website character into Foundry (Resync from Website). Same output as the
+// website's export; access is checked inside (owner, campaign GM, whitelisted, or public).
+router.get('/characters/:id', exportCharacterToFoundry);
+
+// Save current health/resolve/morale/energy/mana from Foundry (Send Resources to Website).
+// Owner, campaign GM, or whitelisted only.
+router.patch('/characters/:id/resources', syncCharacterResourcesFromFoundry);
 
 // Get all creatures for Foundry
 router.get('/creatures', async (req, res) => {
